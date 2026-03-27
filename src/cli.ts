@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { Command } from 'commander'
@@ -18,17 +18,16 @@ const GPF_WFS_URL = "https://data.geopf.fr/wfs";
 
 program
   .command('update')
-  .description('Mise à jour des schémas')
+  .description('Update the collections from the GPF WFS (src/data/gpf-collections.json)')
   .action(async () => {
     const collections = await getCollections(GPF_WFS_URL);
-    for (const collection of collections) {
-      console.log(JSON.stringify(collection, null, 2));
-      console.log('--------------------------------');
-    }
+    // save collections to src/data/gpf-collections.json
+    writeFileSync('src/data/gpf-collections.json', JSON.stringify(collections, null, 2));
+    console.log(`${collections.length} collections saved to src/data/gpf-collections.json`);
   })
 
 program.action(() => {
-  console.log('schema-store — CLI prête. Utilisez --help pour les options.')
+  console.log('schema-store - CLI ready. Use --help for options.')
 })
 
 if (process.argv.slice(2).length === 0) {
