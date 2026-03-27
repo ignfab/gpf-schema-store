@@ -10,6 +10,10 @@ export type CollectionProperty = {
    * The type of the property.
    */
   type: string;
+  /**
+   * The default CRS of the geometry property (if the property is a geometry).
+   */
+  defaultCrs?: string;
 };
 
 /**

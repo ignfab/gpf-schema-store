@@ -49,6 +49,14 @@ export async function getCollections(wfsUrl: string): Promise<Collection[]> {
       } as CollectionProperty;
     });
 
+    if ( featureTypeFull.geometryName ) {
+      properties.push({
+        name: featureTypeFull.geometryName,
+        type: featureTypeFull.geometryType ?? 'geometry',
+        defaultCrs: featureTypeFull.defaultCrs
+      } as CollectionProperty);
+    }
+
     const collection: Collection = {
       id: featureType.name,
       namespace: namespace,
