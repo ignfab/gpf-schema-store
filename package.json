@@ -16,6 +16,12 @@
   "bin": {
     "gpf-schema-store": "./dist/cli.js"
   },
+  "files": [
+    "dist",
+    "data",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "dev": "vite-node src/cli.ts",
     "build": "vite build && tsc -p tsconfig.build.json",
