@@ -28,7 +28,7 @@ program
       return merge(c, overwrite);
     });
     saveCollections(overwritenCollections);
-    console.log(`${overwritenCollections.length} collections saved to src/data/gpf-collections.json`);
+    console.log(`${overwritenCollections.length} collections saved to data/gpf-collections.json`);
   })
 
 program.action(() => {

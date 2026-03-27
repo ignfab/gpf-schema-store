@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest'
 import type { Collection } from '../types'
 import { getOverwrite, loadCollections } from './storage'
 
-const DATA_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', 'data')
+const DATA_DIR = join(dirname(fileURLToPath(import.meta.url)), '../../data')
 
 describe('loadCollections', () => {
   it('returns the collections from the GPF collections file', () => {

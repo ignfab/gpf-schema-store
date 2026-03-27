@@ -21,13 +21,13 @@ function resolveDataDir(): string {
     let dir = dirname(fileURLToPath(import.meta.url));
     const start = dir;
     while (true) {
-        for (const candidate of [join(dir, "src", "data"), join(dir, "data")]) {
+        for (const candidate of [join(dir, "data"), join(dir, "src", "data")]) {
             if (existsSync(join(candidate, COLLECTIONS_FILE))) {
                 return candidate;
             }
         }
         if (existsSync(join(dir, "package.json"))) {
-            return join(dir, "src", "data");
+            return join(dir, "data");
         }
         const parent = dirname(dir);
         if (parent === dir) {
