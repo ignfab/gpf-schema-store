@@ -27,21 +27,18 @@ function compare(original: Collection, overwrite: Collection): void {
  * At collection level :
  * 
  * - id is kept from original
- * - all other fields are replaced by those from overwrite
+ * - namespace is kept from original
+ * - name is kept from original
+ * - title is taken from overwrite
+ * - description is taken from overwrite
  * 
  * At property level :
  * 
- * - name is kept from original
+ * - properties are iterated from original (order kept)
+ * - matching is done by property name
+ * - if a property exists in overwrite, its fields are taken but name is kept from original
+ * - if a property does not exist in overwrite, the original property is kept
  * - new properties from overwrite are ignored
- * 
- * @example
- * ```ts
- * mergeCollectionSchema(
- *   { id: 'a:c', namespace: 'a', name: 'c', title: 'T0', description: 'D0', properties: [{ name: 'p', type: 'int' }] },
- *   { id: 'b:c', namespace: 'b', name: 'c', title: 'T1', description: 'D1', properties: [{ name: 'p', type: 'string' }] }
- * )
- * // => { id: 'a:c', namespace: 'b', name: 'c', title: 'T1', description: 'D1', properties: [{ name: 'p', type: 'string' }] }
- * ```
  *
  * @param original - The original collection schema (Géoplateforme)
  * @param overwrite - The overwrite collection schema (overwrites)
