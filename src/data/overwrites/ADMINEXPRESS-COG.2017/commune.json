@@ -1,0 +1,81 @@
+{
+  "id": "ADMINEXPRESS-COG.2017:commune",
+  "namespace": "ADMINEXPRESS-COG.2017",
+  "name": "commune",
+  "title": "ADMINEXPRESS COG 2017 Commune",
+  "description": "Couche des communes issue de la base ADMIN EXPRESS COG 2017 décrivant les entités administratives communales françaises et leurs principaux attributs de rattachement administratif.",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string",
+      "title": "Identifiant technique",
+      "description": "Identifiant unique de la commune dans la base ADMIN EXPRESS."
+    },
+    {
+      "name": "statut",
+      "type": "string",
+      "title": "Statut de la commune",
+      "description": "Statut administratif de la commune (ex : commune simple, commune déléguée, commune nouvelle)."
+    },
+    {
+      "name": "insee_com",
+      "type": "string",
+      "title": "Code INSEE de la commune",
+      "description": "Code officiel INSEE identifiant de manière unique la commune."
+    },
+    {
+      "name": "nom_com",
+      "type": "string",
+      "title": "Nom de la commune",
+      "description": "Nom officiel de la commune."
+    },
+    {
+      "name": "insee_arr",
+      "type": "string",
+      "title": "Code INSEE de l’arrondissement",
+      "description": "Code INSEE de l’arrondissement administratif auquel appartient la commune."
+    },
+    {
+      "name": "nom_dep",
+      "type": "string",
+      "title": "Nom du département",
+      "description": "Nom du département de rattachement de la commune."
+    },
+    {
+      "name": "insee_dep",
+      "type": "string",
+      "title": "Code INSEE du département",
+      "description": "Code INSEE du département de rattachement."
+    },
+    {
+      "name": "nom_reg",
+      "type": "string",
+      "title": "Nom de la région",
+      "description": "Nom de la région administrative de rattachement."
+    },
+    {
+      "name": "insee_reg",
+      "type": "string",
+      "title": "Code INSEE de la région",
+      "description": "Code INSEE de la région administrative."
+    },
+    {
+      "name": "code_epci",
+      "type": "string",
+      "title": "Code EPCI",
+      "description": "Code de l’établissement public de coopération intercommunale (EPCI) auquel appartient la commune."
+    },
+    {
+      "name": "nom_com_m",
+      "type": "string",
+      "title": "Nom de la commune mère",
+      "description": "Nom de la commune de rattachement (commune mère) dans le cas d’une commune déléguée."
+    },
+    {
+      "name": "ignored",
+      "type": "string",
+      "title": "Test d'attribut non présent sur WFS",
+      "description": "Nom de la commune de rattachement (commune mère) dans le cas d’une commune déléguée."
+    }
+  ]
+}
