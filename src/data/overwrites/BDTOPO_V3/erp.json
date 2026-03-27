@@ -1,0 +1,269 @@
+{
+  "id": "Services et activités:ERP",
+  "namespace": "Services et activités",
+  "name": "ERP",
+  "title": "ERP",
+  "description": "Les établissements recevant du public (ERP) sont des bâtiments dans lesquels des personnes extérieures sont admises.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "id_reference",
+      "type": "string",
+      "title": "Id référence",
+      "description": ""
+    },
+    {
+      "name": "categorie",
+      "type": "string",
+      "title": "Catégorie",
+      "description": "Les catégories sont déterminées en fonction de la capacité d'accueil du bâtiment, y compris les salariés (sauf pour la 5è catégorie).\r\n\r\nLe classement d'un établissement est validé par la commission de sécurité à partir des informations transmises par l'exploitant de l'établissement dans le dossier de sécurité déposé en mairie.",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "name": "type_principal",
+      "type": "string",
+      "title": "Type principal",
+      "description": "Typologie principale de l'établissement, fonction de la nature ou de l'activité de l'exploitation."
+    },
+    {
+      "name": "types_secondaires",
+      "type": "string",
+      "title": "Types secondaires",
+      "description": "Typologie (s) secondaire (s) de l'établissement, fonction de la nature ou de l'activité de l'exploitation."
+    },
+    {
+      "name": "activite_principale",
+      "type": "string",
+      "title": "Activité principale",
+      "description": "Activité principale de l'établissement."
+    },
+    {
+      "name": "activites_secondaires",
+      "type": "string",
+      "title": "Activités secondaires",
+      "description": "Activités secondaires de l'établissement."
+    },
+    {
+      "name": "libelle",
+      "type": "string",
+      "title": "Libellé",
+      "description": "Dénomination libre de l’établissement."
+    },
+    {
+      "name": "etat_de_l_objet",
+      "type": "string",
+      "title": "Etat de l'objet",
+      "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
+      "enum": [
+        "En construction",
+        "En projet",
+        "En service"
+      ]
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string",
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "enum": [
+        "BDCarto",
+        "BDNyme",
+        "BDParcellaire",
+        "BDParcellaire recalée",
+        "BDTopo",
+        "Calcul d'enveloppe urbaine",
+        "Calculé",
+        "Fichier numérique décimétrique",
+        "Fichier numérique métrique",
+        "Fichier numérique non métrique",
+        "Géocodage",
+        "Géoroute",
+        "Image satellite",
+        "Image satellite HR",
+        "Inconnue",
+        "Levé GPS",
+        "Levé non GPS",
+        "Lidar",
+        "Lidar HD",
+        "Orthophotographie",
+        "Photogrammétrie",
+        "Plan métrique papier",
+        "Plan non métrique papier",
+        "Processus IA métrique",
+        "Processus IA non métrique",
+        "Scan25"
+      ]
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "numeric",
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+    },
+    {
+      "name": "public",
+      "type": "boolean",
+      "title": "Public",
+      "description": "Indique si l'établissement relève du domaine Public ou privé."
+    },
+    {
+      "name": "ouvert",
+      "type": "boolean",
+      "title": "Ouvert",
+      "description": "Indique si l’ERP est effectivement ouvert."
+    },
+    {
+      "name": "capacite_d_accueil_du_public",
+      "type": "integer",
+      "title": "Capacité d'accueil du public",
+      "description": "Capacité totale d’accueil du public."
+    },
+    {
+      "name": "capacite_d_hebergement",
+      "type": "integer",
+      "title": "Capacité d'hébergement",
+      "description": "Nombre de personnes pouvant être hébergées (pour des secours)."
+    },
+    {
+      "name": "origine_de_la_geometrie",
+      "type": "string",
+      "title": "Origine de la géométrie",
+      "description": "Origine de la géométrie des données ERP importées dans la BD TOPO®.",
+      "enum": [
+        "Géocodage automatique",
+        "Inconnue",
+        "Saisie manuelle"
+      ]
+    },
+    {
+      "name": "type_de_localisation",
+      "type": "string",
+      "title": "Type de localisation",
+      "description": "Indique ce que représente la géométrie fournie pour l'ERP sur le terrain.",
+      "enum": [
+        "Entrée pour les secours",
+        "Entrée principale du bâtiment",
+        "Plaque adresse"
+      ]
+    },
+    {
+      "name": "validation_ign",
+      "type": "boolean",
+      "title": "Validation IGN",
+      "description": "Indique qu'un contrôle ou recalage effectué par l’IGN sur les données proposées par un partenaire."
+    },
+    {
+      "name": "insee_commune",
+      "type": "string",
+      "title": "Insee commune",
+      "description": "Code INSEE de la commune sur laquelle est situé l'objet géographique."
+    },
+    {
+      "name": "numero_siret",
+      "type": "string",
+      "title": "Numéro SIRET",
+      "description": "Numéro SIRET de l'établissement."
+    },
+    {
+      "name": "adresse_numero",
+      "type": "string",
+      "title": "Adresse_Numéro",
+      "description": "Numéro de l’adresse dans sa voie (sans indice de répétition)."
+    },
+    {
+      "name": "adresse_indice_de_repetition",
+      "type": "string",
+      "title": "Adresse_Indice de répétition",
+      "description": "Indice de répétition de l'adresse de l'établissement."
+    },
+    {
+      "name": "adresse_designation_de_l_entree",
+      "type": "string",
+      "title": "Adresse_Désignation de l'entrée",
+      "description": "Définit un complément d’adressage en précisant un nom de résidence ou d’immeuble ou un numéro ou nom d’entrée."
+    },
+    {
+      "name": "adresse_nom_1",
+      "type": "string",
+      "title": "Adresse_Nom 1",
+      "description": "Nom de la voie de l’adresse."
+    },
+    {
+      "name": "adresse_nom_2",
+      "type": "string",
+      "title": "Adresse_Nom 2",
+      "description": "Élément d’adressage complémentaire (pour les lieux-dits par exemple)."
+    },
+    {
+      "name": "code_postal",
+      "type": "string",
+      "title": "Code postal",
+      "description": "Code postal."
+    },
+    {
+      "name": "liens_vers_batiment",
+      "type": "string",
+      "title": "Liens vers bâtiment",
+      "description": "Lien(s) vers la 'Clé absolue' du ou des bâtiments de la BD TOPO® accueillant l'ERP."
+    },
+    {
+      "name": "liens_vers_enceinte",
+      "type": "string",
+      "title": "Liens vers enceinte",
+      "description": "Lien(s) vers la ou les 'Clé absolue' de la  ou des <Zone d'activité ou d'intérêt> correspondant à l'ERP dans la BD TOPO®."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}

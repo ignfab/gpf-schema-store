@@ -1,0 +1,94 @@
+{
+  "id": "Administratif:Canton",
+  "namespace": "Administratif",
+  "name": "Canton",
+  "title": "Canton",
+  "description": "Le canton est la circonscription servant de cadre à l'élection des conseils départementaux, anciennement conseils généraux, définie par la loi du 17 mai 2013. Cette loi impose un redécoupage des cantons selon des critères démographiques, et leur nombre est réduit de moitié ; chacun des nouveaux cantons élit au scrutin binominal deux élus, nécessairement de sexes différents.\r\nLa composition des nouveaux cantons est décrite dans des décrets publiés en février 2014.\r\nLes cantons ne sont plus nécessairement des subdivisions territoriales des arrondissements.\r\nDans la plupart des cas, les cantons englobent plusieurs communes. Mais les cantons ne respectent pas toujours les limites communales : ils peuvent être à cheval sur plusieurs communes ou être inclus strictement dans une commune.\r\nLes premières élections des conseils départementaux, appelées « élections départementales », anciennement « élections cantonales », se sont déroulées en mars 2015.\r\nIl n'existe plus désormais de chefs-lieux de canton mais des bureaux centralisateurs, en fonction lors des élections départementales.\r\n<i>Source Insee</i>",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string",
+      "title": "Nom officiel",
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule  aux premières lettres de chaque terme,  et minuscules pour les autres, toutes deux accentuées."
+    },
+    {
+      "name": "numero_du_canton",
+      "type": "string",
+      "title": "Numéro du canton",
+      "description": "Il s’agit du numéro officiel attribué par l’Insee au Canton. Il est codé sur deux chiffres."
+    },
+    {
+      "name": "code_insee",
+      "type": "string",
+      "title": "Code Insee du canton",
+      "description": "Il s’agit du numéro officiel attribué par l’Insee au Canton : il est composé de 4 à 5 caractères, les deux ou trois premiers correspondant au numéro de <Département>."
+    },
+    {
+      "name": "code_insee_du_departement",
+      "type": "string",
+      "title": "Code Insee du département",
+      "description": "Code Insee du <Département> auquel appartient l'unité administrative concernée."
+    },
+    {
+      "name": "code_insee_de_la_region",
+      "type": "string",
+      "title": "Code Insee de la région",
+      "description": "Code Insee de la <Région> à laquelle appartient l'entité administrative concernée."
+    },
+    {
+      "name": "composition_du_canton",
+      "type": "string",
+      "title": "Composition du canton",
+      "description": "Indique que le canton est composé de communes entières ou de fractions de communes.",
+      "enum": [
+        "Commune(s) entière(s)",
+        "Fraction de commune",
+        "Fraction d'une commune et de commune(s) entière(s)",
+        "Fractions de plusieurs communes",
+        "Fractions de plusieurs communes et de commune(s) entière(s)"
+      ]
+    },
+    {
+      "name": "codes_insee_des_arrondissements",
+      "type": "string",
+      "title": "Codes Insee des arrondissements",
+      "description": "Liste des codes officiels attribués par l’Insee aux arrondissements dont une partie constitue le canton."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie GE",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "Administratif:Arrondissement",
+  "namespace": "Administratif",
+  "name": "Arrondissement",
+  "title": "Arrondissement",
+  "description": "L'arrondissement est une circonscription administrative de l'État dont le chef-lieu est la sous-préfecture. Le sous-préfet est chargé de son administration ; il relaie le préfet en assurant le contrôle administratif des communes de son arrondissement. Le libellé de l'arrondissement est le plus souvent celui du chef-lieu.\r\nL'arrondissement est une subdivision du département. Depuis le redécoupage cantonal lié aux élections départementales de mars 2015, l'arrondissement n’est plus un regroupement de cantons mais de communes.\r\n<i>Source Insee </i>",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string",
+      "title": "Nom officiel",
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule  aux premières lettres de chaque terme,  et minuscules pour les autres, toutes deux accentuées."
+    },
+    {
+      "name": "code_insee_de_l_arrondissement",
+      "type": "string",
+      "title": "Code Insee de l'arrondissement",
+      "description": "Code INSEE de l'<Arrondissement>."
+    },
+    {
+      "name": "code_insee_du_departement",
+      "type": "string",
+      "title": "Code Insee du département",
+      "description": "Code Insee du <Département> auquel appartient l'unité administrative concernée."
+    },
+    {
+      "name": "code_insee_de_la_region",
+      "type": "string",
+      "title": "Code Insee de la région",
+      "description": "Code Insee de la <Région> à laquelle appartient l'entité administrative concernée."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie ME MultiPolygone",
+      "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à moyenne échelle."
+    }
+  ]
+}

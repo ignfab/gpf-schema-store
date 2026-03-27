@@ -1,0 +1,51 @@
+{
+  "id": "Bâti:Bâtiment RNB lien BDTopo",
+  "namespace": "Bâti",
+  "name": "Bâtiment RNB lien BDTopo",
+  "title": "Bâtiment RNB lien BDTopo",
+  "description": "Bâtiment selon la définition du Référentiel National des Bâtiments (<a href=\"https://rnb.beta.gouv.fr/definition\">RNB</a>) : \r\n\"Construction souterraine et/ou au-dessus du sol, ayant pour objectif d'être permanente, pour abriter des humains ou des activités humaines. Un bâtiment possède a minima un accès depuis l’extérieur. Dans la mesure du possible, un bâtiment est distinct d’un autre dès lors qu’il est impossible de circuler entre eux.\"",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "identifiant_rnb",
+      "type": "string",
+      "title": "Identifiant RNB",
+      "description": "Identifiant bâtimentaire pérenne définit par le projet Référentiel National des Bâtiments  (<a href=\"https://rnb.beta.gouv.fr/definition\">RNB</a>)"
+    },
+    {
+      "name": "liens_vers_batiment",
+      "type": "string",
+      "title": "Liens vers bâtiment",
+      "description": "Concaténation des identifiants des bâtiments de la BD TOPO@ associés au bâtiment \r\ndu Référentiel National des Bâtiments (<a href=\"https://rnb.beta.gouv.fr/definition\">RNB</a>) ."
+    },
+    {
+      "name": "informations_rnb",
+      "type": "string",
+      "title": "Informations RNB",
+      "description": "Regroupement de type jsonb d'informations contenues sur le bâtiment RNB. D'après la <a href=\"https://rnb-fr.gitbook.io/documentation/repository-rnb-coeur/proprietes-dun-batiment\">documentation du RNB</a> : \r\n<ul><li>ext_ids : éventuelles correspondances de ce bâtiment au sein de la BDTOPO et de la BDNB. Chaque objet contient les informations suivantes : <ul><li>source : base de données concernées par la relation ;</li><li>source_version : version de la base de données concernée ;</li><li>id : identifiant du bâtiment au sein de la base concernée ;</li><li>created_at : date et heure à laquelle le lien a été constaté.</li></ul></li><li>created_at : date et heure de l'intégration du bâtiment dans le RNB ;</li><li>updated_at : date et heure de dernière modification du bâtiment dans le RNB ;<li>identifiants_ban : clé d'interopérabilité de la BAN.</li></ul>"
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": ""
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    }
+  ]
+}

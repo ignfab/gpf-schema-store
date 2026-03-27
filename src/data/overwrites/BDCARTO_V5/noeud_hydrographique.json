@@ -1,0 +1,77 @@
+{
+  "id": "Hydrographie:Noeud hydrographique",
+  "namespace": "Hydrographie",
+  "name": "Noeud hydrographique",
+  "title": "Noeud hydrographique",
+  "description": "Point  particulier situé sur le réseau hydrographique.\r\nIl peut être situé à l'extrémité d’un objet <Tronçon hydrographique> (exemples : confluent, perte...) ou sur un point intermédiaire du réseau, à l'intersection entre deux objets de la classe <Tronçon hydrographique>.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet correspondant."
+    },
+    {
+      "name": "code_hydrographique",
+      "type": "string",
+      "title": "Code hydrographique",
+      "description": "Identifiant de l'objet hydrographique."
+    },
+    {
+      "name": "code_du_pays",
+      "type": "string",
+      "title": "Code du pays",
+      "description": "Code du pays auquel appartient l'objet hydrographique."
+    },
+    {
+      "name": "categorie",
+      "type": "string",
+      "title": "Catégorie",
+      "description": "Type du nœud hydrographique.",
+      "enum": [
+        "Confluent",
+        "Diffluent",
+        "Embranchement",
+        "Exutoire",
+        "Franchissement",
+        "Jonction linéaire",
+        "Source"
+      ]
+    },
+    {
+      "name": "statut",
+      "type": "string",
+      "title": "Statut de l'objet hydrographique",
+      "description": "État de validité de l'objet hydrographique au sens du <a href=\"http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html\">dictionnaire du SANDRE.</a>",
+      "enum": [
+        "Gelé",
+        "Validé"
+      ]
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": "Ponctuel 2D provenant \r\n- d'un ponctuel 3D de la BD TOPO®, pour les <i>Construction ponctuelle</i> , <i>Détail hydrographique</i>, <i> Détail orographique</i>,  et <i>Noeud hydrographique</i> \r\n- du centroide de surfaces BD TOPO®  pour les    <i> Lieu-dit non habité </i>,  <i> Réservoir</i>  et  <i>Zone d'habitation </i>\r\n-  d'un calcul à partir de tronçons de route BD TOPO® pour les<i> Rond-point</i>"
+    }
+  ]
+}

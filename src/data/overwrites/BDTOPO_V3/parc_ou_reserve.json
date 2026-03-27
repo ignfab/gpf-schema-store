@@ -1,0 +1,184 @@
+{
+  "id": "Zones réglementées:Parc ou réserve",
+  "namespace": "Zones réglementées",
+  "name": "Parc ou réserve",
+  "title": "Parc ou réserve",
+  "description": "Espace naturel protégé où certaines activités sont régies par un règlement particulier.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Nature de l'espace protégé.",
+      "enum": [
+        "Arrêté de protection",
+        "Bien inscrit sur la liste du patrimoine mondial de l'UNESCO",
+        "Géoparc mondial UNESCO",
+        "Parc national",
+        "Parc naturel marin",
+        "Parc naturel régional",
+        "Réserve biologique",
+        "Réserve de biosphère",
+        "Réserve nationale de chasse et de faune sauvage",
+        "Réserve naturelle",
+        "Site acquis ou assimilé des conservatoires d'espaces naturels",
+        "Site Natura 2000",
+        "Site Ramsar",
+        "Terrain du Conservatoire du Littoral",
+        "Zone de silence",
+        "Zone naturelle"
+      ]
+    },
+    {
+      "name": "nature_detaillee",
+      "type": "string",
+      "title": "Nature détaillée",
+      "description": "Cet attribut précise la 'Nature' de l'emprise réglementée.\r\nSi aucune précision n'est connue, le champ reste vide.",
+      "enum": [
+        "Aire d'adhésion",
+        "Arrêté de protection de biotope",
+        "Arrêté de protection de géotope",
+        "Arrêté de protection des habitats naturels",
+        "Périmètre de protection d'une réserve naturelle nationale",
+        "Périmètre de protection d'une réserve naturelle régionale",
+        "Réserve biologique dirigée",
+        "Réserve biologique intégrale",
+        "Réserve intégrale",
+        "Réserve naturelle de Corse",
+        "Réserve naturelle nationale",
+        "Réserve naturelle régionale",
+        "Site inscrit au titre de la Directive Habitats",
+        "Site inscrit au titre de la Directive Oiseaux",
+        "Zone centrale",
+        "Zone cœur",
+        "Zone de transition",
+        "Zone protégée",
+        "Zone tampon"
+      ]
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "fictif",
+      "type": "boolean",
+      "title": "Fictif",
+      "description": "Indique si la géométrie de l'objet est réelle ou non significative."
+    },
+    {
+      "name": "etat_de_l_objet",
+      "type": "string",
+      "title": "Etat de l'objet",
+      "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
+      "enum": [
+        "En construction",
+        "En projet",
+        "En service"
+      ]
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string",
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "enum": [
+        "BDCarto",
+        "BDNyme",
+        "BDParcellaire",
+        "BDParcellaire recalée",
+        "BDTopo",
+        "Calcul d'enveloppe urbaine",
+        "Calculé",
+        "Fichier numérique décimétrique",
+        "Fichier numérique métrique",
+        "Fichier numérique non métrique",
+        "Géocodage",
+        "Géoroute",
+        "Image satellite",
+        "Image satellite HR",
+        "Inconnue",
+        "Levé GPS",
+        "Levé non GPS",
+        "Lidar",
+        "Lidar HD",
+        "Orthophotographie",
+        "Photogrammétrie",
+        "Plan métrique papier",
+        "Plan non métrique papier",
+        "Processus IA métrique",
+        "Processus IA non métrique",
+        "Scan25"
+      ]
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "numeric",
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}

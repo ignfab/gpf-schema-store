@@ -1,0 +1,74 @@
+{
+  "id": "Bâti:Cimetière",
+  "namespace": "Bâti",
+  "name": "Cimetière",
+  "title": "Cimetière",
+  "description": "Terrain où l'on enterre les morts.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet correspondant."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Attribut permettant de distinguer les cimetières civils des cimetières militaires",
+      "enum": [
+        "Civil",
+        "Militaire",
+        "Militaire étranger"
+      ]
+    },
+    {
+      "name": "nature_detaillee",
+      "type": "string",
+      "title": "Nature détaillée",
+      "description": "Cet attribut <b>précise</b> la 'Nature' du cimetière. Si aucune précision n'est connue ou nécessaire, le champ reste vide.",
+      "enum": [
+        "Cimetière militaire allemand",
+        "Cimetière militaire américain",
+        "Cimetière militaire australien",
+        "Cimetière militaire britannique",
+        "Cimetière militaire canadien",
+        "Cimetière militaire chinois",
+        "Cimetière militaire danois",
+        "Cimetière militaire italien",
+        "Cimetière militaire néerlandais",
+        "Cimetière militaire polonais",
+        "Cimetière militaire portugais",
+        "Cimetière militaire roumain",
+        "Cimetière militaire russe",
+        "Cimetière militaire tchécoslovaque",
+        "Nécropole nationale"
+      ]
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "id": "Administratif:Collectivité territoriale",
+  "namespace": "Administratif",
+  "name": "Collectivité territoriale",
+  "title": "Collectivité territoriale",
+  "description": "Les collectivités territoriales sont des structures administratives françaises, distinctes de l'administration de l'État, qui doivent prendre en charge les intérêts de la population d'un territoire précis.\r\nSont définies comme collectivités territoriales :\r\n<ul>\r\n<li>les communes</li>\r\n<li>les départements auxquels s'ajoutent les cinq départements d'outre-mer (Dom)</li>\r\n<li>les régions auxquelles s'ajoutent également cinq régions d'outre-mer</li>\r\n<li> les collectivités à statut particulier</li>\r\n<li> les collectivités d'outre-mer (Com)</li>\r\n</ul>\r\n<i>Source Insee </i>",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string",
+      "title": "Nom officiel",
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule  aux premières lettres de chaque terme,  et minuscules pour les autres, toutes deux accentuées."
+    },
+    {
+      "name": "code_insee",
+      "type": "string",
+      "title": "Code Insee de la collectivité territoriale",
+      "description": "Afin de tenir compte des évolutions récentes en termes de compétences des collectivités territoriales, l’Insee a introduit au millésime 2015 du Code Officiel Géographique une nomenclature permettant de mieux appréhender les différences entre les collectivités à compétence départementale, les collectivités à statut particulier et les circonscriptions administratives de l’État.\r\nLa nomenclature actuelle des départements en tant que circonscription administrative de l’État reste inchangée, ainsi que la codification des communes qui en résulte historiquement.\r\nPour les collectivités territoriales à compétence départementale, la solution retenue s’appuie sur une nomenclature à trois ou quatre positions qui reprend le numéro de la circonscription administrative de l’État correspondante, suivi de la lettre D. Par exemple, la collectivité Département de l’Ain est codée 01D, celle du Département de la Guadeloupe est codée 971D.\r\nPour les collectivités territoriales à statut particulier, une numérotation spécifique a été introduite.\r\n<ul>\r\n<li>La Ville de Paris (75C)</li>\r\n<li>Le Département de Mayotte (976D)</li>\r\n<li>La Métropole de Lyon (69M)</li>\r\n<li>Les collectivités territoriales uniques de Martinique (972R) et de Guyane (973R)</li>\r\n<li>La Collectivité de Corse (20R)</li>\r\n</ul>\r\nCette numérotation spécifique concerne également la Collectivité européenne d’Alsace (6AE). Celle-ci a été instituée le 1er janvier 2021 par le décret n°2019-142 du 27 février 2019 portant regroupement des départements du Bas-Rhin et du Haut-Rhin. Elle ne constitue pas une collectivité territoriale à statut particulier au sens de l’article 72 de la Constitution. Par ailleurs, les départements du Bas-Rhin et du Haut-Rhin demeurent des circonscriptions administratives de l’État.\r\n\r\n<b>Ville de Paris (75C)</b>\r\nLa Ville de Paris (75C) a été créée le 1er janvier 2019 par l’article 1er de la loi n° 2017-257 du 28 février 2017 relative au statut de Paris et à l’aménagement métropolitain. Cette nouvelle collectivité à statut particulier se substitue à la commune de Paris et au département de Paris.\r\n\r\n<b>Département de Mayotte (976D)</b>\r\nLa loi n° 2010-1487 du 7 décembre 2010 relative au Département de Mayotte a, depuis le 31 mars 2011, conféré à cette collectivité le statut de collectivité à statut particulier.\r\n\r\n<b>Métropole de Lyon (69M)</b>\r\nLa Métropole de Lyon (69M) a été créée par l’article 26 de la loi n° 2014-58 du 27 janvier 2014 de modernisation de l’action publique territoriale et d’affirmation des métropoles. Depuis le 1ᵉʳ janvier 2015, ses compétences s’exercent dans les limites territoriales précédemment reconnues à l’ancienne communauté urbaine de Lyon.\r\n\r\n<b>Collectivités territoriales uniques de Martinique (972R) et de Guyane (973R)</b>\r\nLa loi du 27 juillet 2011 relative aux collectivités territoriales de Guyane et de Martinique a prévu la mise en place des collectivités territoriales uniques de Martinique (972R) et de Guyane (973R), en lieu et place des anciens conseils régionaux et conseils départementaux. Elles ont été créées le 1er janvier 2016.\r\n\r\n<b>Collectivité de Corse (20R)</b>\r\nLa Collectivité de Corse (20R) a été instituée le 1er janvier 2018 par la loi n° 2015-991 du 7 août 2015 portant nouvelle organisation territoriale de la République (NOTRe), en lieu et place de la collectivité territoriale de Corse et celles des conseils départementaux de Corse-du-Sud et de Haute-Corse.\r\n<i>Source Insee</i>"
+    },
+    {
+      "name": "code_insee_de_la_region",
+      "type": "string",
+      "title": "Code Insee de la région",
+      "description": "Code Insee de la <Région> administrative."
+    },
+    {
+      "name": "code_siren",
+      "type": "string",
+      "title": "Code Siren",
+      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro.\r\n<i>Source Insee</i>"
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "liens_vers_autorite_administrative",
+      "type": "string",
+      "title": "Liens vers autorité administrative",
+      "description": "Lien vers (clé absolue) de l'objet <Zone d'activité ou d'intérêt> désignant le siège de la collectivité concernée."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie GE MultiPolygone",
+      "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle."
+    }
+  ]
+}

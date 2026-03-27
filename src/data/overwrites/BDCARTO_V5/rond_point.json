@@ -1,0 +1,21 @@
+{
+  "id": "Transport:Rond-point",
+  "namespace": "Transport",
+  "name": "Rond-point",
+  "title": "Rond-point",
+  "description": "Ponctuel représentant un rond-point ou un carrefour giratoire.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": "Ponctuel 2D provenant \r\n- d'un ponctuel 3D de la BD TOPO®, pour les <i>Construction ponctuelle</i> , <i>Détail hydrographique</i>, <i> Détail orographique</i>,  et <i>Noeud hydrographique</i> \r\n- du centroide de surfaces BD TOPO®  pour les    <i> Lieu-dit non habité </i>,  <i> Réservoir</i>  et  <i>Zone d'habitation </i>\r\n-  d'un calcul à partir de tronçons de route BD TOPO® pour les<i> Rond-point</i>"
+    }
+  ]
+}

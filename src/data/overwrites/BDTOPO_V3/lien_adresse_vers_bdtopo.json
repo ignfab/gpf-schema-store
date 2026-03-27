@@ -1,0 +1,125 @@
+{
+  "id": "Adresses:Lien adresse vers BDTopo",
+  "namespace": "Adresses",
+  "name": "Lien adresse vers BDTopo",
+  "title": "Lien adresse vers BDTopo",
+  "description": "Lien entre les adresses de la BAN et leur support BD TOPO®.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "identifiant_adresse",
+      "type": "string",
+      "title": "Identifiant adresse",
+      "description": "Identifiant unique de l'adresse dans la Base Adresse Nationale. Cet identifiant correspond à l'attribut \"uid_adresse\" du format BAL.\r\nPour le moment, cet identifiant n'est pas encore mis à disposition des utilisateurs de la BAN. Il n'est donc pas renseigné."
+    },
+    {
+      "name": "cle_d_interoperabilite",
+      "type": "string",
+      "title": "Clé d'interopérabilité",
+      "description": "Il s'agit de l'identifiant des adresses dans la BAN, formé par concaténation du code INSEE de la commune concernée, du code de la voie liée à l’adresse, du numéro de l’adresse et d’un éventuel indice de répétition. Ces éléments sont séparés par des tirets bas. Le code de la voie peut correspondre au code FANTOIR de la DGFiP lorsqu’il est connu. \r\nCe champ correspond à l’attribut cle_interop du format BAL. \r\n\r\nExemple : 02001_0056_00022_bis correspond à l’adresse 22 bis Rue Jean de la Fontaine (code voie 0056) sur la commune d’Abbécourt (code INSEE : 02001)."
+    },
+    {
+      "name": "numero",
+      "type": "integer",
+      "title": "Numéro",
+      "description": "Numéro de l’adresse dans la voie, sans indice de répétition.\r\nLa valeur ‘99999’ est utilisée pour les adresses fictives. Il s’agit d’adresses n’existant pas dans la réalité, permettant notamment dans la BAN de créer des voies sans adresse. \r\nCe champ correspond à l'attribut \"numero\" du format BAL.\r\n\r\nExemple : 2 pour « 2 bis Rue Pasteur »."
+    },
+    {
+      "name": "suffixe",
+      "type": "string",
+      "title": "Suffixe",
+      "description": "Mention bis, ter, quater, quinquies, sexies… ou une lettre A, B, C, D… lorsque ce caractère complète une numérotation de voirie. L’indice de répétition permet de différencier plusieurs adresses portant le même numéro dans la même rue.  \r\n\r\nCe champ correspond à l’attribut \"suffixe\" du format BAL."
+    },
+    {
+      "name": "nom_voie",
+      "type": "string",
+      "title": "Nom voie",
+      "description": "Nom de la voie BAN. \r\nCe champ correspond à l’attribut \"voie_nom\" du format BAL."
+    },
+    {
+      "name": "insee_commune",
+      "type": "string",
+      "title": "Insee commune",
+      "description": "Code INSEE officiel de la commune associée à chaque adresse.\r\nCe champ correspond à l'attribut \"commune_insee\" du format BAL."
+    },
+    {
+      "name": "nom_commune",
+      "type": "string",
+      "title": "Nom commune",
+      "description": "Toponyme intégral de la commune de source Insee (avec article si présent). Il est saisi en lettres majuscules et minuscules, toutes deux accentuées."
+    },
+    {
+      "name": "type_position",
+      "type": "string",
+      "title": "Type position",
+      "description": "Description de la position d’une adresse.  \r\n\r\nCe champ correspond à l’attribut \"position\" du format BAL.",
+      "enum": [
+        "bâtiment",
+        "cage d'escalier",
+        "délivrance postale",
+        "entrée",
+        "inconnue",
+        "logement",
+        "parcelle",
+        "segment",
+        "service technique"
+      ]
+    },
+    {
+      "name": "lieu_dit",
+      "type": "string",
+      "title": "Lieu-dit",
+      "description": "Nom du lieu-dit historique ou complémentaire associé à l’adresse BAN. \r\nCe champ correspond à l’attribut \"lieudit_complement_nom\" du format BAL."
+    },
+    {
+      "name": "cote",
+      "type": "string",
+      "title": "Côté",
+      "description": "Précise si l’adresse est située à droite ou à gauche du <Tronçon de route> en fonction du sens de numérisation du tronçon, c’est-à-dire du sens géométrique dans la base de données.",
+      "enum": [
+        "Droit",
+        "Gauche",
+        "Indéterminé"
+      ]
+    },
+    {
+      "name": "type_lien",
+      "type": "string",
+      "title": "Type lien",
+      "description": "Méthode qui a permis de détecter le support.",
+      "enum": [
+        "Géométrique",
+        "Sémantique"
+      ]
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": "Géométrie permettant de matérialiser le lien établi entre une adresse BAN et un support BDTOPO®. Il s'agit d'un segment reliant l'adresse à son support."
+    },
+    {
+      "name": "lien_vers_objet_support",
+      "type": "string",
+      "title": "Lien vers objet support",
+      "description": "Identifiant BDUni (cleabs) du support géométrique BD TOPO® (tronçon de route, zone\r\nd’activité ou d’intérêt, zone d'habitation, point du réseau, lieu-dit non habité, équipement de transport, détail orographique ou détail hydrographique)."
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    }
+  ]
+}

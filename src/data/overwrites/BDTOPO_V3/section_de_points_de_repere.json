@@ -1,0 +1,86 @@
+{
+  "id": "Transport:Section de points de repère",
+  "namespace": "Transport",
+  "name": "Section de points de repère",
+  "title": "Section de points de repère",
+  "description": "Portion de route continue portant le même numéro. Les points de repères sont reliés à une section. Chaque section porte un PR de début de section (DS) et un PR de fin de section.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "identifiant_de_section",
+      "type": "string",
+      "title": "Identifiant de section",
+      "description": "Identifiant de la section."
+    },
+    {
+      "name": "numero_de_route",
+      "type": "string",
+      "title": "Numéro de route",
+      "description": "Numéro de la route classée à laquelle la section est associée."
+    },
+    {
+      "name": "gestionnaire",
+      "type": "string",
+      "title": "Gestionnaire",
+      "description": "Organisme gestionnaire du PR et de la route."
+    },
+    {
+      "name": "lien_vers_route_nommee",
+      "type": "string",
+      "title": "Lien vers route nommée",
+      "description": "Lien vers l'identifiant (clé absolue) de l'objet <Route numérotée ou nommée> de Nature=\"Route Nommée\" auquel appartient la <Section de points de repère>."
+    },
+    {
+      "name": "code_insee_du_departement",
+      "type": "string",
+      "title": "Code Insee du département",
+      "description": "Code INSEE du département auquel appartient le PR ou la section de PR."
+    },
+    {
+      "name": "cote",
+      "type": "string",
+      "title": "Côté",
+      "description": "Côté de la route où se situe la section par rapport au sens des PR croissants.",
+      "enum": [
+        "D",
+        "G",
+        "U"
+      ]
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}

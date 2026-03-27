@@ -1,0 +1,103 @@
+{
+  "id": "Transport:Equipement de transport",
+  "namespace": "Transport",
+  "name": "Equipement de transport",
+  "title": "Equipement de transport",
+  "description": "Équipement, construction ou aménagement relatif à un réseau de transport terrestre, maritime ou aérien.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet correspondant."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Nature de l'équipement.",
+      "enum": [
+        "Aérogare",
+        "Aire de repos ou de service",
+        "Aire de triage",
+        "Arrêt voyageurs",
+        "Autre équipement",
+        "Carrefour",
+        "Gare fret uniquement",
+        "Gare maritime",
+        "Gare routière",
+        "Gare téléphérique",
+        "Gare voyageurs et fret",
+        "Gare voyageurs uniquement",
+        "Péage",
+        "Port"
+      ]
+    },
+    {
+      "name": "nature_detaillee",
+      "type": "string",
+      "title": "Nature détaillée",
+      "description": "Cet attribut <b>précise</b> la 'Nature' de l'équipement.",
+      "enum": [
+        "Aire de repos",
+        "Aire de service",
+        "Arrêt de fret",
+        "Arrêt routier ferroviaire",
+        "Arrêt touristique saisonnier",
+        "Bassin",
+        "Dégrad",
+        "Echangeur",
+        "Echangeur complet",
+        "Echangeur partiel",
+        "Gare funiculaire",
+        "Gare RER",
+        "Gare télécabine",
+        "Gare téléphérique intermédiaire",
+        "Gare TGV",
+        "Gare touristique saisonnière",
+        "Halte fluviale",
+        "Plate-forme multimodale",
+        "Port de commerce",
+        "Port de pêche",
+        "Port de plaisance"
+      ]
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "fictif",
+      "type": "boolean",
+      "title": "Fictif",
+      "description": "Indique si la géométrie de l'objet est réelle ou non significative."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": ""
+    },
+    {
+      "name": "numero",
+      "type": "string",
+      "title": "Numéro",
+      "description": "Pour les échangeurs uniquement, numéro de l'échangeur."
+    }
+  ]
+}

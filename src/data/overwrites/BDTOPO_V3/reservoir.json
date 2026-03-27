@@ -1,0 +1,198 @@
+{
+  "id": "Bâti:Réservoir",
+  "namespace": "Bâti",
+  "name": "Réservoir",
+  "title": "Réservoir",
+  "description": "Réservoir (eau, matières industrielles,…)",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Nature du réservoir",
+      "enum": [
+        "Château d'eau",
+        "Inconnue",
+        "Réservoir d'eau ou château d'eau au sol",
+        "Réservoir industriel"
+      ]
+    },
+    {
+      "name": "etat_de_l_objet",
+      "type": "string",
+      "title": "Etat de l'objet bati",
+      "description": "État ou stade de vie d'un objet qui, pour le thème bâti, peut être en projet, en construction, en service ou en ruine.",
+      "enum": [
+        "En construction",
+        "En projet",
+        "En ruine",
+        "En service"
+      ]
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string",
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "enum": [
+        "BDCarto",
+        "BDNyme",
+        "BDParcellaire",
+        "BDParcellaire recalée",
+        "BDTopo",
+        "Calcul d'enveloppe urbaine",
+        "Calculé",
+        "Fichier numérique décimétrique",
+        "Fichier numérique métrique",
+        "Fichier numérique non métrique",
+        "Géocodage",
+        "Géoroute",
+        "Image satellite",
+        "Image satellite HR",
+        "Inconnue",
+        "Levé GPS",
+        "Levé non GPS",
+        "Lidar",
+        "Lidar HD",
+        "Orthophotographie",
+        "Photogrammétrie",
+        "Plan métrique papier",
+        "Plan non métrique papier",
+        "Processus IA métrique",
+        "Processus IA non métrique",
+        "Scan25"
+      ]
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "numeric",
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+    },
+    {
+      "name": "methode_d_acquisition_altimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition altimétrique",
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z)  de l'objet.",
+      "enum": [
+        "BDAlti",
+        "BDTopo",
+        "Corrélation",
+        "Fichier numérique",
+        "Fichier numérique décimétrique",
+        "Interpolation bâti BDTopo",
+        "Levé GPS",
+        "Lidar",
+        "Lidar HD",
+        "Pas de Z",
+        "Photogrammétrie",
+        "Photogrammétrie longue focale",
+        "Plan coté",
+        "Radar",
+        "Z corrigé"
+      ]
+    },
+    {
+      "name": "precision_altimetrique",
+      "type": "numeric",
+      "title": "Précision altimétrique",
+      "description": "Précision altimétrique  (en mètres) de la géométrie décrivant l'objet."
+    },
+    {
+      "name": "altitude_minimale_sol",
+      "type": "numeric",
+      "title": "Altitude minimale sol",
+      "description": "Altitude représentative au pied du réservoir, dans le côté bas de la pente, exprimée en mètres."
+    },
+    {
+      "name": "altitude_minimale_toit",
+      "type": "numeric",
+      "title": "Altitude minimale toit",
+      "description": "Altitude du toit du réservoir au niveau de l'arête décrivant son contour, exprimée en mètres."
+    },
+    {
+      "name": "hauteur",
+      "type": "numeric",
+      "title": "Hauteur",
+      "description": "Hauteur du réservoir, en mètres, correspondant à la différence entre le Z le plus\r\nélevé du pourtour du réservoir et un point situé à son pied."
+    },
+    {
+      "name": "altitude_maximale_toit",
+      "type": "numeric",
+      "title": "Altitude maximale toit",
+      "description": "Altitude qui correspond à la hauteur maximale du réservoir, exprimée en mètres."
+    },
+    {
+      "name": "altitude_maximale_sol",
+      "type": "numeric",
+      "title": "Altitude maximale sol",
+      "description": "Altitude maximum au pied du réservoir, exprimée en mètres."
+    },
+    {
+      "name": "geometrie",
+      "type": "string",
+      "title": "Géométrie",
+      "description": ""
+    },
+    {
+      "name": "origine_du_batiment",
+      "type": "string",
+      "title": "Origine du bâtiment",
+      "description": "Précise l'origine de la géométrie du Bâtiment ou Réservoir.",
+      "enum": [
+        "Autre",
+        "Cadastre",
+        "Imagerie aérienne",
+        "Lidar HD"
+      ]
+    },
+    {
+      "name": "volume",
+      "type": "numeric",
+      "title": "Volume",
+      "description": "Contenance maximale en liquide du réservoir, exprimée en m³."
+    }
+  ]
+}

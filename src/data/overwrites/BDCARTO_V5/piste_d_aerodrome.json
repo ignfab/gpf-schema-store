@@ -1,0 +1,21 @@
+{
+  "id": "Transport:Piste d'aérodrome",
+  "namespace": "Transport",
+  "name": "Piste d'aérodrome",
+  "title": "Piste d'aérodrome",
+  "description": "Aire située sur un aérodrome, aménagée afin de servir au roulement des aéronefs, à leur décollage et à leur atterrissage.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet correspondant."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}

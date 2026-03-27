@@ -1,0 +1,55 @@
+{
+  "id": "Transport:Transport par câble",
+  "namespace": "Transport",
+  "name": "Transport par câble",
+  "title": "Transport par câble",
+  "description": "Moyen de transport constitué d'un ou de plusieurs câbles porteurs.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet correspondant."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Attribut permettant de distinguer différents types de transport par câble.",
+      "enum": [
+        "Autre remontée mécanique",
+        "Câble transporteur",
+        "Tapis roulant de stations de montagne",
+        "Télécabine, téléphérique",
+        "Télésiège",
+        "Téléski",
+        "Tyrolienne géante"
+      ]
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": "Ligne en 2D provenant de la géométrie 3D des objets BD TOPO®correspondants.\r\nPour les <i>Construction linéaire</i>, <i>Ligne électrique </i> , <i>Transport par câble </i> et <i> Tronçon de voie ferrée </i>, il s'agit de la géométrie BD TOPO® en 2D.\r\nPour les  <i>Tronçon de route</i> et  <i>Tronçon hydrographique  </i>,  et les  <i>Limite terre mer </i>, il y a eu une simplification de la géométrie BD TOPO®.\r\n\r\n<center><image@1664282453_gsimplification Troncon2.png></center>\r\n<center><image@1667834881_Legende.png></center>"
+    }
+  ]
+}

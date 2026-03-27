@@ -1,0 +1,80 @@
+{
+  "id": "Transport:Aérodrome",
+  "namespace": "Transport",
+  "name": "Aérodrome",
+  "title": "Aérodrome",
+  "description": "Tout terrain ou plan d'eau spécialement aménagé pour l'atterrissage, le décollage et les manœuvres des aéronefs y compris les installations annexes qu'il peut comporter pour les besoins du trafic et le service des aéronefs.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet correspondant."
+    },
+    {
+      "name": "categorie",
+      "type": "string",
+      "title": "Catégorie",
+      "description": "Définit le rayonnement de l'aérodrome.",
+      "enum": [
+        "Autre",
+        "Internationale",
+        "Nationale"
+      ]
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Précise la nature de l'aérodrome.",
+      "enum": [
+        "Aérodrome",
+        "Altiport",
+        "Hydrobase"
+      ]
+    },
+    {
+      "name": "usage",
+      "type": "string",
+      "title": "Usage",
+      "description": "Défini l'usage de l'aérodrome.",
+      "enum": [
+        "Civil",
+        "Civil et militaire",
+        "Militaire",
+        "Privé"
+      ]
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "fictif",
+      "type": "boolean",
+      "title": "Fictif",
+      "description": "Indique si la géométrie de l'objet est réelle ou non significative."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "Hydrographie:Limite terre mer",
+  "namespace": "Hydrographie",
+  "name": "Limite terre mer",
+  "title": "Limite terre mer",
+  "description": "Ligne au niveau de laquelle une masse continentale est en contact avec une masse d'eau, inclut en particulier le trait de côte",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet correspondant."
+    },
+    {
+      "name": "code_hydrographique",
+      "type": "string",
+      "title": "Code hydrographique",
+      "description": "Identifiant de l'objet hydrographique."
+    },
+    {
+      "name": "code_du_pays",
+      "type": "string",
+      "title": "Code du pays",
+      "description": "Code du pays auquel appartient l'objet hydrographique."
+    },
+    {
+      "name": "type_de_limite",
+      "type": "string",
+      "title": "Type de limite",
+      "description": "Selon les enjeux, plusieurs limites terre-mer peuvent être définies en un même point du littoral.\r\nL'attribut 'Type de limite' précise sur quelle référence s'appuie le tracé de la <Limite terre-mer>.",
+      "enum": [
+        "0 NGF",
+        "Ligne de base",
+        "Limite de compétence du préfet",
+        "Limite des affaires maritimes",
+        "Limite de salure des eaux",
+        "Limite transversale de la mer"
+      ]
+    },
+    {
+      "name": "niveau",
+      "type": "string",
+      "title": "Niveau",
+      "description": "Niveau d'eau définissant la limite terre-mer (exemples : hautes-eaux, basses eaux).",
+      "enum": [
+        "Plus basses eaux",
+        "Plus hautes eaux"
+      ]
+    },
+    {
+      "name": "statut",
+      "type": "string",
+      "title": "Statut de l'objet hydrographique",
+      "description": "État de validité de l'objet hydrographique au sens du <a href=\"http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html\">dictionnaire du SANDRE.</a>",
+      "enum": [
+        "Gelé",
+        "Validé"
+      ]
+    },
+    {
+      "name": "origine",
+      "type": "string",
+      "title": "Origine",
+      "description": "Origine de la limite terre-mer (exemples : naturelle, artificielle).",
+      "enum": [
+        "Artificielle",
+        "Naturelle aménagée",
+        "Naturelle non aménagée",
+        "Naturelle rocheuse"
+      ]
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": "Ligne en 2D provenant de la géométrie 3D des objets BD TOPO®correspondants.\r\nPour les <i>Construction linéaire</i>, <i>Ligne électrique </i> , <i>Transport par câble </i> et <i> Tronçon de voie ferrée </i>, il s'agit de la géométrie BD TOPO® en 2D.\r\nPour les  <i>Tronçon de route</i> et  <i>Tronçon hydrographique  </i>,  et les  <i>Limite terre mer </i>, il y a eu une simplification de la géométrie BD TOPO®.\r\n\r\n<center><image@1664282453_gsimplification Troncon2.png></center>\r\n<center><image@1667834881_Legende.png></center>"
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "id": "Adresses:Adresse BAN",
+  "namespace": "Adresses",
+  "name": "Adresse BAN",
+  "title": "Adresse BAN",
+  "description": "Objet matérialisant une adresse postale.  \r\nLes adresses présentes dans cette table proviennent exclusivement de la Base Adresse Nationale, la base de référence en matière d'adresses sur l'ensemble du territoire français. Ces adresses sont moissonnées à l'adresse suivante : https://adresse.data.gouv.fr/data/ban/adresses/latest/csv-bal/  \r\nUn fichier, conforme au format BAL (Base Adresse Locale) est disponible. Il contient l’ensemble des adresses, réelles et fictives, du département. Dans les cas d’une adresse définie avec plusieurs positions dans la BAN, l’ensemble des positions sont présentes dans le fichier BAL. \r\n\r\nLa structure du format BAL est disponible sur le lien suivant : https://doc.adresse.data.gouv.fr/mettre-a-jour-sa-base-adresse-locale/le-format-base-adresse-locale",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "numero",
+      "type": "integer",
+      "title": "Numéro",
+      "description": "Numéro de l’adresse dans la voie, sans indice de répétition.\r\nLa valeur ‘99999’ est utilisée pour les adresses fictives. Il s’agit d’adresses n’existant pas dans la réalité, permettant notamment dans la BAN de créer des voies sans adresse. \r\nCe champ correspond à l'attribut \"numero\" du format BAL.\r\n\r\nExemple : 2 pour « 2 bis Rue Pasteur »."
+    },
+    {
+      "name": "suffixe",
+      "type": "string",
+      "title": "Suffixe",
+      "description": "Mention bis, ter, quater, quinquies, sexies… ou une lettre A, B, C, D… lorsque ce caractère complète une numérotation de voirie. L’indice de répétition permet de différencier plusieurs adresses portant le même numéro dans la même rue.  \r\n\r\nCe champ correspond à l’attribut \"suffixe\" du format BAL."
+    },
+    {
+      "name": "identifiant_voie",
+      "type": "string",
+      "title": "Identifiant voie",
+      "description": "Identifiant unique de voie généré à partir de la clé d’interopérabilité. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. \r\n\r\nExemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
+    },
+    {
+      "name": "nom_voie",
+      "type": "string",
+      "title": "Nom voie",
+      "description": "Nom de la voie BAN. \r\nCe champ correspond à l’attribut \"voie_nom\" du format BAL."
+    },
+    {
+      "name": "insee_commune",
+      "type": "string",
+      "title": "Insee commune",
+      "description": "Code INSEE officiel de la commune associée à chaque adresse.\r\nCe champ correspond à l'attribut \"commune_insee\" du format BAL."
+    },
+    {
+      "name": "nom_commune",
+      "type": "string",
+      "title": "Nom commune",
+      "description": "Toponyme intégral de la commune de source Insee (avec article si présent). Il est saisi en lettres majuscules et minuscules, toutes deux accentuées."
+    },
+    {
+      "name": "insee_commune_deleguee",
+      "type": "string",
+      "title": "Insee commune déléguée",
+      "description": "Suite à une fusion de communes, il s’agit du code INSEE officiel de l’ancienne commune associée à chaque adresse. \r\nCe champ correspond à l’attribut \"commune_deleguee_insee\" du format BAL."
+    },
+    {
+      "name": "nom_commune_deleguee",
+      "type": "string",
+      "title": "Nom commune déléguée",
+      "description": "Suite à une fusion de communes, nom de l’ancienne commune sur laquelle est située l’adresse. \r\nCe champ correspond à l’attribut \"commune_deleguee_nom\" du format BAL."
+    },
+    {
+      "name": "type_position",
+      "type": "string",
+      "title": "Type position",
+      "description": "Description de la position d’une adresse.  \r\n\r\nCe champ correspond à l’attribut \"position\" du format BAL.",
+      "enum": [
+        "bâtiment",
+        "cage d'escalier",
+        "délivrance postale",
+        "entrée",
+        "inconnue",
+        "logement",
+        "parcelle",
+        "segment",
+        "service technique"
+      ]
+    },
+    {
+      "name": "lieu_dit",
+      "type": "string",
+      "title": "Lieu-dit",
+      "description": "Nom du lieu-dit historique ou complémentaire associé à l’adresse BAN. \r\nCe champ correspond à l’attribut \"lieudit_complement_nom\" du format BAL."
+    },
+    {
+      "name": "source_adresse",
+      "type": "string",
+      "title": "Source adresse",
+      "description": "Organisme ayant créé ou diffusé l’adresse. \r\n\r\nCe champ correspond à l’attribut \"source\" du format BAL.",
+      "enum": [
+        "arcep",
+        "cadastre",
+        "commune",
+        "inconnue",
+        "insee",
+        "laposte",
+        "sdis"
+      ]
+    },
+    {
+      "name": "certification_commune",
+      "type": "boolean",
+      "title": "Certification commune",
+      "description": "La saisie des adresses dans la BAN est une compétence des communes. Cet attribut indique si la commune a validé ou non l’adresse présente dans la BAN."
+    },
+    {
+      "name": "parcelles_cadastrales",
+      "type": "string",
+      "title": "Parcelles cadastrales",
+      "description": "Liste des parcelles séparées par un pipe (|), desservies ou représentées par cette adresse.  \r\n\r\nCe champ correspond à l’attribut \"cad_parcelles\" du format BAL."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": "Pour une adresse BAN :  géométrie en Lambert 93, définie à partir de la longitude et la latitude de l'adresse BAN.\r\nPour une voie BAN : géométrie en Lambert 93, correspondant à la géométrie de l'adresse de la voie ayant le numéro médian."
+    },
+    {
+      "name": "identifiant_adresse",
+      "type": "string",
+      "title": "Identifiant adresse",
+      "description": "Identifiant unique de l'adresse dans la Base Adresse Nationale. Cet identifiant correspond à l'attribut \"uid_adresse\" du format BAL.\r\nPour le moment, cet identifiant n'est pas encore mis à disposition des utilisateurs de la BAN. Il n'est donc pas renseigné."
+    },
+    {
+      "name": "cle_d_interoperabilite",
+      "type": "string",
+      "title": "Clé d'interopérabilité",
+      "description": "Il s'agit de l'identifiant des adresses dans la BAN, formé par concaténation du code INSEE de la commune concernée, du code de la voie liée à l’adresse, du numéro de l’adresse et d’un éventuel indice de répétition. Ces éléments sont séparés par des tirets bas. Le code de la voie peut correspondre au code FANTOIR de la DGFiP lorsqu’il est connu. \r\nCe champ correspond à l’attribut cle_interop du format BAL. \r\n\r\nExemple : 02001_0056_00022_bis correspond à l’adresse 22 bis Rue Jean de la Fontaine (code voie 0056) sur la commune d’Abbécourt (code INSEE : 02001)."
+    }
+  ]
+}

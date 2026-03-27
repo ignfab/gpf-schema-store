@@ -1,0 +1,445 @@
+{
+  "id": "Hydrographie:Tronçon hydrographique",
+  "namespace": "Hydrographie",
+  "name": "Tronçon hydrographique",
+  "title": "Tronçon hydrographique",
+  "description": "Axe du lit d'une rivière, d'un ruisseau ou d'un canal, homogène pour ses attributs et ses liens et n'incluant pas de confluent en dehors de ses extrémités.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "code_hydrographique",
+      "type": "string",
+      "title": "Code hydrographique",
+      "description": "Identifiant de l'objet hydrographique."
+    },
+    {
+      "name": "code_du_pays",
+      "type": "string",
+      "title": "Code du pays",
+      "description": "Code du pays auquel appartient l'objet hydrographique."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Nature du tronçon hydrographique.",
+      "enum": [
+        "Aqueduc",
+        "Canal",
+        "Conduit buse",
+        "Conduit forcé",
+        "Delta",
+        "Ecoulement canalisé",
+        "Ecoulement endoréique",
+        "Ecoulement hyporhéique",
+        "Ecoulement karstique",
+        "Ecoulement naturel",
+        "Ecoulement phréatique",
+        "Estuaire",
+        "Glacier, névé",
+        "Inconnue",
+        "Lac",
+        "Lagon",
+        "Lagune",
+        "Mangrove",
+        "Marais",
+        "Mare",
+        "Plan d'eau de gravière",
+        "Plan d'eau de mine",
+        "Ravine",
+        "Réservoir-bassin",
+        "Réservoir-bassin d'orage",
+        "Réservoir-bassin piscicole",
+        "Retenue",
+        "Retenue-barrage",
+        "Retenue-bassin portuaire",
+        "Retenue-digue"
+      ]
+    },
+    {
+      "name": "fictif",
+      "type": "boolean",
+      "title": "Fictif",
+      "description": "Indique si la géométrie de l'objet est réelle ou non significative."
+    },
+    {
+      "name": "etat_de_l_objet",
+      "type": "string",
+      "title": "Etat de l'objet",
+      "description": "État ou stade de vie d'un objet qui, pour le thème bâti, peut être en projet, en construction, en service, en projet ou disparu.",
+      "enum": [
+        "Disparu",
+        "En construction",
+        "En projet",
+        "En service"
+      ]
+    },
+    {
+      "name": "position_par_rapport_au_sol",
+      "type": "string",
+      "title": "Position par rapport au sol",
+      "description": "Niveau de l’objet par rapport à la surface du sol.",
+      "enum": [
+        "0",
+        "-1",
+        "1",
+        "-2",
+        "2",
+        "Inconnue"
+      ]
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string",
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "enum": [
+        "BDCarto",
+        "BDNyme",
+        "BDParcellaire",
+        "BDParcellaire recalée",
+        "BDTopo",
+        "Calcul d'enveloppe urbaine",
+        "Calculé",
+        "Fichier numérique décimétrique",
+        "Fichier numérique métrique",
+        "Fichier numérique non métrique",
+        "Géocodage",
+        "Géoroute",
+        "Image satellite",
+        "Image satellite HR",
+        "Inconnue",
+        "Levé GPS",
+        "Levé non GPS",
+        "Lidar",
+        "Lidar HD",
+        "Orthophotographie",
+        "Photogrammétrie",
+        "Plan métrique papier",
+        "Plan non métrique papier",
+        "Processus IA métrique",
+        "Processus IA non métrique",
+        "Scan25"
+      ]
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "numeric",
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+    },
+    {
+      "name": "methode_d_acquisition_altimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition altimétrique",
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z)  de l'objet.",
+      "enum": [
+        "BDAlti",
+        "BDTopo",
+        "Corrélation",
+        "Fichier numérique",
+        "Fichier numérique décimétrique",
+        "Interpolation bâti BDTopo",
+        "Levé GPS",
+        "Lidar",
+        "Lidar HD",
+        "Pas de Z",
+        "Photogrammétrie",
+        "Photogrammétrie longue focale",
+        "Plan coté",
+        "Radar",
+        "Z corrigé"
+      ]
+    },
+    {
+      "name": "precision_altimetrique",
+      "type": "numeric",
+      "title": "Précision altimétrique",
+      "description": "Précision altimétrique  (en mètres) de la géométrie décrivant l'objet."
+    },
+    {
+      "name": "mode_d_obtention_des_coordonnees",
+      "type": "string",
+      "title": "Mode d'obtention des coordonnées",
+      "description": "Méthode utilisée pour déterminer les coordonnées de l'objet hydrographique.",
+      "enum": [
+        "Autres modes",
+        "Carte bathymétrique",
+        "Carte géoréférencée",
+        "Carte marine de navigation",
+        "Carte non géoréférencée",
+        "Globe virtuel",
+        "GPS/GNSS autonome",
+        "GPS/GNSS différentiel",
+        "Imagerie satellite ou aérienne",
+        "Inconnu",
+        "Planche cadastrale",
+        "Théodolite"
+      ]
+    },
+    {
+      "name": "mode_d_obtention_de_l_altitude",
+      "type": "string",
+      "title": "Mode d'obtention de l'altitude",
+      "description": "Méthode utilisée pour établir l'altitude de l'objet hydrographique.",
+      "enum": [
+        "Altimétrie radar",
+        "Autres modes",
+        "Carte bathymétrique",
+        "Carte marine de navigation",
+        "Carte topographique géoréférencée",
+        "Carte topographique non géoréférencée",
+        "Globe virtuel",
+        "GPS/GNSS autonome",
+        "GPS/GNSS différentiel",
+        "Inconnu",
+        "MNT",
+        "Nivellement",
+        "Sondeur acoustique"
+      ]
+    },
+    {
+      "name": "statut",
+      "type": "string",
+      "title": "Statut de l'objet hydrographique",
+      "description": "État de validité de l'objet hydrographique au sens du <a href=\"http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html\">dictionnaire du SANDRE.</a>",
+      "enum": [
+        "Gelé",
+        "Validé"
+      ]
+    },
+    {
+      "name": "persistance",
+      "type": "string",
+      "title": "Persistance",
+      "description": "Degré de persistance de l'écoulement de l'eau.",
+      "enum": [
+        "Ephémère",
+        "Inconnue",
+        "Intermittent",
+        "Permanent",
+        "Sec"
+      ]
+    },
+    {
+      "name": "fosse",
+      "type": "boolean",
+      "title": "Fossé",
+      "description": "Indique qu'il s'agit d'un fossé et non pas d'un cours d'eau.\r\nCet attribut n'est pas opposable légalement."
+    },
+    {
+      "name": "navigabilite",
+      "type": "boolean",
+      "title": "Navigabilité",
+      "description": "Navigabilité du tronçon hydrographique."
+    },
+    {
+      "name": "salinite",
+      "type": "boolean",
+      "title": "Salinité",
+      "description": "Salinité d'un cours d'eau.\r\n\r\nCet attribut de préciser si l'eau est salée (Salinité = \"Vrai\") ou douce (Salinité = \"Faux\")."
+    },
+    {
+      "name": "numero_d_ordre",
+      "type": "string",
+      "title": "Numéro d'ordre",
+      "description": "Nombre (ou code) exprimant le degré de ramification d'un tronçon hydrographique."
+    },
+    {
+      "name": "strategie_de_classement",
+      "type": "string",
+      "title": "Stratégie de classement",
+      "description": "Précise la méthode utilisée pour calculer le degré de ramification du Tronçon hydrographique."
+    },
+    {
+      "name": "origine",
+      "type": "string",
+      "title": "Origine",
+      "description": "Origine, naturelle ou artificielle, du tronçon hydrographique.",
+      "enum": [
+        "Artificielle",
+        "Inconnue",
+        "Naturelle aménagée",
+        "Naturelle non aménagée"
+      ]
+    },
+    {
+      "name": "perimetre_d_utilisation_ou_origine",
+      "type": "string",
+      "title": "Périmètre d'utilisation ou origine",
+      "description": "Cet attribut indique le périmètre d'utilisation ou l'origine de la codification\r\nhydrographique utilisée (et notamment s'il s'agit d'un code d'ordre national, supranational ou européen)."
+    },
+    {
+      "name": "sens_de_l_ecoulement",
+      "type": "string",
+      "title": "Sens de l'écoulement",
+      "description": "Sens dans lequel l'eau s'écoule par rapport au sens de numérisation de la géométrie de l'objet.",
+      "enum": [
+        "Double sens",
+        "Inconnu",
+        "Sens direct",
+        "Sens inverse"
+      ]
+    },
+    {
+      "name": "reseau_principal_coulant",
+      "type": "boolean",
+      "title": "Réseau principal coulant",
+      "description": "Spécifie si le tronçon fait partie du réseau principal coulant. \r\nLe réseau principal coulant représente un trajet sans ramification à travers un réseau hydrographique."
+    },
+    {
+      "name": "trace_connu",
+      "type": "boolean",
+      "title": "Tracé connu",
+      "description": "Indique que le tracé géographique d'un tronçon hydrographique est connu."
+    },
+    {
+      "name": "classe_de_largeur",
+      "type": "string",
+      "title": "Classe de largeur",
+      "description": "Classe de largeur de plein bord (\"LPB\") du tronçon hydrographique.\r\n\r\nLe lit de plein bord est la limite au delà de laquelle l'eau se répand dans la plaine d'inondation.",
+      "enum": [
+        "En attente de mise à jour",
+        "Entre 0 et 5 m",
+        "Entre 15 et 50 m",
+        "Entre 250 et 1250 m",
+        "Entre 50 et 250 m",
+        "Entre 5 et 15 m",
+        "Plus de 1250 m",
+        "Plus de 50 m",
+        "Sans objet"
+      ]
+    },
+    {
+      "name": "type_de_bras",
+      "type": "string",
+      "title": "Type de bras",
+      "description": "Type de bras du tronçon hydrographique.",
+      "enum": [
+        "Inconnu",
+        "Mort",
+        "Principal",
+        "Sans objet",
+        "Secondaire"
+      ]
+    },
+    {
+      "name": "commentaire_sur_l_objet_hydro",
+      "type": "string",
+      "title": "Commentaire sur l'objet hydro",
+      "description": "Commentaire spécifique au réseau hydrographique."
+    },
+    {
+      "name": "code_du_cours_d_eau_bdcarthage",
+      "type": "string",
+      "title": "Code du cours d'eau BDCarthage",
+      "description": "Code générique du cours d'eau dans la BDCarthage ®."
+    },
+    {
+      "name": "inventaire_police_de_l_eau",
+      "type": "string",
+      "title": "Inventaire police de l'eau",
+      "description": "Indique si le tronçon hydrographique fait partie de l'inventaire de la Police de l'eau.",
+      "enum": [
+        "Expertise en cours",
+        "Inscrit",
+        "Non inscrit"
+      ]
+    },
+    {
+      "name": "identifiant_police_de_l_eau",
+      "type": "string",
+      "title": "Identifiant police de l'eau",
+      "description": "Identifiant donné au tronçon hydrographique dans l'inventaire de la police de l'eau."
+    },
+    {
+      "name": "liens_vers_cours_d_eau",
+      "type": "string",
+      "title": "Liens vers cours d'eau",
+      "description": "Identifiant(s) = Clé(s) absolue(s) du ou des éventuel(s) <Cours d'eau> parent(s)."
+    },
+    {
+      "name": "lien_vers_noeud_hydrographique_ini",
+      "type": "string",
+      "title": "Lien vers noeud hydrographique ini",
+      "description": "Lien vers le <Noeud hydrographique> initial de l'objet."
+    },
+    {
+      "name": "lien_vers_noeud_hydrographique_fin",
+      "type": "string",
+      "title": "Lien vers noeud hydrographique fin",
+      "description": "Lien vers le <Noeud hydrographique> final de l'objet."
+    },
+    {
+      "name": "liens_vers_surface_hydrographique",
+      "type": "string",
+      "title": "Liens vers surface hydrographique",
+      "description": "Identifiant(s) du ou des éventuel(s)  objets <Surface hydrographique> traversé(s) par le tronçon hydrographique."
+    },
+    {
+      "name": "lien_vers_entite_de_transition",
+      "type": "string",
+      "title": "Lien vers entité de transition",
+      "description": "Identifiant de l'éventuel objet <Entité de transition> auquel appartient le tronçon hydrographique."
+    },
+    {
+      "name": "cpx_toponyme_de_cours_d_eau",
+      "type": "string",
+      "title": "CPX_Toponyme de cours d'eau",
+      "description": "Toponyme(s) du ou des <Cours d'eau> traversant la surface hydrographique."
+    },
+    {
+      "name": "cpx_toponyme_d_entite_de_transition",
+      "type": "string",
+      "title": "CPX_Toponyme d'entité de transition",
+      "description": "Toponyme(s) du ou des <Entité de transition> traversant la surface hydrographique."
+    },
+    {
+      "name": "geometrie",
+      "type": "string",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}

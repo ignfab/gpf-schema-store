@@ -1,0 +1,174 @@
+{
+  "id": "Bâti:Terrain de sport",
+  "namespace": "Bâti",
+  "name": "Terrain de sport",
+  "title": "Terrain de sport",
+  "description": "Équipement sportif de plein air.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Nature du terrain de sport",
+      "enum": [
+        "Bassin de natation",
+        "Carrière équestre",
+        "Grand terrain de sport",
+        "Petit terrain multi-sports",
+        "Piste de sport",
+        "Terrain de tennis"
+      ]
+    },
+    {
+      "name": "nature_detaillee",
+      "type": "string",
+      "title": "Nature détaillée",
+      "description": "Cet attribut <b>précise</b> la 'Nature' du terrain de sport.",
+      "enum": [
+        "City-stade",
+        "Piste de cynodrome",
+        "Piste de sports mécaniques",
+        "Piste de vélodrome",
+        "Piste d'hippodrome",
+        "Stade d'athlétisme",
+        "Terrain de basket-ball",
+        "Terrain de football",
+        "Terrain de handball",
+        "Terrain de padel",
+        "Terrain de pelote basque",
+        "Terrain de polo",
+        "Terrain de rugby",
+        "Terrain de volley-ball"
+      ]
+    },
+    {
+      "name": "etat_de_l_objet",
+      "type": "string",
+      "title": "Etat de l'objet bati",
+      "description": "État ou stade de vie d'un objet qui, pour le thème bâti, peut être en projet, en construction, en service ou en ruine.",
+      "enum": [
+        "En construction",
+        "En projet",
+        "En ruine",
+        "En service"
+      ]
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string",
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "enum": [
+        "BDCarto",
+        "BDNyme",
+        "BDParcellaire",
+        "BDParcellaire recalée",
+        "BDTopo",
+        "Calcul d'enveloppe urbaine",
+        "Calculé",
+        "Fichier numérique décimétrique",
+        "Fichier numérique métrique",
+        "Fichier numérique non métrique",
+        "Géocodage",
+        "Géoroute",
+        "Image satellite",
+        "Image satellite HR",
+        "Inconnue",
+        "Levé GPS",
+        "Levé non GPS",
+        "Lidar",
+        "Lidar HD",
+        "Orthophotographie",
+        "Photogrammétrie",
+        "Plan métrique papier",
+        "Plan non métrique papier",
+        "Processus IA métrique",
+        "Processus IA non métrique",
+        "Scan25"
+      ]
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "numeric",
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+    },
+    {
+      "name": "methode_d_acquisition_altimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition altimétrique",
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z)  de l'objet.",
+      "enum": [
+        "BDAlti",
+        "BDTopo",
+        "Corrélation",
+        "Fichier numérique",
+        "Fichier numérique décimétrique",
+        "Interpolation bâti BDTopo",
+        "Levé GPS",
+        "Lidar",
+        "Lidar HD",
+        "Pas de Z",
+        "Photogrammétrie",
+        "Photogrammétrie longue focale",
+        "Plan coté",
+        "Radar",
+        "Z corrigé"
+      ]
+    },
+    {
+      "name": "precision_altimetrique",
+      "type": "numeric",
+      "title": "Précision altimétrique",
+      "description": "Précision altimétrique  (en mètres) de la géométrie décrivant l'objet."
+    },
+    {
+      "name": "geometrie",
+      "type": "string",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}

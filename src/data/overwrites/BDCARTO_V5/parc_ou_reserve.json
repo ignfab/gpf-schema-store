@@ -1,0 +1,59 @@
+{
+  "id": "Zones réglementées:Parc ou réserve",
+  "namespace": "Zones réglementées",
+  "name": "Parc ou réserve",
+  "title": "Parc ou réserve",
+  "description": "Enceinte de parc ou de réserve naturelle où certaines activités sont régies par un règlement particulier.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet correspondant."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Nature de l'espace protégé.",
+      "enum": [
+        "Parc national",
+        "Parc naturel marin",
+        "Parc naturel régional",
+        "Réserve nationale de chasse et de faune sauvage",
+        "Réserve naturelle"
+      ]
+    },
+    {
+      "name": "fictif",
+      "type": "boolean",
+      "title": "Fictif",
+      "description": "Indique si la géométrie de l'objet est réelle ou non significative."
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}

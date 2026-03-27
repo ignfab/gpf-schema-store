@@ -1,0 +1,55 @@
+{
+  "id": "Lieux nommés:Zone d'habitation",
+  "namespace": "Lieux nommés",
+  "name": "Zone d'habitation",
+  "title": "Zone d'habitation",
+  "description": "Lieu-dit habité de manière permanente, temporaire mais régulière ou anciennement habité et à l'état de ruines.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet correspondant."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Nature de la zone d'habitation",
+      "enum": [
+        "Château",
+        "Grange",
+        "Habitat temporaire",
+        "Lieu-dit habité",
+        "Moulin",
+        "Quartier",
+        "Ruines"
+      ]
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": "Ponctuel 2D provenant \r\n- d'un ponctuel 3D de la BD TOPO®, pour les <i>Construction ponctuelle</i> , <i>Détail hydrographique</i>, <i> Détail orographique</i>,  et <i>Noeud hydrographique</i> \r\n- du centroide de surfaces BD TOPO®  pour les    <i> Lieu-dit non habité </i>,  <i> Réservoir</i>  et  <i>Zone d'habitation </i>\r\n-  d'un calcul à partir de tronçons de route BD TOPO® pour les<i> Rond-point</i>"
+    }
+  ]
+}

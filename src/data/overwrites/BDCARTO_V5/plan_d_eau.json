@@ -1,0 +1,106 @@
+{
+  "id": "Hydrographie:Plan d'eau",
+  "namespace": "Hydrographie",
+  "name": "Plan d'eau",
+  "title": "Plan d'eau",
+  "description": "Une ou plusieurs étendue(s) d’eau continentale de surface, d’origine naturelle ou anthropique, possédant un toponyme ou identifiée(s) par un code hydrographique.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet correspondant."
+    },
+    {
+      "name": "code_hydrographique",
+      "type": "string",
+      "title": "Code hydrographique",
+      "description": "Identifiant de l'objet hydrographique."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "Nature d'un plan d'eau ou d'un ensemble de plans d'eau. Elle correspond généralement à la nature majoritaire des objets <Surface hydrographique> composant le <Plan d'eau>.",
+      "enum": [
+        "Aqueduc",
+        "Canal",
+        "Conduit buse",
+        "Conduit forcé",
+        "Delta",
+        "Ecoulement canalisé",
+        "Ecoulement endoréique",
+        "Ecoulement hyporhéique",
+        "Ecoulement karstique",
+        "Ecoulement naturel",
+        "Ecoulement phréatique",
+        "Estuaire",
+        "Glacier, névé",
+        "Inconnue",
+        "Lac",
+        "Lagon",
+        "Lagune",
+        "Mangrove",
+        "Marais",
+        "Mare",
+        "Plan d'eau de gravière",
+        "Plan d'eau de mine",
+        "Ravine",
+        "Réservoir-bassin",
+        "Réservoir-bassin d'orage",
+        "Réservoir-bassin piscicole",
+        "Retenue",
+        "Retenue-barrage",
+        "Retenue-bassin portuaire",
+        "Retenue-digue"
+      ]
+    },
+    {
+      "name": "statut",
+      "type": "string",
+      "title": "Statut de l'objet hydrographique",
+      "description": "État de validité de l'objet hydrographique au sens du <a href=\"http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html\">dictionnaire du SANDRE.</a>",
+      "enum": [
+        "Gelé",
+        "Validé"
+      ]
+    },
+    {
+      "name": "caractere_permanent",
+      "type": "boolean",
+      "title": "Caractère permanent",
+      "description": "Précise si le plan d'eau est permanent (Vrai) ou pas (Faux)."
+    },
+    {
+      "name": "influence_de_la_maree",
+      "type": "boolean",
+      "title": "Influence de la marée",
+      "description": "Indique si l'eau de surface est affectée par la marée."
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie ME MultiPolygone",
+      "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à moyenne échelle."
+    }
+  ]
+}

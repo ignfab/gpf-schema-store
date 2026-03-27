@@ -1,0 +1,113 @@
+{
+  "id": "Transport:Point d'accès",
+  "namespace": "Transport",
+  "name": "Point d'accès",
+  "title": "Point d'accès",
+  "description": "Point d'accès à un équipement (<Equipement de transport>, <Zone d'activité ou d'intérêt>, ...) à partir du réseau routier.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "enum": [
+        "BDCarto",
+        "BDNyme",
+        "BDParcellaire",
+        "BDParcellaire recalée",
+        "BDTopo",
+        "Calcul d'enveloppe urbaine",
+        "Calculé",
+        "Fichier numérique décimétrique",
+        "Fichier numérique métrique",
+        "Fichier numérique non métrique",
+        "Géocodage",
+        "Géoroute",
+        "Image satellite",
+        "Image satellite HR",
+        "Inconnue",
+        "Levé GPS",
+        "Levé non GPS",
+        "Lidar",
+        "Lidar HD",
+        "Orthophotographie",
+        "Photogrammétrie",
+        "Plan métrique papier",
+        "Plan non métrique papier",
+        "Processus IA métrique",
+        "Processus IA non métrique",
+        "Scan25"
+      ]
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "numeric",
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+    },
+    {
+      "name": "sens",
+      "type": "string",
+      "title": "Sens",
+      "description": "Indique si ce point d'accès à un équipement correspond à une entrée, une sortie ou aux deux.",
+      "enum": [
+        "Entrée",
+        "Entrée-Sortie",
+        "Sortie"
+      ]
+    },
+    {
+      "name": "mode",
+      "type": "string",
+      "title": "Mode",
+      "description": "Précise à qui est destiné le point d'accès.",
+      "enum": [
+        "Piéton",
+        "Véhicule",
+        "Véhicule et Piéton"
+      ]
+    },
+    {
+      "name": "lien_vers_point_d_interet",
+      "type": "string",
+      "title": "Lien vers point d'intérêt",
+      "description": "Lien vers l'objet de la classe <Zone d'activité ou d'intérêt> ou <Equipement de transport> dont on modélise l'accès."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}

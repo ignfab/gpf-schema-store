@@ -1,0 +1,226 @@
+{
+  "id": "Hydrographie:Plan d'eau",
+  "namespace": "Hydrographie",
+  "name": "Plan d'eau",
+  "title": "Plan d'eau",
+  "description": "Une ou plusieurs étendue(s) d’eau continentale de surface, d’origine naturelle ou anthropique, possédant un toponyme ou identifiée(s) par un code hydrographique.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "code_hydrographique",
+      "type": "string",
+      "title": "Code hydrographique",
+      "description": "Identifiant de l'objet hydrographique."
+    },
+    {
+      "name": "nature",
+      "type": "string",
+      "title": "Nature",
+      "description": "",
+      "enum": [
+        "Aqueduc",
+        "Canal",
+        "Conduit buse",
+        "Conduit forcé",
+        "Delta",
+        "Ecoulement canalisé",
+        "Ecoulement endoréique",
+        "Ecoulement hyporhéique",
+        "Ecoulement karstique",
+        "Ecoulement naturel",
+        "Ecoulement phréatique",
+        "Estuaire",
+        "Glacier, névé",
+        "Inconnue",
+        "Lac",
+        "Lagon",
+        "Lagune",
+        "Mangrove",
+        "Marais",
+        "Mare",
+        "Plan d'eau de gravière",
+        "Plan d'eau de mine",
+        "Ravine",
+        "Réservoir-bassin",
+        "Réservoir-bassin d'orage",
+        "Réservoir-bassin piscicole",
+        "Retenue",
+        "Retenue-barrage",
+        "Retenue-bassin portuaire",
+        "Retenue-digue"
+      ]
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "importance",
+      "type": "string",
+      "title": "Importance",
+      "description": "Attribut permettant de hiérarchiser les toponymes de plan d'eau en fonction de leur importance ou notoriété relative.",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ]
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string",
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+    },
+    {
+      "name": "statut",
+      "type": "string",
+      "title": "Statut de l'objet hydrographique",
+      "description": "État de validité de l'objet hydrographique au sens du <a href=\"http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html\">dictionnaire du SANDRE.</a>",
+      "enum": [
+        "Gelé",
+        "Validé"
+      ]
+    },
+    {
+      "name": "influence_de_la_maree",
+      "type": "boolean",
+      "title": "Influence de la marée",
+      "description": "Indique si l'eau de surface est affectée par la marée."
+    },
+    {
+      "name": "caractere_permanent",
+      "type": "boolean",
+      "title": "Caractère permanent",
+      "description": "Précise si le plan d'eau est permanent (Vrai) ou pas (Faux)."
+    },
+    {
+      "name": "altitude_moyenne",
+      "type": "numeric",
+      "title": "Altitude moyenne",
+      "description": "Altitude à la cote moyenne ou normale du plan d'eau, exprimée en mètres."
+    },
+    {
+      "name": "referentiel_de_l_altitude_moyenne",
+      "type": "string",
+      "title": "Référentiel de l'altitude moyenne",
+      "description": "Système altimétrique dans lequel s'exprime l'altitude de la cote moyenne ou normale du plan d'eau."
+    },
+    {
+      "name": "mode_d_obtention_de_l_altitude_moy",
+      "type": "string",
+      "title": "Mode d'obtention de l'altitude moy",
+      "description": "Méthode utilisée pour établir l'altitude de la cote moyenne ou normale du plan d'eau.",
+      "enum": [
+        "Altimétrie radar",
+        "Autres modes",
+        "Carte bathymétrique",
+        "Carte marine de navigation",
+        "Carte topographique géoréférencée",
+        "Carte topographique non géoréférencée",
+        "Globe virtuel",
+        "GPS/GNSS autonome",
+        "GPS/GNSS différentiel",
+        "Inconnu",
+        "MNT",
+        "Nivellement",
+        "Sondeur acoustique"
+      ]
+    },
+    {
+      "name": "precision_de_l_altitude_moyenne",
+      "type": "string",
+      "title": "Précision de l'altitude moyenne",
+      "description": "Précision de l'altitude moyenne calculée.",
+      "enum": [
+        "Centimétrique",
+        "Décamétrique < 50 m",
+        "Décamétrique > 50 m",
+        "Décimétrique",
+        "Inconnue",
+        "Métrique < 5 m",
+        "Métrique > 5 m"
+      ]
+    },
+    {
+      "name": "hauteur_d_eau_maximale",
+      "type": "numeric",
+      "title": "Hauteur d'eau maximale",
+      "description": "Hauteur d’eau maximale d’un plan d’eau artificiel, exprimée en mètres."
+    },
+    {
+      "name": "mode_d_obtention_de_la_hauteur",
+      "type": "string",
+      "title": "Mode d'obtention de la hauteur",
+      "description": "Description de la méthode d’obtention de la hauteur maximale du plan d'eau : MNT, cote RN (Retenue Normale).",
+      "enum": [
+        "Cote RN",
+        "MNT"
+      ]
+    },
+    {
+      "name": "commentaire_sur_l_objet_hydro",
+      "type": "string",
+      "title": "Commentaire sur l'objet hydro",
+      "description": "Commentaire spécifique au réseau hydrographique."
+    },
+    {
+      "name": "geometrie",
+      "type": "geometry",
+      "title": "Géométrie GE MultiPolygone",
+      "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle."
+    }
+  ]
+}

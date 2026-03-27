@@ -1,0 +1,241 @@
+{
+  "id": "Hydrographie:Noeud hydrographique",
+  "namespace": "Hydrographie",
+  "name": "Noeud hydrographique",
+  "title": "Noeud hydrographique",
+  "description": "Point  caractéristique situé sur les sommets du graphe hydrographique hormis la catégorie \"Franchissement\".",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet."
+    },
+    {
+      "name": "code_hydrographique",
+      "type": "string",
+      "title": "Code hydrographique",
+      "description": "Identifiant de l'objet hydrographique."
+    },
+    {
+      "name": "code_du_pays",
+      "type": "string",
+      "title": "Code du pays",
+      "description": "Code du pays auquel appartient l'objet hydrographique."
+    },
+    {
+      "name": "categorie",
+      "type": "string",
+      "title": "Catégorie",
+      "description": "Type du nœud hydrographique.",
+      "enum": [
+        "Confluent",
+        "Diffluent",
+        "Embranchement",
+        "Exutoire",
+        "Franchissement",
+        "Jonction linéaire",
+        "Source"
+      ]
+    },
+    {
+      "name": "toponyme",
+      "type": "string",
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet."
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string",
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "enum": [
+        "Autre",
+        "Collecté",
+        "Historique",
+        "Régional",
+        "Validé"
+      ]
+    },
+    {
+      "name": "date_creation",
+      "type": "string",
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+    },
+    {
+      "name": "date_modification",
+      "type": "string",
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string",
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string",
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+    },
+    {
+      "name": "sources",
+      "type": "string",
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string",
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "enum": [
+        "BDCarto",
+        "BDNyme",
+        "BDParcellaire",
+        "BDParcellaire recalée",
+        "BDTopo",
+        "Calcul d'enveloppe urbaine",
+        "Calculé",
+        "Fichier numérique décimétrique",
+        "Fichier numérique métrique",
+        "Fichier numérique non métrique",
+        "Géocodage",
+        "Géoroute",
+        "Image satellite",
+        "Image satellite HR",
+        "Inconnue",
+        "Levé GPS",
+        "Levé non GPS",
+        "Lidar",
+        "Lidar HD",
+        "Orthophotographie",
+        "Photogrammétrie",
+        "Plan métrique papier",
+        "Plan non métrique papier",
+        "Processus IA métrique",
+        "Processus IA non métrique",
+        "Scan25"
+      ]
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "numeric",
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+    },
+    {
+      "name": "methode_d_acquisition_altimetrique",
+      "type": "string",
+      "title": "Méthode d'acquisition altimétrique",
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z)  de l'objet.",
+      "enum": [
+        "BDAlti",
+        "BDTopo",
+        "Corrélation",
+        "Fichier numérique",
+        "Fichier numérique décimétrique",
+        "Interpolation bâti BDTopo",
+        "Levé GPS",
+        "Lidar",
+        "Lidar HD",
+        "Pas de Z",
+        "Photogrammétrie",
+        "Photogrammétrie longue focale",
+        "Plan coté",
+        "Radar",
+        "Z corrigé"
+      ]
+    },
+    {
+      "name": "precision_altimetrique",
+      "type": "numeric",
+      "title": "Précision altimétrique",
+      "description": "Précision altimétrique  (en mètres) de la géométrie décrivant l'objet."
+    },
+    {
+      "name": "mode_d_obtention_des_coordonnees",
+      "type": "string",
+      "title": "Mode d'obtention des coordonnées",
+      "description": "Méthode utilisée pour déterminer les coordonnées de l'objet hydrographique.",
+      "enum": [
+        "Autres modes",
+        "Carte bathymétrique",
+        "Carte géoréférencée",
+        "Carte marine de navigation",
+        "Carte non géoréférencée",
+        "Globe virtuel",
+        "GPS/GNSS autonome",
+        "GPS/GNSS différentiel",
+        "Imagerie satellite ou aérienne",
+        "Inconnu",
+        "Planche cadastrale",
+        "Théodolite"
+      ]
+    },
+    {
+      "name": "mode_d_obtention_de_l_altitude",
+      "type": "string",
+      "title": "Mode d'obtention de l'altitude",
+      "description": "Méthode utilisée pour établir l'altitude de l'objet hydrographique.",
+      "enum": [
+        "Altimétrie radar",
+        "Autres modes",
+        "Carte bathymétrique",
+        "Carte marine de navigation",
+        "Carte topographique géoréférencée",
+        "Carte topographique non géoréférencée",
+        "Globe virtuel",
+        "GPS/GNSS autonome",
+        "GPS/GNSS différentiel",
+        "Inconnu",
+        "MNT",
+        "Nivellement",
+        "Sondeur acoustique"
+      ]
+    },
+    {
+      "name": "statut",
+      "type": "string",
+      "title": "Statut de l'objet hydrographique",
+      "description": "État de validité de l'objet hydrographique au sens du <a href=\"http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html\">dictionnaire du SANDRE.</a>",
+      "enum": [
+        "Gelé",
+        "Validé"
+      ]
+    },
+    {
+      "name": "commentaire_sur_l_objet_hydro",
+      "type": "string",
+      "title": "Commentaire sur l'objet hydro",
+      "description": "Commentaire spécifique au réseau hydrographique."
+    },
+    {
+      "name": "liens_vers_cours_d_eau_amont",
+      "type": "string",
+      "title": "Liens vers cours d'eau amont",
+      "description": "Liens vers (clé absolue) la classe <Cours d'eau> définissant le ou les cours d'eau amont au niveau du point de confluence (<Noeud hydrographique> de Nature=\"Confluent\")."
+    },
+    {
+      "name": "liens_vers_cours_d_eau_aval",
+      "type": "string",
+      "title": "Liens vers cours d'eau aval",
+      "description": "Liens vers (clé absolue) la classe <Cours d'eau> définissant le ou les cours d'eau aval au niveau du point de confluence (<Noeud hydrographique> de Nature=\"Confluent\")."
+    },
+    {
+      "name": "geometrie",
+      "type": "string",
+      "title": "Géométrie",
+      "description": ""
+    }
+  ]
+}
