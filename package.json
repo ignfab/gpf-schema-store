@@ -1,16 +1,24 @@
 {
   "name": "@ignfab/gpf-schema-store",
-  "private": true,
   "license": "MIT",
   "author": "IGNF",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
   "bin": {
     "gpf-schema-store": "./dist/cli.js"
   },
   "scripts": {
     "dev": "vite-node src/cli.ts",
-    "build": "vite build",
+    "build": "vite build && tsc -p tsconfig.build.json",
     "start": "node dist/cli.js",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
