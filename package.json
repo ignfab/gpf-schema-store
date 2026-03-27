@@ -13,6 +13,8 @@
     "build": "vite build",
     "start": "node dist/cli.js",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "preview": "npm run build && npm run start"
   },
   "dependencies": {

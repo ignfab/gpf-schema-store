@@ -1,8 +1,10 @@
-import { existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { Command } from 'commander'
 import { getCollections } from './services/wfs'
+import { getOverwrite, saveCollections } from './services/storage'
+import { merge } from './helpers/merge'
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
 const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8')) as { version: string }
@@ -21,24 +23,12 @@ program
   .description('Update the collections from the GPF WFS (src/data/gpf-collections.json)')
   .action(async () => {
     const collections = await getCollections(GPF_WFS_URL);
-
-    // TODO : merger avec overwrites
-    for (const collection of collections) {
-      const overwritePath = join(dirname(fileURLToPath(import.meta.url)), 
-        'overwrites',
-        collection.namespace,
-        `${collection.name}.json`
-      );
-      if ( existsSync(overwritePath) ) {
-        console.log(`Collection ${collection.id} overwritten with ${overwritePath}`);
-        // TODO mborne
-      }
-    }
-
-
-    // save collections to src/data/gpf-collections.json
-    writeFileSync('src/data/gpf-collections.json', JSON.stringify(collections, null, 2));
-    console.log(`${collections.length} collections saved to src/data/gpf-collections.json`);
+    const overwritenCollections = collections.map((c) => {
+      const overwrite = getOverwrite(c.namespace, c.name);
+      return merge(c, overwrite);
+    });
+    saveCollections(overwritenCollections);
+    console.log(`${overwritenCollections.length} collections saved to src/data/gpf-collections.json`);
   })
 
 program.action(() => {

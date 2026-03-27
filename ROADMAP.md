@@ -4,7 +4,7 @@
 ## MVP
 
 * [x] Scrap GetCapabilities and DescribeFeatureType from 
-* [ ] Allow overwrites and completions (`src/data/BDTOPO_V3/batiment.(json|yaml)` with [bdtopoexplorer.ign.fr - batiment](https://bdtopoexplorer.ign.fr/?id_theme=61&id_classe=331) data)
+* [x] Allow overwrites and completions (`src/data/BDTOPO_V3/batiment.(json|yaml)` with [bdtopoexplorer.ign.fr - batiment](https://bdtopoexplorer.ign.fr/?id_theme=61&id_classe=331) data)
 * [ ] Lightweight search engine (`search(q: string)` based on MiniSearch for the MCP [ignfab/geocontext](https://github.com/ignfab/geocontext)
 
 ## To prepare GPF integration
