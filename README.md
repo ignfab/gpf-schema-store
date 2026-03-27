@@ -1,6 +1,8 @@
-# schema-store
+# gpf-schema-store
 
-Scrapping et enrichissement des informations des GetCapabilities et DescribeFeatureType du WFS de la Géoplateforme pour permettre la découverte des données par les IA (et les humains)
+> Work in progress (see [ROADMAP](ROADMAP.md))
+
+**Non official / experimental** implementation of [OGC API Features - schema](https://portal.ogc.org/files/108199) by enriching information from the Geoplateforme WFS to ease data discovery by AI (and humans).
 
 ## Usage
 
@@ -9,8 +11,10 @@ Scrapping et enrichissement des informations des GetCapabilities et DescribeFeat
 ```bash
 npm install
 npm run build
-npx schema-store update
+# build src/data/gpf-collections.json
+npx gpf-schema-store update
 ```
+
 
 ## License
 

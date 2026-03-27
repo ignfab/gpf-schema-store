@@ -10,7 +10,7 @@ const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8')) as { version: str
 const program = new Command()
 
 program
-  .name('schema-store')
+  .name('gpf-schema-store')
   .description('Application en ligne de commande')
   .version(version)
 
@@ -27,7 +27,7 @@ program
   })
 
 program.action(() => {
-  console.log('schema-store - CLI ready. Use --help for options.')
+  console.log('gpf-schema-store - CLI ready. Use --help for options.')
 })
 
 if (process.argv.slice(2).length === 0) {
