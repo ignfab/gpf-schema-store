@@ -18,21 +18,37 @@ function chmodCliOutput(fileName: string): Plugin {
   }
 }
 
+function cliShebang(fileName: string): Plugin {
+  return {
+    name: 'cli-shebang',
+    renderChunk(code, chunk) {
+      if (chunk.fileName !== fileName) return null
+      return {
+        code: `#!/usr/bin/env node\n${code}`,
+        map: null,
+      }
+    },
+  }
+}
+
 export default defineConfig({
   test: {
     environment: 'node',
     include: ['src/**/*.test.ts'],
   },
   build: {
-    ssr: resolve(root, 'src/cli.ts'),
+    ssr: true,
     target: 'node20',
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
-      plugins: [chmodCliOutput('cli.js')],
+      input: {
+        cli: resolve(root, 'src/cli.ts'),
+        index: resolve(root, 'src/index.ts'),
+      },
+      plugins: [cliShebang('cli.js'), chmodCliOutput('cli.js')],
       output: {
-        entryFileNames: 'cli.js',
-        banner: '#!/usr/bin/env node',
+        entryFileNames: ({ name }) => `${name}.js`,
       },
     },
   },
