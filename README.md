@@ -18,4 +18,4 @@ npx gpf-schema-store update
 
 ## License
 
-TODO MIT
+[MIT](LICENSE)
