@@ -31,6 +31,14 @@
 ## 0.2.x - use more data source
 
 * [ ] Retrieve keywords from DescribeFeatureType
+* [ ] Parse namespace to extract metadata (`"ADMINEXPRESS-COG.2026"` -> `{"product": ADMINEXPRESS-COG", "version": "2026"}`)
+
+<!--
+How to retrieve infos about "ADMINEXPRESS-COG"?
+
+Notify cartes.gouv.fr team that it could be usefull to have an URL like `https://cartes.gouv.fr/api/products/ADMINEXPRESS-COG` to retrieve metadata (and **ensure it doesn't exists for now** before facing ISO 19115 metadata...)
+-->
+
 * [ ] Retrieve relevant informations from ISO 19115 metadata
 
 <details>
