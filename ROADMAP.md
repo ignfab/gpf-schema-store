@@ -1,20 +1,61 @@
 
 # ROADMAP
 
-## MVP
+## 0.0.x - PoC
 
 * [x] Scrap GetCapabilities and DescribeFeatureType from 
 * [x] Allow overwrites and completions (`src/data/BDTOPO_V3/batiment.(json|yaml)` with [bdtopoexplorer.ign.fr - batiment](https://bdtopoexplorer.ign.fr/?id_theme=61&id_classe=331) data)
-* [ ] Lightweight search engine (`search(q: string)` based on MiniSearch for the MCP [ignfab/geocontext](https://github.com/ignfab/geocontext)
+* [x] Ensure that it improves search at MCP level (see [experiment with MiniSearch on a branch](https://github.com/ignfab/geocontext/blob/07aa15cc6854792df98d014bd40d25c4b981bfb0/src/gpf/wfs.ts#L14-L51))
 
-## To prepare GPF integration
+## 0.1.x - MVP - allow MCP integration
 
-To illustrate the expected service at GPF level :
+* [ ] Improve data management to ease change detection and overwrite updates
 
-* [ ] Lightweight API
-  * [ ] Get all collections (`/api/collections`)
-  * [ ] Get collections by namespace (aka serie) (`/api/collections?namespace=BDTOPO_V3`)
-  * [ ] Get collections by id (`/api/collections/{id}`)
-  * [ ] Search collection (`/api/collections/search?q={text}`)
-* [ ] A React front to explores types (and note that both AI and humans would like a "search form")
+```
+- data/wfs/BDTOPO_V3/batiment.json - JSON result for DescribeFeatureType (to follow changes with git diff)
+- data/overwrites/BDTOPO_V3/batiment.json - schema from bdtopo-explorer
+- remove data/gpf-collections.json 
+```
 
+* [ ] Integrate the lightweight search engine (`search(q: string)` based on MiniSearch from the MCP [ignfab/geocontext](https://github.com/ignfab/geocontext)
+* [ ] Add functional tests for the search :
+
+```yaml
+- query: "bâtiment"
+  expected: ["BDTOPO_V3:batiment"]
+#...
+```
+
+* [ ] Review available data on [data.geopf.fr](http://data.geopf.fr/wfs) and improve filtering to **keep only relevant ones** (remove test data, local data,...)
+
+## 0.3.x - use more data source
+
+* [ ] Retrieve keywords from DescribeFeatureType
+* [ ] Retrieve relevant informations from ISO 19115 metadata
+
+<details>
+<summary>Not trivial!</summary>
+
+- See [IGNF/validator - doc/metadata.md](https://github.com/IGNF/validator/blob/master/doc/metadata.md) for the model
+- See MetadataURL in GetCapabilities for the links :
+
+```bash
+curl -sS "https://data.geopf.fr/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities" | xmllint --format - | grep MetadataURL
+```
+
+</details>
+
+
+## Ideas to prepare Géoplateforme integration
+
+* [ ] **Use an existing metamodel** instead of [src](src/types.ts) to align with validation requirements (**not required** for now as **an LLM doesn't parse data and doesn't care about model changes**)
+* [ ] Illustrate the **expected service at Géoplateforme level** with a **Lightweight REST API** :
+    * [x] Get all collections (`/api/collections`) - **too fat** for an LLM (seen on GeoServer implementation)
+    * [ ] Get collections by id (`/api/collections/{id}`) - **required to allow the MCP to query features**
+    * [ ] Search collection (`/api/collections/search?q={text}`) - **required to allow the MCP to find data**
+    * [ ] Get collections by namespace (aka serie) (`/api/collections?namespace=BDTOPO_V3`) - not required for MCP
+
+Create a **lightweight UI** to :
+
+* [ ] Display collection grouping by product (personal experiment is available here : https://www.quadtreeworld.net/geekeries/wfs-explorer/)
+* [ ] Allow user to **search collection with a form** (as having to use a LLM based tool to find available data is not very eco-friendly...)
