@@ -28,7 +28,7 @@
 
 * [ ] Review available data on [data.geopf.fr](http://data.geopf.fr/wfs) and improve filtering to **keep only relevant ones** (remove test data, local data,...)
 
-## 0.3.x - use more data source
+## 0.2.x - use more data source
 
 * [ ] Retrieve keywords from DescribeFeatureType
 * [ ] Retrieve relevant informations from ISO 19115 metadata
