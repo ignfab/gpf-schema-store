@@ -1,6 +1,8 @@
 
 # ROADMAP
 
+Goal : This project should be replaced by Geoplateforme **API calls providing a keyword-based search engine for collections** (like https://www.data.gouv.fr/api/1/datasets/?q=ecole&page=1&page_size=20) and **detailled schemas for collections** (like Table Schema)
+
 ## 0.0.x - PoC
 
 * [x] Scrap GetCapabilities and DescribeFeatureType from https://data.geopf.fr/wfs
