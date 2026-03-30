@@ -18,16 +18,15 @@ const COLLECTIONS_FILE = "gpf-collections.json";
  * @returns The data directory
  */
 function resolveDataDir(): string {
+    // either src/services/storage.ts or dist/services/storage.js
     let dir = dirname(fileURLToPath(import.meta.url));
+    
+    // explore the directory tree upwards until we find the data directory
     const start = dir;
     while (true) {
-        for (const candidate of [join(dir, "data"), join(dir, "src", "data")]) {
-            if (existsSync(join(candidate, COLLECTIONS_FILE))) {
-                return candidate;
-            }
-        }
-        if (existsSync(join(dir, "package.json"))) {
-            return join(dir, "data");
+        const candidate = join(dir, "data");
+        if (existsSync(candidate)) {
+            return candidate;
         }
         const parent = dirname(dir);
         if (parent === dir) {
