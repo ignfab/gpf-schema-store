@@ -11,13 +11,7 @@ Goal : This project should be replaced by Geoplateforme **API calls providing a 
 
 ## 0.1.x - MVP - allow MCP integration
 
-* [ ] Improve data management to ease change detection and overwrite updates : Create unique file for each WFS FeatureType
-
-```
-- data/wfs/BDTOPO_V3/batiment.json - JSON result for DescribeFeatureType (to follow changes with git diff)
-- data/overwrites/BDTOPO_V3/batiment.json - schema from bdtopo-explorer
-- remove data/gpf-collections.json 
-```
+* [ ] #4 - Improve data management to ease change detection and overwrite updates (create unique file for each WFS FeatureType)
 * [ ] Review available data on [data.geopf.fr](http://data.geopf.fr/wfs) and improve filtering to **keep only relevant ones** (remove gpf publication test datasets, local data,...)
 * [ ] Integrate the lightweight search engine (`search(q: string)` based on MiniSearch from the MCP [ignfab/geocontext](https://github.com/ignfab/geocontext))
 * [ ] Add functional tests for the search :
