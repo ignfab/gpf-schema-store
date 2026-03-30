@@ -70,12 +70,6 @@
       "type": "string",
       "title": "Nom de la commune mère",
       "description": "Nom de la commune de rattachement (commune mère) dans le cas d’une commune déléguée."
-    },
-    {
-      "name": "ignored",
-      "type": "string",
-      "title": "Test d'attribut non présent sur WFS",
-      "description": "Nom de la commune de rattachement (commune mère) dans le cas d’une commune déléguée."
     }
   ]
 }
