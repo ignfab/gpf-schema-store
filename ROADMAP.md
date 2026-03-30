@@ -17,15 +17,17 @@
 - remove data/gpf-collections.json 
 ```
 * [ ] Review available data on [data.geopf.fr](http://data.geopf.fr/wfs) and improve filtering to **keep only relevant ones** (remove gpf publication test datasets, local data,...)
-* [ ] Integrate the lightweight search engine (`search(q: string)` based on MiniSearch from the MCP [ignfab/geocontext](https://github.com/ignfab/geocontext)
-* [ ] Define a first working strategy for the search (ponderate between datasets, ...)
+* [ ] Integrate the lightweight search engine (`search(q: string)` based on MiniSearch from the MCP [ignfab/geocontext](https://github.com/ignfab/geocontext))
 * [ ] Add functional tests for the search :
 
 ```yaml
 - query: "bâtiment"
-  expected: ["BDTOPO_V3:batiment"]
+  expected: ["BDTOPO_V3:batiment","BDCARTO_V5:batiment"]
 #...
 ```
+
+* [ ] Define a first working strategy for the search to match expectations (ponderate between datasets, ...)
+
 
 ## 0.2.x - use more data source
 
@@ -38,7 +40,7 @@ How to retrieve infos about "ADMINEXPRESS-COG"?
 Notify cartes.gouv.fr team that it could be useful to have an URL like `https://cartes.gouv.fr/api/products/ADMINEXPRESS-COG` to retrieve metadata (and **ensure it doesn't exists for now** before facing ISO 19115 metadata...)
 -->
 
-* [ ] Retrieve relevant informations from ISO 19115 metadata
+* [ ] Retrieve relevant informations from ISO 19115 metadata from https://data.geopf.fr/csw ⚠️ **Tables schema not included in these metadata** ⚠️
 
 <details>
 <summary>=>ISO 19115 is not trivial!</summary>
@@ -54,7 +56,7 @@ curl -sS "https://data.geopf.fr/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabil
 
 ## Prepare Géoplateforme integration
 
-* [ ] **Use an existing metamodel** instead of [src](src/types.ts) to align with validation requirements (**not required** for now as **an LLM doesn't parse data and doesn't care about model changes**)
+* [ ] **Use an existing metamodel (Table Schema or IGN Validator)** instead of [src](src/types.ts) to align with validation requirements (**not required** for now as **an LLM doesn't parse data and doesn't care about model changes**)
 * [ ] Illustrate the **expected service at Géoplateforme level** with a **Lightweight REST API** :
     * [x] Get all collections (`/api/collections`) - **too fat** for an LLM (seen on GeoServer implementation)
     * [ ] Get collections by id (`/api/collections/{id}`) - **required to allow the MCP to query features**
