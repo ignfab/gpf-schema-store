@@ -1,0 +1,58 @@
+{
+  "id": "ADMINEXPRESS-COG.2023:commune",
+  "namespace": "ADMINEXPRESS-COG.2023",
+  "name": "commune",
+  "title": "ADMINEXPRESS COG 2023 Commune",
+  "description": "ADMINEXPRESS COG 2023 Commune",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom",
+      "type": "string"
+    },
+    {
+      "name": "nom_m",
+      "type": "string"
+    },
+    {
+      "name": "insee_com",
+      "type": "string"
+    },
+    {
+      "name": "statut",
+      "type": "string"
+    },
+    {
+      "name": "population",
+      "type": "integer"
+    },
+    {
+      "name": "insee_can",
+      "type": "string"
+    },
+    {
+      "name": "insee_arr",
+      "type": "string"
+    },
+    {
+      "name": "insee_dep",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "siren_epci",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

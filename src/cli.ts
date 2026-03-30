@@ -3,7 +3,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { Command } from 'commander'
 import { getCollections } from './services/wfs'
-import { getOverwrite, saveCollections } from './services/storage'
+import { getOverwrite, saveCollections, writeWfsCollection } from './services/storage'
 import { merge } from './helpers/merge'
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
@@ -20,9 +20,13 @@ const GPF_WFS_URL = "https://data.geopf.fr/wfs";
 
 program
   .command('update')
-  .description('Update the collections from the GPF WFS (src/data/gpf-collections.json)')
+  .description('Update the collections from the GPF WFS (data/wfs/{namespace}/{name}.json)')
   .action(async () => {
     const collections = await getCollections(GPF_WFS_URL);
+    for ( const collection of collections) {
+      writeWfsCollection(collection);
+    }
+
     const overwritenCollections = collections.map((c) => {
       const overwrite = getOverwrite(c.namespace, c.name);
       return merge(c, overwrite);

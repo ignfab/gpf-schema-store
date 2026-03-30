@@ -1,0 +1,42 @@
+{
+  "id": "ADMINEXPRESS-COG.2024:commune_associee_ou_deleguee",
+  "namespace": "ADMINEXPRESS-COG.2024",
+  "name": "commune_associee_ou_deleguee",
+  "title": "ADMINEXPRESS COG 2024 Commune associée ou déléguée",
+  "description": "ADMINEXPRESS COG 2024 Commune associée ou déléguée",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom",
+      "type": "string"
+    },
+    {
+      "name": "nom_m",
+      "type": "string"
+    },
+    {
+      "name": "insee_cad",
+      "type": "string"
+    },
+    {
+      "name": "insee_com",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "population",
+      "type": "integer"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

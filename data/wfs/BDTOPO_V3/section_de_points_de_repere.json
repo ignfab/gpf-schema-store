@@ -1,0 +1,58 @@
+{
+  "id": "BDTOPO_V3:section_de_points_de_repere",
+  "namespace": "BDTOPO_V3",
+  "name": "section_de_points_de_repere",
+  "title": "BDTOPO : Sections de points de repère",
+  "description": "Sections de points de repère − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "identifiant_de_section",
+      "type": "string"
+    },
+    {
+      "name": "numero_de_route",
+      "type": "string"
+    },
+    {
+      "name": "gestionnaire",
+      "type": "string"
+    },
+    {
+      "name": "lien_vers_route_nommee",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_du_departement",
+      "type": "string"
+    },
+    {
+      "name": "cote",
+      "type": "string"
+    },
+    {
+      "name": "sources",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "linestring",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "BDTOPO_V3:cours_d_eau",
+  "namespace": "BDTOPO_V3",
+  "name": "cours_d_eau",
+  "title": "BDTOPO : Cours d'eau",
+  "description": "Cours d'eau − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "code_hydrographique",
+      "type": "string"
+    },
+    {
+      "name": "toponyme",
+      "type": "string"
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "importance",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "sources",
+      "type": "string"
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string"
+    },
+    {
+      "name": "statut",
+      "type": "string"
+    },
+    {
+      "name": "influence_de_la_maree",
+      "type": "boolean"
+    },
+    {
+      "name": "caractere_permanent",
+      "type": "boolean"
+    },
+    {
+      "name": "commentaire_sur_l_objet_hydro",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "linestring",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

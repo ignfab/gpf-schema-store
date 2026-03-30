@@ -1,0 +1,26 @@
+{
+  "id": "ADMINEXPRESS-COG.2022:chef_lieu_commune",
+  "namespace": "ADMINEXPRESS-COG.2022",
+  "name": "chef_lieu_commune",
+  "title": "ADMINEXPRESS COG 2022 Chef-lieu commune",
+  "description": "ADMINEXPRESS COG 2022 Chef-lieu commune",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom",
+      "type": "string"
+    },
+    {
+      "name": "id_com",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

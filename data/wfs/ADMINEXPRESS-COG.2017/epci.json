@@ -1,0 +1,30 @@
+{
+  "id": "ADMINEXPRESS-COG.2017:epci",
+  "namespace": "ADMINEXPRESS-COG.2017",
+  "name": "epci",
+  "title": "ADMINEXPRESS COG 2017 EPCI",
+  "description": "ADMINEXPRESS COG 2017 EPCI",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "code_epci",
+      "type": "string"
+    },
+    {
+      "name": "nom_epci",
+      "type": "string"
+    },
+    {
+      "name": "type_epci",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

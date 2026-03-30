@@ -1,0 +1,38 @@
+{
+  "id": "ADMINEXPRESS-COG.2026:collectivite_territoriale",
+  "namespace": "ADMINEXPRESS-COG.2026",
+  "name": "collectivite_territoriale",
+  "title": "ADMINEXPRESS COG CARTO PE 2026 Collectivité territoriale",
+  "description": "ADMINEXPRESS COG CARTO PE 2026 Collectivité territoriale",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_la_region",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

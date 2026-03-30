@@ -1,0 +1,26 @@
+{
+  "id": "ADMINEXPRESS-COG.2021:chef_lieu_commune_associee_ou_deleguee",
+  "namespace": "ADMINEXPRESS-COG.2021",
+  "name": "chef_lieu_commune_associee_ou_deleguee",
+  "title": "ADMINEXPRESS COG 2021 Chef-lieu Commune associée ou déléguée",
+  "description": "ADMINEXPRESS COG 2021 Chef-lieu Commune associée ou déléguée",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom",
+      "type": "string"
+    },
+    {
+      "name": "id_com",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "ADMINEXPRESS-COG.2018:region",
+  "namespace": "ADMINEXPRESS-COG.2018",
+  "name": "region",
+  "title": "ADMINEXPRESS COG 2018 Région",
+  "description": "ADMINEXPRESS COG 2018 Région",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom_reg",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

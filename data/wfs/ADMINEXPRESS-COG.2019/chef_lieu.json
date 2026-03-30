@@ -1,0 +1,30 @@
+{
+  "id": "ADMINEXPRESS-COG.2019:chef_lieu",
+  "namespace": "ADMINEXPRESS-COG.2019",
+  "name": "chef_lieu",
+  "title": "ADMINEXPRESS COG 2019 Chef-lieu",
+  "description": "ADMINEXPRESS COG 2019 Chef-lieu",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom_chf",
+      "type": "string"
+    },
+    {
+      "name": "statut",
+      "type": "string"
+    },
+    {
+      "name": "insee_com",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

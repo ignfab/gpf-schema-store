@@ -1,0 +1,42 @@
+{
+  "id": "BDTOPO_V3:condominium",
+  "namespace": "BDTOPO_V3",
+  "name": "condominium",
+  "title": "BDTOPO : Condominiums",
+  "description": "Condominiums − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "unites_administratives_souveraines",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "lien_vers_lieu_dit",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

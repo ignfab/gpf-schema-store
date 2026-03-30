@@ -1,0 +1,82 @@
+{
+  "id": "BDTOPO_V3:voie_nommee",
+  "namespace": "BDTOPO_V3",
+  "name": "voie_nommee",
+  "title": "BDTOPO : Voies nommées",
+  "description": "Voies nommées − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "identifiant_voie_ban",
+      "type": "string"
+    },
+    {
+      "name": "nom_voie_ban",
+      "type": "string"
+    },
+    {
+      "name": "insee_commune",
+      "type": "string"
+    },
+    {
+      "name": "nom_commune",
+      "type": "string"
+    },
+    {
+      "name": "source_voie_ban",
+      "type": "string"
+    },
+    {
+      "name": "nom_collaboratif",
+      "type": "string"
+    },
+    {
+      "name": "type_voie",
+      "type": "string"
+    },
+    {
+      "name": "mot_directeur",
+      "type": "string"
+    },
+    {
+      "name": "lieux_dits_ban",
+      "type": "string"
+    },
+    {
+      "name": "liens_vers_supports",
+      "type": "string"
+    },
+    {
+      "name": "insee_communes_deleguees_ban",
+      "type": "string"
+    },
+    {
+      "name": "noms_communes_deleguees_ban",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "nom_normalise",
+      "type": "string"
+    },
+    {
+      "name": "id_ban_odonyme",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "linestring",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

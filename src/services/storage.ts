@@ -1,7 +1,7 @@
 import { dirname, join } from "path";
 import type { Collection } from "../types";
 import { fileURLToPath } from "url";
-import { existsSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 
 /**
  * The name of the resulting file
@@ -57,6 +57,21 @@ export function loadCollections(): Collection[] {
         return JSON.parse(readFileSync(collectionsPath, 'utf-8')) as Collection[];
     }
     return [];
+}
+
+/**
+ * Save collection from the GPF WFS to data/wfs/{namespace}/{name}.json
+ *
+ * @param collection 
+ */
+export function writeWfsCollection(collection: Collection): void {
+    const namespaceDirPath = join(DATA_DIR, 'wfs', collection.namespace);
+    if (!existsSync(namespaceDirPath)) {
+        mkdirSync(namespaceDirPath, { recursive: true });
+    }
+
+    const overwritePath = join(namespaceDirPath, `${collection.name}.json`);
+    writeFileSync(overwritePath, JSON.stringify(collection, null, 2));
 }
 
 /**

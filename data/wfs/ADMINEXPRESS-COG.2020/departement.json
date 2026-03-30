@@ -1,0 +1,38 @@
+{
+  "id": "ADMINEXPRESS-COG.2020:departement",
+  "namespace": "ADMINEXPRESS-COG.2020",
+  "name": "departement",
+  "title": "ADMINEXPRESS COG 2020 Département",
+  "description": "ADMINEXPRESS COG 2020 Département",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom_dep",
+      "type": "string"
+    },
+    {
+      "name": "nom_dep_m",
+      "type": "string"
+    },
+    {
+      "name": "insee_dep",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "chf_dep",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}
