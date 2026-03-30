@@ -8,7 +8,7 @@ import { getOverwrite, loadCollections } from './storage'
 const DATA_DIR = join(dirname(fileURLToPath(import.meta.url)), '../../data')
 
 describe('loadCollections', () => {
-  it('returns the collections from the GPF collections file', () => {
+  it('returns the collections from data/wfs JSON files', () => {
     const collections = loadCollections();
     expect(collections).toBeDefined()
     expect(collections.length).toBeGreaterThan(0)

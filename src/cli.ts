@@ -26,13 +26,7 @@ program
     for ( const collection of collections) {
       writeWfsCollection(collection);
     }
-
-    const overwritenCollections = collections.map((c) => {
-      const overwrite = getOverwrite(c.namespace, c.name);
-      return merge(c, overwrite);
-    });
-    saveCollections(overwritenCollections);
-    console.log(`${overwritenCollections.length} collections saved to data/gpf-collections.json`);
+    console.log(`${collections.length} collections saved to data/wfs/{namespace}/{name}.json`);
   })
 
 program.action(() => {

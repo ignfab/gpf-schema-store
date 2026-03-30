@@ -1,15 +1,14 @@
 import { dirname, join } from "path";
 import type { Collection } from "../types";
 import { fileURLToPath } from "url";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
-
-/**
- * The name of the resulting file
- * 
- * Note that this storage mode is here to avoid the use
- * of a database during the proof of concept.
- */
-const COLLECTIONS_FILE = "gpf-collections.json";
+import {
+    existsSync,
+    mkdirSync,
+    readFileSync,
+    readdirSync,
+    writeFileSync,
+} from "fs";
+import { merge } from "../helpers/merge";
 
 /**
  * Allows to resolve the data directory from the current file before 
@@ -20,7 +19,7 @@ const COLLECTIONS_FILE = "gpf-collections.json";
 function resolveDataDir(): string {
     // either src/services/storage.ts or dist/services/storage.js
     let dir = dirname(fileURLToPath(import.meta.url));
-    
+
     // explore the directory tree upwards until we find the data directory
     const start = dir;
     while (true) {
@@ -44,18 +43,45 @@ const DATA_DIR = resolveDataDir();
 
 
 /**
- * Load the collections from the GPF collections file
- * 
- * (data/gpf-collections.json)
- * 
- * @returns The collections from the GPF collections file
+ * Charge les collections (types WFS) en listant les fichiers JSON sous
+ * `data/wfs/{namespace}/*.json`.
+ *
+ * @returns Les collections lues depuis le disque
  */
 export function loadCollections(): Collection[] {
-    const collectionsPath = join(DATA_DIR, 'gpf-collections.json');
-    if (existsSync(collectionsPath)) {
-        return JSON.parse(readFileSync(collectionsPath, 'utf-8')) as Collection[];
+    const wfsRoot = join(DATA_DIR, "wfs");
+    if (!existsSync(wfsRoot)) {
+        throw new Error(`Could not load collections: ${wfsRoot} does not exist`);
     }
-    return [];
+
+    // list the namespaces from data/wfs
+    const namespaces = readdirSync(wfsRoot, { withFileTypes: true })
+        .filter((e) => e.isDirectory())
+        .map((e) => e.name)
+        .sort();
+
+    // Load the collections from data/wfs/{namespace}/*.json and parse them
+    const collections: Collection[] = [];
+    for (const namespace of namespaces) {
+        const namespacePath = join(wfsRoot, namespace);
+        const files = readdirSync(namespacePath)
+            .filter((f) => f.endsWith(".json"))
+            .sort();
+        for (const file of files) {
+            const filePath = join(namespacePath, file);
+            collections.push(
+                JSON.parse(readFileSync(filePath, "utf-8")) as Collection,
+            );
+        }
+    }
+
+    // apply the overwrites to the collections
+    const overwritenCollections = collections.map((c) => {
+        const overwrite = getOverwrite(c.namespace, c.name);
+        return merge(c, overwrite);
+    });
+
+    return overwritenCollections;
 }
 
 /**
@@ -73,17 +99,6 @@ export function writeWfsCollection(collection: Collection): void {
     writeFileSync(overwritePath, JSON.stringify(collection, null, 2));
 }
 
-/**
- * Save the collections to the GPF collections file
- * 
- * (data/gpf-collections.json)
- * 
- * @param collections - The collections to save
- */
-export function saveCollections(collections: Collection[]): void {
-    const collectionsPath = join(DATA_DIR, 'gpf-collections.json');
-    writeFileSync(collectionsPath, JSON.stringify(collections, null, 2));
-}
 
 /**
  * Get the overwrite for a collection if it exists
