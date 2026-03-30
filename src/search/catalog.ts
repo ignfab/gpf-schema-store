@@ -11,7 +11,7 @@ export interface CollectionCatalog {
   search(query: string, options?: CollectionSearchOptions): Collection[];
 }
 
-type InMemoryCollectionCatalogOptions = {
+export type InMemoryCollectionCatalogOptions = {
   engine?: CollectionSearchEngine;
   engineFactory?: CollectionSearchEngineFactory;
 };
@@ -63,7 +63,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     if (typeof limit === 'number' && limit >= 0) {
       return structuredClone(collections.slice(0, limit));
     }
-    
+
     return structuredClone(collections);
   }
 }
