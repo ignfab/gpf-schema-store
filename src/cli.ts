@@ -3,8 +3,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { Command } from 'commander'
 import { getCollections } from './services/wfs'
-import { getOverwrite, saveCollections, writeWfsCollection } from './services/storage'
-import { merge } from './helpers/merge'
+import { writeWfsCollection } from './services/storage'
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
 const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8')) as { version: string }
