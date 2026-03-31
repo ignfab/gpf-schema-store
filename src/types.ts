@@ -21,6 +21,18 @@ export type CollectionProperty = {
    */
   type: string;
   /**
+   * The title of the property.
+   */
+  title?: string;
+  /**
+   * The description of the property.
+   */
+  description?: string;
+  /**
+   * The possible values of the property.
+   */
+  enum?: string[];
+  /**
    * The default CRS of the geometry property (if the property is a geometry).
    */
   defaultCrs?: string;

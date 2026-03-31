@@ -15,7 +15,7 @@ The data model is :
 * **description** : WFS GetCap `<Abstract>`
 * **properties** : Array of property defined by `name`, `type`, `title` and `description`. `enum` is also available when necessary.
 
-When merged with `data/overwrites`, title and description are overwriten when available. 
+When merged with `data/overwrites`, title and description are overwriten when available.  
 
 ## Usage
 

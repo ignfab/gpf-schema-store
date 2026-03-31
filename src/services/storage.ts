@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import {
     existsSync,
     mkdirSync,
+    rmSync,
     readFileSync,
     readdirSync,
     writeFileSync,
@@ -37,7 +38,7 @@ function resolveDataDir(): string {
 }
 
 /**
- * The directory where the collections and overwritesare stored
+ * The directory where the collections and overwrites are stored
  */
 const DATA_DIR = resolveDataDir();
 
@@ -109,6 +110,16 @@ export function writeWfsCollection(collection: Collection): void {
 
 
 /**
+ * Clear all WFS collections from data/wfs.
+ */
+export function clearWfsCollections(): void {
+    const wfsRoot = join(DATA_DIR, 'wfs');
+    rmSync(wfsRoot, { recursive: true, force: true });
+    mkdirSync(wfsRoot, { recursive: true });
+}
+
+
+/**
  * Get the overwrite for a collection if it exists
  * 
  * (data/overwrites/{namespace}/{name}.json)
@@ -124,4 +135,3 @@ export function getOverwrite(namespace: string, name: string): Collection | null
     }
     return null;
 }
-

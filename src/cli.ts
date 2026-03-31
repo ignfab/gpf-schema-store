@@ -1,9 +1,14 @@
 import { createWriteStream, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+
 import { Command } from 'commander'
+
+import { format } from '@fast-csv/format';
+
 import { getCollections } from './services/wfs'
-import { getDataDir, writeWfsCollection } from './services/storage'
+import { getDataDir, writeWfsCollection, clearWfsCollections } from './services/storage'
+import { getMetadataFromNamespace } from './helpers/metadata'
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
 const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8')) as { version: string }
@@ -21,18 +26,22 @@ program
   .command('update')
   .description('Update the collections from the GPF WFS (data/wfs/{namespace}/{name}.json)')
   .action(async () => {
-    // get collections from the GPF WFS
+    console.log('Get collections from the GPF WFS...');
     const collections = await getCollections(GPF_WFS_URL);
-    // filter out collection that are ignored (empty properties array)
+    console.log(`${collections.length} collections retrieved from the GPF WFS.`);
+
+    console.log('Clearing existing collections in data/wfs...');
+    clearWfsCollections();
+    console.log('Existing collections cleared from data/wfs.');
+
+    console.log('Saving collections to data/wfs/{namespace}/{name}.json...');
     const filteredCollections = collections.filter((c) => c.properties.length > 0);
     for (const collection of filteredCollections) {
       writeWfsCollection(collection);
     }
-    console.log(`${collections.length} collections found, ${filteredCollections.length} collections saved to data/wfs/{namespace}/{name}.json`);
-  })
 
-import { format } from '@fast-csv/format';
-import { getMetadataFromNamespace } from './helpers/metadata'
+    console.log(`${filteredCollections.length} collections saved to data/wfs/{namespace}/{name}.json`);
+  })
 
 program
   .command('update-namespaces')
@@ -53,7 +62,7 @@ program
       'IGNORED_REASON',
       'COLLECTIONS',
     ])
-    for ( const namespace of namespaces) {
+    for (const namespace of namespaces) {
       const metadata = getMetadataFromNamespace(namespace);
       stream.write([
         namespace,
@@ -75,4 +84,7 @@ if (process.argv.slice(2).length === 0) {
   program.help()
 }
 
-program.parse()
+await program.parseAsync(process.argv).catch((error: unknown) => {
+  console.error(error)
+  process.exitCode = 1
+})
