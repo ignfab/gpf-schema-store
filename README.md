@@ -37,7 +37,7 @@ npx gpf-schema-store update
 
 ```bash
 # generate data/namespaces.csv
-npx gpf-schema-store update
+npx gpf-schema-store update-namespaces
 ```
 
 ## License
