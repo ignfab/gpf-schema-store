@@ -17,12 +17,6 @@ program
 
 const GPF_WFS_URL = "https://data.geopf.fr/wfs";
 
-// Global safety net: if any Promise rejection escapes command-level handling,
-// keep the process failure status explicit instead of crashing unpredictably.
-process.on('unhandledRejection', () => {
-  process.exitCode = 1
-})
-
 program
   .command('update')
   .description('Update the collections from the GPF WFS (data/wfs/{namespace}/{name}.json)')
@@ -44,8 +38,7 @@ if (process.argv.slice(2).length === 0) {
   program.help()
 }
 
-// parseAsync awaits async command handlers; this catch handles rejections
-// returned by Commander and maps them to a non-zero process exit status.
-await program.parseAsync(process.argv).catch(() => {
+await program.parseAsync(process.argv).catch((error: unknown) => {
+  console.error(error)
   process.exitCode = 1
 })
