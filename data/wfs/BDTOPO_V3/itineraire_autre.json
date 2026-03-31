@@ -1,0 +1,62 @@
+{
+  "id": "BDTOPO_V3:itineraire_autre",
+  "namespace": "BDTOPO_V3",
+  "name": "itineraire_autre",
+  "title": "BDTOPO : Autres itinéraires",
+  "description": "Autres itinéraires − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "nature_detaillee",
+      "type": "string"
+    },
+    {
+      "name": "toponyme",
+      "type": "string"
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "numero",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "sources",
+      "type": "string"
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "linestring",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

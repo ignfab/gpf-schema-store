@@ -1,0 +1,34 @@
+{
+  "id": "ADMINEXPRESS-COG.2026:region",
+  "namespace": "ADMINEXPRESS-COG.2026",
+  "name": "region",
+  "title": "ADMINEXPRESS COG CARTO PE 2026 Région",
+  "description": "ADMINEXPRESS COG CARTO PE 2026 Région",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

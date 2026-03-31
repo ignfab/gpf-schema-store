@@ -1,0 +1,30 @@
+{
+  "id": "ADMINEXPRESS-COG.2024:collectivite_territoriale",
+  "namespace": "ADMINEXPRESS-COG.2024",
+  "name": "collectivite_territoriale",
+  "title": "ADMINEXPRESS COG 2024 Collectivité territoriale",
+  "description": "ADMINEXPRESS COG 2024 Collectivité territoriale",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom",
+      "type": "string"
+    },
+    {
+      "name": "nom_m",
+      "type": "string"
+    },
+    {
+      "name": "insee_col",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

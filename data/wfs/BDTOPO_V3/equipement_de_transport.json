@@ -1,0 +1,110 @@
+{
+  "id": "BDTOPO_V3:equipement_de_transport",
+  "namespace": "BDTOPO_V3",
+  "name": "equipement_de_transport",
+  "title": "BDTOPO : Équipements de transport",
+  "description": "Équipements de transport − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "nature_detaillee",
+      "type": "string"
+    },
+    {
+      "name": "toponyme",
+      "type": "string"
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "importance",
+      "type": "string"
+    },
+    {
+      "name": "numero",
+      "type": "string"
+    },
+    {
+      "name": "fictif",
+      "type": "boolean"
+    },
+    {
+      "name": "adresse_postale",
+      "type": "string"
+    },
+    {
+      "name": "etat_de_l_objet",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "sources",
+      "type": "string"
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string"
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string"
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "float"
+    },
+    {
+      "name": "methode_d_acquisition_altimetrique",
+      "type": "string"
+    },
+    {
+      "name": "precision_altimetrique",
+      "type": "float"
+    },
+    {
+      "name": "insee_commune",
+      "type": "string"
+    },
+    {
+      "name": "commune",
+      "type": "string"
+    },
+    {
+      "name": "identifiant_voie_ban",
+      "type": "string"
+    },
+    {
+      "name": "id_ban_odonyme",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

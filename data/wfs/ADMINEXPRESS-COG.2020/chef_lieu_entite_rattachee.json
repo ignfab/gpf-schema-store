@@ -1,0 +1,30 @@
+{
+  "id": "ADMINEXPRESS-COG.2020:chef_lieu_entite_rattachee",
+  "namespace": "ADMINEXPRESS-COG.2020",
+  "name": "chef_lieu_entite_rattachee",
+  "title": "ADMINEXPRESS COG 2020 Chef-lieu entité rattachée",
+  "description": "ADMINEXPRESS COG 2020 Chef-lieu entité rattachée",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "id_com",
+      "type": "string"
+    },
+    {
+      "name": "nom_chf",
+      "type": "string"
+    },
+    {
+      "name": "insee_com",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

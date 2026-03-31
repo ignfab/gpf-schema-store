@@ -1,0 +1,46 @@
+{
+  "id": "ADMINEXPRESS-COG.2026:chef_lieu_de_commune_associee_ou_deleguee",
+  "namespace": "ADMINEXPRESS-COG.2026",
+  "name": "chef_lieu_de_commune_associee_ou_deleguee",
+  "title": "ADMINEXPRESS COG CARTO PE 2026 Chef-lieu de Commune associée ou déléguée",
+  "description": "ADMINEXPRESS COG CARTO PE 2026 Chef-lieu de Commune associée ou déléguée",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "nom_du_chef_lieu",
+      "type": "string"
+    },
+    {
+      "name": "nom_du_chef_lieu_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "lien_vers_la_commune_associee_ou_deleguee",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

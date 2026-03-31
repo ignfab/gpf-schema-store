@@ -1,15 +1,15 @@
 import { dirname, join } from "path";
 import type { Collection } from "../types";
 import { fileURLToPath } from "url";
-import { existsSync, readFileSync, writeFileSync } from "fs";
-
-/**
- * The name of the resulting file
- * 
- * Note that this storage mode is here to avoid the use
- * of a database during the proof of concept.
- */
-const COLLECTIONS_FILE = "gpf-collections.json";
+import {
+    existsSync,
+    mkdirSync,
+    rmSync,
+    readFileSync,
+    readdirSync,
+    writeFileSync,
+} from "fs";
+import { merge } from "../helpers/merge";
 
 /**
  * Allows to resolve the data directory from the current file before 
@@ -18,16 +18,15 @@ const COLLECTIONS_FILE = "gpf-collections.json";
  * @returns The data directory
  */
 function resolveDataDir(): string {
+    // either src/services/storage.ts or dist/services/storage.js
     let dir = dirname(fileURLToPath(import.meta.url));
+
+    // explore the directory tree upwards until we find the data directory
     const start = dir;
     while (true) {
-        for (const candidate of [join(dir, "data"), join(dir, "src", "data")]) {
-            if (existsSync(join(candidate, COLLECTIONS_FILE))) {
-                return candidate;
-            }
-        }
-        if (existsSync(join(dir, "package.json"))) {
-            return join(dir, "data");
+        const candidate = join(dir, "data");
+        if (existsSync(candidate)) {
+            return candidate;
         }
         const parent = dirname(dir);
         if (parent === dir) {
@@ -39,37 +38,77 @@ function resolveDataDir(): string {
 }
 
 /**
- * The directory where the collections and overwritesare stored
+ * The directory where the collections and overwrites are stored
  */
 const DATA_DIR = resolveDataDir();
 
 
 /**
- * Load the collections from the GPF collections file
- * 
- * (data/gpf-collections.json)
- * 
- * @returns The collections from the GPF collections file
+ * Charge les collections (types WFS) en listant les fichiers JSON sous
+ * `data/wfs/{namespace}/*.json`.
+ *
+ * @returns Les collections lues depuis le disque
  */
 export function loadCollections(): Collection[] {
-    const collectionsPath = join(DATA_DIR, 'gpf-collections.json');
-    if (existsSync(collectionsPath)) {
-        return JSON.parse(readFileSync(collectionsPath, 'utf-8')) as Collection[];
+    const wfsRoot = join(DATA_DIR, "wfs");
+    if (!existsSync(wfsRoot)) {
+        throw new Error(`Could not load collections: ${wfsRoot} does not exist`);
     }
-    return [];
+
+    // list the namespaces from data/wfs
+    const namespaces = readdirSync(wfsRoot, { withFileTypes: true })
+        .filter((e) => e.isDirectory())
+        .map((e) => e.name)
+        .sort();
+
+    // Load the collections from data/wfs/{namespace}/*.json and parse them
+    const collections: Collection[] = [];
+    for (const namespace of namespaces) {
+        const namespacePath = join(wfsRoot, namespace);
+        const files = readdirSync(namespacePath)
+            .filter((f) => f.endsWith(".json"))
+            .sort();
+        for (const file of files) {
+            const filePath = join(namespacePath, file);
+            collections.push(
+                JSON.parse(readFileSync(filePath, "utf-8")) as Collection,
+            );
+        }
+    }
+
+    // apply the overwrites to the collections
+    const overwritenCollections = collections.map((c) => {
+        const overwrite = getOverwrite(c.namespace, c.name);
+        return merge(c, overwrite);
+    });
+
+    return overwritenCollections;
 }
 
 /**
- * Save the collections to the GPF collections file
- * 
- * (data/gpf-collections.json)
- * 
- * @param collections - The collections to save
+ * Save collection from the GPF WFS to data/wfs/{namespace}/{name}.json
+ *
+ * @param collection 
  */
-export function saveCollections(collections: Collection[]): void {
-    const collectionsPath = join(DATA_DIR, 'gpf-collections.json');
-    writeFileSync(collectionsPath, JSON.stringify(collections, null, 2));
+export function writeWfsCollection(collection: Collection): void {
+    const namespaceDirPath = join(DATA_DIR, 'wfs', collection.namespace);
+    if (!existsSync(namespaceDirPath)) {
+        mkdirSync(namespaceDirPath, { recursive: true });
+    }
+
+    const overwritePath = join(namespaceDirPath, `${collection.name}.json`);
+    writeFileSync(overwritePath, JSON.stringify(collection, null, 2));
 }
+
+/**
+ * Clear all WFS collections from data/wfs.
+ */
+export function clearWfsCollections(): void {
+    const wfsRoot = join(DATA_DIR, 'wfs');
+    rmSync(wfsRoot, { recursive: true, force: true });
+    mkdirSync(wfsRoot, { recursive: true });
+}
+
 
 /**
  * Get the overwrite for a collection if it exists
@@ -87,4 +126,3 @@ export function getOverwrite(namespace: string, name: string): Collection | null
     }
     return null;
 }
-

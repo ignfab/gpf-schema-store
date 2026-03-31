@@ -1,0 +1,50 @@
+{
+  "id": "BDTOPO_V3:toponymie",
+  "namespace": "BDTOPO_V3",
+  "name": "toponymie",
+  "title": "BDTOPO : Toponymies",
+  "description": "Toponymies − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "classe_de_l_objet",
+      "type": "string"
+    },
+    {
+      "name": "nature_de_l_objet",
+      "type": "string"
+    },
+    {
+      "name": "nature_detaillee_de_l_objet",
+      "type": "string"
+    },
+    {
+      "name": "graphie_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "source_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "date_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "langue_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "cleabs_de_l_objet",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

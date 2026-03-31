@@ -1,0 +1,54 @@
+{
+  "id": "ADMINEXPRESS-COG-CARTO.LATEST:chef_lieu_d_arrondissement_municipal",
+  "namespace": "ADMINEXPRESS-COG-CARTO.LATEST",
+  "name": "chef_lieu_d_arrondissement_municipal",
+  "title": "ADMINEXPRESS COG Carto Dernière édition Chef-lieu d Arrondissement municipal",
+  "description": "ADMINEXPRESS COG Carto Dernière édition Chef-lieu d Arrondissement municipal",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "nom_du_chef_lieu",
+      "type": "string"
+    },
+    {
+      "name": "nom_du_chef_lieu_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "numero_de_l_arrondissement_municipal",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_l_arrondissement_municipal",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_la_commune_de_rattach",
+      "type": "string"
+    },
+    {
+      "name": "lien_vers_l_arrondissement_municipal",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_l_arrondissement_siege",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

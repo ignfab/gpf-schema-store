@@ -1,0 +1,358 @@
+{
+  "id": "BDTOPO_V3:troncon_de_route",
+  "namespace": "BDTOPO_V3",
+  "name": "troncon_de_route",
+  "title": "BDTOPO : Tronçons de route",
+  "description": "Tronçons de route − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "nom_collaboratif_gauche",
+      "type": "string"
+    },
+    {
+      "name": "nom_collaboratif_droite",
+      "type": "string"
+    },
+    {
+      "name": "importance",
+      "type": "string"
+    },
+    {
+      "name": "fictif",
+      "type": "boolean"
+    },
+    {
+      "name": "position_par_rapport_au_sol",
+      "type": "string"
+    },
+    {
+      "name": "etat_de_l_objet",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "sources",
+      "type": "string"
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string"
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string"
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "float"
+    },
+    {
+      "name": "methode_d_acquisition_altimetrique",
+      "type": "string"
+    },
+    {
+      "name": "precision_altimetrique",
+      "type": "float"
+    },
+    {
+      "name": "nombre_de_voies",
+      "type": "integer"
+    },
+    {
+      "name": "largeur_de_chaussee",
+      "type": "float"
+    },
+    {
+      "name": "itineraire_vert",
+      "type": "boolean"
+    },
+    {
+      "name": "prive",
+      "type": "boolean"
+    },
+    {
+      "name": "sens_de_circulation",
+      "type": "string"
+    },
+    {
+      "name": "reserve_aux_bus",
+      "type": "string"
+    },
+    {
+      "name": "urbain",
+      "type": "boolean"
+    },
+    {
+      "name": "vitesse_moyenne_vl",
+      "type": "integer"
+    },
+    {
+      "name": "acces_vehicule_leger",
+      "type": "string"
+    },
+    {
+      "name": "acces_pieton",
+      "type": "string"
+    },
+    {
+      "name": "periode_de_fermeture",
+      "type": "string"
+    },
+    {
+      "name": "nature_de_la_restriction",
+      "type": "string"
+    },
+    {
+      "name": "restriction_de_hauteur",
+      "type": "float"
+    },
+    {
+      "name": "restriction_de_poids_total",
+      "type": "float"
+    },
+    {
+      "name": "restriction_de_poids_par_essieu",
+      "type": "float"
+    },
+    {
+      "name": "restriction_de_largeur",
+      "type": "float"
+    },
+    {
+      "name": "restriction_de_longueur",
+      "type": "float"
+    },
+    {
+      "name": "matieres_dangereuses_interdites",
+      "type": "boolean"
+    },
+    {
+      "name": "borne_debut_gauche",
+      "type": "string"
+    },
+    {
+      "name": "borne_debut_droite",
+      "type": "string"
+    },
+    {
+      "name": "borne_fin_gauche",
+      "type": "string"
+    },
+    {
+      "name": "borne_fin_droite",
+      "type": "string"
+    },
+    {
+      "name": "insee_commune_gauche",
+      "type": "string"
+    },
+    {
+      "name": "insee_commune_droite",
+      "type": "string"
+    },
+    {
+      "name": "alias_gauche",
+      "type": "string"
+    },
+    {
+      "name": "alias_droit",
+      "type": "string"
+    },
+    {
+      "name": "date_de_mise_en_service",
+      "type": "string"
+    },
+    {
+      "name": "liens_vers_route_nommee",
+      "type": "string"
+    },
+    {
+      "name": "liens_vers_itineraire_autre",
+      "type": "string"
+    },
+    {
+      "name": "cpx_numero",
+      "type": "string"
+    },
+    {
+      "name": "cpx_numero_route_europeenne",
+      "type": "string"
+    },
+    {
+      "name": "cpx_classement_administratif",
+      "type": "string"
+    },
+    {
+      "name": "cpx_gestionnaire",
+      "type": "string"
+    },
+    {
+      "name": "cpx_toponyme_route_nommee",
+      "type": "string"
+    },
+    {
+      "name": "cpx_toponyme_itineraire_cyclable",
+      "type": "string"
+    },
+    {
+      "name": "cpx_toponyme_voie_verte",
+      "type": "string"
+    },
+    {
+      "name": "cpx_nature_itineraire_autre",
+      "type": "string"
+    },
+    {
+      "name": "cpx_toponyme_itineraire_autre",
+      "type": "string"
+    },
+    {
+      "name": "delestage",
+      "type": "boolean"
+    },
+    {
+      "name": "source_voie_ban_gauche",
+      "type": "string"
+    },
+    {
+      "name": "source_voie_ban_droite",
+      "type": "string"
+    },
+    {
+      "name": "nom_voie_ban_gauche",
+      "type": "string"
+    },
+    {
+      "name": "nom_voie_ban_droite",
+      "type": "string"
+    },
+    {
+      "name": "lieux_dits_ban_gauche",
+      "type": "string"
+    },
+    {
+      "name": "lieux_dits_ban_droite",
+      "type": "string"
+    },
+    {
+      "name": "identifiant_voie_ban_gauche",
+      "type": "string"
+    },
+    {
+      "name": "identifiant_voie_ban_droite",
+      "type": "string"
+    },
+    {
+      "name": "sens_amenagement_cyclable_gauche",
+      "type": "string"
+    },
+    {
+      "name": "sens_amenagement_cyclable_droit",
+      "type": "string"
+    },
+    {
+      "name": "amenagement_cyclable_gauche",
+      "type": "string"
+    },
+    {
+      "name": "amenagement_cyclable_droit",
+      "type": "string"
+    },
+    {
+      "name": "aire_de_retournement_dfci",
+      "type": "string"
+    },
+    {
+      "name": "gabarit_dfci",
+      "type": "string"
+    },
+    {
+      "name": "impasse_dfci",
+      "type": "boolean"
+    },
+    {
+      "name": "nature_detaillee_dfci",
+      "type": "string"
+    },
+    {
+      "name": "ouvrage_d_art_limitant_dfci",
+      "type": "boolean"
+    },
+    {
+      "name": "pente_maximale_dfci",
+      "type": "integer"
+    },
+    {
+      "name": "piste_dfci",
+      "type": "boolean"
+    },
+    {
+      "name": "piste_dfci_debroussaillee",
+      "type": "boolean"
+    },
+    {
+      "name": "piste_dfci_fosses",
+      "type": "string"
+    },
+    {
+      "name": "sens_de_circulation_dfci",
+      "type": "string"
+    },
+    {
+      "name": "tout_terrain_dfci",
+      "type": "boolean"
+    },
+    {
+      "name": "vitesse_moyenne_dfci",
+      "type": "integer"
+    },
+    {
+      "name": "zone_de_croisement_dfci",
+      "type": "string"
+    },
+    {
+      "name": "categorie_dfci",
+      "type": "string"
+    },
+    {
+      "name": "vitesse_collaborative",
+      "type": "integer"
+    },
+    {
+      "name": "id_ban_odonyme_droite",
+      "type": "string"
+    },
+    {
+      "name": "id_ban_odonyme_gauche",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "linestring",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

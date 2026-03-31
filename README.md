@@ -24,7 +24,7 @@ When merged with `data/overwrites`, title and description are overwriten when av
 ```bash
 npm install
 npm run build
-# build src/data/gpf-collections.json
+# build src/data/wfs
 npx gpf-schema-store update
 ```
 

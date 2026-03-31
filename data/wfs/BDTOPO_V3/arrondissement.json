@@ -1,0 +1,58 @@
+{
+  "id": "BDTOPO_V3:arrondissement",
+  "namespace": "BDTOPO_V3",
+  "name": "arrondissement",
+  "title": "BDTOPO : Arrondissements",
+  "description": "Arrondissements − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_l_arrondissement",
+      "type": "string"
+    },
+    {
+      "name": "numero_de_l_arrondissement",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_du_departement",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_la_region",
+      "type": "string"
+    },
+    {
+      "name": "liens_vers_autorite_administrative",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

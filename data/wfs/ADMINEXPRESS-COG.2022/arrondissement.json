@@ -1,0 +1,30 @@
+{
+  "id": "ADMINEXPRESS-COG.2022:arrondissement",
+  "namespace": "ADMINEXPRESS-COG.2022",
+  "name": "arrondissement",
+  "title": "ADMINEXPRESS COG 2022 Arrondissement",
+  "description": "ADMINEXPRESS COG 2022 Arrondissement",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "insee_arr",
+      "type": "string"
+    },
+    {
+      "name": "insee_dep",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "ADMINEXPRESS-COG.2020:region",
+  "namespace": "ADMINEXPRESS-COG.2020",
+  "name": "region",
+  "title": "ADMINEXPRESS COG 2020 Région",
+  "description": "ADMINEXPRESS COG 2020 Région",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom_reg",
+      "type": "string"
+    },
+    {
+      "name": "nom_reg_m",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "chf_reg",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

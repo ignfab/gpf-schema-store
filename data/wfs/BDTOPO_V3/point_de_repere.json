@@ -1,0 +1,90 @@
+{
+  "id": "BDTOPO_V3:point_de_repere",
+  "namespace": "BDTOPO_V3",
+  "name": "point_de_repere",
+  "title": "BDTOPO : Points de repère",
+  "description": "Points de repère − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "sources",
+      "type": "string"
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string"
+    },
+    {
+      "name": "route",
+      "type": "string"
+    },
+    {
+      "name": "numero",
+      "type": "string"
+    },
+    {
+      "name": "abscisse",
+      "type": "integer"
+    },
+    {
+      "name": "ordre",
+      "type": "float"
+    },
+    {
+      "name": "cote",
+      "type": "string"
+    },
+    {
+      "name": "statut",
+      "type": "string"
+    },
+    {
+      "name": "type_de_pr",
+      "type": "string"
+    },
+    {
+      "name": "libelle",
+      "type": "string"
+    },
+    {
+      "name": "identifiant_de_section",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_du_departement",
+      "type": "string"
+    },
+    {
+      "name": "lien_vers_route_nommee",
+      "type": "string"
+    },
+    {
+      "name": "gestionnaire",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

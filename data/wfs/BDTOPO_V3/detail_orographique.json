@@ -1,0 +1,82 @@
+{
+  "id": "BDTOPO_V3:detail_orographique",
+  "namespace": "BDTOPO_V3",
+  "name": "detail_orographique",
+  "title": "BDTOPO : Détails orographiques",
+  "description": "Détails orographiques − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "nature_detaillee",
+      "type": "string"
+    },
+    {
+      "name": "toponyme",
+      "type": "string"
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "importance",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "sources",
+      "type": "string"
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string"
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string"
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "float"
+    },
+    {
+      "name": "insee_commune",
+      "type": "string"
+    },
+    {
+      "name": "identifiant_voie_ban",
+      "type": "string"
+    },
+    {
+      "name": "id_ban_odonyme",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

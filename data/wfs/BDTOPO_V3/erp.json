@@ -1,0 +1,150 @@
+{
+  "id": "BDTOPO_V3:erp",
+  "namespace": "BDTOPO_V3",
+  "name": "erp",
+  "title": "BDTOPO : ERP",
+  "description": "ERP − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "id_reference",
+      "type": "string"
+    },
+    {
+      "name": "categorie",
+      "type": "string"
+    },
+    {
+      "name": "type_principal",
+      "type": "string"
+    },
+    {
+      "name": "types_secondaires",
+      "type": "string"
+    },
+    {
+      "name": "activite_principale",
+      "type": "string"
+    },
+    {
+      "name": "activites_secondaires",
+      "type": "string"
+    },
+    {
+      "name": "libelle",
+      "type": "string"
+    },
+    {
+      "name": "etat_de_l_objet",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "sources",
+      "type": "string"
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string"
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string"
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "float"
+    },
+    {
+      "name": "public",
+      "type": "boolean"
+    },
+    {
+      "name": "ouvert",
+      "type": "boolean"
+    },
+    {
+      "name": "capacite_d_accueil_du_public",
+      "type": "integer"
+    },
+    {
+      "name": "capacite_d_hebergement",
+      "type": "integer"
+    },
+    {
+      "name": "origine_de_la_geometrie",
+      "type": "string"
+    },
+    {
+      "name": "type_de_localisation",
+      "type": "string"
+    },
+    {
+      "name": "validation_ign",
+      "type": "boolean"
+    },
+    {
+      "name": "insee_commune",
+      "type": "string"
+    },
+    {
+      "name": "numero_siret",
+      "type": "string"
+    },
+    {
+      "name": "adresse_numero",
+      "type": "string"
+    },
+    {
+      "name": "adresse_indice_de_repetition",
+      "type": "string"
+    },
+    {
+      "name": "adresse_designation_de_l_entree",
+      "type": "string"
+    },
+    {
+      "name": "adresse_nom_1",
+      "type": "string"
+    },
+    {
+      "name": "adresse_nom_2",
+      "type": "string"
+    },
+    {
+      "name": "code_postal",
+      "type": "string"
+    },
+    {
+      "name": "liens_vers_batiment",
+      "type": "string"
+    },
+    {
+      "name": "liens_vers_enceinte",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

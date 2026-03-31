@@ -1,0 +1,30 @@
+{
+  "id": "ADMINEXPRESS-COG.2021:epci",
+  "namespace": "ADMINEXPRESS-COG.2021",
+  "name": "epci",
+  "title": "ADMINEXPRESS COG 2021 EPCI",
+  "description": "ADMINEXPRESS COG 2021 EPCI",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "nom",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}
