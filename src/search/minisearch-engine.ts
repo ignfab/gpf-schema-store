@@ -1,5 +1,5 @@
 import MiniSearch from 'minisearch';
-import type { Collection } from '../types';
+import type { Collection, CollectionProperty } from '../types';
 import type {
   CollectionSearchEngine,
   CollectionSearchMatch,
@@ -10,8 +10,8 @@ import type {
 // https://lucaong.github.io/minisearch/types/MiniSearch.SearchOptions.html gives list of all options
 export type MiniSearchCollectionSearchEngineOptions = {
   boost?: {
-    id?: number;
     namespace?: number;
+    name?: number;
     title?: number;
     description?: number;
     properties?: number;
@@ -21,13 +21,13 @@ export type MiniSearchCollectionSearchEngineOptions = {
 
 const DEFAULT_MINISEARCH_OPTIONS: Required<MiniSearchCollectionSearchEngineOptions> = {
   boost: {
-    id: 3.0,
     namespace: 5.0,
+    name: 4.0,
     title: 2.0,
     description: 1.5,
     properties: 1.3,
   },
-  fuzzy: 0.2,
+  fuzzy: 0.1,
 };
 
 export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine {
@@ -46,7 +46,6 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
     this.miniSearch = new MiniSearch<Collection>({
       idField: 'id',
       fields: [
-        'id',
         'namespace',
         'name',
         'title',
@@ -55,7 +54,10 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
       ],
       stringifyField: (fieldValue, fieldName) => {
         if (fieldName === 'properties') {
-          return JSON.stringify(fieldValue);
+          return (fieldValue as CollectionProperty[])
+            .flatMap((p) => [p.name, p.title])
+            .filter(Boolean)
+            .join(' ');
         }
         return String(fieldValue);
       },
