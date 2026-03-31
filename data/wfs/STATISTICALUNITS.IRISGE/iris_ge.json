@@ -1,0 +1,42 @@
+{
+  "id": "STATISTICALUNITS.IRISGE:iris_ge",
+  "namespace": "STATISTICALUNITS.IRISGE",
+  "name": "iris_ge",
+  "title": "IRIS Grande Echelle",
+  "description": "Contours géométriques des IRIS de l'INSEE à grande échelle sur toute la France ; Edition : 2025-01-01",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "nom_commune",
+      "type": "string"
+    },
+    {
+      "name": "iris",
+      "type": "string"
+    },
+    {
+      "name": "code_iris",
+      "type": "string"
+    },
+    {
+      "name": "nom_iris",
+      "type": "string"
+    },
+    {
+      "name": "type_iris",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:feuille",
+  "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
+  "name": "feuille",
+  "title": "PCI Vecteur : Feuilles",
+  "description": "Feuilles",
+  "properties": [
+    {
+      "name": "gid",
+      "type": "integer"
+    },
+    {
+      "name": "feuille",
+      "type": "integer"
+    },
+    {
+      "name": "section",
+      "type": "string"
+    },
+    {
+      "name": "code_dep",
+      "type": "string"
+    },
+    {
+      "name": "nom_com",
+      "type": "string"
+    },
+    {
+      "name": "code_com",
+      "type": "string"
+    },
+    {
+      "name": "com_abs",
+      "type": "string"
+    },
+    {
+      "name": "echelle",
+      "type": "string"
+    },
+    {
+      "name": "edition",
+      "type": "string"
+    },
+    {
+      "name": "code_arr",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

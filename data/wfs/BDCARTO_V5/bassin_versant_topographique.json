@@ -1,0 +1,54 @@
+{
+  "id": "BDCARTO_V5:bassin_versant_topographique",
+  "namespace": "BDCARTO_V5",
+  "name": "bassin_versant_topographique",
+  "title": "BD CARTO® Bassins versants topographiques",
+  "description": "Bassins versants topographiques - BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "liens_vers_cours_d_eau_principal",
+      "type": "string"
+    },
+    {
+      "name": "code_bdcarthage",
+      "type": "string"
+    },
+    {
+      "name": "code_du_bassin_hydrographique",
+      "type": "string"
+    },
+    {
+      "name": "origine",
+      "type": "string"
+    },
+    {
+      "name": "bassin_fluvial",
+      "type": "string"
+    },
+    {
+      "name": "statut",
+      "type": "string"
+    },
+    {
+      "name": "libelle_du_bassin_hydrographique",
+      "type": "string"
+    },
+    {
+      "name": "toponyme",
+      "type": "string"
+    },
+    {
+      "name": "code_hydrographique",
+      "type": "string"
+    },
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

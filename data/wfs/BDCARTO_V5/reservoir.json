@@ -1,0 +1,22 @@
+{
+  "id": "BDCARTO_V5:reservoir",
+  "namespace": "BDCARTO_V5",
+  "name": "reservoir",
+  "title": "BD CARTO® Réservoirs",
+  "description": "Réservoirs - BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

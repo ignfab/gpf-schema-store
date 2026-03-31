@@ -1,0 +1,22 @@
+{
+  "id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_limite_propriete",
+  "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
+  "name": "borne_limite_propriete",
+  "title": "PCI Vecteur : Bornes de limite de propriété",
+  "description": "Bornes de limite de propriété",
+  "properties": [
+    {
+      "name": "gid",
+      "type": "integer"
+    },
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipoint",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

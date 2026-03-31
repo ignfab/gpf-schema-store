@@ -1,0 +1,50 @@
+{
+  "id": "BDCARTO_V5:commune_associee_ou_deleguee",
+  "namespace": "BDCARTO_V5",
+  "name": "commune_associee_ou_deleguee",
+  "title": "BD CARTO® Communes associées ou déléguées",
+  "description": "CCommunes associées ou déléguées - BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_la_commune_de_rattach",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "code_postal",
+      "type": "string"
+    },
+    {
+      "name": "lien_vers_chef_lieu",
+      "type": "string"
+    },
+    {
+      "name": "population",
+      "type": "integer"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "BDCARTO_V5:region",
+  "namespace": "BDCARTO_V5",
+  "name": "region",
+  "title": "BD CARTO® Régions",
+  "description": "Régions - BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "BDCARTO_V5:voie_ferree_nommee",
+  "namespace": "BDCARTO_V5",
+  "name": "voie_ferree_nommee",
+  "title": "BD CARTO® Voies ferrées nommées",
+  "description": "Voies ferrées nommées - BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "toponyme",
+      "type": "string"
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "linestring",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:batiment",
+  "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
+  "name": "batiment",
+  "title": "PCI Vecteur : Bâtiments",
+  "description": "Bâtiments",
+  "properties": [
+    {
+      "name": "gid",
+      "type": "integer"
+    },
+    {
+      "name": "type",
+      "type": "string"
+    },
+    {
+      "name": "code_dep",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

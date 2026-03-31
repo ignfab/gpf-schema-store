@@ -1,0 +1,18 @@
+{
+  "id": "BDCARTO_V5:piste_d_aerodrome",
+  "namespace": "BDCARTO_V5",
+  "name": "piste_d_aerodrome",
+  "title": "BD CARTO® Pistes d'aérodrome",
+  "description": "Pistes d'aérodrome - BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

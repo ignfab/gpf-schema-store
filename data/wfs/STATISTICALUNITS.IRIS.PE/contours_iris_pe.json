@@ -1,0 +1,42 @@
+{
+  "id": "STATISTICALUNITS.IRIS.PE:contours_iris_pe",
+  "namespace": "STATISTICALUNITS.IRIS.PE",
+  "name": "contours_iris_pe",
+  "title": "CONTOURS IRIS PE",
+  "description": "Contours géométriques des IRIS de l'INSEE",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "nom_commune",
+      "type": "string"
+    },
+    {
+      "name": "iris",
+      "type": "string"
+    },
+    {
+      "name": "code_iris",
+      "type": "string"
+    },
+    {
+      "name": "nom_iris",
+      "type": "string"
+    },
+    {
+      "name": "type_iris",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

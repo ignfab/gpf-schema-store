@@ -1,0 +1,42 @@
+{
+  "id": "STATISTICALUNITS.IRIS:contours_iris",
+  "namespace": "STATISTICALUNITS.IRIS",
+  "name": "contours_iris",
+  "title": "CONTOURS IRIS",
+  "description": "Contours géométriques des IRIS de l'INSEE",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "nom_commune",
+      "type": "string"
+    },
+    {
+      "name": "iris",
+      "type": "string"
+    },
+    {
+      "name": "code_iris",
+      "type": "string"
+    },
+    {
+      "name": "nom_iris",
+      "type": "string"
+    },
+    {
+      "name": "type_iris",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

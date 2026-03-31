@@ -1,5 +1,5 @@
 import { dirname, join } from "path";
-import type { Collection } from "../types";
+import type { Collection, NamespaceFilterRule } from "../types";
 import { fileURLToPath } from "url";
 import {
     existsSync,
@@ -10,6 +10,7 @@ import {
     writeFileSync,
 } from "fs";
 import { merge } from "../helpers/merge";
+import { loadNamespaceFilters } from "../helpers/filter";
 
 /**
  * Allows to resolve the data directory from the current file before 
@@ -49,6 +50,20 @@ const DATA_DIR = resolveDataDir();
  */
 export function getDataDir(): string {
     return DATA_DIR;
+}
+
+/**
+ * Get the list of namespace filters from the data/namespace-filters.yaml file
+ * 
+ * @returns the list of the namespace filters
+ */
+export function getNamespaceFilters(): NamespaceFilterRule[] {
+    const namespaceFiltersPath = join(DATA_DIR, 'namespace-filters.yaml');
+    if (!existsSync(namespaceFiltersPath)) {
+        throw new Error(`Could not load namespace filters: ${namespaceFiltersPath} does not exist`);
+    }
+    const yamlContent = readFileSync(namespaceFiltersPath, 'utf-8');
+    return loadNamespaceFilters(yamlContent);
 }
 
 /**

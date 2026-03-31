@@ -1,7 +1,19 @@
-import type { Collection, CollectionProperty } from '../types.ts';
+import type { Collection, CollectionProperty, NamespaceFilterRule } from '../types.ts';
 import { WfsEndpoint } from '@camptocamp/ogc-client';
 import { retry } from '../helpers/retry';
 import { getMetadataFromNamespace } from '../helpers/metadata.ts';
+
+/**
+ * Default matching rule with a wildcard pattern that matches all namespaces 
+ * and does not ignore any collection.
+ */
+const DEFAULT_MATCHING_RULE: NamespaceFilterRule = {
+  id: 'default',
+  patterns: ['*'],
+  metadata: {
+    ignored: false
+  }
+};
 
 
 /**
@@ -10,8 +22,15 @@ import { getMetadataFromNamespace } from '../helpers/metadata.ts';
  * @param wfsUrl 
  * @returns The collections.
  */
-export async function getCollections(wfsUrl: string, options: { withProperties: boolean } = { withProperties: true }): Promise<Collection[]> {
-  const { withProperties } = options;
+export async function getCollections(
+  wfsUrl: string,
+  options: {
+    namespaceFilterRules?: NamespaceFilterRule[],
+    withProperties?: boolean
+  } = {}): Promise<Collection[]> {
+  const withProperties = options.withProperties ?? true;
+  const namespaceFilterRules = options.namespaceFilterRules ?? [DEFAULT_MATCHING_RULE];
+
   console.log('Getting collections from', wfsUrl);
   const endpoint = new WfsEndpoint(wfsUrl);
   await retry('wfs.isReady', () => endpoint.isReady());
@@ -28,8 +47,8 @@ export async function getCollections(wfsUrl: string, options: { withProperties: 
      * If the collection is ignored, skip the DescribeFeatureType
      * and return a collection with no properties.
      */
-    const metadata = getMetadataFromNamespace(namespace);
-    if (metadata.ignored || ! withProperties ) {
+    const metadata = getMetadataFromNamespace(namespace, namespaceFilterRules);
+    if (metadata.ignored || !withProperties) {
       console.log(`Skipping DescribeFeatureType for feature type ${featureType.name} (ignored: ${metadata.ignoredReason})`);
       collections.push({
         id: featureType.name,
@@ -57,7 +76,7 @@ export async function getCollections(wfsUrl: string, options: { withProperties: 
       } as CollectionProperty;
     });
 
-    if ( featureTypeFull.geometryName ) {
+    if (featureTypeFull.geometryName) {
       properties.push({
         name: featureTypeFull.geometryName,
         type: featureTypeFull.geometryType ?? 'geometry',

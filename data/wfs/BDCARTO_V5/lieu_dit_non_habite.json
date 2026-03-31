@@ -1,0 +1,30 @@
+{
+  "id": "BDCARTO_V5:lieu_dit_non_habite",
+  "namespace": "BDCARTO_V5",
+  "name": "lieu_dit_non_habite",
+  "title": "BD CARTO® Lieux-dits non habités",
+  "description": "Lieux-dits non habités - BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "toponyme",
+      "type": "string"
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

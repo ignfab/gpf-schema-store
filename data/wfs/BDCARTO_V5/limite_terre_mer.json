@@ -1,0 +1,42 @@
+{
+  "id": "BDCARTO_V5:limite_terre_mer",
+  "namespace": "BDCARTO_V5",
+  "name": "limite_terre_mer",
+  "title": "BD CARTO® Limites terre mer",
+  "description": "Limites terre mer - BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "code_hydrographique",
+      "type": "string"
+    },
+    {
+      "name": "code_du_pays",
+      "type": "string"
+    },
+    {
+      "name": "type_de_limite",
+      "type": "string"
+    },
+    {
+      "name": "niveau",
+      "type": "string"
+    },
+    {
+      "name": "statut",
+      "type": "string"
+    },
+    {
+      "name": "origine",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "linestring",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

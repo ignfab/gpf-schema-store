@@ -7,7 +7,7 @@ import { Command } from 'commander'
 import { format } from '@fast-csv/format';
 
 import { getCollections } from './services/wfs'
-import { getDataDir, writeWfsCollection, clearWfsCollections } from './services/storage'
+import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilters } from './services/storage'
 import { getMetadataFromNamespace } from './helpers/metadata'
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
@@ -26,8 +26,12 @@ program
   .command('update')
   .description('Update the collections from the GPF WFS (data/wfs/{namespace}/{name}.json)')
   .action(async () => {
+    console.log('Loading filters from data/namespace-filters.yaml...');
+    const namespaceFilterRules = getNamespaceFilters();
+    console.log(`${namespaceFilterRules.length} filters loaded from data/namespace-filters.yaml.`);
+
     console.log('Get collections from the GPF WFS...');
-    const collections = await getCollections(GPF_WFS_URL);
+    const collections = await getCollections(GPF_WFS_URL, { namespaceFilterRules, withProperties: true });
     console.log(`${collections.length} collections retrieved from the GPF WFS.`);
 
     console.log('Clearing existing collections in data/wfs...');
@@ -48,6 +52,11 @@ program
   .description('Update the namespaces.csv file with the WFS namespaces with metadata')
   .action(async () => {
     console.log('Updating namespaces.csv file with the WFS namespaces with metadata...');
+
+    const namespaceFilterRules = getNamespaceFilters();
+    console.log(`${namespaceFilterRules.length} filters loaded from data/namespace-filters.yaml.`);
+
+    // Get collection without properties to speed up the process
     const collections = await getCollections(GPF_WFS_URL, { withProperties: false });
     const namespaces = [...new Set(collections.map((c) => c.namespace))];
     namespaces.sort();
@@ -63,7 +72,7 @@ program
       'COLLECTIONS',
     ])
     for (const namespace of namespaces) {
-      const metadata = getMetadataFromNamespace(namespace);
+      const metadata = getMetadataFromNamespace(namespace, namespaceFilterRules);
       stream.write([
         namespace,
         metadata.product,

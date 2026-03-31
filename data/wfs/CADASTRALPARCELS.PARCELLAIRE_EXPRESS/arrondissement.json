@@ -1,0 +1,30 @@
+{
+  "id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:arrondissement",
+  "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
+  "name": "arrondissement",
+  "title": "PCI Vecteur : Arrondissements",
+  "description": "Arrondissements",
+  "properties": [
+    {
+      "name": "gid",
+      "type": "integer"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "nom_arr",
+      "type": "string"
+    },
+    {
+      "name": "code_arr",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

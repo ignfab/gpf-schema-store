@@ -1,0 +1,210 @@
+{
+  "id": "INSEE.FILOSOFI.INDICATORS:carreaux_200m",
+  "namespace": "INSEE.FILOSOFI.INDICATORS",
+  "name": "carreaux_200m",
+  "title": "Carroyages INSEE",
+  "description": "Carroyages INSEE à 200 m, à 1 km et à la plus grande échelle diffusable ",
+  "properties": [
+    {
+      "name": "id_inspire",
+      "type": "string"
+    },
+    {
+      "name": "ind",
+      "type": "float"
+    },
+    {
+      "name": "depcom",
+      "type": "string"
+    },
+    {
+      "name": "nom_com",
+      "type": "string"
+    },
+    {
+      "name": "men",
+      "type": "float"
+    },
+    {
+      "name": "ind_0_3",
+      "type": "float"
+    },
+    {
+      "name": "ind_4_5",
+      "type": "float"
+    },
+    {
+      "name": "ind_6_10",
+      "type": "float"
+    },
+    {
+      "name": "ind_11_17",
+      "type": "float"
+    },
+    {
+      "name": "ind_25_39",
+      "type": "float"
+    },
+    {
+      "name": "ind_40_54",
+      "type": "float"
+    },
+    {
+      "name": "ind_55_64",
+      "type": "float"
+    },
+    {
+      "name": "ind_65_79",
+      "type": "float"
+    },
+    {
+      "name": "ind_80p",
+      "type": "float"
+    },
+    {
+      "name": "men_5ind",
+      "type": "float"
+    },
+    {
+      "name": "men_1ind",
+      "type": "float"
+    },
+    {
+      "name": "men_prop",
+      "type": "float"
+    },
+    {
+      "name": "men_coll",
+      "type": "float"
+    },
+    {
+      "name": "log_soc",
+      "type": "float"
+    },
+    {
+      "name": "men_surf",
+      "type": "float"
+    },
+    {
+      "name": "log_av45",
+      "type": "float"
+    },
+    {
+      "name": "log_45_70",
+      "type": "float"
+    },
+    {
+      "name": "log_70_90",
+      "type": "float"
+    },
+    {
+      "name": "log_ap90",
+      "type": "float"
+    },
+    {
+      "name": "men_fmp",
+      "type": "float"
+    },
+    {
+      "name": "men_mais",
+      "type": "float"
+    },
+    {
+      "name": "ind_snv",
+      "type": "float"
+    },
+    {
+      "name": "men_pauv",
+      "type": "float"
+    },
+    {
+      "name": "i_car_est",
+      "type": "integer"
+    },
+    {
+      "name": "densite_indx25",
+      "type": "float"
+    },
+    {
+      "name": "ind_snv_div_ind",
+      "type": "float"
+    },
+    {
+      "name": "part_ind_0_17_div_ind",
+      "type": "float"
+    },
+    {
+      "name": "part_ind_65p_div_ind",
+      "type": "float"
+    },
+    {
+      "name": "part_men_coll_div_men",
+      "type": "float"
+    },
+    {
+      "name": "part_log_soc_div_men",
+      "type": "float"
+    },
+    {
+      "name": "part_log_av45_div_men",
+      "type": "float"
+    },
+    {
+      "name": "part_log_ap90_div_men",
+      "type": "float"
+    },
+    {
+      "name": "men_5ind_div_men",
+      "type": "float"
+    },
+    {
+      "name": "men_1ind_div_men",
+      "type": "float"
+    },
+    {
+      "name": "men_prop_div_men",
+      "type": "float"
+    },
+    {
+      "name": "ind_25_39_div_ind",
+      "type": "float"
+    },
+    {
+      "name": "ind_40_54_div_ind",
+      "type": "float"
+    },
+    {
+      "name": "ind_55_64_div_ind",
+      "type": "float"
+    },
+    {
+      "name": "log_45_70_div_men",
+      "type": "float"
+    },
+    {
+      "name": "log_70_90_div_men",
+      "type": "float"
+    },
+    {
+      "name": "men_surf_div_men",
+      "type": "float"
+    },
+    {
+      "name": "men_fmp_div_men",
+      "type": "float"
+    },
+    {
+      "name": "men_mais_div_men",
+      "type": "float"
+    },
+    {
+      "name": "men_pauv_div_men",
+      "type": "float"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -9,6 +9,20 @@ export type CollectionMetadata = {
 }
 
 /**
+ * A rule to assign a metadata to a namespace based on pattern matching as
+ * defined in data/namespace-filters.yaml.
+ */
+export interface NamespaceFilterRule {
+    // the id of the rule (ex : "ignore_bdto_v3")
+    id: string;
+    // the patterns to match against the namespace
+    patterns: string[];
+    // the metadata to assign if the namespace matches the patterns
+    metadata: CollectionMetadata;
+}
+
+
+/**
  * A property of a collection.
  */
 export type CollectionProperty = {
