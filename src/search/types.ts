@@ -2,6 +2,8 @@ import type { Collection } from '../types';
 
 export type CollectionSearchOptions = {
   limit?: number;
+  fields?: string[];
+  combineWith?: 'AND' | 'OR';
 };
 
 export type CollectionSearchMatch = {

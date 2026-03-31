@@ -14,6 +14,7 @@ export type {
   CollectionSearchMatch,
   CollectionSearchOptions,
 } from "./search/types";
+export type { MiniSearchCollectionSearchEngineOptions } from "./search/minisearch-engine";
 export { InMemoryCollectionCatalog } from "./search/catalog";
 export { MiniSearchCollectionSearchEngine } from "./search/minisearch-engine";
 

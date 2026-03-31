@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { getCollectionCatalog } from '../index';
+import { MiniSearchCollectionSearchEngine } from './minisearch-engine';
 import type { CollectionSearchEngine } from './types';
 
 class SingleMatchEngine implements CollectionSearchEngine {
@@ -28,5 +29,17 @@ describe('search regression (real dataset)', () => {
     });
     const ids = overridden.search('ignored').map((collection) => collection.id);
     expect(ids).toEqual(['BDTOPO_V3:batiment']);
+  });
+
+  it('supports custom MiniSearch ranking options via engineFactory', () => {
+    const tuned = getCollectionCatalog({
+      engineFactory: (items) =>
+        new MiniSearchCollectionSearchEngine(items, {
+          fuzzy: 0.1,
+          boost: { title: 4.0 },
+        }),
+    });
+    const ids = tuned.search('bâtiments bdtopo').map((collection) => collection.id);
+    expect(ids).toContain('BDTOPO_V3:batiment');
   });
 });
