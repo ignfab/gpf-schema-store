@@ -3,7 +3,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { Command } from 'commander'
 import { getCollections } from './services/wfs'
-import { writeWfsCollection } from './services/storage'
+import { clearWfsCollections, writeWfsCollection } from './services/storage'
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
 const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8')) as { version: string }
@@ -17,11 +17,19 @@ program
 
 const GPF_WFS_URL = "https://data.geopf.fr/wfs";
 
+// Global safety net: if any Promise rejection escapes command-level handling,
+// keep the process failure status explicit instead of crashing unpredictably.
+process.on('unhandledRejection', () => {
+  process.exitCode = 1
+})
+
 program
   .command('update')
   .description('Update the collections from the GPF WFS (data/wfs/{namespace}/{name}.json)')
   .action(async () => {
     const collections = await getCollections(GPF_WFS_URL);
+    clearWfsCollections();
+    console.log('Cleared data/wfs');
     for ( const collection of collections) {
       writeWfsCollection(collection);
     }
@@ -36,4 +44,8 @@ if (process.argv.slice(2).length === 0) {
   program.help()
 }
 
-program.parse()
+// parseAsync awaits async command handlers; this catch handles rejections
+// returned by Commander and maps them to a non-zero process exit status.
+await program.parseAsync(process.argv).catch(() => {
+  process.exitCode = 1
+})
