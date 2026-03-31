@@ -1,4 +1,14 @@
 /**
+ * The metadata of a namespace.
+ */
+export type CollectionMetadata = {
+    ignored: boolean;
+    ignoredReason?: string;
+    product?: string;
+    // version?: string;    
+}
+
+/**
  * A property of a collection.
  */
 export type CollectionProperty = {

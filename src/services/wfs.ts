@@ -1,25 +1,8 @@
 import type { Collection, CollectionProperty } from '../types.ts';
-import { WfsEndpoint, type WfsFeatureTypeBrief } from '@camptocamp/ogc-client';
+import { WfsEndpoint } from '@camptocamp/ogc-client';
 import { retry } from '../helpers/retry';
+import { getMetadataFromNamespace } from '../helpers/metadata.ts';
 
-/**
- * Filter the feature types to only relevant ones for the schema store.
- *
- * @param featureType The feature type to filter.
- * @returns True if the feature type should be included, false otherwise.
- */
-function filterFeatureType(featureType: WfsFeatureTypeBrief): boolean {
-  if (featureType.name.startsWith('test_')) {
-    console.log(`Skipping test data: ${featureType.name}`);
-    return false;
-  }
-  if (!(featureType.name.startsWith('ADMINEXPRESS-COG') ||
-    (featureType.name.startsWith('BDTOPO_V3') && !featureType.name.startsWith('BDTOPO_V3_DIFF')))) {
-    console.log(`Skip ${featureType.name} (only ADMINEXPRESS-COG and BDTOPO_V3 are supported for a while)`);
-    return false;
-  }
-  return true;
-}
 
 /**
  * Get the collections from a WFS endpoint.
@@ -27,7 +10,8 @@ function filterFeatureType(featureType: WfsFeatureTypeBrief): boolean {
  * @param wfsUrl 
  * @returns The collections.
  */
-export async function getCollections(wfsUrl: string): Promise<Collection[]> {
+export async function getCollections(wfsUrl: string, options: { withProperties: boolean } = { withProperties: true }): Promise<Collection[]> {
+  const { withProperties } = options;
   console.log('Getting collections from', wfsUrl);
   const endpoint = new WfsEndpoint(wfsUrl);
   await retry('wfs.isReady', () => endpoint.isReady());
@@ -35,9 +19,28 @@ export async function getCollections(wfsUrl: string): Promise<Collection[]> {
 
   const featureTypes = await retry('wfs.getFeatureTypes', () => endpoint.getFeatureTypes());
   console.log(`Found ${featureTypes.length} feature types`);
-  for (const featureType of featureTypes.filter(filterFeatureType)) {
+  for (const featureType of featureTypes) {
     console.log(`Processing feature type: ${featureType.name}...`);
     const [namespace, name] = featureType.name.split(':');
+
+    /**
+     * Retrieve the metadata of the collection from its namespace.
+     * If the collection is ignored, skip the DescribeFeatureType
+     * and return a collection with no properties.
+     */
+    const metadata = getMetadataFromNamespace(namespace);
+    if (metadata.ignored || ! withProperties ) {
+      console.log(`Skipping DescribeFeatureType for feature type ${featureType.name} (ignored: ${metadata.ignoredReason})`);
+      collections.push({
+        id: featureType.name,
+        namespace: namespace,
+        name: name,
+        title: featureType.title ?? '',
+        description: featureType.abstract ?? '',
+        properties: []
+      } as Collection);
+      continue;
+    }
 
     /**
      * retrieve the full feature type (with properties)
@@ -68,7 +71,7 @@ export async function getCollections(wfsUrl: string): Promise<Collection[]> {
       name: name,
       title: featureType.title ?? '',
       description: featureType.abstract ?? '',
-      properties: properties,
+      properties: properties
     };
 
     // sleep 100 ms to avoid facing rate limiting...

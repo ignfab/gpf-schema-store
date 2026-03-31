@@ -41,6 +41,14 @@ function resolveDataDir(): string {
  */
 const DATA_DIR = resolveDataDir();
 
+/**
+ * Get the data directory
+ * 
+ * @returns The data directory
+ */
+export function getDataDir(): string {
+    return DATA_DIR;
+}
 
 /**
  * Charge les collections (types WFS) en listant les fichiers JSON sous
