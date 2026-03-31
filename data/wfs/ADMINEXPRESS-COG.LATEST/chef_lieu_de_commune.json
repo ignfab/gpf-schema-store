@@ -1,0 +1,50 @@
+{
+  "id": "ADMINEXPRESS-COG.LATEST:chef_lieu_de_commune",
+  "namespace": "ADMINEXPRESS-COG.LATEST",
+  "name": "chef_lieu_de_commune",
+  "title": "ADMINEXPRESS COG Dernière édition Chef-lieu de commune",
+  "description": "ADMINEXPRESS COG Dernière édition Chef-lieu de commune",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "nom_du_chef_lieu",
+      "type": "string"
+    },
+    {
+      "name": "nom_du_chef_lieu_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_la_commune",
+      "type": "string"
+    },
+    {
+      "name": "lien_vers_la_commune",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_la_commune_siege",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "ADMINEXPRESS-COG.2023:arrondissement_municipal",
+  "namespace": "ADMINEXPRESS-COG.2023",
+  "name": "arrondissement_municipal",
+  "title": "ADMINEXPRESS COG 2023 Arrondissement municipal",
+  "description": "ADMINEXPRESS COG 2023 Arrondissement municipal",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom",
+      "type": "string"
+    },
+    {
+      "name": "nom_m",
+      "type": "string"
+    },
+    {
+      "name": "insee_arm",
+      "type": "string"
+    },
+    {
+      "name": "insee_com",
+      "type": "string"
+    },
+    {
+      "name": "population",
+      "type": "integer"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "ADMINEXPRESS-COG.2020:arrondissement_departemental",
+  "namespace": "ADMINEXPRESS-COG.2020",
+  "name": "arrondissement_departemental",
+  "title": "ADMINEXPRESS COG 2020 Arrondissement départemental",
+  "description": "ADMINEXPRESS COG 2020 Arrondissement départemental",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "insee_arr",
+      "type": "string"
+    },
+    {
+      "name": "insee_dep",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "chf_arr",
+      "type": "string"
+    },
+    {
+      "name": "nom_arr_m",
+      "type": "string"
+    },
+    {
+      "name": "nom_arr",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

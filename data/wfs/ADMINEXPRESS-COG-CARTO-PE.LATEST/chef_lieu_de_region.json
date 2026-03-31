@@ -1,0 +1,46 @@
+{
+  "id": "ADMINEXPRESS-COG-CARTO-PE.LATEST:chef_lieu_de_region",
+  "namespace": "ADMINEXPRESS-COG-CARTO-PE.LATEST",
+  "name": "chef_lieu_de_region",
+  "title": "ADMINEXPRESS COG CARTO PE Dernière édition Chef-lieu de Région",
+  "description": "ADMINEXPRESS COG CARTO PE Dernière édition Chef-lieu de Région",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "nom_du_chef_lieu",
+      "type": "string"
+    },
+    {
+      "name": "nom_du_chef_lieu_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "lien_vers_la_region",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

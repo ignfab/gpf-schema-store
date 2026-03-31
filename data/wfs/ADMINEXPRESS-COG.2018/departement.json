@@ -1,0 +1,30 @@
+{
+  "id": "ADMINEXPRESS-COG.2018:departement",
+  "namespace": "ADMINEXPRESS-COG.2018",
+  "name": "departement",
+  "title": "ADMINEXPRESS COG 2018 Département",
+  "description": "ADMINEXPRESS COG 2018 Département",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom_dep",
+      "type": "string"
+    },
+    {
+      "name": "insee_dep",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "BDTOPO_V3:pylone",
+  "namespace": "BDTOPO_V3",
+  "name": "pylone",
+  "title": "BDTOPO : Pylônes",
+  "description": "Pylônes − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "etat_de_l_objet",
+      "type": "string"
+    },
+    {
+      "name": "numero",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "sources",
+      "type": "string"
+    },
+    {
+      "name": "identifiants_sources",
+      "type": "string"
+    },
+    {
+      "name": "methode_d_acquisition_planimetrique",
+      "type": "string"
+    },
+    {
+      "name": "precision_planimetrique",
+      "type": "float"
+    },
+    {
+      "name": "methode_d_acquisition_altimetrique",
+      "type": "string"
+    },
+    {
+      "name": "precision_altimetrique",
+      "type": "float"
+    },
+    {
+      "name": "hauteur",
+      "type": "float"
+    },
+    {
+      "name": "geometrie",
+      "type": "point",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

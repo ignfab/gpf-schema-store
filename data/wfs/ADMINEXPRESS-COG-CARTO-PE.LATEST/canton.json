@@ -1,0 +1,46 @@
+{
+  "id": "ADMINEXPRESS-COG-CARTO-PE.LATEST:canton",
+  "namespace": "ADMINEXPRESS-COG-CARTO-PE.LATEST",
+  "name": "canton",
+  "title": "ADMINEXPRESS COG CARTO PE Dernière édition Canton",
+  "description": "ADMINEXPRESS COG CARTO PE Dernière édition Canton",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "numero_du_canton",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "codes_insee_des_arrondissements",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_du_departement",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_la_region",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

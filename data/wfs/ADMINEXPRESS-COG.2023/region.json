@@ -1,0 +1,30 @@
+{
+  "id": "ADMINEXPRESS-COG.2023:region",
+  "namespace": "ADMINEXPRESS-COG.2023",
+  "name": "region",
+  "title": "ADMINEXPRESS COG 2023 Région",
+  "description": "ADMINEXPRESS COG 2023 Région",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "nom_m",
+      "type": "string"
+    },
+    {
+      "name": "nom",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

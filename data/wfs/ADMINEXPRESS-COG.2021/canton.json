@@ -1,0 +1,34 @@
+{
+  "id": "ADMINEXPRESS-COG.2021:canton",
+  "namespace": "ADMINEXPRESS-COG.2021",
+  "name": "canton",
+  "title": "ADMINEXPRESS COG 2021 Canton",
+  "description": "ADMINEXPRESS COG 2021 Canton",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "insee_can",
+      "type": "string"
+    },
+    {
+      "name": "insee_arr",
+      "type": "string"
+    },
+    {
+      "name": "insee_dep",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

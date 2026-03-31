@@ -1,0 +1,30 @@
+{
+  "id": "ADMINEXPRESS-COG.2018:arrondissement_departemental",
+  "namespace": "ADMINEXPRESS-COG.2018",
+  "name": "arrondissement_departemental",
+  "title": "ADMINEXPRESS COG 2018 Arrondissement départemental",
+  "description": "ADMINEXPRESS COG 2018 Arrondissement départemental",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "insee_arr",
+      "type": "string"
+    },
+    {
+      "name": "insee_dep",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

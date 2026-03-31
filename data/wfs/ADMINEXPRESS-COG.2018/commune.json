@@ -1,0 +1,62 @@
+{
+  "id": "ADMINEXPRESS-COG.2018:commune",
+  "namespace": "ADMINEXPRESS-COG.2018",
+  "name": "commune",
+  "title": "ADMINEXPRESS COG 2018 Commune",
+  "description": "ADMINEXPRESS COG 2018 Commune",
+  "properties": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "statut",
+      "type": "string"
+    },
+    {
+      "name": "insee_com",
+      "type": "string"
+    },
+    {
+      "name": "nom_com",
+      "type": "string"
+    },
+    {
+      "name": "insee_arr",
+      "type": "string"
+    },
+    {
+      "name": "nom_dep",
+      "type": "string"
+    },
+    {
+      "name": "insee_dep",
+      "type": "string"
+    },
+    {
+      "name": "nom_reg",
+      "type": "string"
+    },
+    {
+      "name": "insee_reg",
+      "type": "string"
+    },
+    {
+      "name": "code_epci",
+      "type": "string"
+    },
+    {
+      "name": "nom_com_m",
+      "type": "string"
+    },
+    {
+      "name": "population",
+      "type": "integer"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

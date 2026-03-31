@@ -1,0 +1,58 @@
+{
+  "id": "BDTOPO_V3:epci",
+  "namespace": "BDTOPO_V3",
+  "name": "epci",
+  "title": "BDTOPO : EPCI",
+  "description": "EPCI − BDTOPO® V3 2025-12-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "date_creation",
+      "type": "string"
+    },
+    {
+      "name": "date_modification",
+      "type": "string"
+    },
+    {
+      "name": "date_d_apparition",
+      "type": "string"
+    },
+    {
+      "name": "date_de_confirmation",
+      "type": "string"
+    },
+    {
+      "name": "codes_insee_des_communes_membres",
+      "type": "string"
+    },
+    {
+      "name": "codes_insee_des_departements_membres",
+      "type": "string"
+    },
+    {
+      "name": "liens_vers_autorite_administrative",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

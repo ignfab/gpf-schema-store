@@ -1,0 +1,38 @@
+{
+  "id": "ADMINEXPRESS-COG-CARTO-PE.LATEST:departement",
+  "namespace": "ADMINEXPRESS-COG-CARTO-PE.LATEST",
+  "name": "departement",
+  "title": "ADMINEXPRESS COG CARTO PE Dernière édition Département",
+  "description": "ADMINEXPRESS COG CARTO PE Dernière édition Département",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel",
+      "type": "string"
+    },
+    {
+      "name": "nom_officiel_en_majuscules",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_la_region",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}
