@@ -19,15 +19,26 @@ When merged with `data/overwrites`, title and description are overwriten when av
 
 ## Usage
 
-### Scrap data
+### Build
 
 ```bash
 npm install
 npm run build
-# build src/data/gpf-collections.json
+```
+
+### Scrap data
+
+```bash
+# download data/wfs/{namespace}/{name}.json
 npx gpf-schema-store update
 ```
 
+### Explore namespaces
+
+```bash
+# generate data/namespaces.csv
+npx gpf-schema-store update
+```
 
 ## License
 
