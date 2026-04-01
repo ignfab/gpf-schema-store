@@ -7,7 +7,7 @@ import { Command } from 'commander'
 import { format } from '@fast-csv/format';
 
 import { getCollections } from './services/wfs'
-import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilters, loadCollections, getOverwrite } from './services/storage'
+import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilters, loadWfsCollections, getOverwrite } from './services/storage'
 import { getMetadataFromNamespace } from './helpers/metadata'
 import { compare } from './helpers/compare';
 
@@ -50,12 +50,12 @@ program
 
 program
   .command('check-overwrites')
-  .description('Ensure that overwrites are in sync with the WFS endpoint')
+  .description('Ensure that overwrites are in sync with local WFS snapshots (data/wfs)')
   .action(async () => {
-    // load collections from data/wfs and check that they are in sync with the WFS endpoint
-    console.log('Loading collections from data/wfs...');
-    const collections = loadCollections();
-    console.log(`${collections.length} collections loaded from data/wfs.`);
+    // load raw collections from data/wfs and compare them with data/overwrites
+    console.log('Loading local WFS snapshots from data/wfs...');
+    const collections = loadWfsCollections();
+    console.log(`${collections.length} local WFS collections loaded from data/wfs.`);
 
     let countDifferences = 0;
 
@@ -68,10 +68,10 @@ program
 
       const differences = compare(collection, overwrite);
       if ( differences.length == 0 ){
-        console.log(`[${collection.id}] OK (no difference between WFS and overwrite)`);
+        console.log(`[${collection.id}] OK (no difference between local WFS and overwrite)`);
       }else{
         countDifferences += differences.length
-        console.error(`[${collection.id}] KO (differences between WFS and overwrite) :`);
+        console.error(`[${collection.id}] KO (differences between local WFS and overwrite) :`);
         for (const difference of differences) {
           console.error(`[${collection.id}] - ${difference}`);
         }
@@ -79,10 +79,10 @@ program
     }
 
     if (countDifferences > 0) {
-      console.error(`Failure : Found ${countDifferences} differences between WFS and overwrites. Please update the overwrites to match the WFS collections.`);
+      console.error(`Failure : Found ${countDifferences} differences between local WFS snapshots and overwrites. Please update the overwrites to match data/wfs collections.`);
       process.exitCode = 1;
     }else{
-      console.log('Success : No difference found between WFS and overwrites.');
+      console.log('Success : No difference found between local WFS snapshots and overwrites.');
     }
   })
 

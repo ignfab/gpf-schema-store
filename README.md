@@ -42,6 +42,15 @@ Fetch WFS schemas from GPF, apply namespace filtering rules from `data/namespace
 npx gpf-schema-store update
 ```
 
+### Check local overwrites
+
+Compare local WFS snapshots stored in `data/wfs` with local overwrite files in `data/overwrites`.
+
+```bash
+# check that overwrites are aligned with local snapshots in data/wfs
+npx gpf-schema-store check-overwrites
+```
+
 ### Generate namespace report
 
 Generate `data/namespaces.csv` to review every discovered namespace, its computed metadata (`product`, `ignored`, `ignoredReason`), and its collections.

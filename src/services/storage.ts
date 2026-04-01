@@ -67,12 +67,12 @@ export function getNamespaceFilters(): NamespaceFilterRule[] {
 }
 
 /**
- * Charge les collections (types WFS) en listant les fichiers JSON sous
+ * Charge les collections WFS brutes en listant les fichiers JSON sous
  * `data/wfs/{namespace}/*.json`.
  *
  * @returns Les collections lues depuis le disque
  */
-export function loadCollections(): Collection[] {
+export function loadWfsCollections(): Collection[] {
     const wfsRoot = join(DATA_DIR, "wfs");
     if (!existsSync(wfsRoot)) {
         throw new Error(`Could not load collections: ${wfsRoot} does not exist`);
@@ -98,6 +98,17 @@ export function loadCollections(): Collection[] {
             );
         }
     }
+
+    return collections;
+}
+
+/**
+ * Load collections from data/wfs and apply optional overwrites from data/overwrites.
+ *
+ * @returns Collections with overwrite fields merged when available.
+ */
+export function loadCollections(): Collection[] {
+    const collections = loadWfsCollections();
 
     // apply the overwrites to the collections
     const overwritenCollections = collections.map((c) => {
