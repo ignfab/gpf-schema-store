@@ -24,9 +24,6 @@ describe('getCollections retries', () => {
   beforeEach(() => {
     vi.useFakeTimers()
     vi.spyOn(Math, 'random').mockReturnValue(0)
-    vi.spyOn(console, 'log').mockImplementation(() => {})
-    vi.spyOn(console, 'warn').mockImplementation(() => {})
-    vi.spyOn(console, 'error').mockImplementation(() => {})
     endpointMocks.isReady.mockReset()
     endpointMocks.getFeatureTypes.mockReset()
     endpointMocks.getFeatureTypeFull.mockReset()

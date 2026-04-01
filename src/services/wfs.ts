@@ -1,3 +1,6 @@
+import {debuglog} from 'node:util';
+const debug = debuglog('gpf-schema-store:wfs');
+
 import type { Collection, CollectionProperty, NamespaceFilterRule } from '../types.ts';
 import { WfsEndpoint } from '@camptocamp/ogc-client';
 import { retry } from '../helpers/retry';
@@ -31,15 +34,15 @@ export async function getCollections(
   const withProperties = options.withProperties ?? true;
   const namespaceFilterRules = options.namespaceFilterRules ?? [DEFAULT_MATCHING_RULE];
 
-  console.log('Getting collections from', wfsUrl);
+  debug(`Getting collections from ${wfsUrl} (GetCapabilities)...`);
   const endpoint = new WfsEndpoint(wfsUrl);
   await retry('wfs.isReady', () => endpoint.isReady());
   const collections: Collection[] = [];
 
   const featureTypes = await retry('wfs.getFeatureTypes', () => endpoint.getFeatureTypes());
-  console.log(`Found ${featureTypes.length} feature types`);
+  debug(`Found ${featureTypes.length} feature types`);
   for (const featureType of featureTypes) {
-    console.log(`Processing feature type: ${featureType.name}...`);
+    debug(`Extract namespace and name for ${featureType.name}...`);
     const [namespace, name] = featureType.name.split(':');
 
     /**
@@ -49,7 +52,7 @@ export async function getCollections(
      */
     const metadata = getMetadataFromNamespace(namespace, namespaceFilterRules);
     if (metadata.ignored || !withProperties) {
-      console.log(`Skipping DescribeFeatureType for feature type ${featureType.name} (ignored: ${metadata.ignoredReason})`);
+      debug(`Skipping DescribeFeatureType for feature type ${featureType.name} (ignored: ${metadata.ignoredReason})`);
       collections.push({
         id: featureType.name,
         namespace: namespace,
