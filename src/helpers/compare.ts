@@ -7,7 +7,10 @@ import type { Collection } from "..";
  * @param overwrite The collection from data/overwrite
  * @returns 
  */
-export function compare(original: Collection, overwrite: Collection): string[] {
+export function compare(original: Collection, overwrite?: Collection|null): string[] {
+    if (!overwrite) {
+        return [];
+    }
     const originalNames = new Set(original.properties.map((p) => p.name))
     const overwriteNames = new Set(overwrite.properties.map((p) => p.name))
     const onlyInOriginal = [...originalNames].filter((n) => !overwriteNames.has(n))

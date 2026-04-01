@@ -15,6 +15,11 @@ const base: Collection = {
 }
 
 describe('compare', () => {
+
+  it('returns an empty list when overwrite is undefined', () => {
+    expect(compare(base, undefined)).toEqual([])
+  });
+
   it('returns an empty list when property sets are identical', () => {
     const overwrite: Collection = {
       ...base,

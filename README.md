@@ -35,6 +35,14 @@ npm run build
 npx gpf-schema-store update
 ```
 
+### Check overwrites
+
+```bash
+# check property consistency between data/wfs and data/overwrite 
+npx gpf-schema-store check-overwrites
+```
+
+
 ### Explore namespaces
 
 ```bash
