@@ -9,7 +9,6 @@ import { format } from '@fast-csv/format';
 import { getCollections } from './services/wfs'
 import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilters, loadCollections, getOverwrite } from './services/storage'
 import { getMetadataFromNamespace } from './helpers/metadata'
-import { diff } from 'node:util';
 import { compare } from './helpers/compare';
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
