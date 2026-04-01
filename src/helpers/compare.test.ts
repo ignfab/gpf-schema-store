@@ -34,7 +34,7 @@ describe('compare', () => {
     }
 
     expect(compare(base, overwrite)).toEqual([
-      '"name" missing in overwrite',
+      'Property "name" missing in overwrite',
     ])
   })
 
