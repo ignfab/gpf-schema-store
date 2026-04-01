@@ -1,6 +1,6 @@
 # gpf-schema-store
 
-> Work in progress (see [ROADMAP](/wiki))
+> Work in progress (see [ROADMAP](https://github.com/ignfab/gpf-schema-store/wiki))
 
 **Non official / experimental** implementation of [OGC API Features - schema](https://portal.ogc.org/files/108199) by enriching information from the Geoplateforme WFS to ease data discovery by AI (and humans).
 
