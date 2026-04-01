@@ -1,0 +1,70 @@
+{
+  "id": "BDCARTO_V5:surface_hydrographique",
+  "namespace": "BDCARTO_V5",
+  "name": "surface_hydrographique",
+  "title": "BD CARTO® Surfaces hydrographiques",
+  "description": "Surfaces hydrographiques - BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "etat_de_l_objet",
+      "type": "string"
+    },
+    {
+      "name": "code_hydrographique",
+      "type": "string"
+    },
+    {
+      "name": "code_du_pays",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "position_par_rapport_au_sol",
+      "type": "string"
+    },
+    {
+      "name": "statut",
+      "type": "string"
+    },
+    {
+      "name": "persistance",
+      "type": "string"
+    },
+    {
+      "name": "salinite",
+      "type": "boolean"
+    },
+    {
+      "name": "origine",
+      "type": "string"
+    },
+    {
+      "name": "cpx_toponyme_de_plan_d_eau",
+      "type": "string"
+    },
+    {
+      "name": "cpx_toponyme_d_entite_de_transition",
+      "type": "string"
+    },
+    {
+      "name": "liens_vers_plan_d_eau",
+      "type": "string"
+    },
+    {
+      "name": "lien_vers_entite_de_transition",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

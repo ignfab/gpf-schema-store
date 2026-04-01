@@ -1,0 +1,34 @@
+{
+  "id": "BDCARTO_V5:parc_ou_reserve",
+  "namespace": "BDCARTO_V5",
+  "name": "parc_ou_reserve",
+  "title": "BD CARTO® Parcs ou réserves",
+  "description": "Parcs ou réserves - BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "fictif",
+      "type": "boolean"
+    },
+    {
+      "name": "toponyme",
+      "type": "string"
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:localisant",
+  "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
+  "name": "localisant",
+  "title": "PCI Vecteur : Localisants",
+  "description": "Localisants",
+  "properties": [
+    {
+      "name": "gid",
+      "type": "integer"
+    },
+    {
+      "name": "numero",
+      "type": "string"
+    },
+    {
+      "name": "feuille",
+      "type": "integer"
+    },
+    {
+      "name": "section",
+      "type": "string"
+    },
+    {
+      "name": "code_dep",
+      "type": "string"
+    },
+    {
+      "name": "nom_com",
+      "type": "string"
+    },
+    {
+      "name": "code_com",
+      "type": "string"
+    },
+    {
+      "name": "com_abs",
+      "type": "string"
+    },
+    {
+      "name": "code_arr",
+      "type": "string"
+    },
+    {
+      "name": "idu",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipoint",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:subdivision_fiscale",
+  "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
+  "name": "subdivision_fiscale",
+  "title": "PCI Vecteur : Subdivisions fiscales",
+  "description": "Subdivisions fiscales",
+  "properties": [
+    {
+      "name": "gid",
+      "type": "integer"
+    },
+    {
+      "name": "idu_parcel",
+      "type": "string"
+    },
+    {
+      "name": "lettre",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

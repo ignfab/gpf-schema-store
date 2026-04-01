@@ -1,0 +1,26 @@
+{
+  "id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_parcelle",
+  "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
+  "name": "borne_parcelle",
+  "title": "PCI Vecteur : Lien bornes parcelles",
+  "description": "Lien bornes parcelles",
+  "properties": [
+    {
+      "name": "gid",
+      "type": "integer"
+    },
+    {
+      "name": "id_borne",
+      "type": "string"
+    },
+    {
+      "name": "idu_parcel",
+      "type": "string"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

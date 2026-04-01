@@ -1,0 +1,34 @@
+{
+  "id": "BDCARTO_V5:cimetiere",
+  "namespace": "BDCARTO_V5",
+  "name": "cimetiere",
+  "title": "BD CARTO® Cimetières",
+  "description": "Cimetières -BD CARTO® V5 2025-09-15",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "nature",
+      "type": "string"
+    },
+    {
+      "name": "nature_detaillee",
+      "type": "string"
+    },
+    {
+      "name": "toponyme",
+      "type": "string"
+    },
+    {
+      "name": "statut_du_toponyme",
+      "type": "string"
+    },
+    {
+      "name": "geometrie",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

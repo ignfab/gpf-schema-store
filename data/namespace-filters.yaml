@@ -1,0 +1,525 @@
+# Namespace filtering and product assignment rules
+# Rules are evaluated in definition order (top to bottom)
+# First matching rule wins
+#
+# Pattern matching:
+# - No wildcards (*) = exact match
+# - With wildcards (*) = glob pattern (e.g., "ORTHOIMAGERY.*" matches "ORTHOIMAGERY.anything")
+#
+# Supported patterns:
+#   - "exact_namespace" → matches exactly this namespace
+#   - "prefix.*" → matches anything starting with "prefix."
+#   - "prefix_*" → matches anything starting with "prefix_"
+#   - "*_suffix" → matches anything ending with "_suffix"
+#   - "*middle*" → matches anything containing "middle"
+
+rules:
+  # ============================================================================
+  # BDTOPO & BDCARTO
+  # ============================================================================
+  - id: bdtopo_v3
+    patterns:
+      - BDTOPO_V3
+    metadata:
+      ignored: false
+      product: BDTOPO_V3
+
+  - id: bdtopo_v3_diff
+    patterns:
+      - BDTOPO_V3_DIFF
+    metadata:
+      ignored: true
+      ignoredReason: Historical data
+      product: BDTOPO_V3_DIFF
+
+  - id: bdcarto_v5
+    patterns:
+      - BDCARTO_V5
+    metadata:
+      ignored: false
+      product: BDCARTO_V5
+
+  # ============================================================================
+  # Non-Spatial Datasets
+  # ============================================================================
+  - id: non_spatial_datasets
+    patterns:
+      - BDTOPO.EXTENSION.NOM_USUEL
+    metadata:
+      ignored: true
+      ignoredReason: Non-spatial dataset
+
+  # ============================================================================
+  # Test & Development Data
+  # ============================================================================
+  - id: test_namespaces_explicit
+    patterns:
+      - route500logoqgis
+      - vflorent__vecteur_wfs_bdd
+      - voeux_wfs
+      - voeux2026
+      - masseeausouterraine972_wfs
+      - monterritoire_gpkg_29-07-2025_wfs
+      - n_dfci_zone_regl_s_034_zip_03-02-2026_wfs
+      - n_zone_reg_pprn_20180013_s_072_gpkg_05-11-2025_wfs
+      - pat_r84_nov2025_gpkg_2026-02-10_wfs
+      - pnrvn_gpkg_27-06-2025_wfs
+      - projet_iqp_2025_gpkg_12-03-2026_wfs
+      - projets_zones_acceleration_energies_renouvelables_zaer_wfs
+      - ramsar-wfs
+      - unesco_pelee_wfs
+      - sentiers_pag_gpkg_30-01-2026_wfs
+      - site_guadeloupe_martinique_gpkg_26-01-2026_wfs
+      - sites_guyane_gpkg_26-01-2026_wfs
+      - sites_metropole_gpkg_26-01-2026_wfs
+      - sites_reunion_gpkg_26-01-2026_wfs
+      - trichls_s_d51_gpkg_07-10-2024_wfs
+      - trichlscomm_s_d51_gpkg_07-10-2024_wfs
+      - trichlsetamt_s_d51_gpkg_07-10-2024_wfs
+      - zdh_87_gpkg_15-01-2025_wfs
+      - zonealertesecheresse972_gpkg_27-09-2024_wfs
+      - zppa_cvl_executoire_2025_gpkg_06-03-2026_wfs
+      - ZZZ_INAO_LaCiotat
+      - aeag-rwbody-sdage2022
+      - carr_10km_gpkg_24-10-2024_wfs
+      - carr_1km_zip_24-10-2024_wfs
+      - carr_200m_zip_24-10-2024_wfs
+      - Bacquelot__vecteur_wfs_bdd
+      - cavp_zae_zip_03-02-2026_wfs
+      - charbo_gpkg_30-10-2025_wfs
+      - commune_d34OPenIG_gpkg_26-03-2025_wfs
+      - communes_972
+      - cosia_032_aubiet
+      - dgac_peb_arrete_wfs
+      - dgac_psa_arrete_wfs
+      - l_rgc_l_008_20-02-2026_wfs
+      - l_rgc_l_008_gpkg_20-02-2026_wfs
+      - lls_wfs
+      - igngpf_4902_20260309_tables_sans_tirets
+      - OCS-BFC_2017_BDD_WLD_WM_WFS_23-07-2021
+    metadata:
+      ignored: true
+      ignoredReason: Test data
+
+  - id: test_namespaces_pattern
+    patterns:
+      - test_*
+      - "*_test_*"
+      - "*_test"
+    metadata:
+      ignored: true
+      ignoredReason: Test data
+
+  - id: test_namespaces_local
+    patterns:
+      - FAYL_PCRS_vecteur_wfs_public
+      - OCS-GERS_BDD_LAMB93_2016
+      - OCS-GERS_BDD_LAMB93_2019
+      - MasseEauTransition972_wfs
+    metadata:
+      ignored: true
+      ignoredReason: Test data
+
+  # ============================================================================
+  # Image Index Datasets
+  # ============================================================================
+  - id: image_index_lidar
+    patterns:
+      - IGNF_MNH-LIDAR-HD
+      - IGNF_MNS-LIDAR-HD
+      - IGNF_MNT-LIDAR-HD
+      - IGNF_NUAGES-DE-POINTS-LIDAR-HD
+    metadata:
+      ignored: true
+      ignoredReason: Image index dataset
+
+  - id: image_index_geographic_grids
+    patterns:
+      - GEOGRAPHICALGRIDSYSTEM.DFCI
+      - GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN25.GRAPHE-MOSAIQUAGE
+      - GEOGRAPHICALGRIDSYSTEMS.MAPS.SCAN50.1950.GRAPHE
+      - cartes
+      - cartes_test
+      - cartes_anciennes
+      - pva
+      - GRAPHE.PCRS.ANCT
+    metadata:
+      ignored: true
+      ignoredReason: Image index dataset
+
+  - id: image_index_pattern
+    patterns:
+      - ORTHOIMAGERY.*
+    metadata:
+      ignored: true
+      ignoredReason: Image index dataset
+      product: ORTHOIMAGERY
+
+  # ============================================================================
+  # AOC Viticoles
+  # ============================================================================
+  - id: aoc_viticoles
+    patterns:
+      - AOC-VITICOLES
+    metadata:
+      product: AOC
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  # ============================================================================
+  # POI and ZAI
+  # ============================================================================
+  - id: poi_zai_datasets
+    patterns:
+      - PARKING.SUP.500
+      - POI.CULTURE_LOISIRS
+      - UTILIYANDGOVERNMENTALSERVICES.IGN.POI.GARES
+      - GARES_BDD_FXX_WM_20171227
+      - UTILIYANDGOVERNMENTALSERVICES.IGN.POI.SANTE
+      - LABELS.TOURISTIQUES
+    metadata:
+      product: POI_ZAI
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  # ============================================================================
+  # Elevation Datasets
+  # ============================================================================
+  - id: elevation_datasets
+    patterns:
+      - ELEVATION.CONTOUR.LINE
+      - ELEVATIONGRIDCOVERAGE.HIGHRES.QUALITY
+    metadata:
+      product: Elevation
+      ignored: true
+      ignoredReason: In use via almimetry service
+
+  # ============================================================================
+  # IRIS and Statistical Units
+  # ============================================================================
+  - id: iris_datasets
+    patterns:
+      - STATISTICALUNITS.IRIS
+      - STATISTICALUNITS.IRIS.PE
+      - STATISTICALUNITS.IRISGE
+    metadata:
+      ignored: false
+      product: IRIS
+
+  # ============================================================================
+  # FILOSOFI Datasets
+  # ============================================================================
+  - id: filosofi_datasets
+    patterns:
+      - INSEE.FILOSOFI.INDICATORS
+    metadata:
+      ignored: false
+      product: FILOSOFI
+
+  # ============================================================================
+  # No Use Case Datasets
+  # ============================================================================
+  - id: no_use_case_prsf
+    patterns:
+      - PROTECTEDAREAS.PRSF
+      - PRSF_BDD_GLP_2023
+      - PRSF_BDD_GUF_2023
+      - PRSF_BDD_REU_2023
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  - id: no_use_case_paec
+    patterns:
+      - paec_bfc_2023
+      - paec_bfc_2024
+      - paec_bfc_2025
+      - potentiel_agronomique_CCC
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  - id: no_use_case_vigicrues
+    patterns:
+      - VIGICRUES
+      - VIGICRUES-INT
+      - VIGICRUES-QUA
+      - VIGICRUES-QUA-2023
+      - VIGICRUES_STATIONS_BDD_WLD_WM_2023-v1
+      - VIGICRUES_TERRITOIRES_BDD_WLD_WM_2023-v1
+      - VIGICRUES_TRONCONS_BDD_WLD_WM_2023-v1
+      - VIGINOND-DIFFUSION
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  - id: no_use_case_geodesie
+    patterns:
+      - GEODESIE
+      - IGNF_GEODESIE
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  - id: no_use_case_conservatoire_littoral
+    patterns:
+      - CONSERVATOIRE_LITTORAL.PARCELLES
+      - CONSERVATOIRE_LITTORAL.PERIMETRES
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  - id: no_use_case_obsforets
+    patterns:
+      - ObsForets.Gestion
+      - ObsForets.Ressources
+      - ObsForets.Ressources.TxBoisement
+      - ObsForets.Sols
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  - id: no_use_case_forets_subnaturelles
+    patterns:
+      - ZONES-A-PROSPECTER-FORETS-SUBNATURELLES
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  - id: no_use_case_dgcl
+    patterns:
+      - DGCL.2025
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  - id: no_use_case_bdcarto_etat_major
+    patterns:
+      - BDCARTO_ETAT-MAJOR.*
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+      product: BDCARTO_ETAT-MAJOR
+
+  # ============================================================================
+  # Administrative Boundaries
+  # ============================================================================
+  - id: limites_administratives_express
+    patterns:
+      - LIMITES_ADMINISTRATIVES_EXPRESS.*
+    metadata:
+      ignored: true
+      product: LIMITES_ADMINISTRATIVES_EXPRESS
+      ignoredReason: Using ADMINEXRESS-COG instead
+
+  - id: adminexpress_cog
+    patterns:
+      - ADMINEXPRESS-COG.*
+    metadata:
+      ignored: false
+      product: ADMINEXPRESS-COG
+
+  - id: adminexpress_cog_carto
+    patterns:
+      - ADMINEXPRESS-COG-CARTO-PE.*
+      - ADMINEXPRESS-COG-CARTO.*
+      - ADMINEXPRESS_COG_2018_CARTO
+    metadata:
+      ignored: true
+      product: ADMINEXPRESS-COG-CARTO-PE
+      ignoredReason: Using ADMINEXPRESS-COG instead
+
+  # ============================================================================
+  # Geocoding Services
+  # ============================================================================
+  - id: ban_datasets
+    patterns:
+      - BAN-PLUS
+      - BAN.DATA.GOUV
+    metadata:
+      ignored: true
+      ignoredReason: Using geocoding service in the MCP
+      product: "BAN"
+
+  # ============================================================================
+  # Cadastre
+  # ============================================================================
+
+  - id: cadastral_parcels
+    patterns:
+      - CADASTRALPARCELS.PARCELLAIRE_EXPRESS
+    metadata:
+      ignored: false
+      product: CADASTRE
+
+  - id: cadastral_parcels_ignored
+    patterns:
+      - CADASTRALPARCELS.*
+    metadata:
+      ignored: true
+      ignoredReason: Ignore other CADASTRALPARCELS datasets, using only PARCELLAIRE_EXPRESS for the MCP
+      product: CADASTRE
+
+  - id: bdparcellaire_deprecated
+    patterns:
+      - BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G*
+    metadata:
+      ignored: true
+      ignoredReason: Deprecated dataset, using CADASTRALPARCELS.PARCELLAIRE_EXPRESS instead
+      product: BDPARCELLAIRE
+
+
+  # ============================================================================
+  # Outdated Datasets
+  # ============================================================================
+  - id: outdated_datasets
+    patterns:
+      - SANTE_BDD_SYMBO_FXX_WM_20171227
+      - CGET_QP_BDD_WLD_WM_20160412
+    metadata:
+      ignored: true
+      ignoredReason: Outdated dataset
+
+  # ============================================================================
+  # RPG Datasets
+  # ============================================================================
+  - id: rpg_datasets
+    patterns:
+      - RPG.*
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+      product: RPG
+
+  # ============================================================================
+  # Geoportail Urbanisme
+  # ============================================================================
+  - id: gpu_datasets
+    patterns:
+      - wfs_du
+      - wfs_scot
+      - wfs_sup
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for schema integration from IGNF/validator-config-cnig
+      product: GPU
+
+  # ============================================================================
+  # Patrinat
+  # ============================================================================
+  - id: patrinat_datasets
+    patterns:
+      - patrinat_*
+    metadata:
+      product: PATRINAT
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+
+  # ============================================================================
+  # LANDCOVER
+  # ============================================================================
+  - id: landcover_datasets
+    patterns:
+      - LANDCOVER.*
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+      product: LANDCOVER
+
+  # ============================================================================
+  # Ecoregions
+  # ============================================================================
+  - id: ecoregions_kept
+    patterns:
+      - ecoregions
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+      product: ecoregions
+
+  - id: ecoregions_ignored
+    patterns:
+      - pays_ecoregions
+    metadata:
+      ignored: true
+      ignoredReason: Duplicate dataset (ecoregions) 
+      product: pays_ecoregions
+
+  - id: carhab_datasets
+    patterns:
+      - Carhab_habitat
+      - Carhab_habitat_Reunion
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+      product: CARHAB
+
+  - id: er_datasets
+    patterns:
+      - espace_revendeurs
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+      product: ESPACE_REVENDEURS
+
+  # ============================================================================
+  # Other Namespaces with No Clear Product Assignment
+  # ============================================================================
+  - id: other_known_datasets
+    patterns:
+      - AREAMANAGEMENT.QP.VECTOR
+      - AREAMANAGEMENT.ZFU.VECTOR
+      - AREAMANAGEMENT.ZUS.VECTOR
+      - BDFORETV1_BDD_FXX_LAMB93_20140403
+      - COMMUNES.EPCISANSFISCALITEPROPRE
+      - DEBROUSSAILLEMENT
+      - DGAC-PGS-POI_BDD_FXX_WM
+      - DGAC-PGS_BDD_FXX_WM
+      - DREAL.ZONAGE_PINEL
+      - HAIES.BOCAGES
+      - HYDROGRAPHY.BCAE.LATEST
+      - IGNF_ACCESSIBILITE-PHYSIQUE-FORETS-
+      - IGNF_ACCESSIBILITE-PHYSIQUE-FORETS-MASQUE-FORETV3
+      - IGNF_BD-FRANCE-TOPO-VEGETATION
+      - IGNF_CARTO-FORMATIONS-VEGETALES_2016
+      - IGNF_CARTO-FORMATIONS-VEGETALES_2017
+      - IGNF_CARTO-FORMATIONS-VEGETALES_2023
+      - IGNF_MASQUE-FORET.2021-2023
+      - IGNF_RPG_PARCELLES-AGRICOLES-CATEGORISEES_2024
+      - IGNF_RPG_PARCELLES-ELIGIBLES-IAE
+      - IGNF_RPG_PRAIRIES-PERMANENTES_2024
+      - IGNF_RPG_ZONES-DENSITE-HOMOGENE_2024
+      - INPE
+      - INRA.CARTE.SOLS
+      - MESURES_COMPENSATOIRES
+      - NAVIFOREST_PUBLIC
+      - OFB.ZONES.EXCLUES
+      - OFB.ZONES.NECESSITANT.AVIS.GESTIONNAIRE
+      - OFB_ZONES.EXCLUES.SAUF.TOITURE
+      - POTENTIEL.EOLIEN.REGLEMENTAIRE
+      - POTENTIEL.HYDRO
+      - POTENTIEL.SOLAIRE.BATIMENT
+      - POTENTIEL.SOLAIRE.SOL
+      - PRAIRIES.SENSIBLES.BCAE
+      - REPARTITION.POTENTIEL.METHANISATION.2050
+      - SECUROUT.TE
+      - STOCK_CARBONE_REG_2015
+      - TERAGIR
+      - TOURBIERES_ZONES-HUMIDES.BCAE
+      - TRACES.RANDO.HIVERNALE
+      - TRANSPORTS.DRONES.RESTRICTIONS
+      - fr_qa_stations
+      - zaer
+    metadata:
+      product: unknown
+      ignored: true
+      ignoredReason: Fail to assign to an existing product
+
+  # ============================================================================
+  # DEFAULT: Fallback Rule
+  # ============================================================================
+  - id: default_ignore
+    patterns: []
+    metadata:
+      ignored: true
+      ignoredReason: No mathching rule, default ignore
