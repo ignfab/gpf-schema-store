@@ -1,10 +1,10 @@
 import {debuglog} from 'node:util';
 const debug = debuglog('gpf-schema-store:wfs');
 
-import type { Collection, CollectionProperty, NamespaceFilterRule } from '../types.ts';
+import type { Collection, CollectionProperty, NamespaceFilterRule } from '../types';
 import { WfsEndpoint } from '@camptocamp/ogc-client';
 import { retry } from '../helpers/retry';
-import { getMetadataFromNamespace } from '../helpers/metadata.ts';
+import { getMetadataFromNamespace } from '../helpers/metadata';
 
 /**
  * Default matching rule with a wildcard pattern that matches all namespaces 

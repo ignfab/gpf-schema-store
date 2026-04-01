@@ -12,7 +12,7 @@ export function loadNamespaceFilters(yamlContent: string): NamespaceFilterRule[]
     const data = yaml.load(yamlContent);
 
     // Ensure that data is an object
-    if (typeof data !== 'object' || data === null || ! data.hasOwnProperty('rules') ) {
+    if (typeof data !== 'object' || data === null || !('rules' in (data as object))) {
         throw new Error('Invalid YAML format: Expected an object with a "rules" key.');
     }
 

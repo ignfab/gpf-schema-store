@@ -27,7 +27,7 @@ export function getCollectionCatalog(
 ): import("./search/catalog").CollectionCatalog {
     const collections = loadCollections();
     return new InMemoryCollectionCatalog(collections, {
-        engineFactory: (items) => new MiniSearchCollectionSearchEngine(items),
+        ...(options.engine ? {} : { engineFactory: (items) => new MiniSearchCollectionSearchEngine(items) }),
         ...options,
     });
 }

@@ -25,6 +25,9 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     this.collections = collections;
     this.byId = new Map(collections.map((collection) => [collection.id, collection]));
 
+    if (options.engine && options.engineFactory) {
+      throw new Error('Cannot specify both engine and engineFactory options');
+    }
     if (options.engine) {
       this.searchEngine = options.engine;
       return;
@@ -45,7 +48,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
 
   search(query: string, options: CollectionSearchOptions = {}): Collection[] {
     if (!this.searchEngine) {
-      return [];
+      throw new Error('No search engine configured');
     }
 
     const matches = this.searchEngine.search(query, options);
