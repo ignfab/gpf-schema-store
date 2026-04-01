@@ -1,4 +1,4 @@
-import type { Collection } from "..";
+import type { Collection } from "../types";
 
 /**
  * Compare properties between original and overwrite to ensure that both are synchronized.

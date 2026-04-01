@@ -101,8 +101,9 @@ program
     const namespaces = [...new Set(collections.map((c) => c.namespace))];
     namespaces.sort();
 
+    const fileStream = createWriteStream(join(getDataDir(), 'namespaces.csv'));
     const stream = format({ delimiter: ',' });
-    stream.pipe(createWriteStream(join(getDataDir(), 'namespaces.csv')));
+    stream.pipe(fileStream);
 
     stream.write([
       'NAMESPACE',
@@ -121,7 +122,12 @@ program
         collections.filter((c) => c.namespace === namespace).map((c) => c.name).join('|'),
       ]);
     }
-    stream.end();
+    await new Promise<void>((resolve, reject) => {
+      fileStream.on('finish', resolve);
+      fileStream.on('error', reject);
+      stream.on('error', reject);
+      stream.end();
+    });
   })
 
 

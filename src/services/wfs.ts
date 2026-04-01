@@ -52,7 +52,8 @@ export async function getCollections(
      */
     const metadata = getMetadataFromNamespace(namespace, namespaceFilterRules);
     if (metadata.ignored || !withProperties) {
-      debug(`Skipping DescribeFeatureType for feature type ${featureType.name} (ignored: ${metadata.ignoredReason})`);
+      const reason = metadata.ignored ? `ignored (${metadata.ignoredReason})` : 'withProperties=false';
+      debug(`Skipping DescribeFeatureType for feature type ${featureType.name} (${reason})`);
       collections.push({
         id: featureType.name,
         namespace: namespace,
