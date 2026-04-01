@@ -1,3 +1,6 @@
+import {debuglog} from 'node:util';
+const debug = debuglog('gpf-schema-store:retry');
+
 const MAX_ATTEMPTS = 3;
 const BASE_DELAY_MS = 200;
 
@@ -19,12 +22,12 @@ export async function retry<T>(operationName: string, operation: () => T | Promi
     } catch (error) {
       lastError = error;
       if (attempt === MAX_ATTEMPTS) {
-        console.error(`[retry] ${operationName} failed after ${MAX_ATTEMPTS} attempts`, error);
+        debug(`${operationName} failed after ${MAX_ATTEMPTS} attempts`, error);
         throw error;
       }
       const delayMs = computeDelayMs(attempt);
-      console.warn(
-        `[retry] ${operationName} failed (attempt ${attempt}/${MAX_ATTEMPTS}), retrying in ${delayMs}ms`,
+      debug(
+        `${operationName} failed (attempt ${attempt}/${MAX_ATTEMPTS}), retrying in ${delayMs}ms`,
       );
       await wait(delayMs);
     }

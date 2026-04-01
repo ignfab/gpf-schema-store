@@ -7,8 +7,9 @@ import { Command } from 'commander'
 import { format } from '@fast-csv/format';
 
 import { getCollections } from './services/wfs'
-import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilters } from './services/storage'
+import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilters, loadWfsCollections, getOverwrite } from './services/storage'
 import { getMetadataFromNamespace } from './helpers/metadata'
+import { compare } from './helpers/compare';
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
 const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8')) as { version: string }
@@ -48,6 +49,45 @@ program
   })
 
 program
+  .command('check-overwrites')
+  .description('Ensure that overwrites are in sync with local WFS snapshots (data/wfs)')
+  .action(async () => {
+    // load raw collections from data/wfs and compare them with data/overwrites
+    console.log('Loading local WFS snapshots from data/wfs...');
+    const collections = loadWfsCollections();
+    console.log(`${collections.length} local WFS collections loaded from data/wfs.`);
+
+    let countDifferences = 0;
+
+    for (const collection of collections) {
+      const overwrite = getOverwrite(collection.namespace, collection.name);
+      if ( ! overwrite ) {
+        console.log(`[${collection.id}] OK (no overwrite)`);
+        continue;
+      }
+
+      const differences = compare(collection, overwrite);
+      if ( differences.length == 0 ){
+        console.log(`[${collection.id}] OK (no difference between local WFS and overwrite)`);
+      }else{
+        countDifferences += differences.length
+        console.error(`[${collection.id}] KO (differences between local WFS and overwrite) :`);
+        for (const difference of differences) {
+          console.error(`[${collection.id}] - ${difference}`);
+        }
+      }
+    }
+
+    if (countDifferences > 0) {
+      console.error(`Failure : Found ${countDifferences} differences between local WFS snapshots and overwrites. Please update the overwrites to match data/wfs collections.`);
+      process.exitCode = 1;
+    }else{
+      console.log('Success : No difference found between local WFS snapshots and overwrites.');
+    }
+  })
+
+
+program
   .command('update-namespaces')
   .description('Update the namespaces.csv file with the WFS namespaces with metadata')
   .action(async () => {
@@ -61,8 +101,9 @@ program
     const namespaces = [...new Set(collections.map((c) => c.namespace))];
     namespaces.sort();
 
+    const fileStream = createWriteStream(join(getDataDir(), 'namespaces.csv'));
     const stream = format({ delimiter: ',' });
-    stream.pipe(createWriteStream(join(getDataDir(), 'namespaces.csv')));
+    stream.pipe(fileStream);
 
     stream.write([
       'NAMESPACE',
@@ -81,7 +122,12 @@ program
         collections.filter((c) => c.namespace === namespace).map((c) => c.name).join('|'),
       ]);
     }
-    stream.end();
+    await new Promise<void>((resolve, reject) => {
+      fileStream.on('finish', resolve);
+      fileStream.on('error', reject);
+      stream.on('error', reject);
+      stream.end();
+    });
   })
 
 

@@ -38,12 +38,17 @@ npm run test
 Fetch WFS schemas from GPF, apply namespace filtering rules from `data/namespace-filters.yaml`, then regenerate `data/wfs`.
 
 ```bash
-npx gpf-schema-store update
-
-
-```bash
 # download data/wfs/{namespace}/{name}.json
 npx gpf-schema-store update
+```
+
+### Check local overwrites
+
+Compare local WFS snapshots stored in `data/wfs` with local overwrite files in `data/overwrites`.
+
+```bash
+# check that overwrites are aligned with local snapshots in data/wfs
+npx gpf-schema-store check-overwrites
 ```
 
 ### Generate namespace report
