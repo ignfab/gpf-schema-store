@@ -38,10 +38,6 @@ npm run test
 Fetch WFS schemas from GPF, apply namespace filtering rules from `data/namespace-filters.yaml`, then regenerate `data/wfs`.
 
 ```bash
-npx gpf-schema-store update
-
-
-```bash
 # download data/wfs/{namespace}/{name}.json
 npx gpf-schema-store update
 ```

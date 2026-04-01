@@ -58,11 +58,11 @@ program
     const collections = loadCollections();
     console.log(`${collections.length} collections loaded from data/wfs.`);
 
-
     let countDifferences = 0;
+
     for (const collection of collections) {
       const overwrite = getOverwrite(collection.namespace, collection.name);
-      if ( overwrite ) {
+      if ( ! overwrite ) {
         console.log(`[${collection.id}] OK (no overwrite)`);
         continue;
       }
