@@ -26,8 +26,11 @@ export function getCollectionCatalog(
     options: import("./search/catalog").InMemoryCollectionCatalogOptions = {},
 ): import("./search/catalog").CollectionCatalog {
     const collections = loadCollections();
-    return new InMemoryCollectionCatalog(collections, {
-        ...(options.engine ? {} : { engineFactory: (items) => new MiniSearchCollectionSearchEngine(items) }),
-        ...options,
-    });
+    // Default to MiniSearch when no engine is provided by the caller.
+    if (!options.engine && !options.engineFactory) {
+        return new InMemoryCollectionCatalog(collections, {
+            engineFactory: (items) => new MiniSearchCollectionSearchEngine(items),
+        });
+    }
+    return new InMemoryCollectionCatalog(collections, options);
 }

@@ -11,10 +11,10 @@ export interface CollectionCatalog {
   search(query: string, options?: CollectionSearchOptions): Collection[];
 }
 
-export type InMemoryCollectionCatalogOptions = {
-  engine?: CollectionSearchEngine;
-  engineFactory?: CollectionSearchEngineFactory;
-};
+export type InMemoryCollectionCatalogOptions =
+  | { engine: CollectionSearchEngine; engineFactory?: never }
+  | { engineFactory: CollectionSearchEngineFactory; engine?: never }
+  | { engine?: never; engineFactory?: never };
 
 export class InMemoryCollectionCatalog implements CollectionCatalog {
   private readonly collections: Collection[];
@@ -30,9 +30,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     }
     if (options.engine) {
       this.searchEngine = options.engine;
-      return;
-    }
-    if (options.engineFactory) {
+    } else if (options.engineFactory) {
       this.searchEngine = options.engineFactory(collections);
     }
   }
