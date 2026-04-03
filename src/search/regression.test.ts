@@ -4,7 +4,7 @@ import { MiniSearchCollectionSearchEngine } from './minisearch-engine';
 import type { CollectionSearchEngine } from './types';
 
 class SingleMatchEngine implements CollectionSearchEngine {
-  search() {
+  search(_query: string) {
     return [{ id: 'BDTOPO_V3:batiment' }];
   }
 }
@@ -35,8 +35,10 @@ describe('search regression (real dataset)', () => {
     const tuned = getCollectionCatalog({
       engineFactory: (items) =>
         new MiniSearchCollectionSearchEngine(items, {
-          fuzzy: 0.1,
-          boost: { title: 4.0 },
+          defaultSearchOptions: {
+            fuzzy: 0.1,
+            boost: { title: 4.0 },
+          },
         }),
     });
     const ids = tuned.search('bâtiments bdtopo').map((collection) => collection.id);

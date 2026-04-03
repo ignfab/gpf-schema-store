@@ -1,20 +1,24 @@
+import type { CollectionCatalog, InMemoryCollectionCatalogOptions as CollectionCatalogOptions } from "./search/catalog";
+import type { Collection } from "./types";
 import { loadCollections } from "./services/storage";
 import { InMemoryCollectionCatalog } from "./search/catalog";
 import { MiniSearchCollectionSearchEngine } from "./search/minisearch-engine";
 
-export type Collection = import("./types").Collection;
-export type CollectionProperty = import("./types").CollectionProperty;
+export type { Collection, CollectionProperty } from "./types";
 export type {
-  CollectionCatalog,
-  InMemoryCollectionCatalogOptions as CollectionCatalogOptions,
+    CollectionCatalog,
+    InMemoryCollectionCatalogOptions as CollectionCatalogOptions,
 } from "./search/catalog";
 export type {
-  CollectionSearchEngine,
-  CollectionSearchEngineFactory,
-  CollectionSearchMatch,
-  CollectionSearchOptions,
+    CollectionSearchEngine,
+    CollectionSearchEngineFactory,
+    CollectionSearchMatch,
+    CollectionSearchOptions,
 } from "./search/types";
-export type { MiniSearchCollectionSearchEngineOptions } from "./search/minisearch-engine";
+export type {
+    MiniSearchCollectionSearchEngineOptions,
+    MiniSearchCollectionSearchOptions,
+} from "./search/minisearch-engine";
 export { InMemoryCollectionCatalog } from "./search/catalog";
 export { MiniSearchCollectionSearchEngine } from "./search/minisearch-engine";
 
@@ -23,8 +27,8 @@ export function getCollections(): Collection[] {
 }
 
 export function getCollectionCatalog(
-    options: import("./search/catalog").InMemoryCollectionCatalogOptions = {},
-): import("./search/catalog").CollectionCatalog {
+    options: CollectionCatalogOptions = {},
+): CollectionCatalog {
     const collections = loadCollections();
     // Default to MiniSearch when no engine is provided by the caller.
     if (!options.engine && !options.engineFactory) {
