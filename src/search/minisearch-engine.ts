@@ -1,4 +1,4 @@
-import MiniSearch from 'minisearch';
+import MiniSearch, { type MatchInfo } from 'minisearch';
 import type { Collection, CollectionProperty } from '../types';
 import type {
   CollectionSearchEngine,
@@ -36,6 +36,12 @@ export type MiniSearchCollectionSearchOptions = {
 
 export type MiniSearchCollectionSearchEngineOptions = {
   defaultSearchOptions?: MiniSearchCollectionSearchOptions;
+};
+
+export type MiniSearchCollectionSearchMatch = CollectionSearchMatch & {
+  queryTerms?: string[];
+  terms?: string[];
+  match?: MatchInfo;
 };
 
 // All boost fields present and required (no optional keys) — used for the resolved default options.
@@ -80,6 +86,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
     return normalized.length > 0 ? normalized : false;
   }
 
+  // Produces a single string from property names, titles, and descriptions for MiniSearch to tokenize.
   private static stringifyProperties(properties: CollectionProperty[]): string {
     const terms = properties
       .flatMap((p) => [p.name, p.title, p.description])
@@ -87,12 +94,17 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
     return terms.join(' ');
   }
 
+  // Produces a string that includes both raw identifiers (id, namespace, name) and their
+  // expanded forms with separators (_:./-) replaced by spaces, so that partial queries like
+  // "troncon route" match "troncon_de_route".
   private static stringifyIdentifierTokens(collection: Collection): string {
     const rawValues = [collection.id, collection.namespace, collection.name];
     const expandedValues = rawValues.map((value) => value.replace(/[_:./-]+/g, ' '));
     return [...rawValues, ...expandedValues].join(' ');
   }
 
+  // Produces a deduplicated string of normalized enum values so that duplicate entries
+  // (e.g. 'Viaduc', 'viaduc') don't inflate match scores.
   private static stringifyEnumValues(properties: CollectionProperty[]): string {
     const values = properties
       .flatMap((p) => p.enum ?? [])
@@ -143,6 +155,13 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
     query: string,
     options: MiniSearchCollectionSearchOptions = {},
   ): CollectionSearchMatch[] {
+    return this.searchDetailed(query, options).map(({ id, score }) => ({ id, score }));
+  }
+
+  searchDetailed(
+    query: string,
+    options: MiniSearchCollectionSearchOptions = {},
+  ): MiniSearchCollectionSearchMatch[] {
     // Per-query options override the defaults; boost fields are merged so callers can
     // adjust individual weights without specifying all of them.
     return this.miniSearch
@@ -155,7 +174,13 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
       .map((result) => ({
         id: result.id as string,
         score: result.score,
+        queryTerms: result.queryTerms,
+        terms: result.terms,
         match: result.match,
       }));
+  }
+
+  getDefaultSearchOptions(): MiniSearchCollectionSearchOptions {
+    return structuredClone(this.defaultSearchOptions);
   }
 }

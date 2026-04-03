@@ -22,13 +22,28 @@ const COLLECTIONS: Collection[] = [
 ];
 
 describe('MiniSearchCollectionSearchEngine search options', () => {
-  it('returns MiniSearch match metadata', () => {
+  it('keeps the generic search result lightweight', () => {
     const engine = new MiniSearchCollectionSearchEngine(COLLECTIONS, {
       defaultSearchOptions: { fuzzy: 0 },
     });
 
     const [firstMatch] = engine.search('bar');
 
+    expect(firstMatch).toEqual({
+      id: 'NS:alpha',
+      score: expect.any(Number),
+    });
+  });
+
+  it('returns MiniSearch match metadata from searchDetailed', () => {
+    const engine = new MiniSearchCollectionSearchEngine(COLLECTIONS, {
+      defaultSearchOptions: { fuzzy: 0 },
+    });
+
+    const [firstMatch] = engine.searchDetailed('bar');
+
+    expect(firstMatch?.queryTerms).toEqual(['bar']);
+    expect(firstMatch?.terms).toEqual(['bar']);
     expect(firstMatch?.match).toEqual({
       bar: ['description'],
     });

@@ -11,7 +11,7 @@ import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilter
 import { getMetadataFromNamespace } from './helpers/metadata'
 import { compare } from './helpers/compare';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
-import type { CollectionSearchMatch } from './search/types';
+import { renderSearchOutputs } from './cli/search-outputs';
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
 const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8')) as { version: string }
@@ -24,15 +24,6 @@ program
   .version(version)
 
 const GPF_WFS_URL = "https://data.geopf.fr/wfs";
-
-function formatMatchExplanation(match: CollectionSearchMatch): string[] {
-  if (!match.match) {
-    return [];
-  }
-
-  return Object.entries(match.match)
-    .map(([term, fields]) => `   - ${term}: ${fields.join(', ')}`);
-}
 
 program
   .command('update')
@@ -159,29 +150,10 @@ program
 
     const collections = loadCollections();
     const engine = new MiniSearchCollectionSearchEngine(collections);
-    const collectionsById = new Map(collections.map((collection) => [collection.id, collection]));
 
-    const matches = engine.search(query).slice(0, limit);
-    if (matches.length === 0) {
-      console.log(`No results for "${query}"`);
-      return;
-    }
-
-    for (const [index, match] of matches.entries()) {
-      const collection = collectionsById.get(match.id);
-      if (!collection) {
-        continue;
-      }
-      const score = typeof match.score === 'number' ? ` [score=${match.score.toFixed(3)}]` : '';
-      console.log(`${index + 1}. ${collection.id}${score}`);
-      console.log(`   ${collection.title}`);
-      const explanationLines = formatMatchExplanation(match);
-      if (explanationLines.length > 0) {
-        console.log('   match:');
-        for (const line of explanationLines) {
-          console.log(line);
-        }
-      }
+    const matches = engine.searchDetailed(query).slice(0, limit);
+    for (const line of renderSearchOutputs(engine, query, matches)) {
+      console.log(line);
     }
   })
 
