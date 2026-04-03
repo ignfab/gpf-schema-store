@@ -66,6 +66,20 @@ Edit `data/namespace-filters.yaml` to decide which namespaces are kept or ignore
 
 See [data/namespace-filters.yaml](data/namespace-filters.yaml)
 
+### Tester la recherche locale
+
+La commande `search` permet d'inspecter rapidement les résultats fournis par le moteur de recherche avec ses options par défaut.
+
+```bash
+# afficher les 5 premiers résultats
+npx gpf-schema-store search chef lieu commune --limit 5
+
+# autre exemple
+npx gpf-schema-store search bdtopo batiment --limit 3
+```
+
+La sortie affiche l'identifiant de la collection, son titre et le score calculé par le moteur, ce qui permet de comparer facilement le comportement avant/après un changement de ranking.
+
 ## License
 
 [MIT](LICENSE)

@@ -1,3 +1,4 @@
+import type { MatchInfo } from 'minisearch';
 import type { Collection } from '../types';
 
 /** Generic catalog-level options applied after search-engine evaluation. */
@@ -9,6 +10,7 @@ export type CollectionSearchOptions = {
 export type CollectionSearchMatch = {
   id: string;
   score?: number;
+  match?: MatchInfo;
 };
 
 /** Contract that any search engine implementation must satisfy. */

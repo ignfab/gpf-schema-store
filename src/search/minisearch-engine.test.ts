@@ -22,6 +22,18 @@ const COLLECTIONS: Collection[] = [
 ];
 
 describe('MiniSearchCollectionSearchEngine search options', () => {
+  it('returns MiniSearch match metadata', () => {
+    const engine = new MiniSearchCollectionSearchEngine(COLLECTIONS, {
+      defaultSearchOptions: { fuzzy: 0 },
+    });
+
+    const [firstMatch] = engine.search('bar');
+
+    expect(firstMatch?.match).toEqual({
+      bar: ['description'],
+    });
+  });
+
   it('supports combineWith=AND', () => {
     const engine = new MiniSearchCollectionSearchEngine(COLLECTIONS, {
       defaultSearchOptions: { fuzzy: 0 },

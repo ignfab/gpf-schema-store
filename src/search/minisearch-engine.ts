@@ -152,6 +152,10 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
         boost: { ...this.defaultSearchOptions.boost, ...options.boost },
         fuzzy: options.fuzzy ?? this.defaultSearchOptions.fuzzy,
       })
-      .map((result) => ({ id: result.id as string, score: result.score }));
+      .map((result) => ({
+        id: result.id as string,
+        score: result.score,
+        match: result.match,
+      }));
   }
 }
