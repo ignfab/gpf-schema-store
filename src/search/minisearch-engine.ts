@@ -12,6 +12,7 @@ const INDEXED_COLLECTION_FIELDS = [
   'description',
   'properties',
   'enums',
+  'identifierTokens',
 ] as const;
 
 type IndexedCollectionField = typeof INDEXED_COLLECTION_FIELDS[number];
@@ -28,6 +29,7 @@ export type MiniSearchCollectionSearchOptions = {
     description?: number;
     properties?: number;
     enums?: number;
+    identifierTokens?: number;
   };
   fuzzy?: number;
 };
@@ -44,6 +46,7 @@ const DEFAULT_MINISEARCH_SEARCH_OPTIONS: { boost: ResolvedBoost; fuzzy: number }
   boost: {
     namespace: 5.0,
     name: 4.0,
+    identifierTokens: 3.0,
     title: 2.0,
     description: 1.5,
     properties: 1.3,
@@ -53,7 +56,10 @@ const DEFAULT_MINISEARCH_SEARCH_OPTIONS: { boost: ResolvedBoost; fuzzy: number }
 };
 
 // A virtual field added to each document before indexing so MiniSearch can index enum values separately.
-type IndexedCollection = Collection & { enums: string };
+type IndexedCollection = Collection & {
+  enums: string;
+  identifierTokens: string;
+};
 
 export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine {
 
@@ -76,9 +82,15 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
 
   private static stringifyProperties(properties: CollectionProperty[]): string {
     const terms = properties
-      .flatMap((p) => [p.name, p.title])
+      .flatMap((p) => [p.name, p.title, p.description])
       .filter(Boolean);
     return terms.join(' ');
+  }
+
+  private static stringifyIdentifierTokens(collection: Collection): string {
+    const rawValues = [collection.id, collection.namespace, collection.name];
+    const expandedValues = rawValues.map((value) => value.replace(/[_:./-]+/g, ' '));
+    return [...rawValues, ...expandedValues].join(' ');
   }
 
   private static stringifyEnumValues(properties: CollectionProperty[]): string {
@@ -122,6 +134,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
     const documents: IndexedCollection[] = collections.map((c) => ({
       ...c,
       enums: MiniSearchCollectionSearchEngine.stringifyEnumValues(c.properties),
+      identifierTokens: MiniSearchCollectionSearchEngine.stringifyIdentifierTokens(c),
     }));
     this.miniSearch.addAll(documents);
   }

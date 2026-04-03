@@ -110,3 +110,97 @@ describe('MiniSearchCollectionSearchEngine enum values indexing', () => {
     expect(matches.map((m) => m.id)).toEqual(['NS:alpha', 'NS:beta']);
   });
 });
+
+describe('MiniSearchCollectionSearchEngine identifier token indexing', () => {
+  const IDENTIFIER_COLLECTIONS: Collection[] = [
+    {
+      id: 'ADMINEXPRESS-COG.LATEST:chef_lieu_de_commune',
+      namespace: 'ADMINEXPRESS-COG.LATEST',
+      name: 'chef_lieu_de_commune',
+      title: 'Chef-lieu de commune',
+      description: 'Chef-lieu de commune',
+      properties: [{ name: 'code_insee', type: 'string', description: 'Code INSEE de la commune' }],
+    },
+    {
+      id: 'BDTOPO_V3:batiment',
+      namespace: 'BDTOPO_V3',
+      name: 'batiment',
+      title: 'Batiment',
+      description: 'Batiment',
+      properties: [{ name: 'hauteur', type: 'number' }],
+    },
+    {
+      id: 'ADMINEXPRESS-COG.LATEST:commune',
+      namespace: 'ADMINEXPRESS-COG.LATEST',
+      name: 'commune',
+      title: 'Commune',
+      description: 'Commune',
+      properties: [{ name: 'nom', type: 'string' }],
+    },
+  ];
+
+  it('matches underscore-separated names from natural tokenized queries', () => {
+    const engine = new MiniSearchCollectionSearchEngine(IDENTIFIER_COLLECTIONS, {
+      defaultSearchOptions: { fuzzy: 0 },
+    });
+
+    const matches = engine.search('chef lieu commune');
+
+    expect(matches[0]?.id).toBe('ADMINEXPRESS-COG.LATEST:chef_lieu_de_commune');
+  });
+
+  it('matches namespace and type tokens from technical identifiers', () => {
+    const engine = new MiniSearchCollectionSearchEngine(IDENTIFIER_COLLECTIONS, {
+      defaultSearchOptions: { fuzzy: 0 },
+    });
+
+    const matches = engine.search('bdtopo batiment');
+
+    expect(matches[0]?.id).toBe('BDTOPO_V3:batiment');
+  });
+
+  it('matches tokenized namespace variants like latest and product family', () => {
+    const engine = new MiniSearchCollectionSearchEngine(IDENTIFIER_COLLECTIONS, {
+      defaultSearchOptions: { fuzzy: 0 },
+    });
+
+    const matches = engine.search('adminexpress latest commune');
+
+    expect(matches[0]?.id).toBe('ADMINEXPRESS-COG.LATEST:commune');
+  });
+});
+
+describe('MiniSearchCollectionSearchEngine property description indexing', () => {
+  it('indexes property descriptions in the properties field', () => {
+    const engine = new MiniSearchCollectionSearchEngine([
+      {
+        id: 'NS:address',
+        namespace: 'NS',
+        name: 'address',
+        title: 'Address',
+        description: 'Address layer',
+        properties: [
+          {
+            name: 'line',
+            type: 'string',
+            description: 'Adresse postale normalisee',
+          },
+        ],
+      },
+      {
+        id: 'NS:other',
+        namespace: 'NS',
+        name: 'other',
+        title: 'Other',
+        description: 'Other layer',
+        properties: [{ name: 'line', type: 'string' }],
+      },
+    ], {
+      defaultSearchOptions: { fuzzy: 0, fields: ['properties'] },
+    });
+
+    const matches = engine.search('adresse');
+
+    expect(matches.map((match) => match.id)).toEqual(['NS:address']);
+  });
+});
