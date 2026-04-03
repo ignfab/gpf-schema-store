@@ -4,7 +4,7 @@ import { MiniSearchCollectionSearchEngine } from './minisearch-engine';
 import type { CollectionSearchEngine } from './types';
 
 class SingleMatchEngine implements CollectionSearchEngine {
-  search() {
+  search(_query: string) {
     return [{ id: 'BDTOPO_V3:batiment' }];
   }
 }
@@ -23,6 +23,21 @@ describe('search regression (real dataset)', () => {
     expect(ids).toContain('ADMINEXPRESS-COG.LATEST:departement');
   });
 
+  it("finds chef_lieu_de_commune from a tokenized natural query", () => {
+    const ids = catalog.search('chef lieu commune').map((collection) => collection.id);
+    expect(ids[0]).toBe('ADMINEXPRESS-COG.LATEST:chef_lieu_de_commune');
+  });
+
+  it("finds BDTOPO_V3:batiment from a split technical identifier query", () => {
+    const ids = catalog.search('bdtopo batiment').map((collection) => collection.id);
+    expect(ids[0]).toBe('BDTOPO_V3:batiment');
+  });
+
+  it("finds commune from tokenized latest namespace terms", () => {
+    const ids = catalog.search('adminexpress latest commune').map((collection) => collection.id);
+    expect(ids).toContain('ADMINEXPRESS-COG.LATEST:commune');
+  });
+
   it('allows overriding the search engine', () => {
     const overridden = getCollectionCatalog({
       engine: new SingleMatchEngine(),
@@ -35,8 +50,10 @@ describe('search regression (real dataset)', () => {
     const tuned = getCollectionCatalog({
       engineFactory: (items) =>
         new MiniSearchCollectionSearchEngine(items, {
-          fuzzy: 0.1,
-          boost: { title: 4.0 },
+          defaultSearchOptions: {
+            fuzzy: 0.1,
+            boost: { title: 4.0 },
+          },
         }),
     });
     const ids = tuned.search('bâtiments bdtopo').map((collection) => collection.id);

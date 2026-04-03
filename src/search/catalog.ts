@@ -11,12 +11,13 @@ export interface CollectionCatalog {
   search(query: string, options?: CollectionSearchOptions): Collection[];
 }
 
-export type InMemoryCollectionCatalogOptions = {
-  engine?: CollectionSearchEngine;
-  engineFactory?: CollectionSearchEngineFactory;
-};
+export type InMemoryCollectionCatalogOptions =
+  | { engine: CollectionSearchEngine; engineFactory?: never }
+  | { engineFactory: CollectionSearchEngineFactory; engine?: never }
+  | { engine?: never; engineFactory?: never };
 
 export class InMemoryCollectionCatalog implements CollectionCatalog {
+
   private readonly collections: Collection[];
   private readonly byId: Map<string, Collection>;
   private readonly searchEngine?: CollectionSearchEngine;
@@ -30,9 +31,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     }
     if (options.engine) {
       this.searchEngine = options.engine;
-      return;
-    }
-    if (options.engineFactory) {
+    } else if (options.engineFactory) {
       this.searchEngine = options.engineFactory(collections);
     }
   }
@@ -51,22 +50,23 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
       throw new Error('No search engine configured');
     }
 
-    const matches = this.searchEngine.search(query, options);
+    const matches = this.searchEngine.search(query);
 
-    const collections: Collection[] = [];
+    const matchedCollections: Collection[] = [];
+    
     // Keep the search-engine ranking order while resolving IDs to collections.
     for (const match of matches) {
       const collection = this.byId.get(match.id);
       if (collection !== undefined) {
-        collections.push(collection);
+        matchedCollections.push(collection);
       }
     }
 
     const limit = options.limit;
     if (typeof limit === 'number' && limit >= 0) {
-      return structuredClone(collections.slice(0, limit));
+      return structuredClone(matchedCollections.slice(0, limit));
     }
 
-    return structuredClone(collections);
+    return structuredClone(matchedCollections);
   }
 }

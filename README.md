@@ -66,6 +66,64 @@ Edit `data/namespace-filters.yaml` to decide which namespaces are kept or ignore
 
 See [data/namespace-filters.yaml](data/namespace-filters.yaml)
 
+### Test local search
+
+Use the `search` command to quickly inspect the results returned by the search engine with its default options.
+
+```bash
+# display the top 5 results
+npx gpf-schema-store search chef lieu commune --limit 5
+
+# another example
+npx gpf-schema-store search bdtopo batiment --limit 3
+```
+
+The output shows the collection identifier, the computed score, and MiniSearch match details, which makes it easier to compare ranking behavior before and after a search change.
+
+## Test a local package build in geocontext
+
+If you want to test a local change from this package inside [`geocontext`](https://github.com/ignfab/geocontext), the simplest and most reliable workflow is to install a local tarball generated with `npm pack`.
+
+This is the recommended approach because it is very close to a real npm publish:
+
+* it uses the package `files` / `exports` configuration
+* it only installs what would actually be shipped
+* it avoids some of the resolution quirks of `npm link`
+
+From this repository:
+
+```bash
+npm run build
+npm pack
+```
+
+This creates a tarball such as `ignfab-gpf-schema-store-0.1.0.tgz`.
+
+Then, from your local `geocontext` checkout:
+
+```bash
+cd /path/to/geocontext
+npm install /path/to/gpf-schema-store/ignfab-gpf-schema-store-0.1.0.tgz
+npm run build
+npm test
+```
+
+When you make a new change in `gpf-schema-store`, rebuild and regenerate the tarball, then reinstall it in `geocontext`.
+
+If you only want to test locally without updating `package.json`, use `--no-save`:
+
+```bash
+npm install --no-save /path/to/gpf-schema-store/ignfab-gpf-schema-store-0.1.0.tgz
+```
+
+If you already installed the local tarball with a saved dependency, restore the published dependency afterwards:
+
+```bash
+npm install @ignfab/gpf-schema-store@^0.1.0
+```
+
+Using a direct local path like `npm install ../gpf-schema-store` can work too, but it is less predictable because it depends on the local package state and requires extra care to keep `dist/` up to date.
+
 ## License
 
 [MIT](LICENSE)

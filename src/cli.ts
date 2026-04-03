@@ -7,9 +7,11 @@ import { Command } from 'commander'
 import { format } from '@fast-csv/format';
 
 import { getCollections } from './services/wfs'
-import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilters, loadWfsCollections, getOverwrite } from './services/storage'
+import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilters, loadWfsCollections, getOverwrite, loadCollections } from './services/storage'
 import { getMetadataFromNamespace } from './helpers/metadata'
 import { compare } from './helpers/compare';
+import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
+import { renderSearchOutputs } from './cli/search-outputs';
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
 const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8')) as { version: string }
@@ -130,6 +132,30 @@ program
     });
   })
 
+program
+  .command('search')
+  .description('Search the local collection catalog with the default MiniSearch options')
+  .argument('<query...>', 'Search query')
+  .option('-l, --limit <number>', 'Maximum number of results to display', '10')
+  .action((queryParts: string[], options: { limit: string }) => {
+    const limit = Number.parseInt(options.limit, 10);
+    if (!Number.isInteger(limit) || limit < 0) {
+      throw new Error(`Invalid limit '${options.limit}': expected a non-negative integer`);
+    }
+
+    const query = queryParts.join(' ').trim();
+    if (query.length === 0) {
+      throw new Error('Search query cannot be empty');
+    }
+
+    const collections = loadCollections();
+    const engine = new MiniSearchCollectionSearchEngine(collections);
+
+    const matches = engine.searchDetailed(query).slice(0, limit);
+    for (const line of renderSearchOutputs(engine, query, matches)) {
+      console.log(line);
+    }
+  })
 
 program.action(() => {
   console.log('gpf-schema-store - CLI ready. Use --help for options.')
