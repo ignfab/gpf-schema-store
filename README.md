@@ -110,6 +110,18 @@ npm test
 
 When you make a new change in `gpf-schema-store`, rebuild and regenerate the tarball, then reinstall it in `geocontext`.
 
+If you only want to test locally without updating `package.json`, use `--no-save`:
+
+```bash
+npm install --no-save /path/to/gpf-schema-store/ignfab-gpf-schema-store-0.1.0.tgz
+```
+
+If you already installed the local tarball with a saved dependency, restore the published dependency afterwards:
+
+```bash
+npm install @ignfab/gpf-schema-store@^0.1.0
+```
+
 Using a direct local path like `npm install ../gpf-schema-store` can work too, but it is less predictable because it depends on the local package state and requires extra care to keep `dist/` up to date.
 
 ## License
