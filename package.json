@@ -1,5 +1,6 @@
 {
   "name": "@ignfab/gpf-schema-store",
+  "description": "Experimental OGC API Features schema store enriched from Geoplateforme WFS.",
   "license": "MIT",
   "author": "IGNF",
   "version": "0.1.1",
