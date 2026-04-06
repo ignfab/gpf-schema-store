@@ -80,6 +80,18 @@ npx gpf-schema-store search bdtopo batiment --limit 3
 
 The output shows the collection identifier, the computed score, and MiniSearch match details, which makes it easier to compare ranking behavior before and after a search change.
 
+### Render merged catalog files
+
+Useful for debugging : Write the final merged collection JSON files, as seen by the local catalog after applying `data/overwrites`, to an output directory.
+
+```bash
+# write merged files to ./tmp/catalog/{namespace}/{name}.json
+npx gpf-schema-store render-catalog ./tmp/catalog
+
+# start from a clean output directory
+npx gpf-schema-store render-catalog ./tmp/catalog --clean
+```
+
 ## Test a local package build in geocontext
 
 If you want to test a local change from this package inside [`geocontext`](https://github.com/ignfab/geocontext), the simplest and most reliable workflow is to install a local tarball generated with `npm pack`.

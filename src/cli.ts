@@ -12,6 +12,7 @@ import { getMetadataFromNamespace } from './helpers/metadata'
 import { compare } from './helpers/compare';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
 import { renderSearchOutputs } from './cli/search-outputs';
+import { writeRenderedCatalog } from './cli/render-catalog';
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
 const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8')) as { version: string }
@@ -155,6 +156,24 @@ program
     for (const line of renderSearchOutputs(engine, query, matches)) {
       console.log(line);
     }
+  })
+
+program
+  .command('render-catalog')
+  .description('Write the merged catalog collections to an output directory')
+  .argument('<outputDir>', 'Output directory for merged collection JSON files')
+  .option('--clean', 'Remove the output directory before writing')
+  .action((outputDir: string, options: { clean?: boolean }) => {
+    console.log('Loading merged collections from the local catalog...');
+    const collections = loadCollections();
+    console.log(`${collections.length} merged collections loaded from the local catalog.`);
+
+    console.log(`Writing merged collections to ${outputDir}/{namespace}/{name}.json...`);
+    const resolvedOutputDir = writeRenderedCatalog(collections, outputDir, {
+      clean: options.clean,
+    });
+
+    console.log(`Success : ${collections.length} merged collections written to ${resolvedOutputDir}.`);
   })
 
 program.action(() => {

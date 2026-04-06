@@ -17,6 +17,7 @@ import type { Collection } from "../types";
  * At property level :
  * 
  * - properties are iterated from original (order kept)
+ * - properties with `defaultCrs` are kept from original as-is
  * - matching is done by property name
  * - if a property exists in overwrite, its fields are taken but name is kept from original
  * - if a property does not exist in overwrite, the original property is kept
@@ -36,6 +37,10 @@ export function merge(
     }
 
     const properties = original.properties.map((origProp) => {
+        if (origProp.defaultCrs) {
+            return { ...origProp }
+        }
+
         const overProp = overwrite.properties.find((p) => p.name === origProp.name)
         if (!overProp) {
             return { ...origProp }
@@ -55,4 +60,3 @@ export function merge(
         properties
     }
 }
-

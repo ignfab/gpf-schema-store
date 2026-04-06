@@ -88,6 +88,65 @@ describe('mergeCollectionSchema', () => {
     expect(merge(base, overwrite)).toEqual(base)
   })
 
+  it('keeps geometry properties from original when they define defaultCrs', () => {
+    const baseWithGeometry: Collection = {
+      ...base,
+      properties: [
+        {
+          name: 'geom',
+          type: 'geometry',
+          title: 'Original geometry',
+          description: 'Original geometry description',
+          defaultCrs: 'EPSG:4326',
+        },
+        {
+          name: 'label',
+          type: 'string',
+          title: 'Original label',
+        },
+      ],
+    }
+
+    const overwrite: Collection = {
+      ...baseWithGeometry,
+      properties: [
+        {
+          name: 'geom',
+          type: 'string',
+          title: 'Overwritten geometry',
+          description: 'Overwritten geometry description',
+        },
+        {
+          name: 'label',
+          type: 'string',
+          title: 'Overwritten label',
+        },
+      ],
+    }
+
+    expect(merge(baseWithGeometry, overwrite)).toEqual({
+      id: 'NS:collection',
+      namespace: 'NS',
+      name: 'collection',
+      title: 'Base title',
+      description: 'Base description',
+      properties: [
+        {
+          name: 'geom',
+          type: 'geometry',
+          title: 'Original geometry',
+          description: 'Original geometry description',
+          defaultCrs: 'EPSG:4326',
+        },
+        {
+          name: 'label',
+          type: 'string',
+          title: 'Overwritten label',
+        },
+      ],
+    })
+  })
+
 
   it('does not mutate source objects', () => {
     const overwrite: Collection = {
