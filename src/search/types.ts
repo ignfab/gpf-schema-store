@@ -11,6 +11,12 @@ export type CollectionSearchMatch = {
   score?: number;
 };
 
+/** A catalog search result that includes the resolved collection and optional relevance score. */
+export type CollectionSearchResult = {
+  collection: Collection;
+  score?: number;
+};
+
 /** Contract that any search engine implementation must satisfy. */
 export interface CollectionSearchEngine {
   search(query: string): CollectionSearchMatch[];
