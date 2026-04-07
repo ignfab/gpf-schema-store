@@ -1,25 +1,47 @@
+import { z } from 'zod';
+
+/**
+ * The schema of the metadata of a namespace, currently assigned in data/namespace-filters.yaml
+ * 
+ * Note that no additional properties are allowed in the metadata object (strict).
+ */
+export const collectionMetadataSchema = z.object({
+    ignored: z.boolean().describe("Indicates whether the namespace should be ignored"),
+    ignoredReason: z.string().optional().describe("The reason for ignoring the namespace"),
+    product: z.string().optional().describe("The product associated with the namespace"),
+}).strict();
+
 /**
  * The metadata of a namespace.
  */
-export type CollectionMetadata = {
-    ignored: boolean;
-    ignoredReason?: string;
-    product?: string;
-    // version?: string;    
-}
+export type CollectionMetadata = z.infer<typeof collectionMetadataSchema>;
+
+
+/**
+ * The schema of a rule in data/namespace-filters.yaml,
+ * which contains patterns to match against the namespace 
+ * and the metadata to assign if the patterns match.
+ */
+export const namespaceFilterRuleSchema = z.object({
+    id: z.string().min(1).describe("The unique identifier of the rule"),
+    patterns: z.array(z.string()).describe("The patterns to match against the namespace"),
+    metadata: collectionMetadataSchema.describe("The metadata to assign if the namespace matches the patterns"),
+});
 
 /**
  * A rule to assign a metadata to a namespace based on pattern matching as
  * defined in data/namespace-filters.yaml.
  */
-export interface NamespaceFilterRule {
-    // the id of the rule (ex : "ignore_bdto_v3")
-    id: string;
-    // the patterns to match against the namespace
-    patterns: string[];
-    // the metadata to assign if the namespace matches the patterns
-    metadata: CollectionMetadata;
-}
+export type NamespaceFilterRule = z.infer<typeof namespaceFilterRuleSchema>;
+
+
+/**
+ * The schema of the data/namespace-filters.yaml file, which contains rules
+ * to assign metadata to namespaces based on pattern matching.
+ */
+export const namespaceFiltersSchema = z.object({
+    rules: z.array(namespaceFilterRuleSchema),
+});
 
 
 /**

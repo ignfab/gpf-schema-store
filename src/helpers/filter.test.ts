@@ -26,28 +26,7 @@ rules:
     ])
   })
 
-  it('defaults metadata.ignored to false when metadata is missing', () => {
-    const yamlContent = `
-rules:
-  - id: keep_rule
-    patterns:
-      - keep.me
-`
-
-    expect(loadNamespaceFilters(yamlContent)).toEqual([
-      {
-        id: 'keep_rule',
-        patterns: ['keep.me'],
-        metadata: {
-          ignored: false,
-          ignoredReason: undefined,
-          product: undefined,
-        },
-      },
-    ])
-  })
-
-  it('skips non-object entries in the YAML array', () => {
+  it('throws when rules contains non-object entries', () => {
     const yamlContent = `
 rules:
   - id: valid_rule
@@ -60,17 +39,9 @@ rules:
   - "hello"
 `
 
-    expect(loadNamespaceFilters(yamlContent)).toEqual([
-      {
-        id: 'valid_rule',
-        patterns: ['a*'],
-        metadata: {
-          ignored: false,
-          ignoredReason: undefined,
-          product: undefined,
-        },
-      },
-    ])
+    expect(() => loadNamespaceFilters(yamlContent)).toThrow(
+      'Invalid namespace-filters.yaml content:',
+    )
   })
 
   it('throws when YAML root is an array', () => {
@@ -83,7 +54,77 @@ rules:
 `
 
     expect(() => loadNamespaceFilters(yamlContent)).toThrow(
-      'Invalid YAML format: Expected an object with a "rules" key.',
+      'Invalid namespace-filters.yaml content:',
+    )
+  })
+
+  it('throws when patterns is missing', () => {
+    const yamlContent = `
+rules:
+  - id: bad_rule
+    metadata:
+      ignored: true
+`
+
+    expect(() => loadNamespaceFilters(yamlContent)).toThrow(
+      'Invalid namespace-filters.yaml content:',
+    )
+  })
+
+  it('throws when id is missing', () => {
+    const yamlContent = `
+rules:
+  - patterns:
+      - test_*
+`
+
+    expect(() => loadNamespaceFilters(yamlContent)).toThrow(
+      'Invalid namespace-filters.yaml content:',
+    )
+  })
+
+  it('throws when metadata is not an object', () => {
+    const yamlContent = `
+rules:
+  - id: bad_rule
+    patterns:
+      - test_*
+    metadata: true
+`
+
+    expect(() => loadNamespaceFilters(yamlContent)).toThrow(
+      'Invalid namespace-filters.yaml content:',
+    )
+  })
+
+
+  it('throws when patterns is not an array', () => {
+    const yamlContent = `
+rules:
+  - id: bad_rule
+    patterns: 123
+    metadata: true
+`
+
+    expect(() => loadNamespaceFilters(yamlContent)).toThrow(
+      'Invalid namespace-filters.yaml content:',
+    )
+  })
+
+
+
+  it('throws when metadata.ignored is not a boolean', () => {
+    const yamlContent = `
+rules:
+  - id: bad_rule
+    patterns:
+      - test_*
+    metadata:
+      ignored: "yes"
+`
+
+    expect(() => loadNamespaceFilters(yamlContent)).toThrow(
+      'Invalid namespace-filters.yaml content:',
     )
   })
 })
