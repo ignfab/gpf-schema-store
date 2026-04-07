@@ -1,5 +1,16 @@
 import yaml from 'js-yaml';
-import type { NamespaceFilterRule } from '../types';
+
+import { z } from 'zod';
+import { namespaceFiltersSchema, type NamespaceFilterRule } from '../types';
+
+function formatZodIssues(error: z.ZodError): string {
+    return error.issues
+        .map((issue) => {
+            const path = issue.path.length > 0 ? issue.path.join('.') : 'root';
+            return `${path}: ${issue.message}`;
+        })
+        .join('; ');
+}
 
 /**
  * Loads namespace filters from a YAML string read from data/namespace-filters.yaml.
@@ -8,37 +19,22 @@ import type { NamespaceFilterRule } from '../types';
  * @return An array of NamespaceFilterRule objects parsed from the YAML content.
  */
 export function loadNamespaceFilters(yamlContent: string): NamespaceFilterRule[] {
-    const filters: NamespaceFilterRule[] = [];
     const data = yaml.load(yamlContent);
+    const result = namespaceFiltersSchema.safeParse(data);
 
-    // Ensure that data is an object
-    if (typeof data !== 'object' || data === null || !('rules' in (data as object))) {
-        throw new Error('Invalid YAML format: Expected an object with a "rules" key.');
+    if (!result.success) {
+        throw new Error(`Invalid namespace-filters.yaml content: ${formatZodIssues(result.error)}`);
     }
 
-    // Ensure that the "rules" key is an array
-    if ( ! Array.isArray((data as any).rules) ) {
-        throw new Error('Invalid YAML format: Expected an array for the "rules" key.');
-    }
-
-    // Parse each item in the rules array
-    const rules = (data as any).rules as any[] ;
-    for (const item of rules) {
-        if (typeof item === 'object' && item !== null) {
-            const filter: NamespaceFilterRule = {
-                id: item.id,
-                patterns: item.patterns,
-                metadata: {
-                    ignored: item.metadata?.ignored ?? false,
-                    ignoredReason: item.metadata?.ignoredReason,
-                    product: item.metadata?.product
-                }
-            };
-            filters.push(filter);
-        }
-    }
-
-    return filters;
+    return result.data.rules.map((rule) => ({
+        id: rule.id,
+        patterns: rule.patterns,
+        metadata: {
+            ignored: rule.metadata.ignored ?? false,
+            ignoredReason: rule.metadata.ignoredReason,
+            product: rule.metadata.product,
+        },
+    }));
 }
 
 /**
