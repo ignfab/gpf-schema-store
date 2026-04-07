@@ -25,7 +25,7 @@ export type CollectionMetadata = z.infer<typeof collectionMetadataSchema>;
 export const namespaceFilterRuleSchema = z.object({
     id: z.string().min(1).describe("The unique identifier of the rule"),
     patterns: z.array(z.string()).describe("The patterns to match against the namespace"),
-    metadata: collectionMetadataSchema.optional().default({} as CollectionMetadata).describe("The metadata to assign if the namespace matches the patterns"),
+    metadata: collectionMetadataSchema.describe("The metadata to assign if the namespace matches the patterns"),
 });
 
 /**

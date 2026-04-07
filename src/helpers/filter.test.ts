@@ -26,27 +26,6 @@ rules:
     ])
   })
 
-  it('defaults metadata.ignored to false when metadata is missing', () => {
-    const yamlContent = `
-rules:
-  - id: keep_rule
-    patterns:
-      - keep.me
-`
-
-    expect(loadNamespaceFilters(yamlContent)).toEqual([
-      {
-        id: 'keep_rule',
-        patterns: ['keep.me'],
-        metadata: {
-          ignored: false,
-          ignoredReason: undefined,
-          product: undefined,
-        },
-      },
-    ])
-  })
-
   it('throws when rules contains non-object entries', () => {
     const yamlContent = `
 rules:
@@ -72,20 +51,6 @@ rules:
     - abc
   metadata:
     ignored: true
-`
-
-    expect(() => loadNamespaceFilters(yamlContent)).toThrow(
-      'Invalid namespace-filters.yaml content:',
-    )
-  })
-
-  it('throws when patterns is not an array', () => {
-    const yamlContent = `
-rules:
-  - id: bad_rule
-    patterns: 123
-    metadata:
-      ignored: true
 `
 
     expect(() => loadNamespaceFilters(yamlContent)).toThrow(

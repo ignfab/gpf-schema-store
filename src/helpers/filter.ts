@@ -30,7 +30,7 @@ export function loadNamespaceFilters(yamlContent: string): NamespaceFilterRule[]
         id: rule.id,
         patterns: rule.patterns,
         metadata: {
-            ignored: rule.metadata.ignored ?? false,
+            ignored: rule.metadata.ignored,
             ignoredReason: rule.metadata.ignoredReason,
             product: rule.metadata.product,
         },
