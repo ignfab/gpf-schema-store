@@ -29,6 +29,7 @@
     "start": "node dist/cli.js",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "preview": "npm run build && npm run start"
   },
@@ -43,6 +44,7 @@
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.5.2",
+    "@vitest/coverage-v8": "^4.1.4",
     "typescript": "~6.0.2",
     "vite": "^8.0.6",
     "vite-node": "^6.0.0",
