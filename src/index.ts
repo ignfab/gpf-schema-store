@@ -13,6 +13,7 @@ export type {
     CollectionSearchEngine,
     CollectionSearchEngineFactory,
     CollectionSearchMatch,
+    CollectionSearchResult,
     CollectionSearchOptions,
 } from "./search/types";
 export type {

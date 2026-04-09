@@ -2,13 +2,16 @@ import type { Collection } from '../types';
 import type {
   CollectionSearchEngine,
   CollectionSearchEngineFactory,
+  CollectionSearchMatch,
   CollectionSearchOptions,
+  CollectionSearchResult,
 } from './types';
 
 export interface CollectionCatalog {
   list(): Collection[];
   getById(id: string): Collection | undefined;
   search(query: string, options?: CollectionSearchOptions): Collection[];
+  searchWithScores(query: string, options?: CollectionSearchOptions): CollectionSearchResult[];
 }
 
 export type InMemoryCollectionCatalogOptions =
@@ -45,28 +48,45 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     return collection ? structuredClone(collection) : undefined;
   }
 
-  search(query: string, options: CollectionSearchOptions = {}): Collection[] {
+  private getSearchEngine(): CollectionSearchEngine {
     if (!this.searchEngine) {
       throw new Error('No search engine configured');
     }
+    return this.searchEngine;
+  }
 
-    const matches = this.searchEngine.search(query);
+  private resolveMatches(
+    matches: CollectionSearchMatch[],
+    options: CollectionSearchOptions = {},
+  ): CollectionSearchResult[] {
+    const limit = options.limit;
+    const hasLimit = typeof limit === 'number' && limit >= 0;
+    const resolvedResults: CollectionSearchResult[] = [];
 
-    const matchedCollections: Collection[] = [];
-    
     // Keep the search-engine ranking order while resolving IDs to collections.
+    // Stop early once the limit is reached to avoid cloning unused items.
     for (const match of matches) {
+      if (hasLimit && resolvedResults.length >= limit) {
+        break;
+      }
       const collection = this.byId.get(match.id);
       if (collection !== undefined) {
-        matchedCollections.push(collection);
+        resolvedResults.push({
+          collection: structuredClone(collection),
+          score: match.score,
+        });
       }
     }
 
-    const limit = options.limit;
-    if (typeof limit === 'number' && limit >= 0) {
-      return structuredClone(matchedCollections.slice(0, limit));
-    }
+    return resolvedResults;
+  }
 
-    return structuredClone(matchedCollections);
+  search(query: string, options: CollectionSearchOptions = {}): Collection[] {
+    return this.searchWithScores(query, options).map(({ collection }) => collection);
+  }
+
+  searchWithScores(query: string, options: CollectionSearchOptions = {}): CollectionSearchResult[] {
+    const matches = this.getSearchEngine().search(query);
+    return this.resolveMatches(matches, options);
   }
 }
