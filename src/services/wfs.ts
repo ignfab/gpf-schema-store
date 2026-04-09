@@ -1,7 +1,7 @@
-import {debuglog} from 'node:util';
+import { debuglog } from 'node:util';
 const debug = debuglog('gpf-schema-store:wfs');
 
-import type { Collection, CollectionProperty, NamespaceFilterRule } from '../types';
+import type { Collection, CollectionBrief, CollectionProperty, NamespaceFilterRule } from '../types';
 import { WfsEndpoint } from '@camptocamp/ogc-client';
 import { retry } from '../helpers/retry';
 import { getMetadataFromNamespace } from '../helpers/metadata';
@@ -18,9 +18,90 @@ const DEFAULT_MATCHING_RULE: NamespaceFilterRule = {
   }
 };
 
+/**
+ * A client to interact with a WFS endpoint and retrieve the collections.
+ */
+export class WfsClient {
+  private endpoint: WfsEndpoint;
+
+  /**
+   * @param wfsUrl the URL of the WFS endpoint (https://data.geopf.fr/wfs)
+   */
+  constructor(
+    wfsUrl: string
+  ) {
+    this.endpoint = new WfsEndpoint(wfsUrl);
+  }
+
+  /**
+   * Get the collection from the WFS endpoint (GetCapabilities).
+   */
+  async getCollections(): Promise<CollectionBrief[]> {
+    await retry('wfs.isReady', () => this.endpoint.isReady());
+
+    const featureTypes = await retry('wfs.getFeatureTypes', () => this.endpoint.getFeatureTypes());
+    const collections: CollectionBrief[] = [];
+    for (const featureType of featureTypes) {
+      const [namespace, name] = featureType.name.split(':');
+      collections.push({
+        id: featureType.name,
+        namespace: namespace,
+        name: name,
+        title: featureType.title ?? '',
+        description: featureType.abstract ?? '',
+      } as CollectionBrief);
+    }
+    return collections;
+  }
+
+  /**
+   * Get the collection with its properties from the WFS endpoint (DescribeFeatureType).
+   * @param collectionId 
+   * @returns 
+   */
+  async getCollection(collectionId: string): Promise<Collection> {
+    await retry('wfs.isReady', () => this.endpoint.isReady());
+
+    const featureTypeFull = await retry(
+      `wfs.getFeatureTypeFull(${collectionId})`,
+      () => this.endpoint.getFeatureTypeFull(collectionId),
+    );
+
+    const properties = Object.getOwnPropertyNames(featureTypeFull.properties).map((propertyName) => {
+      return {
+        name: propertyName,
+        type: featureTypeFull.properties[propertyName]
+      } as CollectionProperty;
+    });
+
+    if (featureTypeFull.geometryName) {
+      properties.push({
+        name: featureTypeFull.geometryName,
+        type: featureTypeFull.geometryType ?? 'geometry',
+        defaultCrs: featureTypeFull.defaultCrs
+      } as CollectionProperty);
+    }
+
+    const collection: Collection = {
+      id: collectionId,
+      namespace: collectionId.split(':')[0],
+      name: collectionId.split(':')[1],
+      title: featureTypeFull.title ?? '',
+      description: featureTypeFull.abstract ?? '',
+      properties: properties
+    };
+
+    return collection;
+  }
+}
+
+
+
 
 /**
  * Get the collections from a WFS endpoint.
+ * 
+ * @deprecated Use the WfsClient class instead and its getCollections method.
  * 
  * @param wfsUrl 
  * @returns The collections.

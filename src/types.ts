@@ -74,6 +74,7 @@ export type CollectionProperty = {
   defaultCrs?: string;
 };
 
+
 /**
  * The schema of a collection.
  */
@@ -106,3 +107,9 @@ export type Collection = {
    */
   properties: CollectionProperty[];
 };
+
+/**
+ * A brief version of the collection provided by GetCapabilities
+ * without the properties (given by DescribeFeatureType)
+ */
+export type CollectionBrief = Omit<Collection, 'properties'>;
