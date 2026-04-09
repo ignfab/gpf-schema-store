@@ -6,13 +6,14 @@ import { Command } from 'commander'
 
 import { format } from '@fast-csv/format';
 
-import { getCollections } from './services/wfs'
+import { WfsClient } from './services/wfs'
 import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilters, loadWfsCollections, getOverwrite, loadCollections } from './services/storage'
 import { getMetadataFromNamespace } from './helpers/metadata'
 import { compare } from './helpers/compare';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
 import { renderSearchOutputs } from './cli/search-outputs';
 import { writeRenderedCatalog } from './cli/render-catalog';
+import type { Collection } from './types';
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
 const { version } = JSON.parse(readFileSync(pkgPath, 'utf-8')) as { version: string }
@@ -35,20 +36,36 @@ program
     console.log(`${namespaceFilterRules.length} filters loaded from data/namespace-filters.yaml.`);
 
     console.log('Get collections from the GPF WFS...');
-    const collections = await getCollections(GPF_WFS_URL, { namespaceFilterRules, withProperties: true });
+    const wfsClient = new WfsClient(GPF_WFS_URL);
+    const collections = await wfsClient.getCollections();
     console.log(`${collections.length} collections retrieved from the GPF WFS.`);
+
+    console.log('Filtering collections based on namespace filters...');
+    const filteredCollections = collections.filter((collection) => {
+      const metadata = getMetadataFromNamespace(collection.namespace, namespaceFilterRules);
+      return !metadata.ignored;
+    });
+    console.log(`${filteredCollections.length} collections remain after filtering.`);
+    
+    console.log('Retreive collection details for the filtered collections...');
+    const filteredCollectionsWithProperties: Collection[] = [];
+    for ( const collection of filteredCollections ) {
+      console.log(`Retrieving details for collection ${collection.id}...`);
+      const collectionWithProperties = await wfsClient.getCollection(collection.id);
+      filteredCollectionsWithProperties.push(collectionWithProperties);
+    }
+    console.log(`Details retrieved for ${filteredCollectionsWithProperties.length} collections.`);
 
     console.log('Clearing existing collections in data/wfs...');
     clearWfsCollections();
     console.log('Existing collections cleared from data/wfs.');
 
     console.log('Saving collections to data/wfs/{namespace}/{name}.json...');
-    const filteredCollections = collections.filter((c) => c.properties.length > 0);
-    for (const collection of filteredCollections) {
+    for (const collection of filteredCollectionsWithProperties) {
       writeWfsCollection(collection);
     }
 
-    console.log(`${filteredCollections.length} collections saved to data/wfs/{namespace}/{name}.json`);
+    console.log(`${filteredCollectionsWithProperties.length} collections saved to data/wfs/{namespace}/{name}.json`);
   })
 
 program
@@ -96,14 +113,21 @@ program
   .action(async () => {
     console.log('Updating namespaces.csv file with the WFS namespaces with metadata...');
 
+    console.log('Loading filters from data/namespace-filters.yaml...');
     const namespaceFilterRules = getNamespaceFilters();
     console.log(`${namespaceFilterRules.length} filters loaded from data/namespace-filters.yaml.`);
 
-    // Get collection without properties to speed up the process
-    const collections = await getCollections(GPF_WFS_URL, { withProperties: false });
+    console.log('Get collections from the GPF WFS...');
+    const wfsClient = new WfsClient('http:s://aaa.geopf.fr/wfs');
+    const collections = await wfsClient.getCollections();
+    console.log(`${collections.length} collections retrieved from the GPF WFS.`);
+
+    console.log('Extracting unique namespaces ...');
     const namespaces = [...new Set(collections.map((c) => c.namespace))];
     namespaces.sort();
-
+    console.log(`${namespaces.length} unique namespaces extracted.`);
+  
+    console.log('Writing namespaces and metadata to namespaces.csv...');
     const fileStream = createWriteStream(join(getDataDir(), 'namespaces.csv'));
     const stream = format({ delimiter: ',' });
     stream.pipe(fileStream);
@@ -131,6 +155,8 @@ program
       stream.on('error', reject);
       stream.end();
     });
+
+    console.log('Namespaces and metadata successfully written to namespaces.csv.');
   })
 
 program
