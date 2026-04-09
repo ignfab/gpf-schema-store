@@ -2,8 +2,37 @@ import { debuglog } from 'node:util';
 const debug = debuglog('gpf-schema-store:wfs');
 
 import type { Collection, CollectionBrief, CollectionProperty } from '../types';
-import { WfsEndpoint } from '@camptocamp/ogc-client';
+import { EndpointError, WfsEndpoint } from '@camptocamp/ogc-client';
 import { retry } from '../helpers/retry';
+
+/**
+ * Handle unhandled rejections to avoid silent failures from the WfsEndpoint constructor (which can throw EndpointError if the endpoint is not reachable or does not respond correctly). We log the error and exit the process with a non-zero code, except for EndpointError which we consider as a normal case that can happen if the WFS endpoint is temporarily unavailable. In that case, we just log a debug message and do not exit the process, allowing the retry mechanism to handle it.
+ * 
+ * TODO : report to @camptocamp/ogc-client to handle this case more gracefully (by avoiding pending promises and unhandled rejections in the WfsEndpoint constructor)
+ */
+process.on('unhandledRejection', (error) => {
+  if ( error instanceof EndpointError ) {
+    debug('Silent EndpointError from WfsEndpoint constructor...');
+  } else {   
+    console.error('Unhandled Rejection:', error);
+    process.exit(1);
+  }
+});
+
+/**
+ * Create a WfsEndpoint instance and ensure it is ready.
+ * 
+ * @param wfsUrl string
+ * @returns Promise<WfsEndpoint>
+ */
+async function createWfsEndpoint(wfsUrl: string): Promise<WfsEndpoint> {
+    debug(`Create WfsEndpoint for ${wfsUrl} ...`);
+    const endpoint = new WfsEndpoint(wfsUrl);
+    debug('Ensure that WfsEndpoint is ready ...');
+    await endpoint.isReady();
+    return endpoint;
+}
+
 
 /**
  * A client to interact with a WFS endpoint and retrieve the collections.
@@ -23,14 +52,10 @@ export class WfsClient {
 
   async getWfsEndpoint(): Promise<WfsEndpoint> {
     if (!this.endpoint) {
-      debug(`Create WfsEndpoint for ${this.wfsUrl} ...`);
-      this.endpoint = new WfsEndpoint(this.wfsUrl);
-      debug('Ensure that WfsEndpoint is ready ...');
-      await this.endpoint.isReady();
+      this.endpoint = await retry('wfs.createEndpoint', () => createWfsEndpoint(this.wfsUrl));
     }
     return this.endpoint;
   }
-
 
   /**
    * Get the collection from the WFS endpoint (GetCapabilities).
@@ -38,7 +63,7 @@ export class WfsClient {
   async getCollections(): Promise<CollectionBrief[]> {
     debug(`Getting collections from ${this.wfsUrl} (GetCapabilities) ...`);
 
-    const endpoint = await retry('wfs.ensureClientIsReady', () => this.getWfsEndpoint());
+    const endpoint = await this.getWfsEndpoint();
 
     const featureTypes = await retry('wfs.getFeatureTypes', () => endpoint.getFeatureTypes());
     const collections: CollectionBrief[] = [];
@@ -63,7 +88,7 @@ export class WfsClient {
   async getCollection(collectionId: string): Promise<Collection> {
     debug(`Getting collection ${collectionId} from ${this.wfsUrl} (DescribeFeatureType) ...`);
 
-    const endpoint = await retry('wfs.ensureClientIsReady', () => this.getWfsEndpoint());
+    const endpoint = await this.getWfsEndpoint();
 
     const featureTypeFull = await retry(
       `wfs.getFeatureTypeFull(${collectionId})`,

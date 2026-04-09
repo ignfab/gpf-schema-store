@@ -7,11 +7,14 @@ const endpointMocks = {
   isReady: vi.fn(),
   getFeatureTypes: vi.fn(),
   getFeatureTypeFull: vi.fn(),
+  constructor: vi.fn(),
 }
 
 vi.mock('@camptocamp/ogc-client', () => {
   class WfsEndpoint {
-    constructor(_url: string) {}
+    constructor(_url: string) {
+      endpointMocks.constructor()
+    }
 
     isReady = endpointMocks.isReady
     getFeatureTypes = endpointMocks.getFeatureTypes
@@ -28,11 +31,12 @@ describe('WfsClient getCollections', () => {
   beforeEach(() => {
     vi.useFakeTimers()
     vi.spyOn(Math, 'random').mockReturnValue(0)
+    endpointMocks.constructor.mockReset()
     endpointMocks.isReady.mockReset()
     endpointMocks.getFeatureTypes.mockReset()
     endpointMocks.getFeatureTypeFull.mockReset()
     endpointMocks.isReady.mockResolvedValue(undefined)
-    endpointMocks.getFeatureTypes.mockResolvedValue([])
+    endpointMocks.getFeatureTypes.mockReturnValue([])
   });
 
   afterEach(() => {
@@ -41,7 +45,7 @@ describe('WfsClient getCollections', () => {
   });
 
   it('returns the collections from the WFS endpoint', async () => {
-    endpointMocks.getFeatureTypes.mockResolvedValue([
+    endpointMocks.getFeatureTypes.mockReturnValue([
       { name: 'BDTOPO_V3:batiment', title: 'batiment', abstract: '' },
       { name: 'BDTOPO_V3:commune', title: 'commune', abstract: '' },
     ])
@@ -67,27 +71,25 @@ describe('WfsClient getCollections', () => {
     await vi.runAllTimersAsync()
 
     await assertion
+    expect(endpointMocks.constructor).toHaveBeenCalledTimes(1)
     expect(endpointMocks.isReady).toHaveBeenCalledTimes(1)
     expect(endpointMocks.getFeatureTypes).toHaveBeenCalledTimes(1)
   });
 
-  it('should retry isReady and getFeatureTypes when they fail', async () => {
+  it('should retry WfsEndpoint creation when it fails', async () => {
     endpointMocks.isReady
       .mockRejectedValueOnce(new Error('boot network'))
       .mockResolvedValueOnce(undefined)
 
-    endpointMocks.getFeatureTypes
-      .mockRejectedValueOnce(new Error('types network'))
-      .mockResolvedValueOnce([])
-
     const wfsClient = new WfsClient('https://example.test/wfs');
-    const promise = wfsClient.getCollections();
-    const assertion = expect(promise).resolves.toEqual([])
+    const endpoint = wfsClient.getWfsEndpoint();
+    const assertion = expect(endpoint).resolves.toBeDefined();
     await vi.runAllTimersAsync()
 
     await assertion
+    // First isReady failure means a second endpoint is constructed on retry.
+    expect(endpointMocks.constructor).toHaveBeenCalledTimes(2)
     expect(endpointMocks.isReady).toHaveBeenCalledTimes(2)
-    expect(endpointMocks.getFeatureTypes).toHaveBeenCalledTimes(2)
   });
 
 });
@@ -96,6 +98,7 @@ describe('WfsClient getCollection', () => {
   beforeEach(() => {
     vi.useFakeTimers()
     vi.spyOn(Math, 'random').mockReturnValue(0)
+    endpointMocks.constructor.mockReset()
     endpointMocks.isReady.mockReset()
     endpointMocks.getFeatureTypes.mockReset()
     endpointMocks.getFeatureTypeFull.mockReset()
@@ -136,6 +139,7 @@ describe('WfsClient getCollection', () => {
     await vi.runAllTimersAsync()
 
     await assertion
+    expect(endpointMocks.constructor).toHaveBeenCalledTimes(1)
     expect(endpointMocks.isReady).toHaveBeenCalledTimes(1)
     expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledTimes(1)
     expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledWith('NS:collection')
@@ -167,6 +171,8 @@ describe('WfsClient getCollection', () => {
     await vi.runAllTimersAsync()
 
     await assertion
+    // First isReady failure means a second endpoint is constructed on retry.
+    expect(endpointMocks.constructor).toHaveBeenCalledTimes(2)
     expect(endpointMocks.isReady).toHaveBeenCalledTimes(2)
     expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledTimes(2)
     expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledWith('NS:collection')

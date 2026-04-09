@@ -118,7 +118,7 @@ program
     console.log(`${namespaceFilterRules.length} filters loaded from data/namespace-filters.yaml.`);
 
     console.log('Get collections from the GPF WFS...');
-    const wfsClient = new WfsClient('http:s://aaa.geopf.fr/wfs');
+    const wfsClient = new WfsClient(GPF_WFS_URL);
     const collections = await wfsClient.getCollections();
     console.log(`${collections.length} collections retrieved from the GPF WFS.`);
 
