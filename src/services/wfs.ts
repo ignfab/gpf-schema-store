@@ -6,9 +6,11 @@ import { EndpointError, WfsEndpoint } from '@camptocamp/ogc-client';
 import { retry } from '../helpers/retry';
 
 /**
- * Handle unhandled rejections to avoid silent failures from the WfsEndpoint constructor (which can throw EndpointError if the endpoint is not reachable or does not respond correctly). We log the error and exit the process with a non-zero code, except for EndpointError which we consider as a normal case that can happen if the WFS endpoint is temporarily unavailable. In that case, we just log a debug message and do not exit the process, allowing the retry mechanism to handle it.
+ * Handle unhandled rejections to avoid silent failures from the WfsEndpoint constructor (which can throw EndpointError if the endpoint is not reachable or does not respond correctly).
+ * We log the error and exit the process with a non-zero code, except for EndpointError which we consider as a normal case that can happen if the WFS endpoint is temporarily unavailable.
+ * In that case, we just log a debug message and do not exit the process, allowing the retry mechanism to handle it.
  * 
- * TODO : report to @camptocamp/ogc-client to handle this case more gracefully (by avoiding pending promises and unhandled rejections in the WfsEndpoint constructor)
+ * @see https://github.com/camptocamp/ogc-client/issues/138 - reported to @camptocamp/ogc-client
  */
 process.on('unhandledRejection', (error) => {
   if ( error instanceof EndpointError ) {
