@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2025:commune_associee_ou_deleguee",
   "namespace": "ADMINEXPRESS-COG.2025",
   "name": "commune_associee_ou_deleguee",
-  "title": "ADMINEXPRESS COG CARTO PE 2025 Commune associée ou déléguée",
-  "description": "ADMINEXPRESS COG CARTO PE 2025 Commune associée ou déléguée",
+  "title": "ADMINEXPRESS COG 2025 Commune associée ou déléguée",
+  "description": "ADMINEXPRESS COG 2025 Commune associée ou déléguée",
   "properties": [
     {
       "name": "cleabs",
@@ -30,16 +30,16 @@
       "type": "string"
     },
     {
+      "name": "code_siren",
+      "type": "string"
+    },
+    {
       "name": "nature",
       "type": "string"
     },
     {
       "name": "population",
       "type": "integer"
-    },
-    {
-      "name": "code_siren",
-      "type": "string"
     },
     {
       "name": "geometrie",

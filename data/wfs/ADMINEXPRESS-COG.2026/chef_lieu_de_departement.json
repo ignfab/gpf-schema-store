@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:chef_lieu_de_departement",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "chef_lieu_de_departement",
-  "title": "ADMINEXPRESS COG CARTO PE 2026 Chef-lieu de Département",
-  "description": "ADMINEXPRESS COG CARTO PE 2026 Chef-lieu de Département",
+  "title": "ADMINEXPRESS COG 2026 Chef-lieu de Département",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Département",
   "properties": [
     {
       "name": "cleabs",
@@ -26,7 +26,11 @@
       "type": "string"
     },
     {
-      "name": "code_insee",
+      "name": "code_insee_du_departement",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_la_commune_siege",
       "type": "string"
     },
     {

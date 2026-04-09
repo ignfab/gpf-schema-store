@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:region",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "region",
-  "title": "ADMINEXPRESS COG CARTO PE 2026 Région",
-  "description": "ADMINEXPRESS COG CARTO PE 2026 Région",
+  "title": "ADMINEXPRESS COG 2026 Région",
+  "description": "ADMINEXPRESS COG 2026 Région",
   "properties": [
     {
       "name": "cleabs",

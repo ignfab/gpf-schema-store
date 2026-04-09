@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:chef_lieu_de_collectivite_territoriale",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "chef_lieu_de_collectivite_territoriale",
-  "title": "ADMINEXPRESS COG CARTO PE 2026 Chef-lieu de Collectivité territoriale",
-  "description": "ADMINEXPRESS COG CARTO PE 2026 Chef-lieu de Collectivité territoriale",
+  "title": "ADMINEXPRESS COG 2026 Chef-lieu de Collectivité territoriale",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Collectivité territoriale",
   "properties": [
     {
       "name": "cleabs",
@@ -18,6 +18,14 @@
       "type": "string"
     },
     {
+      "name": "nom_du_chef_lieu",
+      "type": "string"
+    },
+    {
+      "name": "nom_du_chef_lieu_en_majuscules",
+      "type": "string"
+    },
+    {
       "name": "nom_du_siege_de_la_collectivite_territoriale",
       "type": "string"
     },
@@ -26,15 +34,15 @@
       "type": "string"
     },
     {
-      "name": "code_insee",
-      "type": "string"
-    },
-    {
-      "name": "code_insee_de_la_commune_siege",
+      "name": "code_insee_de_la_collectivite_territoriale",
       "type": "string"
     },
     {
       "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_la_commune_siege",
       "type": "string"
     },
     {

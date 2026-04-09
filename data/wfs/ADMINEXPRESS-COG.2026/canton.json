@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:canton",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "canton",
-  "title": "ADMINEXPRESS COG CARTO PE 2026 Canton",
-  "description": "ADMINEXPRESS COG CARTO PE 2026 Canton",
+  "title": "ADMINEXPRESS COG 2026 Canton",
+  "description": "ADMINEXPRESS COG 2026 Canton",
   "properties": [
     {
       "name": "cleabs",
@@ -35,6 +35,10 @@
     },
     {
       "name": "code_insee_de_la_region",
+      "type": "string"
+    },
+    {
+      "name": "composition_du_canton",
       "type": "string"
     },
     {

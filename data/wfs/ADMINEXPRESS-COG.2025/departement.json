@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2025:departement",
   "namespace": "ADMINEXPRESS-COG.2025",
   "name": "departement",
-  "title": "ADMINEXPRESS COG CARTO PE 2025 Département",
-  "description": "ADMINEXPRESS COG CARTO PE 2025 Département",
+  "title": "ADMINEXPRESS COG 2025 Département",
+  "description": "ADMINEXPRESS COG 2025 Département",
   "properties": [
     {
       "name": "cleabs",

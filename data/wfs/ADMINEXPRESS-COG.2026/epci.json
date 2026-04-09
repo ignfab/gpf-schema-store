@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:epci",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "epci",
-  "title": "ADMINEXPRESS COG CARTO PE 2026 EPCI",
-  "description": "ADMINEXPRESS COG CARTO PE 2026 EPCI",
+  "title": "ADMINEXPRESS COG 2026 EPCI",
+  "description": "ADMINEXPRESS COG 2026 EPCI",
   "properties": [
     {
       "name": "cleabs",
