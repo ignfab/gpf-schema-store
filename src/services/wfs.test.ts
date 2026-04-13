@@ -12,8 +12,8 @@ const endpointMocks = {
 
 vi.mock('@camptocamp/ogc-client', () => {
   class WfsEndpoint {
-    constructor(_url: string) {
-      endpointMocks.constructor()
+    constructor(url: string) {
+      endpointMocks.constructor(url)
     }
 
     isReady = endpointMocks.isReady
@@ -30,6 +30,7 @@ import { WfsClient } from './wfs'
 describe('WfsClient getCollections', () => {
   beforeEach(() => {
     vi.useFakeTimers()
+    vi.setSystemTime(new Date('2024-01-01T00:00:00.000Z'))
     vi.spyOn(Math, 'random').mockReturnValue(0)
     endpointMocks.constructor.mockReset()
     endpointMocks.isReady.mockReset()
@@ -72,6 +73,7 @@ describe('WfsClient getCollections', () => {
 
     await assertion
     expect(endpointMocks.constructor).toHaveBeenCalledTimes(1)
+    expect(endpointMocks.constructor).toHaveBeenCalledWith('https://example.test/wfs?_t=1704067200000')
     expect(endpointMocks.isReady).toHaveBeenCalledTimes(1)
     expect(endpointMocks.getFeatureTypes).toHaveBeenCalledTimes(1)
   });
@@ -89,6 +91,10 @@ describe('WfsClient getCollections', () => {
     await assertion
     // First isReady failure means a second endpoint is constructed on retry.
     expect(endpointMocks.constructor).toHaveBeenCalledTimes(2)
+    expect(endpointMocks.constructor.mock.calls.map(([url]) => url)).toEqual([
+      'https://example.test/wfs?_t=1704067200000',
+      'https://example.test/wfs?_t=1704067200200',
+    ])
     expect(endpointMocks.isReady).toHaveBeenCalledTimes(2)
   });
 
@@ -97,6 +103,7 @@ describe('WfsClient getCollections', () => {
 describe('WfsClient getCollection', () => {
   beforeEach(() => {
     vi.useFakeTimers()
+    vi.setSystemTime(new Date('2024-01-01T00:00:00.000Z'))
     vi.spyOn(Math, 'random').mockReturnValue(0)
     endpointMocks.constructor.mockReset()
     endpointMocks.isReady.mockReset()
@@ -140,16 +147,13 @@ describe('WfsClient getCollection', () => {
 
     await assertion
     expect(endpointMocks.constructor).toHaveBeenCalledTimes(1)
+    expect(endpointMocks.constructor).toHaveBeenCalledWith('https://example.test/wfs?_t=1704067200000')
     expect(endpointMocks.isReady).toHaveBeenCalledTimes(1)
     expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledTimes(1)
     expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledWith('NS:collection')
   });
 
   it('should retry isReady and getFeatureTypeFull when they fail', async () => {
-    endpointMocks.isReady
-      .mockRejectedValueOnce(new Error('boot network'))
-      .mockResolvedValueOnce(undefined)
-
     endpointMocks.getFeatureTypeFull
       .mockRejectedValueOnce(new Error('types network'))
       .mockResolvedValueOnce({
@@ -171,12 +175,15 @@ describe('WfsClient getCollection', () => {
     await vi.runAllTimersAsync()
 
     await assertion
-    // First isReady failure means a second endpoint is constructed on retry.
+    // First getFeatureTypeFull failure means a fresh cache-busted endpoint is constructed.
     expect(endpointMocks.constructor).toHaveBeenCalledTimes(2)
+    expect(endpointMocks.constructor.mock.calls.map(([url]) => url)).toEqual([
+      'https://example.test/wfs?_t=1704067200000',
+      'https://example.test/wfs?_t=1704067200200',
+    ])
     expect(endpointMocks.isReady).toHaveBeenCalledTimes(2)
     expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledTimes(2)
     expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledWith('NS:collection')
   });
 
 });
-

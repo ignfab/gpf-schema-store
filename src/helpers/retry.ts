@@ -13,12 +13,15 @@ function computeDelayMs(attempt: number): number {
   return exp + Math.floor(Math.random() * (exp + 1));
 }
 
-export async function retry<T>(operationName: string, operation: () => T | Promise<T>): Promise<T> {
+export async function retry<T>(
+  operationName: string,
+  operation: (attempt: number) => T | Promise<T>,
+): Promise<T> {
   let lastError: unknown;
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
     try {
-      return await operation();
+      return await operation(attempt);
     } catch (error) {
       lastError = error;
       if (attempt === MAX_ATTEMPTS) {

@@ -2,24 +2,42 @@ import { debuglog } from 'node:util';
 const debug = debuglog('gpf-schema-store:wfs');
 
 import type { Collection, CollectionBrief, CollectionProperty } from '../types';
-import { EndpointError, WfsEndpoint } from '@camptocamp/ogc-client';
+import { WfsEndpoint } from '@camptocamp/ogc-client';
 import { retry } from '../helpers/retry';
 
-/**
- * Handle unhandled rejections to avoid silent failures from the WfsEndpoint constructor (which can throw EndpointError if the endpoint is not reachable or does not respond correctly).
- * We log the error and exit the process with a non-zero code, except for EndpointError which we consider as a normal case that can happen if the WFS endpoint is temporarily unavailable.
- * In that case, we just log a debug message and do not exit the process, allowing the retry mechanism to handle it.
- * 
- * @see https://github.com/camptocamp/ogc-client/issues/138 - reported to @camptocamp/ogc-client
- */
-process.on('unhandledRejection', (error) => {
-  if ( error instanceof EndpointError ) {
-    debug('Silent EndpointError from WfsEndpoint constructor...');
-  } else {   
-    console.error('Unhandled Rejection:', error);
-    process.exit(1);
+function withTimestampCacheBuster(wfsUrl: string): string {
+  const url = new URL(wfsUrl);
+  url.searchParams.set('_t', String(Date.now() + Math.random()));
+  return url.toString();
+}
+
+function isEndpointError(error: unknown): boolean {
+  return error instanceof Error && error.name === 'EndpointError';
+}
+
+async function flushUnhandledRejectionQueue(): Promise<void> {
+  await new Promise<void>((resolve) => setImmediate(resolve));
+}
+
+// ogc-client can emit an extra unhandled EndpointError for a rejection we already await.
+// Keep the suppression scoped to the call so retry still receives the awaited failure.
+async function withScopedEndpointErrorSuppression<T>(operation: () => Promise<T>): Promise<T> {
+  const onUnhandledRejection = (error: unknown) => {
+    if (isEndpointError(error)) {
+      debug('Suppressing scoped EndpointError from ogc-client...');
+      return;
+    }
+    throw error;
+  };
+
+  process.on('unhandledRejection', onUnhandledRejection);
+  try {
+    return await operation();
+  } finally {
+    await flushUnhandledRejectionQueue();
+    process.off('unhandledRejection', onUnhandledRejection);
   }
-});
+}
 
 /**
  * Create a WfsEndpoint instance and ensure it is ready.
@@ -28,11 +46,11 @@ process.on('unhandledRejection', (error) => {
  * @returns Promise<WfsEndpoint>
  */
 async function createWfsEndpoint(wfsUrl: string): Promise<WfsEndpoint> {
-    debug(`Create WfsEndpoint for ${wfsUrl} ...`);
-    const endpoint = new WfsEndpoint(wfsUrl);
-    debug('Ensure that WfsEndpoint is ready ...');
-    await endpoint.isReady();
-    return endpoint;
+  debug(`Create WfsEndpoint for ${wfsUrl} ...`);
+  const endpoint = new WfsEndpoint(wfsUrl);
+  debug('Ensure that WfsEndpoint is ready ...');
+  await withScopedEndpointErrorSuppression(() => endpoint.isReady());
+  return endpoint;
 }
 
 
@@ -52,9 +70,23 @@ export class WfsClient {
     this.wfsUrl = wfsUrl;
   }
 
+  /**
+   * Dispose of the WFS client and release the endpoint.
+   * After calling this method, the client should not be used anymore.
+   */
+  dispose(): void {
+    if (this.endpoint) {
+      debug('Disposing WfsClient endpoint...');
+      this.endpoint = undefined;
+    }
+  }
+
   async getWfsEndpoint(): Promise<WfsEndpoint> {
     if (!this.endpoint) {
-      this.endpoint = await retry('wfs.createEndpoint', () => createWfsEndpoint(this.wfsUrl));
+      this.endpoint = await retry(
+        'wfs.createEndpoint',
+        () => createWfsEndpoint(withTimestampCacheBuster(this.wfsUrl)),
+      );
     }
     return this.endpoint;
   }
@@ -67,7 +99,7 @@ export class WfsClient {
 
     const endpoint = await this.getWfsEndpoint();
 
-    const featureTypes = await retry('wfs.getFeatureTypes', () => endpoint.getFeatureTypes());
+    const featureTypes = endpoint.getFeatureTypes();
     const collections: CollectionBrief[] = [];
     for (const featureType of featureTypes) {
       const [namespace, name] = featureType.name.split(':');
@@ -90,11 +122,20 @@ export class WfsClient {
   async getCollection(collectionId: string): Promise<Collection> {
     debug(`Getting collection ${collectionId} from ${this.wfsUrl} (DescribeFeatureType) ...`);
 
-    const endpoint = await this.getWfsEndpoint();
-
     const featureTypeFull = await retry(
       `wfs.getFeatureTypeFull(${collectionId})`,
-      () => endpoint.getFeatureTypeFull(collectionId),
+      async (attempt) => {
+        const endpoint = attempt === 1
+          ? await this.getWfsEndpoint()
+          : await createWfsEndpoint(withTimestampCacheBuster(this.wfsUrl));
+        const featureType = await withScopedEndpointErrorSuppression(
+          () => endpoint.getFeatureTypeFull(collectionId),
+        );
+        if (attempt > 1) {
+          this.endpoint = endpoint;
+        }
+        return featureType;
+      },
     );
 
     const properties = Object.getOwnPropertyNames(featureTypeFull.properties).map((propertyName) => {
