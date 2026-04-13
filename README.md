@@ -33,6 +33,11 @@ npm run build
 npm run test
 ```
 
+### Configure filtering
+
+- [data/namespace-filters.yaml](./data/namespace-filters.yaml) allows to keep the most relevant dataset and ignore test data.
+- [data/namespaces.csv](./data/namespaces.csv) allows to review the corresponding rules.
+
 ### Scrap data from GPF WFS
 
 Fetch WFS schemas from GPF, apply namespace filtering rules from `data/namespace-filters.yaml`, then regenerate `data/wfs`.
