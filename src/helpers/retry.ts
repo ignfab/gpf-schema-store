@@ -2,7 +2,7 @@ import {debuglog} from 'node:util';
 const debug = debuglog('gpf-schema-store:retry');
 
 const MAX_ATTEMPTS = 3;
-const BASE_DELAY_MS = 200;
+const BASE_DELAY_MS = 1000;
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
