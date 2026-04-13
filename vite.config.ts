@@ -34,6 +34,7 @@ function cliShebang(fileName: string): Plugin {
 export default defineConfig({
   test: {
     environment: 'node',
+    env: { NODE_NO_WARNINGS: '1' },
     include: ['src/**/*.test.ts'],
     coverage: {
       provider: 'v8',
@@ -41,6 +42,10 @@ export default defineConfig({
       exclude: ['src/**/*.test.ts'],
       reporter: ['text', 'lcov', 'html'],
     },
+    env: {
+      // suppress UNDICI-EHPA warnings
+      NODE_NO_WARNINGS: '1',
+    }
   },
   build: {
     ssr: true,

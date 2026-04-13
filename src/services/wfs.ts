@@ -3,7 +3,7 @@ const debug = debuglog('gpf-schema-store:wfs');
 
 import type { Collection, CollectionBrief, CollectionProperty } from '../types';
 import { WfsEndpoint } from '@camptocamp/ogc-client';
-import { configureOgcClientFetchOptionsForUrl } from '../helpers/ogc-client-fetch';
+import '../helpers/configure-fetch';
 import { retry } from '../helpers/retry';
 
 function withTimestampCacheBuster(wfsUrl: string): string {
@@ -48,7 +48,6 @@ async function withScopedEndpointErrorSuppression<T>(operation: () => Promise<T>
  */
 async function createWfsEndpoint(wfsUrl: string): Promise<WfsEndpoint> {
   debug(`Create WfsEndpoint for ${wfsUrl} ...`);
-  configureOgcClientFetchOptionsForUrl(wfsUrl);
   const endpoint = new WfsEndpoint(wfsUrl);
   debug('Ensure that WfsEndpoint is ready ...');
   await withScopedEndpointErrorSuppression(() => endpoint.isReady());
@@ -70,17 +69,6 @@ export class WfsClient {
     wfsUrl: string
   ) {
     this.wfsUrl = wfsUrl;
-  }
-
-  /**
-   * Dispose of the WFS client and release the endpoint.
-   * After calling this method, the client should not be used anymore.
-   */
-  dispose(): void {
-    if (this.endpoint) {
-      debug('Disposing WfsClient endpoint...');
-      this.endpoint = undefined;
-    }
   }
 
   async getWfsEndpoint(): Promise<WfsEndpoint> {
