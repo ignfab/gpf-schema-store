@@ -6,22 +6,34 @@ import { WfsEndpoint } from '@camptocamp/ogc-client';
 import '../helpers/configure-fetch';
 import { retry } from '../helpers/retry';
 
+/**
+ * Add a timestamp cache buster to the WFS URL to avoid caching issues
+ */
 function withTimestampCacheBuster(wfsUrl: string): string {
   const url = new URL(wfsUrl);
   url.searchParams.set('_t', String(Date.now() + Math.random()));
   return url.toString();
 }
 
+/**
+ * Check if the error is an EndpointError from ogc-client.
+ */
 function isEndpointError(error: unknown): boolean {
   return error instanceof Error && error.name === 'EndpointError';
 }
 
+/**
+ * Flush the unhandled rejection queue to avoid unhandled rejection errors.
+ */
 async function flushUnhandledRejectionQueue(): Promise<void> {
   await new Promise<void>((resolve) => setImmediate(resolve));
 }
 
-// ogc-client can emit an extra unhandled EndpointError for a rejection we already await.
-// Keep the suppression scoped to the call so retry still receives the awaited failure.
+/**
+ * This is a dirty hack to suppress unhandled rejection errors from ogc-client.
+ * 
+ * @see https://github.com/camptocamp/ogc-client/issues/138
+ */
 async function withScopedEndpointErrorSuppression<T>(operation: () => Promise<T>): Promise<T> {
   const onUnhandledRejection = (error: unknown) => {
     if (isEndpointError(error)) {
