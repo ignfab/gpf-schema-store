@@ -3,6 +3,7 @@ const debug = debuglog('gpf-schema-store:wfs');
 
 import type { Collection, CollectionBrief, CollectionProperty } from '../types';
 import { WfsEndpoint } from '@camptocamp/ogc-client';
+import { configureOgcClientFetchOptionsForUrl } from '../helpers/ogc-client-fetch';
 import { retry } from '../helpers/retry';
 
 function withTimestampCacheBuster(wfsUrl: string): string {
@@ -47,6 +48,7 @@ async function withScopedEndpointErrorSuppression<T>(operation: () => Promise<T>
  */
 async function createWfsEndpoint(wfsUrl: string): Promise<WfsEndpoint> {
   debug(`Create WfsEndpoint for ${wfsUrl} ...`);
+  configureOgcClientFetchOptionsForUrl(wfsUrl);
   const endpoint = new WfsEndpoint(wfsUrl);
   debug('Ensure that WfsEndpoint is ready ...');
   await withScopedEndpointErrorSuppression(() => endpoint.isReady());

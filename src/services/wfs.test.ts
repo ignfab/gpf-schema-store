@@ -1,14 +1,15 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { initProxyEnv, clearProxyEnv, restoreProxyEnv } from '../test-helpers/proxy-env'
 
 /**
  * Mocks for the WfsEndpoint methods.
  */
-const endpointMocks = {
+const endpointMocks = vi.hoisted(() => ({
   isReady: vi.fn(),
   getFeatureTypes: vi.fn(),
   getFeatureTypeFull: vi.fn(),
   constructor: vi.fn(),
-}
+}))
 
 vi.mock('@camptocamp/ogc-client', () => {
   class WfsEndpoint {
@@ -26,12 +27,15 @@ vi.mock('@camptocamp/ogc-client', () => {
 
 import { WfsClient } from './wfs'
 
+// Initialize proxy environment helper
+initProxyEnv()
 
 describe('WfsClient getCollections', () => {
   beforeEach(() => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2024-01-01T00:00:00.000Z'))
     vi.spyOn(Math, 'random').mockReturnValue(0)
+    clearProxyEnv()
     endpointMocks.constructor.mockReset()
     endpointMocks.isReady.mockReset()
     endpointMocks.getFeatureTypes.mockReset()
@@ -41,6 +45,7 @@ describe('WfsClient getCollections', () => {
   });
 
   afterEach(() => {
+    restoreProxyEnv()
     vi.useRealTimers()
     vi.restoreAllMocks()
   });
@@ -105,6 +110,7 @@ describe('WfsClient getCollection', () => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date('2024-01-01T00:00:00.000Z'))
     vi.spyOn(Math, 'random').mockReturnValue(0)
+    clearProxyEnv()
     endpointMocks.constructor.mockReset()
     endpointMocks.isReady.mockReset()
     endpointMocks.getFeatureTypes.mockReset()
@@ -124,6 +130,7 @@ describe('WfsClient getCollection', () => {
   });
 
   afterEach(() => {
+    restoreProxyEnv()
     vi.useRealTimers()
     vi.restoreAllMocks()
   });

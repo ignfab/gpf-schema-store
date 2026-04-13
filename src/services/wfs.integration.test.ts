@@ -1,8 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { initProxyEnv, clearProxyEnv, restoreProxyEnv } from '../test-helpers/proxy-env'
 
 import { WfsClient } from './wfs'
 
 const originalFetch = globalThis.fetch
+
+// Initialize proxy environment helper
+initProxyEnv()
 
 const expectedCollections = [
   {
@@ -74,14 +78,17 @@ function fetchMethod(input: Parameters<typeof fetch>[0], init?: Parameters<typeo
   return init?.method ?? (input instanceof Request ? input.method : 'GET')
 }
 
+
 describe('WfsClient integration with real ogc-client', () => {
   beforeEach(() => {
     vi.useFakeTimers()
     vi.spyOn(Math, 'random').mockReturnValue(0)
+    clearProxyEnv()
   })
 
   afterEach(() => {
     globalThis.fetch = originalFetch
+    restoreProxyEnv()
     vi.useRealTimers()
     vi.restoreAllMocks()
   })
