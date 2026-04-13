@@ -5,6 +5,7 @@ import type { Collection, CollectionBrief, CollectionProperty } from '../types';
 import { WfsEndpoint } from '@camptocamp/ogc-client';
 import '../helpers/configure-fetch';
 import { retry } from '../helpers/retry';
+import { parseFeatureTypeName } from '../helpers/metadata';
 
 /**
  * Add a timestamp cache buster to the WFS URL to avoid caching issues
@@ -66,7 +67,6 @@ async function createWfsEndpoint(wfsUrl: string): Promise<WfsEndpoint> {
   return endpoint;
 }
 
-
 /**
  * A client to interact with a WFS endpoint and retrieve the collections.
  */
@@ -104,7 +104,7 @@ export class WfsClient {
     const featureTypes = endpoint.getFeatureTypes();
     const collections: CollectionBrief[] = [];
     for (const featureType of featureTypes) {
-      const [namespace, name] = featureType.name.split(':');
+      const { namespace, name } = parseFeatureTypeName(featureType.name);
       collections.push({
         id: featureType.name,
         namespace: namespace,
@@ -155,7 +155,7 @@ export class WfsClient {
       } as CollectionProperty);
     }
 
-    const [namespace, name] = collectionId.split(':');
+    const { namespace, name } = parseFeatureTypeName(collectionId);
 
     const collection: Collection = {
       id: collectionId,
