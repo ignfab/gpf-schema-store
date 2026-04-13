@@ -29,6 +29,7 @@
     "start": "node dist/cli.js",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:all": "vitest run --config vitest.config.all.ts",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "preview": "npm run build && npm run start"

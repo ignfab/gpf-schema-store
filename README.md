@@ -30,7 +30,14 @@ npm run build
 ### Test 
 
 ```bash
+# To run unit test only :
 npm run test
+
+# To compute coverage :
+npm run test:coverage
+
+# To run integration test on https://data.geopf.fr/wfs
+npm run test:all
 ```
 
 ### Scrap data from GPF WFS
