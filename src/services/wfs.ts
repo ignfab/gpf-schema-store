@@ -143,10 +143,12 @@ export class WfsClient {
       } as CollectionProperty);
     }
 
+    const [namespace, name] = collectionId.split(':');
+
     const collection: Collection = {
       id: collectionId,
-      namespace: collectionId.split(':')[0],
-      name: collectionId.split(':')[1],
+      namespace: namespace,
+      name: name,
       title: featureTypeFull.title ?? '',
       description: featureTypeFull.abstract ?? '',
       properties: properties
