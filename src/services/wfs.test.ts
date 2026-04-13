@@ -98,7 +98,7 @@ describe('WfsClient getCollections', () => {
     expect(endpointMocks.constructor).toHaveBeenCalledTimes(2)
     expect(endpointMocks.constructor.mock.calls.map(([url]) => url)).toEqual([
       'https://example.test/wfs?_t=1704067200000',
-      'https://example.test/wfs?_t=1704067200200',
+      'https://example.test/wfs?_t=1704067201000',
     ])
     expect(endpointMocks.isReady).toHaveBeenCalledTimes(2)
   });
@@ -186,7 +186,7 @@ describe('WfsClient getCollection', () => {
     expect(endpointMocks.constructor).toHaveBeenCalledTimes(2)
     expect(endpointMocks.constructor.mock.calls.map(([url]) => url)).toEqual([
       'https://example.test/wfs?_t=1704067200000',
-      'https://example.test/wfs?_t=1704067200200',
+      'https://example.test/wfs?_t=1704067201000',
     ])
     expect(endpointMocks.isReady).toHaveBeenCalledTimes(2)
     expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledTimes(2)
