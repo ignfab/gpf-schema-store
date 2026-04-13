@@ -47,7 +47,7 @@ program
     });
     console.log(`${filteredCollections.length} collections remain after filtering.`);
     
-    console.log('Retreive collection details for the filtered collections...');
+    console.log('Retrieve collection details for the filtered collections...');
     const filteredCollectionsWithProperties: Collection[] = [];
     for ( const collection of filteredCollections ) {
       console.log(`Retrieving details for collection ${collection.id}...`);
