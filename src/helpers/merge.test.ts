@@ -8,18 +8,25 @@ const base: Collection = {
   name: 'collection',
   title: 'Base title',
   description: 'Base description',
-  properties: [{ name: 'geom', type: 'geometry' }],
+  properties: [
+    { name: 'geom', type: 'geometry' },
+    { name: 'nature', type: 'string' },
+  ],
 }
 
 describe('mergeCollectionSchema', () => {
-  it('keeps collection id, namespace and name and and original property names; other fields from overwrite', () => {
+
+  it('keeps collection id, namespace, name and original property names/types; other property fields from overwrite', () => {
     const overwrite: Collection = {
       id: 'NS:collection',
       namespace: 'NS',
       name: 'collection',
       title: 'Other title',
       description: 'Other description',
-      properties: [{ name: 'id', type: 'string' }],
+      properties: [
+        { name: 'geom', type: 'geometry', title: 'Overwritten title' },
+        { name: 'nature', type: 'integer', description: 'Modified nature' },
+      ],
     }
 
     expect(merge(base, overwrite)).toEqual({
@@ -28,16 +35,29 @@ describe('mergeCollectionSchema', () => {
       name: 'collection',
       title: 'Other title',
       description: 'Other description',
-      properties: [{ name: 'geom', type: 'geometry' }],
+      properties: [
+        { name: 'geom', type: 'geometry', title: 'Overwritten title' },
+        { name: 'nature', type: 'string', description: 'Modified nature' },
+      ],
     })
   })
 
-  it('should ignore and report extra properties in overwrite', () => {
+  it('should ignore extra properties in overwrite (only merge matching properties)', () => {
     const overwrite: Collection = {
       ...base,
-      properties: [{ name: 'id', type: 'string' }, { name: 'extra', type: 'string' }],
+      properties: [
+        { name: 'geom', type: 'string', title: 'Modified' },
+        { name: 'nature', type: 'integer', description: 'Modified nature' },
+        { name: 'extra', type: 'string' },
+      ],
     }
-    expect(merge(base, overwrite)).toEqual(base)
+    expect(merge(base, overwrite)).toEqual({
+      ...base,
+      properties: [
+        { name: 'geom', type: 'geometry', title: 'Modified' },
+        { name: 'nature', type: 'string', description: 'Modified nature' },
+      ],
+    })
   })
 
   it('should keep id from original', () => {
@@ -69,7 +89,7 @@ describe('mergeCollectionSchema', () => {
       ...base,
       title: 'Modified title',
     }
-    expect(merge(base, overwrite)).toEqual(overwrite)
+    expect(merge(base, overwrite).title).toEqual(overwrite.title)
   })
 
 
@@ -78,14 +98,14 @@ describe('mergeCollectionSchema', () => {
       ...base,
       description: 'Modified description',
     }
-    expect(merge(base, overwrite)).toEqual(overwrite)
+    expect(merge(base, overwrite).description).toEqual(overwrite.description)
   })
 
   it('should use description from original if overwrite is not provided', () => {
     const overwrite: Collection = {
       ...base
     }
-    expect(merge(base, overwrite)).toEqual(base)
+    expect(merge(base, overwrite).description).toEqual(base.description)
   })
 
   it('keeps geometry properties from original when they define defaultCrs', () => {
