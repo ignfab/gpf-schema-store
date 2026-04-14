@@ -15,10 +15,11 @@ The data model is :
 * **description** : WFS GetCap `<Abstract>`
 * **properties** : Array of property defined by `name`, `type`, `title` and `description`. `enum` is also available when necessary.
 
-When merged with `data/overwrites`, title and description are overwriten when available.
-
+When merged with `data/overwrites`, title and description are overwritten when available.
 
 ## Usage
+
+> **WARNING**: The MCP [ignfab/geocontext](https://github.com/ignfab/geocontext) relies on a published version. The following instructions are related to the maintenance of the schema.
 
 ### Build
 
@@ -40,9 +41,21 @@ npm run test:coverage
 npm run test:all
 ```
 
-### Scrap data from GPF WFS
+### Configure filtering
 
-Fetch WFS schemas from GPF, apply namespace filtering rules from `data/namespace-filters.yaml`, then regenerate `data/wfs`.
+Edit [data/namespace-filters.yaml](data/namespace-filters.yaml) to decide which namespaces are kept or ignored and to assign metadata (`product`, `ignoredReason`) using first-match-wins rules.
+
+### Generate namespace report
+
+Update [data/namespaces.csv](data/namespaces.csv) to review every discovered namespace, its computed metadata (`product`, `ignored`, `ignoredReason`), and its collections :
+
+```bash
+npx gpf-schema-store update-namespaces
+```
+
+### Fetch schema from GPF WFS
+
+Fetch WFS schemas from GPF, apply the namespace filtering rules defined in [data/namespace-filters.yaml](data/namespace-filters.yaml), and regenerate `data/wfs` directory :
 
 ```bash
 # download data/wfs/{namespace}/{name}.json
@@ -58,20 +71,6 @@ Compare local WFS snapshots stored in `data/wfs` with local overwrite files in `
 npx gpf-schema-store check-overwrites
 ```
 
-### Generate namespace report
-
-Generate `data/namespaces.csv` to review every discovered namespace, its computed metadata (`product`, `ignored`, `ignoredReason`), and its collections.
-
-```bash
-# generate data/namespaces.csv
-npx gpf-schema-store update-namespaces
-```
-
-### Configure namespace filtering
-
-Edit `data/namespace-filters.yaml` to decide which namespaces are kept or ignored and to assign metadata (`product`, `ignoredReason`) using first-match-wins rules.
-
-See [data/namespace-filters.yaml](data/namespace-filters.yaml)
 
 ### Test local search
 

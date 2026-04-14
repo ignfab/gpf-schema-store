@@ -111,12 +111,12 @@ export function loadCollections(): Collection[] {
     const collections = loadWfsCollections();
 
     // apply the overwrites to the collections
-    const overwritenCollections = collections.map((c) => {
+    const overwrittenCollections = collections.map((c) => {
         const overwrite = getOverwrite(c.namespace, c.name);
         return merge(c, overwrite);
     });
 
-    return overwritenCollections;
+    return overwrittenCollections;
 }
 
 /**
