@@ -43,7 +43,7 @@
     },
     {
       "name": "the_geom",
-      "type": "unknown",
+      "type": "geometry",
       "defaultCrs": "EPSG:4326"
     }
   ]
