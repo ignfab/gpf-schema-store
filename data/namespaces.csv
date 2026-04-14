@@ -45,8 +45,8 @@ DGAC-PGS-POI_BDD_FXX_WM,unknown,true,Fail to assign to an existing product,aerod
 DGAC-PGS_BDD_FXX_WM,unknown,true,Fail to assign to an existing product,fxx_pgs_wm
 DGCL.2025,,true,Waiting for MCP use case definition,"voirie_communale|voirie_departementale"
 DREAL.ZONAGE_PINEL,unknown,true,Fail to assign to an existing product,"carreaux|communes|iris"
-ELEVATION.CONTOUR.LINE,Elevation,true,In use via almimetry service,courbe
-ELEVATIONGRIDCOVERAGE.HIGHRES.QUALITY,Elevation,true,In use via almimetry service,source_fra
+ELEVATION.CONTOUR.LINE,Elevation,true,In use via altimetry service,courbe
+ELEVATIONGRIDCOVERAGE.HIGHRES.QUALITY,Elevation,true,In use via altimetry service,source_fra
 FAYL_PCRS_vecteur_wfs_public,,true,Test data,"arbre|avaloir|bordure|bouche_poteau_incendie|branchement_vanne_bouche_a_clef|escalier|bati_facade|mur|poteau_poteau_eclairage|signalisation_verticale|tampon_plaque_chambre|bati_toit"
 GARES_BDD_FXX_WM_20171227,POI_ZAI,true,Waiting for MCP use case definition,gares
 GEODESIE,,true,Waiting for MCP use case definition,data_geod
@@ -62,6 +62,7 @@ IGNF_BD-FRANCE-TOPO-VEGETATION,unknown,true,Fail to assign to an existing produc
 IGNF_CARTO-FORMATIONS-VEGETALES_2016,unknown,true,Fail to assign to an existing product,formations_vegetales_d976_2016
 IGNF_CARTO-FORMATIONS-VEGETALES_2017,unknown,true,Fail to assign to an existing product,formations_vegetales_d972_2017
 IGNF_CARTO-FORMATIONS-VEGETALES_2023,unknown,true,Fail to assign to an existing product,formations_vegetales_d976_2023
+IGNF_CARTO-SP_CARREAU-200m,,true,No matching rule,indicateurs
 IGNF_GEODESIE,,true,Waiting for MCP use case definition,"site-rbf|site-rdf|triplet|point-rdf|point-rbf|rn|rgp"
 IGNF_LIDAR-HD_METADONNEE,,true,No matching rule,metadata
 IGNF_MASQUE-FORET.2021-2023,unknown,true,Fail to assign to an existing product,masque_foret
@@ -101,7 +102,7 @@ LANDCOVER.CLC90_FR,LANDCOVER,true,Waiting for MCP use case definition,clc90_fr
 LANDCOVER.FORESTINVENTORY.V1,LANDCOVER,true,Waiting for MCP use case definition,resu_bdv1_shape
 LANDCOVER.FORESTINVENTORY.V2,LANDCOVER,true,Waiting for MCP use case definition,formation_vegetale
 LIC_test,,true,Test data,VIGINOND_LIC
-LIMITES_ADMINISTRATIVES_EXPRESS.LATEST,LIMITES_ADMINISTRATIVES_EXPRESS,true,Using ADMINEXRESS-COG instead,"arrondissement|arrondissement_municipal|canton|chef_lieu_d_arrondissement|chef_lieu_d_arrondissement_municipal|chef_lieu_d_epci|chef_lieu_de_canton|chef_lieu_de_commune|chef_lieu_de_commune_associee_ou_deleguee|chef_lieu_de_departement|chef_lieu_de_region|collectivite_territoriale|commune|commune_associee_ou_deleguee|departement|epci|region"
+LIMITES_ADMINISTRATIVES_EXPRESS.LATEST,LIMITES_ADMINISTRATIVES_EXPRESS,true,Using ADMINEXPRESS-COG instead,"arrondissement|arrondissement_municipal|canton|chef_lieu_d_arrondissement|chef_lieu_d_arrondissement_municipal|chef_lieu_d_epci|chef_lieu_de_canton|chef_lieu_de_commune|chef_lieu_de_commune_associee_ou_deleguee|chef_lieu_de_departement|chef_lieu_de_region|collectivite_territoriale|commune|commune_associee_ou_deleguee|departement|epci|region"
 MESURES_COMPENSATOIRES,unknown,true,Fail to assign to an existing product,"emprises_commune|emprises_lineaires|emprises_polygones|emprises_ponctuelles"
 MasseEauTransition972_wfs,,true,Test data,masseeautransition972 — massedeautransition_20152021
 NAVIFOREST_PUBLIC,unknown,true,Fail to assign to an existing product,itineraires-bois-ronds
@@ -207,6 +208,7 @@ n_zone_reg_pprn_20180013_s_072_gpkg_05-11-2025_wfs,,true,Test data,n_zone_reg_pp
 paec_bfc_2023,,true,Waiting for MCP use case definition,Territoires_paec_bfc_2023
 paec_bfc_2024,,true,Waiting for MCP use case definition,Territoires_paec_bfc_2024
 paec_bfc_2025,,true,Waiting for MCP use case definition,Territoires_paec_bfc_2025
+paec_bfc_2026,,true,No matching rule,Territoires_paec_bfc_2026
 pat_r84_nov2025_gpkg_2026-02-10_wfs,,true,Test data,sql_statement
 patrinat_apb,PATRINAT,true,Waiting for MCP use case definition,apb
 patrinat_apg,PATRINAT,true,Waiting for MCP use case definition,apg
@@ -275,6 +277,7 @@ wfs_du,GPU,true,Waiting for schema integration from IGNF/validator-config-cnig,"
 wfs_scot,GPU,true,Waiting for schema integration from IGNF/validator-config-cnig,"doc_urba|doc_urba_com|perimetre_scot|scot"
 wfs_sup,GPU,true,Waiting for schema integration from IGNF/validator-config-cnig,"acte_sup|assiette_sup_l|assiette_sup_p|assiette_sup_s|generateur_sup_l|generateur_sup_p|generateur_sup_s|gestionnaire_sup|servitude_acte_sup|servitude"
 zaer,unknown,true,Fail to assign to an existing product,zaer
+zaer_test_bpy,,true,Test data,zaer_test_bpy
 zdh_87_gpkg_15-01-2025_wfs,,true,Test data,zh_87
 zonealertesecheresse972_gpkg_27-09-2024_wfs,,true,Test data,972_Alerte_Secheresse
 zppa_cvl_executoire_2025_gpkg_06-03-2026_wfs,,true,Test data,zppa_cvl_executoire_2025

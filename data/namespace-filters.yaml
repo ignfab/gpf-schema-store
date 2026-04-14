@@ -192,7 +192,7 @@ rules:
     metadata:
       product: Elevation
       ignored: true
-      ignoredReason: In use via almimetry service
+      ignoredReason: In use via altimetry service
 
   # ============================================================================
   # IRIS and Statistical Units
@@ -310,7 +310,7 @@ rules:
     metadata:
       ignored: true
       product: LIMITES_ADMINISTRATIVES_EXPRESS
-      ignoredReason: Using ADMINEXRESS-COG instead
+      ignoredReason: Using ADMINEXPRESS-COG instead
 
   - id: adminexpress_cog
     patterns:

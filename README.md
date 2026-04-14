@@ -15,7 +15,7 @@ The data model is :
 * **description** : WFS GetCap `<Abstract>`
 * **properties** : Array of property defined by `name`, `type`, `title` and `description`. `enum` is also available when necessary.
 
-When merged with `data/overwrites`, title and description are overwriten when available.
+When merged with `data/overwrites`, title and description are overwritten when available.
 
 ## Usage
 
@@ -53,7 +53,7 @@ Update [data/namespaces.csv](data/namespaces.csv) to review every discovered nam
 npx gpf-schema-store update-namespaces
 ```
 
-### Scrap data from GPF WFS
+### Fetch schema from GPF WFS
 
 Fetch WFS schemas from GPF, apply the namespace filtering rules defined in [data/namespace-filters.yaml](data/namespace-filters.yaml), and regenerate `data/wfs` directory :
 
