@@ -36,7 +36,8 @@ rules:
     patterns:
       - BDCARTO_V5
     metadata:
-      ignored: false
+      ignored: true
+      ignoredReason: Prefer using BDTOPO_V3 for the MCP
       product: BDCARTO_V5
 
   # ============================================================================

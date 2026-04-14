@@ -23,7 +23,7 @@ BAN-PLUS,BAN,true,Using geocoding service in the MCP,"adresse|lien_adresse_bati|
 BAN.DATA.GOUV,BAN,true,Using geocoding service in the MCP,ban
 BDCARTO_ETAT-MAJOR.NIVEAU3,BDCARTO_ETAT-MAJOR,true,Waiting for MCP use case definition,"a_1_limite_administrative|a_2_surface_administrative|b_1_troncon_de_route|b_2_troncon_de_voie_ferree|b_3_troncon_de_cours_d_eau|c_1_1_ocs_ancien|c_1_2_ocs_ancien_sans_bati|c_2_1_batiment|c_2_2_batiment_hors_zone_urbaine|c_3_zone_urbaine|z_1_chantier"
 BDCARTO_ETAT-MAJOR.NIVEAU4,BDCARTO_ETAT-MAJOR,true,Waiting for MCP use case definition,"a_1_limite_administrative|a_2_surface_administrative|b_1_troncon_de_route|b_2_troncon_de_voie_ferree|b_3_troncon_de_cours_d_eau|c_1_1_ocs_ancien|c_1_2_ocs_ancien_sans_bati|c_2_1_batiment|c_2_2_batiment_hors_zone_urbaine|c_3_zone_urbaine|z_1_chantier"
-BDCARTO_V5,BDCARTO_V5,false,,"arrondissement|arrondissement_municipal|aerodrome|bassin_versant_topographique|cimetiere|collectivite_territoriale|commune|commune_associee_ou_deleguee|construction_lineaire|construction_ponctuelle|construction_surfacique|cours_d_eau|departement|detail_hydrographique|detail_orographique|epci|lieu_dit_non_habite|ligne_electrique|limite_terre_mer|noeud_hydrographique|occupation_du_sol|parc_ou_reserve|piste_d_aerodrome|plan_d_eau|rond_point|route_numerotee_ou_nommee|region|reservoir|surface_hydrographique|transport_par_cable|troncon_hydrographique|voie_ferree_nommee|zone_d_activite_ou_d_interet|zone_d_habitation|troncon_de_route|equipement_de_transport"
+BDCARTO_V5,BDCARTO_V5,true,Prefer using BDTOPO_V3 for the MCP,"arrondissement|arrondissement_municipal|aerodrome|bassin_versant_topographique|cimetiere|collectivite_territoriale|commune|commune_associee_ou_deleguee|construction_lineaire|construction_ponctuelle|construction_surfacique|cours_d_eau|departement|detail_hydrographique|detail_orographique|epci|lieu_dit_non_habite|ligne_electrique|limite_terre_mer|noeud_hydrographique|occupation_du_sol|parc_ou_reserve|piste_d_aerodrome|plan_d_eau|rond_point|route_numerotee_ou_nommee|region|reservoir|surface_hydrographique|transport_par_cable|troncon_hydrographique|voie_ferree_nommee|zone_d_activite_ou_d_interet|zone_d_habitation|troncon_de_route|equipement_de_transport"
 BDFORETV1_BDD_FXX_LAMB93_20140403,unknown,true,Fail to assign to an existing product,resu_bdv1_shape
 BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G,BDPARCELLAIRE,true,"Deprecated dataset, using CADASTRALPARCELS.PARCELLAIRE_EXPRESS instead","arrondissement|batiment|commune|divcad|localisant|parcelle"
 BDTOPO.EXTENSION.NOM_USUEL,,true,Non-spatial dataset,extension_nom_usuel
@@ -273,9 +273,9 @@ unesco_pelee_wfs,,true,Test data,unesco_bien
 vflorent__vecteur_wfs_bdd,,true,Test data,inondforchls_s_d51
 voeux2026,,true,Test data,voeux
 voeux_wfs,,true,Test data,voeux
-wfs_du,GPU,true,Waiting for schema integration from IGNF/validator-config-cnig,"municipality|doc_urba|doc_urba_com|document|habillage_txt|habillage_lin|habillage_pct|habillage_surf|info_lin|info_pct|info_surf|mec|prescription_lin|prescription_pct|prescription_surf|secteur_cc|zone_urba"
-wfs_scot,GPU,true,Waiting for schema integration from IGNF/validator-config-cnig,"doc_urba|doc_urba_com|perimetre_scot|scot"
-wfs_sup,GPU,true,Waiting for schema integration from IGNF/validator-config-cnig,"acte_sup|assiette_sup_l|assiette_sup_p|assiette_sup_s|generateur_sup_l|generateur_sup_p|generateur_sup_s|gestionnaire_sup|servitude_acte_sup|servitude"
+wfs_du,GPU,false,,"municipality|doc_urba|doc_urba_com|document|habillage_txt|habillage_lin|habillage_pct|habillage_surf|info_lin|info_pct|info_surf|mec|prescription_lin|prescription_pct|prescription_surf|secteur_cc|zone_urba"
+wfs_scot,GPU,false,,"doc_urba|doc_urba_com|perimetre_scot|scot"
+wfs_sup,GPU,false,,"acte_sup|assiette_sup_l|assiette_sup_p|assiette_sup_s|generateur_sup_l|generateur_sup_p|generateur_sup_s|gestionnaire_sup|servitude_acte_sup|servitude"
 zaer,unknown,true,Fail to assign to an existing product,zaer
 zaer_test_bpy,,true,Test data,zaer_test_bpy
 zdh_87_gpkg_15-01-2025_wfs,,true,Test data,zh_87
