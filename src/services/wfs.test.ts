@@ -174,4 +174,44 @@ describe('WfsClient', () => {
       expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledWith('NS:collection')
     })
   })
+  
+
+
+  describe('WfsClient getCollection with unknown geometry type', () => {
+    beforeEach(() => {
+      endpointMocks.getFeatureTypeFull.mockResolvedValue({
+        properties: {
+          prop1: 'string',
+          prop2: 'number',
+        },
+        geometryName: 'geom',
+        geometryType: 'unknown',
+        defaultCrs: 'EPSG:4326',
+        title: 'collection title',
+        abstract: 'collection description',
+      })
+    })
+
+    it('returns the collection with geometry type set to "geometry" when geometryType is "unknown"', async () => {
+      const wfsClient = new WfsClient('https://example.test/wfs')
+      const promise = wfsClient.getCollection('NS:collection')
+      const assertion = expect(promise).resolves.toEqual({
+        id: 'NS:collection',
+        namespace: 'NS',
+        name: 'collection',
+        title: 'collection title',
+        description: 'collection description',
+        properties: [
+          { name: 'prop1', type: 'string' },
+          { name: 'prop2', type: 'number' },
+          { name: 'geom', type: 'geometry', defaultCrs: 'EPSG:4326' },
+        ],
+      })
+      await vi.runAllTimersAsync()
+
+      await assertion
+    });
+
+  })
+
 })

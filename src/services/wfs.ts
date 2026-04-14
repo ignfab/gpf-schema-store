@@ -148,9 +148,10 @@ export class WfsClient {
     });
 
     if (featureTypeFull.geometryName) {
+      const geometryType = featureTypeFull.geometryType ?? 'geometry';
       properties.push({
         name: featureTypeFull.geometryName,
-        type: featureTypeFull.geometryType ?? 'geometry',
+        type: geometryType !== 'unknown' ? geometryType : 'geometry',
         defaultCrs: featureTypeFull.defaultCrs
       } as CollectionProperty);
     }
