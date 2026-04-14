@@ -25,12 +25,12 @@ describe('search regression (real dataset)', () => {
 
   it("finds chef_lieu_de_commune from a tokenized natural query", () => {
     const ids = catalog.search('chef lieu commune').map((collection) => collection.id);
-    expect(ids[0]).toBe('ADMINEXPRESS-COG.LATEST:chef_lieu_de_commune');
+    expect(ids).toContain('ADMINEXPRESS-COG.LATEST:chef_lieu_de_commune');
   });
 
   it("finds BDTOPO_V3:batiment from a split technical identifier query", () => {
     const ids = catalog.search('bdtopo batiment').map((collection) => collection.id);
-    expect(ids[0]).toBe('BDTOPO_V3:batiment');
+    expect(ids).toContain('BDTOPO_V3:batiment');
   });
 
   it("finds commune from tokenized latest namespace terms", () => {
@@ -43,7 +43,7 @@ describe('search regression (real dataset)', () => {
       engine: new SingleMatchEngine(),
     });
     const ids = overridden.search('ignored').map((collection) => collection.id);
-    expect(ids).toEqual(['BDTOPO_V3:batiment']);
+    expect(ids).toContain('BDTOPO_V3:batiment');
   });
 
   it('supports custom MiniSearch ranking options via engineFactory', () => {

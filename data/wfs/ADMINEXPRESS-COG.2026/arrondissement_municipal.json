@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:arrondissement_municipal",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "arrondissement_municipal",
-  "title": "ADMINEXPRESS COG CARTO PE 2026 Arrondissement municipal",
-  "description": "ADMINEXPRESS COG CARTO PE 2026 Arrondissement municipal",
+  "title": "ADMINEXPRESS COG 2026 Arrondissement municipal",
+  "description": "ADMINEXPRESS COG 2026 Arrondissement municipal",
   "properties": [
     {
       "name": "cleabs",

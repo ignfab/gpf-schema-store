@@ -16,6 +16,7 @@ describe('retry', () => {
 
     await expect(retry('operation', operation)).resolves.toBe('ok')
     expect(operation).toHaveBeenCalledTimes(1)
+    expect(operation).toHaveBeenCalledWith(1)
   })
 
   it('retries with exponential backoff and jitter then succeeds', async () => {
@@ -32,6 +33,7 @@ describe('retry', () => {
 
     await assertion
     expect(operation).toHaveBeenCalledTimes(3)
+    expect(operation.mock.calls.map(([attempt]) => attempt)).toEqual([1, 2, 3])
   })
 
   it('throws after 3 failed attempts', async () => {
@@ -49,5 +51,6 @@ describe('retry', () => {
 
     await assertion
     expect(operation).toHaveBeenCalledTimes(3)
+    expect(operation.mock.calls.map(([attempt]) => attempt)).toEqual([1, 2, 3])
   })
 })

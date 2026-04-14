@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2025:collectivite_territoriale",
   "namespace": "ADMINEXPRESS-COG.2025",
   "name": "collectivite_territoriale",
-  "title": "ADMINEXPRESS COG CARTO PE 2025 Collectivité territoriale",
-  "description": "ADMINEXPRESS COG CARTO PE 2025 Collectivité territoriale",
+  "title": "ADMINEXPRESS COG 2025 Collectivité territoriale",
+  "description": "ADMINEXPRESS COG 2025 Collectivité territoriale",
   "properties": [
     {
       "name": "cleabs",

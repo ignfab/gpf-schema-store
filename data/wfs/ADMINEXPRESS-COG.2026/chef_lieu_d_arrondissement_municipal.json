@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:chef_lieu_d_arrondissement_municipal",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "chef_lieu_d_arrondissement_municipal",
-  "title": "ADMINEXPRESS COG CARTO PE 2026 Chef-lieu d'Arrondissement municipal",
-  "description": "ADMINEXPRESS COG CARTO PE 2026 Chef-lieu d'Arrondissement municipal",
+  "title": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement municipal",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement municipal",
   "properties": [
     {
       "name": "cleabs",
@@ -26,11 +26,11 @@
       "type": "string"
     },
     {
-      "name": "code_insee",
+      "name": "numero_de_l_arrondissement_municipal",
       "type": "string"
     },
     {
-      "name": "numero_de_l_arrondissement_municipal",
+      "name": "code_insee_de_l_arrondissement_municipal",
       "type": "string"
     },
     {
@@ -39,6 +39,10 @@
     },
     {
       "name": "lien_vers_l_arrondissement_municipal",
+      "type": "string"
+    },
+    {
+      "name": "code_insee_de_l_arrondissement_siege",
       "type": "string"
     },
     {

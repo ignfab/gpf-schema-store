@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2025:commune",
   "namespace": "ADMINEXPRESS-COG.2025",
   "name": "commune",
-  "title": "ADMINEXPRESS COG CARTO PE 2025 Commune",
-  "description": "ADMINEXPRESS COG CARTO PE 2025 Commune",
+  "title": "ADMINEXPRESS COG 2025 Commune",
+  "description": "ADMINEXPRESS COG 2025 Commune",
   "properties": [
     {
       "name": "cleabs",
@@ -51,6 +51,10 @@
     },
     {
       "name": "code_insee_de_la_region",
+      "type": "string"
+    },
+    {
+      "name": "code_siren",
       "type": "string"
     },
     {
