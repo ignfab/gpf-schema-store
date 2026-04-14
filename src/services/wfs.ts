@@ -2,6 +2,7 @@ import { debuglog } from 'node:util';
 const debug = debuglog('gpf-schema-store:wfs');
 
 import type { Collection, CollectionBrief, CollectionProperty } from '../types';
+import { assertIsValidPropertyType } from '../types';
 import { WfsEndpoint } from '@camptocamp/ogc-client';
 import '../helpers/configure-fetch';
 import { retry } from '../helpers/retry';
@@ -141,17 +142,19 @@ export class WfsClient {
     );
 
     const properties = Object.getOwnPropertyNames(featureTypeFull.properties).map((propertyName) => {
+      const propertyType = featureTypeFull.properties[propertyName];
       return {
         name: propertyName,
-        type: featureTypeFull.properties[propertyName]
+        type: assertIsValidPropertyType(propertyType, `for property "${propertyName}" in collection "${collectionId}"`)
       } as CollectionProperty;
     });
 
     if (featureTypeFull.geometryName) {
       const geometryType = featureTypeFull.geometryType ?? 'geometry';
+      const normalizedType = geometryType !== 'unknown' ? geometryType : 'geometry';
       properties.push({
         name: featureTypeFull.geometryName,
-        type: geometryType !== 'unknown' ? geometryType : 'geometry',
+        type: assertIsValidPropertyType(normalizedType, `for geometry property "${featureTypeFull.geometryName}" in collection "${collectionId}"`),
         defaultCrs: featureTypeFull.defaultCrs
       } as CollectionProperty);
     }
