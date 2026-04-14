@@ -1,0 +1,86 @@
+{
+  "id": "wfs_du:secteur_cc",
+  "namespace": "wfs_du",
+  "name": "secteur_cc",
+  "title": "Secteurs de la carte communale",
+  "description": "Secteurs de carte communale, données issues du Géoportail de l'urbanisme",
+  "properties": [
+    {
+      "name": "gid",
+      "type": "integer"
+    },
+    {
+      "name": "gpu_doc_id",
+      "type": "string"
+    },
+    {
+      "name": "gpu_status",
+      "type": "string"
+    },
+    {
+      "name": "gpu_timestamp",
+      "type": "string"
+    },
+    {
+      "name": "partition",
+      "type": "string"
+    },
+    {
+      "name": "libelle",
+      "type": "string"
+    },
+    {
+      "name": "libelong",
+      "type": "string"
+    },
+    {
+      "name": "typesect",
+      "type": "string"
+    },
+    {
+      "name": "fermreco",
+      "type": "string"
+    },
+    {
+      "name": "destdomi",
+      "type": "string"
+    },
+    {
+      "name": "nomfic",
+      "type": "string"
+    },
+    {
+      "name": "urlfic",
+      "type": "string"
+    },
+    {
+      "name": "insee",
+      "type": "string"
+    },
+    {
+      "name": "datappro",
+      "type": "string"
+    },
+    {
+      "name": "datvalid",
+      "type": "string"
+    },
+    {
+      "name": "idurba",
+      "type": "string"
+    },
+    {
+      "name": "lib_idzone",
+      "type": "string"
+    },
+    {
+      "name": "symbole",
+      "type": "string"
+    },
+    {
+      "name": "the_geom",
+      "type": "unknown",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}

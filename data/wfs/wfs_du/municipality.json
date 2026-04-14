@@ -1,0 +1,34 @@
+{
+  "id": "wfs_du:municipality",
+  "namespace": "wfs_du",
+  "name": "municipality",
+  "title": "Communes",
+  "description": "Emprise communale, données issues du Géoportail de l'urbanisme",
+  "properties": [
+    {
+      "name": "insee",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "is_rnu",
+      "type": "boolean"
+    },
+    {
+      "name": "is_deleted",
+      "type": "boolean"
+    },
+    {
+      "name": "is_coastline",
+      "type": "boolean"
+    },
+    {
+      "name": "the_geom",
+      "type": "unknown",
+      "defaultCrs": "EPSG:4326"
+    }
+  ]
+}
