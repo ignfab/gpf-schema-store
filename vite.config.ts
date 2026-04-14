@@ -41,6 +41,10 @@ export default defineConfig({
       exclude: ['src/**/*.test.ts'],
       reporter: ['text', 'lcov', 'html'],
     },
+    env: {
+      // suppress UNDICI-EHPA warnings
+      NODE_NO_WARNINGS: '1',
+    }
   },
   build: {
     ssr: true,
