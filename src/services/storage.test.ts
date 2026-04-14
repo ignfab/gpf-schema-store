@@ -14,22 +14,22 @@ describe('loadCollections', () => {
     expect(collections.length).toBeGreaterThan(0)
 
     const ids = collections.map((c) => c.id);
-    expect(ids).toContain('ADMINEXPRESS-COG.2017:commune');
     expect(ids).toContain('BDTOPO_V3:commune');
+    expect(ids).toContain('BDTOPO_V3:batiment');
   })
 })
 
 
 describe('getOverwrite', () => {
-  it('returns the commune overwrite for ADMINEXPRESS-COG.2017', () => {
+  it('returns the commune overwrite for BDTOPO_V3:batiment', () => {
     const expectedPath = join(
       DATA_DIR,
       'overwrites',
-      'ADMINEXPRESS-COG.2017',
-      'commune.json',
+      'BDTOPO_V3',
+      'batiment.json',
     )
     const expected = JSON.parse(readFileSync(expectedPath, 'utf-8')) as Collection
-    expect(getOverwrite('ADMINEXPRESS-COG.2017', 'commune')).toEqual(expected)
+    expect(getOverwrite('BDTOPO_V3', 'batiment')).toEqual(expected)
   })
 
   it('returns null if the overwrite does not exist', () => {
