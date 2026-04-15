@@ -1,7 +1,7 @@
 import {debuglog} from 'node:util';
 const debug = debuglog('gpf-schema-store:merge');
 
-import type { Collection } from "../types";
+import type { Collection, CollectionOverwrite } from "../types";
 
 /**
  * Merge two collection schemas with the following rules :
@@ -29,7 +29,7 @@ import type { Collection } from "../types";
  */
 export function merge(
     original: Collection,
-    overwrite: Collection | null
+    overwrite: CollectionOverwrite | null
 ): Collection {
     if ( ! overwrite ){
         debug(`No overwrite found for collection "${original.id}", using original schema`);

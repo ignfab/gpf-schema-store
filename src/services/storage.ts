@@ -1,5 +1,5 @@
 import { dirname, join } from "path";
-import type { Collection, NamespaceFilterRule } from "../types";
+import type { Collection, CollectionOverwrite, NamespaceFilterRule } from "../types";
 import { fileURLToPath } from "url";
 import {
     existsSync,
@@ -154,10 +154,10 @@ export function clearWfsCollections(): void {
  * @param name - The name of the collection
  * @returns The overwrite for the collection if it exists, null otherwise
  */
-export function getOverwrite(namespace: string, name: string): Collection | null {
+export function getOverwrite(namespace: string, name: string): CollectionOverwrite | null {
     const overwritePath = join(DATA_DIR, 'overwrites', namespace, `${name}.json`);
     if (existsSync(overwritePath)) {
-        return JSON.parse(readFileSync(overwritePath, 'utf-8')) as Collection;
+        return JSON.parse(readFileSync(overwritePath, 'utf-8')) as CollectionOverwrite;
     }
     return null;
 }

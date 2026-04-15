@@ -181,6 +181,30 @@ export type Collection = {
 };
 
 /**
+ * A property from an overwrite file.
+ *
+ * Overwrite files may still contain legacy or richer type names. They are
+ * enrichment inputs only: the merged collection keeps the WFS property type.
+ */
+export type CollectionPropertyOverwrite = Omit<CollectionProperty, 'type'> & {
+  /**
+   * Legacy field ignored by merge. Kept permissive because existing overwrite
+   * JSON files can contain values such as "numeric".
+   */
+  type?: string;
+};
+
+/**
+ * The schema of a collection overwrite.
+ */
+export type CollectionOverwrite = Omit<Collection, 'properties'> & {
+  /**
+   * The properties of the overwrite.
+   */
+  properties: CollectionPropertyOverwrite[];
+};
+
+/**
  * A brief version of the collection provided by GetCapabilities
  * without the properties (given by DescribeFeatureType)
  */

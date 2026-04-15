@@ -60,6 +60,20 @@ describe('mergeCollectionSchema', () => {
     })
   })
 
+  it('allows legacy overwrite types but keeps the original WFS type', () => {
+    const overwrite = {
+      ...base,
+      properties: [
+        { name: 'nature', type: 'numeric', title: 'Nature' },
+      ],
+    }
+
+    expect(merge(base, overwrite).properties).toEqual([
+      { name: 'geom', type: 'geometry' },
+      { name: 'nature', type: 'string', title: 'Nature' },
+    ])
+  })
+
   it('should keep id from original', () => {
     const overwrite: Collection = {
       ...base,
