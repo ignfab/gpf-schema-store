@@ -148,4 +148,10 @@ describe('InMemoryCollectionCatalog', () => {
     const firstAgain = catalog.getById('NS:first');
     expect(firstAgain?.title).toBe('First');
   });
+
+  it('throws when searching without a configured search engine', () => {
+    const catalog = new InMemoryCollectionCatalog(FIXTURES);
+
+    expect(() => catalog.search('anything')).toThrow('No search engine configured');
+  });
 });
