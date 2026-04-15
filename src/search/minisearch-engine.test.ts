@@ -154,7 +154,7 @@ describe('MiniSearchCollectionSearchEngine identifier token indexing', () => {
       name: 'batiment',
       title: 'Batiment',
       description: 'Batiment',
-      properties: [{ name: 'hauteur', type: 'number' }],
+      properties: [{ name: 'hauteur', type: 'float' }],
     },
     {
       id: 'ADMINEXPRESS-COG.LATEST:commune',
