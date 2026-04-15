@@ -7,7 +7,7 @@ import { Command } from 'commander'
 import { format } from '@fast-csv/format';
 
 import { WfsClient } from './services/wfs'
-import { getDataDir, writeWfsCollection, clearWfsCollections, getNamespaceFilters, loadWfsCollections, getOverwrite, loadCollections } from './services/storage'
+import { getDataDir, replaceWfsCollections, getNamespaceFilters, loadWfsCollections, getOverwrite, loadCollections } from './services/storage'
 import { getMetadataFromNamespace } from './helpers/metadata'
 import { compare } from './helpers/compare';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
@@ -56,14 +56,8 @@ program
     }
     console.log(`Details retrieved for ${filteredCollectionsWithProperties.length} collections.`);
 
-    console.log('Clearing existing collections in data/wfs...');
-    clearWfsCollections();
-    console.log('Existing collections cleared from data/wfs.');
-
-    console.log('Saving collections to data/wfs/{namespace}/{name}.json...');
-    for (const collection of filteredCollectionsWithProperties) {
-      writeWfsCollection(collection);
-    }
+    console.log('Replacing local WFS snapshots in data/wfs...');
+    replaceWfsCollections(filteredCollectionsWithProperties);
 
     console.log(`${filteredCollectionsWithProperties.length} collections saved to data/wfs/{namespace}/{name}.json`);
   })

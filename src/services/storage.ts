@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import {
     existsSync,
     mkdirSync,
+    renameSync,
     rmSync,
     readFileSync,
     readdirSync,
@@ -120,18 +121,92 @@ export function loadCollections(): Collection[] {
 }
 
 /**
+ * Save collection to {root}/{namespace}/{name}.json.
+ *
+ * @param root root directory where WFS collections are stored
+ * @param collection 
+ */
+function writeWfsCollectionToRoot(root: string, collection: Collection): void {
+    const namespaceDirPath = join(root, collection.namespace);
+    if (!existsSync(namespaceDirPath)) {
+        mkdirSync(namespaceDirPath, { recursive: true });
+    }
+
+    const collectionPath = join(namespaceDirPath, `${collection.name}.json`);
+    writeFileSync(collectionPath, JSON.stringify(collection, null, 2));
+}
+
+/**
  * Save collection from the GPF WFS to data/wfs/{namespace}/{name}.json
  *
  * @param collection 
  */
 export function writeWfsCollection(collection: Collection): void {
-    const namespaceDirPath = join(DATA_DIR, 'wfs', collection.namespace);
-    if (!existsSync(namespaceDirPath)) {
-        mkdirSync(namespaceDirPath, { recursive: true });
+    writeWfsCollectionToRoot(join(DATA_DIR, 'wfs'), collection);
+}
+
+/**
+ * Replace all WFS collections while keeping the existing snapshot until the
+ * replacement has been fully written.
+ *
+ * @param collections collections to write to data/wfs
+ */
+export function replaceWfsCollections(collections: Collection[]): void {
+    if (collections.length === 0) {
+        throw new Error('Refusing to replace data/wfs with an empty collection snapshot');
     }
 
-    const overwritePath = join(namespaceDirPath, `${collection.name}.json`);
-    writeFileSync(overwritePath, JSON.stringify(collection, null, 2));
+    const wfsRoot = join(DATA_DIR, 'wfs');
+    const nextRoot = join(DATA_DIR, `.wfs-next-${process.pid}-${Date.now()}`);
+    const previousRoot = join(DATA_DIR, '.wfs-previous');
+
+    if (!existsSync(wfsRoot) && existsSync(previousRoot)) {
+        renameSync(previousRoot, wfsRoot);
+    }
+
+    rmSync(nextRoot, { recursive: true, force: true });
+    rmSync(previousRoot, { recursive: true, force: true });
+
+    try {
+        mkdirSync(nextRoot, { recursive: true });
+        for (const collection of collections) {
+            writeWfsCollectionToRoot(nextRoot, collection);
+        }
+
+        const hadPreviousSnapshot = existsSync(wfsRoot);
+        if (hadPreviousSnapshot) {
+            renameSync(wfsRoot, previousRoot);
+        }
+
+        try {
+            renameSync(nextRoot, wfsRoot);
+        } catch (error) {
+            if (hadPreviousSnapshot) {
+                try {
+                    renameSync(previousRoot, wfsRoot);
+                } catch (restoreError) {
+                    throw new Error(
+                        `Failed to promote ${nextRoot} to ${wfsRoot} and failed to restore previous snapshot from ${previousRoot}: ${restoreError instanceof Error ? restoreError.message : String(restoreError)}`,
+                        { cause: error },
+                    );
+                }
+            }
+            throw error;
+        }
+
+        try {
+            rmSync(previousRoot, { recursive: true, force: true });
+        } catch {
+            // The new snapshot is already promoted; retry stale backup cleanup on the next update.
+        }
+    } catch (error) {
+        try {
+            rmSync(nextRoot, { recursive: true, force: true });
+        } catch {
+            // Preserve the original failure; stale temp cleanup can be retried on the next update.
+        }
+        throw error;
+    }
 }
 
 
