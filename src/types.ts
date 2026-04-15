@@ -61,11 +61,11 @@ export const namespaceFiltersSchema = z.object({
 
 /**
  * This is the current list of the core types for the properties of a collection.
- * 
+ *
  * Note that :
  * - The current reference is the list of types provided by ogc-client for WFS properties, which includes both scalar types and geometry types.
  * - It will likely need to be extended in the future to include more specific types (ex : date, datetime, etc.)
- * 
+ *
  * @see https://github.com/ignfab/gpf-schema-store/issues/25
  */
 const PROPERTY_TYPES = [
@@ -79,7 +79,7 @@ const PROPERTY_TYPES = [
   'multilinestring',
   'multipolygon',
   'multipoint',
-  'geometry', // not in ogc-client (to avoid unknown type for geometry) 
+  'geometry', // not in ogc-client (to avoid unknown type for geometry)
 ] as const;
 
 /**
