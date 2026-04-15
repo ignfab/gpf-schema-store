@@ -1,10 +1,44 @@
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { isAbsolute, join, relative, resolve, sep } from 'node:path';
 
 import type { Collection } from '../types';
 
 export interface RenderCatalogOptions {
   clean?: boolean;
+}
+
+// This is intentionally stupid but simple: block the obvious project-owned
+// top-level directories instead of trying to prove the output path is safe.
+const PROTECTED_TOP_LEVEL_DIRS = new Set([
+  'src',
+  'data',
+  'dist',
+  'node_modules',
+  'coverage',
+  '.github',
+  '.git',
+]);
+
+function assertSafeCleanTarget(outputDir: string): void {
+  const cwd = process.cwd();
+  const relativePath = relative(cwd, outputDir);
+
+  if (relativePath === '') {
+    throw new Error(`Refusing to clean project root: ${outputDir}`);
+  }
+
+  if (
+    relativePath === '..' ||
+    relativePath.startsWith(`..${sep}`) ||
+    isAbsolute(relativePath)
+  ) {
+    throw new Error(`Refusing to clean outside the current project: ${outputDir}`);
+  }
+
+  const topLevelDir = relativePath.split(sep)[0];
+  if (PROTECTED_TOP_LEVEL_DIRS.has(topLevelDir)) {
+    throw new Error(`Refusing to clean protected project directory: ${outputDir}`);
+  }
 }
 
 export function writeRenderedCatalog(
@@ -15,6 +49,7 @@ export function writeRenderedCatalog(
   const resolvedOutputDir = resolve(outputDir);
 
   if (options.clean) {
+    assertSafeCleanTarget(resolvedOutputDir);
     rmSync(resolvedOutputDir, { recursive: true, force: true });
   }
 

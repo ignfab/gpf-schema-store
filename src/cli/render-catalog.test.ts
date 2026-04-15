@@ -54,4 +54,31 @@ describe('writeRenderedCatalog', () => {
       force: true,
     });
   });
+
+  it('refuses to clean the project root', async () => {
+    const { writeRenderedCatalog } = await import('./render-catalog');
+
+    expect(() => writeRenderedCatalog(collections, '.', { clean: true })).toThrow(
+      /project root/,
+    );
+    expect(fsMocks.rmSync).not.toHaveBeenCalled();
+  });
+
+  it('refuses to clean outside the current project', async () => {
+    const { writeRenderedCatalog } = await import('./render-catalog');
+
+    expect(() => writeRenderedCatalog(collections, '../catalog', { clean: true })).toThrow(
+      /outside the current project/,
+    );
+    expect(fsMocks.rmSync).not.toHaveBeenCalled();
+  });
+
+  it('refuses to clean protected project directories', async () => {
+    const { writeRenderedCatalog } = await import('./render-catalog');
+
+    expect(() => writeRenderedCatalog(collections, 'data/catalog', { clean: true })).toThrow(
+      /protected project directory/,
+    );
+    expect(fsMocks.rmSync).not.toHaveBeenCalled();
+  });
 });
