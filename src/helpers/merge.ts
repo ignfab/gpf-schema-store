@@ -1,7 +1,7 @@
 import {debuglog} from 'node:util';
 const debug = debuglog('gpf-schema-store:merge');
 
-import type { Collection } from "../types";
+import type { Collection, CollectionOverwrite } from "../types";
 
 /**
  * Merge two collection schemas with the following rules :
@@ -19,7 +19,7 @@ import type { Collection } from "../types";
  * - properties are iterated from original (order kept)
  * - properties with `defaultCrs` are kept from original as-is
  * - matching is done by property name
- * - if a property exists in overwrite, its fields are taken but name is kept from original
+ * - if a property exists in overwrite, its fields are taken but name and type are kept from original
  * - if a property does not exist in overwrite, the original property is kept
  * - new properties from overwrite are ignored
  *
@@ -29,7 +29,7 @@ import type { Collection } from "../types";
  */
 export function merge(
     original: Collection,
-    overwrite: Collection | null
+    overwrite: CollectionOverwrite | null
 ): Collection {
     if ( ! overwrite ){
         debug(`No overwrite found for collection "${original.id}", using original schema`);
@@ -48,6 +48,7 @@ export function merge(
         return {
             ...overProp,
             name: origProp.name,
+            type: origProp.type,
         }
     })
 

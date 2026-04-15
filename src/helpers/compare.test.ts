@@ -24,8 +24,8 @@ describe('compare', () => {
     const overwrite: Collection = {
       ...base,
       properties: [
-        { name: 'id', type: 'number' },
-        { name: 'name', type: 'text' },
+        { name: 'id', type: 'integer' },
+        { name: 'name', type: 'boolean' },
       ],
     }
 

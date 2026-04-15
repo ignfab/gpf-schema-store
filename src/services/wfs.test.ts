@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { UnexpectedTypeError } from '../types'
 
 /**
  * Mocks for WfsEndpoint methods used by the unit tests.
@@ -106,10 +107,10 @@ describe('WfsClient', () => {
       endpointMocks.getFeatureTypeFull.mockResolvedValue({
         properties: {
           prop1: 'string',
-          prop2: 'number',
+          prop2: 'float',
         },
         geometryName: 'geom',
-        geometryType: 'Polygon',
+        geometryType: 'polygon',
         defaultCrs: 'EPSG:4326',
         title: 'collection title',
         abstract: 'collection description',
@@ -127,8 +128,8 @@ describe('WfsClient', () => {
         description: 'collection description',
         properties: [
           { name: 'prop1', type: 'string' },
-          { name: 'prop2', type: 'number' },
-          { name: 'geom', type: 'Polygon', defaultCrs: 'EPSG:4326' },
+          { name: 'prop2', type: 'float' },
+          { name: 'geom', type: 'polygon', defaultCrs: 'EPSG:4326' },
         ],
       })
       await vi.runAllTimersAsync()
@@ -182,7 +183,7 @@ describe('WfsClient', () => {
       endpointMocks.getFeatureTypeFull.mockResolvedValue({
         properties: {
           prop1: 'string',
-          prop2: 'number',
+          prop2: 'float',
         },
         geometryName: 'geom',
         geometryType: 'unknown',
@@ -203,7 +204,7 @@ describe('WfsClient', () => {
         description: 'collection description',
         properties: [
           { name: 'prop1', type: 'string' },
-          { name: 'prop2', type: 'number' },
+          { name: 'prop2', type: 'float' },
           { name: 'geom', type: 'geometry', defaultCrs: 'EPSG:4326' },
         ],
       })
@@ -212,6 +213,31 @@ describe('WfsClient', () => {
       await assertion
     });
 
+  })
+
+  describe('WfsClient getCollection with unexpected property type', () => {
+    beforeEach(() => {
+      endpointMocks.getFeatureTypeFull.mockResolvedValue({
+        properties: {
+          prop1: 'string',
+          prop2: 'binary',
+        },
+        geometryName: 'geom',
+        geometryType: 'polygon',
+        defaultCrs: 'EPSG:4326',
+        title: 'collection title',
+        abstract: 'collection description',
+      })
+    })
+
+    it('throws UnexpectedTypeError when property type is invalid', async () => {
+      const wfsClient = new WfsClient('https://example.test/wfs')
+      const promise = wfsClient.getCollection('NS:collection')
+      const assertion = expect(promise).rejects.toThrow(UnexpectedTypeError)
+      await vi.runAllTimersAsync()
+
+      await assertion
+    })
   })
 
 })

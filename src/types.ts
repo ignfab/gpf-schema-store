@@ -1,6 +1,23 @@
 import { z } from 'zod';
 
 /**
+ * Error thrown when an unexpected or invalid property type is encountered.
+ */
+export class UnexpectedTypeError extends Error {
+  /**
+   * @param value the unexpected value
+   * @param context optional context about where the error occurred
+   */
+  constructor(value: unknown, context?: string) {
+    const message = context
+      ? `Unexpected type: "${value}" ${context}`
+      : `Unexpected type: "${value}"`;
+    super(message);
+    this.name = 'UnexpectedTypeError';
+  }
+}
+
+/**
  * The schema of the metadata of a namespace, currently assigned in data/namespace-filters.yaml
  * 
  * Note that no additional properties are allowed in the metadata object (strict).
@@ -34,7 +51,6 @@ export const namespaceFilterRuleSchema = z.object({
  */
 export type NamespaceFilterRule = z.infer<typeof namespaceFilterRuleSchema>;
 
-
 /**
  * The schema of the data/namespace-filters.yaml file, which contains rules
  * to assign metadata to namespaces based on pattern matching.
@@ -43,6 +59,62 @@ export const namespaceFiltersSchema = z.object({
     rules: z.array(namespaceFilterRuleSchema),
 });
 
+/**
+ * This is the current list of the core types for the properties of a collection.
+ *
+ * Note that :
+ * - The current reference is the list of types provided by ogc-client for WFS properties, which includes both scalar types and geometry types.
+ * - It will likely need to be extended in the future to include more specific types (ex : date, datetime, etc.)
+ *
+ * @see https://github.com/ignfab/gpf-schema-store/issues/25
+ */
+const PROPERTY_TYPES = [
+  'string',
+  'boolean',
+  'float',
+  'integer',
+  'point',
+  'linestring',
+  'polygon',
+  'multilinestring',
+  'multipolygon',
+  'multipoint',
+  'geometry', // not in ogc-client (to avoid unknown type for geometry)
+] as const;
+
+/**
+ * The type of a property in a collection.
+ * Includes scalar types and geometry types.
+ */
+export type CollectionPropertyType = typeof PROPERTY_TYPES[number];
+
+/**
+ * The set of valid property type values.
+ */
+const VALID_PROPERTY_TYPES: Set<string> = new Set(PROPERTY_TYPES);
+
+/**
+ * Check if a value is a valid CollectionPropertyType.
+ * @param value the value to validate
+ * @returns true if valid, false otherwise
+ */
+export function isValidPropertyType(value: unknown): value is CollectionPropertyType {
+  return typeof value === 'string' && VALID_PROPERTY_TYPES.has(value);
+}
+
+/**
+ * Assert that a value is a valid CollectionPropertyType, throwing UnexpectedTypeError if not.
+ * @param value the value to validate
+ * @param context optional context about where the error occurred
+ * @returns the value if valid
+ * @throws UnexpectedTypeError if invalid
+ */
+export function assertIsValidPropertyType(value: unknown, context?: string): CollectionPropertyType {
+  if (!isValidPropertyType(value)) {
+    throw new UnexpectedTypeError(value, context);
+  }
+  return value;
+}
 
 /**
  * A property of a collection.
@@ -55,7 +127,7 @@ export type CollectionProperty = {
   /**
    * The type of the property.
    */
-  type: string;
+  type: CollectionPropertyType;
   /**
    * The title of the property.
    */
@@ -106,6 +178,30 @@ export type Collection = {
    * The properties of the collection.
    */
   properties: CollectionProperty[];
+};
+
+/**
+ * A property from an overwrite file.
+ *
+ * Overwrite files may still contain legacy or richer type names. They are
+ * enrichment inputs only: the merged collection keeps the WFS property type.
+ */
+export type CollectionPropertyOverwrite = Omit<CollectionProperty, 'type'> & {
+  /**
+   * Legacy field ignored by merge. Kept permissive because existing overwrite
+   * JSON files can contain values such as "numeric".
+   */
+  type?: string;
+};
+
+/**
+ * The schema of a collection overwrite.
+ */
+export type CollectionOverwrite = Omit<Collection, 'properties'> & {
+  /**
+   * The properties of the overwrite.
+   */
+  properties: CollectionPropertyOverwrite[];
 };
 
 /**

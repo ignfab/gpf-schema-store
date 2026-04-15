@@ -4,7 +4,7 @@ import { loadCollections } from "./services/storage";
 import { InMemoryCollectionCatalog } from "./search/catalog";
 import { MiniSearchCollectionSearchEngine } from "./search/minisearch-engine";
 
-export type { Collection, CollectionProperty } from "./types";
+export type { Collection, CollectionProperty, CollectionPropertyType } from "./types";
 export type {
     CollectionCatalog,
     InMemoryCollectionCatalogOptions as CollectionCatalogOptions,

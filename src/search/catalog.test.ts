@@ -117,7 +117,7 @@ describe('InMemoryCollectionCatalog', () => {
 
     const [result] = catalog.searchWithScores('scored');
     result.collection.title = 'Mutated title';
-    result.collection.properties[0].type = 'number';
+    result.collection.properties[0].type = 'float';
 
     expect(catalog.searchWithScores('scored')).toEqual([
       {
@@ -132,7 +132,7 @@ describe('InMemoryCollectionCatalog', () => {
 
     const listed = catalog.list();
     listed[0].title = 'Mutated title';
-    listed[0].properties[0].type = 'number';
+    listed[0].properties[0].type = 'float';
 
     const listedAgain = catalog.list();
     expect(listedAgain[0].title).toBe('First');

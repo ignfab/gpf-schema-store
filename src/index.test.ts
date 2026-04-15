@@ -54,7 +54,7 @@ describe('getCollections (library API)', () => {
 
     const first = getCollections()
     first[0].title = 'mutated by caller'
-    first[0].properties[0].type = 'number'
+    first[0].properties[0].type = 'float'
 
     const second = getCollections()
     expect(second[0].title).toBe('stable')
