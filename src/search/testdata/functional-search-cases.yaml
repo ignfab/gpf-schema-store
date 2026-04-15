@@ -1,0 +1,104 @@
+- query: "bâtiment"
+  expected:
+    - "BDTOPO_V3:batiment"
+    - "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:batiment"
+
+- query: "bâtiments bdtopo"
+  expected:
+    - "BDTOPO_V3:batiment"
+
+- query: "départements"
+  expected:
+    - "BDTOPO_V3:departement"
+    - "ADMINEXPRESS-COG.LATEST:departement"
+
+- query: "chef lieu commune"
+  expected:
+    - "ADMINEXPRESS-COG.LATEST:chef_lieu_de_commune"
+
+- query: "bdtopo batiment"
+  expected:
+    - "BDTOPO_V3:batiment"
+
+- query: "adminexpress latest commune"
+  expected:
+    - "ADMINEXPRESS-COG.LATEST:commune"
+
+- query: "commune"
+  expected:
+    - "BDTOPO_V3:commune"
+    - "ADMINEXPRESS-COG.LATEST:commune"
+
+- query: "troncon route"
+  expected:
+    - "BDTOPO_V3:troncon_de_route"
+
+- query: "cours eau"
+  expected:
+    - "BDTOPO_V3:cours_d_eau"
+
+- query: "zone habitation"
+  expected:
+    - "BDTOPO_V3:zone_d_habitation"
+
+- query: "plan eau"
+  expected:
+    - "BDTOPO_V3:plan_d_eau"
+
+- query: "ligne électrique"
+  expected:
+    - "BDTOPO_V3:ligne_electrique"
+
+- query: "toponymie"
+  expected:
+    - "BDTOPO_V3:toponymie"
+
+- query: "erp"
+  expected:
+    - "BDTOPO_V3:erp"
+
+- query: "nombre logements"
+  expected:
+    - "BDTOPO_V3:batiment"
+
+- query: "résidentiel"
+  expected:
+    - "BDTOPO_V3:batiment"
+    - "BDTOPO_V3:zone_d_activite_ou_d_interet"
+
+- query: "parcelle"
+  expected:
+    - "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:parcelle"
+
+- query: "borne parcelle"
+  expected:
+    - "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_parcelle"
+
+- query: "contours iris"
+  expected:
+    - "STATISTICALUNITS.IRIS:contours_iris"
+    - "STATISTICALUNITS.IRIS.PE:contours_iris_pe"
+    - "STATISTICALUNITS.IRISGE:iris_ge"
+
+- query: "filosofi carreaux"
+  expected:
+    - "INSEE.FILOSOFI.INDICATORS:carreaux_200m"
+    - "INSEE.FILOSOFI.INDICATORS:carreaux_1km"
+
+- query: "document urbanisme"
+  expected:
+    - "wfs_du:document"
+    - "wfs_du:doc_urba"
+
+- query: "prescription surf"
+  expected:
+    - "wfs_du:prescription_surf"
+
+- query: "servitude utilité publique"
+  expected:
+    - "wfs_sup:servitude"
+
+- query: "scot"
+  expected:
+    - "wfs_scot:scot"
+    - "wfs_scot:perimetre_scot"
