@@ -19,8 +19,15 @@ describe('search functional cases (real dataset)', () => {
 
   for (const searchCase of searchCases) {
     it(`finds expected collections for '${searchCase.query}'`, () => {
-      const ids = catalog.search(searchCase.query).map((collection) => collection.id);
-      expect(ids).toEqual(expect.arrayContaining(searchCase.expected));
+      const foundIds = catalog.search(searchCase.query).map((collection) => collection.id);
+      for ( const expectedId of searchCase.expected ) {
+        expect(
+          foundIds,
+          `Expected collection ID "${expectedId}" not found in search results for query "${searchCase.query}". Found IDs: ${foundIds.join(', ')}`
+        ).toContain(
+          expectedId
+        );
+      }
     });
   }
 });
