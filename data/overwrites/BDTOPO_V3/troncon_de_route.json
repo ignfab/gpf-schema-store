@@ -9,74 +9,198 @@
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet."
+      "description": "Identifiant unique de l'objet.",
+      "nullable": false
     },
     {
       "name": "nature",
       "type": "string",
       "title": "Nature",
       "description": "Attribut permettant de classer un tronçon de route ou de chemin suivant ses caractéristiques physiques.",
-      "enum": [
-        "Bac ou liaison maritime",
-        "Bretelle",
-        "Chemin",
-        "Escalier",
-        "Rond-point",
-        "Route à 1 chaussée",
-        "Route à 2 chaussées",
-        "Route empierrée",
-        "Sentier",
-        "Type autoroutier"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "Bac ou liaison maritime",
+          "description": "Trajet du bateau servant à transporter des véhicules ou des piétons d’une rive à l’autre d’un cours d’eau ou d’un bras de mer, ou servant de liaison maritime locale permanente ou saisonnière, et liaison vers l'étranger.",
+          "representedFeatures": [
+            "Bac auto",
+            "Bac piéton",
+            "Liaison maritime"
+          ]
+        },
+        {
+          "value": "Bretelle",
+          "description": "Voie d'entrée ou de sortie permettant la communication entre 2 routes qui sont le plus souvent de niveaux différents : bretelles de liaison ou d’échangeur ou une voie d’accès à une 'Aire de repos ou de service'.",
+          "representedFeatures": [
+            "Bretelle d’autoroute",
+            "Bretelle de voie rapide",
+            "Voie d’accès à une aire de service ou de repos"
+          ]
+        },
+        {
+          "value": "Chemin",
+          "description": "Les chemins sont prévus pour la circulation de véhicules ou d’engins d’exploitation. Ils ne sont pas forcément carrossables pour tous les véhicules et par tous les temps (voir aussi la Nature=\"Route empierrée\").",
+          "representedFeatures": [
+            "Chemin d'exploitation",
+            "Piste",
+            "Circuit de moto-cross (piste)",
+            "Terrain naturel"
+          ]
+        },
+        {
+          "value": "Escalier",
+          "description": "Construction architecturale restreinte à l'utilisation des piétons, constituée d'une suite régulière de marches, ou degrés, reliant des tronçons du réseau routier d'altitudes différentes."
+        },
+        {
+          "value": "Rond-point",
+          "description": "Tronçon de route composant un rond-point ou un carrefour giratoire.",
+          "representedFeatures": [
+            "Giratoire",
+            "Carrefour giratoire"
+          ]
+        },
+        {
+          "value": "Route à 1 chaussée",
+          "description": "Route comportant 1 chaussée (voir 'Sélection').",
+          "representedFeatures": [
+            "Route goudronnée",
+            "Route pavée",
+            "Route revêtue"
+          ]
+        },
+        {
+          "value": "Route à 2 chaussées",
+          "description": "Route comportant 2 chaussées séparées par un obstacle physique ou un zébra de plus de 3,5 m de large éventuellement ouvert aux carrefours. Elle possède donc des croisements à niveau, ce qui lui interdit d'être classée dans la Nature=\"Type autoroutier\". Pour les aménagements de carrefours (tourne-à-gauche par exemple), on peut être amené à traiter des tronçons en \"Route à 2 chaussées\" à partir du moment où les voies sont représentées par 2 axes distincts. Remarque : on représente en \"Route à 1 chaussée\" les tronçons des îlots directionnels faisant partie d’un carrefour important."
+        },
+        {
+          "value": "Route empierrée",
+          "description": "Route sommairement revêtue (pas de revêtement de surface ou revêtement très dégradé), mais permettant la circulation de véhicules automobiles de tourisme par tous les temps.",
+          "representedFeatures": [
+            "Allée carrossable",
+            "Voie stabilisée",
+            "Empierré"
+          ]
+        },
+        {
+          "value": "Sentier",
+          "description": "Voie étroite ne permettant pas le passage de véhicules automobiles et de largeur inférieure à 2 m. Un sentier peut être revêtu ou non. On privilégie la nature réelle du tronçon. Un sentier est une voie dont l’étroitesse empêche physiquement toute circulation automobile : - ruelle de largeur < 2 m, - allées résidentielles revêtues ou non, mais de largeur < 2 m. La largeur de 2 m est indicative : un tronçon de route de 1,80 m par lequel transitent des véhicules automobiles sera saisi en \"Route à 1 chaussée\" et non en \"Sentier\". Le \"Sentier\" se distingue de la \"Route à 1 chaussée\" d’Accès véhicule léger=\"Physiquement impossible\" qui est une route revêtue, de largeur ≥ 2 m mais qui ne permet aucune circulation automobile, de manière permanente (présence d’escaliers, de plots inamovibles ou de blocs de béton de part et d’autre de la route).",
+          "representedFeatures": [
+            "Allée étroite",
+            "Ruelle étroite",
+            "Hors sentier"
+          ]
+        },
+        {
+          "value": "Type autoroutier",
+          "description": "Routes sans croisement à niveau, accessibles seulement en des points aménagés à cet effet et réservées aux véhicules à propulsion mécanique. Les routes à chaussées séparées par un terre-plein central, qui ne possèdent pas de croisement à niveau avec le reste du réseau routier sont également codées en \"Type autoroutier\" si la longueur est supérieure à 5 km. Si elles font moins de 5km, elles sont codées en \"Route à 2 chaussées\". Le classement dans la catégorie des autoroutes est prononcé par décret du conseil d’État, pris après enquête publique.",
+          "representedFeatures": [
+            "Autoroute",
+            "Quasi-autoroute"
+          ]
+        }
       ]
     },
     {
       "name": "nom_collaboratif_gauche",
       "type": "string",
       "title": "Nom collaboratif gauche",
-      "description": "Cet attribut correspond au <b>nom principal de la rue</b> côté gauche, le tronçon étant orienté par son sens de numérisation."
+      "description": "Cet attribut correspond au nom principal de la rue côté gauche, le tronçon étant orienté par son sens de numérisation.",
+      "nullable": true
     },
     {
       "name": "nom_collaboratif_droite",
       "type": "string",
       "title": "Nom collaboratif droite",
-      "description": "Cet attribut correspond au <b>nom principal de la rue</b> côté droit, le tronçon étant orienté par son sens de numérisation."
+      "description": "Cet attribut correspond au nom principal de la rue côté droit, le tronçon étant orienté par son sens de numérisation.",
+      "nullable": true
     },
     {
       "name": "importance",
       "type": "string",
       "title": "Importance",
       "description": "L’attribut 'Importance' matérialise une hiérarchisation du réseau routier, non pas sur un critère administratif, mais sur l'importance des tronçons de route pour le trafic routier. Cette classification permet de distinguer six catégories de liaisons, qui tissent un maillage toujours plus dense du territoire. Le graphe des éléments appartenant à un degré (autre que le plus bas) et aux niveaux supérieurs est connexe.",
-      "enum": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "1",
+          "description": "Liaisons entre métropoles composant l’essentiel du réseau européen. Ce réseau inclut généralement des tronçons de route de type autoroutier et des routes nationales."
+        },
+        {
+          "value": "2",
+          "description": "Liaisons entre départements. Cette valeur représente une densification du maillage routier défini par les tronçons d’Importance=\"1\". Les liaisons d’Importance=\"2\" ont pour fonction : - d’assurer les liaisons à fort trafic et à caractère prioritaire entre agglomérations importantes ; - d’assurer les liaisons des agglomérations importantes au réseau d’Importance=\"1\" ; - d’offrir une alternative à une autoroute si celle-ci est payante ; - de proposer des itinéraires de contournement des agglomérations ; - d’assurer la continuité, en agglomération, des liaisons interurbaines à fort trafic quand il n’y a pas de contournement possible."
+        },
+        {
+          "value": "3",
+          "description": "Liaisons entre villes à l’intérieur d’un département. Ce niveau est majoritairement représenté par le réseau départemental. Des routes départementales peuvent toutefois prendre une 'Importance' inférieure (\"4\" par exemple). Cette valeur représente une densification du maillage routier défini par les tronçons d'Importance=\"2\". Les liaisons d’Importance=\"3\" ont pour fonction : - de relier les communes de moindre importance entre elles (les chefs-lieux de canton en particulier) ; - de desservir les localités et sites touristiques importants ; - de desservir les points de passage des obstacles naturels quand ils sont peu nombreux (cols routiers, ponts) ; - de desservir les agglomérations d'où partent des liaisons maritimes ; - de structurer la circulation en agglomération ; - de structurer les principales avenues en centre-ville."
+        },
+        {
+          "value": "4",
+          "description": "Voies permettant de se déplacer rapidement à l’intérieur d’une commune et, dans les zones rurales, de relier le bourg aux hameaux proches. Cette valeur représente une densification du maillage routier défini par les tronçons d’Importance=\"3\". Les liaisons d’Importance=\"4\" ont pour fonction : - de structurer la circulation en agglomération ; - de relier les bourgs aux hameaux proches. Dans un paysage avec un habitat dispersé, tous les hameaux ne sont pas forcément reliés entre eux par des routes d’Importance=\"4\". ATTENTION Quelques tronçons de route d'importance 5 pourront être surclassés en importance 4, pour les besoins cartographiques de la Moyenne Echelle. Il s'agit des tronçons de route structurant à l'intérieur des zones d'habitation d'importance 2 ou 3, dans le cas où celles-ci sont étendues ou décentrées par rapport à l'axe routier principal traversant. Souvent ces tronçons sont l'accès à la mairie ou au centre bourg de la zone d'habitation."
+        },
+        {
+          "value": "5",
+          "description": "Voies circulables permettant de desservir l’intérieur d’une commune."
+        },
+        {
+          "value": "6",
+          "description": "Valeur réservée aux tronçons sur lesquels la circulation automobile n’est pas possible : escaliers, sentiers, pistes cyclables, bacs et liaisons maritimes réservés aux piétons, tronçons dont l'accès est impossible aux véhicules légers. Cette valeur peut aussi être utilisée pour des tronçons de route revêtus, en accès libre, mais situés dans les parkings, en impasse sans adresse et de longueur inférieure au seuil défini dans les spécifications, pour des contre-allées... Ce sont les tronçons que l'on pourrait qualifier d'intéressants uniquement à très grande échelle."
+        }
       ]
     },
     {
       "name": "fictif",
       "type": "boolean",
       "title": "Fictif",
-      "description": "Indique si la géométrie de l'objet est réelle ou non significative."
+      "description": "Indique si la géométrie de l'objet est réelle ou non significative.",
+      "nullable": false
     },
     {
       "name": "position_par_rapport_au_sol",
       "type": "string",
       "title": "Position par rapport au sol",
-      "description": "L’attribut 'Position par rapport au sol' donne le niveau de l’objet par rapport à la surface du sol (valeur négative pour un objet souterrain, \"0\" pour un objet au sol et positive pour un objet en sursol).\r\n\r\nSi l’objet en sursol passe au dessus d’autres objets en sursol, sa valeur 'Position par rapport au sol' est égale à \"1 +   le nombre d’objets intercalés\". De la même façon, un souterrain peut prendre une valeur 'Position par rapport au sol' égale à \"-1 – le nombre d’objets souterrains intercalés\".\r\n\r\nTout changement de niveau d’un tronçon est matérialisé dans la base, quelle que soit sa longueur. Dans le cas général, on matérialise des tronçons de la longueur des ouvrages d’art (pont, viaduc, tunnel, passage en souterrain ou semi-couvert, …) : le tronçon est découpé à chaque extrémité de l’ouvrage.",
-      "enum": [
-        "0",
-        "-1",
-        "1",
-        "-2",
-        "2",
-        "-3",
-        "3",
-        "-4",
-        "4",
-        "Gué ou radier"
+      "description": "L’attribut 'Position par rapport au sol' donne le niveau de l’objet par rapport à la surface du sol (valeur négative pour un objet souterrain, \"0\" pour un objet au sol et positive pour un objet en sursol). Si l’objet en sursol passe au dessus d’autres objets en sursol, sa valeur 'Position par rapport au sol' est égale à \"1 + le nombre d’objets intercalés\". De la même façon, un souterrain peut prendre une valeur 'Position par rapport au sol' égale à \"-1 – le nombre d’objets souterrains intercalés\". Tout changement de niveau d’un tronçon est matérialisé dans la base, quelle que soit sa longueur. Dans le cas général, on matérialise des tronçons de la longueur des ouvrages d’art (pont, viaduc, tunnel, passage en souterrain ou semi-couvert, …) : le tronçon est découpé à chaque extrémité de l’ouvrage.",
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "0",
+          "description": "Il s’agit d’un tronçon au niveau du sol. Il peut s’agir aussi de tronçons en déblai ou en remblai. Cette valeur est également utilisée pour les tronçons sur digue, sur barrage ou sur levée."
+        },
+        {
+          "value": "-1",
+          "description": "C’est le niveau juste au-dessous de \"0\". Il s’agit d’un tronçon souterrain ou en tunnel."
+        },
+        {
+          "value": "1",
+          "description": "C’est le niveau juste au-dessus de ‘0’. Il s’agit d’un tronçon en sursol ou sur pont."
+        },
+        {
+          "value": "-2",
+          "description": "C’est le niveau juste au-dessous de \"-1\". Il s’agit d’un tronçon souterrain ou en tunnel."
+        },
+        {
+          "value": "2",
+          "description": "C’est le niveau juste au-dessus de \"1\". Il s’agit d’un tronçon en sursol ou sur pont."
+        },
+        {
+          "value": "-3",
+          "description": "C’est le niveau juste au-dessous de \"-2\". Il s’agit d’un tronçon souterrain ou en tunnel."
+        },
+        {
+          "value": "3",
+          "description": "C’est le niveau juste au-dessus de \"2\". Il s’agit d’un tronçon en sursol ou sur pont."
+        },
+        {
+          "value": "-4",
+          "description": "C’est le niveau juste au-dessous de \"-3\". Il s’agit d’un tronçon souterrain ou en tunnel."
+        },
+        {
+          "value": "4",
+          "description": "C’est le niveau juste au-dessus de \"3\". Il s’agit d’un tronçon en sursol ou sur pont."
+        },
+        {
+          "value": "Gué ou radier",
+          "description": "Il s’agit d’un tronçon de route au niveau du sol mais qui coupe de l’hydrographie en un gué ou en un radier."
+        }
       ]
     },
     {
@@ -84,200 +208,446 @@
       "type": "string",
       "title": "Etat de l'objet",
       "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
-      "enum": [
-        "En construction",
-        "En projet",
-        "En service"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "En construction",
+          "description": "L'objet géographique est en construction. Dans le cas des Tronçon de route, la date de mise en service prévue est codée dans le champ 'Date de mise en service'."
+        },
+        {
+          "value": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "value": "En service",
+          "description": "L'objet géographique est en service."
+        }
       ]
     },
     {
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "nullable": true
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "nullable": true
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "nullable": true
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "nullable": true
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "nullable": true
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "nullable": true
     },
     {
       "name": "methode_d_acquisition_planimetrique",
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "enum": [
-        "BDCarto",
-        "BDNyme",
-        "BDParcellaire",
-        "BDParcellaire recalée",
-        "BDTopo",
-        "Calcul d'enveloppe urbaine",
-        "Calculé",
-        "Fichier numérique décimétrique",
-        "Fichier numérique métrique",
-        "Fichier numérique non métrique",
-        "Géocodage",
-        "Géoroute",
-        "Image satellite",
-        "Image satellite HR",
-        "Inconnue",
-        "Levé GPS",
-        "Levé non GPS",
-        "Lidar",
-        "Lidar HD",
-        "Orthophotographie",
-        "Photogrammétrie",
-        "Plan métrique papier",
-        "Plan non métrique papier",
-        "Processus IA métrique",
-        "Processus IA non métrique",
-        "Scan25"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "value": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "value": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "value": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "value": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "value": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "value": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "value": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "value": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "value": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "value": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "value": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "value": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "value": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "value": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "value": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "value": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "value": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "value": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "value": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "value": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "value": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "value": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "value": "Processus IA métrique"
+        },
+        {
+          "value": "Processus IA non métrique"
+        },
+        {
+          "value": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
       ]
     },
     {
       "name": "precision_planimetrique",
       "type": "numeric",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
+      "nullable": true
     },
     {
       "name": "methode_d_acquisition_altimetrique",
       "type": "string",
       "title": "Méthode d'acquisition altimétrique",
-      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z)  de l'objet.",
-      "enum": [
-        "BDAlti",
-        "BDTopo",
-        "Corrélation",
-        "Fichier numérique",
-        "Fichier numérique décimétrique",
-        "Interpolation bâti BDTopo",
-        "Levé GPS",
-        "Lidar",
-        "Lidar HD",
-        "Pas de Z",
-        "Photogrammétrie",
-        "Photogrammétrie longue focale",
-        "Plan coté",
-        "Radar",
-        "Z corrigé"
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "BDAlti",
+          "description": "Le Z est interpolé sur un MNT issu de la BD ALTI® (ancienne BD altimétrique issue de la numérisation de cartes et de restitution photogrammétrique)."
+        },
+        {
+          "value": "BDTopo",
+          "description": "Le Z provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "value": "Corrélation",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues de corrélation."
+        },
+        {
+          "value": "Fichier numérique",
+          "description": "Le Z a été saisi à partir de données numériques fournies par un correspondant."
+        },
+        {
+          "value": "Fichier numérique décimétrique"
+        },
+        {
+          "value": "Interpolation bâti BDTopo",
+          "description": "Lors de l’unification avec la BD PARCELLAIRE®, le Z a été calculé à partir des valeurs existantes aux environs."
+        },
+        {
+          "value": "Levé GPS",
+          "description": "Le Z a été saisi directement sur le terrain par lever GPS."
+        },
+        {
+          "value": "Lidar",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues du processus d'acquisition par LIDAR."
+        },
+        {
+          "value": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "value": "Pas de Z",
+          "description": "L’objet est défini avec une géométrie 3D mais le Z est inconnu ou sa précision n'est pas connue/fiable."
+        },
+        {
+          "value": "Photogrammétrie",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques (restitution)."
+        },
+        {
+          "value": "Photogrammétrie longue focale",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes longue focale selon des processus photogrammétriques (restitution). La longueur de la focale a une incidence sur les pointés en Z qui sont meilleurs sur des focales courtes que sur des focales longues."
+        },
+        {
+          "value": "Plan coté",
+          "description": "Le Z a été saisi à partir de points côtés figurant sur un plan."
+        },
+        {
+          "value": "Radar",
+          "description": "Le Z provient de l’exploitation d’un MNT ou d’un MNS qui a été fait à partir d’acquisitions RADAR."
+        },
+        {
+          "value": "Z corrigé",
+          "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
+        }
       ]
     },
     {
       "name": "precision_altimetrique",
       "type": "numeric",
       "title": "Précision altimétrique",
-      "description": "Précision altimétrique  (en mètres) de la géométrie décrivant l'objet."
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet.",
+      "nullable": true
     },
     {
       "name": "nombre_de_voies",
       "type": "string",
       "title": "Nombre de voies",
       "description": "Nombre total de voies de circulation automobile tracées au sol ou effectivement utilisées, sur une route, une rue ou une chaussée de route à chaussées séparées.",
-      "enum": [
-        "0",
-        "1",
-        "10",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "Sans objet"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "0",
+          "description": "Valeur d’attribut réservée aux tronçons de route de Nature=\"Type autoroutier\", \"Bretelle\", \"Route à 2 chaussées\", \"Route à 1 chaussée\" ou \"Rond-point\" pour lesquels le nombre de voies est inconnu, ainsi qu’à tous les tronçons fictifs. Les tronçons Nature=\"Bac ou liaison maritime\" ont toujours un Nombre de voies=\"0\". On s’efforcera de renseigner le 'Nombre de voies' sur tous les tronçons de route d’Importance=\"1\" à \"4\"."
+        },
+        {
+          "value": "1",
+          "description": "Le tronçon routier comporte une seule voie. Est considérée comme route à une voie, une route sur laquelle deux véhicules légers ne peuvent se croiser sans que l’un des deux ne s’arrête ou roule sur le bas-côté. La largeur de la route est inférieure ou égale à 3,5 m. Le champ 'Sens de circulation' est le plus souvent à \"Double sens\"."
+        },
+        {
+          "value": "10",
+          "description": "Le tronçon routier comporte dix voies."
+        },
+        {
+          "value": "2",
+          "description": "Le tronçon routier comporte deux voies. C’est la valeur la plus courante."
+        },
+        {
+          "value": "3",
+          "description": "Le tronçon routier comporte trois voies."
+        },
+        {
+          "value": "4",
+          "description": "Le tronçon routier comporte quatre voies."
+        },
+        {
+          "value": "5",
+          "description": "Le tronçon routier comporte cinq voies."
+        },
+        {
+          "value": "6",
+          "description": "Le tronçon routier comporte six voies."
+        },
+        {
+          "value": "7",
+          "description": "Le tronçon routier comporte sept voies."
+        },
+        {
+          "value": "8",
+          "description": "Le tronçon routier comporte huit voies."
+        },
+        {
+          "value": "9",
+          "description": "Le tronçon routier comporte neuf voies."
+        },
+        {
+          "value": "Sans objet",
+          "description": "Valeur d’attribut réservée aux tronçons de route de Nature=\"Route empierrée\", \"Chemin\", \"Escalier\" et \"Sentier\"."
+        }
       ]
     },
     {
       "name": "largeur_de_chaussee",
       "type": "numeric",
       "title": "Largeur de chaussée",
-      "description": "Représente la largeur de la chaussée, d'accotement à accotement. \r\nEn ville, elle représente la largeur mesurée de trottoir à trottoir. \r\nCette valeur, indicative, a été mesurée ou estimée sur le terrain ou sur orthophotos dans une partie des cas, et est calculée d’après le nombre de voies dans les cas restants."
+      "description": "Représente la largeur de la chaussée, d'accotement à accotement. En ville, elle représente la largeur mesurée de trottoir à trottoir. Cette valeur, indicative, a été mesurée ou estimée sur le terrain ou sur orthophotos dans une partie des cas, et est calculée d’après le nombre de voies dans les cas restants.",
+      "nullable": true
     },
     {
       "name": "itineraire_vert",
       "type": "boolean",
       "title": "Itinéraire vert",
-      "description": "Indique l’appartenance ou non du tronçon de route au réseau vert.\r\n\r\nLe réseau vert est composé de pôles verts et de liaisons vertes. Il couvre l’ensemble du territoire français et définit une organisation cohérente des panneaux directionnels.\r\n\r\nLes pôles verts sont composés de communes de plus de 23000 habitants en province et de 39000 habitants en Ile-de-France, ainsi que certains pôles d’activités administratifs, économiques, touristiques ou industriels.\r\n\r\nUne liaison verte est définie par l’itinéraire fléché de panneaux directionnels verts entre deux pôles verts d’égale importance.\r\n\r\nOn retient seulement le <b>réseau vert de transit</b> entre pôles verts. Le réseau vert de rabattement, à l’intérieur des villes, et le réseau vert conseillé aux poids lourds ne sont pas retenus."
+      "description": "Indique l’appartenance ou non du tronçon de route au réseau vert. Le réseau vert est composé de pôles verts et de liaisons vertes. Il couvre l’ensemble du territoire français et définit une organisation cohérente des panneaux directionnels. Les pôles verts sont composés de communes de plus de 23000 habitants en province et de 39000 habitants en Ile-de-France, ainsi que certains pôles d’activités administratifs, économiques, touristiques ou industriels. Une liaison verte est définie par l’itinéraire fléché de panneaux directionnels verts entre deux pôles verts d’égale importance. On retient seulement le réseau vert de transit entre pôles verts. Le réseau vert de rabattement, à l’intérieur des villes, et le réseau vert conseillé aux poids lourds ne sont pas retenus.",
+      "nullable": false
     },
     {
       "name": "prive",
       "type": "boolean",
       "title": "Privé",
-      "description": "Indique le caractère privé d'un tronçon de route carrossable. Une voie privée peut être ouverte à la circulation publique."
+      "description": "Indique le caractère privé d'un tronçon de route carrossable. Une voie privée peut être ouverte à la circulation publique.",
+      "nullable": true
     },
     {
       "name": "sens_de_circulation",
       "type": "string",
       "title": "Sens de circulation",
-      "description": "Sens licite de circulation sur le tronçon de route pour les véhicules légers, défini par rapport au sens de numérisation de tronçon (pour les sens uniques).\r\nIndique aussi le sens de circulation des cyclistes sur les aménagements cyclables (piste cyclable, voie verte et aménagement mixte).",
-      "enum": [
-        "Double sens",
-        "Sans objet",
-        "Sens direct",
-        "Sens inverse"
+      "description": "Sens licite de circulation sur le tronçon de route pour les véhicules légers, défini par rapport au sens de numérisation de tronçon (pour les sens uniques). Indique aussi le sens de circulation des cyclistes sur les aménagements cyclables (piste cyclable, voie verte et aménagement mixte).",
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "Double sens",
+          "description": "La circulation des véhicules est autorisée dans les deux sens."
+        },
+        {
+          "value": "Sans objet",
+          "description": "Valeur prise par exclusion des autres valeurs. Valeur réservée aux tronçons de route de Nature=\"Escalier\", \"Sentier\" et \"Bac ou liaison maritime\"."
+        },
+        {
+          "value": "Sens direct",
+          "description": "La circulation des véhicules n’est possible que dans le sens de numérisation du tronçon de route."
+        },
+        {
+          "value": "Sens inverse",
+          "description": "La circulation des véhicules n’est possible que dans le sens inverse de numérisation du tronçon de route."
+        }
       ]
     },
     {
       "name": "reserve_aux_bus",
       "type": "string",
       "title": "Réservé aux bus",
-      "description": "Sens de circulation sur les voies réservées au bus.\r\n\r\nL’attribut 'Réservé aux bus' du <Tronçon de route>, au remplissage facultatif et propre au collecteur, définit les tronçons strictement réservés aux bus et peut préciser le sens de circulation des bus.",
-      "enum": [
-        "Double sens",
-        "Sens direct",
-        "Sens inverse"
+      "description": "Sens de circulation sur les voies réservées au bus. L’attribut 'Réservé aux bus' du Tronçon de route, au remplissage facultatif et propre au collecteur, définit les tronçons strictement réservés aux bus et peut préciser le sens de circulation des bus.",
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Double sens",
+          "description": "La portion du tronçon réservée aux bus est à double sens."
+        },
+        {
+          "value": "Sens direct",
+          "description": "La portion du tronçon réservée aux bus est en sens direct par rapport au sens de numérisation du tronçon."
+        },
+        {
+          "value": "Sens inverse",
+          "description": "La portion du tronçon réservée aux bus est en sens inverse par rapport au sens de numérisation du tronçon."
+        }
       ]
     },
     {
       "name": "urbain",
       "type": "boolean",
       "title": "Urbain",
-      "description": "Indique que le tronçon de route est situé en zone urbaine."
+      "description": "Indique que le tronçon de route est situé en zone urbaine.",
+      "nullable": true
     },
     {
       "name": "vitesse_moyenne_vl",
       "type": "integer",
       "title": "Vitesse moyenne VL",
-      "description": "Vitesse moyenne estimée, en km/h, des véhicules légers circulant sur le tronçon."
+      "description": "Vitesse moyenne estimée, en km/h, des véhicules légers circulant sur le tronçon.",
+      "nullable": true
     },
     {
       "name": "acces_vehicule_leger",
       "type": "string",
       "title": "Accès véhicule léger",
       "description": "L'attribut 'Accès véhicule léger' précise les conditions d'accès des véhicules légers sur chaque tronçon.",
-      "enum": [
-        "A péage",
-        "Libre",
-        "Physiquement impossible",
-        "Restreint aux ayants droit"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "A péage",
+          "description": "La circulation des véhicules est soumise à un péage donnant lieu à acquittement d'une redevance d'utilisation. Dans le cas d’une autoroute à péage, la section à péage commence à la dernière bretelle de sortie libre et non à la barrière de péage si celle-ci se trouve quelques kilomètres plus loin.",
+          "representedFeatures": [
+            "Autoroute payante",
+            "Bac",
+            "Liaison maritime",
+            "Tunnel à péage",
+            "Pont à péage",
+            "Route payante"
+          ]
+        },
+        {
+          "value": "Libre",
+          "description": "La circulation des véhicules est libre de toute contrainte d’accès (sans péage ni interdiction).",
+          "representedFeatures": [
+            "Route d'accès libre",
+            "Voie réservée aux riverains sans barrière mobile"
+          ]
+        },
+        {
+          "value": "Physiquement impossible",
+          "description": "Cette valeur traduit l’impossibilité physique d’accéder aux tronçons, même pour les véhicules prioritaires (police, pompiers…). La voie est par exemple trop étroite, ou située entre 2 escaliers, des plots en bétons ou un obstacle infranchissable empêchent tout passage de véhicule à quatre roues.",
+          "representedFeatures": [
+            "Escalier",
+            "Passerelle",
+            "Sentier",
+            "Piste cyclable avec plot fixe",
+            "Allée étroite",
+            "Ruelle étroite",
+            "Bac piéton"
+          ]
+        },
+        {
+          "value": "Restreint aux ayants droit",
+          "description": "Cette valeur correspond à une voie dont l'accès n'est pas autorisé à une grand majorité des usagers motorisés (seules certaines catégories sont autorisées : secours, employés, propriétaires, livreurs, ...).",
+          "representedFeatures": [
+            "Voie piétonne avec barrière ou plot mobile",
+            "Voie privée avec barrière mobile",
+            "Voie totalement réservée aux bus",
+            "Voie de service permettant l’accès au réseau autoroutier avec barrière",
+            "Route ou piste interdite par arrêté"
+          ]
+        }
       ]
     },
     {
@@ -285,263 +655,366 @@
       "type": "string",
       "title": "Accès piéton",
       "description": "Cet attribut indique les restrictions de circulation en vigueur pour les piétons (Chemins, sentiers, bac piéton...).",
-      "enum": [
-        "A péage",
-        "Libre",
-        "Passage difficile",
-        "Restreint aux ayants droit"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "A péage",
+          "description": "La circulation des piétons est soumise à un péage. Il peut s'agir de l'entrée dans un village touristique, d'emprunter un bac fluvial ou une liaison maritime..."
+        },
+        {
+          "value": "Libre",
+          "description": "Tronçon d'accès libre pour tous les piétons."
+        },
+        {
+          "value": "Passage difficile",
+          "description": "Passage difficile sur sentier balisé (passage par une échelle par exemple)."
+        },
+        {
+          "value": "Restreint aux ayants droit",
+          "description": "Tronçon dont l'accès est réglementé pour les piétons (accès privé, réservé, interdit...). Exemple : chemin VTT interdit aux piétons."
+        }
       ]
     },
     {
       "name": "periode_de_fermeture",
       "type": "string",
       "title": "Période de fermeture",
-      "description": "Période(s) de fermeture d'une route à la circulation automobile, ainsi que les périodes de péages."
+      "description": "Période(s) de fermeture d'une route à la circulation automobile, ainsi que les périodes de péages.",
+      "nullable": true
     },
     {
       "name": "nature_de_la_restriction",
       "type": "string",
       "title": "Nature de la restriction",
-      "description": "Nature précise de la restriction portée par un tronçon de route où la circulation <i>automobile</i> est possible mais restreinte à des ayants droit ou partagée avec la circulation cycliste.",
-      "enum": [
-        "Aménagement mixte hors voie verte",
-        "Chaussée à voie centrale banalisée",
-        "Double sens cyclable non matérialisé",
-        "Entrée avec gardien",
-        "Interdit à la descente",
-        "Passage barré",
-        "Piste cyclable",
-        "Plot amovible",
-        "Vélorue",
-        "Voie de tramway utilisable par les véhicules de secours",
-        "Voie verte"
+      "description": "Nature précise de la restriction portée par un tronçon de route où la circulation automobile est possible mais restreinte à des ayants droit ou partagée avec la circulation cycliste.",
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Aménagement mixte hors voie verte",
+          "description": "aménagement partagé par les piétons et les vélos. Contrairement aux voies vertes, il peut être mis en place en bordure de route."
+        },
+        {
+          "value": "Chaussée à voie centrale banalisée",
+          "description": "Aménagement particulier d’une chaussée lorsqu’il est impossible, pour des questions de largeur disponible, d’y tracer des bandes cyclables. Une voie centrale est alors créée pour la circulation générale, banalisée car elle accueille la circulation dans les deux sens. La largeur restante est octroyée à des accotements revêtus où peuvent circuler piétons et cyclistes et permettant aux véhicules motorisés de se croiser en empiétant sur ces espaces. Est également appelé « chaucidou » (chaussée pour les circulations douces).",
+          "representedFeatures": [
+            "Chaucidou",
+            "Chaussée pour les circulations douces"
+          ]
+        },
+        {
+          "value": "Double sens cyclable non matérialisé",
+          "description": "rue où la circulation est autorisée dans les deux sens pour les cyclistes tout en restant à sens unique pour les véhicules motorisés. Autrement dit: rue à sens unique pour tous les véhicules, dont les cyclistes, et uniquement pour les cyclistes dans l’autre sens. Le double sens cyclable est obligatoire dans les rues limitées à 30km/h ou moins (sauf décision contraire motivée)."
+        },
+        {
+          "value": "Entrée avec gardien",
+          "description": "Route avec fermeture physique contrôlée par un poste de gardiennage."
+        },
+        {
+          "value": "Interdit à la descente",
+          "description": "Valeur utilisée pour un cas particulier d'un sentier empruntable uniquement à la montée pour des raisons de sécurité (gorges du Verdon).",
+          "availableWhen": {
+            "property": "acces_pieton",
+            "equalsAny": [
+              "Passage difficile"
+            ]
+          }
+        },
+        {
+          "value": "Passage barré",
+          "description": "Route fermée par une barrière"
+        },
+        {
+          "value": "Piste cyclable",
+          "description": "Chaussée exclusivement réservée aux cycles à deux ou trois roues et aux engins de déplacement personnel motorisés (Code de la route)."
+        },
+        {
+          "value": "Plot amovible",
+          "description": "Voie, généralement privée, fermée par un plot amovible d'ouverture réservée aux ayants droits (riverains, livreurs, secours...)."
+        },
+        {
+          "value": "Vélorue",
+          "description": "La vélorue est une section ou un ensemble de sections de voie appartenant au réseau cyclable structurant et accueillant un trafic motorisé exclusivement de desserte (définition Cerema)."
+        },
+        {
+          "value": "Voie de tramway utilisable par les véhicules de secours",
+          "description": "Cas particulier de voies revêtues (exclus les voies de tramway enherbées), pouvant être saisies dans la base en cas de partenariat avec un SDIS."
+        },
+        {
+          "value": "Voie verte",
+          "description": "Route exclusivement réservée à la circulation des piétons, des cavaliers et des véhicules non motorisés (à l'exception des engins de déplacement personnel motorisés) - définition du Code de la route."
+        }
       ]
     },
     {
       "name": "restriction_de_hauteur",
       "type": "numeric",
       "title": "Restriction de hauteur",
-      "description": "Exprime l'interdiction de circuler pour les véhicules dépassant la hauteur indiquée ; il s’agit de la hauteur d’une construction, d’un ouvrage (pont, tunnel…), d’un dispositif (fil électrique ou téléphonique), même naturel. Elle peut correspondre à la présence d’un panneau d’interdiction ou à la mesure d’une hauteur d’ouvrage.\r\n\r\nLes valeurs de cet attribut sont exprimées en mètres."
+      "description": "Exprime l'interdiction de circuler pour les véhicules dépassant la hauteur indiquée ; il s’agit de la hauteur d’une construction, d’un ouvrage (pont, tunnel…), d’un dispositif (fil électrique ou téléphonique), même naturel. Elle peut correspondre à la présence d’un panneau d’interdiction ou à la mesure d’une hauteur d’ouvrage. Les valeurs de cet attribut sont exprimées en mètres.",
+      "nullable": true
     },
     {
       "name": "restriction_de_poids_total",
       "type": "numeric",
       "title": "Restriction de poids total",
-      "description": "Cet attribut traduit l’interdiction de circuler aux véhicules dont le poids total autorisé en charge ou le poids total roulant autorisé est supérieur au poids exprimé (en tonnes). Il s’agit d’une limitation physique ; aucune dérogation n’est possible."
+      "description": "Cet attribut traduit l’interdiction de circuler aux véhicules dont le poids total autorisé en charge ou le poids total roulant autorisé est supérieur au poids exprimé (en tonnes). Il s’agit d’une limitation physique ; aucune dérogation n’est possible.",
+      "nullable": true
     },
     {
       "name": "restriction_de_poids_par_essieu",
       "type": "numeric",
       "title": "Restriction de poids par essieu",
-      "description": "Exprime l'interdiction de circuler pour les véhicules dépassant le poids par essieu indiqué (en tonnes)."
+      "description": "Exprime l'interdiction de circuler pour les véhicules dépassant le poids par essieu indiqué (en tonnes).",
+      "nullable": true
     },
     {
       "name": "restriction_de_largeur",
       "type": "numeric",
       "title": "Restriction de largeur",
-      "description": "Exprime l'interdiction de circuler pour les véhicules dépassant la largeur indiquée (en mètres)."
+      "description": "Exprime l'interdiction de circuler pour les véhicules dépassant la largeur indiquée (en mètres).",
+      "nullable": true
     },
     {
       "name": "restriction_de_longueur",
       "type": "numeric",
       "title": "Restriction de longueur",
-      "description": "Exprime l'interdiction de circuler pour les véhicules dépassant la longueur indiquée (exprimée en mètres)."
+      "description": "Exprime l'interdiction de circuler pour les véhicules dépassant la longueur indiquée (exprimée en mètres).",
+      "nullable": true
     },
     {
       "name": "matieres_dangereuses_interdites",
       "type": "boolean",
       "title": "Matières dangereuses interdites",
-      "description": "Exprime l'interdiction de circuler pour les véhicules transportant des matières dangereuses."
+      "description": "Exprime l'interdiction de circuler pour les véhicules transportant des matières dangereuses.",
+      "nullable": true
     },
     {
       "name": "borne_debut_gauche",
       "type": "string",
       "title": "Borne début gauche",
-      "description": "Numéro de borne postale à gauche du tronçon en son sommet initial. Voir explication sur le remplissage : <a href =\"#attribute_576\">Borne début gauche</a>"
+      "description": "Numéro de borne postale à gauche du tronçon en son sommet initial. Voir explication sur le remplissage : Borne début gauche (#attribute_576)",
+      "nullable": true
     },
     {
       "name": "borne_debut_droite",
       "type": "string",
       "title": "Borne début droite",
-      "description": "Numéro de borne postale à droite du tronçon en son sommet initial. Voir explication sur le remplissage : <a href =\"#attribute_576\">Borne début gauche</a>"
+      "description": "Numéro de borne postale à droite du tronçon en son sommet initial. Voir explication sur le remplissage : Borne début gauche (#attribute_576)",
+      "nullable": true
     },
     {
       "name": "borne_fin_gauche",
       "type": "string",
       "title": "Borne fin gauche",
-      "description": "Numéro de borne postale à gauche du tronçon en son sommet final. Voir explication sur le remplissage : <a href =\"#attribute_576\">Borne début gauche</a>"
+      "description": "Numéro de borne postale à gauche du tronçon en son sommet final. Voir explication sur le remplissage : Borne début gauche (#attribute_576)",
+      "nullable": true
     },
     {
       "name": "borne_fin_droite",
       "type": "string",
       "title": "Borne fin droite",
-      "description": "Numéro de borne postale à droite du tronçon en son sommet final. Voir explication sur le remplissage : <a href =\"#attribute_576\">Borne début gauche</a>"
+      "description": "Numéro de borne postale à droite du tronçon en son sommet final. Voir explication sur le remplissage : Borne début gauche (#attribute_576)",
+      "nullable": true
     },
     {
       "name": "insee_commune_gauche",
       "type": "string",
       "title": "Insee commune gauche",
-      "description": "Numéro INSEE de la commune à gauche du tronçon par rapport au sens de numérisation."
+      "description": "Numéro INSEE de la commune à gauche du tronçon par rapport au sens de numérisation.",
+      "nullable": true
     },
     {
       "name": "insee_commune_droite",
       "type": "string",
       "title": "Insee commune droite",
-      "description": "Numéro INSEE de la commune à droite du tronçon par rapport au sens de numérisation."
+      "description": "Numéro INSEE de la commune à droite du tronçon par rapport au sens de numérisation.",
+      "nullable": true
     },
     {
       "name": "alias_gauche",
       "type": "string",
       "title": "Alias gauche",
-      "description": "Nom secondaire de la rue, ancien nom, nom en langue régionale ou désignation d’une voie communale utilisé pour le coté gauche de la rue."
+      "description": "Nom secondaire de la rue, ancien nom, nom en langue régionale ou désignation d’une voie communale utilisé pour le coté gauche de la rue.",
+      "nullable": true
     },
     {
       "name": "alias_droit",
       "type": "string",
       "title": "Alias droit",
-      "description": "Nom secondaire de la rue, ancien nom, nom en langue régionale ou désignation d’une voie communale utilisé pour le coté droit de la rue."
+      "description": "Nom secondaire de la rue, ancien nom, nom en langue régionale ou désignation d’une voie communale utilisé pour le coté droit de la rue.",
+      "nullable": true
     },
     {
       "name": "date_de_mise_en_service",
       "type": "string",
       "title": "Date de mise en service",
-      "description": "Indique la date prévisionnelle ou effective de mise en service des tronçons de route dont l’attribut commun 'Etat de l’objet' prend la valeur \"En construction\".\r\n\r\nCe champ est vide pour les tronçons de route dont le champ 'Etat de l’objet' prend la valeur \"En service\"."
+      "description": "Indique la date prévisionnelle ou effective de mise en service des tronçons de route dont l’attribut commun 'Etat de l’objet' prend la valeur \"En construction\". Ce champ est vide pour les tronçons de route dont le champ 'Etat de l’objet' prend la valeur \"En service\".",
+      "nullable": true
     },
     {
       "name": "liens_vers_route_nommee",
       "type": "string",
       "title": "Liens vers route nommée",
-      "description": "Identifiant(s)  (clé absolue) de l'objet <Route numérotée ou nommée> parent(s).\r\n\r\nL’attribut 'Liens vers route nommée' permet de construire le lien entre un <Tronçon de route> et l’objet complexe <Route numérotée ou nommée>, dans le cas où le tracé de la route passe par le tronçon de route.\r\n\r\nUn tronçon de route peut n'appartenir à aucune route (champ vide), à une route, ou à plusieurs routes. Le champ contient  ainsi 0  à n identifiants d'objets de la  classe <Route numérotée ou nommée>.\r\nUn tronçon de route ne doit en théorie n'avoir qu'un seul classement administratif ('Type de route' = \"Autoroute\" ou \"Nationale\" ou \"Départementale\" ou \"Route intercommunale\" ou \"Voie communale\" ou \"Chemin rural\"). Cependant, dans certains cas, des liens vers 2 classements administratifs sont possibles, notamment lorsque le classement n'a pas pu être clairement établi : plusieurs types de gestion, désaccord de gestion, gestion en cours de transfert.\r\n\r\nTout tronçon de route possédant un numéro de route et/ou un numéro de route européenne et/ou un toponyme d’itinéraire et/ou appartenant à une voie verte ou à un itinéraire cyclable nommé ou véloroute possède au moins une valeur dans le champ 'Liens vers route nommée'."
+      "description": "Identifiant(s) (clé absolue) de l'objet Route numérotée ou nommée parent(s). L’attribut 'Liens vers route nommée' permet de construire le lien entre un Tronçon de route et l’objet complexe Route numérotée ou nommée, dans le cas où le tracé de la route passe par le tronçon de route. Un tronçon de route peut n'appartenir à aucune route (champ vide), à une route, ou à plusieurs routes. Le champ contient ainsi 0 à n identifiants d'objets de la classe Route numérotée ou nommée. Un tronçon de route ne doit en théorie n'avoir qu'un seul classement administratif ('Type de route' = \"Autoroute\" ou \"Nationale\" ou \"Départementale\" ou \"Route intercommunale\" ou \"Voie communale\" ou \"Chemin rural\"). Cependant, dans certains cas, des liens vers 2 classements administratifs sont possibles, notamment lorsque le classement n'a pas pu être clairement établi : plusieurs types de gestion, désaccord de gestion, gestion en cours de transfert. Tout tronçon de route possédant un numéro de route et/ou un numéro de route européenne et/ou un toponyme d’itinéraire et/ou appartenant à une voie verte ou à un itinéraire cyclable nommé ou véloroute possède au moins une valeur dans le champ 'Liens vers route nommée'.",
+      "nullable": true
     },
     {
       "name": "liens_vers_itineraire_autre",
       "type": "string",
       "title": "Liens vers itinéraire autre",
-      "description": "L’attribut 'Liens vers itinéraire autre' permet de construire le lien entre un <Tronçon de route> et l’objet complexe <Itinéraire autre>, dans le cas où le tracé de l'itinéraire passe par le tronçon de route.\r\n\r\nUn tronçon de route peut n'appartenir à aucun itinéraire (champ vide), à un itinéraire, ou à plusieurs itinéraires. Le champ contient  ainsi 0  à n identifiants d'objets de la  classe <Itinéraire autre> (séparateur : '/')."
+      "description": "L’attribut 'Liens vers itinéraire autre' permet de construire le lien entre un Tronçon de route et l’objet complexe Itinéraire autre, dans le cas où le tracé de l'itinéraire passe par le tronçon de route. Un tronçon de route peut n'appartenir à aucun itinéraire (champ vide), à un itinéraire, ou à plusieurs itinéraires. Le champ contient ainsi 0 à n identifiants d'objets de la classe Itinéraire autre (séparateur : '/').",
+      "nullable": true
     },
     {
       "name": "cpx_numero",
       "type": "string",
       "title": "CPX_Numéro",
-      "description": "Numéro(s) de(s) (la) route(s) à laquelle (auxquelles) appartient ce tronçon."
+      "description": "Numéro(s) de(s) (la) route(s) à laquelle (auxquelles) appartient ce tronçon.",
+      "nullable": true
     },
     {
       "name": "cpx_numero_route_europeenne",
       "type": "string",
       "title": "CPX_Numéro route européenne",
-      "description": "Numéro issu du champ 'Numéro' de l'objet complexe <Route numérotée ou nommée> lié au tronçon."
+      "description": "Numéro issu du champ 'Numéro' de l'objet complexe Route numérotée ou nommée lié au tronçon.",
+      "nullable": true
     },
     {
       "name": "cpx_classement_administratif",
       "type": "string",
       "title": "CPX_Classement administratif",
-      "description": "Classement administratif du tronçon issu du champ 'Type de route' de l'objet complexe <Route numérotée ou nommée> lié au tronçon."
+      "description": "Classement administratif du tronçon issu du champ 'Type de route' de l'objet complexe Route numérotée ou nommée lié au tronçon.",
+      "nullable": true
     },
     {
       "name": "cpx_gestionnaire",
       "type": "string",
       "title": "CPX_Gestionnaire",
-      "description": "Gestionnaire du tronçon issu du champ 'Gestionnaire' de l'objet <Route numérotée ou nommée> lié au tronçon."
+      "description": "Gestionnaire du tronçon issu du champ 'Gestionnaire' de l'objet Route numérotée ou nommée lié au tronçon.",
+      "nullable": true
     },
     {
       "name": "cpx_toponyme_route_nommee",
       "type": "string",
       "title": "CPX_Toponyme route nommée",
-      "description": "Toponyme de l'itinéraire routier nommé auquel appartient ce tronçon."
+      "description": "Toponyme de l'itinéraire routier nommé auquel appartient ce tronçon.",
+      "nullable": true
     },
     {
       "name": "cpx_toponyme_itineraire_cyclable",
       "type": "string",
       "title": "CPX_Toponyme itinéraire cyclable",
-      "description": "Toponyme issu du champ 'Toponyme' de l'objet complexe <Route numérotée ou nommée> lié au tronçon."
+      "description": "Toponyme issu du champ 'Toponyme' de l'objet complexe Route numérotée ou nommée lié au tronçon.",
+      "nullable": true
     },
     {
       "name": "cpx_toponyme_voie_verte",
       "type": "string",
       "title": "CPX_Toponyme voie verte",
-      "description": "Toponyme issu du champ 'Toponyme' de l'objet complexe <Route numérotée ou nommée> lié au tronçon."
+      "description": "Toponyme issu du champ 'Toponyme' de l'objet complexe Route numérotée ou nommée lié au tronçon.",
+      "nullable": true
     },
     {
       "name": "cpx_nature_itineraire_autre",
       "type": "string",
       "title": "CPX_Nature itinéraire autre",
-      "description": "Nature(s) du tronçon issue(s) du champ 'Nature' du ou des objets complexes <Itinéraire autre> liés au tronçon.\r\nLe champ contient  ainsi 0  à n natures, séparées par le caractère '/' et non ordonnées par rapport au champ <Liens vers itinéraire autre>."
+      "description": "Nature(s) du tronçon issue(s) du champ 'Nature' du ou des objets complexes Itinéraire autre liés au tronçon. Le champ contient ainsi 0 à n natures, séparées par le caractère '/' et non ordonnées par rapport au champ Liens vers itinéraire autre.",
+      "nullable": true
     },
     {
       "name": "cpx_toponyme_itineraire_autre",
       "type": "string",
       "title": "CPX_Toponyme itinéraire autre",
-      "description": "Toponyme(s) issu(s) du champ 'Toponyme' du ou des objets complexes <Itinéraire autre> liés au tronçon.\r\nLe champ contient  ainsi 0  à n toponymes, séparés par le caractère '/' et non ordonnés par rapport au champ <Liens vers itinéraire autre>."
+      "description": "Toponyme(s) issu(s) du champ 'Toponyme' du ou des objets complexes Itinéraire autre liés au tronçon. Le champ contient ainsi 0 à n toponymes, séparés par le caractère '/' et non ordonnés par rapport au champ Liens vers itinéraire autre.",
+      "nullable": true
     },
     {
       "name": "geometrie",
       "type": "string",
       "title": "Géométrie",
-      "description": ""
+      "description": "",
+      "nullable": false
     },
     {
       "name": "delestage",
       "type": "boolean",
       "title": "Délestage",
-      "description": "prend la valeur \"faux\" (ou \"non\" au format SHP) quand un tronçon routier n’est pas prévu pour accueillir du trafic de transit intensif (dans le cadre d’un décret d’application de l’article L.11115-8-1 du code des transports dans sa rédaction résultant de l’article 122 de la loi n° 2021 1104 du 22 août 2021 portant lutte contre le dérèglement climatique et renforcement de la résilience face à ses effets)."
+      "description": "prend la valeur \"faux\" (ou \"non\" au format SHP) quand un tronçon routier n’est pas prévu pour accueillir du trafic de transit intensif (dans le cadre d’un décret d’application de l’article L.11115-8-1 du code des transports dans sa rédaction résultant de l’article 122 de la loi n° 2021 1104 du 22 août 2021 portant lutte contre le dérèglement climatique et renforcement de la résilience face à ses effets).",
+      "nullable": true
     },
     {
       "name": "source_voie_ban_gauche",
       "type": "string",
       "title": "Source voie BAN gauche",
-      "description": "Cet attribut précise si le nom de voie provenant de la BAN, et stocké dans l'attribut 'Nom voie BAN gauche', a été fourni par la commune concernée ou non. En effet, les communes sont les seules autorités compétentes en terme d’adressage."
+      "description": "Cet attribut précise si le nom de voie provenant de la BAN, et stocké dans l'attribut 'Nom voie BAN gauche', a été fourni par la commune concernée ou non. En effet, les communes sont les seules autorités compétentes en terme d’adressage.",
+      "nullable": true
     },
     {
       "name": "source_voie_ban_droite",
       "type": "string",
       "title": "Source voie BAN droite",
-      "description": "Cet attribut précise si le nom de voie provenant de la BAN, et stocké dans l'attribut 'Nom voie BAN droite', a été fourni par la commune concernée ou non. En effet, les communes sont les seules autorités compétentes en terme d’adressage."
+      "description": "Cet attribut précise si le nom de voie provenant de la BAN, et stocké dans l'attribut 'Nom voie BAN droite', a été fourni par la commune concernée ou non. En effet, les communes sont les seules autorités compétentes en terme d’adressage.",
+      "nullable": true
     },
     {
       "name": "nom_voie_ban_gauche",
       "type": "string",
       "title": "Nom voie BAN gauche",
-      "description": "Nom de la voie BAN associée au côté gauche du tronçon de route, celui-ci étant orienté par son sens de numérisation."
+      "description": "Nom de la voie BAN associée au côté gauche du tronçon de route, celui-ci étant orienté par son sens de numérisation.",
+      "nullable": true
     },
     {
       "name": "nom_voie_ban_droite",
       "type": "string",
       "title": "Nom voie BAN droite",
-      "description": "Nom de la voie BAN associée au côté gauche du tronçon de route, celui-ci étant orienté par son sens de numérisation."
+      "description": "Nom de la voie BAN associée au côté gauche du tronçon de route, celui-ci étant orienté par son sens de numérisation.",
+      "nullable": true
     },
     {
       "name": "lieux_dits_ban_gauche",
       "type": "string",
       "title": "Lieux-dits BAN gauche",
-      "description": "Nom du ou des lieux-dits historiques ou complémentaires associés à l’ensemble des adresses BAN d'une même voie. Les différents lieux-dits sont séparés par un “/”."
+      "description": "Nom du ou des lieux-dits historiques ou complémentaires associés à l’ensemble des adresses BAN d'une même voie. Les différents lieux-dits sont séparés par un “/”.",
+      "nullable": true
     },
     {
       "name": "lieux_dits_ban_droite",
       "type": "string",
       "title": "Lieux-dits BAN droite",
-      "description": "Nom du ou des lieux-dits historiques ou complémentaires associés à l’ensemble des adresses BAN d'une même voie. Les différents lieux-dits sont séparés par un “/”."
+      "description": "Nom du ou des lieux-dits historiques ou complémentaires associés à l’ensemble des adresses BAN d'une même voie. Les différents lieux-dits sont séparés par un “/”.",
+      "nullable": true
     },
     {
       "name": "identifiant_voie_ban_gauche",
       "type": "string",
       "title": "Identifiant voie BAN gauche",
-      "description": "Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP."
+      "description": "Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP.",
+      "nullable": true
     },
     {
       "name": "identifiant_voie_ban_droite",
       "type": "string",
       "title": "Identifiant voie BAN droite",
-      "description": "Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP."
+      "description": "Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP.",
+      "nullable": true
     },
     {
       "name": "sens_amenagement_cyclable_gauche",
       "type": "string",
       "title": "Sens aménagement cyclable gauche",
       "description": "Sens de circulation de l’aménagement cyclable gauche, par rapport au sens de numérisation de l’objet.",
-      "enum": [
-        "Double sens",
-        "Sens direct",
-        "Sens inverse"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Double sens",
+          "description": "Le sens de circulation de l’aménagement cyclable gauche est double."
+        },
+        {
+          "value": "Sens direct",
+          "description": "Le sens de circulation de l’aménagement cyclable gauche est le même que le sens de numérisation de l’objet."
+        },
+        {
+          "value": "Sens inverse"
+        }
       ]
     },
     {
@@ -549,10 +1022,20 @@
       "type": "string",
       "title": "Sens aménagement cyclable droit",
       "description": "Sens de circulation de l’aménagement cyclable droit, par rapport au sens de numérisation de l’objet.",
-      "enum": [
-        "Double sens",
-        "Sens direct",
-        "Sens inverse"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Double sens",
+          "description": "Le sens de circulation de l’aménagement cyclable droit est double."
+        },
+        {
+          "value": "Sens direct",
+          "description": "Le sens de circulation de l’aménagement cyclable droit est le même que le sens de numérisation de l’objet."
+        },
+        {
+          "value": "Sens inverse",
+          "description": "Le sens de circulation de l’aménagement cyclable droit est contraire au sens de numérisation de l’objet."
+        }
       ]
     },
     {
@@ -560,11 +1043,28 @@
       "type": "string",
       "title": "Aménagement cyclable gauche",
       "description": "Aménagement cyclable gauche, par rapport au sens de numérisation de l’objet, lorsque l’aménagement cyclable n’est pas en site propre mais longe la voie réservée à la circulation automobile.",
-      "enum": [
-        "Aménagement mixte hors voie verte",
-        "Bande cyclable",
-        "Goulotte ou rampe",
-        "Piste cyclable"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Aménagement mixte hors voie verte",
+          "description": "aménagement partagé par les piétons et les vélos. Contrairement aux voies vertes, il peut être mis en place en bordure de route."
+        },
+        {
+          "value": "Bande cyclable",
+          "description": "Une bande cyclable désigne une voie exclusivement réservée aux cycles à deux ou trois roues sur une chaussée à plusieurs voies (Code de la route)."
+        },
+        {
+          "value": "Goulotte ou rampe",
+          "description": "goulotte ou rampe pour faciliter le transport des cycles dans les escaliers.",
+          "representedFeatures": [
+            "Goulotte",
+            "rampe"
+          ]
+        },
+        {
+          "value": "Piste cyclable",
+          "description": "Chaussée exclusivement réservée aux cycles à deux ou trois roues et aux engins de déplacement personnel motorisés (Code de la route)."
+        }
       ]
     },
     {
@@ -572,11 +1072,28 @@
       "type": "string",
       "title": "Aménagement cyclable droit",
       "description": "Aménagement cyclable droit, par rapport au sens de numérisation de l’objet, lorsque l’aménagement cyclable n’est pas en site propre mais longe la voie réservée à la circulation automobile.",
-      "enum": [
-        "Aménagement mixte hors voie verte",
-        "Bande cyclable",
-        "Goulotte ou rampe",
-        "Piste cyclable"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Aménagement mixte hors voie verte",
+          "description": "aménagement partagé par les piétons et les vélos. Contrairement aux voies vertes, il est mis en place en bordure de route."
+        },
+        {
+          "value": "Bande cyclable",
+          "description": "Une bande cyclable désigne une voie exclusivement réservée aux cycles à deux ou trois roues sur une chaussée à plusieurs voies (Code de la route)."
+        },
+        {
+          "value": "Goulotte ou rampe",
+          "description": "goulotte ou rampe pour faciliter le transport des cycles dans les escaliers.",
+          "representedFeatures": [
+            "Goulotte",
+            "Rampe"
+          ]
+        },
+        {
+          "value": "Piste cyclable",
+          "description": "Chaussée exclusivement réservée aux cycles à deux ou trois roues et aux engins de déplacement personnel motorisés (Code de la route)."
+        }
       ]
     },
     {
@@ -584,10 +1101,20 @@
       "type": "string",
       "title": "Aire de retournement DFCI",
       "description": "",
-      "enum": [
-        "Aucune",
-        "Au moins une aire",
-        "Plusieurs aires"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Aucune",
+          "description": "Tronçon ne comportant aucune aire de retournement (selon les spécifications DFCI)."
+        },
+        {
+          "value": "Au moins une aire",
+          "description": "Tronçon comportant au moins une aire de retournement (selon les spécifications DFCI)."
+        },
+        {
+          "value": "Plusieurs aires",
+          "description": "Tronçon comportant plusieurs aires de retournement (selon les spécifications DFCI)."
+        }
       ]
     },
     {
@@ -595,66 +1122,106 @@
       "type": "string",
       "title": "Gabarit DFCI",
       "description": "",
-      "enum": [
-        "Poids lourd",
-        "Super poids lourd",
-        "Véhicule léger"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Poids lourd",
+          "description": "Tronçon permettant le passage de véhicule de gabarit Poids lourd (PL), selon les spécifications DFCI."
+        },
+        {
+          "value": "Super poids lourd",
+          "description": "Tronçon permettant le passage de véhicule de gabarit Super poids lourd (SPL), selon les spécifications DFCI."
+        },
+        {
+          "value": "Véhicule léger"
+        }
       ]
     },
     {
       "name": "impasse_dfci",
       "type": "boolean",
       "title": "Impasse DFCI",
-      "description": "Tronçon considéré comme une impasse selon les spécifications DFCI."
+      "description": "Tronçon considéré comme une impasse selon les spécifications DFCI.",
+      "nullable": true
     },
     {
       "name": "nature_detaillee_dfci",
       "type": "string",
       "title": "Nature détaillée DFCI",
       "description": "",
-      "enum": [
-        "Empierré",
-        "Goudron",
-        "Graviers",
-        "Pierres",
-        "Sable",
-        "Sol naturel"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Empierré"
+        },
+        {
+          "value": "Goudron"
+        },
+        {
+          "value": "Graviers"
+        },
+        {
+          "value": "Pierres"
+        },
+        {
+          "value": "Sable"
+        },
+        {
+          "value": "Sol naturel"
+        }
       ]
     },
     {
       "name": "ouvrage_d_art_limitant_dfci",
       "type": "boolean",
       "title": "Ouvrage d'art limitant DFCI",
-      "description": "Tronçon contenant un ouvrage limitant selon les spécifications DFCI."
+      "description": "Tronçon contenant un ouvrage limitant selon les spécifications DFCI.",
+      "nullable": true
     },
     {
       "name": "pente_maximale_dfci",
       "type": "integer",
       "title": "Pente maximale DFCI",
-      "description": "Pente maximale du tronçon (en pourcentage)."
+      "description": "Pente maximale du tronçon (en pourcentage).",
+      "nullable": true
     },
     {
       "name": "piste_dfci",
       "type": "boolean",
       "title": "Piste DFCI",
-      "description": "Tronçon de route faisant partie du réseau de pistes DFCI."
+      "description": "Tronçon de route faisant partie du réseau de pistes DFCI.",
+      "nullable": true
     },
     {
       "name": "piste_dfci_debroussaillee",
       "type": "boolean",
       "title": "Piste DFCI débroussaillée",
-      "description": "Information renseignant si la piste DFCI est débroussaillée, selon les spécifications DFCI."
+      "description": "Information renseignant si la piste DFCI est débroussaillée, selon les spécifications DFCI.",
+      "nullable": true
     },
     {
       "name": "piste_dfci_fosses",
       "type": "string",
       "title": "Piste DFCI fossés",
       "description": "",
-      "enum": [
-        "Aucun",
-        "Fossé à droite",
-        "Fossé à gauche",
-        "Fossés à droite et à gauche"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Aucun",
+          "description": "Tronçon bordé d'aucun fossé, selon les spécifications DFCI."
+        },
+        {
+          "value": "Fossé à droite",
+          "description": "Tronçon bordé d'un fossé à droite, dans le sens de numérisation de l'objet, selon les spécifications DFCI."
+        },
+        {
+          "value": "Fossé à gauche",
+          "description": "Tronçon bordé d'un fossé à gauche, dans le sens de numérisation de l'objet, selon les spécifications DFCI."
+        },
+        {
+          "value": "Fossés à droite et à gauche",
+          "description": "Tronçon bordé d'un fossé des deux côtés, selon les spécifications DFCI."
+        }
       ]
     },
     {
@@ -662,33 +1229,52 @@
       "type": "string",
       "title": "Sens de circulation DFCI",
       "description": "Sens de circulation pour les véhicules DFCI, dans le sens de numérisation de l'objet.",
-      "enum": [
-        "Double sens",
-        "Sens direct",
-        "Sens inverse"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Double sens"
+        },
+        {
+          "value": "Sens direct"
+        },
+        {
+          "value": "Sens inverse"
+        }
       ]
     },
     {
       "name": "tout_terrain_dfci",
       "type": "boolean",
       "title": "Tout terrain DFCI",
-      "description": "Indique si le tronçon est accessible par des véhicules tout terrain, selon les spécifications DFCI."
+      "description": "Indique si le tronçon est accessible par des véhicules tout terrain, selon les spécifications DFCI.",
+      "nullable": true
     },
     {
       "name": "vitesse_moyenne_dfci",
       "type": "integer",
       "title": "Vitesse moyenne DFCI",
-      "description": "Vitesse moyenne  pour les véhicules DFCI."
+      "description": "Vitesse moyenne pour les véhicules DFCI.",
+      "nullable": true
     },
     {
       "name": "zone_de_croisement_dfci",
       "type": "string",
       "title": "Zone de croisement DFCI",
       "description": "",
-      "enum": [
-        "Aucune",
-        "Au moins une zone",
-        "Plusieurs zones"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Aucune",
+          "description": "Tronçon ne contenant aucune zone de croisement, selon les spécifications DFCI."
+        },
+        {
+          "value": "Au moins une zone",
+          "description": "Tronçon contenant au moins une zone de croisement, selon les spécifications DFCI."
+        },
+        {
+          "value": "Plusieurs zones",
+          "description": "Tronçon contenant plusieurs zones de croisement, selon les spécifications DFCI."
+        }
       ]
     },
     {
@@ -696,30 +1282,46 @@
       "type": "string",
       "title": "Catégorie DFCI",
       "description": "Classification des possibilités de circulation des groupes d’intervention feux de forêt sur le réseau de voirie utilisable pour la DFCI (Défence des forêts contre les incendies). La catégorie est attribuée par tronçon en fonction de la fréquence des zones de croisement, des aires de retournement et de la présence d’impasses.",
-      "enum": [
-        "1ère catégorie",
-        "2ème catégorie",
-        "3ème catégorie",
-        "Hors catégorie"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "1ère catégorie",
+          "description": "Tronçon de voie permettant le croisement généralisé des groupes d’intervention feux de forêt (environ tous les 200m) avec des possibilités de retournement environ tous les kilomètres. Les voies en impasses sont interdites."
+        },
+        {
+          "value": "2ème catégorie",
+          "description": "Tronçon de voie permettant le croisement ponctuel des groupes d’intervention feux de forêt (environ tous les 500m) avec des possibilités de retournement environ tous les kilomètres. Les impasses doivent être aménagées."
+        },
+        {
+          "value": "3ème catégorie",
+          "description": "Tronçon de voie permettant la circulation des groupes d’intervention feux de forêt sans qu’il n’y ait nécessairement possibilité de croisement et/ou de retournement. Les impasses doivent être aménagées."
+        },
+        {
+          "value": "Hors catégorie",
+          "description": "Tronçon de voie présentant un intérêt opérationnel pour la prévention et/ou la lutte mais ne répondant pas aux caractéristiques minimales de la 3ème catégorie. Pour autant, la circulation d’un véhicule léger de première intervention doit être possible (porteur d’eau de PTAC > 3,5 tonnes)."
+        }
       ]
     },
     {
       "name": "vitesse_collaborative",
       "type": "integer",
       "title": "Vitesse collaborative",
-      "description": "Vitesse saisie par des partenaires dans la BDTopo."
+      "description": "Vitesse saisie par des partenaires dans la BDTopo.",
+      "nullable": true
     },
     {
       "name": "id_ban_odonyme_droite",
       "type": "string",
       "title": "Id BAN Odonyme droite",
-      "description": "Identifiant de l'odonyme de la BAN, au format uuid, porté sur le côté droit du tronçon de route."
+      "description": "Identifiant de l'odonyme de la BAN, au format uuid, porté sur le côté droit du tronçon de route.",
+      "nullable": true
     },
     {
       "name": "id_ban_odonyme_gauche",
       "type": "string",
       "title": "Id BAN Odonyme gauche",
-      "description": "Identifiant de l'odonyme de la BAN, au format uuid, porté sur le côté gauche du tronçon de route."
+      "description": "Identifiant de l'odonyme de la BAN, au format uuid, porté sur le côté gauche du tronçon de route.",
+      "nullable": true
     }
   ]
 }

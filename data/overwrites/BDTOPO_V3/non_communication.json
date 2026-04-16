@@ -3,55 +3,64 @@
   "namespace": "Transport",
   "name": "Non-communication",
   "title": "Non-communication",
-  "description": "Nœud du réseau routier indiquant l'impossibilité d'accéder à un <Tronçon de route> ou à un enchaînement de plusieurs tronçons particuliers à partir d'un tronçon de départ donné.",
+  "description": "Nœud du réseau routier indiquant l'impossibilité d'accéder à un Tronçon de route ou à un enchaînement de plusieurs tronçons particuliers à partir d'un tronçon de départ donné.",
+  "selectionCriteria": "Il n'est à ce jour pas effectué de saisie exhaustive des non-communications.",
   "properties": [
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet."
+      "description": "Identifiant unique de l'objet.",
+      "nullable": false
     },
     {
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "nullable": true
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "nullable": true
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "nullable": true
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "nullable": true
     },
     {
       "name": "lien_vers_troncon_entree",
       "type": "string",
       "title": "Lien vers tronçon entrée",
-      "description": "Identifiant du tronçon à partir duquel on ne peut se rendre vers le(s) tronçon(s) sortant de ce nœud."
+      "description": "Identifiant du tronçon à partir duquel on ne peut se rendre vers le(s) tronçon(s) sortant de ce nœud.",
+      "nullable": true
     },
     {
       "name": "liens_vers_troncon_sortie",
       "type": "string",
       "title": "Liens vers tronçon sortie",
-      "description": "Identifiants du (des) tronçon(s) vers le(s)quel(s) on ne peut se rendre à partir du tronçon entrant de ce nœud."
+      "description": "Identifiants du (des) tronçon(s) vers le(s)quel(s) on ne peut se rendre à partir du tronçon entrant de ce nœud.",
+      "nullable": true
     },
     {
       "name": "geometrie",
       "type": "geometry",
       "title": "Géométrie",
-      "description": ""
+      "description": "",
+      "nullable": false
     }
   ]
 }

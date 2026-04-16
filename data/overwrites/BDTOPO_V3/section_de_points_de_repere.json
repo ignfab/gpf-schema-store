@@ -9,78 +9,96 @@
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet."
+      "description": "Identifiant unique de l'objet.",
+      "nullable": false
     },
     {
       "name": "identifiant_de_section",
       "type": "string",
       "title": "Identifiant de section",
-      "description": "Identifiant de la section."
+      "description": "Identifiant de la section.",
+      "nullable": false
     },
     {
       "name": "numero_de_route",
       "type": "string",
       "title": "Numéro de route",
-      "description": "Numéro de la route classée à laquelle la section est associée."
+      "description": "Numéro de la route classée à laquelle la section est associée.",
+      "nullable": false
     },
     {
       "name": "gestionnaire",
       "type": "string",
       "title": "Gestionnaire",
-      "description": "Organisme gestionnaire du PR et de la route."
+      "description": "Organisme gestionnaire du PR et de la route.",
+      "nullable": true
     },
     {
       "name": "lien_vers_route_nommee",
       "type": "string",
       "title": "Lien vers route nommée",
-      "description": "Lien vers l'identifiant (clé absolue) de l'objet <Route numérotée ou nommée> de Nature=\"Route Nommée\" auquel appartient la <Section de points de repère>."
+      "description": "Lien vers l'identifiant (clé absolue) de l'objet Route numérotée ou nommée de Nature=\"Route Nommée\" auquel appartient la Section de points de repère.",
+      "nullable": true
     },
     {
       "name": "code_insee_du_departement",
       "type": "string",
       "title": "Code Insee du département",
-      "description": "Code INSEE du département auquel appartient le PR ou la section de PR."
+      "description": "Code INSEE du département auquel appartient le PR ou la section de PR.",
+      "nullable": false
     },
     {
       "name": "cote",
       "type": "string",
       "title": "Côté",
       "description": "Côté de la route où se situe la section par rapport au sens des PR croissants.",
-      "enum": [
-        "D",
-        "G",
-        "U"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "D"
+        },
+        {
+          "value": "G"
+        },
+        {
+          "value": "U"
+        }
       ]
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "nullable": true
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "nullable": true
     },
     {
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "nullable": true
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "nullable": true
     },
     {
       "name": "geometrie",
       "type": "geometry",
       "title": "Géométrie",
-      "description": ""
+      "description": "",
+      "nullable": false
     }
   ]
 }

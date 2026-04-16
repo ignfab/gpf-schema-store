@@ -4,544 +4,4315 @@
   "name": "Route numérotée ou nommée",
   "title": "Route numérotée ou nommée",
   "description": "Voie de communication destinée aux automobiles, aux piétons, aux cycles ou aux animaux et possédant un numéro ou un nom particulier.",
+  "selectionCriteria": "Toutes les autoroutes, routes nationales, départementales, métropolitaine sont incluses. Toutes les routes européennes sont incluses. Les itinéraires nommés sur des parcours autoroutiers, des routes importantes de plus de 20 km de long sont retenus. Les voies vertes nommées et les véloroutes continues sont retenus. Les anciennes voies romaines, chemins et voies forestières nommées sont retenus.",
   "properties": [
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet."
+      "description": "Identifiant unique de l'objet.",
+      "nullable": false
     },
     {
       "name": "type_de_route",
       "type": "string",
       "title": "Type de route",
       "description": "Statut de la route numérotée ou nommée.",
-      "enum": [
-        "Autoroute",
-        "Bac",
-        "Chemin rural",
-        "Départementale",
-        "Liaison maritime",
-        "Nationale",
-        "Piste DFCI",
-        "Route européenne",
-        "Route intercommunale",
-        "Route nommée",
-        "Voie communale"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Autoroute",
+          "description": "Les autoroutes sont des routes sans croisement à niveau, accessibles seulement en des points aménagés à cet effet et réservées aux véhicules à propulsion mécanique (Article L122-1 du code de la voirie routière). Le classement dans la catégorie des autoroutes est prononcé par décret du Conseil d’État, pris après enquête publique."
+        },
+        {
+          "value": "Bac",
+          "description": "Itinéraire de transport maritime de passagers ou de véhicules permettant la traversée d'un fleuve.",
+          "representedFeatures": [
+            "Bac auto",
+            "Bac piéton"
+          ]
+        },
+        {
+          "value": "Chemin rural",
+          "description": "Chemin affecté à l'usage du public, mais appartenant au domaine privé de la commune, non classé dans la voirie communale."
+        },
+        {
+          "value": "Départementale",
+          "description": "Voie qui fait partie du domaine public routier départemental."
+        },
+        {
+          "value": "Liaison maritime",
+          "description": "Itinéraire de transport maritime de passagers ou de véhicules, à l'exclusion des bacs permettant la traversée d'un fleuve.",
+          "representedFeatures": [
+            "Ferry",
+            "Liaison lacustre"
+          ]
+        },
+        {
+          "value": "Nationale",
+          "description": "Route nationale ou territoriale (Corse). Voies du domaine public routier national autres que les autoroutes."
+        },
+        {
+          "value": "Piste DFCI",
+          "description": "Route qui porte un numéro ou un nom de piste DFCI (Défense des forêts contre les incendies)."
+        },
+        {
+          "value": "Route européenne",
+          "description": "Route qui porte un numéro de route européenne. Une route européenne emprunte en général le réseau autoroutier ou national (exceptionnellement départemental ou non classé)."
+        },
+        {
+          "value": "Route intercommunale",
+          "description": "Voie qui fait partie du domaine public routier géré par une intercommunalité (métropole...).",
+          "representedFeatures": [
+            "Route métropolitaine",
+            "Voie d'intérêt comunautaire"
+          ]
+        },
+        {
+          "value": "Route nommée",
+          "description": "Tronçons de route qui définissent un parcours routier nommé.",
+          "representedFeatures": [
+            "Route forestière nommée",
+            "Chemin forestier nommé",
+            "Itinéraire routier touristique nommé"
+          ]
+        },
+        {
+          "value": "Voie communale",
+          "description": "Voie affectée à la circulation générale, et ayant fait l'objet d'un classement dans le domaine public par délibération du conseil municipal."
+        }
       ]
     },
     {
       "name": "numero",
       "type": "string",
       "title": "Numéro",
-      "description": "Désigne le classement administratif d’un tronçon routier, le numéro de route européenne ou le numéro.\r\n\r\nSi la route comporte un numéro de route et un numéro de route européenne, il existe 2 objets complexes <Route numérotée ou nommée>.\r\n\r\n• <b>Classement administratif</b> d’un tronçon routier : une route est un parcours classé par l’autorité nationale, régionale ou départementale et identifié par un numéro.\r\n\r\nSur le territoire national, il existe différentes catégories de routes : les autoroutes, les routes nationales, les routes départementales et les bretelles des échangeurs identifiés par leur gestionnaire. Il existe aussi d'autres types de classement administratif (voie communale, chemin rural,  ou route intercommunale supportant par exemple une numérotation propre à une ville nouvelle, …) qui peuvent désormais être saisis.\r\n\r\n• <b>Numéro de la route européenne</b>\r\n\r\nL’attribut 'Numéro' contient également le numéro de la route européenne à laquelle appartient éventuellement un tronçon routier.\r\n\r\nUne route européenne emprunte en général le réseau autoroutier ou national (exceptionnellement départemental ou non classé). Toutes les routes européennes sont retenues."
+      "description": "Désigne le classement administratif d’un tronçon routier, le numéro de route européenne ou le numéro. Si la route comporte un numéro de route et un numéro de route européenne, il existe 2 objets complexes Route numérotée ou nommée. - Classement administratif d’un tronçon routier : une route est un parcours classé par l’autorité nationale, régionale ou départementale et identifié par un numéro. Sur le territoire national, il existe différentes catégories de routes : les autoroutes, les routes nationales, les routes départementales et les bretelles des échangeurs identifiés par leur gestionnaire. Il existe aussi d'autres types de classement administratif (voie communale, chemin rural, ou route intercommunale supportant par exemple une numérotation propre à une ville nouvelle, …) qui peuvent désormais être saisis. - Numéro de la route européenne L’attribut 'Numéro' contient également le numéro de la route européenne à laquelle appartient éventuellement un tronçon routier. Une route européenne emprunte en général le réseau autoroutier ou national (exceptionnellement départemental ou non classé). Toutes les routes européennes sont retenues.",
+      "nullable": true
     },
     {
       "name": "toponyme",
       "type": "string",
       "title": "Toponyme",
-      "description": "Toponyme de l'objet."
+      "description": "Toponyme de l'objet.",
+      "nullable": true
     },
     {
       "name": "statut_du_toponyme",
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "value": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "value": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "value": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "value": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "nullable": true
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "nullable": true
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "nullable": true
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "nullable": true
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "nullable": true
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "nullable": true
     },
     {
       "name": "gestionnaire",
       "type": "string",
       "title": "Gestionnaire",
-      "description": "L’attribut 'Gestionnaire' définit le gestionnaire administratif d’une route. Une route classée est un parcours identifié par un numéro. Toutes les routes classées possèdent un 'Gestionnaire'.\r\n\r\nIl existe plusieurs catégories de routes classées pour lesquelles le gestionnaire diffère :<ul><li>pour les <u>routes intercommunales</u>, il s’agit du gestionnaire intercommunal de la route au sens administratif (c’est-à-dire le nom de la métropole par exemple) ;</li><li>pour les <u>routes départementales</u>, il s’agit du gestionnaire départemental de la route au sens administratif (c’est-à-dire le nom du département) ;</li><li>pour les <u>routes nationales</u> et les autoroutes non concédées, le gestionnaire correspond à la Direction Interdépartementale des Routes (DIR) dont chaque route dépend ;</li><li>pour les <u>autoroutes concédées</u>, le gestionnaire est la société concessionnaire d’autoroute  ;</li><li>les routes codées sur les <u>bretelles des échangeurs</u> identifiés prennent le gestionnaire de la route à laquelle l’échangeur est rattaché.</li></ul>",
-      "enum": [
-        "ADELAC",
-        "Ain",
-        "Aisne",
-        "ALBEA",
-        "ALIAE",
-        "ALICORNE",
-        "A'LIENOR",
-        "ALIS",
-        "Allemagne",
-        "Allier",
-        "Alpes-de-Haute-Provence",
-        "Alpes-Maritimes",
-        "AMEDEA",
-        "Ancelle (05004)",
-        "APRR",
-        "ARCOS",
-        "ARCOUR",
-        "Ardèche",
-        "Ardennes",
-        "AREA",
-        "Argol (29001)",
-        "Ariège",
-        "Armancourt (60023)",
-        "Arsy (60024)",
-        "ASF",
-        "Aspremont (05008)",
-        "Aspres-lès-Corps (05009)",
-        "Aspres-sur-Buëch (05100)",
-        "ATB",
-        "ATLANDES",
-        "ATMB",
-        "Attichy (60025)",
-        "Aube",
-        "Aubessagne (05039)",
-        "Aude",
-        "Autrêches (60032)",
-        "Auvergne-Rhône-Alpes",
-        "Avançon (05011)",
-        "Aveyron",
-        "Avrigny (60036)",
-        "Bailleul-le-Soc (60040)",
-        "Bailly (60043)",
-        "Barcillonnette (05013)",
-        "Bas-Rhin",
-        "Belgique",
-        "Berneuil-sur-Aisne (60064)",
-        "Béthisy-Saint-Martin (60067)",
-        "Béthisy-Saint-Pierre (60068)",
-        "Bienville (60070)",
-        "Bitry (60072)",
-        "Blincourt (60078)",
-        "Bohars (29011)",
-        "Bordeaux Métropole",
-        "Bouches-du-Rhône",
-        "Bourg-Blanc (29015)",
-        "Brélès (29017)",
-        "Brésil",
-        "Brest Métropole",
-        "Bréziers (05022)",
-        "Buissard (05025)",
-        "Calvados",
-        "Camaret-sur-Mer (29022)",
-        "Cambronne-lès-Ribécourt (60119)",
-        "Canly (60125)",
-        "Cantal",
-        "CA Plaine Vallée",
-        "Carbini (2A061)",
-        "CCI du Havre",
-        "CCI Seine Estuaire",
-        "CEVM",
-        "Chabestan (05028)",
-        "Chabottes (05029)",
-        "Champoléon (05032)",
-        "Charente",
-        "Charente-Maritime",
-        "Châteauneuf d’Oze (05035)",
-        "Châteauvieux (05037)",
-        "Chelles (60145)",
-        "Cher",
-        "Chevincourt (60147)",
-        "Chevrières (60149)",
-        "Chiry-Ourscamp (60150)",
-        "Choisy-au-Bac (60151)",
-        "Choisy-la-Victoire (60152)",
-        "Clairoix (60156)",
-        "Claret (04058)",
-        "Clermont Auvergne Métropole",
-        "Coat-Méal (29035)",
-        "COFIROUTE",
-        "Coignières (78168)",
-        "Collectivité de Corse",
-        "Collectivité de Saint-Barthélemy",
-        "Collectivité de Saint-Martin",
-        "Collectivité européenne d'Alsace",
-        "Collectivité territoriale de Guyane",
-        "Collectivité territoriale de Martinique",
-        "Collectivité territoriale de Saint-Pierre-et-Miquelon",
-        "Compiègne (60159)",
-        "Conseil régional de la Guadeloupe",
-        "Corrèze",
-        "Corse-du-Sud",
-        "Côte-d'Or",
-        "Côtes-d'Armor",
-        "Couloisy (60167)",
-        "Courtieux (60171)",
-        "Creuse",
-        "Croutoy (60184)",
-        "Crozon (29042)",
-        "Cuise-la-Motte (60188)",
-        "Curbans (04066)",
-        "Daoulas (29043)",
-        "DEALM Mayotte",
-        "Deux-Sèvres",
-        "DFCI_04",
-        "DFCI_05",
-        "DFCI_06",
-        "DFCI_07",
-        "DFCI_11",
-        "DFCI_13",
-        "DFCI_24",
-        "DFCI_26",
-        "DFCI_2A",
-        "DFCI_2B",
-        "DFCI_30",
-        "DFCI_33",
-        "DFCI_34",
-        "DFCI_40",
-        "DFCI_47",
-        "DFCI_48",
-        "DFCI_66",
-        "DFCI_83",
-        "DFCI_84",
-        "DFCI_86",
-        "DGTM Guyane",
-        "Dijon Métropole",
-        "DIR Atlantique",
-        "DIR Centre Est",
-        "DIR Centre Ouest",
-        "DIR Est",
-        "DIR Île-de-France",
-        "Dirinon (29045)",
-        "DIR Massif Central",
-        "DIR Méditerranée",
-        "DIR Nord",
-        "DIR Nord Ouest",
-        "DIR Ouest",
-        "DIR Sud Ouest",
-        "Dordogne",
-        "Doubs",
-        "Drôme",
-        "DTAM Saint-Pierre-et-Miquelon",
-        "Épineuse (60210)",
-        "ESCOTA",
-        "Espagne",
-        "Esparron (05049)",
-        "Espinasses (05050)",
-        "Essonne",
-        "Estrées-Saint-Denis (60223)",
-        "Eure",
-        "Eure-et-Loir",
-        "Eurométropole de Strasbourg",
-        "Finistère",
-        "Forest-Saint-Julien (05056)",
-        "Fouillouse (05057)",
-        "Francières (60254)",
-        "Furmeyer (05060)",
-        "Gap (05061)",
-        "Gard",
-        "Gers",
-        "Gironde",
-        "Goulven (29064)",
-        "GPMM",
-        "Grand Est",
-        "Grandfresnoy (60284)",
-        "Grenoble Alpes Métropole",
-        "Guadeloupe",
-        "Guipavas (29075)",
-        "Guissény (29077)",
-        "Guyancourt (78297)",
-        "Hanvec (29078)",
-        "Haute-Corse",
-        "Hautefontaine (60305)",
-        "Haute-Garonne",
-        "Haute-Loire",
-        "Haute-Marne",
-        "Hautes-Alpes",
-        "Haute-Saône",
-        "Haute-Savoie",
-        "Hautes-Pyrénées",
-        "Haute-Vienne",
-        "Haut-Rhin",
-        "Hauts-de-Seine",
-        "Hémévillers (60308)",
-        "Hérault",
-        "Hôpital-Camfrout (29080)",
-        "Houdancourt (60318)",
-        "Ille-et-Vilaine",
-        "Indre",
-        "Indre-et-Loire",
-        "Irvillac (29086)",
-        "Isère",
-        "Italie",
-        "Janville (60323)",
-        "Jarjayes (05068)",
-        "Jaulzy (60324)",
-        "Jaux (60325)",
-        "Jonquières (60326)",
-        "Jura",
-        "Kerlouan (29091)",
-        "Kernilis (29093)",
-        "Kernouës (29094)",
-        "Kersaint-Plabennec (29095)",
-        "La Bâtie-Neuve (05017)",
-        "La Bâtie-Vieille (05018)",
-        "La Beaume (05019)",
-        "La Chapelle-en-Valgaudémar (05064)",
-        "Lachelle (60337)",
-        "Lacroix-Saint-Ouen (60338)",
-        "La Fare-en-Champsaur (05054)",
-        "La Faurie (05055)",
-        "La Forest-Landerneau (29056)",
-        "La Freissinouse (05059)",
-        "La Haute Beaume (05066)",
-        "La Martyre (29144)",
-        "La Motte-en-Champsaur (05090)",
-        "Lampaul-Plouarzel (29098)",
-        "Lampaul-Ploudalmézeau (29099)",
-        "Lanarvily (29100)",
-        "Landéda (29101)",
-        "Landerneau (29103)",
-        "Landes",
-        "Landévennec (29104)",
-        "Landunvez (29109)",
-        "Lanildut (29112)",
-        "Lanneuffret (29116)",
-        "Lannilis (29117)",
-        "Lanrivoaré (29119)",
-        "Lanvéoc (29120)",
-        "Lardier-et-Valença (05071)",
-        "La Roche des Arnauds (05123)",
-        "La Roche-Maurice (29237)",
-        "La Rochette (05124)",
-        "La Saulce (05162)",
-        "Laye (05072)",
-        "Le Conquet (29040)",
-        "Le Devoluy (05139)",
-        "Le Drennec (29047)",
-        "Le Faou (29053)",
-        "Le Fayel (60229)",
-        "Le Folgoët (29055)",
-        "Le Glaizil (05062)",
-        "Le Meux (60402)",
-        "Le Noyer (05095)",
-        "Le Plessis-Brion (60501)",
-        "Le Saix (05158)",
-        "Le Tréhou (29294)",
-        "Lettret (05074)",
-        "Locmaria-Plouzané (29130)",
-        "Logonna-Daoulas (29137)",
-        "Loire",
-        "Loire-Atlantique",
-        "Loiret",
-        "Loir-et-Cher",
-        "Longueil-Annel (60368)",
-        "Longueil-Sainte-Marie (60369)",
-        "Loperhet (29140)",
-        "Lot",
-        "Lot-et-Garonne",
-        "Lozère",
-        "Machemont (60373)",
-        "Magny-les-Hameaux (78356)",
-        "Maine-et-Loire",
-        "Manche",
-        "Manteyer (05075)",
-        "Marest-sur-Matz (60378)",
-        "Margny-lès-Compiègne (60382)",
-        "Marne",
-        "Maurepas (78383)",
-        "Mayenne",
-        "Mayotte",
-        "Mélicocq (60392)",
-        "Métropole de Lyon",
-        "Métropole du Grand Nancy",
-        "Métropole Européenne de Lille",
-        "Métropole Nice Côte d'Azur",
-        "Métropole Rouen Normandie",
-        "Métropole Toulon-Provence-Méditerranée",
-        "Metz Métropole",
-        "Meurthe-et-Moselle",
-        "Meuse",
-        "Milizac-Guipronvel (29076)",
-        "Montbrand (05080)",
-        "Montceau-les-Mines (71306)",
-        "Montgardin (05084)",
-        "Montmacq (60423)",
-        "Montmartin (60424)",
-        "Montmaur (05087)",
-        "Montpellier Méditerranée Métropole",
-        "Morbihan",
-        "Moselle",
-        "Moulin-sous-Touvent (60438)",
-        "Moyvillers (60441)",
-        "Nampcel (60445)",
-        "Nantes Métropole",
-        "Neffes (05092)",
-        "Néry (60447)",
-        "Nièvre",
-        "Nord",
-        "Occitanie",
-        "Oise",
-        "Orcières (05096)",
-        "Orléans Métropole",
-        "Orne",
-        "Oze (05099)",
-        "Pas-de-Calais",
-        "Pelleautier (05100)",
-        "Pencran (29156)",
-        "Piégut (04150)",
-        "Pierrefonds (60491)",
-        "Pimprez (60492)",
-        "Plabennec (29160)",
-        "Plaisir (78490)",
-        "Ploudalmézeau (29178)",
-        "Ploudaniel (29179)",
-        "Ploudiry (29180)",
-        "Plouédern (29181)",
-        "Plougastel-Daoulas (29189)",
-        "Plougonvelin (29190)",
-        "Plouguerneau (29195)",
-        "Plouguin (29196)",
-        "Plouider (29198)",
-        "Ploumoguer (29201)",
-        "Plounéour-Brignogan-plages (29021)",
-        "Plourin (29208)",
-        "Plouvien (29209)",
-        "Plouzané (29212)",
-        "Poligny (05104)",
-        "Pont-de-Buis-lès-Quimerch (29302)",
-        "Porspoder (29221)",
-        "Principauté d'Andorre",
-        "Principauté de Monaco",
-        "Puy-de-Dôme",
-        "Pyrénées-Atlantiques",
-        "Pyrénées-Orientales",
-        "Rabou (05112)",
-        "Rambaud (05113)",
-        "Région Réunion",
-        "Remollon (05115)",
-        "Remy (60531)",
-        "Rennes Métropole",
-        "Rethondes (60534)",
-        "Réunion",
-        "Rhône",
-        "Ribécourt-Dreslincourt (60537)",
-        "Rivecourt (60540)",
-        "Rochebrune (05121)",
-        "Roscanvel (29238)",
-        "Rosnoën (29240)",
-        "Rousset Serre-Ponçon (05127)",
-        "Royaume-Uni",
-        "Saint Auban d’Oze (05131)",
-        "Saint-Bonnet-en-Champsaur (05132)",
-        "Saint-Crépin-aux-Bois (60569)",
-        "Saint-Divy (29245)",
-        "Saint-Eloy (29246)",
-        "Saint-Etienne-le-Laus (05140)",
-        "Saint-Etienne Métropole",
-        "Saint-Étienne-Roilaye (60572)",
-        "Saint-Firmin (05142)",
-        "Saint-Frégant (29248)",
-        "Saintines (60578)",
-        "Saint-Jacques-en-Valgodemard (05144)",
-        "Saint-Jean-aux-Bois (60579)",
-        "Saint-Jean-Saint-Nicolas (05145)",
-        "Saint Julien en Beauchêne (05146)",
-        "Saint-Julien-en-Champsaur (05147)",
-        "Saint-Laurent-du-Cros (05148)",
-        "Saint-Léger-aux-Bois (60582)",
-        "Saint-Léger-les-Mélèzes (05149)",
-        "Saint-Maurice-en-Valgodemard (05152)",
-        "Saint-Méen (29255)",
-        "Saint-Michel-de-Chaillol (05153)",
-        "Saint-Pabu (29257)",
-        "Saint-Pierre-d’Argençon (05154)",
-        "Saint-Pierre-lès-Bitry (60593)",
-        "Saint-Renan (29260)",
-        "Saint-Sauveur (60597)",
-        "Saint-Ségal (29263)",
-        "Saint-Thonan (29268)",
-        "Saint-Urbain (29270)",
-        "Saint-Vaast-de-Longmont (60600)",
-        "SANEF",
-        "Saône-et-Loire",
-        "SAPN",
-        "Sarthe",
-        "Savoie",
-        "SE BPNL",
-        "Seine-et-Marne",
-        "Seine-Maritime",
-        "Seine-Saint-Denis",
-        "SFTRF",
-        "Sigoyer (05168)",
-        "Somme",
-        "Suisse",
-        "Sytral",
-        "Tallard (05170)",
-        "Tarn",
-        "Tarn-et-Garonne",
-        "Telgruc-sur-Mer (29280)",
-        "Territoire de Belfort",
-        "Théus (05171)",
-        "Toulouse Métropole",
-        "Tours Métropole Val de Loire",
-        "Tracy-le-Mont (60641)",
-        "Tracy-le-Val (60642)",
-        "Tréflévénez (29286)",
-        "Trégarantec (29288)",
-        "Trémaouézan (29295)",
-        "Tréouergat (29299)",
-        "Trosly-Breuil (60647)",
-        "Val-de-Marne",
-        "Val-d'Oise",
-        "Valserres (05176)",
-        "Vandélicourt (60654)",
-        "Var",
-        "Vaucluse",
-        "Vendée",
-        "Venette (60665)",
-        "Venterol (04234)",
-        "Verberie (60667)",
-        "Veynes (05179)",
-        "Vienne",
-        "Villar-Loubière (05182)",
-        "Ville de Paris",
-        "Vitrolles (05184)",
-        "Vosges",
-        "Yonne",
-        "Yvelines"
+      "description": "L’attribut 'Gestionnaire' définit le gestionnaire administratif d’une route. Une route classée est un parcours identifié par un numéro. Toutes les routes classées possèdent un 'Gestionnaire'. Il existe plusieurs catégories de routes classées pour lesquelles le gestionnaire diffère : - pour les routes intercommunales, il s’agit du gestionnaire intercommunal de la route au sens administratif (c’est-à-dire le nom de la métropole par exemple) ; - pour les routes départementales, il s’agit du gestionnaire départemental de la route au sens administratif (c’est-à-dire le nom du département) ; - pour les routes nationales et les autoroutes non concédées, le gestionnaire correspond à la Direction Interdépartementale des Routes (DIR) dont chaque route dépend ; - pour les autoroutes concédées, le gestionnaire est la société concessionnaire d’autoroute ; - les routes codées sur les bretelles des échangeurs identifiés prennent le gestionnaire de la route à laquelle l’échangeur est rattaché.",
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "ADELAC",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Ain",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Aisne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "ALBEA",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "ALIAE",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "ALICORNE",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "A'LIENOR",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "ALIS",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Allemagne"
+        },
+        {
+          "value": "Allier",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Alpes-de-Haute-Provence",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Alpes-Maritimes",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "AMEDEA",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Ancelle (05004)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "APRR",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "ARCOS",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "ARCOUR",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Ardèche",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Ardennes",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "AREA",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Argol (29001)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Ariège",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Armancourt (60023)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Arsy (60024)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "ASF",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Aspremont (05008)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Aspres-lès-Corps (05009)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Aspres-sur-Buëch (05100)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Chemin rural",
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "ATB",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "ATLANDES",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "ATMB",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "ATOSCA",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Attichy (60025)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Aube",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Aubessagne (05039)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Aude",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Autrêches (60032)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Auvergne-Rhône-Alpes",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Avançon (05011)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Aveyron",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Avrigny (60036)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Bailleul-le-Soc (60040)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Chemin rural",
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Bailly (60043)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Barcillonnette (05013)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Chemin rural",
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Bas-Rhin",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Belgique"
+        },
+        {
+          "value": "Berneuil-sur-Aisne (60064)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Béthisy-Saint-Martin (60067)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Béthisy-Saint-Pierre (60068)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Bienville (60070)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Bitry (60072)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Blincourt (60078)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Bohars (29011)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Bordeaux Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Bouches-du-Rhône",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Bourg-Blanc (29015)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Brélès (29017)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Brésil"
+        },
+        {
+          "value": "Brest Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Bréziers (05022)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Buissard (05025)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Calvados",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Camaret-sur-Mer (29022)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Cambronne-lès-Ribécourt (60119)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Canly (60125)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Cantal",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "CA Plaine Vallée",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Carbini (2A061)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "CCI du Havre",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "CCI Seine Estuaire",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "CEVM",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Chabestan (05028)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Chabottes (05029)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Champoléon (05032)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Charente",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Charente-Maritime",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Châteauneuf d’Oze (05035)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Châteauvieux (05037)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Chemin rural",
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Chelles (60145)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Cher",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Chevincourt (60147)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Chevrières (60149)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Chiry-Ourscamp (60150)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Choisy-au-Bac (60151)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Choisy-la-Victoire (60152)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Clairoix (60156)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Claret (04058)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Chemin rural",
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Clermont Auvergne Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Coat-Méal (29035)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "COFIROUTE",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Coignières (78168)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Collectivité de Corse"
+        },
+        {
+          "value": "Collectivité de Saint-Barthélemy",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Collectivité de Saint-Martin",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Collectivité européenne d'Alsace",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Route intercommunale",
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Collectivité territoriale de Guyane",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Collectivité territoriale de Martinique",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Collectivité territoriale de Saint-Pierre-et-Miquelon",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Compiègne (60159)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Conseil régional de la Guadeloupe",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Corrèze",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Corse-du-Sud",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Côte-d'Or",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Départementale",
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Côtes-d'Armor",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Couloisy (60167)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Courtieux (60171)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Creuse",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Croutoy (60184)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Crozon (29042)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Cuise-la-Motte (60188)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Chemin rural",
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Curbans (04066)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Daoulas (29043)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "DEALM Mayotte",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Deux-Sèvres",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_04",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_05",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_06",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_07",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_11",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_13",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_24",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_26",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_2A",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_2B",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_30",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_33",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_34",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_38",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_40",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_47",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_48",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_66",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_83",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_84",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DFCI_86",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Piste DFCI"
+            ]
+          }
+        },
+        {
+          "value": "DGTM Guyane",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Dijon Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale",
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "DIR Atlantique",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "DIR Centre Est",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "DIR Centre Ouest",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "DIR Est",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "DIR Île-de-France",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Dirinon (29045)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "DIR Massif Central",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "DIR Méditerranée",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "DIR Nord",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "DIR Nord Ouest",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "DIR Ouest",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "DIR Sud Ouest",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Dordogne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Doubs",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Drôme",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "DTAM Saint-Pierre-et-Miquelon",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Épineuse (60210)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "ESCOTA",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Espagne"
+        },
+        {
+          "value": "Esparron (05049)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Espinasses (05050)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Essonne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Estrées-Saint-Denis (60223)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Eure",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Eure-et-Loir",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Eurométropole de Strasbourg",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Finistère",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Forest-Saint-Julien (05056)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Fouillouse (05057)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Francières (60254)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Furmeyer (05060)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Gap (05061)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Chemin rural",
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Gard",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Gers",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Gironde",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Goulven (29064)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "GPMM",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Grand Est",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Grandfresnoy (60284)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Grenoble Alpes Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Guadeloupe",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Guipavas (29075)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Guissény (29077)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Guyancourt (78297)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Hanvec (29078)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Haute-Corse",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Hautefontaine (60305)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Haute-Garonne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Haute-Loire",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Haute-Marne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Hautes-Alpes",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Haute-Saône",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Haute-Savoie",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Hautes-Pyrénées",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Haute-Vienne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Haut-Rhin",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Hauts-de-Seine",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Hémévillers (60308)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Hérault",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Hôpital-Camfrout (29080)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Houdancourt (60318)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Ille-et-Vilaine",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Indre",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Indre-et-Loire",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Irvillac (29086)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Isère",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Italie"
+        },
+        {
+          "value": "Janville (60323)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Jarjayes (05068)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Jaulzy (60324)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Jaux (60325)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Jonquières (60326)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Jura",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Kerlouan (29091)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Kernilis (29093)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Kernouës (29094)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Kersaint-Plabennec (29095)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "La Bâtie-Neuve (05017)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Bâtie-Vieille (05018)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Beaume (05019)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Chapelle-en-Valgaudémar (05064)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Lachelle (60337)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Lacroix-Saint-Ouen (60338)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Fare-en-Champsaur (05054)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Faurie (05055)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Forest-Landerneau (29056)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "La Freissinouse (05059)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Haute Beaume (05066)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Martyre (29144)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "La Motte-en-Champsaur (05090)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Lampaul-Plouarzel (29098)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Lampaul-Ploudalmézeau (29099)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Lanarvily (29100)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Landéda (29101)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Landerneau (29103)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Landes",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Landévennec (29104)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Landunvez (29109)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Lanildut (29112)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Lanneuffret (29116)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Lannilis (29117)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Lanrivoaré (29119)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Lanvéoc (29120)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Lardier-et-Valença (05071)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Roche des Arnauds (05123)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Roche-Maurice (29237)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "La Rochette (05124)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "La Saulce (05162)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Laye (05072)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Le Conquet (29040)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Le Devoluy (05139)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Le Drennec (29047)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Le Faou (29053)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Le Fayel (60229)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Le Folgoët (29055)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Le Glaizil (05062)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Le Meux (60402)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Le Noyer (05095)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Le Plessis-Brion (60501)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Le Saix (05158)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Le Tréhou (29294)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Lettret (05074)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Locmaria-Plouzané (29130)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Logonna-Daoulas (29137)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Loire",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Loire-Atlantique",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Loiret",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Loir-et-Cher",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Longueil-Annel (60368)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Longueil-Sainte-Marie (60369)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Loperhet (29140)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Lot",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Lot-et-Garonne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Lozère",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Machemont (60373)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Magny-les-Hameaux (78356)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Chemin rural",
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Maine-et-Loire",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Manche",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Manteyer (05075)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Marest-sur-Matz (60378)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Margny-lès-Compiègne (60382)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Marne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Maurepas (78383)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Mayenne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Mayotte",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Mélicocq (60392)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Métropole de Lyon",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale",
+              "Autoroute",
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Métropole du Grand Nancy",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Métropole Européenne de Lille",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Métropole Nice Côte d'Azur",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Métropole Rouen Normandie",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Métropole Toulon-Provence-Méditerranée",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Metz Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Meurthe-et-Moselle",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Meuse",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Milizac-Guipronvel (29076)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Montbrand (05080)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Montceau-les-Mines (71306)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Montgardin (05084)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Montmacq (60423)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Montmartin (60424)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Montmaur (05087)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Montpellier Méditerranée Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Morbihan",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Moselle",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Départementale",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Moulin-sous-Touvent (60438)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Chemin rural",
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Moyvillers (60441)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Nampcel (60445)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Nantes Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Neffes (05092)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Néry (60447)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Nièvre",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Nord",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Occitanie",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Oise",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Orcières (05096)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Orléans Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Orne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Oze (05099)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Pas-de-Calais",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Pelleautier (05100)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Pencran (29156)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Piégut (04150)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Pierrefonds (60491)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Pimprez (60492)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Plabennec (29160)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plaisir (78490)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Ploudalmézeau (29178)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Ploudaniel (29179)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Ploudiry (29180)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plouédern (29181)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plougastel-Daoulas (29189)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plougonvelin (29190)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plouguerneau (29195)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plouguin (29196)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plouider (29198)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Ploumoguer (29201)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plounéour-Brignogan-plages (29021)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plourin (29208)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plouvien (29209)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Plouzané (29212)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Poligny (05104)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Pont-de-Buis-lès-Quimerch (29302)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Porspoder (29221)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Principauté d'Andorre"
+        },
+        {
+          "value": "Principauté de Monaco"
+        },
+        {
+          "value": "Puy-de-Dôme",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Pyrénées-Atlantiques",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Pyrénées-Orientales",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Rabou (05112)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Rambaud (05113)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Région Réunion",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Remollon (05115)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Remy (60531)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Rennes Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Rethondes (60534)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Chemin rural",
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Réunion",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Rhône",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Ribécourt-Dreslincourt (60537)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Rivecourt (60540)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Rochebrune (05121)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Roscanvel (29238)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Rosnoën (29240)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Rousset Serre-Ponçon (05127)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Royaume-Uni"
+        },
+        {
+          "value": "Saint Auban d’Oze (05131)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Bonnet-en-Champsaur (05132)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Crépin-aux-Bois (60569)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Divy (29245)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Eloy (29246)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Etienne-le-Laus (05140)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Etienne Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Étienne-Roilaye (60572)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Firmin (05142)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Frégant (29248)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Saintines (60578)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Jacques-en-Valgodemard (05144)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Jean-aux-Bois (60579)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Jean-Saint-Nicolas (05145)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint Julien en Beauchêne (05146)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Julien-en-Champsaur (05147)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Laurent-du-Cros (05148)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Léger-aux-Bois (60582)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Léger-les-Mélèzes (05149)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Maurice-en-Valgodemard (05152)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Méen (29255)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Michel-de-Chaillol (05153)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Pabu (29257)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Pierre-d’Argençon (05154)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Pierre-lès-Bitry (60593)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Renan (29260)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Sauveur (60597)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Ségal (29263)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Thonan (29268)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Urbain (29270)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Saint-Vaast-de-Longmont (60600)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "SANEF",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Saône-et-Loire",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "SAPN",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Sarthe",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Savoie",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "SE BPNL",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Seine-et-Marne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Seine-Maritime",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Seine-Saint-Denis",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "SFTRF",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Nationale",
+              "Autoroute"
+            ]
+          }
+        },
+        {
+          "value": "Sigoyer (05168)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "SMTPC",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Somme",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "SPS",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Suisse"
+        },
+        {
+          "value": "Sytral",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Liaison maritime"
+            ]
+          }
+        },
+        {
+          "value": "Tallard (05170)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Tarn",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Tarn-et-Garonne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Telgruc-sur-Mer (29280)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Territoire de Belfort",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Théus (05171)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Toulouse Métropole",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Autoroute",
+              "Nationale",
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Tours Métropole Val de Loire",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Route intercommunale"
+            ]
+          }
+        },
+        {
+          "value": "Tracy-le-Mont (60641)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Tracy-le-Val (60642)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Tréflévénez (29286)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Trégarantec (29288)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Trémaouézan (29295)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Tréouergat (29299)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale"
+            ]
+          }
+        },
+        {
+          "value": "Trosly-Breuil (60647)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Val-de-Marne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Val-d'Oise",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Valserres (05176)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Vandélicourt (60654)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Var",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Vaucluse",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Vendée",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Venette (60665)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Venterol (04234)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Verberie (60667)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Veynes (05179)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Vienne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Villar-Loubière (05182)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Ville de Paris",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale",
+              "Nationale"
+            ]
+          }
+        },
+        {
+          "value": "Vitrolles (05184)",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Voie communale",
+              "Chemin rural"
+            ]
+          }
+        },
+        {
+          "value": "Vosges",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Yonne",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        },
+        {
+          "value": "Yvelines",
+          "availableWhen": {
+            "property": "type_de_route",
+            "equalsAny": [
+              "Départementale"
+            ]
+          }
+        }
       ]
     },
     {
       "name": "geometrie",
       "type": "geometry",
       "title": "Géométrie GE MultiLigne",
-      "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE\n\ndu produit externe."
+      "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE du produit externe.",
+      "nullable": true
     }
   ]
 }

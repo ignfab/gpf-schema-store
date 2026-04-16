@@ -3,83 +3,108 @@
   "namespace": "Transport",
   "name": "Point de repère",
   "title": "Point de repère",
-  "description": "Point créé par le gestionnaire du réseau routier le long d'un <Tronçon de route> et utilisé pour assurer le référencement linéaire d'objets ou d’événements le long de cette route.\r\n\r\nIl est parfois matérialisé physiquement par des marques peintes associées à des bornes ou des plaquettes dites « PR » (définition du CEREMA), mais peut également être un point virtuel marquant une information sur la voie (exemple PR de début, de fin, début ou fin de section). \r\n\r\nLe PR permet de mettre en place un système de localisation sur le réseau routier.",
+  "description": "Point créé par le gestionnaire du réseau routier le long d'un Tronçon de route et utilisé pour assurer le référencement linéaire d'objets ou d’événements le long de cette route. Il est parfois matérialisé physiquement par des marques peintes associées à des bornes ou des plaquettes dites « PR » (définition du CEREMA), mais peut également être un point virtuel marquant une information sur la voie (exemple PR de début, de fin, début ou fin de section). Le PR permet de mettre en place un système de localisation sur le réseau routier.",
+  "selectionCriteria": "Les objets Point de repère retenus sont les PR des routes intercommunales, départementales, nationales et autoroutes.",
+  "representedFeatures": [
+    "Point de repère routier"
+  ],
   "properties": [
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet."
+      "description": "Identifiant unique de l'objet.",
+      "nullable": false
     },
     {
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "nullable": true
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "nullable": true
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "nullable": true
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "nullable": true
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "nullable": true
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "nullable": true
     },
     {
       "name": "route",
       "type": "string",
       "title": "Route",
-      "description": "Numéro de la route classée à laquelle le PR est associé."
+      "description": "Numéro de la route classée à laquelle le PR est associé.",
+      "nullable": false
     },
     {
       "name": "numero",
       "type": "string",
       "title": "Numéro",
-      "description": "Numéro du PR propre à la route à laquelle il est associé."
+      "description": "Numéro du PR propre à la route à laquelle il est associé.",
+      "nullable": false
     },
     {
       "name": "abscisse",
       "type": "integer",
       "title": "Abscisse",
-      "description": "Abscisse du PR (en mètres) le long de la route à laquelle il est associé."
+      "description": "Abscisse du PR (en mètres) le long de la route à laquelle il est associé.",
+      "nullable": true
     },
     {
       "name": "ordre",
       "type": "numeric",
       "title": "Ordre",
-      "description": "Ordre du PR le long de la route à laquelle il est associé."
+      "description": "Ordre du PR le long de la route à laquelle il est associé.",
+      "nullable": true
     },
     {
       "name": "cote",
       "type": "string",
       "title": "Côté",
       "description": "Côté de la route où se situe le PR par rapport au sens des PR croissants.",
-      "enum": [
-        "D",
-        "G",
-        "U"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "D",
+          "description": "Chaussée droite."
+        },
+        {
+          "value": "G",
+          "description": "Chaussée gauche."
+        },
+        {
+          "value": "U",
+          "description": "Chaussée unique."
+        }
       ]
     },
     {
@@ -87,10 +112,18 @@
       "type": "string",
       "title": "Statut",
       "description": "Statut du PR.",
-      "enum": [
-        "Calculé",
-        "PR0 valide",
-        "PR valide"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "Calculé",
+          "description": "Les PR avec Statut = 'Calculé' ne sont pas des PR fournis par les partenaires. Ils correspondent notamment à des débuts et fins de sections."
+        },
+        {
+          "value": "PR0 valide"
+        },
+        {
+          "value": "PR valide"
+        }
       ]
     },
     {
@@ -98,51 +131,78 @@
       "type": "string",
       "title": "Type de PR",
       "description": "",
-      "enum": [
-        "C",
-        "CS",
-        "DS",
-        "FS",
-        "PR",
-        "PR0",
-        "PRF"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "C",
+          "description": "Point de repère positionné à un carrefour."
+        },
+        {
+          "value": "CS",
+          "description": "Changement de section (notamment au changement de département ou de gestionnaire sur les nationales et autoroutes)."
+        },
+        {
+          "value": "DS",
+          "description": "Point de repère positionné au début d'une section d'une route numérotée."
+        },
+        {
+          "value": "FS",
+          "description": "Point de repère positionné à la fin d'une section d'une route numérotée."
+        },
+        {
+          "value": "PR"
+        },
+        {
+          "value": "PR0",
+          "description": "Point de repère positionné au début d'une route numérotée."
+        },
+        {
+          "value": "PRF",
+          "description": "Point de repère positionné à la fin d'une route numérotée."
+        }
       ]
     },
     {
       "name": "libelle",
       "type": "string",
       "title": "Libellé",
-      "description": "Libellé permettant de caractériser le PR, tel que fourni par le gestionnaire."
+      "description": "Libellé permettant de caractériser le PR, tel que fourni par le gestionnaire.",
+      "nullable": true
     },
     {
       "name": "identifiant_de_section",
       "type": "string",
       "title": "Identifiant de section",
-      "description": "Identifiant de la section."
+      "description": "Identifiant de la section.",
+      "nullable": true
     },
     {
       "name": "code_insee_du_departement",
       "type": "string",
       "title": "Code Insee du département",
-      "description": "Code INSEE du département auquel appartient le PR ou la section de PR."
+      "description": "Code INSEE du département auquel appartient le PR ou la section de PR.",
+      "nullable": false
     },
     {
       "name": "lien_vers_route_nommee",
       "type": "string",
       "title": "Lien vers route nommée",
-      "description": "Lien vers l'identifiant (clé absolue) de l'objet <Route numérotée ou nommée> de Nature=\"Route Nommée\" auquel appartient la <Section de points de repère>."
+      "description": "Lien vers l'identifiant (clé absolue) de l'objet Route numérotée ou nommée de Nature=\"Route Nommée\" auquel appartient la Section de points de repère.",
+      "nullable": true
     },
     {
       "name": "geometrie",
       "type": "geometry",
       "title": "Géométrie",
-      "description": "Géométrie de l'objet."
+      "description": "Géométrie de l'objet.",
+      "nullable": false
     },
     {
       "name": "gestionnaire",
       "type": "string",
       "title": "Gestionnaire",
-      "description": "Organisme gestionnaire du PR et de la route."
+      "description": "Organisme gestionnaire du PR et de la route.",
+      "nullable": true
     }
   ]
 }

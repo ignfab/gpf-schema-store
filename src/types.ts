@@ -117,31 +117,97 @@ export function assertIsValidPropertyType(value: unknown, context?: string): Col
 }
 
 /**
- * A property of a collection.
+ * A conditional constraint that indicates when an allowed value is available.
+ * The value is only applicable when the referenced property equals one of the
+ * values in `equalsAny`.
  */
-export type CollectionProperty = {
+export type AvailableWhen = {
   /**
-   * The name of the property.
+   * The name of the property to check.
    */
-  name: string;
+  property: string;
   /**
-   * The type of the property.
+   * The values that the referenced property must match.
    */
-  type: CollectionPropertyType;
+  equalsAny: string[];
+};
+
+/**
+ * An allowed value for a property.
+ *
+ * Source: overwrite files (data/overwrites). These are propagated to the merged
+ * collection via the spread in merge() and indexed for search by stringifyAllowedValues().
+ *
+ * Search indexing:
+ *   - value               → indexed in the "allowedValues" virtual search field
+ *   - description          → indexed in the "allowedValues" virtual search field
+ *   - representedFeatures  → indexed in the "allowedValues" virtual search field (each entry)
+ *   - availableWhen        → NOT indexed (conditional constraint, not searchable content)
+ */
+export type AllowedValue = {
   /**
-   * The title of the property.
+   * The value.
    */
-  title?: string;
+  value: string;
   /**
-   * The description of the property.
+   * The description of the value.
    */
   description?: string;
   /**
-   * The possible values of the property.
+   * The features represented by this value.
    */
-  enum?: string[];
+  representedFeatures?: string[];
+  /**
+   * A conditional constraint indicating when this value is available.
+   * Not indexed for search — this is a structural constraint, not content.
+   */
+  availableWhen?: AvailableWhen;
+};
+
+/**
+ * A property of a collection.
+ *
+ * Field sources after merge:
+ *   - name        → always from WFS original (never overwritten)
+ *   - type        → always from WFS original (never overwritten)
+ *   - title       → from overwrite when present
+ *   - description → from overwrite when present
+ *   - allowedValues → from overwrite when present; indexed in "allowedValues" search field
+ *   - nullable    → from overwrite when present
+ *   - defaultCrs  → from WFS original only; properties with defaultCrs bypass overwrite entirely
+ */
+export type CollectionProperty = {
+  /**
+   * The name of the property. Always from WFS original.
+   */
+  name: string;
+  /**
+   * The type of the property. Always from WFS original.
+   */
+  type: CollectionPropertyType;
+  /**
+   * The title of the property. From overwrite when present.
+   * Indexed in the "properties" search field.
+   */
+  title?: string;
+  /**
+   * The description of the property. From overwrite when present.
+   * Indexed in the "properties" search field.
+   */
+  description?: string;
+  /**
+   * The allowed values of the property. From overwrite when present.
+   * Indexed in the "allowedValues" search field (value, description, representedFeatures).
+   */
+  allowedValues?: AllowedValue[];
+  /**
+   * Whether the property is nullable. From overwrite when present.
+   * Not indexed for search.
+   */
+  nullable?: boolean;
   /**
    * The default CRS of the geometry property (if the property is a geometry).
+   * From WFS original only. Properties with defaultCrs bypass overwrite entirely.
    */
   defaultCrs?: string;
 };
@@ -149,33 +215,53 @@ export type CollectionProperty = {
 
 /**
  * The schema of a collection.
+ *
+ * Field sources after merge:
+ *   - id, namespace, name → always from WFS original (never overwritten)
+ *   - title, description  → from overwrite when present
+ *   - selectionCriteria   → from overwrite when present; indexed in "allowedValues" search field
+ *   - representedFeatures → from overwrite when present; indexed in "allowedValues" search field
+ *   - properties          → merged individually (see CollectionProperty)
  */
 export type Collection = {
   /**
-   * The id of the collection (ex : "BDTOPO_V3:batiment").
+   * The id of the collection (ex : "BDTOPO_V3:batiment"). Always from WFS original.
    */
   id: string;
   /**
-   * The namespace of the collection (ex : "BDTOPO_V3").
-   * 
-   * @warning this is not standard in OGC API - Features 
+   * The namespace of the collection (ex : "BDTOPO_V3"). Always from WFS original.
+   *
+   * @warning this is not standard in OGC API - Features
    * (might be renamed to "serie" if they deal with grouping collections by a common theme and version)
    */
   namespace: string;
   /**
-   * The name of the collection (ex : "batiment").
+   * The name of the collection (ex : "batiment"). Always from WFS original.
    */
   name: string;
   /**
-   * The title of the collection.
+   * The title of the collection. From overwrite when present.
+   * Indexed in the "title" search field.
    */
   title: string;
   /**
-   * The description of the collection.
+   * The description of the collection. From overwrite when present.
+   * Indexed in the "description" search field.
    */
   description: string;
   /**
-   * The properties of the collection.
+   * The selection criteria of the collection. From overwrite when present.
+   * Indexed in the "allowedValues" virtual search field.
+   */
+  selectionCriteria?: string;
+  /**
+   * The features represented by the collection. From overwrite when present.
+   * Indexed in the "allowedValues" virtual search field (each entry individually).
+   */
+  representedFeatures?: string[];
+  /**
+   * The properties of the collection. Merged individually from WFS + overwrite.
+   * See CollectionProperty for per-field source and indexing details.
    */
   properties: CollectionProperty[];
 };

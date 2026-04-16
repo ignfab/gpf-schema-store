@@ -4,181 +4,552 @@
   "name": "Parc ou réserve",
   "title": "Parc ou réserve",
   "description": "Espace naturel protégé où certaines activités sont régies par un règlement particulier.",
+  "selectionCriteria": "Toutes les emprises de parcs et de réserves naturelles nationales ou régionales sont retenues.",
   "properties": [
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet."
+      "description": "Identifiant unique de l'objet.",
+      "nullable": false
     },
     {
       "name": "nature",
       "type": "string",
       "title": "Nature",
       "description": "Nature de l'espace protégé.",
-      "enum": [
-        "Arrêté de protection",
-        "Bien inscrit sur la liste du patrimoine mondial de l'UNESCO",
-        "Géoparc mondial UNESCO",
-        "Parc national",
-        "Parc naturel marin",
-        "Parc naturel régional",
-        "Réserve biologique",
-        "Réserve de biosphère",
-        "Réserve nationale de chasse et de faune sauvage",
-        "Réserve naturelle",
-        "Site acquis ou assimilé des conservatoires d'espaces naturels",
-        "Site Natura 2000",
-        "Site Ramsar",
-        "Terrain du Conservatoire du Littoral",
-        "Zone de silence",
-        "Zone naturelle"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "Arrêté de protection",
+          "description": "Les arrêtés préfectoraux de protection, pris par le préfet de département, ont pour objet de lutter contre la destruction, l’altération ou la dégradation de la biodiversité.",
+          "representedFeatures": [
+            "Arrêté de protection de biotope",
+            "Arrêté de protection de géotope",
+            "Arrêté de protection des habitats naturels"
+          ]
+        },
+        {
+          "value": "Bien inscrit sur la liste du patrimoine mondial de l'UNESCO",
+          "description": "Un bien naturel ou mixte (naturel et culturel) inscrit au patrimoine mondial de l'UNESCO (Organisation des Nations Unies pour l'éducation, la science et la culture) est un espace qui, du fait de sa valeur patrimoniale exceptionnelle, est considéré comme héritage commun de l'humanité."
+        },
+        {
+          "value": "Géoparc mondial UNESCO",
+          "description": "Les Géoparcs sont des territoires labellisés par l’Unesco où l’élément géologique patrimonial est porteur de projets de protection, de développements du territoire et d’éducation."
+        },
+        {
+          "value": "Parc national",
+          "description": "Un parc national est un vaste espace protégé terrestre ou marin dont le patrimoine naturel, culturel et paysager est exceptionnel. Les parcs nationaux sont administrés et coordonnés par l'Office français de la biodiversité (OFB).",
+          "representedFeatures": [
+            "Cœur terrestre de parc national",
+            "Cœur marin de parc national"
+          ]
+        },
+        {
+          "value": "Parc naturel marin",
+          "description": "Espace naturel protégé. Structure visant la gestion intégrée, dans un objectif de protection, d'une zone maritime d'intérêt particulier pour la biodiversité et pour les activités humaines. Un parc naturel marin est créé par décret. La gestion de cette catégorie d'aires marines protégées est assurée par l'Agence Française pour la Biodiversité (AFB)."
+        },
+        {
+          "value": "Parc naturel régional",
+          "description": "Un parc national est un vaste espace protégé terrestre ou marin dont le patrimoine naturel, culturel et paysager est exceptionnel. Ses objectifs sont la protection et la gestion de la biodiversité ainsi que du patrimoine culturel à large échelle, la bonne gouvernance et l'accueil du public. Un parc national est classiquement composé de deux zones : le cœur de parc et une aire d'adhésion."
+        },
+        {
+          "value": "Réserve biologique",
+          "description": "Une réserve biologique est un espace protégé en milieu forestier ou en milieu associé à la forêt (landes, mares, tourbières, dunes). Ce statut s'applique aux forêts gérées par l'Office National des Forêts et a pour but la protection d'habitats remarquables ou représentatifs.",
+          "representedFeatures": [
+            "Réserve biologique dirigée",
+            "Réserve biologique intégrale"
+          ]
+        },
+        {
+          "value": "Réserve de biosphère",
+          "description": "Une réserve de biosphère est un espace terrestre ou marin désigné internationalement dans le cadre du programme de l'UNESCO sur l'homme et la biosphère. Ce réseau mondial tend à promouvoir une relation équilibrée entre l'homme et la nature, et à faciliter la coopération dans le domaine de la recherche, notamment à travers les réserves transfrontalières. Chaque réserve comporte un zonage triple défini selon les modalités de l'occupation humaine et la répartition des objectifs pouvant aller de la protection stricte au développement durable : zone centrale, zone tampon, zone de transition (cette dernière zonation - et donc la frontière externe de la réserve de biosphère dans son ensemble - n'ayant qu'une valeur indicative).",
+          "representedFeatures": [
+            "Zone centrale",
+            "Zone de transition",
+            "Zone tampon"
+          ]
+        },
+        {
+          "value": "Réserve nationale de chasse et de faune sauvage",
+          "description": "Les réserves nationales de chasse et de faune sauvage (RNCFS) sont des espaces protégés réglementaires terrestres ou marins. Elles sont consacrées à l'étude et la conservation du gibier, mammifères et oiseaux. C'est une zone de quiétude pour les animaux. Tout acte de chasse y est interdit, sauf dérogation dûment motivée par l'intérêt général. Les RNCFS sont classées en catégorie IV de l'UICN1 en tant qu'aire de gestion."
+        },
+        {
+          "value": "Réserve naturelle",
+          "description": "Les réserves naturelles ont pour vocation de préserver à long terme des milieux naturels fonctionnels, écologiquement représentatifs et à forte valeur patrimoniale. Selon les enjeux de conservation, la situation géographique et les contextes locaux, l'initiative du classement peut revenir à l'État (réserves naturelles nationales), aux régions (réserves naturelles régionales) ou à la Collectivité territoriale de Corse (réserves naturelles de Corse).",
+          "representedFeatures": [
+            "Réserve naturelle nationale",
+            "Réserve naturelle régionale",
+            "Réserve naturelle territoriale de Corse",
+            "Réserve naturelle marine",
+            "Périmètre de protection d'une réserve naturelle nationale",
+            "Périmètre de protection d'une réserve naturelle régionale"
+          ]
+        },
+        {
+          "value": "Site acquis ou assimilé des conservatoires d'espaces naturels",
+          "description": "Site acquis ou géré par un conservatoire d'espaces naturels, pour préserver une large diversité de milieux par une gestion en direct ou en partenariats avec les acteurs locaux."
+        },
+        {
+          "value": "Site Natura 2000",
+          "description": "Le réseau Natura 2000 est un réseau européen de sites naturels destiné à protéger des espèces et des habitats remarquables tout en maintenant des activités socio-économiques.",
+          "representedFeatures": [
+            "Site inscrit au titre de la Directive Habitats",
+            "Site inscrit au titre de la Directive Oiseaux"
+          ]
+        },
+        {
+          "value": "Site Ramsar",
+          "description": "Site engagé par la Convention sur les zones humides. Cette convention est un traité intergouvernemental qui sert de cadre à l’action nationale et à la coopération internationale pour la conservation et l’utilisation rationnelle des zones humides et de leurs ressources."
+        },
+        {
+          "value": "Terrain du Conservatoire du Littoral",
+          "description": "Terrain acquis par le Conservatoire du littoral, établissement public dont la mission est d’acquérir des parcelles du littoral menacées par l’urbanisation ou dégradées pour en faire des sites restaurés, aménagés, accueillants dans le respect des équilibres naturels."
+        },
+        {
+          "value": "Zone de silence",
+          "description": "Zone où l'utilisation d'engins et d'appareils bruyants est interdite."
+        },
+        {
+          "value": "Zone naturelle",
+          "description": "Zone naturelle soumise à réglementation, autre que les réserves naturelles et parcs, représentés dans les autres valeurs du champ 'Nature'.",
+          "representedFeatures": [
+            "Réserve biologique",
+            "Réserve naturelle volontaire",
+            "Zone protégée"
+          ]
+        }
       ]
     },
     {
       "name": "nature_detaillee",
       "type": "string",
       "title": "Nature détaillée",
-      "description": "Cet attribut précise la 'Nature' de l'emprise réglementée.\r\nSi aucune précision n'est connue, le champ reste vide.",
-      "enum": [
-        "Aire d'adhésion",
-        "Arrêté de protection de biotope",
-        "Arrêté de protection de géotope",
-        "Arrêté de protection des habitats naturels",
-        "Périmètre de protection d'une réserve naturelle nationale",
-        "Périmètre de protection d'une réserve naturelle régionale",
-        "Réserve biologique dirigée",
-        "Réserve biologique intégrale",
-        "Réserve intégrale",
-        "Réserve naturelle de Corse",
-        "Réserve naturelle nationale",
-        "Réserve naturelle régionale",
-        "Site inscrit au titre de la Directive Habitats",
-        "Site inscrit au titre de la Directive Oiseaux",
-        "Zone centrale",
-        "Zone cœur",
-        "Zone de transition",
-        "Zone protégée",
-        "Zone tampon"
+      "description": "Cet attribut précise la 'Nature' de l'emprise réglementée. Si aucune précision n'est connue, le champ reste vide.",
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Aire d'adhésion",
+          "description": "Cette zone qui entoure le cœur du parc résulte de la libre adhésion à la charte du parc national des communes situées à l’intérieur d’un périmètre optimal fixé par le décret de création du Parc.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Parc national"
+            ]
+          }
+        },
+        {
+          "value": "Arrêté de protection de biotope",
+          "description": "L'arrêté de protection de biotope a pour vocation la conservation de l'habitat d'espèces protégées. C'est un outil de protection réglementaire de niveau départemental, dont la mise en œuvre est relativement souple (source MNHN (https://inpn.mnhn.fr/programme/espaces-proteges/protections-reglementaires)).",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Arrêté de protection"
+            ]
+          }
+        },
+        {
+          "value": "Arrêté de protection de géotope",
+          "description": "L'arrêté préfectoral fixant la liste départementale de sites d'intérêt géologique est un outil règlementaire qui vise à protéger, par des mesures générales, les sites géologiques qui sont mentionnés en son sein (source MNHN (https://inpn.mnhn.fr/programme/espaces-proteges/protections-reglementaires)).",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Arrêté de protection"
+            ]
+          }
+        },
+        {
+          "value": "Arrêté de protection des habitats naturels",
+          "description": "L'arrêté de protection des habitats naturels (APHN) est un outil de protection réglementaire protégeant spécifiquement des habitats naturels en tant que tels (source MNHN (https://inpn.mnhn.fr/programme/espaces-proteges/protections-reglementaires)).",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Arrêté de protection"
+            ]
+          }
+        },
+        {
+          "value": "Périmètre de protection d'une réserve naturelle nationale",
+          "description": "Un périmètre de protection est un outil réglementaire qui peut être institué à proximité d'une réserve naturelle. Son objectif est de limiter les impacts des activités périphériques sur la réserve naturelle par une réglementation spécifique. En fonction des enjeux locaux, cette réglementation peut être identique, plus faible ou plus forte que celle mise en place au sein de la réserve naturelle associée.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Réserve naturelle"
+            ]
+          }
+        },
+        {
+          "value": "Périmètre de protection d'une réserve naturelle régionale",
+          "description": "Un périmètre de protection peut être mis en place en périphérie d’une réserve naturelle. Cet espace constitue une zone tampon autour de l’espace classé, améliorant les échanges écologiques entre la réserve et sa périphérie.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Réserve naturelle"
+            ]
+          }
+        },
+        {
+          "value": "Réserve biologique dirigée",
+          "description": "Une réserve biologique dirigée est un espace protégé en milieu forestier, ou en milieu associé à la forêt (landes, mares, tourbières, dunes), dans lequel une gestion conservatoire visant la protection d'espèces et d'habitats remarquables ou menacés est mise en place.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Réserve biologique"
+            ]
+          }
+        },
+        {
+          "value": "Réserve biologique intégrale",
+          "description": "Une réserve biologique intégrale est un espace protégé en milieu forestier, ou en milieu associé à la forêt (landes, mares, tourbières, dunes), laissé en libre évolution pour y étudier la dynamique spontanée des écosystèmes.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Réserve biologique"
+            ]
+          }
+        },
+        {
+          "value": "Réserve intégrale",
+          "description": "Une réserve intégrale peut être instituée dans le cœur d’un parc national afin d’assurer, dans un but scientifique, une protection plus grande de certains éléments de la faune et de la flore.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Parc national"
+            ]
+          }
+        },
+        {
+          "value": "Réserve naturelle de Corse",
+          "description": "Réserve naturelle gérée par la collectivité territoriale de Corse",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Réserve naturelle"
+            ]
+          }
+        },
+        {
+          "value": "Réserve naturelle nationale",
+          "description": "Espaces remarquables protégés par une réglementation adaptée tenant compte du contexte local.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Réserve naturelle"
+            ]
+          }
+        },
+        {
+          "value": "Réserve naturelle régionale",
+          "description": "Espaces dont la conservation de la faune, de la flore ou du patrimoine géologique présente une importance particulière. La compétence de classement des RNR est confiée aux conseils régionaux.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Réserve naturelle"
+            ]
+          }
+        },
+        {
+          "value": "Site inscrit au titre de la Directive Habitats",
+          "description": "Zones désignées au titre de la Directive Habitats de 1992 visant à assurer le bon état de conservation de certains habitats et espèces (animales et végétales), considérés comme menacés, vulnérables ou rares.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Site Natura 2000"
+            ]
+          }
+        },
+        {
+          "value": "Site inscrit au titre de la Directive Oiseaux",
+          "description": "Zones mises en place dans le cadre de la Directive Oiseaux de 1979 visant à désigner des territoires permettant d’assurer le bon état de conservation d’espèces d’oiseaux menacées, vulnérables ou rares.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Site Natura 2000"
+            ]
+          }
+        },
+        {
+          "value": "Zone centrale",
+          "description": "L’aire centrale des réserves de biosphère comprend une zone strictement protégée qui contribue à la conservation des paysages, des écosystèmes, des espèces et de la variation génétique.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Réserve de biosphère"
+            ]
+          }
+        },
+        {
+          "value": "Zone cœur",
+          "description": "Afin de préserver le caractère du parc, ce territoire est soumis à une réglementation particulière qui encadre plus ou moins fortement certaines activités afin de s’assurer de leur compatibilité avec la préservation du patrimoine naturel, culturel et paysager.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Parc national"
+            ]
+          }
+        },
+        {
+          "value": "Zone de transition",
+          "description": "L’aire de transition des réserves de biosphère est la zone où les communautés encouragent des activités économiques et humaines durables des points de vue socioculturel et écologique.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Réserve de biosphère"
+            ]
+          }
+        },
+        {
+          "value": "Zone protégée",
+          "description": "Zone protégée.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Zone naturelle"
+            ]
+          }
+        },
+        {
+          "value": "Zone tampon",
+          "description": "La zone tampon des réserves de biosphère entoure ou jouxte l’aire (les aires) centrale(s) et est utilisée pour des activités compatibles avec des pratiques écologiquement viables susceptibles de renforcer la recherche, le suivi, la formation et l’éducation scientifiques.",
+          "availableWhen": {
+            "property": "nature",
+            "equalsAny": [
+              "Réserve de biosphère"
+            ]
+          }
+        }
       ]
     },
     {
       "name": "toponyme",
       "type": "string",
       "title": "Toponyme",
-      "description": "Toponyme de l'objet."
+      "description": "Toponyme de l'objet.",
+      "nullable": true
     },
     {
       "name": "statut_du_toponyme",
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "nullable": true,
+      "allowedValues": [
+        {
+          "value": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "value": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "value": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "value": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "value": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
       "name": "fictif",
       "type": "boolean",
       "title": "Fictif",
-      "description": "Indique si la géométrie de l'objet est réelle ou non significative."
+      "description": "Indique si la géométrie de l'objet est réelle ou non significative.",
+      "nullable": false
     },
     {
       "name": "etat_de_l_objet",
       "type": "string",
       "title": "Etat de l'objet",
       "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
-      "enum": [
-        "En construction",
-        "En projet",
-        "En service"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "En construction",
+          "description": "L'objet géographique est en construction. Dans le cas des Tronçon de route, la date de mise en service prévue est codée dans le champ 'Date de mise en service'."
+        },
+        {
+          "value": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "value": "En service",
+          "description": "L'objet géographique est en service."
+        }
       ]
     },
     {
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "nullable": true
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "nullable": true
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "nullable": true
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "nullable": true
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "nullable": true
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "nullable": true
     },
     {
       "name": "methode_d_acquisition_planimetrique",
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "enum": [
-        "BDCarto",
-        "BDNyme",
-        "BDParcellaire",
-        "BDParcellaire recalée",
-        "BDTopo",
-        "Calcul d'enveloppe urbaine",
-        "Calculé",
-        "Fichier numérique décimétrique",
-        "Fichier numérique métrique",
-        "Fichier numérique non métrique",
-        "Géocodage",
-        "Géoroute",
-        "Image satellite",
-        "Image satellite HR",
-        "Inconnue",
-        "Levé GPS",
-        "Levé non GPS",
-        "Lidar",
-        "Lidar HD",
-        "Orthophotographie",
-        "Photogrammétrie",
-        "Plan métrique papier",
-        "Plan non métrique papier",
-        "Processus IA métrique",
-        "Processus IA non métrique",
-        "Scan25"
+      "nullable": false,
+      "allowedValues": [
+        {
+          "value": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "value": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "value": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "value": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "value": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "value": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "value": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "value": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "value": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "value": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "value": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "value": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "value": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "value": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "value": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "value": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "value": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "value": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "value": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "value": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "value": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "value": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "value": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "value": "Processus IA métrique"
+        },
+        {
+          "value": "Processus IA non métrique"
+        },
+        {
+          "value": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
       ]
     },
     {
       "name": "precision_planimetrique",
       "type": "numeric",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
+      "nullable": true
     },
     {
       "name": "geometrie",
       "type": "geometry",
       "title": "Géométrie",
-      "description": ""
+      "description": "",
+      "nullable": false
     }
   ]
 }
