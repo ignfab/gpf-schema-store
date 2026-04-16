@@ -10,6 +10,7 @@ const INDEXED_COLLECTION_FIELDS = [
   'name',
   'title',
   'description',
+  'keywords',
   'properties',
   'enums',
   'identifierTokens',
@@ -27,6 +28,7 @@ export type MiniSearchCollectionSearchOptions = {
     name?: number;
     title?: number;
     description?: number;
+    keywords?: number;
     properties?: number;
     enums?: number;
     identifierTokens?: number;
@@ -54,6 +56,7 @@ const DEFAULT_MINISEARCH_SEARCH_OPTIONS: { boost: ResolvedBoost; fuzzy: number }
     name: 4.0,
     identifierTokens: 3.0,
     title: 2.0,
+    keywords: 1.0,
     description: 1.5,
     properties: 1.3,
     enums: 1.8,
@@ -137,6 +140,9 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
       stringifyField: (fieldValue, fieldName) => {
         if (fieldName === 'properties') {
           return MiniSearchCollectionSearchEngine.stringifyProperties(fieldValue as CollectionProperty[]);
+        }
+        if (fieldName === 'keywords') {
+          return Array.isArray(fieldValue) ? fieldValue.join(' ') : '';
         }
         return String(fieldValue);
       },

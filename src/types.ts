@@ -157,8 +157,8 @@ export type Collection = {
   id: string;
   /**
    * The namespace of the collection (ex : "BDTOPO_V3").
-   * 
-   * @warning this is not standard in OGC API - Features 
+   *
+   * @warning this is not standard in OGC API - Features
    * (might be renamed to "serie" if they deal with grouping collections by a common theme and version)
    */
   namespace: string;
@@ -174,6 +174,10 @@ export type Collection = {
    * The description of the collection.
    */
   description: string;
+  /**
+   * The keywords of the collection, as extracted from the WFS GetCapabilities.
+   */
+  keywords?: string[];
   /**
    * The properties of the collection.
    */
@@ -197,7 +201,7 @@ export type CollectionPropertyOverwrite = Omit<CollectionProperty, 'type'> & {
 /**
  * The schema of a collection overwrite.
  */
-export type CollectionOverwrite = Omit<Collection, 'properties'> & {
+export type CollectionOverwrite = Omit<Collection, 'properties' | 'keywords'> & {
   /**
    * The properties of the overwrite.
    */
