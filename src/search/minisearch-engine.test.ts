@@ -231,3 +231,46 @@ describe('MiniSearchCollectionSearchEngine property description indexing', () =>
     expect(matches.map((match) => match.id)).toEqual(['NS:address']);
   });
 });
+
+describe('MiniSearchCollectionSearchEngine keyword indexing', () => {
+  const KEYWORD_COLLECTIONS: Collection[] = [
+    {
+      id: 'NS:wind',
+      namespace: 'NS',
+      name: 'wind',
+      title: 'Wind',
+      description: 'Energy layer',
+      keywords: ['Eolien'],
+      properties: [{ name: 'id', type: 'string' }],
+    },
+    {
+      id: 'NS:solar',
+      namespace: 'NS',
+      name: 'solar',
+      title: 'Solar',
+      description: 'Energy layer with eolien in description',
+      keywords: ['Solaire'],
+      properties: [{ name: 'id', type: 'string' }],
+    },
+  ];
+
+  it('finds a collection by a keyword when no other field matches', () => {
+    const engine = new MiniSearchCollectionSearchEngine(KEYWORD_COLLECTIONS, {
+      defaultSearchOptions: { fuzzy: 0 },
+    });
+
+    const matches = engine.search('solaire');
+
+    expect(matches.map((match) => match.id)).toEqual(['NS:solar']);
+  });
+
+  it('supports searching only in keywords', () => {
+    const engine = new MiniSearchCollectionSearchEngine(KEYWORD_COLLECTIONS, {
+      defaultSearchOptions: { fuzzy: 0 },
+    });
+
+    const matches = engine.search('eolien', { fields: ['keywords'] });
+
+    expect(matches.map((match) => match.id)).toEqual(['NS:wind']);
+  });
+});

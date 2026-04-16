@@ -4,6 +4,9 @@
   "name": "reservoir",
   "title": "BDTOPO : Réservoirs",
   "description": "Réservoirs − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "reservoir"
+  ],
   "properties": [
     {
       "name": "cleabs",

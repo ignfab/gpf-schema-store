@@ -7,6 +7,7 @@ import { WfsEndpoint } from '@camptocamp/ogc-client';
 import '../helpers/configure-fetch';
 import { retry } from '../helpers/retry';
 import { parseFeatureTypeName } from '../helpers/metadata';
+import { filterCollectionKeywords } from '../helpers/keywords';
 
 /**
  * Add a timestamp cache buster to the WFS URL to avoid caching issues
@@ -106,13 +107,18 @@ export class WfsClient {
     const collections: CollectionBrief[] = [];
     for (const featureType of featureTypes) {
       const { namespace, name } = parseFeatureTypeName(featureType.name);
+      // getFeatureTypes() is the listing API, but its brief type does not
+      // expose keywords. Summary reads the same parsed GetCapabilities object.
+      const rawKeywords = endpoint.getFeatureTypeSummary(featureType.name)?.keywords;
+      const keywords = filterCollectionKeywords(rawKeywords);
       collections.push({
         id: featureType.name,
-        namespace: namespace,
-        name: name,
+        namespace,
+        name,
         title: featureType.title ?? '',
         description: featureType.abstract ?? '',
-      } as CollectionBrief);
+        ...(keywords?.length ? { keywords } : {}),
+      });
     }
     return collections;
   }
@@ -160,6 +166,7 @@ export class WfsClient {
     }
 
     const { namespace, name } = parseFeatureTypeName(collectionId);
+    const keywords = filterCollectionKeywords(featureTypeFull.keywords);
 
     const collection: Collection = {
       id: collectionId,
@@ -167,6 +174,7 @@ export class WfsClient {
       name: name,
       title: featureTypeFull.title ?? '',
       description: featureTypeFull.abstract ?? '',
+      ...(keywords?.length ? { keywords } : {}),
       properties: properties
     };
 

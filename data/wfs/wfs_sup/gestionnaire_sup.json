@@ -4,6 +4,12 @@
   "name": "gestionnaire_sup",
   "title": "Organisme gestionnaire ou organisme ressource de la servitude",
   "description": "Gestionnaires de servitude d'utilité publique, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols",
+    "SUP"
+  ],
   "properties": [
     {
       "name": "gid",

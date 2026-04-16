@@ -4,6 +4,9 @@
   "name": "arrondissement_municipal",
   "title": "ADMINEXPRESS COG 2022 Arrondissement municipal",
   "description": "ADMINEXPRESS COG 2022 Arrondissement municipal",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

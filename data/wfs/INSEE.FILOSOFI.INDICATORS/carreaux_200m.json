@@ -4,6 +4,9 @@
   "name": "carreaux_200m",
   "title": "Carroyages INSEE",
   "description": "Carroyages INSEE à 200 m, à 1 km et à la plus grande échelle diffusable ",
+  "keywords": [
+    "Statistiques"
+  ],
   "properties": [
     {
       "name": "id_inspire",

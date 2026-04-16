@@ -58,6 +58,7 @@ export function merge(
         name: original.name,
         title: overwrite.title,
         description: overwrite.description,
+        ...(original.keywords?.length ? { keywords: original.keywords } : {}),
         properties
     }
 }

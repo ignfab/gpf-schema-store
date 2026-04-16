@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 import { Command } from 'commander'
 
 import { format } from '@fast-csv/format';
+import { WfsEndpoint } from '@camptocamp/ogc-client';
 
 import { WfsClient } from './services/wfs'
 import { getDataDir, replaceWfsCollections, getNamespaceFilters, loadWfsCollections, getOverwrite, loadCollections } from './services/storage'
@@ -13,6 +14,7 @@ import { compare } from './helpers/compare';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
 import { renderSearchOutputs } from './cli/search-outputs';
 import { writeRenderedCatalog } from './cli/render-catalog';
+import { filterCollectionKeywords, getKeywordOccurrences, normalizeCollectionKeywords } from './helpers/keywords';
 import type { Collection } from './types';
 
 const pkgPath = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json')
@@ -26,6 +28,20 @@ program
   .version(version)
 
 const GPF_WFS_URL = "https://data.geopf.fr/wfs";
+
+async function getWfsKeywordCollections(filtered: boolean): Promise<Array<{ keywords?: string[] }>> {
+  const endpoint = new WfsEndpoint(GPF_WFS_URL);
+  await endpoint.isReady();
+
+  return endpoint.getFeatureTypes().map((featureType) => {
+    const rawKeywords = endpoint.getFeatureTypeSummary(featureType.name)?.keywords;
+    const keywords = filtered
+      ? filterCollectionKeywords(rawKeywords)
+      : normalizeCollectionKeywords(rawKeywords);
+
+    return keywords?.length ? { keywords } : {};
+  });
+}
 
 program
   .command('update')
@@ -175,6 +191,38 @@ program
     const matches = engine.searchDetailed(query).slice(0, limit);
     for (const line of renderSearchOutputs(engine, query, matches)) {
       console.log(line);
+    }
+  })
+
+program
+  .command('wfs-keywords')
+  .alias('wfsKeywords')
+  .description('List collection keywords sorted by occurrence count')
+  .option('-l, --limit <number>', 'Maximum number of keywords to display (defaults to all)')
+  .option('--filtered', 'Apply the application generic keyword filter before counting')
+  .action(async (options: { limit?: string; filtered?: boolean }) => {
+    const limit = options.limit === undefined ? undefined : Number.parseInt(options.limit, 10);
+    if (limit !== undefined && (!Number.isInteger(limit) || limit < 0)) {
+      throw new Error(`Invalid limit '${options.limit}': expected a non-negative integer`);
+    }
+
+    const filtered = options.filtered ?? false;
+    const collections = await getWfsKeywordCollections(filtered);
+    const occurrences = getKeywordOccurrences(collections, { includeGeneric: !filtered });
+    const displayedOccurrences = limit === undefined || limit === 0 ? occurrences : occurrences.slice(0, limit);
+    const countWidth = Math.max('COUNT'.length, ...displayedOccurrences.map((entry) => String(entry.count).length));
+
+    console.log(`source: ${GPF_WFS_URL}`);
+    console.log(`filter: ${filtered ? 'generic keywords removed' : 'normalized keywords'}`);
+    console.log(`keywords: ${occurrences.length}`);
+    console.log('');
+    console.log(`${'COUNT'.padStart(countWidth)}  KEYWORD`);
+
+    for (const occurrence of displayedOccurrences) {
+      console.log([
+        String(occurrence.count).padStart(countWidth),
+        occurrence.keyword,
+      ].join('  '));
     }
   })
 

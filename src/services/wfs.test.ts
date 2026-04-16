@@ -7,6 +7,7 @@ import { UnexpectedTypeError } from '../types'
 const endpointMocks = vi.hoisted(() => ({
   isReady: vi.fn(),
   getFeatureTypes: vi.fn(),
+  getFeatureTypeSummary: vi.fn(),
   getFeatureTypeFull: vi.fn(),
   constructor: vi.fn(),
 }))
@@ -19,6 +20,7 @@ vi.mock('@camptocamp/ogc-client', () => {
 
     isReady = endpointMocks.isReady
     getFeatureTypes = endpointMocks.getFeatureTypes
+    getFeatureTypeSummary = endpointMocks.getFeatureTypeSummary
     getFeatureTypeFull = endpointMocks.getFeatureTypeFull
   }
 
@@ -35,9 +37,11 @@ describe('WfsClient', () => {
     endpointMocks.constructor.mockReset()
     endpointMocks.isReady.mockReset()
     endpointMocks.getFeatureTypes.mockReset()
+    endpointMocks.getFeatureTypeSummary.mockReset()
     endpointMocks.getFeatureTypeFull.mockReset()
     endpointMocks.isReady.mockResolvedValue(undefined)
     endpointMocks.getFeatureTypes.mockReturnValue([])
+    endpointMocks.getFeatureTypeSummary.mockReturnValue(null)
   })
 
   afterEach(() => {
@@ -73,6 +77,11 @@ describe('WfsClient', () => {
         { name: 'BDTOPO_V3:batiment', title: 'batiment', abstract: '' },
         { name: 'BDTOPO_V3:commune', title: 'commune', abstract: '' },
       ])
+      endpointMocks.getFeatureTypeSummary.mockImplementation((name: string) => {
+        if (name === 'BDTOPO_V3:batiment') return { keywords: ['features', 'building', 'WFS', 'topography'] }
+        if (name === 'BDTOPO_V3:commune') return { keywords: ['feature', 'municipality'] }
+        return null
+      })
 
       const wfsClient = new WfsClient('https://example.test/wfs')
       const promise = wfsClient.getCollections()
@@ -83,6 +92,7 @@ describe('WfsClient', () => {
           name: 'batiment',
           title: 'batiment',
           description: '',
+          keywords: ['building', 'topography'],
         },
         {
           id: 'BDTOPO_V3:commune',
@@ -90,6 +100,7 @@ describe('WfsClient', () => {
           name: 'commune',
           title: 'commune',
           description: '',
+          keywords: ['municipality'],
         },
       ])
       await vi.runAllTimersAsync()
@@ -99,6 +110,7 @@ describe('WfsClient', () => {
       expect(endpointMocks.constructor).toHaveBeenCalledWith('https://example.test/wfs?_t=1704067200000')
       expect(endpointMocks.isReady).toHaveBeenCalledTimes(1)
       expect(endpointMocks.getFeatureTypes).toHaveBeenCalledTimes(1)
+      expect(endpointMocks.getFeatureTypeSummary).toHaveBeenCalledTimes(2)
     })
   })
 
@@ -114,6 +126,7 @@ describe('WfsClient', () => {
         defaultCrs: 'EPSG:4326',
         title: 'collection title',
         abstract: 'collection description',
+        keywords: ['features', 'transport', 'WFS'],
       })
     })
 
@@ -126,6 +139,7 @@ describe('WfsClient', () => {
         name: 'collection',
         title: 'collection title',
         description: 'collection description',
+        keywords: ['transport'],
         properties: [
           { name: 'prop1', type: 'string' },
           { name: 'prop2', type: 'float' },

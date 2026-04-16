@@ -4,6 +4,9 @@
   "name": "contours_iris",
   "title": "CONTOURS IRIS",
   "description": "Contours géométriques des IRIS de l'INSEE",
+  "keywords": [
+    "Statistiques"
+  ],
   "properties": [
     {
       "name": "cleabs",

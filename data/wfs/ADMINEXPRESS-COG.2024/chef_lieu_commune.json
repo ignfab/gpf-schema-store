@@ -4,6 +4,9 @@
   "name": "chef_lieu_commune",
   "title": "ADMINEXPRESS COG 2024 Chef-lieu commune",
   "description": "ADMINEXPRESS COG 2024 Chef-lieu commune",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

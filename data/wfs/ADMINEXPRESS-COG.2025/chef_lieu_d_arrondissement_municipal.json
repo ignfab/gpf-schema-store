@@ -4,6 +4,9 @@
   "name": "chef_lieu_d_arrondissement_municipal",
   "title": "ADMINEXPRESS COG 2025 Chef-lieu d'Arrondissement municipal",
   "description": "ADMINEXPRESS COG 2025 Chef-lieu d'Arrondissement municipal",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

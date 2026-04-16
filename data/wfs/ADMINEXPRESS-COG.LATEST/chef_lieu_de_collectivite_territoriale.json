@@ -4,6 +4,9 @@
   "name": "chef_lieu_de_collectivite_territoriale",
   "title": "ADMINEXPRESS COG Dernière édition Chef-lieu de Collectivite Territoriale",
   "description": "ADMINEXPRESS COG Dernière édition Chef-lieu de Collectivite Territoriale",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

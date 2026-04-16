@@ -4,6 +4,9 @@
   "name": "commune",
   "title": "ADMINEXPRESS COG Dernière édition Commune",
   "description": "ADMINEXPRESS COG Dernière édition Commune",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

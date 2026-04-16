@@ -8,7 +8,7 @@
 
 The data model is :
 
-* **id** : WFS GetCap FeatureType `<Name>` (namespace:name = unique identifier) 
+* **id** : WFS GetCap FeatureType `<Name>` (namespace:name = unique identifier)
 * **namespace** : namespace identifier (e.g `BDTOPO_V3`)
 * **name** : name identifier (e.g `batiment`)
 * **title** : WFS GetCap `<Title>` "BDTOPO : Bâtiments"
@@ -28,7 +28,7 @@ npm install
 npm run build
 ```
 
-### Test 
+### Test
 
 ```bash
 # To run unit test only :
@@ -85,6 +85,21 @@ npx gpf-schema-store search bdtopo batiment --limit 3
 ```
 
 The output shows the collection identifier, the computed score, and MiniSearch match details, which makes it easier to compare ranking behavior before and after a search change.
+
+### Inspect WFS keywords
+
+Use the `wfs-keywords` command to request the public GPF WFS directly and list collection keywords sorted by occurrence count.
+
+```bash
+# show normalized keywords from the public GPF WFS
+npx gpf-schema-store wfs-keywords
+
+# show keywords after removing generic values such as "features" and "WFS"
+npx gpf-schema-store wfs-keywords --filtered
+
+# only show the 20 most frequent keywords
+npx gpf-schema-store wfs-keywords --limit 20
+```
 
 ### Render merged catalog files
 

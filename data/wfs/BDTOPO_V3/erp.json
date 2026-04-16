@@ -4,6 +4,9 @@
   "name": "erp",
   "title": "BDTOPO : ERP",
   "description": "ERP − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "erp"
+  ],
   "properties": [
     {
       "name": "cleabs",

@@ -4,6 +4,9 @@
   "name": "zone_d_estran",
   "title": "BDTOPO : Zones d'estran",
   "description": "Zones d'estran − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "zone_d_estran"
+  ],
   "properties": [
     {
       "name": "cleabs",

@@ -4,6 +4,11 @@
   "name": "mec",
   "title": "Mise en compatibilité",
   "description": "Mise en compatibilité",
+  "keywords": [
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

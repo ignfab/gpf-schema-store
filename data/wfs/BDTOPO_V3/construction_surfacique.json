@@ -4,6 +4,9 @@
   "name": "construction_surfacique",
   "title": "BDTOPO : Constructions surfaciques",
   "description": "Constructions surfaciques − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "construction_surfacique"
+  ],
   "properties": [
     {
       "name": "cleabs",

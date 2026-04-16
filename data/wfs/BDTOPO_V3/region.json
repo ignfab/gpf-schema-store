@@ -4,6 +4,9 @@
   "name": "region",
   "title": "BDTOPO : Régions",
   "description": "Régions − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "region"
+  ],
   "properties": [
     {
       "name": "cleabs",

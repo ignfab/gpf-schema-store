@@ -122,6 +122,21 @@ describe('mergeCollectionSchema', () => {
     expect(merge(base, overwrite).description).toEqual(base.description)
   })
 
+  it('keeps original keywords only when they are present', () => {
+    const original: Collection = {
+      ...base,
+      keywords: ['transport'],
+    }
+    const overwrite: Collection = {
+      ...base,
+      title: 'Modified title',
+      keywords: ['ignored'],
+    }
+
+    expect(merge(original, overwrite).keywords).toEqual(['transport'])
+    expect(merge(base, overwrite)).not.toHaveProperty('keywords')
+  })
+
   it('keeps geometry properties from original when they define defaultCrs', () => {
     const baseWithGeometry: Collection = {
       ...base,

@@ -4,6 +4,9 @@
   "name": "ligne_electrique",
   "title": "BDTOPO : Lignes électriques",
   "description": "Lignes électriques − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "ligne_electrique"
+  ],
   "properties": [
     {
       "name": "cleabs",

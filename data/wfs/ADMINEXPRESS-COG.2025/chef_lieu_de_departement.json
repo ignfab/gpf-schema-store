@@ -4,6 +4,9 @@
   "name": "chef_lieu_de_departement",
   "title": "ADMINEXPRESS COG 2025 Chef-lieu de Département",
   "description": "ADMINEXPRESS COG 2025 Chef-lieu de Département",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

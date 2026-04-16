@@ -4,6 +4,9 @@
   "name": "departement",
   "title": "ADMINEXPRESS COG 2023 Département",
   "description": "ADMINEXPRESS COG 2023 Département",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

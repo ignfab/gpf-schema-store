@@ -4,6 +4,9 @@
   "name": "surface_hydrographique",
   "title": "BDTOPO : Surfaces hydrographiques",
   "description": "Surfaces hydrographiques − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "surface_hydrographique"
+  ],
   "properties": [
     {
       "name": "cleabs",

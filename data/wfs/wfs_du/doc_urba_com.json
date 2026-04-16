@@ -4,6 +4,12 @@
   "name": "doc_urba_com",
   "title": "Document d'urbanisme",
   "description": "Classe sémantique décrivant le document d'urbanisme, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "document d'urbanisme",
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

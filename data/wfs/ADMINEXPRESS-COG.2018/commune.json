@@ -4,6 +4,9 @@
   "name": "commune",
   "title": "ADMINEXPRESS COG 2018 Commune",
   "description": "ADMINEXPRESS COG 2018 Commune",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

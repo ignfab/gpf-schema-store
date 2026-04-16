@@ -4,6 +4,12 @@
   "name": "doc_urba",
   "title": "Document d'urbanisme",
   "description": "Classe sémantique décrivant le Schéma de Cohérence Territorial, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "urbanisme",
+    "planningCadastre",
+    "SCOT",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

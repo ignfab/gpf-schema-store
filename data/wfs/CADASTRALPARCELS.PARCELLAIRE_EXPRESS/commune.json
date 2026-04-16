@@ -4,6 +4,9 @@
   "name": "commune",
   "title": "PCI Vecteur : Communes",
   "description": "Communes",
+  "keywords": [
+    "commune"
+  ],
   "properties": [
     {
       "name": "gid",

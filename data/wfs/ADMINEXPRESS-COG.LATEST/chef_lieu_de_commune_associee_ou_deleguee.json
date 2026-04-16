@@ -4,6 +4,9 @@
   "name": "chef_lieu_de_commune_associee_ou_deleguee",
   "title": "ADMINEXPRESS COG Dernière édition Chef-lieu de commune associée ou déléguée",
   "description": "ADMINEXPRESS COG Dernière édition Chef-lieu de commune associée ou déléguée",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

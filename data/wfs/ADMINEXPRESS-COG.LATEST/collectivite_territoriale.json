@@ -4,6 +4,9 @@
   "name": "collectivite_territoriale",
   "title": "ADMINEXPRESS COG Dernière édition Collectivité territoriale",
   "description": "ADMINEXPRESS COG Dernière édition Collectivité territoriale",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

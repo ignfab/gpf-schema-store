@@ -4,6 +4,12 @@
   "name": "secteur_cc",
   "title": "Secteurs de la carte communale",
   "description": "Secteurs de carte communale, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "document d'urbanisme",
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

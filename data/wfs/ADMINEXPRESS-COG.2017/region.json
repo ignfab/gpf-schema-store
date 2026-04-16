@@ -4,6 +4,9 @@
   "name": "region",
   "title": "ADMINEXPRESS COG 2017 Région",
   "description": "ADMINEXPRESS COG 2017 Région",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

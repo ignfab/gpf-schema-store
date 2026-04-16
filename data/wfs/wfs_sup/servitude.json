@@ -4,6 +4,12 @@
   "name": "servitude",
   "title": "Servitude d'utilité publique",
   "description": "Liste des servitudes d'utilité publique, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols",
+    "SUP"
+  ],
   "properties": [
     {
       "name": "gid",

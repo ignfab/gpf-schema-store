@@ -4,6 +4,9 @@
   "name": "equipement_de_transport",
   "title": "BDTOPO : Équipements de transport",
   "description": "Équipements de transport − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "equipement_de_transport"
+  ],
   "properties": [
     {
       "name": "cleabs",

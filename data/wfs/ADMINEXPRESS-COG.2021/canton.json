@@ -4,6 +4,9 @@
   "name": "canton",
   "title": "ADMINEXPRESS COG 2021 Canton",
   "description": "ADMINEXPRESS COG 2021 Canton",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

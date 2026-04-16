@@ -4,6 +4,9 @@
   "name": "construction_lineaire",
   "title": "BDTOPO : Constructions linéaires",
   "description": "Constructions linéaires − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "construction_lineaire"
+  ],
   "properties": [
     {
       "name": "cleabs",

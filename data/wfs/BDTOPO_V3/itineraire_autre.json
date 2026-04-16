@@ -4,6 +4,9 @@
   "name": "itineraire_autre",
   "title": "BDTOPO : Autres itinéraires",
   "description": "Autres itinéraires − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "itineraire_autre"
+  ],
   "properties": [
     {
       "name": "cleabs",

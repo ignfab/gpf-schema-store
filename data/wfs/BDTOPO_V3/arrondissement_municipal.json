@@ -4,6 +4,9 @@
   "name": "arrondissement_municipal",
   "title": "BDTOPO : Arrondissements municipaux",
   "description": "Arrondissements municipaux − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "arrondissement_municipal"
+  ],
   "properties": [
     {
       "name": "cleabs",

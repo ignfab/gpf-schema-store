@@ -4,6 +4,9 @@
   "name": "chef_lieu_entite_rattachee",
   "title": "ADMINEXPRESS COG 2020 Chef-lieu entité rattachée",
   "description": "ADMINEXPRESS COG 2020 Chef-lieu entité rattachée",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

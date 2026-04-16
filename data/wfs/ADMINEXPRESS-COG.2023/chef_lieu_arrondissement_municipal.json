@@ -4,6 +4,9 @@
   "name": "chef_lieu_arrondissement_municipal",
   "title": "ADMINEXPRESS COG 2023 Chef-lieu Arrondissement municipal",
   "description": "ADMINEXPRESS COG 2023 Chef-lieu Arrondissement municipal",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

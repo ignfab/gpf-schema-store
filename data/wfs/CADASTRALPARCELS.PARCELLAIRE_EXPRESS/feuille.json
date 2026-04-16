@@ -4,6 +4,9 @@
   "name": "feuille",
   "title": "PCI Vecteur : Feuilles",
   "description": "Feuilles",
+  "keywords": [
+    "feuille"
+  ],
   "properties": [
     {
       "name": "gid",

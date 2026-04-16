@@ -4,6 +4,9 @@
   "name": "construction_ponctuelle",
   "title": "BDTOPO : Constructions ponctuelles",
   "description": "Constructions ponctuelles − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "construction_ponctuelle"
+  ],
   "properties": [
     {
       "name": "cleabs",

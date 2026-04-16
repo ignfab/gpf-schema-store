@@ -13,6 +13,7 @@ const expectedCollections = [
     name: 'collection',
     title: 'Collection title',
     description: 'Collection description',
+    keywords: ['collection'],
   },
 ]
 

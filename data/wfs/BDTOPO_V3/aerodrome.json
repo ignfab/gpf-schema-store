@@ -4,6 +4,9 @@
   "name": "aerodrome",
   "title": "BDTOPO : Aérodromes",
   "description": "Aérodromes − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "aerodrome"
+  ],
   "properties": [
     {
       "name": "cleabs",

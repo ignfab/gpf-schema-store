@@ -4,6 +4,9 @@
   "name": "region",
   "title": "ADMINEXPRESS COG Dernière édition Région",
   "description": "ADMINEXPRESS COG Dernière édition Région",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

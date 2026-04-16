@@ -4,6 +4,9 @@
   "name": "parc_ou_reserve",
   "title": "BDTOPO : Parcs et réserves",
   "description": "Parcs et réserves − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "parc_ou_reserve"
+  ],
   "properties": [
     {
       "name": "cleabs",

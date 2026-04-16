@@ -4,6 +4,9 @@
   "name": "limite_terre_mer",
   "title": "BDTOPO : Limites terre-mer",
   "description": "Limites terre-mer − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "limite_terre_mer"
+  ],
   "properties": [
     {
       "name": "cleabs",

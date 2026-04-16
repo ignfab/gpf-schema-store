@@ -4,6 +4,9 @@
   "name": "departement",
   "title": "ADMINEXPRESS COG Dernière édition Département",
   "description": "ADMINEXPRESS COG Dernière édition Département",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",
