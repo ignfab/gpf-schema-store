@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "bassin_versant_topographique",
   "title": "BDTOPO : Bassins versants topographiques",
-  "description": "Bassins versants topographiques − BDTOPO® V3 2025-12-15",
+  "description": "Bassins versants topographiques − BDTOPO® V3 2026-03-15",
   "properties": [
     {
       "name": "liens_vers_cours_d_eau_principal",

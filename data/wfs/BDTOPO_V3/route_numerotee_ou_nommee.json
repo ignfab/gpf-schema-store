@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "route_numerotee_ou_nommee",
   "title": "BDTOPO : Routes numérotées et routes nommées",
-  "description": "Routes numérotées et routes nommées − BDTOPO® V3 2025-12-15",
+  "description": "Routes numérotées et routes nommées − BDTOPO® V3 2026-03-15",
   "properties": [
     {
       "name": "cleabs",
