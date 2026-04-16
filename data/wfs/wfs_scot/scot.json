@@ -4,6 +4,12 @@
   "name": "scot",
   "title": "Schéma de cohérence territorial",
   "description": "Etat du Schéma de Cohérence Territorial, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "urbanisme",
+    "planningCadastre",
+    "SCOT",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

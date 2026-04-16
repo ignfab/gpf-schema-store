@@ -4,6 +4,12 @@
   "name": "habillage_pct",
   "title": "Habillages ponctuels",
   "description": "Objet ponctuel indicatif porté sur le document d'urbanisme pour l'habillage du plan, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "document d'urbanisme",
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

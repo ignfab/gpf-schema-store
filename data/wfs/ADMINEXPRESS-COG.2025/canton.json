@@ -4,6 +4,9 @@
   "name": "canton",
   "title": "ADMINEXPRESS COG 2025 Canton",
   "description": "ADMINEXPRESS COG 2025 Canton",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

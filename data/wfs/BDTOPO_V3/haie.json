@@ -4,6 +4,9 @@
   "name": "haie",
   "title": "BDTOPO : Haies",
   "description": "Haies − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "haie"
+  ],
   "properties": [
     {
       "name": "cleabs",

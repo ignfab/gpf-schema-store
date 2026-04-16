@@ -4,6 +4,12 @@
   "name": "generateur_sup_s",
   "title": "Générateur de servitude d'utilité publique",
   "description": "Générateurs surfaciques liés aux servitudes, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols",
+    "SUP"
+  ],
   "properties": [
     {
       "name": "gid",

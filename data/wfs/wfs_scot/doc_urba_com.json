@@ -4,6 +4,12 @@
   "name": "doc_urba_com",
   "title": "Document d'urbanisme",
   "description": "Relations entre le Schéma de Cohérence Territorial et les communes auxquelles il s'applique, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "urbanisme",
+    "planningCadastre",
+    "SCOT",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

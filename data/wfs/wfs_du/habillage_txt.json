@@ -4,6 +4,12 @@
   "name": "habillage_txt",
   "title": "Etiquette ponctuelle de l’habillage du plan",
   "description": "Étiquette ponctuelle portée sur le document d'urbanisme pour l’habillage du plan, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "document d'urbanisme",
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

@@ -4,6 +4,9 @@
   "name": "commune",
   "title": "BDTOPO : Communes",
   "description": "Communes − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "commune"
+  ],
   "properties": [
     {
       "name": "cleabs",

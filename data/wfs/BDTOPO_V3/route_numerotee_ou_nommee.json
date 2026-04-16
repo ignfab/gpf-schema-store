@@ -4,6 +4,9 @@
   "name": "route_numerotee_ou_nommee",
   "title": "BDTOPO : Routes numérotées et routes nommées",
   "description": "Routes numérotées et routes nommées − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "route_numerotee_ou_nommee"
+  ],
   "properties": [
     {
       "name": "cleabs",

@@ -4,6 +4,9 @@
   "name": "collectivite_territoriale",
   "title": "ADMINEXPRESS COG 2022 Collectivité territoriale",
   "description": "ADMINEXPRESS COG 2022 Collectivité territoriale",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

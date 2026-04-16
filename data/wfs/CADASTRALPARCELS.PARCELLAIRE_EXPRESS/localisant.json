@@ -4,6 +4,9 @@
   "name": "localisant",
   "title": "PCI Vecteur : Localisants",
   "description": "Localisants",
+  "keywords": [
+    "localisant"
+  ],
   "properties": [
     {
       "name": "gid",

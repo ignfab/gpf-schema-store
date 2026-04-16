@@ -4,6 +4,9 @@
   "name": "voie_ferree_nommee",
   "title": "BDTOPO : Voies ferrées nommées",
   "description": "Voies ferrées nommées − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "voie_ferree_nommee"
+  ],
   "properties": [
     {
       "name": "cleabs",

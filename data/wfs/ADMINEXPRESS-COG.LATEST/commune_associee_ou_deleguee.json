@@ -4,6 +4,9 @@
   "name": "commune_associee_ou_deleguee",
   "title": "ADMINEXPRESS COG Dernière édition Commune associée ou déléguée",
   "description": "ADMINEXPRESS COG Dernière édition Commune associée ou déléguée",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

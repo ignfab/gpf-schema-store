@@ -4,6 +4,9 @@
   "name": "chef_lieu_de_canton",
   "title": "ADMINEXPRESS COG Dernière édition Chef-lieu de Canton",
   "description": "ADMINEXPRESS COG Dernière édition Chef-lieu de Canton",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

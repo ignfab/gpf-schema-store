@@ -4,6 +4,9 @@
   "name": "epci",
   "title": "ADMINEXPRESS COG 2024 EPCI",
   "description": "ADMINEXPRESS COG 2024 EPCI",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

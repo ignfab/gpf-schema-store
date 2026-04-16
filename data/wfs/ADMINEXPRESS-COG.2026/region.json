@@ -4,6 +4,9 @@
   "name": "region",
   "title": "ADMINEXPRESS COG 2026 Région",
   "description": "ADMINEXPRESS COG 2026 Région",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

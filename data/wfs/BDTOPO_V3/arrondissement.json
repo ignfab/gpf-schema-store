@@ -4,6 +4,9 @@
   "name": "arrondissement",
   "title": "BDTOPO : Arrondissements",
   "description": "Arrondissements − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "arrondissement"
+  ],
   "properties": [
     {
       "name": "cleabs",

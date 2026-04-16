@@ -4,6 +4,9 @@
   "name": "point_du_reseau",
   "title": "BDTOPO : Points de réseau",
   "description": "Points de réseau − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "point_du_reseau"
+  ],
   "properties": [
     {
       "name": "cleabs",

@@ -4,6 +4,9 @@
   "name": "arrondissement",
   "title": "ADMINEXPRESS COG Dernière édition Arrondissement",
   "description": "ADMINEXPRESS COG Dernière édition Arrondissement",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

@@ -4,6 +4,9 @@
   "name": "non_communication",
   "title": "BDTOPO : Non-communications",
   "description": "Non-communications − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "non_communication"
+  ],
   "properties": [
     {
       "name": "cleabs",

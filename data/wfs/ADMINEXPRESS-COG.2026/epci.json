@@ -4,6 +4,9 @@
   "name": "epci",
   "title": "ADMINEXPRESS COG 2026 EPCI",
   "description": "ADMINEXPRESS COG 2026 EPCI",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

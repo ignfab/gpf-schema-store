@@ -4,6 +4,9 @@
   "name": "chef_lieu",
   "title": "ADMINEXPRESS COG 2019 Chef-lieu",
   "description": "ADMINEXPRESS COG 2019 Chef-lieu",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

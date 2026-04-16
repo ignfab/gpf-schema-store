@@ -4,6 +4,9 @@
   "name": "arrondissement",
   "title": "ADMINEXPRESS COG 2024 Arrondissement",
   "description": "ADMINEXPRESS COG 2024 Arrondissement",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",

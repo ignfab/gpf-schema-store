@@ -4,6 +4,9 @@
   "name": "arrondissement_municipal",
   "title": "ADMINEXPRESS COG Dernière édition Arrondissement municipal",
   "description": "ADMINEXPRESS COG Dernière édition Arrondissement municipal",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

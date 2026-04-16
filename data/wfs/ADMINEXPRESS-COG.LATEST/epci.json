@@ -4,6 +4,9 @@
   "name": "epci",
   "title": "ADMINEXPRESS COG Dernière édition EPCI",
   "description": "ADMINEXPRESS COG Dernière édition EPCI",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

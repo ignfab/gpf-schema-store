@@ -4,6 +4,9 @@
   "name": "parcelle",
   "title": "PCI Vecteur : Parcelles",
   "description": "Parcelles",
+  "keywords": [
+    "parcelle"
+  ],
   "properties": [
     {
       "name": "gid",

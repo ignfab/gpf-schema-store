@@ -4,6 +4,9 @@
   "name": "chef_lieu_de_commune",
   "title": "ADMINEXPRESS COG 2025 Chef-lieu commune",
   "description": "ADMINEXPRESS COG 2025 Chef-lieu de commune",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

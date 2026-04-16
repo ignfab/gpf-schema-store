@@ -4,6 +4,12 @@
   "name": "prescription_pct",
   "title": "Prescriptions ponctuelles",
   "description": "Prescriptions ponctuelles se superposant au zonage, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "document d'urbanisme",
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

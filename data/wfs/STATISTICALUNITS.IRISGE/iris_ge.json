@@ -4,6 +4,9 @@
   "name": "iris_ge",
   "title": "IRIS Grande Echelle",
   "description": "Contours géométriques des IRIS de l'INSEE à grande échelle sur toute la France ; Edition : 2025-01-01",
+  "keywords": [
+    "Statistiques"
+  ],
   "properties": [
     {
       "name": "cleabs",

@@ -4,6 +4,9 @@
   "name": "chef_lieu_de_region",
   "title": "ADMINEXPRESS COG Dernière édition Chef-lieu de Region",
   "description": "ADMINEXPRESS COG Dernière édition Chef-lieu de Region",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

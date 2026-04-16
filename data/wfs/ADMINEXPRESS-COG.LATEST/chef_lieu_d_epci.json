@@ -4,6 +4,9 @@
   "name": "chef_lieu_d_epci",
   "title": "ADMINEXPRESS COG Dernière édition Chef-lieu d EPCI",
   "description": "ADMINEXPRESS COG Dernière édition Chef-lieu d EPCI",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "cleabs",

@@ -4,6 +4,9 @@
   "name": "zone_d_habitation",
   "title": "BDTOPO : Zones d'habitation",
   "description": "Zones d'habitation − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "zone_d_habitation"
+  ],
   "properties": [
     {
       "name": "cleabs",

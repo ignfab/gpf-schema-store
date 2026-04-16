@@ -4,6 +4,9 @@
   "name": "batiment",
   "title": "PCI Vecteur : Bâtiments",
   "description": "Bâtiments",
+  "keywords": [
+    "batiment"
+  ],
   "properties": [
     {
       "name": "gid",

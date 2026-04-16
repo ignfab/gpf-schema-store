@@ -4,6 +4,9 @@
   "name": "borne_limite_propriete",
   "title": "PCI Vecteur : Bornes de limite de propriété",
   "description": "Bornes de limite de propriété",
+  "keywords": [
+    "borne_limite_propriete"
+  ],
   "properties": [
     {
       "name": "gid",

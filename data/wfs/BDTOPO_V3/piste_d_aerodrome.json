@@ -4,6 +4,9 @@
   "name": "piste_d_aerodrome",
   "title": "BDTOPO : Pistes d'aérodrome",
   "description": "Pistes d'aérodrome − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "piste_d_aerodrome"
+  ],
   "properties": [
     {
       "name": "cleabs",

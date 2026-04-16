@@ -4,6 +4,12 @@
   "name": "document",
   "title": "Document d'urbanisme",
   "description": "Emprise du document d'urbanisme, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "document d'urbanisme",
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

@@ -4,6 +4,9 @@
   "name": "commune_associee_ou_deleguee",
   "title": "BDTOPO : Communes associées ou déléguées",
   "description": "Communes associées ou déléguées − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "commune_associee_ou_deleguee"
+  ],
   "properties": [
     {
       "name": "cleabs",

@@ -4,6 +4,12 @@
   "name": "servitude_acte_sup",
   "title": "Relation entre ACTE_SUP et SERVITUDE",
   "description": "Relation entre les SUP et les actes les instituant, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols",
+    "SUP"
+  ],
   "properties": [
     {
       "name": "gid",

@@ -4,6 +4,9 @@
   "name": "detail_orographique",
   "title": "BDTOPO : Détails orographiques",
   "description": "Détails orographiques − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "detail_orographique"
+  ],
   "properties": [
     {
       "name": "cleabs",

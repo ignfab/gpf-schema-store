@@ -4,6 +4,9 @@
   "name": "borne_parcelle",
   "title": "PCI Vecteur : Lien bornes parcelles",
   "description": "Lien bornes parcelles",
+  "keywords": [
+    "borne_parcelle"
+  ],
   "properties": [
     {
       "name": "gid",

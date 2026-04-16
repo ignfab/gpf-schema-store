@@ -4,6 +4,9 @@
   "name": "foret_publique",
   "title": "BDTOPO : Forêts publiques",
   "description": "Forêts publiques − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "foret_publique"
+  ],
   "properties": [
     {
       "name": "cleabs",

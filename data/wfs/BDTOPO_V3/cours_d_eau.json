@@ -4,6 +4,9 @@
   "name": "cours_d_eau",
   "title": "BDTOPO : Cours d'eau",
   "description": "Cours d'eau − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "cours_d_eau"
+  ],
   "properties": [
     {
       "name": "cleabs",

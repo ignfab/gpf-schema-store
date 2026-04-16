@@ -4,6 +4,9 @@
   "name": "pylone",
   "title": "BDTOPO : Pylônes",
   "description": "Pylônes − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "pylone"
+  ],
   "properties": [
     {
       "name": "cleabs",

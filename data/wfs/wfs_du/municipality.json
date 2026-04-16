@@ -4,6 +4,11 @@
   "name": "municipality",
   "title": "Communes",
   "description": "Emprise communale, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "insee",

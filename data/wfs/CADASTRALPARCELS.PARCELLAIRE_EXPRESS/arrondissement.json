@@ -4,6 +4,9 @@
   "name": "arrondissement",
   "title": "PCI Vecteur : Arrondissements",
   "description": "Arrondissements",
+  "keywords": [
+    "arrondissement"
+  ],
   "properties": [
     {
       "name": "gid",

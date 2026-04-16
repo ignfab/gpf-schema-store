@@ -4,6 +4,12 @@
   "name": "info_lin",
   "title": "Informations linéaires",
   "description": "Périmètre linéaire à reporter à titre d’information, données issues du Géoportail de l'urbanisme",
+  "keywords": [
+    "document d'urbanisme",
+    "urbanisme",
+    "planningCadastre",
+    "usage des sols"
+  ],
   "properties": [
     {
       "name": "gid",

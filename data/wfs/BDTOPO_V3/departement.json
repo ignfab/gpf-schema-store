@@ -4,6 +4,9 @@
   "name": "departement",
   "title": "BDTOPO : Départements",
   "description": "Départements − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "departement"
+  ],
   "properties": [
     {
       "name": "cleabs",

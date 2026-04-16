@@ -4,6 +4,9 @@
   "name": "toponymie",
   "title": "BDTOPO : Toponymies",
   "description": "Toponymies − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "toponymie"
+  ],
   "properties": [
     {
       "name": "classe_de_l_objet",

@@ -4,6 +4,9 @@
   "name": "subdivision_fiscale",
   "title": "PCI Vecteur : Subdivisions fiscales",
   "description": "Subdivisions fiscales",
+  "keywords": [
+    "subdivision_fiscale"
+  ],
   "properties": [
     {
       "name": "gid",

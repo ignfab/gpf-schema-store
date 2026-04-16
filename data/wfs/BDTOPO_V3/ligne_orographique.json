@@ -4,6 +4,9 @@
   "name": "ligne_orographique",
   "title": "BDTOPO : Lignes orographiques",
   "description": "Lignes orographiques − BDTOPO® V3 2026-03-15",
+  "keywords": [
+    "ligne_orographique"
+  ],
   "properties": [
     {
       "name": "cleabs",

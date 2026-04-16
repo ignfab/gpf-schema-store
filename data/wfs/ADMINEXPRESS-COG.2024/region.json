@@ -4,6 +4,9 @@
   "name": "region",
   "title": "ADMINEXPRESS COG 2024 Région",
   "description": "ADMINEXPRESS COG 2024 Région",
+  "keywords": [
+    "Unités administratives"
+  ],
   "properties": [
     {
       "name": "id",
