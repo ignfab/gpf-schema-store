@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2021:collectivite_territoriale",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2021 Collectivité territoriale",
+  "description": "ADMINEXPRESS COG 2021 Collectivité territoriale",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "nom_m": {
+      "type": "string"
+    },
+    "insee_col": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

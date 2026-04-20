@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_du:secteur_cc",
+  "type": "object",
+  "title": "Secteurs de la carte communale",
+  "description": "Secteurs de carte communale, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "libelle": {
+      "type": "string"
+    },
+    "libelong": {
+      "type": "string"
+    },
+    "typesect": {
+      "type": "string"
+    },
+    "fermreco": {
+      "type": "string"
+    },
+    "destdomi": {
+      "type": "string"
+    },
+    "nomfic": {
+      "type": "string"
+    },
+    "urlfic": {
+      "type": "string"
+    },
+    "insee": {
+      "type": "string"
+    },
+    "datappro": {
+      "type": "string"
+    },
+    "datvalid": {
+      "type": "string"
+    },
+    "idurba": {
+      "type": "string"
+    },
+    "lib_idzone": {
+      "type": "string"
+    },
+    "symbole": {
+      "type": "string"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

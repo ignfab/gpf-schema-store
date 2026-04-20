@@ -20,7 +20,7 @@ describe('getCollectionCatalog search engine configuration', () => {
       engine: new SingleMatchEngine('BDTOPO_V3:batiment'),
     });
 
-    const ids = catalog.search('ignored').map((collection) => collection.id);
+    const ids = catalog.searchWithScores('ignored').map((result) => result.id);
 
     expect(ids).toEqual(['BDTOPO_V3:batiment']);
   });
@@ -34,7 +34,7 @@ describe('getCollectionCatalog search engine configuration', () => {
       },
     });
 
-    const ids = catalog.search('ignored').map((collection) => collection.id);
+    const ids = catalog.searchWithScores('ignored').map((result) => result.id);
 
     expect(collectionCount).toBeGreaterThan(0);
     expect(ids).toEqual(['ADMINEXPRESS-COG.LATEST:commune']);

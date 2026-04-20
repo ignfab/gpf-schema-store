@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2025:chef_lieu_de_region",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2025 Chef-lieu de Région",
+  "description": "ADMINEXPRESS COG 2025 Chef-lieu de Région",
+  "properties": {
+    "cleabs": {
+      "type": "string"
+    },
+    "nom_officiel": {
+      "type": "string"
+    },
+    "nom_officiel_en_majuscules": {
+      "type": "string"
+    },
+    "nom_du_chef_lieu": {
+      "type": "string"
+    },
+    "nom_du_chef_lieu_en_majuscules": {
+      "type": "string"
+    },
+    "code_siren": {
+      "type": "string"
+    },
+    "code_insee_de_la_region": {
+      "type": "string"
+    },
+    "code_insee_de_la_commune_siege": {
+      "type": "string"
+    },
+    "lien_vers_la_region": {
+      "type": "string"
+    },
+    "geometrie": {
+      "format": "geometry-point",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

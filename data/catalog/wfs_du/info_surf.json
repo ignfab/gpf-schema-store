@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_du:info_surf",
+  "type": "object",
+  "title": "Informations surfaciques",
+  "description": "Périmètre surfacique à reporter à titre d’information, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "libelle": {
+      "type": "string"
+    },
+    "txt": {
+      "type": "string"
+    },
+    "typeinf": {
+      "type": "string"
+    },
+    "typep": {
+      "type": "string"
+    },
+    "nomfic": {
+      "type": "string"
+    },
+    "urlfic": {
+      "type": "string"
+    },
+    "insee": {
+      "type": "string"
+    },
+    "idurba": {
+      "type": "string"
+    },
+    "datvalid": {
+      "type": "string"
+    },
+    "stypeinf": {
+      "type": "string"
+    },
+    "stypep": {
+      "type": "string"
+    },
+    "idinfo": {
+      "type": "string"
+    },
+    "lib_idinfo": {
+      "type": "string"
+    },
+    "nature": {
+      "type": "string"
+    },
+    "symbole": {
+      "type": "string"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

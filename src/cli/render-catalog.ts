@@ -2,6 +2,7 @@ import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { isAbsolute, join, relative, resolve, sep } from 'node:path';
 
 import type { Collection } from '../types';
+import { renderCollectionSchema } from '../renderers/collection-schema';
 
 export interface RenderCatalogOptions {
   clean?: boolean;
@@ -60,7 +61,7 @@ export function writeRenderedCatalog(
     mkdirSync(namespaceDir, { recursive: true });
     writeFileSync(
       join(namespaceDir, `${collection.name}.json`),
-      `${JSON.stringify(collection, null, 2)}\n`,
+      `${JSON.stringify(renderCollectionSchema(collection), null, 2)}\n`,
     );
   }
 

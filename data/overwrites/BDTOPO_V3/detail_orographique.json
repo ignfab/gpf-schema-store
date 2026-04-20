@@ -1,52 +1,53 @@
 {
-  "id": "Lieux nommés:Détail orographique",
-  "namespace": "Lieux nommés",
-  "name": "Détail orographique",
   "title": "Détail orographique",
+  "x-ign-theme": "Lieux nommés",
   "description": "",
   "properties": [
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet.",
-      "nullable": false
+      "description": "Identifiant unique de l'objet."
     },
     {
       "name": "nature",
       "type": "string",
       "title": "Nature",
       "description": "Précise la nature du détail orographique.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Cap",
+          "const": "Cap",
+          "title": "Cap",
           "description": "Prédominance dans le contour d’une côte.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Pointe",
             "Promontoire"
           ]
         },
         {
-          "value": "Cirque",
+          "const": "Cirque",
+          "title": "Cirque",
           "description": "Dépression semi-circulaire, à bords raides."
         },
         {
-          "value": "Col",
+          "const": "Col",
+          "title": "Col",
           "description": "Point de passage imposé par la configuration du relief."
         },
         {
-          "value": "Crête",
+          "const": "Crête",
+          "title": "Crête",
           "description": "Partie étroite, saillante, qui constitue la cime d'une montagne. Ligne de partage des eaux (limite qui divise un territoire en un ou plusieurs bassins versants ; de chaque côté de cette ligne, les eaux s’écoulent dans des directions différentes).",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Arête",
             "Ligne de faîte"
           ]
         },
         {
-          "value": "Dépression",
+          "const": "Dépression",
+          "title": "Dépression",
           "description": "Dépression naturelle du sol.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Bassin fermé",
             "Cuvette",
             "Doline",
@@ -54,13 +55,15 @@
           ]
         },
         {
-          "value": "Dune",
+          "const": "Dune",
+          "title": "Dune",
           "description": "Relief constitué par un amas de sable."
         },
         {
-          "value": "Escarpement",
+          "const": "Escarpement",
+          "title": "Escarpement",
           "description": "Relief en pente abrupte ; versant en pente abrupte d'une montagne.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Barre rocheuse",
             "Escarpement rocheux",
             "Face abrupte",
@@ -68,71 +71,82 @@
           ]
         },
         {
-          "value": "Gorge",
+          "const": "Gorge",
+          "title": "Gorge",
           "description": "Vallée étroite et encaissée.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Canyon",
             "Cluse",
             "Défilé"
           ]
         },
         {
-          "value": "Gouffre",
+          "const": "Gouffre",
+          "title": "Gouffre",
           "description": "Excavation dont l’ouverture se situe dans le sol."
         },
         {
-          "value": "Grotte",
+          "const": "Grotte",
+          "title": "Grotte",
           "description": "Grotte naturelle ou excavation.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Cave naturelle",
             "Fenêtre"
           ]
         },
         {
-          "value": "Ile",
+          "const": "Ile",
+          "title": "Ile",
           "description": "Espace de terre, d'étendue variable, entouré d'eau de tous côtés, ou rattaché au continent par un pédoncule plus ou moins large.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Ilot",
             "Presqu’île"
           ]
         },
         {
-          "value": "Isthme",
+          "const": "Isthme",
+          "title": "Isthme",
           "description": "Bande de terre étroite entre deux mers, réunissant deux terres."
         },
         {
-          "value": "Montagne",
+          "const": "Montagne",
+          "title": "Montagne",
           "description": "Désigne une montagne ou un massif de manière globale et non un sommet en particulier (voir Nature=\"Sommet\")."
         },
         {
-          "value": "Pic",
+          "const": "Pic",
+          "title": "Pic",
           "description": "Sommet pointu d’une montagne.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Aiguille",
             "Piton"
           ]
         },
         {
-          "value": "Plage",
+          "const": "Plage",
+          "title": "Plage",
           "description": "Zone littorale marquée par le flux et le reflux des marées."
         },
         {
-          "value": "Plaine",
+          "const": "Plaine",
+          "title": "Plaine",
           "description": "Zone de surface terrestre caractérisée par une relative planéité."
         },
         {
-          "value": "Récif",
+          "const": "Récif",
+          "title": "Récif",
           "description": "Rochers situés en mer ou dans un fleuve, mais dont une partie, faiblement émergée, peut constituer un obstacle ou un repère.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Brisants",
             "Récifs",
             "Rochers marins"
           ]
         },
         {
-          "value": "Rochers",
+          "const": "Rochers",
+          "title": "Rochers",
           "description": "Zone ou détail caractérisé par une nature rocheuse mais non verticale (--> Nature=\"Falaise\")",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Cheminée de fée",
             "Affleurement rocheux",
             "Eboulis",
@@ -140,9 +154,10 @@
           ]
         },
         {
-          "value": "Sommet",
+          "const": "Sommet",
+          "title": "Sommet",
           "description": "Point haut du relief non caractérisé par un profil abrupt (voir aussi Nature=\"Pic\".)",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Colline",
             "Mamelon",
             "Mont",
@@ -150,13 +165,15 @@
           ]
         },
         {
-          "value": "Terril",
+          "const": "Terril",
+          "title": "Terril",
           "description": "Colline artificielle construite par accumulation de résidu minier."
         },
         {
-          "value": "Vallée",
+          "const": "Vallée",
+          "title": "Vallée",
           "description": "Espace de terre resserré entre deux coteaux. Forme définie par la convergence des versants et qui est, ou a été parcourue par un cours d'eau ou un glacier.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Combe",
             "Ravin",
             "Val",
@@ -166,11 +183,13 @@
           ]
         },
         {
-          "value": "Versant",
+          "const": "Versant",
+          "title": "Versant",
           "description": "Plan incliné joignant une ligne de crête et un thalweg."
         },
         {
-          "value": "Volcan",
+          "const": "Volcan",
+          "title": "Volcan",
           "description": "Toute forme de relief témoignant d’une activité volcanique."
         }
       ]
@@ -180,97 +199,51 @@
       "type": "string",
       "title": "Nature détaillée",
       "description": "Nature particulière du détail orographique",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Ancien glacier",
-          "description": "Zone de moraines ou ancien glacier portant un toponyme.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Vallée"
-            ]
-          }
+          "const": "Ancien glacier",
+          "title": "Ancien glacier",
+          "description": "Zone de moraines ou ancien glacier portant un toponyme."
         },
         {
-          "value": "Atoll",
-          "description": "Île en forme d'anneau constituée de récifs coralliens entourant un lagon.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Ile"
-            ]
-          }
+          "const": "Atoll",
+          "title": "Atoll",
+          "description": "Île en forme d'anneau constituée de récifs coralliens entourant un lagon."
         },
         {
-          "value": "Aven",
-          "description": "Abîme, formation géologique caractéristique des régions karstiques des Causses et vallées de l'Aveyron et de la Lozère dans le Massif Central.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Gouffre"
-            ]
-          }
+          "const": "Aven",
+          "title": "Aven",
+          "description": "Abîme, formation géologique caractéristique des régions karstiques des Causses et vallées de l'Aveyron et de la Lozère dans le Massif Central."
         },
         {
-          "value": "Bloc rocheux isolé",
-          "description": "Bloc rocheux caractéristique faisant office de point de repère, généralement dans un paysage dégagé.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Rochers"
-            ]
-          }
+          "const": "Bloc rocheux isolé",
+          "title": "Bloc rocheux isolé",
+          "description": "Bloc rocheux caractéristique faisant office de point de repère, généralement dans un paysage dégagé."
         },
         {
-          "value": "Cave",
-          "description": "Grotte naturelle utilisée pour le vieillissement, la conservation ou la culture de produits alimentaires.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Grotte"
-            ]
-          }
+          "const": "Cave",
+          "title": "Cave",
+          "description": "Grotte naturelle utilisée pour le vieillissement, la conservation ou la culture de produits alimentaires."
         },
         {
-          "value": "Cheminée de fée",
-          "description": "Grande colonne naturelle faite de roches friables, le plus souvent sédimentaires, et dont le sommet est constitué d'une roche résistant mieux à l'érosion.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Rochers"
-            ]
-          }
+          "const": "Cheminée de fée",
+          "title": "Cheminée de fée",
+          "description": "Grande colonne naturelle faite de roches friables, le plus souvent sédimentaires, et dont le sommet est constitué d'une roche résistant mieux à l'érosion."
         },
         {
-          "value": "Fenêtre",
-          "description": "Accès à une conduite forcée ou à un canal souterrain (à flanc de colline). Les trappes de visite ne sont pas saisies.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Grotte"
-            ]
-          }
+          "const": "Fenêtre",
+          "title": "Fenêtre",
+          "description": "Accès à une conduite forcée ou à un canal souterrain (à flanc de colline). Les trappes de visite ne sont pas saisies."
         },
         {
-          "value": "Inselberg",
-          "description": "Relief isolé (colline ou un petit massif) qui, en Guyane, domine significativement une plaine ou un plateau.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Sommet"
-            ]
-          }
+          "const": "Inselberg",
+          "title": "Inselberg",
+          "description": "Relief isolé (colline ou un petit massif) qui, en Guyane, domine significativement une plaine ou un plateau."
         },
         {
-          "value": "Presqu'île",
-          "description": "Partie saillante d'une côte, reliée à la terre par un isthme.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Ile"
-            ]
-          }
+          "const": "Presqu'île",
+          "title": "Presqu'île",
+          "description": "Partie saillante d'une côte, reliée à la terre par un isthme."
         }
       ]
     },
@@ -278,34 +251,37 @@
       "name": "toponyme",
       "type": "string",
       "title": "Toponyme",
-      "description": "Toponyme de l'objet.",
-      "nullable": true
+      "description": "Toponyme de l'objet."
     },
     {
       "name": "statut_du_toponyme",
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Autre",
+          "const": "Autre",
+          "title": "Autre",
           "description": "Autre statut. Surnom, toponyme de source non certaine.."
         },
         {
-          "value": "Collecté",
+          "const": "Collecté",
+          "title": "Collecté",
           "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
         },
         {
-          "value": "Historique",
+          "const": "Historique",
+          "title": "Historique",
           "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
         },
         {
-          "value": "Régional",
+          "const": "Régional",
+          "title": "Régional",
           "description": "Toponyme en langue régionale."
         },
         {
-          "value": "Validé",
+          "const": "Validé",
+          "title": "Validé",
           "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
         }
       ]
@@ -315,30 +291,35 @@
       "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les Détail orographique en fonction de leur importance ou notoriété relative telle que définie sur la carte topographique IGN.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "1",
+          "const": "1",
+          "title": "1",
           "description": "L'objet a une importance ou un rayonnement national, justifiant de le représenter aux échelles de l'ordre du 1 : 1 000 000."
         },
         {
-          "value": "2",
+          "const": "2",
+          "title": "2",
           "description": "L'objet a une importance ou un rayonnement régional, justifiant de le représenter aux échelles de l'ordre du 1 : 250 000."
         },
         {
-          "value": "3",
+          "const": "3",
+          "title": "3",
           "description": "L'objet a une importance ou un rayonnement départemental, justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
         },
         {
-          "value": "4",
+          "const": "4",
+          "title": "4",
           "description": "L'objet a une importance ou un rayonnement intercommunal ou cantonal, justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
         },
         {
-          "value": "5",
+          "const": "5",
+          "title": "5",
           "description": "L'objet a une importance ou un rayonnement communal, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
         },
         {
-          "value": "6",
+          "const": "6",
+          "title": "6",
           "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
         }
       ]
@@ -347,189 +328,210 @@
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "nullable": true
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "nullable": true
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "nullable": true
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "nullable": true
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     {
       "name": "methode_d_acquisition_planimetrique",
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "BDCarto",
+          "const": "BDCarto",
+          "title": "BDCarto",
           "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
         },
         {
-          "value": "BDNyme",
+          "const": "BDNyme",
+          "title": "BDNyme",
           "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
         },
         {
-          "value": "BDParcellaire",
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
           "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
         },
         {
-          "value": "BDParcellaire recalée",
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
           "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
         },
         {
-          "value": "BDTopo",
+          "const": "BDTopo",
+          "title": "BDTopo",
           "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
         },
         {
-          "value": "Calcul d'enveloppe urbaine",
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
           "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
         },
         {
-          "value": "Calculé",
+          "const": "Calculé",
+          "title": "Calculé",
           "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
         },
         {
-          "value": "Fichier numérique décimétrique",
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
           "description": "La géométrie provient de données numériques de précision décimétrique."
         },
         {
-          "value": "Fichier numérique métrique",
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
           "description": "La géométrie provient de données numériques de précision métrique."
         },
         {
-          "value": "Fichier numérique non métrique",
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
           "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
         },
         {
-          "value": "Géocodage",
+          "const": "Géocodage",
+          "title": "Géocodage",
           "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
         },
         {
-          "value": "Géoroute",
+          "const": "Géoroute",
+          "title": "Géoroute",
           "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
         },
         {
-          "value": "Image satellite",
+          "const": "Image satellite",
+          "title": "Image satellite",
           "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
         },
         {
-          "value": "Image satellite HR",
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
           "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
         },
         {
-          "value": "Inconnue",
+          "const": "Inconnue",
+          "title": "Inconnue",
           "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
         },
         {
-          "value": "Levé GPS",
+          "const": "Levé GPS",
+          "title": "Levé GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
         },
         {
-          "value": "Levé non GPS",
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
         },
         {
-          "value": "Lidar",
+          "const": "Lidar",
+          "title": "Lidar",
           "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
         },
         {
-          "value": "Lidar HD",
+          "const": "Lidar HD",
+          "title": "Lidar HD",
           "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
         },
         {
-          "value": "Orthophotographie",
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
           "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
         },
         {
-          "value": "Photogrammétrie",
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
           "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
         },
         {
-          "value": "Plan métrique papier",
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
         },
         {
-          "value": "Plan non métrique papier",
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
         },
         {
-          "value": "Processus IA métrique"
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
         },
         {
-          "value": "Processus IA non métrique"
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
         },
         {
-          "value": "Scan25",
+          "const": "Scan25",
+          "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "nullable": true
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
-      "description": "",
-      "nullable": false
+      "description": ""
     },
     {
       "name": "insee_commune",
       "type": "string",
       "title": "Insee commune calculé",
-      "description": "Code INSEE de la commune calculé.",
-      "nullable": true
+      "description": "Code INSEE de la commune calculé."
     },
     {
       "name": "identifiant_voie_ban",
       "type": "string",
       "title": "Identifiant voie BAN",
-      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056.",
-      "nullable": true
+      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
     },
     {
       "name": "id_ban_odonyme",
       "type": "string",
       "title": "Id BAN Odonyme",
-      "description": "Identifiant de l'odonyme de la BAN, au format uuid.",
-      "nullable": true
+      "description": "Identifiant de l'odonyme de la BAN, au format uuid."
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature",
+    "importance",
+    "methode_d_acquisition_planimetrique",
+    "geometrie"
   ]
 }

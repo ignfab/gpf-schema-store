@@ -1,40 +1,37 @@
 {
-  "id": "Bâti:Bâtiment",
-  "namespace": "Bâti",
-  "name": "Bâtiment",
   "title": "Bâtiment",
+  "x-ign-theme": "Bâti",
   "description": "Construction au-dessus du sol qui est utilisée pour abriter des humains, des animaux, des objets, pour la production de biens économiques ou pour la prestation de services et qui se réfère à toute structure construite ou érigée de façon permanente sur son site.",
-  "selectionCriteria": "Initialement, les seuils de sélection des bâtiments étaient les suivants : - Tous les bâtiments de plus de 50 m² sont inclus. - Les bâtiments faisant entre 20 et 50 m² sont sélectionnés en fonction de leur environnement et de leur aspect. - Les bâtiments de moins de 20 m² sont représentés par un objet de classe Construction ponctuelle s’ils sont très hauts, ou s’ils sont spécifiquement désignés sur la carte au 1 : 25 000 en cours (ex: antenne, transformateur…). Après unification de la BD TOPO® avec la BD PARCELLAIRE® Tous les bâtiments présents dans la dernière édition de la BD PARCELLAIRE® vecteur sont inclus, sauf éventuellement des bâtiments manifestement détruits depuis la date de validité de la BD PARCELLAIRE®. Les petits bâtiments de la BD PARCELLAIRE® qui représentent des constructions ponctuelles (exemple des transformateurs) ou des constructions linéaires (exemple des murs de remparts) sont saisis avec leur modélisation initiale respective en BD TOPO®. Il n’existe plus de seuil minimal pour la superficie des bâtiments. Cependant, si une nouvelle saisie photogrammétrique a lieu après les phases d’unification du bâti, les nouveaux bâtiments ne posséderont pas la granularité de la BD PARCELLAIRE®. Pour la restitution, les seuils de sélection initiaux sont alors appliqués (bâtiments de plus de 50 m² et bâtiments de 20 à 50 m² en fonction de leur environnement et de leur aspect).",
+  "x-ign-selectionCriteria": "Initialement, les seuils de sélection des bâtiments étaient les suivants : - Tous les bâtiments de plus de 50 m² sont inclus. - Les bâtiments faisant entre 20 et 50 m² sont sélectionnés en fonction de leur environnement et de leur aspect. - Les bâtiments de moins de 20 m² sont représentés par un objet de classe Construction ponctuelle s’ils sont très hauts, ou s’ils sont spécifiquement désignés sur la carte au 1 : 25 000 en cours (ex: antenne, transformateur…). Après unification de la BD TOPO® avec la BD PARCELLAIRE® Tous les bâtiments présents dans la dernière édition de la BD PARCELLAIRE® vecteur sont inclus, sauf éventuellement des bâtiments manifestement détruits depuis la date de validité de la BD PARCELLAIRE®. Les petits bâtiments de la BD PARCELLAIRE® qui représentent des constructions ponctuelles (exemple des transformateurs) ou des constructions linéaires (exemple des murs de remparts) sont saisis avec leur modélisation initiale respective en BD TOPO®. Il n’existe plus de seuil minimal pour la superficie des bâtiments. Cependant, si une nouvelle saisie photogrammétrique a lieu après les phases d’unification du bâti, les nouveaux bâtiments ne posséderont pas la granularité de la BD PARCELLAIRE®. Pour la restitution, les seuils de sélection initiaux sont alors appliqués (bâtiments de plus de 50 m² et bâtiments de 20 à 50 m² en fonction de leur environnement et de leur aspect).",
   "properties": [
     {
       "name": "geometrie",
       "type": "string",
       "title": "Géométrie",
-      "description": "Géométrie de l'objet.",
-      "nullable": false
+      "description": "Géométrie de l'objet."
     },
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet.",
-      "nullable": false
+      "description": "Identifiant unique de l'objet."
     },
     {
       "name": "nature",
       "type": "string",
       "title": "Nature",
       "description": "Attribut permettant de distinguer différents types de bâtiments selon leur architecture.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Arc de triomphe",
+          "const": "Arc de triomphe",
+          "title": "Arc de triomphe",
           "description": "Portique monumental."
         },
         {
-          "value": "Arène ou théâtre antique",
+          "const": "Arène ou théâtre antique",
+          "title": "Arène ou théâtre antique",
           "description": "Vaste édifice à gradins, de forme en partie ou totalement ronde ou elliptique.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Arène antique",
             "Théâtre antique",
             "Théâtre de plein air",
@@ -42,25 +39,29 @@
           ]
         },
         {
-          "value": "Chapelle",
+          "const": "Chapelle",
+          "title": "Chapelle",
           "description": "Petit édifice religieux chrétien de forme caractéristique."
         },
         {
-          "value": "Château",
+          "const": "Château",
+          "title": "Château",
           "description": "Habitation ou ancienne habitation féodale, royale ou seigneuriale.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Château fort",
             "Manoir"
           ]
         },
         {
-          "value": "Eglise",
+          "const": "Eglise",
+          "title": "Eglise",
           "description": "Édifice religieux chrétien de forme caractéristique."
         },
         {
-          "value": "Fort, blockhaus, casemate",
+          "const": "Fort, blockhaus, casemate",
+          "title": "Fort, blockhaus, casemate",
           "description": "Ouvrage militaire",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Blockhaus (bâtiment)",
             "Casemate (bâtiment)",
             "Fort (bâtiment)",
@@ -71,9 +72,10 @@
           ]
         },
         {
-          "value": "Indifférenciée",
+          "const": "Indifférenciée",
+          "title": "Indifférenciée",
           "description": "C’est la valeur prise par défaut, chaque fois que l'aspect général d'un bâtiment ne révèle rien de sa nature exacte.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Bâtiment d'habitation",
             "Bâtiments administratifs",
             "Bâtiment public",
@@ -97,9 +99,10 @@
           ]
         },
         {
-          "value": "Industriel, agricole ou commercial",
+          "const": "Industriel, agricole ou commercial",
+          "title": "Industriel, agricole ou commercial",
           "description": "Grand bâtiment dont l'architecture générale révèle une fonction industrielle, agricole ou commerciale.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Atelier",
             "Auvent de quai de gare",
             "Auvent de péage",
@@ -121,9 +124,10 @@
           ]
         },
         {
-          "value": "Monument",
+          "const": "Monument",
+          "title": "Monument",
           "description": "Monument commémoratif quelconque à l’exception des arcs de triomphe",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Mausolée",
             "Monument commémoratif",
             "Statue",
@@ -131,21 +135,25 @@
           ]
         },
         {
-          "value": "Moulin à vent",
+          "const": "Moulin à vent",
+          "title": "Moulin à vent",
           "description": "Bâtiment de forme cylindrique possédant des pales dont l'action par le vent permet de moudre le grain."
         },
         {
-          "value": "Serre",
+          "const": "Serre",
+          "title": "Serre",
           "description": "Abri clos à parois translucides destiné à protéger les végétaux du froid."
         },
         {
-          "value": "Silo",
+          "const": "Silo",
+          "title": "Silo",
           "description": "Réservoir, qui chargé par le haut se vide par le bas, et qui sert de dépôt, de magasin, etc... pour des denrées agricoles."
         },
         {
-          "value": "Tour, donjon",
+          "const": "Tour, donjon",
+          "title": "Tour, donjon",
           "description": "Bâtiment remarquable dans le paysage par sa forme élevée.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Donjon (>20 m²)",
             "Tour (bâtiment)",
             "Tour de contrôle (>20 m²)",
@@ -159,7 +167,8 @@
           ]
         },
         {
-          "value": "Tribune",
+          "const": "Tribune",
+          "title": "Tribune",
           "description": "Tribune de terrain de sport (stade, hippodrome, vélodrome,…)."
         }
       ]
@@ -169,12 +178,12 @@
       "type": "string",
       "title": "Usage 1",
       "description": "Usage du bâtiment ou d'une partie du bâtiment.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Agricole",
+          "const": "Agricole",
+          "title": "Agricole",
           "description": "Bâtiment réservé à des activités agricoles.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Bâtiment d'élevage industriel",
             "Hangar agricole",
             "Cuve à vin",
@@ -185,9 +194,10 @@
           ]
         },
         {
-          "value": "Annexe",
+          "const": "Annexe",
+          "title": "Annexe",
           "description": "Petit bâtiment à vocation d'annexe au sens fiscal (garage externe, abri...).",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Cabane de jardin",
             "Abri de jardin",
             "Carport",
@@ -198,9 +208,10 @@
           ]
         },
         {
-          "value": "Commercial et services",
+          "const": "Commercial et services",
+          "title": "Commercial et services",
           "description": "Bâtiment à usage commercial, administratif ou de services.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Centre commercial (bâtiment)",
             "Hypermarché",
             "Marché couvert",
@@ -221,13 +232,15 @@
           ]
         },
         {
-          "value": "Indifférencié",
+          "const": "Indifférencié",
+          "title": "Indifférencié",
           "description": "Bâtiment d'usage inconnu."
         },
         {
-          "value": "Industriel",
+          "const": "Industriel",
+          "title": "Industriel",
           "description": "Bâtiment réservé à des activités industrielles.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Aciérie",
             "Arsenal",
             "Atelier (bâtiment)",
@@ -247,21 +260,24 @@
           ]
         },
         {
-          "value": "Religieux",
+          "const": "Religieux",
+          "title": "Religieux",
           "description": "Bâtiment réservé à l’exercice d’un culte religieux quelconque (chrétien, islamique, israélite, bouddhiste, hindouiste,…).",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Lieu de culte",
             "Monument religieux surfacique"
           ]
         },
         {
-          "value": "Résidentiel",
+          "const": "Résidentiel",
+          "title": "Résidentiel",
           "description": "Bâtiment d'habitation, d'usage résidentiel"
         },
         {
-          "value": "Sportif",
+          "const": "Sportif",
+          "title": "Sportif",
           "description": "Bâtiment réservé à la pratique sportive.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Gymnase (bâtiment)",
             "Piscine couverte",
             "Salle de sport",
@@ -282,31 +298,38 @@
       "type": "string",
       "title": "Usage 2",
       "description": "Autre usage d'un bâtiment de fonction mixte.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Agricole"
+          "const": "Agricole",
+          "title": "Agricole"
         },
         {
-          "value": "Annexe"
+          "const": "Annexe",
+          "title": "Annexe"
         },
         {
-          "value": "Commercial et services"
+          "const": "Commercial et services",
+          "title": "Commercial et services"
         },
         {
-          "value": "Indifférencié"
+          "const": "Indifférencié",
+          "title": "Indifférencié"
         },
         {
-          "value": "Industriel"
+          "const": "Industriel",
+          "title": "Industriel"
         },
         {
-          "value": "Religieux"
+          "const": "Religieux",
+          "title": "Religieux"
         },
         {
-          "value": "Résidentiel"
+          "const": "Résidentiel",
+          "title": "Résidentiel"
         },
         {
-          "value": "Sportif"
+          "const": "Sportif",
+          "title": "Sportif"
         }
       ]
     },
@@ -314,30 +337,32 @@
       "name": "construction_legere",
       "type": "boolean",
       "title": "Construction légère",
-      "description": "Indique qu'il s'agit d'une structure légère, non attachée au sol par l'intermédiaire de fondations, ou d'un bâtiment ou partie de bâtiment ouvert sur au moins un côté.",
-      "nullable": true
+      "description": "Indique qu'il s'agit d'une structure légère, non attachée au sol par l'intermédiaire de fondations, ou d'un bâtiment ou partie de bâtiment ouvert sur au moins un côté."
     },
     {
       "name": "etat_de_l_objet",
       "type": "string",
       "title": "Etat de l'objet bati",
       "description": "État ou stade de vie d'un objet qui, pour le thème bâti, peut être en projet, en construction, en service ou en ruine.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "En construction",
+          "const": "En construction",
+          "title": "En construction",
           "description": "L'objet géographique est en cours de construction."
         },
         {
-          "value": "En projet",
+          "const": "En projet",
+          "title": "En projet",
           "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
         },
         {
-          "value": "En ruine",
+          "const": "En ruine",
+          "title": "En ruine",
           "description": "L'objet est en ruine."
         },
         {
-          "value": "En service",
+          "const": "En service",
+          "title": "En service",
           "description": "L'objet géographique est en service, c'est à dire sa construction est terminée."
         }
       ]
@@ -346,151 +371,170 @@
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "nullable": true
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "nullable": true
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "nullable": true
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "nullable": true
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     {
       "name": "methode_d_acquisition_planimetrique",
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "BDCarto",
+          "const": "BDCarto",
+          "title": "BDCarto",
           "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
         },
         {
-          "value": "BDNyme",
+          "const": "BDNyme",
+          "title": "BDNyme",
           "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
         },
         {
-          "value": "BDParcellaire",
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
           "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
         },
         {
-          "value": "BDParcellaire recalée",
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
           "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
         },
         {
-          "value": "BDTopo",
+          "const": "BDTopo",
+          "title": "BDTopo",
           "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
         },
         {
-          "value": "Calcul d'enveloppe urbaine",
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
           "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
         },
         {
-          "value": "Calculé",
+          "const": "Calculé",
+          "title": "Calculé",
           "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
         },
         {
-          "value": "Fichier numérique décimétrique",
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
           "description": "La géométrie provient de données numériques de précision décimétrique."
         },
         {
-          "value": "Fichier numérique métrique",
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
           "description": "La géométrie provient de données numériques de précision métrique."
         },
         {
-          "value": "Fichier numérique non métrique",
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
           "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
         },
         {
-          "value": "Géocodage",
+          "const": "Géocodage",
+          "title": "Géocodage",
           "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
         },
         {
-          "value": "Géoroute",
+          "const": "Géoroute",
+          "title": "Géoroute",
           "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
         },
         {
-          "value": "Image satellite",
+          "const": "Image satellite",
+          "title": "Image satellite",
           "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
         },
         {
-          "value": "Image satellite HR",
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
           "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
         },
         {
-          "value": "Inconnue",
+          "const": "Inconnue",
+          "title": "Inconnue",
           "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
         },
         {
-          "value": "Levé GPS",
+          "const": "Levé GPS",
+          "title": "Levé GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
         },
         {
-          "value": "Levé non GPS",
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
         },
         {
-          "value": "Lidar",
+          "const": "Lidar",
+          "title": "Lidar",
           "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
         },
         {
-          "value": "Lidar HD",
+          "const": "Lidar HD",
+          "title": "Lidar HD",
           "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
         },
         {
-          "value": "Orthophotographie",
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
           "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
         },
         {
-          "value": "Photogrammétrie",
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
           "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
         },
         {
-          "value": "Plan métrique papier",
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
         },
         {
-          "value": "Plan non métrique papier",
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
         },
         {
-          "value": "Processus IA métrique"
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
         },
         {
-          "value": "Processus IA non métrique"
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
         },
         {
-          "value": "Scan25",
+          "const": "Scan25",
+          "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
       ]
@@ -500,167 +544,173 @@
       "type": "string",
       "title": "Méthode d'acquisition altimétrique",
       "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "BDAlti",
+          "const": "BDAlti",
+          "title": "BDAlti",
           "description": "Le Z est interpolé sur un MNT issu de la BD ALTI® (ancienne BD altimétrique issue de la numérisation de cartes et de restitution photogrammétrique)."
         },
         {
-          "value": "BDTopo",
+          "const": "BDTopo",
+          "title": "BDTopo",
           "description": "Le Z provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
         },
         {
-          "value": "Corrélation",
+          "const": "Corrélation",
+          "title": "Corrélation",
           "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues de corrélation."
         },
         {
-          "value": "Fichier numérique",
+          "const": "Fichier numérique",
+          "title": "Fichier numérique",
           "description": "Le Z a été saisi à partir de données numériques fournies par un correspondant."
         },
         {
-          "value": "Fichier numérique décimétrique"
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique"
         },
         {
-          "value": "Interpolation bâti BDTopo",
+          "const": "Interpolation bâti BDTopo",
+          "title": "Interpolation bâti BDTopo",
           "description": "Lors de l’unification avec la BD PARCELLAIRE®, le Z a été calculé à partir des valeurs existantes aux environs."
         },
         {
-          "value": "Levé GPS",
+          "const": "Levé GPS",
+          "title": "Levé GPS",
           "description": "Le Z a été saisi directement sur le terrain par lever GPS."
         },
         {
-          "value": "Lidar",
+          "const": "Lidar",
+          "title": "Lidar",
           "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues du processus d'acquisition par LIDAR."
         },
         {
-          "value": "Lidar HD",
+          "const": "Lidar HD",
+          "title": "Lidar HD",
           "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
         },
         {
-          "value": "Pas de Z",
+          "const": "Pas de Z",
+          "title": "Pas de Z",
           "description": "L’objet est défini avec une géométrie 3D mais le Z est inconnu ou sa précision n'est pas connue/fiable."
         },
         {
-          "value": "Photogrammétrie",
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
           "description": "Le Z provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques (restitution)."
         },
         {
-          "value": "Photogrammétrie longue focale",
+          "const": "Photogrammétrie longue focale",
+          "title": "Photogrammétrie longue focale",
           "description": "Le Z provient de l’exploitation d’une prise de vues aériennes longue focale selon des processus photogrammétriques (restitution). La longueur de la focale a une incidence sur les pointés en Z qui sont meilleurs sur des focales courtes que sur des focales longues."
         },
         {
-          "value": "Plan coté",
+          "const": "Plan coté",
+          "title": "Plan coté",
           "description": "Le Z a été saisi à partir de points côtés figurant sur un plan."
         },
         {
-          "value": "Radar",
+          "const": "Radar",
+          "title": "Radar",
           "description": "Le Z provient de l’exploitation d’un MNT ou d’un MNS qui a été fait à partir d’acquisitions RADAR."
         },
         {
-          "value": "Z corrigé",
+          "const": "Z corrigé",
+          "title": "Z corrigé",
           "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
         }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "nullable": true
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "precision_altimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision altimétrique",
-      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet.",
-      "nullable": true
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet."
     },
     {
       "name": "nombre_de_logements",
       "type": "integer",
       "title": "Nombre de logements",
-      "description": "Nombre de logement dans le bâtiment.",
-      "nullable": true
+      "description": "Nombre de logement dans le bâtiment."
     },
     {
       "name": "nombre_d_etages",
       "type": "integer",
       "title": "Nombre d'étages",
-      "description": "Nombre total d'étages du bâtiment, rez-de-chaussée compris. Les sous-sol ne sont pas comptés.",
-      "nullable": true
+      "description": "Nombre total d'étages du bâtiment, rez-de-chaussée compris. Les sous-sol ne sont pas comptés."
     },
     {
       "name": "materiaux_des_murs",
       "type": "string",
       "title": "Matériaux des murs",
-      "description": "Code indiquant les matériaux des murs du bâtiment, issu des informations contenues dans les fichiers fonciers.",
-      "nullable": true
+      "description": "Code indiquant les matériaux des murs du bâtiment, issu des informations contenues dans les fichiers fonciers."
     },
     {
       "name": "materiaux_de_la_toiture",
       "type": "string",
       "title": "Matériaux de la toiture",
-      "description": "Code indiquant les matériaux de la toiture du bâtiment, issu des informations contenues dans les fichiers fonciers.",
-      "nullable": true
+      "description": "Code indiquant les matériaux de la toiture du bâtiment, issu des informations contenues dans les fichiers fonciers."
     },
     {
       "name": "hauteur",
-      "type": "numeric",
+      "type": "number",
       "title": "Hauteur",
-      "description": "Hauteur du bâtiment mesurée entre le sol et le point haut de la gouttière (altitude maximum de la polyligne décrivant le bâtiment), exprimée en mètres.",
-      "nullable": true
+      "description": "Hauteur du bâtiment mesurée entre le sol et le point haut de la gouttière (altitude maximum de la polyligne décrivant le bâtiment), exprimée en mètres."
     },
     {
       "name": "altitude_minimale_sol",
-      "type": "numeric",
+      "type": "number",
       "title": "Altitude minimale sol",
-      "description": "Altitude représentative au pied du bâtiment, du côté bas de la pente, exprimée en mètres.",
-      "nullable": true
+      "description": "Altitude représentative au pied du bâtiment, du côté bas de la pente, exprimée en mètres."
     },
     {
       "name": "altitude_minimale_toit",
-      "type": "numeric",
+      "type": "number",
       "title": "Altitude minimale toit",
-      "description": "Altitude du toit du bâtiment au niveau de l'arête décrivant son contour, exprimée en mètres.",
-      "nullable": true
+      "description": "Altitude du toit du bâtiment au niveau de l'arête décrivant son contour, exprimée en mètres."
     },
     {
       "name": "altitude_maximale_toit",
-      "type": "numeric",
+      "type": "number",
       "title": "Altitude maximale toit",
-      "description": "Altitude qui correspond à la hauteur maximale du toit, c’est-à-dire au faîte du toit, exprimée en mètres.",
-      "nullable": true
+      "description": "Altitude qui correspond à la hauteur maximale du toit, c’est-à-dire au faîte du toit, exprimée en mètres."
     },
     {
       "name": "altitude_maximale_sol",
-      "type": "numeric",
+      "type": "number",
       "title": "Altitude maximale sol",
-      "description": "Altitude qui correspond à l’altitude maximale située au pied d’un bâtiment, exprimée en mètres.",
-      "nullable": true
+      "description": "Altitude qui correspond à l’altitude maximale située au pied d’un bâtiment, exprimée en mètres."
     },
     {
       "name": "origine_du_batiment",
       "type": "string",
       "title": "Origine du bâtiment",
       "description": "Précise l'origine de la géométrie du Bâtiment ou Réservoir.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Autre",
+          "const": "Autre",
+          "title": "Autre",
           "description": "Le mode de saisie de la géométrie du bâtiment ou du réservoir est inconnu ou non identifié comme provenant du Cadastre ou d'une saisie sur images aériennes."
         },
         {
-          "value": "Cadastre",
+          "const": "Cadastre",
+          "title": "Cadastre",
           "description": "La géométrie du bâtiment ou du réservoir provient de fichiers cadastraux, parfois recalés par l'IGN. La saisie des contours est faite au niveau du mur."
         },
         {
-          "value": "Imagerie aérienne",
+          "const": "Imagerie aérienne",
+          "title": "Imagerie aérienne",
           "description": "La géométrie du bâtiment ou du réservoir provient de la numérisation d'images aériennes. La saisie des contours est faite \"à la gouttière\" : la surface de l'objet bâtiment ne reflète pas rigoureusement l'emprise au sol au sens cadastral."
         },
         {
-          "value": "Lidar HD",
+          "const": "Lidar HD",
+          "title": "Lidar HD",
           "description": "La géométrie du bâtiment ou du réservoir provient d'un calcul à partir du nuage de points Lidar HD."
         }
       ]
@@ -669,15 +719,24 @@
       "name": "appariement_fichiers_fonciers",
       "type": "string",
       "title": "Appariement fichiers fonciers",
-      "description": "Indicateur relatif à la fiabilité de l'appariement avec les fichiers fonciers. Ce chiffre exprime un taux de concordance entre la BD TOPO® et les fichiers fonciers basé sur plusieurs critères dont les principaux sont la surface, l'adresse, la nature et la hauteur.",
-      "nullable": true
+      "description": "Indicateur relatif à la fiabilité de l'appariement avec les fichiers fonciers. Ce chiffre exprime un taux de concordance entre la BD TOPO® et les fichiers fonciers basé sur plusieurs critères dont les principaux sont la surface, l'adresse, la nature et la hauteur."
     },
     {
       "name": "identifiants_rnb",
       "type": "string",
       "title": "Identifiants RNB",
-      "description": "Concaténation des identifiants du Référentiel National des Bâtiments Référentiel National des Bâtiments (RNB (https://rnb.beta.gouv.fr/definition)) associés au bâtiment BD TOPO®.",
-      "nullable": false
+      "description": "Concaténation des identifiants du Référentiel National des Bâtiments Référentiel National des Bâtiments (RNB (https://rnb.beta.gouv.fr/definition)) associés au bâtiment BD TOPO®."
     }
+  ],
+  "required": [
+    "geometrie",
+    "cleabs",
+    "nature",
+    "usage_1",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "methode_d_acquisition_altimetrique",
+    "origine_du_batiment",
+    "identifiants_rnb"
   ]
 }

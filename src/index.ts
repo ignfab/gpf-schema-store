@@ -1,10 +1,19 @@
 import type { CollectionCatalog, InMemoryCollectionCatalogOptions as CollectionCatalogOptions } from "./search/catalog";
-import type { Collection } from "./types";
+import type { CollectionSchema } from "./types";
 import { loadCollections } from "./services/storage";
 import { InMemoryCollectionCatalog } from "./search/catalog";
 import { MiniSearchCollectionSearchEngine } from "./search/minisearch-engine";
+import { renderCollectionSchema } from "./renderers/collection-schema";
 
-export type { AllowedValue, AvailableWhen, Collection, CollectionProperty, CollectionPropertyType } from "./types";
+export type {
+    Collection,
+    CollectionOneOfValue,
+    CollectionProperty,
+    CollectionPropertyType,
+    CollectionSchema,
+    CollectionSchemaProperty,
+    CollectionSchemaValue,
+} from "./types";
 export type {
     CollectionCatalog,
     InMemoryCollectionCatalogOptions as CollectionCatalogOptions,
@@ -23,9 +32,10 @@ export type {
 } from "./search/minisearch-engine";
 export { InMemoryCollectionCatalog } from "./search/catalog";
 export { MiniSearchCollectionSearchEngine } from "./search/minisearch-engine";
+export { renderCollectionSchema } from "./renderers/collection-schema";
 
-export function getCollections(): Collection[] {
-    return structuredClone(loadCollections());
+export function getCollections(): CollectionSchema[] {
+    return loadCollections().map((collection) => renderCollectionSchema(collection));
 }
 
 export function getCollectionCatalog(

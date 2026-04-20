@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2025:chef_lieu_d_arrondissement",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2025 Chef-lieu d'Arrondissement",
+  "description": "ADMINEXPRESS COG 2025 Chef-lieu d'Arrondissement",
+  "properties": {
+    "cleabs": {
+      "type": "string"
+    },
+    "nom_officiel": {
+      "type": "string"
+    },
+    "nom_officiel_en_majuscules": {
+      "type": "string"
+    },
+    "nom_du_chef_lieu": {
+      "type": "string"
+    },
+    "nom_du_chef_lieu_en_majuscules": {
+      "type": "string"
+    },
+    "lien_vers_l_arrondissement": {
+      "type": "string"
+    },
+    "code_insee_de_l_arrondissement": {
+      "type": "string"
+    },
+    "numero_de_l_arrondissement": {
+      "type": "string"
+    },
+    "code_insee_de_la_commune_siege": {
+      "type": "string"
+    },
+    "geometrie": {
+      "format": "geometry-point",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

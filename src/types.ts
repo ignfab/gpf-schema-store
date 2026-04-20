@@ -117,151 +117,111 @@ export function assertIsValidPropertyType(value: unknown, context?: string): Col
 }
 
 /**
- * A conditional constraint that indicates when an allowed value is available.
- * The value is only applicable when the referenced property equals one of the
- * values in `equalsAny`.
- */
-export type AvailableWhen = {
-  /**
-   * The name of the property to check.
-   */
-  property: string;
-  /**
-   * The values that the referenced property must match.
-   */
-  equalsAny: string[];
-};
-
-/**
- * An allowed value for a property.
- *
- * Source: overwrite files (data/overwrites). These are propagated to the merged
- * collection via the spread in merge() and indexed for search by stringifyAllowedValues().
- *
- * Search indexing:
- *   - value               → indexed in the "allowedValues" virtual search field
- *   - description          → indexed in the "allowedValues" virtual search field
- *   - representedFeatures  → indexed in the "allowedValues" virtual search field (each entry)
- *   - availableWhen        → NOT indexed (conditional constraint, not searchable content)
- */
-export type AllowedValue = {
-  /**
-   * The value.
-   */
-  value: string;
-  /**
-   * The description of the value.
-   */
-  description?: string;
-  /**
-   * The features represented by this value.
-   */
-  representedFeatures?: string[];
-  /**
-   * A conditional constraint indicating when this value is available.
-   * Not indexed for search — this is a structural constraint, not content.
-   */
-  availableWhen?: AvailableWhen;
-};
-
-/**
  * A property of a collection.
- *
- * Field sources after merge:
- *   - name        → always from WFS original (never overwritten)
- *   - type        → always from WFS original (never overwritten)
- *   - title       → from overwrite when present
- *   - description → from overwrite when present
- *   - allowedValues → from overwrite when present; indexed in "allowedValues" search field
- *   - nullable    → from overwrite when present
- *   - defaultCrs  → from WFS original only; properties with defaultCrs bypass overwrite entirely
  */
 export type CollectionProperty = {
   /**
-   * The name of the property. Always from WFS original.
+   * The name of the property.
    */
   name: string;
   /**
-   * The type of the property. Always from WFS original.
+   * The type of the property.
    */
   type: CollectionPropertyType;
   /**
-   * The title of the property. From overwrite when present.
-   * Indexed in the "properties" search field.
+   * The title of the property.
    */
   title?: string;
   /**
-   * The description of the property. From overwrite when present.
-   * Indexed in the "properties" search field.
+   * The description of the property.
    */
   description?: string;
   /**
-   * The allowed values of the property. From overwrite when present.
-   * Indexed in the "allowedValues" search field (value, description, representedFeatures).
+   * The possible values of the property.
    */
-  allowedValues?: AllowedValue[];
+  enum?: string[];
   /**
-   * Whether the property is nullable. From overwrite when present.
-   * Not indexed for search.
+   * Rich enumerated values, used by enriched overwrite files.
    */
-  nullable?: boolean;
+  oneOf?: CollectionOneOfValue[];
+  /**
+   * IGN-specific represented features annotation.
+   */
+  'x-ign-representedFeatures'?: string[];
   /**
    * The default CRS of the geometry property (if the property is a geometry).
-   * From WFS original only. Properties with defaultCrs bypass overwrite entirely.
    */
   defaultCrs?: string;
+};
+
+/**
+ * A rich enumerated value in an enriched collection property.
+ */
+export type CollectionOneOfValue = {
+  /**
+   * The constant value accepted by the schema.
+   */
+  const: string;
+  /**
+   * Human readable title of the value.
+   */
+  title?: string;
+  /**
+   * Human readable description of the value.
+   */
+  description?: string;
+  /**
+   * IGN-specific represented features annotation.
+   */
+  'x-ign-representedFeatures'?: string[];
 };
 
 
 /**
  * The schema of a collection.
- *
- * Field sources after merge:
- *   - id, namespace, name → always from WFS original (never overwritten)
- *   - title, description  → from overwrite when present
- *   - selectionCriteria   → from overwrite when present; indexed in "allowedValues" search field
- *   - representedFeatures → from overwrite when present; indexed in "allowedValues" search field
- *   - properties          → merged individually (see CollectionProperty)
  */
 export type Collection = {
   /**
-   * The id of the collection (ex : "BDTOPO_V3:batiment"). Always from WFS original.
+   * The id of the collection (ex : "BDTOPO_V3:batiment").
    */
   id: string;
   /**
-   * The namespace of the collection (ex : "BDTOPO_V3"). Always from WFS original.
-   *
-   * @warning this is not standard in OGC API - Features
+   * The namespace of the collection (ex : "BDTOPO_V3").
+   * 
+   * @warning this is not standard in OGC API - Features 
    * (might be renamed to "serie" if they deal with grouping collections by a common theme and version)
    */
   namespace: string;
   /**
-   * The name of the collection (ex : "batiment"). Always from WFS original.
+   * The name of the collection (ex : "batiment").
    */
   name: string;
   /**
-   * The title of the collection. From overwrite when present.
-   * Indexed in the "title" search field.
+   * The title of the collection.
    */
   title: string;
   /**
-   * The description of the collection. From overwrite when present.
-   * Indexed in the "description" search field.
+   * The description of the collection.
    */
   description: string;
   /**
-   * The selection criteria of the collection. From overwrite when present.
-   * Indexed in the "allowedValues" virtual search field.
+   * IGN-specific theme annotation.
    */
-  selectionCriteria?: string;
+  'x-ign-theme'?: string;
   /**
-   * The features represented by the collection. From overwrite when present.
-   * Indexed in the "allowedValues" virtual search field (each entry individually).
+   * IGN-specific selection criteria annotation.
    */
-  representedFeatures?: string[];
+  'x-ign-selectionCriteria'?: string;
   /**
-   * The properties of the collection. Merged individually from WFS + overwrite.
-   * See CollectionProperty for per-field source and indexing details.
+   * IGN-specific represented features annotation.
+   */
+  'x-ign-representedFeatures'?: string[];
+  /**
+   * Required property names.
+   */
+  required?: string[];
+  /**
+   * The properties of the collection.
    */
   properties: CollectionProperty[];
 };
@@ -283,11 +243,69 @@ export type CollectionPropertyOverwrite = Omit<CollectionProperty, 'type'> & {
 /**
  * The schema of a collection overwrite.
  */
-export type CollectionOverwrite = Omit<Collection, 'properties'> & {
+export type CollectionOverwrite = {
+  /**
+   * The title of the collection.
+   */
+  title: string;
+  /**
+   * The description of the collection.
+   */
+  description: string;
+  /**
+   * IGN-specific theme annotation.
+   */
+  'x-ign-theme'?: string;
+  /**
+   * IGN-specific selection criteria annotation.
+   */
+  'x-ign-selectionCriteria'?: string;
+  /**
+   * IGN-specific represented features annotation.
+   */
+  'x-ign-representedFeatures'?: string[];
+  /**
+   * Required property names.
+   */
+  required?: string[];
   /**
    * The properties of the overwrite.
    */
   properties: CollectionPropertyOverwrite[];
+};
+
+export type CollectionSchemaValue = {
+  const: string;
+  title?: string;
+  description?: string;
+  'x-ign-representedFeatures'?: string[];
+};
+
+export type CollectionSchemaProperty = {
+  type?: 'string' | 'boolean' | 'integer' | 'number' | 'object' | 'array';
+  format?: string;
+  title?: string;
+  description?: string;
+  enum?: string[];
+  oneOf?: CollectionSchemaValue[];
+  'x-ogc-role'?: 'primary-geometry';
+  'x-ign-representedFeatures'?: string[];
+};
+
+/**
+ * Public catalog output: a logical JSON Schema for an OGC API Features collection.
+ */
+export type CollectionSchema = {
+  $schema: 'https://json-schema.org/draft/2020-12/schema';
+  'x-collection-id': string;
+  type: 'object';
+  title: string;
+  'x-ign-theme'?: string;
+  description: string;
+  'x-ign-selectionCriteria'?: string;
+  'x-ign-representedFeatures'?: string[];
+  properties: Record<string, CollectionSchemaProperty>;
+  required: string[];
 };
 
 /**

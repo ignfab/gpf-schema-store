@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.LATEST:chef_lieu_de_canton",
+  "type": "object",
+  "title": "ADMINEXPRESS COG Dernière édition Chef-lieu de Canton",
+  "description": "ADMINEXPRESS COG Dernière édition Chef-lieu de Canton",
+  "properties": {
+    "cleabs": {
+      "type": "string"
+    },
+    "nom_officiel": {
+      "type": "string"
+    },
+    "nom_officiel_en_majuscules": {
+      "type": "string"
+    },
+    "code_insee_du_canton": {
+      "type": "string"
+    },
+    "numero_du_canton": {
+      "type": "string"
+    },
+    "lien_vers_le_canton": {
+      "type": "string"
+    },
+    "nom_du_bureau_centralisateur": {
+      "type": "string"
+    },
+    "nom_du_bureau_centralisateur_en_majuscules": {
+      "type": "string"
+    },
+    "code_insee_de_la_commune_siege": {
+      "type": "string"
+    },
+    "geometrie": {
+      "format": "geometry-point",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

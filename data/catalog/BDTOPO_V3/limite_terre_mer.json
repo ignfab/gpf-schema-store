@@ -1,0 +1,377 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:limite_terre_mer",
+  "type": "object",
+  "title": "Limite terre-mer",
+  "x-ign-theme": "Hydrographie",
+  "description": "Ligne au niveau de laquelle une masse continentale est en contact avec une masse d'eau, inclut en particulier le trait de côte.",
+  "x-ign-selectionCriteria": "Sont retenues : - la laisse des plus hautes mers, - la laisse des plus basses mers, - les limite maritimes administratives : limites des affaires maritimes, limites de salure des eaux et limites transversales de la mer.",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string"
+    },
+    "code_hydrographique": {
+      "title": "Code hydrographique",
+      "description": "Identifiant de l'objet hydrographique.",
+      "type": "string"
+    },
+    "code_du_pays": {
+      "title": "Code du pays",
+      "description": "Code du pays auquel appartient l'objet hydrographique.",
+      "type": "string"
+    },
+    "type_de_limite": {
+      "title": "Type de limite",
+      "description": "Selon les enjeux, plusieurs limites terre-mer peuvent être définies en un même point du littoral. L'attribut 'Type de limite' précise sur quelle référence s'appuie le tracé de la Limite terre-mer.",
+      "oneOf": [
+        {
+          "const": "0 NGF",
+          "title": "0 NGF",
+          "description": "Laisse correspondant au niveau 0 selon le Nivellement Général de la France (NGF)."
+        },
+        {
+          "const": "Ligne de base",
+          "title": "Ligne de base",
+          "description": "La ligne de base normale est la laisse de basse mer des côtes, telle qu'elle est indiquée sur les cartes marines à grande échelle reconnues officiellement par l'État côtier (c'est-à-dire les cartes du SHOM pour la France)."
+        },
+        {
+          "const": "Limite de compétence du préfet",
+          "title": "Limite de compétence du préfet",
+          "description": "Limite à partir de laquelle le préfet maritime exerce ses compétences. Cela exclue les ports, les estuaires en deçà des limites transversales de la mer et les baies fermées dont la liste et les limites sont fixées par arrêté du Premier ministre."
+        },
+        {
+          "const": "Limite des affaires maritimes",
+          "title": "Limite des affaires maritimes",
+          "description": "Limite administrative maritime. Premier obstacle physique à la navigation maritime locale. A son aval, la navigation est «maritime», à son amont, la navigation est «fluviale», avec des conséquences en matière de normes de sécurité des navires, de police de la navigation, de qualification et de régime social des personnels (marine marchande ou batellerie). Elle délimite également l’exercice de la pêche en estuaire (statut des pêcheurs)."
+        },
+        {
+          "const": "Limite de salure des eaux",
+          "title": "Limite de salure des eaux",
+          "description": "Limite administrative maritime. Délimitation entre eaux marines et eaux fluviales. Elle est décidée après analyse de la salinité de l'eau en plusieurs points."
+        },
+        {
+          "const": "Limite transversale de la mer",
+          "title": "Limite transversale de la mer",
+          "description": "Limite administrative maritime. Dans les estuaires, elle distingue le domaine public maritime (à son aval) du domaine public fluvial (si le cours d’eau considéré est domanial) ou du domaine privé des riverains (à son amont). Elle constitue la véritable limite de la mer (en droit interne) et sert de référence pour déterminer les communes « riveraines de la mer » au sens de la loi du 3 janvier 1986,loi « littoral ». En application des décrets n°2004-112 du 6 février 2004 et n° 2005-1514 du 6 décembre 2005, elle détermine les zones de responsabilités respectives des préfets (en amont) et des représentants de l’Etat en mer (en aval – préfets maritimes et délégués du gouvernement pour l’action de l’Etat en mer outre-mer)."
+        }
+      ],
+      "type": "string"
+    },
+    "niveau": {
+      "title": "Niveau",
+      "description": "Niveau d'eau définissant la limite terre-mer (exemples : hautes-eaux, basses eaux).",
+      "oneOf": [
+        {
+          "const": "Plus basses eaux",
+          "title": "Plus basses eaux",
+          "description": "La limite des plus basses eaux ou laisse des plus basses mers constitue la limite inférieure de l’estran. Elle sépare la zone littorale découverte à marée basse de la zone toujours envahie par la mer. Elle correspond au zéro des cartes marines."
+        },
+        {
+          "const": "Plus hautes eaux",
+          "title": "Plus hautes eaux",
+          "description": "La limite des plus hautes eaux ou laisse des plus hautes mers constitue la limite supérieure de l’estran. Elle sépare la zone littorale recouverte par la mer à marée haute de la zone jamais envahie par la mer. Elle sépare en particulier les zones de sables humides des zones de sables secs. Dans le cas général, elle sépare le domaine maritime du territoire des communes."
+        }
+      ],
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "type": "string"
+    },
+    "identifiants_sources": {
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "type": "string"
+    },
+    "methode_d_acquisition_planimetrique": {
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
+      ],
+      "type": "string"
+    },
+    "precision_planimetrique": {
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
+      "type": "number"
+    },
+    "mode_d_obtention_des_coordonnees": {
+      "title": "Mode d'obtention des coordonnées",
+      "description": "Méthode utilisée pour déterminer les coordonnées de l'objet hydrographique.",
+      "oneOf": [
+        {
+          "const": "Autres modes",
+          "title": "Autres modes",
+          "description": "Autre mode d'obtention du positionnement non liste ci-avant."
+        },
+        {
+          "const": "Carte bathymétrique",
+          "title": "Carte bathymétrique",
+          "description": "Positionnement déterminé par interpolation sur une carte bathymétrique"
+        },
+        {
+          "const": "Carte géoréférencée",
+          "title": "Carte géoréférencée",
+          "description": "Positionnement déterminé à l'aide d'une carte géoréférencée (type IGN ou autre)."
+        },
+        {
+          "const": "Carte marine de navigation",
+          "title": "Carte marine de navigation",
+          "description": "Positionnement déterminé à l'aide d'une carte marine de navigation."
+        },
+        {
+          "const": "Carte non géoréférencée",
+          "title": "Carte non géoréférencée",
+          "description": "Positionnement déterminé par interpolation sur un plan non ou mal géoréférencé (ex : plan historique, extrait de carte ou croquis)."
+        },
+        {
+          "const": "Globe virtuel",
+          "title": "Globe virtuel",
+          "description": "Positionnement déterminé à partir d'un service de cartographie en ligne (Google Earth, Google Street Map, Microsoft Bing, TerraExplorer, …)."
+        },
+        {
+          "const": "GPS/GNSS autonome",
+          "title": "GPS/GNSS autonome",
+          "description": "Positionnement déterminé à l'aide d'un récepteur GPS grand public (intégré à un smartphone ou autre équipement) en l'absence de correction différentielle."
+        },
+        {
+          "const": "GPS/GNSS différentiel",
+          "title": "GPS/GNSS différentiel",
+          "description": "Positionnement déterminé à l'aide d'un récepteur GPS doté de fonctionnalités permettant les corrections différentielles. Le récepteur peut être un récepteur GPS grand public (assurant la réception d'un signal de correction différentielle type EGNOS) ou professionnel."
+        },
+        {
+          "const": "Imagerie satellite ou aérienne",
+          "title": "Imagerie satellite ou aérienne",
+          "description": "Positionnement déterminé à partir d'imagerie satellite ou aérienne (ex : orthophotoplan)."
+        },
+        {
+          "const": "Inconnu",
+          "title": "Inconnu",
+          "description": "Mode d'obtention du positionnement inconnu."
+        },
+        {
+          "const": "Planche cadastrale",
+          "title": "Planche cadastrale",
+          "description": "Positionnement déterminé à l'aide d'un plan cadastral."
+        },
+        {
+          "const": "Théodolite",
+          "title": "Théodolite",
+          "description": "Positionnement déterminé à l'aide d'une station totale (théodolite), permettant de mesurer les angles horizontaux et verticaux entre deux cibles, ainsi que la distance de ces cibles."
+        }
+      ],
+      "type": "string"
+    },
+    "statut": {
+      "title": "Statut de l'objet hydrographique",
+      "description": "État de validité de l'objet hydrographique au sens du dictionnaire du SANDRE. (http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html)",
+      "oneOf": [
+        {
+          "const": "Gelé",
+          "title": "Gelé",
+          "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Gelé\" lorsqu'il a fait l'objet d'un travail de vérification de sa pertinence par un groupe d'experts du SANDRE, au regard des listes de références existantes. La conclusion de ce travail a mis en évidence une ou plusieurs erreurs pouvant être de nature variée (redondance d'informations, informations incomplètes, confusion) qui n'autorisent pas son usage au sein d'échanges de données. Une nomenclature ou une occurrence de listes nationales de statut \"Gelé\" peut en outre évoluer à l'avenir vers un statut valide, toujours selon l'avis de groupes d'experts."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Valide\" lorsqu'il a été jugé pertinent et cohérent aux yeux d'un groupe d'experts, garantissant ainsi son caractère valide. La nomenclature ou l'occurrence de listes nationales est bien reconnu officiellement par le SANDRE et peut désormais faire l'objet d'échanges de données."
+        }
+      ],
+      "type": "string"
+    },
+    "origine": {
+      "title": "Origine",
+      "description": "Origine de la limite terre-mer (exemples : naturelle, artificielle).",
+      "oneOf": [
+        {
+          "const": "Artificielle",
+          "title": "Artificielle",
+          "description": "Côte artificielle (jetée, mole...)"
+        },
+        {
+          "const": "Naturelle aménagée",
+          "title": "Naturelle aménagée",
+          "description": "Cote naturelle aménagée par l'homme (quai, digue...)"
+        },
+        {
+          "const": "Naturelle non aménagée",
+          "title": "Naturelle non aménagée",
+          "description": "Cote naturelle non rocheuse et non aménagée."
+        },
+        {
+          "const": "Naturelle rocheuse",
+          "title": "Naturelle rocheuse",
+          "description": "Côte naturelle rocheuse."
+        }
+      ],
+      "type": "string"
+    },
+    "commentaire_sur_l_objet_hydro": {
+      "title": "Commentaire sur l'objet hydro",
+      "description": "Commentaire spécifique au réseau hydrographique.",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie",
+      "description": "",
+      "format": "geometry-linestring",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": [
+    "cleabs",
+    "methode_d_acquisition_planimetrique",
+    "geometrie"
+  ]
+}

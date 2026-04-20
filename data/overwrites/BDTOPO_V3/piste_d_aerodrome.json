@@ -1,11 +1,9 @@
 {
-  "id": "Transport:Piste d'aérodrome",
-  "namespace": "Transport",
-  "name": "Piste d'aérodrome",
   "title": "Piste d'aérodrome",
+  "x-ign-theme": "Transport",
   "description": "Aire située sur un aérodrome, aménagée afin de servir au roulement des aéronefs, à leur décollage et à leur atterrissage.",
-  "selectionCriteria": "Toutes les pistes situées dans un aérodrome sont incluses, que la piste soit revêtue ou en herbe. Les pistes réservées aux ULM (ou plate-forme ULM) ne sont pas saisies. Les pistes d’aéromodélisme ne sont pas retenues. Les pistes désaffectées sont saisies. Elles sont marquées par le champ 'Etat de l'objet transport'=\"Non exploité\".",
-  "representedFeatures": [
+  "x-ign-selectionCriteria": "Toutes les pistes situées dans un aérodrome sont incluses, que la piste soit revêtue ou en herbe. Les pistes réservées aux ULM (ou plate-forme ULM) ne sont pas saisies. Les pistes d’aéromodélisme ne sont pas retenues. Les pistes désaffectées sont saisies. Elles sont marquées par le champ 'Etat de l'objet transport'=\"Non exploité\".",
+  "x-ign-representedFeatures": [
     "Piste d’aérodrome en dur",
     "Piste d'aérodrome en herbe",
     "Aérodrome (piste)"
@@ -15,22 +13,22 @@
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet.",
-      "nullable": false
+      "description": "Identifiant unique de l'objet."
     },
     {
       "name": "nature",
       "type": "string",
       "title": "Nature",
       "description": "Nature du revêtement de roulement de la piste.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Piste en dur",
+          "const": "Piste en dur",
+          "title": "Piste en dur",
           "description": "Piste aménagée sur une surface dure."
         },
         {
-          "value": "Piste en herbe",
+          "const": "Piste en herbe",
+          "title": "Piste en herbe",
           "description": "Piste aménagée sur de l’herbe."
         }
       ]
@@ -40,22 +38,25 @@
       "type": "string",
       "title": "Fonction",
       "description": "L’attribut 'Fonction' permet de distinguer les différentes fonctions des pistes.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Aire de circulation",
+          "const": "Aire de circulation",
+          "title": "Aire de circulation",
           "description": "Surface aménagée pour la circulation des avions au sol et assurant la liaison entre les différentes parties de l’aéroport."
         },
         {
-          "value": "Aire de stationnement",
+          "const": "Aire de stationnement",
+          "title": "Aire de stationnement",
           "description": "Surface définie d'un aéroport ou d'un héliport, destinée au stationnement des avions."
         },
         {
-          "value": "Piste d'envol",
+          "const": "Piste d'envol",
+          "title": "Piste d'envol",
           "description": "Piste dédiée à l’envol des avions. Piste aménagée afin de servir sur sa longueur au roulement des aéronefs, lors des phases de décollage et d’atterrissage. Dans le cas des pistes en herbe des petits aérodromes, la piste d’envol correspond à la piste totale."
         },
         {
-          "value": "Prolongement d'arrêt",
+          "const": "Prolongement d'arrêt",
+          "title": "Prolongement d'arrêt",
           "description": "Aire de forme rectangulaire, située à l'extrémité de la zone de roulement, sur laquelle un aéronef peut s'arrêter lorsque le décollage est interrompu. Cette aire est aussi appelée Prolongement Occasionnellement Roulable (POR)."
         }
       ]
@@ -65,24 +66,27 @@
       "type": "string",
       "title": "Etat de l'objet transport",
       "description": "Etat ou stade d'un objet du thème Transport qui peut être en projet, en construction, en service ou non exploité.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "En construction",
+          "const": "En construction",
+          "title": "En construction",
           "description": "L'objet géographique est en construction."
         },
         {
-          "value": "En projet",
+          "const": "En projet",
+          "title": "En projet",
           "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
         },
         {
-          "value": "En service",
+          "const": "En service",
+          "title": "En service",
           "description": "L'objet géographique est en service."
         },
         {
-          "value": "Non exploité",
+          "const": "Non exploité",
+          "title": "Non exploité",
           "description": "La ligne ou l'équipement n’est plus exploité pour le transport de personnes ni de marchandises.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Voie ferrée déclassée",
             "Voie ferrée fermée à tout trafic ferroviaire",
             "Voie ferrée neutralisée",
@@ -97,243 +101,281 @@
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "nullable": true
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "nullable": true
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "nullable": true
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "nullable": true
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     {
       "name": "methode_d_acquisition_planimetrique",
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "BDCarto",
+          "const": "BDCarto",
+          "title": "BDCarto",
           "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
         },
         {
-          "value": "BDNyme",
+          "const": "BDNyme",
+          "title": "BDNyme",
           "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
         },
         {
-          "value": "BDParcellaire",
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
           "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
         },
         {
-          "value": "BDParcellaire recalée",
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
           "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
         },
         {
-          "value": "BDTopo",
+          "const": "BDTopo",
+          "title": "BDTopo",
           "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
         },
         {
-          "value": "Calcul d'enveloppe urbaine",
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
           "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
         },
         {
-          "value": "Calculé",
+          "const": "Calculé",
+          "title": "Calculé",
           "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
         },
         {
-          "value": "Fichier numérique décimétrique",
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
           "description": "La géométrie provient de données numériques de précision décimétrique."
         },
         {
-          "value": "Fichier numérique métrique",
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
           "description": "La géométrie provient de données numériques de précision métrique."
         },
         {
-          "value": "Fichier numérique non métrique",
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
           "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
         },
         {
-          "value": "Géocodage",
+          "const": "Géocodage",
+          "title": "Géocodage",
           "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
         },
         {
-          "value": "Géoroute",
+          "const": "Géoroute",
+          "title": "Géoroute",
           "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
         },
         {
-          "value": "Image satellite",
+          "const": "Image satellite",
+          "title": "Image satellite",
           "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
         },
         {
-          "value": "Image satellite HR",
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
           "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
         },
         {
-          "value": "Inconnue",
+          "const": "Inconnue",
+          "title": "Inconnue",
           "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
         },
         {
-          "value": "Levé GPS",
+          "const": "Levé GPS",
+          "title": "Levé GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
         },
         {
-          "value": "Levé non GPS",
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
         },
         {
-          "value": "Lidar",
+          "const": "Lidar",
+          "title": "Lidar",
           "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
         },
         {
-          "value": "Lidar HD",
+          "const": "Lidar HD",
+          "title": "Lidar HD",
           "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
         },
         {
-          "value": "Orthophotographie",
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
           "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
         },
         {
-          "value": "Photogrammétrie",
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
           "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
         },
         {
-          "value": "Plan métrique papier",
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
         },
         {
-          "value": "Plan non métrique papier",
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
         },
         {
-          "value": "Processus IA métrique"
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
         },
         {
-          "value": "Processus IA non métrique"
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
         },
         {
-          "value": "Scan25",
+          "const": "Scan25",
+          "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "nullable": true
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "methode_d_acquisition_altimetrique",
       "type": "string",
       "title": "Méthode d'acquisition altimétrique",
       "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "BDAlti",
+          "const": "BDAlti",
+          "title": "BDAlti",
           "description": "Le Z est interpolé sur un MNT issu de la BD ALTI® (ancienne BD altimétrique issue de la numérisation de cartes et de restitution photogrammétrique)."
         },
         {
-          "value": "BDTopo",
+          "const": "BDTopo",
+          "title": "BDTopo",
           "description": "Le Z provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
         },
         {
-          "value": "Corrélation",
+          "const": "Corrélation",
+          "title": "Corrélation",
           "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues de corrélation."
         },
         {
-          "value": "Fichier numérique",
+          "const": "Fichier numérique",
+          "title": "Fichier numérique",
           "description": "Le Z a été saisi à partir de données numériques fournies par un correspondant."
         },
         {
-          "value": "Fichier numérique décimétrique"
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique"
         },
         {
-          "value": "Interpolation bâti BDTopo",
+          "const": "Interpolation bâti BDTopo",
+          "title": "Interpolation bâti BDTopo",
           "description": "Lors de l’unification avec la BD PARCELLAIRE®, le Z a été calculé à partir des valeurs existantes aux environs."
         },
         {
-          "value": "Levé GPS",
+          "const": "Levé GPS",
+          "title": "Levé GPS",
           "description": "Le Z a été saisi directement sur le terrain par lever GPS."
         },
         {
-          "value": "Lidar",
+          "const": "Lidar",
+          "title": "Lidar",
           "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues du processus d'acquisition par LIDAR."
         },
         {
-          "value": "Lidar HD",
+          "const": "Lidar HD",
+          "title": "Lidar HD",
           "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
         },
         {
-          "value": "Pas de Z",
+          "const": "Pas de Z",
+          "title": "Pas de Z",
           "description": "L’objet est défini avec une géométrie 3D mais le Z est inconnu ou sa précision n'est pas connue/fiable."
         },
         {
-          "value": "Photogrammétrie",
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
           "description": "Le Z provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques (restitution)."
         },
         {
-          "value": "Photogrammétrie longue focale",
+          "const": "Photogrammétrie longue focale",
+          "title": "Photogrammétrie longue focale",
           "description": "Le Z provient de l’exploitation d’une prise de vues aériennes longue focale selon des processus photogrammétriques (restitution). La longueur de la focale a une incidence sur les pointés en Z qui sont meilleurs sur des focales courtes que sur des focales longues."
         },
         {
-          "value": "Plan coté",
+          "const": "Plan coté",
+          "title": "Plan coté",
           "description": "Le Z a été saisi à partir de points côtés figurant sur un plan."
         },
         {
-          "value": "Radar",
+          "const": "Radar",
+          "title": "Radar",
           "description": "Le Z provient de l’exploitation d’un MNT ou d’un MNS qui a été fait à partir d’acquisitions RADAR."
         },
         {
-          "value": "Z corrigé",
+          "const": "Z corrigé",
+          "title": "Z corrigé",
           "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
         }
       ]
     },
     {
       "name": "precision_altimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision altimétrique",
-      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet.",
-      "nullable": true
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet."
     },
     {
       "name": "geometrie",
       "type": "string",
       "title": "Géométrie",
-      "description": "",
-      "nullable": false
+      "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "methode_d_acquisition_altimetrique",
+    "geometrie"
   ]
 }

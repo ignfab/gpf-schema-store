@@ -1,29 +1,26 @@
 {
-  "id": "Transport:Itinéraire autre",
-  "namespace": "Transport",
-  "name": "Itinéraire autre",
   "title": "Itinéraire autre",
+  "x-ign-theme": "Transport",
   "description": "Itinéraire divers balisé et entretenu sur le terrain, pérenne, non labellisé par la FFRandonnée ni par le Club Vosgien. Itinéraire référencé dans le PDIPR (Plan Départemental des Itinéraires Pédestres de Randonnée), ou par au moins un organisme officiel qui en a la compétence (office de tourisme, epci, comité départemental de la FFRandonnée).",
-  "selectionCriteria": "Nature 'Autre' et 'Equestre' : l'exhaustivité n'est visée que sur les zones couvertes par des cartes TOP25 ou le département 02 (convention PDIPR pour la cartographie). En dehors de ces zones, des itinéraires peuvent être saisis en cas de partenariat. Nature 'Sentier de découverte' et 'Parcours sportif' : France entière.",
+  "x-ign-selectionCriteria": "Nature 'Autre' et 'Equestre' : l'exhaustivité n'est visée que sur les zones couvertes par des cartes TOP25 ou le département 02 (convention PDIPR pour la cartographie). En dehors de ces zones, des itinéraires peuvent être saisis en cas de partenariat. Nature 'Sentier de découverte' et 'Parcours sportif' : France entière.",
   "properties": [
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet.",
-      "nullable": false
+      "description": "Identifiant unique de l'objet."
     },
     {
       "name": "nature",
       "type": "string",
       "title": "Nature",
       "description": "Renseigne la nature de l'itinéraire : pédestre, équestre ou cyclable.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Itinéraire cyclable",
+          "const": "Itinéraire cyclable",
+          "title": "Itinéraire cyclable",
           "description": "Itinéraire cyclable continu et jalonné qui doit respecter certaines règles de sécurité. Un itinéraire cyclable emprunte un itinéraire agréable, évite les dénivelés excessifs, et circule autant que possible sur des aménagements en site propre et sur des petites routes tranquilles (trafic inférieur à 1000 véhicules par jour, peu de camions).",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Véloroute",
             "EuroVélo",
             "Itinéraire VTT",
@@ -31,11 +28,13 @@
           ]
         },
         {
-          "value": "Itinéraire de randonnée pédestre",
+          "const": "Itinéraire de randonnée pédestre",
+          "title": "Itinéraire de randonnée pédestre",
           "description": "Itinéraires de randonnée pédestre non labellisés par la FFRandonnée ni par le Club Vosgien, mais balisés, entretenus, pérennes, et référencés."
         },
         {
-          "value": "Itinéraire équestre",
+          "const": "Itinéraire équestre",
+          "title": "Itinéraire équestre",
           "description": "Itinéraire équestre balisé."
         }
       ]
@@ -45,77 +44,41 @@
       "type": "string",
       "title": "Nature détaillée",
       "description": "Cet attribut précise la valeur de la 'Nature' de l'itinéraire. Si aucune précision n'est connue ou nécessaire, le champ reste vide.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Itinéraire VTT",
-          "description": "Itinéraire cyclable réservé aux VTT.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Itinéraire cyclable"
-            ]
-          }
+          "const": "Itinéraire VTT",
+          "title": "Itinéraire VTT",
+          "description": "Itinéraire cyclable réservé aux VTT."
         },
         {
-          "value": "Parcours sportif",
-          "description": "Circuit de course, entrecoupé d'exercices physiques divers, généralement équipé d'agrès.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Itinéraire de randonnée pédestre"
-            ]
-          }
+          "const": "Parcours sportif",
+          "title": "Parcours sportif",
+          "description": "Circuit de course, entrecoupé d'exercices physiques divers, généralement équipé d'agrès."
         },
         {
-          "value": "Sentier botanique",
-          "description": "Sentier botanique",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Itinéraire de randonnée pédestre"
-            ]
-          }
+          "const": "Sentier botanique",
+          "title": "Sentier botanique",
+          "description": "Sentier botanique"
         },
         {
-          "value": "Sentier de découverte",
-          "description": "Itinéraire généralement court, équipé de panneaux d'informations pour permettre aux usagers de connaître et surtout de décrypter les milieux qu'ils traversent, en donnant des clés scientifiques, historiques, culturelles voire politiques pour comprendre l'aspect des lieux.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Itinéraire de randonnée pédestre"
-            ]
-          }
+          "const": "Sentier de découverte",
+          "title": "Sentier de découverte",
+          "description": "Itinéraire généralement court, équipé de panneaux d'informations pour permettre aux usagers de connaître et surtout de décrypter les milieux qu'ils traversent, en donnant des clés scientifiques, historiques, culturelles voire politiques pour comprendre l'aspect des lieux."
         },
         {
-          "value": "Sentier écologique",
-          "description": "Sentier écologique",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Itinéraire de randonnée pédestre"
-            ]
-          }
+          "const": "Sentier écologique",
+          "title": "Sentier écologique",
+          "description": "Sentier écologique"
         },
         {
-          "value": "Sentier entomologique",
-          "description": "Sentier entomologique",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Itinéraire de randonnée pédestre"
-            ]
-          }
+          "const": "Sentier entomologique",
+          "title": "Sentier entomologique",
+          "description": "Sentier entomologique"
         },
         {
-          "value": "Voie verte",
-          "description": "Itinéraire nommé conçu pour la circulation non motorisée. Il peut être composé de voies vertes, de chemins, de routes empierrées ou de routes à 1 chaussée de faible fréquentation.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Itinéraire cyclable"
-            ]
-          }
+          "const": "Voie verte",
+          "title": "Voie verte",
+          "description": "Itinéraire nommé conçu pour la circulation non motorisée. Il peut être composé de voies vertes, de chemins, de routes empierrées ou de routes à 1 chaussée de faible fréquentation."
         }
       ]
     },
@@ -123,34 +86,37 @@
       "name": "toponyme",
       "type": "string",
       "title": "Toponyme",
-      "description": "Toponyme de l'itinéraire. Peut être un numéro.",
-      "nullable": true
+      "description": "Toponyme de l'itinéraire. Peut être un numéro."
     },
     {
       "name": "statut_du_toponyme",
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Autre",
+          "const": "Autre",
+          "title": "Autre",
           "description": "Autre statut. Surnom, toponyme de source non certaine.."
         },
         {
-          "value": "Collecté",
+          "const": "Collecté",
+          "title": "Collecté",
           "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
         },
         {
-          "value": "Historique",
+          "const": "Historique",
+          "title": "Historique",
           "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
         },
         {
-          "value": "Régional",
+          "const": "Régional",
+          "title": "Régional",
           "description": "Toponyme en langue régionale."
         },
         {
-          "value": "Validé",
+          "const": "Validé",
+          "title": "Validé",
           "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
         }
       ]
@@ -159,57 +125,53 @@
       "name": "numero",
       "type": "string",
       "title": "Numéro",
-      "description": "",
-      "nullable": true
+      "description": ""
     },
     {
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "nullable": true
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "nullable": true
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "nullable": true
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "nullable": true
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie GE MultiLigne",
-      "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE du produit externe.",
-      "nullable": true
+      "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE du produit externe."
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature"
   ]
 }

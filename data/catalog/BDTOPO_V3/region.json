@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:region",
+  "type": "object",
+  "title": "Région",
+  "x-ign-theme": "Administratif",
+  "description": "Structure la plus récente de l'administration locale française, la région est devenue collectivité territoriale à la suite des lois de décentralisation, le 16 mars 1986, date de la première élection des conseillers régionaux élus au suffrage universel; son existence a été consacrée par la révision constitutionnelle du 28 mars 2003. Les conseillers régionaux élisent le président du conseil régional qui gère le budget, dirige le personnel et conduit la politique de la région. Les compétences propres de la région concernent principalement l'aménagement du territoire, le développement économique, la formation professionnelle, la construction ou l'entretien des lycées, les transports ferroviaires de voyageurs. Il y a en France 17 régions dont 5 d'outre-mer. La collectivité territoriale de Corse est le plus souvent assimilée à une région. Source Insee",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string"
+    },
+    "nom_officiel": {
+      "title": "Nom officiel",
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées.",
+      "type": "string"
+    },
+    "code_insee": {
+      "title": "Code Insee de la région",
+      "description": "Il s’agit du numéro officiel attribué par l’Insee à la Région : il est composé de 2 caractères.",
+      "type": "string"
+    },
+    "code_siren": {
+      "title": "Code Siren",
+      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro. Source Insee",
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "liens_vers_autorite_administrative": {
+      "title": "Liens vers autorité administrative",
+      "description": "Lien vers la clé absolue de l'objet de Nature=\"Préfecture de région\" de la région concernée.",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie GE MultiPolygone",
+      "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle.",
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": [
+    "cleabs"
+  ]
+}

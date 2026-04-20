@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:condominium",
+  "type": "object",
+  "title": "Condominium",
+  "x-ign-theme": "Administratif",
+  "description": "Zone administrative établie indépendamment de toute division administrative territoriale nationale et administrée par deux pays ou plus. En France, désigne l'Île des Faisans, sur la rivière \"la Bidassoa\", près d'Hendaye (64), de souveraineté alternative franco-espagnole.",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string"
+    },
+    "unites_administratives_souveraines": {
+      "title": "Unités administratives souveraines",
+      "description": "Nom des unités administratives souveraines.",
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "lien_vers_lieu_dit": {
+      "title": "Lien vers lieu-dit",
+      "description": "Lien vers l'objet de Nature=\"Lieu-dit habité\" ou Détail orographique décrivant ce lieu. Pour le condominium, il s'agit du Détail orographique portant le toponyme \"l'île des Faisans\".",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie GE MultiPolygone",
+      "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle.",
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": [
+    "cleabs"
+  ]
+}

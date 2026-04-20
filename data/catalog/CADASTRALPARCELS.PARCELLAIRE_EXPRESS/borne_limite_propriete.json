@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_limite_propriete",
+  "type": "object",
+  "title": "PCI Vecteur : Bornes de limite de propriété",
+  "description": "Bornes de limite de propriété",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "id": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipoint",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

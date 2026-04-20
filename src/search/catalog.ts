@@ -1,4 +1,5 @@
-import type { Collection } from '../types';
+import { renderCollectionSchema } from '../renderers/collection-schema';
+import type { Collection, CollectionSchema } from '../types';
 import type {
   CollectionSearchEngine,
   CollectionSearchEngineFactory,
@@ -8,9 +9,9 @@ import type {
 } from './types';
 
 export interface CollectionCatalog {
-  list(): Collection[];
-  getById(id: string): Collection | undefined;
-  search(query: string, options?: CollectionSearchOptions): Collection[];
+  list(): CollectionSchema[];
+  getById(id: string): CollectionSchema | undefined;
+  search(query: string, options?: CollectionSearchOptions): CollectionSchema[];
   searchWithScores(query: string, options?: CollectionSearchOptions): CollectionSearchResult[];
 }
 
@@ -22,12 +23,14 @@ export type InMemoryCollectionCatalogOptions =
 export class InMemoryCollectionCatalog implements CollectionCatalog {
 
   private readonly collections: Collection[];
-  private readonly byId: Map<string, Collection>;
+  private readonly schemasById: Map<string, CollectionSchema>;
   private readonly searchEngine?: CollectionSearchEngine;
 
   constructor(collections: Collection[], options: InMemoryCollectionCatalogOptions = {}) {
     this.collections = collections;
-    this.byId = new Map(collections.map((collection) => [collection.id, collection]));
+    this.schemasById = new Map(
+      collections.map((collection) => [collection.id, renderCollectionSchema(collection)]),
+    );
 
     if (options.engine && options.engineFactory) {
       throw new Error('Cannot specify both engine and engineFactory options');
@@ -39,13 +42,13 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     }
   }
 
-  list(): Collection[] {
-    return structuredClone(this.collections);
+  list(): CollectionSchema[] {
+    return this.collections.map((collection) => structuredClone(this.schemasById.get(collection.id)!));
   }
 
-  getById(id: string): Collection | undefined {
-    const collection = this.byId.get(id);
-    return collection ? structuredClone(collection) : undefined;
+  getById(id: string): CollectionSchema | undefined {
+    const schema = this.schemasById.get(id);
+    return schema ? structuredClone(schema) : undefined;
   }
 
   private getSearchEngine(): CollectionSearchEngine {
@@ -69,10 +72,11 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
       if (hasLimit && resolvedResults.length >= limit) {
         break;
       }
-      const collection = this.byId.get(match.id);
-      if (collection !== undefined) {
+      const schema = this.schemasById.get(match.id);
+      if (schema !== undefined) {
         resolvedResults.push({
-          collection: structuredClone(collection),
+          id: match.id,
+          collection: structuredClone(schema),
           score: match.score,
         });
       }
@@ -81,7 +85,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     return resolvedResults;
   }
 
-  search(query: string, options: CollectionSearchOptions = {}): Collection[] {
+  search(query: string, options: CollectionSearchOptions = {}): CollectionSchema[] {
     return this.searchWithScores(query, options).map(({ collection }) => collection);
   }
 

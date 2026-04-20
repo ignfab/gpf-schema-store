@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:itineraire_autre",
+  "type": "object",
+  "title": "Itinéraire autre",
+  "x-ign-theme": "Transport",
+  "description": "Itinéraire divers balisé et entretenu sur le terrain, pérenne, non labellisé par la FFRandonnée ni par le Club Vosgien. Itinéraire référencé dans le PDIPR (Plan Départemental des Itinéraires Pédestres de Randonnée), ou par au moins un organisme officiel qui en a la compétence (office de tourisme, epci, comité départemental de la FFRandonnée).",
+  "x-ign-selectionCriteria": "Nature 'Autre' et 'Equestre' : l'exhaustivité n'est visée que sur les zones couvertes par des cartes TOP25 ou le département 02 (convention PDIPR pour la cartographie). En dehors de ces zones, des itinéraires peuvent être saisis en cas de partenariat. Nature 'Sentier de découverte' et 'Parcours sportif' : France entière.",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string"
+    },
+    "nature": {
+      "title": "Nature",
+      "description": "Renseigne la nature de l'itinéraire : pédestre, équestre ou cyclable.",
+      "oneOf": [
+        {
+          "const": "Itinéraire cyclable",
+          "title": "Itinéraire cyclable",
+          "description": "Itinéraire cyclable continu et jalonné qui doit respecter certaines règles de sécurité. Un itinéraire cyclable emprunte un itinéraire agréable, évite les dénivelés excessifs, et circule autant que possible sur des aménagements en site propre et sur des petites routes tranquilles (trafic inférieur à 1000 véhicules par jour, peu de camions).",
+          "x-ign-representedFeatures": [
+            "Véloroute",
+            "EuroVélo",
+            "Itinéraire VTT",
+            "Voie verte"
+          ]
+        },
+        {
+          "const": "Itinéraire de randonnée pédestre",
+          "title": "Itinéraire de randonnée pédestre",
+          "description": "Itinéraires de randonnée pédestre non labellisés par la FFRandonnée ni par le Club Vosgien, mais balisés, entretenus, pérennes, et référencés."
+        },
+        {
+          "const": "Itinéraire équestre",
+          "title": "Itinéraire équestre",
+          "description": "Itinéraire équestre balisé."
+        }
+      ],
+      "type": "string"
+    },
+    "nature_detaillee": {
+      "title": "Nature détaillée",
+      "description": "Cet attribut précise la valeur de la 'Nature' de l'itinéraire. Si aucune précision n'est connue ou nécessaire, le champ reste vide.",
+      "oneOf": [
+        {
+          "const": "Itinéraire VTT",
+          "title": "Itinéraire VTT",
+          "description": "Itinéraire cyclable réservé aux VTT."
+        },
+        {
+          "const": "Parcours sportif",
+          "title": "Parcours sportif",
+          "description": "Circuit de course, entrecoupé d'exercices physiques divers, généralement équipé d'agrès."
+        },
+        {
+          "const": "Sentier botanique",
+          "title": "Sentier botanique",
+          "description": "Sentier botanique"
+        },
+        {
+          "const": "Sentier de découverte",
+          "title": "Sentier de découverte",
+          "description": "Itinéraire généralement court, équipé de panneaux d'informations pour permettre aux usagers de connaître et surtout de décrypter les milieux qu'ils traversent, en donnant des clés scientifiques, historiques, culturelles voire politiques pour comprendre l'aspect des lieux."
+        },
+        {
+          "const": "Sentier écologique",
+          "title": "Sentier écologique",
+          "description": "Sentier écologique"
+        },
+        {
+          "const": "Sentier entomologique",
+          "title": "Sentier entomologique",
+          "description": "Sentier entomologique"
+        },
+        {
+          "const": "Voie verte",
+          "title": "Voie verte",
+          "description": "Itinéraire nommé conçu pour la circulation non motorisée. Il peut être composé de voies vertes, de chemins, de routes empierrées ou de routes à 1 chaussée de faible fréquentation."
+        }
+      ],
+      "type": "string"
+    },
+    "toponyme": {
+      "title": "Toponyme",
+      "description": "Toponyme de l'itinéraire. Peut être un numéro.",
+      "type": "string"
+    },
+    "statut_du_toponyme": {
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
+      ],
+      "type": "string"
+    },
+    "numero": {
+      "title": "Numéro",
+      "description": "",
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "type": "string"
+    },
+    "identifiants_sources": {
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie GE MultiLigne",
+      "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE du produit externe.",
+      "format": "geometry-linestring",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": [
+    "cleabs",
+    "nature"
+  ]
+}

@@ -27,7 +27,7 @@ describe('writeRenderedCatalog', () => {
     fsMocks.writeFileSync.mockReset();
   });
 
-  it('writes merged collections to {outputDir}/{namespace}/{name}.json', async () => {
+  it('writes collection schemas to {outputDir}/{namespace}/{name}.json', async () => {
     const { writeRenderedCatalog } = await import('./render-catalog');
 
     const outputDir = writeRenderedCatalog(collections, './tmp/catalog');
@@ -40,7 +40,11 @@ describe('writeRenderedCatalog', () => {
     );
     expect(fsMocks.writeFileSync).toHaveBeenCalledWith(
       expect.stringMatching(/[\\/]tmp[\\/]catalog[\\/]NS[\\/]feature\.json$/),
-      expect.stringContaining('"id": "NS:feature"'),
+      expect.stringContaining('"$schema": "https://json-schema.org/draft/2020-12/schema"'),
+    );
+    expect(fsMocks.writeFileSync).toHaveBeenCalledWith(
+      expect.stringMatching(/[\\/]tmp[\\/]catalog[\\/]NS[\\/]feature\.json$/),
+      expect.stringContaining('"x-collection-id": "NS:feature"'),
     );
   });
 

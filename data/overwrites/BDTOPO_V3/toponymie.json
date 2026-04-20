@@ -1,77 +1,73 @@
 {
-  "id": "Lieux nommés:Toponymie",
-  "namespace": "Lieux nommés",
-  "name": "Toponymie",
   "title": "Toponymie",
+  "x-ign-theme": "Lieux nommés",
   "description": "",
   "properties": [
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
-      "description": "",
-      "nullable": false
+      "description": ""
     },
     {
       "name": "classe_de_l_objet",
       "type": "string",
       "title": "Classe de l'objet",
-      "description": "Classe de l'objet dont la toponymie est détaillée.",
-      "nullable": true
+      "description": "Classe de l'objet dont la toponymie est détaillée."
     },
     {
       "name": "nature_de_l_objet",
       "type": "string",
       "title": "Nature de l'objet",
-      "description": "Le cas échéant, valeur du champ 'Nature' de l'objet dont la toponymie est détaillée. En l'absence de champ 'Nature', valeur du champ équivalent (ex : Type de route) de la classe mère.",
-      "nullable": true
+      "description": "Le cas échéant, valeur du champ 'Nature' de l'objet dont la toponymie est détaillée. En l'absence de champ 'Nature', valeur du champ équivalent (ex : Type de route) de la classe mère."
     },
     {
       "name": "nature_detaillee_de_l_objet",
       "type": "string",
       "title": "Nature détaillée de l'objet",
-      "description": "Le cas échéant, valeur du champ 'Nature détaillée' de l'objet dont la toponymie est détaillée. En l'absence de champ 'Nature détaillée', valeur du champ équivalent (ex : Type de route) de la classe mère, sinon, pas de valeur.",
-      "nullable": true
+      "description": "Le cas échéant, valeur du champ 'Nature détaillée' de l'objet dont la toponymie est détaillée. En l'absence de champ 'Nature détaillée', valeur du champ équivalent (ex : Type de route) de la classe mère, sinon, pas de valeur."
     },
     {
       "name": "graphie_du_toponyme",
       "type": "string",
       "title": "Graphie du toponyme",
-      "description": "Graphie du toponyme dont les caractéristiques sont détaillées.",
-      "nullable": true
+      "description": "Graphie du toponyme dont les caractéristiques sont détaillées."
     },
     {
       "name": "source_du_toponyme",
       "type": "string",
       "title": "Source du toponyme",
-      "description": "Origine(s) de la graphie du toponyme.",
-      "nullable": true
+      "description": "Origine(s) de la graphie du toponyme."
     },
     {
       "name": "statut_du_toponyme",
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Autre",
+          "const": "Autre",
+          "title": "Autre",
           "description": "Autre statut. Surnom, toponyme de source non certaine.."
         },
         {
-          "value": "Collecté",
+          "const": "Collecté",
+          "title": "Collecté",
           "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
         },
         {
-          "value": "Historique",
+          "const": "Historique",
+          "title": "Historique",
           "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
         },
         {
-          "value": "Régional",
+          "const": "Régional",
+          "title": "Régional",
           "description": "Toponyme en langue régionale."
         },
         {
-          "value": "Validé",
+          "const": "Validé",
+          "title": "Validé",
           "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
         }
       ]
@@ -80,22 +76,22 @@
       "name": "date_du_toponyme",
       "type": "string",
       "title": "Date du toponyme",
-      "description": "Date de saisie ou de validation de la graphie.",
-      "nullable": true
+      "description": "Date de saisie ou de validation de la graphie."
     },
     {
       "name": "langue_du_toponyme",
       "type": "string",
       "title": "Langue du toponyme",
-      "description": "",
-      "nullable": true
+      "description": ""
     },
     {
       "name": "cleabs_de_l_objet",
       "type": "string",
       "title": "Cleabs de l'objet",
-      "description": "Clé absolue (ID) de l'objet BD TOPO® auquel se rapporte ce toponyme.",
-      "nullable": true
+      "description": "Clé absolue (ID) de l'objet BD TOPO® auquel se rapporte ce toponyme."
     }
+  ],
+  "required": [
+    "geometrie"
   ]
 }

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_parcelle",
+  "type": "object",
+  "title": "PCI Vecteur : Lien bornes parcelles",
+  "description": "Lien bornes parcelles",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "id_borne": {
+      "type": "string"
+    },
+    "idu_parcel": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

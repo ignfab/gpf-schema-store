@@ -1,171 +1,190 @@
 {
-  "id": "Occupation du sol:Zone de végétation",
-  "namespace": "Occupation du sol",
-  "name": "Zone de végétation",
   "title": "Zone de végétation",
+  "x-ign-theme": "Occupation du sol",
   "description": "Espace végétal naturel ou non, différencié en particulier selon le couvert arboré.",
   "properties": [
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet.",
-      "nullable": false
+      "description": "Identifiant unique de l'objet."
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
-      "description": "",
-      "nullable": false
+      "description": ""
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "nullable": true
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "nullable": true
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     {
       "name": "methode_d_acquisition_planimetrique",
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "BDCarto",
+          "const": "BDCarto",
+          "title": "BDCarto",
           "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
         },
         {
-          "value": "BDNyme",
+          "const": "BDNyme",
+          "title": "BDNyme",
           "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
         },
         {
-          "value": "BDParcellaire",
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
           "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
         },
         {
-          "value": "BDParcellaire recalée",
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
           "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
         },
         {
-          "value": "BDTopo",
+          "const": "BDTopo",
+          "title": "BDTopo",
           "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
         },
         {
-          "value": "Calcul d'enveloppe urbaine",
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
           "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
         },
         {
-          "value": "Calculé",
+          "const": "Calculé",
+          "title": "Calculé",
           "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
         },
         {
-          "value": "Fichier numérique décimétrique",
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
           "description": "La géométrie provient de données numériques de précision décimétrique."
         },
         {
-          "value": "Fichier numérique métrique",
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
           "description": "La géométrie provient de données numériques de précision métrique."
         },
         {
-          "value": "Fichier numérique non métrique",
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
           "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
         },
         {
-          "value": "Géocodage",
+          "const": "Géocodage",
+          "title": "Géocodage",
           "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
         },
         {
-          "value": "Géoroute",
+          "const": "Géoroute",
+          "title": "Géoroute",
           "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
         },
         {
-          "value": "Image satellite",
+          "const": "Image satellite",
+          "title": "Image satellite",
           "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
         },
         {
-          "value": "Image satellite HR",
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
           "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
         },
         {
-          "value": "Inconnue",
+          "const": "Inconnue",
+          "title": "Inconnue",
           "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
         },
         {
-          "value": "Levé GPS",
+          "const": "Levé GPS",
+          "title": "Levé GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
         },
         {
-          "value": "Levé non GPS",
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
         },
         {
-          "value": "Lidar",
+          "const": "Lidar",
+          "title": "Lidar",
           "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
         },
         {
-          "value": "Lidar HD",
+          "const": "Lidar HD",
+          "title": "Lidar HD",
           "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
         },
         {
-          "value": "Orthophotographie",
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
           "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
         },
         {
-          "value": "Photogrammétrie",
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
           "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
         },
         {
-          "value": "Plan métrique papier",
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
         },
         {
-          "value": "Plan non métrique papier",
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
         },
         {
-          "value": "Processus IA métrique"
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
         },
         {
-          "value": "Processus IA non métrique"
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
         },
         {
-          "value": "Scan25",
+          "const": "Scan25",
+          "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "nullable": true
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "nature",
       "type": "string",
       "title": "Nature",
       "description": "Nature de la zone de végétation.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Bananeraie",
+          "const": "Bananeraie",
+          "title": "Bananeraie",
           "description": "Culture de bananiers."
         },
         {
-          "value": "Bois",
+          "const": "Bois",
+          "title": "Bois",
           "description": "Espace peuplé d’arbres forestiers couvrant au moins 40 % du sol. Les jeunes plantations forestières, le reboisement naturel et les coupes à blanc sont également saisis en Nature=\"Bois\".",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Pépinière",
             "Coupe à blanc",
             "Jeune plantation",
@@ -173,17 +192,20 @@
           ]
         },
         {
-          "value": "Canne à sucre",
+          "const": "Canne à sucre",
+          "title": "Canne à sucre",
           "description": "Culture de canne à sucre."
         },
         {
-          "value": "Cocoteraie",
+          "const": "Cocoteraie",
+          "title": "Cocoteraie",
           "description": "Culture de cocotiers."
         },
         {
-          "value": "Forêt fermée de conifères",
+          "const": "Forêt fermée de conifères",
+          "title": "Forêt fermée de conifères",
           "description": "Espace peuplé d’arbres forestiers couvrant au moins 40 % du sol et composé essentiellement de conifères (soit un taux de couvert relatif de plus de 75 %). Les jeunes plantations de résineux, le reboisement naturel et les coupes à blanc de ces essences sont également saisis en Nature=\"Forêt fermée de conifères\".",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Bois de conifères",
             "Forêt de conifères",
             "Pépinière de conifères",
@@ -192,9 +214,10 @@
           ]
         },
         {
-          "value": "Forêt fermée de feuillus",
+          "const": "Forêt fermée de feuillus",
+          "title": "Forêt fermée de feuillus",
           "description": "Espace peuplé d’arbres forestiers couvrant au moins 40 % du sol, et composée de plus de 75 % de feuillus (taux de couvert relatif). Les jeunes plantations de feuillus, le reboisement naturel et les coupes à blanc de ces essences sont également saisis en Nature=\"Forêt fermée de feuillus\".",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Forêt de feuillus",
             "Pépinière de feuillus",
             "Coupe à blanc",
@@ -202,18 +225,20 @@
           ]
         },
         {
-          "value": "Forêt fermée mixte",
+          "const": "Forêt fermée mixte",
+          "title": "Forêt fermée mixte",
           "description": "Espace peuplé d’arbres forestiers couvrant au moins 40 % du sol, et composée de plus de 25 % et moins de 75 % de feuillus (taux de couvert relatif). Les jeunes plantations forestières, le reboisement naturel et les coupes à blanc sont saisis en Nature=\"Forêt fermée mixte\".",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Forêt mixte",
             "Pépinière d'essences mixtes",
             "Coupe à blanc"
           ]
         },
         {
-          "value": "Forêt ouverte",
+          "const": "Forêt ouverte",
+          "title": "Forêt ouverte",
           "description": "Espace peuplé d’arbres forestiers dont le couvert absolu est compris entre 10 % et 40 %. Les jeunes plantations forestières, le reboisement naturel et les coupes à blanc sont saisis en Nature=\"Forêt fermée...\".",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Arbres épars",
             "Bosquets épars",
             "Garrigue boisée",
@@ -222,21 +247,25 @@
           ]
         },
         {
-          "value": "Haie",
+          "const": "Haie",
+          "title": "Haie",
           "description": "Clôture naturelle composée d’arbres, d’arbustes, d’épines ou de branchages et servant à limiter ou à protéger un champ. Alignement d’arbres ou plantation d’arbres fruitiers dont la largeur est inférieure à 25 m."
         },
         {
-          "value": "Houblonnière",
+          "const": "Houblonnière",
+          "title": "Houblonnière",
           "description": "Culture de houblon."
         },
         {
-          "value": "Lande herbacée",
+          "const": "Lande herbacée",
+          "title": "Lande herbacée",
           "description": "Cette valeur est dépréciée en métropole et n'est utilisée que pour coder l'occupation du sol en Guyane."
         },
         {
-          "value": "Lande ligneuse",
+          "const": "Lande ligneuse",
+          "title": "Lande ligneuse",
           "description": "Végétation spontanée qui comprend une proportion importante de plantes ligneuses (bruyères, genêts, ajoncs, épineux divers, etc.) et semi-ligneuses (fougères, phragmites…) dont la hauteur ne dépasse pas 5 m. Cette végétation ligneuse présente un couvert végétal d’au moins 25 %.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Broussailles",
             "Maquis",
             "Garrigue",
@@ -249,21 +278,25 @@
           ]
         },
         {
-          "value": "Mangrove",
+          "const": "Mangrove",
+          "title": "Mangrove",
           "description": "Zone de mangrove. Dans les régions côtières intertropicales, formation végétale caractérisée par des forêts impénétrables de palétuviers qui fixent leurs fortes racines dans les baies aux eaux calmes où se déposent boues et limons."
         },
         {
-          "value": "Peupleraie",
+          "const": "Peupleraie",
+          "title": "Peupleraie",
           "description": "Culture de peupliers."
         },
         {
-          "value": "Rizière",
+          "const": "Rizière",
+          "title": "Rizière",
           "description": "Champ régulièrement cultivé de riz, disposant d'un système d'irrigation."
         },
         {
-          "value": "Verger",
+          "const": "Verger",
+          "title": "Verger",
           "description": "Zone de plantation d’arbres hors peuplement forestier.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Pépinière non forestière",
             "Verger à fruits y compris vergers bas",
             "Roseraie",
@@ -273,17 +306,19 @@
           ]
         },
         {
-          "value": "Vigne",
+          "const": "Vigne",
+          "title": "Vigne",
           "description": "Zone de vignes.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Vignoble",
             "Vignes"
           ]
         },
         {
-          "value": "Zone arborée",
+          "const": "Zone arborée",
+          "title": "Zone arborée",
           "description": "Espace peuplé d’arbres d’essence quelconque. Cette valeur d’attribut correspond à la classe « Zone arborée » de la BD TOPO® version 1.2. Elle regroupe les autres valeurs de l'attribut 'Nature' sauf \"Vigne\", \"Lande herbacée\", \"Bananeraie\", \"Mangrove\" et \"Canne à sucre\", mais sa modélisation est différente (moins de généralisation, pas de recalage et découpe sur les réseaux mais possibilité de découpe selon un carroyage). Elle concerne tous les Départements et Régions d'Outre-Mer.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Arbre (monothème)",
             "Bois (monothème)",
             "Bosquet (monothème)",
@@ -301,29 +336,31 @@
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "nullable": true
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "nullable": true
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     {
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     }
+  ],
+  "required": [
+    "cleabs",
+    "geometrie",
+    "methode_d_acquisition_planimetrique",
+    "nature"
   ]
 }

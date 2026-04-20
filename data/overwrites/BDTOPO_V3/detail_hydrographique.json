@@ -1,32 +1,30 @@
 {
-  "id": "Hydrographie:Détail hydrographique",
-  "namespace": "Hydrographie",
-  "name": "Détail hydrographique",
   "title": "Détail hydrographique",
+  "x-ign-theme": "Hydrographie",
   "description": "",
   "properties": [
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet.",
-      "nullable": false
+      "description": "Identifiant unique de l'objet."
     },
     {
       "name": "nature",
       "type": "string",
       "title": "Nature",
       "description": "Nature du détail hydrographique.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Amer",
+          "const": "Amer",
+          "title": "Amer",
           "description": "Point de repère pour la navigation visible de la mer."
         },
         {
-          "value": "Baie",
+          "const": "Baie",
+          "title": "Baie",
           "description": "Espace marin pénétrant entre les terres.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Anse",
             "Calanque",
             "Crique",
@@ -35,42 +33,48 @@
           ]
         },
         {
-          "value": "Balise",
+          "const": "Balise",
+          "title": "Balise",
           "description": "Balise maritime. Construction fixe ou flottante, destinée à indiquer une particularité intéressante pour la navigation (danger, obstacle, passe).",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Tourelle",
             "Bouée non lumineuse avec balisage maritime",
             "Bouée lumineuse avec balisage maritime"
           ]
         },
         {
-          "value": "Banc",
+          "const": "Banc",
+          "title": "Banc",
           "description": "En mer ou sur un fleuve, relief sous-marin non rocheux représentant un danger potentiel pour la navigation."
         },
         {
-          "value": "Cascade",
+          "const": "Cascade",
+          "title": "Cascade",
           "description": "L'eau dévalant un relief vertical peut provoquer une cascade. La dénivellation peut alors atteindre plusieurs centaines de mètres. Le plus souvent, la cascade est le secteur dans lequel l'eau d'une rivière ne coule plus, mais tombe. C'est une chute d'eau.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Chute d’eau",
             "Saut (Guyane)"
           ]
         },
         {
-          "value": "Citerne",
+          "const": "Citerne",
+          "title": "Citerne",
           "description": "Une citerne est un réservoir d'eau alimenté par de l'eau de pluie alors que le réservoir est alimenté par un réseau (captage, pompage, adduction, ...). Seules les citernes importantes sont saisies ; les citernes DFCI (Défense Forestière Contre les Incendies) sont retenues."
         },
         {
-          "value": "Embouchure",
+          "const": "Embouchure",
+          "title": "Embouchure",
           "description": "Lieu où un cours d'eau se jette dans un lac, une mer ou un océan.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Delta",
             "Estuaire"
           ]
         },
         {
-          "value": "Espace maritime",
+          "const": "Espace maritime",
+          "title": "Espace maritime",
           "description": "Emplacement géographique en milieu maritime portant un toponyme, à l'exclusion des baies et golfes.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Mer",
             "Océan",
             "Passe maritime",
@@ -81,38 +85,44 @@
           ]
         },
         {
-          "value": "Feu",
+          "const": "Feu",
+          "title": "Feu",
           "description": "Foyer lumineux, fixe ou à éclats, de faible puissance, signalant les entrées de passe ou les alignements. Il peut être situé au sol, à l’extrémité d’un mât ou d’un pylône ou sur d’autres constructions.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Bateau-feu",
             "Tourelle lumineuse",
             "Bouée lumineuse sans balisage maritime"
           ]
         },
         {
-          "value": "Fontaine",
+          "const": "Fontaine",
+          "title": "Fontaine",
           "description": "Construction comportant une alimentation en eau et, généralement, un bassin. Une fontaine peut être naturelle si elle est alimentée par une source."
         },
         {
-          "value": "Lavoir",
+          "const": "Lavoir",
+          "title": "Lavoir",
           "description": "Structure couverte ou non comprenant un bassin alimenté en eau généralement d'origine naturelle qui avait pour vocation première de permettre de mouiller, laver et rincer le linge."
         },
         {
-          "value": "Marais",
+          "const": "Marais",
+          "title": "Marais",
           "description": "Zone humide, région recouverte par des eaux peu profondes, en partie envahie par la végétation.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Marais (toponyme)",
             "Tourbière"
           ]
         },
         {
-          "value": "Perte",
+          "const": "Perte",
+          "title": "Perte",
           "description": "Lieu où un cours d'eau disparaît totalement ou partiellement par infiltration ou dans un gouffre. Tout ou partie du cours d'eau devient alors souterrain."
         },
         {
-          "value": "Point d'eau",
+          "const": "Point d'eau",
+          "title": "Point d'eau",
           "description": "Tout point d’eau naturel ou artificiel qui porte un toponyme ou qui a besoin d’être désigné et qui ne peut être classé dans les autres valeur de 'Nature' des objets Détail hydrographique.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Puits remarquable",
             "Abreuvoir important",
             "Lavogne",
@@ -121,24 +131,28 @@
           ]
         },
         {
-          "value": "Prise d'eau",
+          "const": "Prise d'eau",
+          "title": "Prise d'eau",
           "description": "Une prise d'eau est un ouvrage maçonné servant à capter et dériver une partie de l’eau d’un cours d’eau ou d’une retenue d’eau afin d’alimenter une infrastructure hydroélectrique."
         },
         {
-          "value": "Résurgence",
+          "const": "Résurgence",
+          "title": "Résurgence",
           "description": "Point d'émergence à la surface du sol d’un cours d’eau après un parcours souterrain. Une résurgence est une exsurgence alimentée par au moins un cours d'eau de surface identifié dont une partie ou la totalité s'infiltre dans le sous-sol par une ou plusieurs pertes."
         },
         {
-          "value": "Source",
+          "const": "Source",
+          "title": "Source",
           "description": "Point d'émergence à la surface du sol de l'eau emmagasinée à l'intérieur, sans connaissance d’un parcours à l’air libre en amont.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Source isolée",
             "Source d’eau chaude",
             "Source ferrugineuse"
           ]
         },
         {
-          "value": "Source captée",
+          "const": "Source captée",
+          "title": "Source captée",
           "description": "Installation de captage d’une source. Une source captée peut être représentée en Nature=\"Fontaine\" lorsqu'un bassin est aménagé au niveau de son captage."
         }
       ]
@@ -148,111 +162,60 @@
       "type": "string",
       "title": "Nature détaillée",
       "description": "Nature précise du détail hydrographique. En l'absence de précision, la 'Nature détaillée' reste vide.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Abreuvoir",
-          "description": "Construction maçonnée destinée à recueillir de l'eau pour abreuver le bétail.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Point d'eau"
-            ]
-          }
+          "const": "Abreuvoir",
+          "title": "Abreuvoir",
+          "description": "Construction maçonnée destinée à recueillir de l'eau pour abreuver le bétail."
         },
         {
-          "value": "Bouée lumineuse",
-          "description": "Balise flottante c'est à dire bouée lumineuse avec balisage maritime réglementaire",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Balise"
-            ]
-          }
+          "const": "Bouée lumineuse",
+          "title": "Bouée lumineuse",
+          "description": "Balise flottante c'est à dire bouée lumineuse avec balisage maritime réglementaire"
         },
         {
-          "value": "DFCI",
-          "description": "Citerne utilisée pour la lutte contre les feux de forêts.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Citerne"
-            ]
-          }
+          "const": "DFCI",
+          "title": "DFCI",
+          "description": "Citerne utilisée pour la lutte contre les feux de forêts."
         },
         {
-          "value": "Epave",
-          "description": "Bateau échoué affleurant et constituant de ce fait un point de repère topographique.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Amer"
-            ]
-          }
+          "const": "Epave",
+          "title": "Epave",
+          "description": "Bateau échoué affleurant et constituant de ce fait un point de repère topographique."
         },
         {
-          "value": "Puits",
-          "description": "Puits artificiel important.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Point d'eau"
-            ]
-          }
+          "const": "Puits",
+          "title": "Puits",
+          "description": "Puits artificiel important."
         },
         {
-          "value": "Réservoir",
+          "const": "Réservoir",
+          "title": "Réservoir",
           "description": "Réservoir nommé.",
-          "representedFeatures": [
+          "x-ign-representedFeatures": [
             "Réservoir nommé",
             "Château d'eau nommé"
-          ],
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Point d'eau"
-            ]
-          }
+          ]
         },
         {
-          "value": "Saut",
-          "description": "Large cascade ou succession de rapides en Guyane.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Cascade"
-            ]
-          }
+          "const": "Saut",
+          "title": "Saut",
+          "description": "Large cascade ou succession de rapides en Guyane."
         },
         {
-          "value": "Tourbière",
-          "description": "Zone humide caractérisée par l'accumulation progressive de tourbe. Le sol y est caractérisé par sa très forte teneur en matière organique, peu ou pas décomposée, d'origine végétale.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Marais"
-            ]
-          }
+          "const": "Tourbière",
+          "title": "Tourbière",
+          "description": "Zone humide caractérisée par l'accumulation progressive de tourbe. Le sol y est caractérisé par sa très forte teneur en matière organique, peu ou pas décomposée, d'origine végétale."
         },
         {
-          "value": "Tourelle",
-          "description": "Construction maçonnée de balisage maritime, de forme circulaire et non lumineuse.",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Balise"
-            ]
-          }
+          "const": "Tourelle",
+          "title": "Tourelle",
+          "description": "Construction maçonnée de balisage maritime, de forme circulaire et non lumineuse."
         },
         {
-          "value": "Tourelle lumineuse",
-          "description": "Construction maçonnée de balisage maritime, de forme circulaire et lumineuse",
-          "availableWhen": {
-            "property": "nature",
-            "equalsAny": [
-              "Feu"
-            ]
-          }
+          "const": "Tourelle lumineuse",
+          "title": "Tourelle lumineuse",
+          "description": "Construction maçonnée de balisage maritime, de forme circulaire et lumineuse"
         }
       ]
     },
@@ -261,13 +224,14 @@
       "type": "string",
       "title": "Persistance",
       "description": "",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Intermittent"
+          "const": "Intermittent",
+          "title": "Intermittent"
         },
         {
-          "value": "Permanent"
+          "const": "Permanent",
+          "title": "Permanent"
         }
       ]
     },
@@ -275,34 +239,37 @@
       "name": "toponyme",
       "type": "string",
       "title": "Toponyme",
-      "description": "Toponyme de l'objet.",
-      "nullable": true
+      "description": "Toponyme de l'objet."
     },
     {
       "name": "statut_du_toponyme",
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Autre",
+          "const": "Autre",
+          "title": "Autre",
           "description": "Autre statut. Surnom, toponyme de source non certaine.."
         },
         {
-          "value": "Collecté",
+          "const": "Collecté",
+          "title": "Collecté",
           "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
         },
         {
-          "value": "Historique",
+          "const": "Historique",
+          "title": "Historique",
           "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
         },
         {
-          "value": "Régional",
+          "const": "Régional",
+          "title": "Régional",
           "description": "Toponyme en langue régionale."
         },
         {
-          "value": "Validé",
+          "const": "Validé",
+          "title": "Validé",
           "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
         }
       ]
@@ -312,30 +279,35 @@
       "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les objets d'une classe en fonction de leur importance ou notoriété relative.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "1",
+          "const": "1",
+          "title": "1",
           "description": "L'objet a une importance ou un rayonnement national, justifiant de le représenter aux échelles de l'ordre du 1 : 1 000 000."
         },
         {
-          "value": "2",
+          "const": "2",
+          "title": "2",
           "description": "L'objet a une importance ou un rayonnement régional, justifiant de le représenter aux échelles de l'ordre du 1 : 250 000."
         },
         {
-          "value": "3",
+          "const": "3",
+          "title": "3",
           "description": "L'objet a une importance ou un rayonnement départemental, justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
         },
         {
-          "value": "4",
+          "const": "4",
+          "title": "4",
           "description": "L'objet a une importance ou un rayonnement intercommunal ou cantonal, justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
         },
         {
-          "value": "5",
+          "const": "5",
+          "title": "5",
           "description": "L'objet a une importance ou un rayonnement communal, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
         },
         {
-          "value": "6",
+          "const": "6",
+          "title": "6",
           "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
         }
       ]
@@ -345,18 +317,20 @@
       "type": "string",
       "title": "Etat de l'objet",
       "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "En construction",
+          "const": "En construction",
+          "title": "En construction",
           "description": "L'objet géographique est en construction. Dans le cas des Tronçon de route, la date de mise en service prévue est codée dans le champ 'Date de mise en service'."
         },
         {
-          "value": "En projet",
+          "const": "En projet",
+          "title": "En projet",
           "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
         },
         {
-          "value": "En service",
+          "const": "En service",
+          "title": "En service",
           "description": "L'objet géographique est en service."
         }
       ]
@@ -365,189 +339,211 @@
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "nullable": true
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "nullable": true
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "nullable": true
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "nullable": true
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     {
       "name": "methode_d_acquisition_planimetrique",
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "BDCarto",
+          "const": "BDCarto",
+          "title": "BDCarto",
           "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
         },
         {
-          "value": "BDNyme",
+          "const": "BDNyme",
+          "title": "BDNyme",
           "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
         },
         {
-          "value": "BDParcellaire",
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
           "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
         },
         {
-          "value": "BDParcellaire recalée",
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
           "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
         },
         {
-          "value": "BDTopo",
+          "const": "BDTopo",
+          "title": "BDTopo",
           "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
         },
         {
-          "value": "Calcul d'enveloppe urbaine",
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
           "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
         },
         {
-          "value": "Calculé",
+          "const": "Calculé",
+          "title": "Calculé",
           "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
         },
         {
-          "value": "Fichier numérique décimétrique",
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
           "description": "La géométrie provient de données numériques de précision décimétrique."
         },
         {
-          "value": "Fichier numérique métrique",
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
           "description": "La géométrie provient de données numériques de précision métrique."
         },
         {
-          "value": "Fichier numérique non métrique",
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
           "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
         },
         {
-          "value": "Géocodage",
+          "const": "Géocodage",
+          "title": "Géocodage",
           "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
         },
         {
-          "value": "Géoroute",
+          "const": "Géoroute",
+          "title": "Géoroute",
           "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
         },
         {
-          "value": "Image satellite",
+          "const": "Image satellite",
+          "title": "Image satellite",
           "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
         },
         {
-          "value": "Image satellite HR",
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
           "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
         },
         {
-          "value": "Inconnue",
+          "const": "Inconnue",
+          "title": "Inconnue",
           "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
         },
         {
-          "value": "Levé GPS",
+          "const": "Levé GPS",
+          "title": "Levé GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
         },
         {
-          "value": "Levé non GPS",
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
         },
         {
-          "value": "Lidar",
+          "const": "Lidar",
+          "title": "Lidar",
           "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
         },
         {
-          "value": "Lidar HD",
+          "const": "Lidar HD",
+          "title": "Lidar HD",
           "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
         },
         {
-          "value": "Orthophotographie",
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
           "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
         },
         {
-          "value": "Photogrammétrie",
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
           "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
         },
         {
-          "value": "Plan métrique papier",
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
         },
         {
-          "value": "Plan non métrique papier",
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
         },
         {
-          "value": "Processus IA métrique"
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
         },
         {
-          "value": "Processus IA non métrique"
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
         },
         {
-          "value": "Scan25",
+          "const": "Scan25",
+          "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "nullable": true
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
-      "description": "",
-      "nullable": false
+      "description": ""
     },
     {
       "name": "insee_commune",
       "type": "string",
       "title": "Insee commune calculé",
-      "description": "Code INSEE de la commune calculé.",
-      "nullable": true
+      "description": "Code INSEE de la commune calculé."
     },
     {
       "name": "identifiant_voie_ban",
       "type": "string",
       "title": "Identifiant voie BAN",
-      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056.",
-      "nullable": true
+      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
     },
     {
       "name": "id_ban_odonyme",
       "type": "string",
       "title": "Id BAN Odonyme",
-      "description": "Identifiant de l'odonyme de la BAN, au format uuid.",
-      "nullable": true
+      "description": "Identifiant de l'odonyme de la BAN, au format uuid."
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature",
+    "importance",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "geometrie"
   ]
 }

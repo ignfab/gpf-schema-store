@@ -12,6 +12,10 @@ import {
 } from "fs";
 import { merge } from "../helpers/merge";
 import { loadNamespaceFilters } from "../helpers/filter";
+import {
+    parseCollectionOverwrite,
+    validateCollectionOverwriteReferences,
+} from "../helpers/overwrite";
 
 /**
  * Allows to resolve the data directory from the current file before 
@@ -114,6 +118,9 @@ export function loadCollections(): Collection[] {
     // apply the overwrites to the collections
     const overwrittenCollections = collections.map((c) => {
         const overwrite = getOverwrite(c.namespace, c.name);
+        if (overwrite) {
+            validateCollectionOverwriteReferences(c, overwrite);
+        }
         return merge(c, overwrite);
     });
 
@@ -232,7 +239,8 @@ export function clearWfsCollections(): void {
 export function getOverwrite(namespace: string, name: string): CollectionOverwrite | null {
     const overwritePath = join(DATA_DIR, 'overwrites', namespace, `${name}.json`);
     if (existsSync(overwritePath)) {
-        return JSON.parse(readFileSync(overwritePath, 'utf-8')) as CollectionOverwrite;
+        const raw = JSON.parse(readFileSync(overwritePath, 'utf-8')) as unknown;
+        return parseCollectionOverwrite(raw, overwritePath);
     }
     return null;
 }

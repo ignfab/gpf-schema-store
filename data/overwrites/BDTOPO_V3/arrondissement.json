@@ -1,93 +1,82 @@
 {
-  "id": "Administratif:Arrondissement",
-  "namespace": "Administratif",
-  "name": "Arrondissement",
   "title": "Arrondissement",
+  "x-ign-theme": "Administratif",
   "description": "L'arrondissement est une circonscription administrative de l'État dont le chef-lieu est la sous-préfecture. Le sous-préfet est chargé de son administration ; il relaie le préfet en assurant le contrôle administratif des communes de son arrondissement. Le libellé de l'arrondissement est le plus souvent celui du chef-lieu. L'arrondissement est une subdivision du département. Depuis le redécoupage cantonal lié aux élections départementales de mars 2015, l'arrondissement n’est plus un regroupement de cantons mais de communes. Source Insee",
   "properties": [
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet.",
-      "nullable": false
+      "description": "Identifiant unique de l'objet."
     },
     {
       "name": "nom_officiel",
       "type": "string",
       "title": "Nom officiel",
-      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées.",
-      "nullable": true
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées."
     },
     {
       "name": "code_insee_de_l_arrondissement",
       "type": "string",
       "title": "Code Insee de l'arrondissement",
-      "description": "Code INSEE de l'Arrondissement.",
-      "nullable": true
+      "description": "Code INSEE de l'Arrondissement."
     },
     {
       "name": "numero_de_l_arrondissement",
       "type": "string",
       "title": "Numéro de l'arrondissement",
-      "description": "Il s’agit du numéro officiel attribué par l’Insee à l'Arrondissement : c'est un chiffre.",
-      "nullable": true
+      "description": "Il s’agit du numéro officiel attribué par l’Insee à l'Arrondissement : c'est un chiffre."
     },
     {
       "name": "code_insee_du_departement",
       "type": "string",
       "title": "Code Insee du département",
-      "description": "Code Insee du Département auquel appartient l'unité administrative concernée.",
-      "nullable": true
+      "description": "Code Insee du Département auquel appartient l'unité administrative concernée."
     },
     {
       "name": "code_insee_de_la_region",
       "type": "string",
       "title": "Code Insee de la région",
-      "description": "Code Insee de la Région à laquelle appartient l'entité administrative concernée.",
-      "nullable": true
+      "description": "Code Insee de la Région à laquelle appartient l'entité administrative concernée."
     },
     {
       "name": "liens_vers_autorite_administrative",
       "type": "string",
       "title": "Liens vers autorité administrative",
-      "description": "Lien vers (clé absolue) l'objet de Nature=\"Sous-préfecture\" de l'arrondissement.",
-      "nullable": true
+      "description": "Lien vers (clé absolue) l'objet de Nature=\"Sous-préfecture\" de l'arrondissement."
     },
     {
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "nullable": true
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "nullable": true
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie GE MultiPolygone",
-      "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle.",
-      "nullable": true
+      "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle."
     }
+  ],
+  "required": [
+    "cleabs"
   ]
 }

@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_du:habillage_txt",
+  "type": "object",
+  "title": "Etiquette ponctuelle de l’habillage du plan",
+  "description": "Étiquette ponctuelle portée sur le document d'urbanisme pour l’habillage du plan, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "natecr": {
+      "type": "string"
+    },
+    "insee": {
+      "type": "string"
+    },
+    "txt": {
+      "type": "string"
+    },
+    "police": {
+      "type": "string"
+    },
+    "taille": {
+      "type": "integer"
+    },
+    "style": {
+      "type": "string"
+    },
+    "angle": {
+      "type": "integer"
+    },
+    "idurba": {
+      "type": "string"
+    },
+    "couleur": {
+      "type": "string"
+    },
+    "idhab": {
+      "type": "string"
+    },
+    "lib_idhab": {
+      "type": "string"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

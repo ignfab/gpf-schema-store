@@ -17,7 +17,7 @@ const base: Collection = {
 describe('mergeCollectionSchema', () => {
 
   it('keeps collection id, namespace, name and original property names/types; other property fields from overwrite', () => {
-    const overwrite: CollectionOverwrite = {
+    const overwrite: Collection = {
       id: 'NS:collection',
       namespace: 'NS',
       name: 'collection',
@@ -43,7 +43,7 @@ describe('mergeCollectionSchema', () => {
   })
 
   it('should ignore extra properties in overwrite (only merge matching properties)', () => {
-    const overwrite: CollectionOverwrite = {
+    const overwrite: Collection = {
       ...base,
       properties: [
         { name: 'geom', type: 'string', title: 'Modified' },
@@ -61,7 +61,7 @@ describe('mergeCollectionSchema', () => {
   })
 
   it('allows legacy overwrite types but keeps the original WFS type', () => {
-    const overwrite: CollectionOverwrite = {
+    const overwrite = {
       ...base,
       properties: [
         { name: 'nature', type: 'numeric', title: 'Nature' },
@@ -75,7 +75,7 @@ describe('mergeCollectionSchema', () => {
   })
 
   it('should keep id from original', () => {
-    const overwrite: CollectionOverwrite = {
+    const overwrite: Collection = {
       ...base,
       id: 'OTHER:other',
     }
@@ -83,7 +83,7 @@ describe('mergeCollectionSchema', () => {
   })
 
   it('should keep name from original', () => {
-    const overwrite: CollectionOverwrite = {
+    const overwrite: Collection = {
       ...base,
       name: 'other',
     }
@@ -91,7 +91,7 @@ describe('mergeCollectionSchema', () => {
   })
   
   it('should keep namespace from original', () => {
-    const overwrite: CollectionOverwrite = {
+    const overwrite: Collection = {
       ...base,
       namespace: 'OTHER',
     }
@@ -99,7 +99,7 @@ describe('mergeCollectionSchema', () => {
   })
 
   it('should use title from overwrite', () => {
-    const overwrite: CollectionOverwrite = {
+    const overwrite: Collection = {
       ...base,
       title: 'Modified title',
     }
@@ -108,7 +108,7 @@ describe('mergeCollectionSchema', () => {
 
 
   it('should use description from overwrite if overwrite is provided', () => {
-    const overwrite: CollectionOverwrite = {
+    const overwrite: Collection = {
       ...base,
       description: 'Modified description',
     }
@@ -116,7 +116,7 @@ describe('mergeCollectionSchema', () => {
   })
 
   it('should use description from original if overwrite is not provided', () => {
-    const overwrite: CollectionOverwrite = {
+    const overwrite: Collection = {
       ...base
     }
     expect(merge(base, overwrite).description).toEqual(base.description)
@@ -141,7 +141,7 @@ describe('mergeCollectionSchema', () => {
       ],
     }
 
-    const overwrite: CollectionOverwrite = {
+    const overwrite: Collection = {
       ...baseWithGeometry,
       properties: [
         {
@@ -168,8 +168,8 @@ describe('mergeCollectionSchema', () => {
         {
           name: 'geom',
           type: 'geometry',
-          title: 'Original geometry',
-          description: 'Original geometry description',
+          title: 'Overwritten geometry',
+          description: 'Overwritten geometry description',
           defaultCrs: 'EPSG:4326',
         },
         {
@@ -181,83 +181,65 @@ describe('mergeCollectionSchema', () => {
     })
   })
 
-  it('propagates selectionCriteria from overwrite at collection level', () => {
+  it('propagates collection and property enrichment fields from overwrite', () => {
     const overwrite: CollectionOverwrite = {
-      ...base,
-      selectionCriteria: 'Tous les bâtiments de plus de 20 m²',
-    }
-    expect(merge(base, overwrite).selectionCriteria).toEqual('Tous les bâtiments de plus de 20 m²')
-  })
-
-  it('propagates representedFeatures from overwrite at collection level', () => {
-    const overwrite: CollectionOverwrite = {
-      ...base,
-      representedFeatures: ['Aéroport', 'Héliport'],
-    }
-    expect(merge(base, overwrite).representedFeatures).toEqual(['Aéroport', 'Héliport'])
-  })
-
-  it('does not set selectionCriteria or representedFeatures when overwrite omits them', () => {
-    const overwrite: CollectionOverwrite = {
-      ...base,
-    }
-    const result = merge(base, overwrite)
-    expect(result).not.toHaveProperty('selectionCriteria')
-    expect(result).not.toHaveProperty('representedFeatures')
-  })
-
-  it('propagates allowedValues from overwrite at property level', () => {
-    const overwrite: CollectionOverwrite = {
-      ...base,
+      title: 'Overwritten title',
+      description: 'Overwritten description',
+      'x-ign-theme': 'Theme',
+      'x-ign-selectionCriteria': 'Selection criteria',
+      'x-ign-representedFeatures': ['Feature'],
+      required: ['nature'],
       properties: [
-        { name: 'nature', type: 'string', allowedValues: [
-          { value: 'Résidentiel', description: 'Bâtiment résidentiel' },
-          { value: 'Industriel', description: 'Bâtiment industriel', representedFeatures: ['Usine', 'Entrepôt'] },
-        ]},
+        {
+          name: 'nature',
+          type: 'number',
+          title: 'Nature',
+          description: 'Nature description',
+          oneOf: [
+            {
+              const: 'A',
+              title: 'Value A',
+              description: 'Value A description',
+              'x-ign-representedFeatures': ['Represented A'],
+            },
+          ],
+        },
       ],
     }
-    const result = merge(base, overwrite)
-    expect(result.properties[1]).toEqual({
-      name: 'nature',
-      type: 'string',
-      allowedValues: [
-        { value: 'Résidentiel', description: 'Bâtiment résidentiel' },
-        { value: 'Industriel', description: 'Bâtiment industriel', representedFeatures: ['Usine', 'Entrepôt'] },
+
+    expect(merge(base, overwrite)).toEqual({
+      id: 'NS:collection',
+      namespace: 'NS',
+      name: 'collection',
+      title: 'Overwritten title',
+      description: 'Overwritten description',
+      'x-ign-theme': 'Theme',
+      'x-ign-selectionCriteria': 'Selection criteria',
+      'x-ign-representedFeatures': ['Feature'],
+      required: ['nature'],
+      properties: [
+        { name: 'geom', type: 'geometry' },
+        {
+          name: 'nature',
+          type: 'string',
+          title: 'Nature',
+          description: 'Nature description',
+          oneOf: [
+            {
+              const: 'A',
+              title: 'Value A',
+              description: 'Value A description',
+              'x-ign-representedFeatures': ['Represented A'],
+            },
+          ],
+        },
       ],
     })
   })
 
-  it('propagates nullable from overwrite at property level', () => {
-    const overwrite: CollectionOverwrite = {
-      ...base,
-      properties: [
-        { name: 'nature', type: 'string', nullable: false },
-      ],
-    }
-    const result = merge(base, overwrite)
-    expect(result.properties[1].nullable).toBe(false)
-  })
-
-  it('propagates availableWhen on allowedValues from overwrite', () => {
-    const overwrite: CollectionOverwrite = {
-      ...base,
-      properties: [
-        { name: 'nature_detaillee', type: 'string', allowedValues: [
-          { value: 'Cimetière militaire allemand', availableWhen: { property: 'nature', equalsAny: ['Militaire étranger'] } },
-        ]},
-      ],
-    }
-    const result = merge({ ...base, properties: [
-      { name: 'geom', type: 'geometry' },
-      { name: 'nature_detaillee', type: 'string' },
-    ] }, overwrite)
-    expect(result.properties[1].allowedValues).toEqual([
-      { value: 'Cimetière militaire allemand', availableWhen: { property: 'nature', equalsAny: ['Militaire étranger'] } },
-    ])
-  })
 
   it('does not mutate source objects', () => {
-    const overwrite: CollectionOverwrite = {
+    const overwrite: Collection = {
       ...base,
       title: 'Modified title',
     }

@@ -1,56 +1,55 @@
 {
-  "id": "Hydrographie:Entité de transition",
-  "namespace": "Hydrographie",
-  "name": "Entité de transition",
   "title": "Entité de transition",
+  "x-ign-theme": "Hydrographie",
   "description": "Partie terminale d'un fleuve, de forme évasée et où la mer remonte (estuaire, delta)",
   "properties": [
     {
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet.",
-      "nullable": false
+      "description": "Identifiant unique de l'objet."
     },
     {
       "name": "code_hydrographique",
       "type": "string",
       "title": "Code hydrographique",
-      "description": "Identifiant de l'objet hydrographique.",
-      "nullable": true
+      "description": "Identifiant de l'objet hydrographique."
     },
     {
       "name": "toponyme",
       "type": "string",
       "title": "Toponyme",
-      "description": "Toponyme de l'objet.",
-      "nullable": true
+      "description": "Toponyme de l'objet."
     },
     {
       "name": "statut_du_toponyme",
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Autre",
+          "const": "Autre",
+          "title": "Autre",
           "description": "Autre statut. Surnom, toponyme de source non certaine.."
         },
         {
-          "value": "Collecté",
+          "const": "Collecté",
+          "title": "Collecté",
           "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
         },
         {
-          "value": "Historique",
+          "const": "Historique",
+          "title": "Historique",
           "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
         },
         {
-          "value": "Régional",
+          "const": "Régional",
+          "title": "Régional",
           "description": "Toponyme en langue régionale."
         },
         {
-          "value": "Validé",
+          "const": "Validé",
+          "title": "Validé",
           "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
         }
       ]
@@ -60,30 +59,35 @@
       "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les objets d'une classe en fonction de leur importance ou notoriété relative.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "1",
+          "const": "1",
+          "title": "1",
           "description": "L'objet a une importance ou un rayonnement national, justifiant de le représenter aux échelles de l'ordre du 1 : 1 000 000."
         },
         {
-          "value": "2",
+          "const": "2",
+          "title": "2",
           "description": "L'objet a une importance ou un rayonnement régional, justifiant de le représenter aux échelles de l'ordre du 1 : 250 000."
         },
         {
-          "value": "3",
+          "const": "3",
+          "title": "3",
           "description": "L'objet a une importance ou un rayonnement départemental, justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
         },
         {
-          "value": "4",
+          "const": "4",
+          "title": "4",
           "description": "L'objet a une importance ou un rayonnement intercommunal ou cantonal, justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
         },
         {
-          "value": "5",
+          "const": "5",
+          "title": "5",
           "description": "L'objet a une importance ou un rayonnement communal, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
         },
         {
-          "value": "6",
+          "const": "6",
+          "title": "6",
           "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
         }
       ]
@@ -92,57 +96,52 @@
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "nullable": true
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "nullable": true
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "nullable": true
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "nullable": true
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     {
       "name": "statut",
       "type": "string",
       "title": "Statut de l'objet hydrographique",
       "description": "État de validité de l'objet hydrographique au sens du dictionnaire du SANDRE. (http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html)",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Gelé",
+          "const": "Gelé",
+          "title": "Gelé",
           "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Gelé\" lorsqu'il a fait l'objet d'un travail de vérification de sa pertinence par un groupe d'experts du SANDRE, au regard des listes de références existantes. La conclusion de ce travail a mis en évidence une ou plusieurs erreurs pouvant être de nature variée (redondance d'informations, informations incomplètes, confusion) qui n'autorisent pas son usage au sein d'échanges de données. Une nomenclature ou une occurrence de listes nationales de statut \"Gelé\" peut en outre évoluer à l'avenir vers un statut valide, toujours selon l'avis de groupes d'experts."
         },
         {
-          "value": "Validé",
+          "const": "Validé",
+          "title": "Validé",
           "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Valide\" lorsqu'il a été jugé pertinent et cohérent aux yeux d'un groupe d'experts, garantissant ainsi son caractère valide. La nomenclature ou l'occurrence de listes nationales est bien reconnu officiellement par le SANDRE et peut désormais faire l'objet d'échanges de données."
         }
       ]
@@ -151,22 +150,24 @@
       "name": "influence_de_la_maree",
       "type": "boolean",
       "title": "Influence de la marée",
-      "description": "Indique si l'eau de surface est affectée par la marée.",
-      "nullable": true
+      "description": "Indique si l'eau de surface est affectée par la marée."
     },
     {
       "name": "commentaire_sur_l_objet_hydro",
       "type": "string",
       "title": "Commentaire sur l'objet hydro",
-      "description": "Commentaire spécifique au réseau hydrographique.",
-      "nullable": true
+      "description": "Commentaire spécifique au réseau hydrographique."
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
-      "description": "",
-      "nullable": false
+      "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "importance",
+    "geometrie"
   ]
 }

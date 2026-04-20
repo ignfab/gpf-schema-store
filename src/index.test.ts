@@ -34,8 +34,8 @@ describe('getCollections (library API)', () => {
         },
       ])
 
-    expect(getCollections().map((c) => c.id)).toEqual(['NS:first'])
-    expect(getCollections().map((c) => c.id)).toEqual(['NS:second'])
+    expect(getCollections().map((c) => c.title)).toEqual(['first'])
+    expect(getCollections().map((c) => c.title)).toEqual(['second'])
     expect(loadCollectionsMock).toHaveBeenCalledTimes(2)
   })
 
@@ -54,10 +54,10 @@ describe('getCollections (library API)', () => {
 
     const first = getCollections()
     first[0].title = 'mutated by caller'
-    first[0].properties[0].type = 'float'
+    first[0].properties.id.type = 'number'
 
     const second = getCollections()
     expect(second[0].title).toBe('stable')
-    expect(second[0].properties[0].type).toBe('string')
+    expect(second[0].properties.id.type).toBe('string')
   })
 })

@@ -1,11 +1,9 @@
 {
-  "id": "Services et activités:ERP",
-  "namespace": "Services et activités",
-  "name": "ERP",
   "title": "ERP",
+  "x-ign-theme": "Services et activités",
   "description": "Les établissements recevant du public (ERP) sont des bâtiments dans lesquels des personnes extérieures sont admises.",
-  "selectionCriteria": "L'accès peut être payant ou gratuit, libre, restreint ou sur invitation. Une entreprise non ouverte au public, mais seulement au personnel, n'est pas un ERP. Les ERP sont classés en types (salle de spectacle, cinéma, hôtel, restaurant, magasin, maison de retraite ...) et en catégories (fonction de l'effectif du public reçu) qui définissent les exigences réglementaires applicables en fonction des risques. Voir les différentes valeur des attributs 'Type principal' et 'Catégorie'.",
-  "representedFeatures": [
+  "x-ign-selectionCriteria": "L'accès peut être payant ou gratuit, libre, restreint ou sur invitation. Une entreprise non ouverte au public, mais seulement au personnel, n'est pas un ERP. Les ERP sont classés en types (salle de spectacle, cinéma, hôtel, restaurant, magasin, maison de retraite ...) et en catégories (fonction de l'effectif du public reçu) qui définissent les exigences réglementaires applicables en fonction des risques. Voir les différentes valeur des attributs 'Type principal' et 'Catégorie'.",
+  "x-ign-representedFeatures": [
     "ERP"
   ],
   "properties": [
@@ -13,41 +11,43 @@
       "name": "cleabs",
       "type": "string",
       "title": "Cleabs",
-      "description": "Identifiant unique de l'objet.",
-      "nullable": false
+      "description": "Identifiant unique de l'objet."
     },
     {
       "name": "id_reference",
       "type": "string",
       "title": "Id référence",
-      "description": "",
-      "nullable": true
+      "description": ""
     },
     {
       "name": "categorie",
       "type": "string",
       "title": "Catégorie",
       "description": "Les catégories sont déterminées en fonction de la capacité d'accueil du bâtiment, y compris les salariés (sauf pour la 5è catégorie). Le classement d'un établissement est validé par la commission de sécurité à partir des informations transmises par l'exploitant de l'établissement dans le dossier de sécurité déposé en mairie.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "1",
+          "const": "1",
+          "title": "1",
           "description": "Etablissement d'effectif admissible supérieur à 1 501 personnes."
         },
         {
-          "value": "2",
+          "const": "2",
+          "title": "2",
           "description": "Etablissement d'effectif admissible compris entre 701 et 1 500 personnes."
         },
         {
-          "value": "3",
+          "const": "3",
+          "title": "3",
           "description": "Etablissement d'effectif admissible compris entre 301 et 700 personnes."
         },
         {
-          "value": "4",
+          "const": "4",
+          "title": "4",
           "description": "Etablissement d'effectif admissible inférieur à 300 personnes."
         },
         {
-          "value": "5",
+          "const": "5",
+          "title": "5",
           "description": "Etablissement dans lequel l'effectif admissible n'atteint pas le seuil d'assujettissement défini par le règlement de sécurité pour chaque type d'exploitation."
         }
       ]
@@ -56,54 +56,51 @@
       "name": "type_principal",
       "type": "string",
       "title": "Type principal",
-      "description": "Typologie principale de l'établissement, fonction de la nature ou de l'activité de l'exploitation.",
-      "nullable": true
+      "description": "Typologie principale de l'établissement, fonction de la nature ou de l'activité de l'exploitation."
     },
     {
       "name": "types_secondaires",
       "type": "string",
       "title": "Types secondaires",
-      "description": "Typologie (s) secondaire (s) de l'établissement, fonction de la nature ou de l'activité de l'exploitation.",
-      "nullable": true
+      "description": "Typologie (s) secondaire (s) de l'établissement, fonction de la nature ou de l'activité de l'exploitation."
     },
     {
       "name": "activite_principale",
       "type": "string",
       "title": "Activité principale",
-      "description": "Activité principale de l'établissement.",
-      "nullable": true
+      "description": "Activité principale de l'établissement."
     },
     {
       "name": "activites_secondaires",
       "type": "string",
       "title": "Activités secondaires",
-      "description": "Activités secondaires de l'établissement.",
-      "nullable": true
+      "description": "Activités secondaires de l'établissement."
     },
     {
       "name": "libelle",
       "type": "string",
       "title": "Libellé",
-      "description": "Dénomination libre de l’établissement.",
-      "nullable": true
+      "description": "Dénomination libre de l’établissement."
     },
     {
       "name": "etat_de_l_objet",
       "type": "string",
       "title": "Etat de l'objet",
       "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "En construction",
+          "const": "En construction",
+          "title": "En construction",
           "description": "L'objet géographique est en construction. Dans le cas des Tronçon de route, la date de mise en service prévue est codée dans le champ 'Date de mise en service'."
         },
         {
-          "value": "En projet",
+          "const": "En projet",
+          "title": "En projet",
           "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
         },
         {
-          "value": "En service",
+          "const": "En service",
+          "title": "En service",
           "description": "L'objet géographique est en service."
         }
       ]
@@ -112,207 +109,223 @@
       "name": "date_creation",
       "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     {
       "name": "date_modification",
       "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "nullable": true
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     {
       "name": "date_d_apparition",
       "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "nullable": true
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     {
       "name": "date_de_confirmation",
       "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "nullable": true
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     {
       "name": "sources",
       "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "nullable": true
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     {
       "name": "identifiants_sources",
       "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "nullable": true
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     {
       "name": "methode_d_acquisition_planimetrique",
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "BDCarto",
+          "const": "BDCarto",
+          "title": "BDCarto",
           "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
         },
         {
-          "value": "BDNyme",
+          "const": "BDNyme",
+          "title": "BDNyme",
           "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
         },
         {
-          "value": "BDParcellaire",
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
           "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
         },
         {
-          "value": "BDParcellaire recalée",
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
           "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
         },
         {
-          "value": "BDTopo",
+          "const": "BDTopo",
+          "title": "BDTopo",
           "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
         },
         {
-          "value": "Calcul d'enveloppe urbaine",
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
           "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
         },
         {
-          "value": "Calculé",
+          "const": "Calculé",
+          "title": "Calculé",
           "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
         },
         {
-          "value": "Fichier numérique décimétrique",
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
           "description": "La géométrie provient de données numériques de précision décimétrique."
         },
         {
-          "value": "Fichier numérique métrique",
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
           "description": "La géométrie provient de données numériques de précision métrique."
         },
         {
-          "value": "Fichier numérique non métrique",
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
           "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
         },
         {
-          "value": "Géocodage",
+          "const": "Géocodage",
+          "title": "Géocodage",
           "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
         },
         {
-          "value": "Géoroute",
+          "const": "Géoroute",
+          "title": "Géoroute",
           "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
         },
         {
-          "value": "Image satellite",
+          "const": "Image satellite",
+          "title": "Image satellite",
           "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
         },
         {
-          "value": "Image satellite HR",
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
           "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
         },
         {
-          "value": "Inconnue",
+          "const": "Inconnue",
+          "title": "Inconnue",
           "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
         },
         {
-          "value": "Levé GPS",
+          "const": "Levé GPS",
+          "title": "Levé GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
         },
         {
-          "value": "Levé non GPS",
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
           "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
         },
         {
-          "value": "Lidar",
+          "const": "Lidar",
+          "title": "Lidar",
           "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
         },
         {
-          "value": "Lidar HD",
+          "const": "Lidar HD",
+          "title": "Lidar HD",
           "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
         },
         {
-          "value": "Orthophotographie",
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
           "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
         },
         {
-          "value": "Photogrammétrie",
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
           "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
         },
         {
-          "value": "Plan métrique papier",
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
         },
         {
-          "value": "Plan non métrique papier",
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
           "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
         },
         {
-          "value": "Processus IA métrique"
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
         },
         {
-          "value": "Processus IA non métrique"
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
         },
         {
-          "value": "Scan25",
+          "const": "Scan25",
+          "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "nullable": true
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "public",
       "type": "boolean",
       "title": "Public",
-      "description": "Indique si l'établissement relève du domaine Public ou privé.",
-      "nullable": true
+      "description": "Indique si l'établissement relève du domaine Public ou privé."
     },
     {
       "name": "ouvert",
       "type": "boolean",
       "title": "Ouvert",
-      "description": "Indique si l’ERP est effectivement ouvert.",
-      "nullable": true
+      "description": "Indique si l’ERP est effectivement ouvert."
     },
     {
       "name": "capacite_d_accueil_du_public",
       "type": "integer",
       "title": "Capacité d'accueil du public",
-      "description": "Capacité totale d’accueil du public.",
-      "nullable": true
+      "description": "Capacité totale d’accueil du public."
     },
     {
       "name": "capacite_d_hebergement",
       "type": "integer",
       "title": "Capacité d'hébergement",
-      "description": "Nombre de personnes pouvant être hébergées (pour des secours).",
-      "nullable": true
+      "description": "Nombre de personnes pouvant être hébergées (pour des secours)."
     },
     {
       "name": "origine_de_la_geometrie",
       "type": "string",
       "title": "Origine de la géométrie",
       "description": "Origine de la géométrie des données ERP importées dans la BD TOPO®.",
-      "nullable": false,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Géocodage automatique",
+          "const": "Géocodage automatique",
+          "title": "Géocodage automatique",
           "description": "Positionnement issu d'un géocodage automatique à partir de l'adresse déclarée de l'établissement."
         },
         {
-          "value": "Inconnue",
+          "const": "Inconnue",
+          "title": "Inconnue",
           "description": "Origine de la géométrie inconnue."
         },
         {
-          "value": "Saisie manuelle",
+          "const": "Saisie manuelle",
+          "title": "Saisie manuelle",
           "description": "Géométrie issue d'une saisie manuelle ou d'un appariement contrôlé."
         }
       ]
@@ -322,18 +335,20 @@
       "type": "string",
       "title": "Type de localisation",
       "description": "Indique ce que représente la géométrie fournie pour l'ERP sur le terrain.",
-      "nullable": true,
-      "allowedValues": [
+      "oneOf": [
         {
-          "value": "Entrée pour les secours",
+          "const": "Entrée pour les secours",
+          "title": "Entrée pour les secours",
           "description": "Entrée pour les secours"
         },
         {
-          "value": "Entrée principale du bâtiment",
+          "const": "Entrée principale du bâtiment",
+          "title": "Entrée principale du bâtiment",
           "description": "Entrée principale du bâtiment"
         },
         {
-          "value": "Plaque adresse",
+          "const": "Plaque adresse",
+          "title": "Plaque adresse",
           "description": "Localisation de la plaque adresse."
         }
       ]
@@ -342,85 +357,80 @@
       "name": "validation_ign",
       "type": "boolean",
       "title": "Validation IGN",
-      "description": "Indique qu'un contrôle ou recalage effectué par l’IGN sur les données proposées par un partenaire.",
-      "nullable": true
+      "description": "Indique qu'un contrôle ou recalage effectué par l’IGN sur les données proposées par un partenaire."
     },
     {
       "name": "insee_commune",
       "type": "string",
       "title": "Insee commune",
-      "description": "Code INSEE de la commune sur laquelle est situé l'objet géographique.",
-      "nullable": true
+      "description": "Code INSEE de la commune sur laquelle est situé l'objet géographique."
     },
     {
       "name": "numero_siret",
       "type": "string",
       "title": "Numéro SIRET",
-      "description": "Numéro SIRET de l'établissement.",
-      "nullable": true
+      "description": "Numéro SIRET de l'établissement."
     },
     {
       "name": "adresse_numero",
       "type": "string",
       "title": "Adresse_Numéro",
-      "description": "Numéro de l’adresse dans sa voie (sans indice de répétition).",
-      "nullable": true
+      "description": "Numéro de l’adresse dans sa voie (sans indice de répétition)."
     },
     {
       "name": "adresse_indice_de_repetition",
       "type": "string",
       "title": "Adresse_Indice de répétition",
-      "description": "Indice de répétition de l'adresse de l'établissement.",
-      "nullable": true
+      "description": "Indice de répétition de l'adresse de l'établissement."
     },
     {
       "name": "adresse_designation_de_l_entree",
       "type": "string",
       "title": "Adresse_Désignation de l'entrée",
-      "description": "Définit un complément d’adressage en précisant un nom de résidence ou d’immeuble ou un numéro ou nom d’entrée.",
-      "nullable": true
+      "description": "Définit un complément d’adressage en précisant un nom de résidence ou d’immeuble ou un numéro ou nom d’entrée."
     },
     {
       "name": "adresse_nom_1",
       "type": "string",
       "title": "Adresse_Nom 1",
-      "description": "Nom de la voie de l’adresse.",
-      "nullable": true
+      "description": "Nom de la voie de l’adresse."
     },
     {
       "name": "adresse_nom_2",
       "type": "string",
       "title": "Adresse_Nom 2",
-      "description": "Élément d’adressage complémentaire (pour les lieux-dits par exemple).",
-      "nullable": true
+      "description": "Élément d’adressage complémentaire (pour les lieux-dits par exemple)."
     },
     {
       "name": "code_postal",
       "type": "string",
       "title": "Code postal",
-      "description": "Code postal.",
-      "nullable": true
+      "description": "Code postal."
     },
     {
       "name": "liens_vers_batiment",
       "type": "string",
       "title": "Liens vers bâtiment",
-      "description": "Lien(s) vers la 'Clé absolue' du ou des bâtiments de la BD TOPO® accueillant l'ERP.",
-      "nullable": true
+      "description": "Lien(s) vers la 'Clé absolue' du ou des bâtiments de la BD TOPO® accueillant l'ERP."
     },
     {
       "name": "liens_vers_enceinte",
       "type": "string",
       "title": "Liens vers enceinte",
-      "description": "Lien(s) vers la ou les 'Clé absolue' de la ou des correspondant à l'ERP dans la BD TOPO®.",
-      "nullable": true
+      "description": "Lien(s) vers la ou les 'Clé absolue' de la ou des correspondant à l'ERP dans la BD TOPO®."
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
-      "description": "",
-      "nullable": false
+      "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "origine_de_la_geometrie",
+    "geometrie"
   ]
 }

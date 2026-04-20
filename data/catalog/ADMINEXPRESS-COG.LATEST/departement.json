@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.LATEST:departement",
+  "type": "object",
+  "title": "ADMINEXPRESS COG Dernière édition Département",
+  "description": "ADMINEXPRESS COG Dernière édition Département",
+  "properties": {
+    "cleabs": {
+      "type": "string"
+    },
+    "nom_officiel": {
+      "type": "string"
+    },
+    "nom_officiel_en_majuscules": {
+      "type": "string"
+    },
+    "code_insee": {
+      "type": "string"
+    },
+    "code_insee_de_la_region": {
+      "type": "string"
+    },
+    "code_siren": {
+      "type": "string"
+    },
+    "geometrie": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

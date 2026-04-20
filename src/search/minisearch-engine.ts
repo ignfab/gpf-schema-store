@@ -5,35 +5,13 @@ import type {
   CollectionSearchMatch,
 } from './types';
 
-// Virtual fields indexed by MiniSearch for each collection.
-//
-// | Field               | Source                          | Content                                                       |
-// |---------------------|---------------------------------|---------------------------------------------------------------|
-// | namespace           | Collection.namespace (WFS)      | Raw namespace string                                          |
-// | name                | Collection.name (WFS)           | Raw name string                                               |
-// | title               | Collection.title (overwrite)    | Raw title string                                              |
-// | description         | Collection.description (ow)     | Raw description string                                        |
-// | properties          | CollectionProperty[] (merged)   | name + title + description of each property (stringified)     |
-// | allowedValues       | virtual (computed)              | AllowedValue.value terms only                                 |
-// | representedFeatures | virtual (computed)              | Collection + AllowedValue representedFeatures terms           |
-// | selectionCriteria   | virtual (computed)              | Collection.selectionCriteria terms                            |
-// | identifierTokens    | virtual (computed)              | id, namespace, name with separators expanded to spaces        |
-//
-// The enriched overwrite fields are deliberately split across several virtual
-// fields so that broad documentary text does not carry the same weight as
-// short, controlled vocabulary terms. AllowedValue.description and
-// AllowedValue.availableWhen are not indexed: descriptions are too noisy for
-// collection-level search, and availableWhen is a conditional constraint.
-//
 const INDEXED_COLLECTION_FIELDS = [
   'namespace',
   'name',
   'title',
   'description',
   'properties',
-  'allowedValues',
-  'representedFeatures',
-  'selectionCriteria',
+  'enums',
   'identifierTokens',
 ] as const;
 
@@ -50,9 +28,7 @@ export type MiniSearchCollectionSearchOptions = {
     title?: number;
     description?: number;
     properties?: number;
-    allowedValues?: number;
-    representedFeatures?: number;
-    selectionCriteria?: number;
+    enums?: number;
     identifierTokens?: number;
   };
   fuzzy?: number;
@@ -80,22 +56,14 @@ const DEFAULT_MINISEARCH_SEARCH_OPTIONS: { boost: ResolvedBoost; fuzzy: number }
     title: 2.0,
     description: 1.5,
     properties: 1.3,
-    allowedValues: 1.6,
-    representedFeatures: 1.8,
-    selectionCriteria: 0.4,
+    enums: 1.8,
   },
   fuzzy: 0.1,
 };
 
-// An augmented collection with pre-computed string fields for MiniSearch indexing.
-// - allowedValues: a string made only from AllowedValue.value entries.
-// - representedFeatures: a string made from collection-level and allowed-value-level representedFeatures.
-// - selectionCriteria: a low-boost string made from the collection selection criteria.
-// - identifierTokens: a single string with expanded identifier tokens for partial matching
-type IndexedCollection = Omit<Collection, 'representedFeatures' | 'selectionCriteria'> & {
-  allowedValues: string;
-  representedFeatures: string;
-  selectionCriteria: string;
+// A virtual field added to each document before indexing so MiniSearch can index enum values separately.
+type IndexedCollection = Collection & {
+  enums: string;
   identifierTokens: string;
 };
 
@@ -121,7 +89,12 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
   // Produces a single string from property names, titles, and descriptions for MiniSearch to tokenize.
   private static stringifyProperties(properties: CollectionProperty[]): string {
     const terms = properties
-      .flatMap((p) => [p.name, p.title, p.description])
+      .flatMap((p) => [
+        p.name,
+        p.title,
+        p.description,
+        ...(p['x-ign-representedFeatures'] ?? []),
+      ])
       .filter(Boolean);
     return terms.join(' ');
   }
@@ -135,44 +108,23 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
     return [...rawValues, ...expandedValues].join(' ');
   }
 
-  // Normalizes and deduplicates phrase-level values before MiniSearch tokenizes them.
-  // This avoids duplicate source entries such as "Viaduc" and " viaduc " inflating scores.
-  private static stringifySearchTerms(values: Array<string | undefined>): string {
-    const terms = values
-      .filter((value): value is string => typeof value === 'string' && value.length > 0)
+  // Produces a deduplicated string of normalized enumerated values so that duplicate entries
+  // (e.g. 'Viaduc', 'viaduc') don't inflate match scores.
+  private static stringifyEnumValues(properties: CollectionProperty[]): string {
+    const values = properties
+      .flatMap((p) => [
+        ...(p.enum ?? []),
+        ...(p.oneOf ?? []).flatMap((value) => [
+          value.const,
+          value.title,
+          value.description,
+          ...(value['x-ign-representedFeatures'] ?? []),
+        ]),
+      ])
+      .filter((value): value is string => typeof value === 'string')
       .map((value) => MiniSearchCollectionSearchEngine.normalizeTerm(value))
       .filter((value): value is string => value !== false);
-
-    return [...new Set(terms)].join(' ');
-  }
-
-  // Produces a searchable string from allowed-value names only.
-  // Descriptions are intentionally not indexed because they add long documentary text
-  // without preserving the link to the value they describe in a collection-level index.
-  private static stringifyAllowedValues(collection: Collection): string {
-    const values = collection.properties
-      .flatMap((p) => p.allowedValues ?? [])
-      .map((av) => av.value);
-
-    return MiniSearchCollectionSearchEngine.stringifySearchTerms(values);
-  }
-
-  // Produces a searchable string from short business vocabulary describing what
-  // the collection or its allowed values represent.
-  private static stringifyRepresentedFeatures(collection: Collection): string {
-    const values = [
-      ...(collection.representedFeatures ?? []),
-      ...collection.properties
-        .flatMap((p) => p.allowedValues ?? [])
-        .flatMap((av) => av.representedFeatures ?? []),
-    ];
-
-    return MiniSearchCollectionSearchEngine.stringifySearchTerms(values);
-  }
-
-  // Produces a low-boost searchable string from broad collection selection rules.
-  private static stringifySelectionCriteria(collection: Collection): string {
-    return MiniSearchCollectionSearchEngine.stringifySearchTerms([collection.selectionCriteria]);
+    return [...new Set(values)].join(' ');
   }
 
   constructor(
@@ -204,12 +156,10 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
       },
     });
 
-    // Pre-compute virtual strings for each document before adding them to the index.
+    // Pre-compute the enums string for each document before adding it to the index.
     const documents: IndexedCollection[] = collections.map((c) => ({
       ...c,
-      allowedValues: MiniSearchCollectionSearchEngine.stringifyAllowedValues(c),
-      representedFeatures: MiniSearchCollectionSearchEngine.stringifyRepresentedFeatures(c),
-      selectionCriteria: MiniSearchCollectionSearchEngine.stringifySelectionCriteria(c),
+      enums: MiniSearchCollectionSearchEngine.stringifyEnumValues(c.properties),
       identifierTokens: MiniSearchCollectionSearchEngine.stringifyIdentifierTokens(c),
     }));
     this.miniSearch.addAll(documents);
