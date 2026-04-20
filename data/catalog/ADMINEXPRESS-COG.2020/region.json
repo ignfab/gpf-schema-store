@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2020:region",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2020 Région",
+  "description": "ADMINEXPRESS COG 2020 Région",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "nom_reg": {
+      "type": "string"
+    },
+    "nom_reg_m": {
+      "type": "string"
+    },
+    "insee_reg": {
+      "type": "string"
+    },
+    "chf_reg": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

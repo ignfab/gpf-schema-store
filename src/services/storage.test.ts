@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import type { Collection } from '../types'
+import type { CollectionOverwrite } from '../types'
 import { getOverwrite, loadCollections } from './storage'
 
 const DATA_DIR = join(dirname(fileURLToPath(import.meta.url)), '../../data')
@@ -28,7 +28,7 @@ describe('getOverwrite', () => {
       'BDTOPO_V3',
       'batiment.json',
     )
-    const expected = JSON.parse(readFileSync(expectedPath, 'utf-8')) as Collection
+    const expected = JSON.parse(readFileSync(expectedPath, 'utf-8')) as CollectionOverwrite
     expect(getOverwrite('BDTOPO_V3', 'batiment')).toEqual(expected)
   })
 

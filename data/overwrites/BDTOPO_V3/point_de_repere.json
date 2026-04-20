@@ -1,9 +1,11 @@
 {
-  "id": "Transport:Point de repère",
-  "namespace": "Transport",
-  "name": "Point de repère",
   "title": "Point de repère",
-  "description": "Point créé par le gestionnaire du réseau routier le long d'un <Tronçon de route> et utilisé pour assurer le référencement linéaire d'objets ou d’événements le long de cette route.\r\n\r\nIl est parfois matérialisé physiquement par des marques peintes associées à des bornes ou des plaquettes dites « PR » (définition du CEREMA), mais peut également être un point virtuel marquant une information sur la voie (exemple PR de début, de fin, début ou fin de section). \r\n\r\nLe PR permet de mettre en place un système de localisation sur le réseau routier.",
+  "x-ign-theme": "Transport",
+  "description": "Point créé par le gestionnaire du réseau routier le long d'un Tronçon de route et utilisé pour assurer le référencement linéaire d'objets ou d’événements le long de cette route. Il est parfois matérialisé physiquement par des marques peintes associées à des bornes ou des plaquettes dites « PR » (définition du CEREMA), mais peut également être un point virtuel marquant une information sur la voie (exemple PR de début, de fin, début ou fin de section). Le PR permet de mettre en place un système de localisation sur le réseau routier.",
+  "x-ign-selectionCriteria": "Les objets Point de repère retenus sont les PR des routes intercommunales, départementales, nationales et autoroutes.",
+  "x-ign-representedFeatures": [
+    "Point de repère routier"
+  ],
   "properties": [
     {
       "name": "cleabs",
@@ -67,7 +69,7 @@
     },
     {
       "name": "ordre",
-      "type": "numeric",
+      "type": "number",
       "title": "Ordre",
       "description": "Ordre du PR le long de la route à laquelle il est associé."
     },
@@ -76,10 +78,22 @@
       "type": "string",
       "title": "Côté",
       "description": "Côté de la route où se situe le PR par rapport au sens des PR croissants.",
-      "enum": [
-        "D",
-        "G",
-        "U"
+      "oneOf": [
+        {
+          "const": "D",
+          "title": "D",
+          "description": "Chaussée droite."
+        },
+        {
+          "const": "G",
+          "title": "G",
+          "description": "Chaussée gauche."
+        },
+        {
+          "const": "U",
+          "title": "U",
+          "description": "Chaussée unique."
+        }
       ]
     },
     {
@@ -87,10 +101,20 @@
       "type": "string",
       "title": "Statut",
       "description": "Statut du PR.",
-      "enum": [
-        "Calculé",
-        "PR0 valide",
-        "PR valide"
+      "oneOf": [
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "Les PR avec Statut = 'Calculé' ne sont pas des PR fournis par les partenaires. Ils correspondent notamment à des débuts et fins de sections."
+        },
+        {
+          "const": "PR0 valide",
+          "title": "PR0 valide"
+        },
+        {
+          "const": "PR valide",
+          "title": "PR valide"
+        }
       ]
     },
     {
@@ -98,14 +122,41 @@
       "type": "string",
       "title": "Type de PR",
       "description": "",
-      "enum": [
-        "C",
-        "CS",
-        "DS",
-        "FS",
-        "PR",
-        "PR0",
-        "PRF"
+      "oneOf": [
+        {
+          "const": "C",
+          "title": "C",
+          "description": "Point de repère positionné à un carrefour."
+        },
+        {
+          "const": "CS",
+          "title": "CS",
+          "description": "Changement de section (notamment au changement de département ou de gestionnaire sur les nationales et autoroutes)."
+        },
+        {
+          "const": "DS",
+          "title": "DS",
+          "description": "Point de repère positionné au début d'une section d'une route numérotée."
+        },
+        {
+          "const": "FS",
+          "title": "FS",
+          "description": "Point de repère positionné à la fin d'une section d'une route numérotée."
+        },
+        {
+          "const": "PR",
+          "title": "PR"
+        },
+        {
+          "const": "PR0",
+          "title": "PR0",
+          "description": "Point de repère positionné au début d'une route numérotée."
+        },
+        {
+          "const": "PRF",
+          "title": "PRF",
+          "description": "Point de repère positionné à la fin d'une route numérotée."
+        }
       ]
     },
     {
@@ -130,11 +181,11 @@
       "name": "lien_vers_route_nommee",
       "type": "string",
       "title": "Lien vers route nommée",
-      "description": "Lien vers l'identifiant (clé absolue) de l'objet <Route numérotée ou nommée> de Nature=\"Route Nommée\" auquel appartient la <Section de points de repère>."
+      "description": "Lien vers l'identifiant (clé absolue) de l'objet Route numérotée ou nommée de Nature=\"Route Nommée\" auquel appartient la Section de points de repère."
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
       "description": "Géométrie de l'objet."
     },
@@ -144,5 +195,15 @@
       "title": "Gestionnaire",
       "description": "Organisme gestionnaire du PR et de la route."
     }
+  ],
+  "required": [
+    "cleabs",
+    "route",
+    "numero",
+    "cote",
+    "statut",
+    "type_de_pr",
+    "code_insee_du_departement",
+    "geometrie"
   ]
 }

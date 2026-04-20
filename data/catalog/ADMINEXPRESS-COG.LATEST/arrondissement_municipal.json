@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.LATEST:arrondissement_municipal",
+  "type": "object",
+  "title": "ADMINEXPRESS COG Dernière édition Arrondissement municipal",
+  "description": "ADMINEXPRESS COG Dernière édition Arrondissement municipal",
+  "properties": {
+    "cleabs": {
+      "type": "string"
+    },
+    "nom_officiel": {
+      "type": "string"
+    },
+    "nom_officiel_en_majuscules": {
+      "type": "string"
+    },
+    "numero_de_l_arrondissement_municipal": {
+      "type": "string"
+    },
+    "code_insee": {
+      "type": "string"
+    },
+    "code_insee_de_la_commune_de_rattach": {
+      "type": "string"
+    },
+    "code_postal": {
+      "type": "string"
+    },
+    "population": {
+      "type": "integer"
+    },
+    "geometrie": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

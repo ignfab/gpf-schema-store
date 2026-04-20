@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "STATISTICALUNITS.IRIS.PE:contours_iris_pe",
+  "type": "object",
+  "title": "CONTOURS IRIS PE",
+  "description": "Contours géométriques des IRIS de l'INSEE",
+  "properties": {
+    "cleabs": {
+      "type": "string"
+    },
+    "code_insee": {
+      "type": "string"
+    },
+    "nom_commune": {
+      "type": "string"
+    },
+    "iris": {
+      "type": "string"
+    },
+    "code_iris": {
+      "type": "string"
+    },
+    "nom_iris": {
+      "type": "string"
+    },
+    "type_iris": {
+      "type": "string"
+    },
+    "geometrie": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

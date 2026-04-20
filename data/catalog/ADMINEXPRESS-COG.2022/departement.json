@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2022:departement",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2022 Département",
+  "description": "ADMINEXPRESS COG 2022 Département",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "nom_m": {
+      "type": "string"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "insee_dep": {
+      "type": "string"
+    },
+    "insee_reg": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

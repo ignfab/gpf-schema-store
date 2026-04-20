@@ -1,9 +1,8 @@
 {
-  "id": "Bâti:Construction ponctuelle",
-  "namespace": "Bâti",
-  "name": "Construction ponctuelle",
   "title": "Construction ponctuelle",
+  "x-ign-theme": "Bâti",
   "description": "Construction de faible emprise, caractérisée par sa hauteur (plus haute que large).",
+  "x-ign-selectionCriteria": "Voir les différentes valeurs de l'attribut 'Nature'. Toutes les constructions de plus de 50 m de haut et de moins de 20 m² sont retenues. Les constructions de grande hauteur mais de grande emprise (plus de 20 m²) sont exclues : elles sont représentées par un objet de classe Bâtiment. Les constructions de moins de 20 m² et de moins de 50 m de haut sont incluses : - pour le cas particulier des éléments topographiques que sont les croix et des calvaires ; - lorsque leur taille, leur nature ou leur forme fait d'elles des constructions à la fois bien identifiables et caractéristiques dans le paysage ; - pour permettre de coter le Z du sommet d'un bâtiment dont la base large impose une saisie au niveau du sol et empêche de récupérer l'altitude du faîte élevé (exemple : bâtiment de forme pyramidale, surmonté d'une tour,…). Si la construction ne surmonte pas un bâtiment, elle doit être suffisamment haute ou caractéristique pour constituer un repère intéressant (exemple : poste d’observation incendie, croix, calvaire...).",
   "properties": [
     {
       "name": "cleabs",
@@ -16,43 +15,178 @@
       "type": "string",
       "title": "Nature",
       "description": "Nature de la construction",
-      "enum": [
-        "Antenne",
-        "Autre construction élevée",
-        "Calvaire",
-        "Cheminée",
-        "Clocher",
-        "Croix",
-        "Eolienne",
-        "Minaret",
-        "Phare",
-        "Puits d'hydrocarbures",
-        "Torchère",
-        "Transformateur"
+      "oneOf": [
+        {
+          "const": "Antenne",
+          "title": "Antenne",
+          "description": "Construction destinée à la réception ou à l'émission d'ondes électromagnétiques.",
+          "x-ign-representedFeatures": [
+            "Pylône de télécommunication",
+            "Radar (20 m² et hauteur 10 m)",
+            "Relais hertzien sur pylône métallique",
+            "Relais de télévision",
+            "Relais téléphonique",
+            "Tour de télécommunication",
+            "Antenne-relais",
+            "Pylône météo"
+          ]
+        },
+        {
+          "const": "Autre construction élevée",
+          "title": "Autre construction élevée",
+          "description": "Construction de moins de 20 m², de hauteur caractéristique, et non différenciée par une valeur d'attribut spécifique, ou point haut d'un bâtiment dont le contour a dû être saisi au niveau du sol (ex. forme pyramidale)."
+        },
+        {
+          "const": "Calvaire",
+          "title": "Calvaire",
+          "description": "Edicule religieux composé, autour du Christ en croix, d'un plus ou moins grand nombre de personnages et doté d'un décor évoquant la scène de la crucifixion."
+        },
+        {
+          "const": "Cheminée",
+          "title": "Cheminée",
+          "description": "Construction destinée à l'émission de fumées ou de gaz."
+        },
+        {
+          "const": "Clocher",
+          "title": "Clocher",
+          "description": "Clocher, élément architectural destiné à porter une ou plusieurs cloches, généralement au sommet d'une église."
+        },
+        {
+          "const": "Croix",
+          "title": "Croix",
+          "description": "Monument religieux ponctuel.",
+          "x-ign-representedFeatures": [
+            "Oratoire",
+            "Statue religieuse",
+            "Vierge"
+          ]
+        },
+        {
+          "const": "Eolienne",
+          "title": "Eolienne",
+          "description": "Une éolienne est un dispositif permettant d'utiliser la puissance du vent (énergie éolienne) pour produire de l'énergie mécanique ou de l'électricité."
+        },
+        {
+          "const": "Minaret",
+          "title": "Minaret",
+          "description": "Minaret de mosquée."
+        },
+        {
+          "const": "Phare",
+          "title": "Phare",
+          "description": "Tour élevée portant au sommet un foyer puissant destiné à guider les navires pendant la nuit."
+        },
+        {
+          "const": "Puits d'hydrocarbures",
+          "title": "Puits d'hydrocarbures",
+          "description": "Dispositif vertical d’extraction du pétrole ou puits de gaz.",
+          "x-ign-representedFeatures": [
+            "Puits de pétrole",
+            "Puits de gaz"
+          ]
+        },
+        {
+          "const": "Torchère",
+          "title": "Torchère",
+          "description": "Canalisation verticale par où s'échappent et brûlent les résidus gazeux d'une raffinerie."
+        },
+        {
+          "const": "Transformateur",
+          "title": "Transformateur",
+          "description": "Bâtiment technique dont la fonction est de transformer un système de courants variables en un ou plusieurs autres systèmes de courants variables de même fréquence, mais d’intensité ou de tension généralement différente."
+        }
       ]
     },
     {
       "name": "nature_detaillee",
       "type": "string",
       "title": "Nature détaillée",
-      "description": "Cet attribut <b>précise</b> la 'Nature' de la construction.",
-      "enum": [
-        "Antenne-relais",
-        "Campanile",
-        "Chevalement",
-        "Mât d'éclairage",
-        "Mât de mesure",
-        "Oratoire",
-        "Puits de gaz",
-        "Puits de pétrole",
-        "Pylône de pont",
-        "Pylône météo",
-        "Radôme",
-        "Statue",
-        "Structure artificielle d'escalade",
-        "Tour de guet",
-        "Tour hertzienne",
-        "Vierge"
+      "description": "Cet attribut précise la 'Nature' de la construction.",
+      "oneOf": [
+        {
+          "const": "Antenne-relais",
+          "title": "Antenne-relais",
+          "description": "Antenne-relais"
+        },
+        {
+          "const": "Campanile",
+          "title": "Campanile",
+          "description": "Campanile"
+        },
+        {
+          "const": "Chevalement",
+          "title": "Chevalement",
+          "description": "Structure verticale servant à descendre les mineurs."
+        },
+        {
+          "const": "Mât d'éclairage",
+          "title": "Mât d'éclairage",
+          "description": "Mât élevé supportant l'éclairage puissant d'un équipement sportif ou d'une zone industrielle."
+        },
+        {
+          "const": "Mât de mesure",
+          "title": "Mât de mesure",
+          "description": "Antenne destinée à mesurer les paramètres éoliens"
+        },
+        {
+          "const": "Oratoire",
+          "title": "Oratoire",
+          "description": "Oratoire"
+        },
+        {
+          "const": "Puits de gaz",
+          "title": "Puits de gaz",
+          "description": "Puits de gaz"
+        },
+        {
+          "const": "Puits de pétrole",
+          "title": "Puits de pétrole",
+          "description": "Puits de pétrole"
+        },
+        {
+          "const": "Pylône de pont",
+          "title": "Pylône de pont",
+          "description": "Pylône de pont",
+          "x-ign-representedFeatures": [
+            "Pylône de pont à haubans",
+            "Pylône de pont suspendu"
+          ]
+        },
+        {
+          "const": "Pylône météo",
+          "title": "Pylône météo",
+          "description": "Pylône supportant des instruments de mesure météorologique."
+        },
+        {
+          "const": "Radôme",
+          "title": "Radôme",
+          "description": "Antenne munie d'un radôme"
+        },
+        {
+          "const": "Statue",
+          "title": "Statue",
+          "description": "Statue"
+        },
+        {
+          "const": "Structure artificielle d'escalade",
+          "title": "Structure artificielle d'escalade",
+          "description": "Structure artificielle d'escalade de plein air de grande hauteur"
+        },
+        {
+          "const": "Tour de guet",
+          "title": "Tour de guet",
+          "description": "Tour de guet, notamment pour la surveillance forestière par les services de lutte contre les incendies."
+        },
+        {
+          "const": "Tour hertzienne",
+          "title": "Tour hertzienne",
+          "description": "Tour hertzienne"
+        },
+        {
+          "const": "Vierge",
+          "title": "Vierge",
+          "description": "Vierge"
+        }
       ]
     },
     {
@@ -66,12 +200,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -79,13 +233,37 @@
       "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les objets d'une classe en fonction de leur importance ou notoriété relative.",
-      "enum": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
+      "oneOf": [
+        {
+          "const": "1",
+          "title": "1",
+          "description": "L'objet a une importance ou un rayonnement national, justifiant de le représenter aux échelles de l'ordre du 1 : 1 000 000."
+        },
+        {
+          "const": "2",
+          "title": "2",
+          "description": "L'objet a une importance ou un rayonnement régional, justifiant de le représenter aux échelles de l'ordre du 1 : 250 000."
+        },
+        {
+          "const": "3",
+          "title": "3",
+          "description": "L'objet a une importance ou un rayonnement départemental, justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
+        },
+        {
+          "const": "4",
+          "title": "4",
+          "description": "L'objet a une importance ou un rayonnement intercommunal ou cantonal, justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
+        },
+        {
+          "const": "5",
+          "title": "5",
+          "description": "L'objet a une importance ou un rayonnement communal, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
+        },
+        {
+          "const": "6",
+          "title": "6",
+          "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
+        }
       ]
     },
     {
@@ -93,11 +271,27 @@
       "type": "string",
       "title": "Etat de l'objet bati",
       "description": "État ou stade de vie d'un objet qui, pour le thème bâti, peut être en projet, en construction, en service ou en ruine.",
-      "enum": [
-        "En construction",
-        "En projet",
-        "En ruine",
-        "En service"
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en cours de construction."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En ruine",
+          "title": "En ruine",
+          "description": "L'objet est en ruine."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service, c'est à dire sa construction est terminée."
+        }
       ]
     },
     {
@@ -141,73 +335,234 @@
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "enum": [
-        "BDCarto",
-        "BDNyme",
-        "BDParcellaire",
-        "BDParcellaire recalée",
-        "BDTopo",
-        "Calcul d'enveloppe urbaine",
-        "Calculé",
-        "Fichier numérique décimétrique",
-        "Fichier numérique métrique",
-        "Fichier numérique non métrique",
-        "Géocodage",
-        "Géoroute",
-        "Image satellite",
-        "Image satellite HR",
-        "Inconnue",
-        "Levé GPS",
-        "Levé non GPS",
-        "Lidar",
-        "Lidar HD",
-        "Orthophotographie",
-        "Photogrammétrie",
-        "Plan métrique papier",
-        "Plan non métrique papier",
-        "Processus IA métrique",
-        "Processus IA non métrique",
-        "Scan25"
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "methode_d_acquisition_altimetrique",
       "type": "string",
       "title": "Méthode d'acquisition altimétrique",
-      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z)  de l'objet.",
-      "enum": [
-        "BDAlti",
-        "BDTopo",
-        "Corrélation",
-        "Fichier numérique",
-        "Fichier numérique décimétrique",
-        "Interpolation bâti BDTopo",
-        "Levé GPS",
-        "Lidar",
-        "Lidar HD",
-        "Pas de Z",
-        "Photogrammétrie",
-        "Photogrammétrie longue focale",
-        "Plan coté",
-        "Radar",
-        "Z corrigé"
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDAlti",
+          "title": "BDAlti",
+          "description": "Le Z est interpolé sur un MNT issu de la BD ALTI® (ancienne BD altimétrique issue de la numérisation de cartes et de restitution photogrammétrique)."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "Le Z provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Corrélation",
+          "title": "Corrélation",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues de corrélation."
+        },
+        {
+          "const": "Fichier numérique",
+          "title": "Fichier numérique",
+          "description": "Le Z a été saisi à partir de données numériques fournies par un correspondant."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique"
+        },
+        {
+          "const": "Interpolation bâti BDTopo",
+          "title": "Interpolation bâti BDTopo",
+          "description": "Lors de l’unification avec la BD PARCELLAIRE®, le Z a été calculé à partir des valeurs existantes aux environs."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "Le Z a été saisi directement sur le terrain par lever GPS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues du processus d'acquisition par LIDAR."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Pas de Z",
+          "title": "Pas de Z",
+          "description": "L’objet est défini avec une géométrie 3D mais le Z est inconnu ou sa précision n'est pas connue/fiable."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques (restitution)."
+        },
+        {
+          "const": "Photogrammétrie longue focale",
+          "title": "Photogrammétrie longue focale",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes longue focale selon des processus photogrammétriques (restitution). La longueur de la focale a une incidence sur les pointés en Z qui sont meilleurs sur des focales courtes que sur des focales longues."
+        },
+        {
+          "const": "Plan coté",
+          "title": "Plan coté",
+          "description": "Le Z a été saisi à partir de points côtés figurant sur un plan."
+        },
+        {
+          "const": "Radar",
+          "title": "Radar",
+          "description": "Le Z provient de l’exploitation d’un MNT ou d’un MNS qui a été fait à partir d’acquisitions RADAR."
+        },
+        {
+          "const": "Z corrigé",
+          "title": "Z corrigé",
+          "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
+        }
       ]
     },
     {
       "name": "precision_altimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision altimétrique",
-      "description": "Précision altimétrique  (en mètres) de la géométrie décrivant l'objet."
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet."
     },
     {
       "name": "hauteur",
-      "type": "numeric",
+      "type": "number",
       "title": "Hauteur",
       "description": "Hauteur de la construction."
     },
@@ -217,5 +572,13 @@
       "title": "Géométrie",
       "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "methode_d_acquisition_altimetrique",
+    "geometrie"
   ]
 }

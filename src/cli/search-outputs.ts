@@ -10,7 +10,9 @@ const FIELD_DISPLAY_ORDER = [
   'identifierTokens',
   'namespace',
   'properties',
-  'enums',
+  'allowedValues',
+  'representedFeatures',
+  'selectionCriteria',
 ] as const;
 
 function compareFieldNames(left: string, right: string): number {

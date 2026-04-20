@@ -1,4 +1,4 @@
-import type { Collection } from '../types';
+import type { Collection, CollectionSchema } from '../types';
 
 /** Generic catalog-level options applied after search-engine evaluation. */
 export type CollectionSearchOptions = {
@@ -13,7 +13,8 @@ export type CollectionSearchMatch = {
 
 /** A catalog search result that includes the resolved collection and optional relevance score. */
 export type CollectionSearchResult = {
-  collection: Collection;
+  id: string;
+  collection: CollectionSchema;
   score?: number;
 };
 

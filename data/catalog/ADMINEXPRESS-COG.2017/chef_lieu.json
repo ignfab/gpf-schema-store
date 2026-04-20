@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2017:chef_lieu",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2017 Chef-lieu",
+  "description": "ADMINEXPRESS COG 2017 Chef-lieu",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "nom_chf": {
+      "type": "string"
+    },
+    "statut": {
+      "type": "string"
+    },
+    "insee_com": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-point",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

@@ -10,6 +10,7 @@ import { WfsClient } from './services/wfs'
 import { getDataDir, replaceWfsCollections, getNamespaceFilters, loadWfsCollections, getOverwrite, loadCollections } from './services/storage'
 import { getMetadataFromNamespace } from './helpers/metadata'
 import { compare } from './helpers/compare';
+import { validateCollectionOverwriteReferences } from './helpers/overwrite';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
 import { renderSearchOutputs } from './cli/search-outputs';
 import { writeRenderedCatalog } from './cli/render-catalog';
@@ -80,6 +81,7 @@ program
         continue;
       }
 
+      validateCollectionOverwriteReferences(collection, overwrite);
       const differences = compare(collection, overwrite);
       if ( differences.length == 0 ){
         console.log(`[${collection.id}] OK (no difference between local WFS and overwrite)`);
@@ -180,20 +182,20 @@ program
 
 program
   .command('render-catalog')
-  .description('Write the merged catalog collections to an output directory')
-  .argument('<outputDir>', 'Output directory for merged collection JSON files')
+  .description('Write the catalog collection schemas to an output directory')
+  .argument('<outputDir>', 'Output directory for collection schema JSON files')
   .option('--clean', 'Remove the output directory before writing')
   .action((outputDir: string, options: { clean?: boolean }) => {
     console.log('Loading merged collections from the local catalog...');
     const collections = loadCollections();
     console.log(`${collections.length} merged collections loaded from the local catalog.`);
 
-    console.log(`Writing merged collections to ${outputDir}/{namespace}/{name}.json...`);
+    console.log(`Writing collection schemas to ${outputDir}/{namespace}/{name}.json...`);
     const resolvedOutputDir = writeRenderedCatalog(collections, outputDir, {
       clean: options.clean,
     });
 
-    console.log(`Success : ${collections.length} merged collections written to ${resolvedOutputDir}.`);
+    console.log(`Success : ${collections.length} collection schemas written to ${resolvedOutputDir}.`);
   })
 
 program.action(() => {

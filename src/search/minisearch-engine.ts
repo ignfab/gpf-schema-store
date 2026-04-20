@@ -89,7 +89,12 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
   // Produces a single string from property names, titles, and descriptions for MiniSearch to tokenize.
   private static stringifyProperties(properties: CollectionProperty[]): string {
     const terms = properties
-      .flatMap((p) => [p.name, p.title, p.description])
+      .flatMap((p) => [
+        p.name,
+        p.title,
+        p.description,
+        ...(p['x-ign-representedFeatures'] ?? []),
+      ])
       .filter(Boolean);
     return terms.join(' ');
   }
@@ -103,11 +108,20 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
     return [...rawValues, ...expandedValues].join(' ');
   }
 
-  // Produces a deduplicated string of normalized enum values so that duplicate entries
+  // Produces a deduplicated string of normalized enumerated values so that duplicate entries
   // (e.g. 'Viaduc', 'viaduc') don't inflate match scores.
   private static stringifyEnumValues(properties: CollectionProperty[]): string {
     const values = properties
-      .flatMap((p) => p.enum ?? [])
+      .flatMap((p) => [
+        ...(p.enum ?? []),
+        ...(p.oneOf ?? []).flatMap((value) => [
+          value.const,
+          value.title,
+          value.description,
+          ...(value['x-ign-representedFeatures'] ?? []),
+        ]),
+      ])
+      .filter((value): value is string => typeof value === 'string')
       .map((value) => MiniSearchCollectionSearchEngine.normalizeTerm(value))
       .filter((value): value is string => value !== false);
     return [...new Set(values)].join(' ');

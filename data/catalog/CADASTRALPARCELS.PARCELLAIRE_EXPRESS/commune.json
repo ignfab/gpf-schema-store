@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:commune",
+  "type": "object",
+  "title": "PCI Vecteur : Communes",
+  "description": "Communes",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "nom_com": {
+      "type": "string"
+    },
+    "code_dep": {
+      "type": "string"
+    },
+    "code_insee": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

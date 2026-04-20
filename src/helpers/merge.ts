@@ -17,9 +17,8 @@ import type { Collection, CollectionOverwrite } from "../types";
  * At property level :
  * 
  * - properties are iterated from original (order kept)
- * - properties with `defaultCrs` are kept from original as-is
  * - matching is done by property name
- * - if a property exists in overwrite, its fields are taken but name and type are kept from original
+ * - if a property exists in overwrite, its fields are taken but name, type and defaultCrs are kept from original
  * - if a property does not exist in overwrite, the original property is kept
  * - new properties from overwrite are ignored
  *
@@ -37,18 +36,17 @@ export function merge(
     }
 
     const properties = original.properties.map((origProp) => {
-        if (origProp.defaultCrs) {
-            return { ...origProp }
-        }
-
         const overProp = overwrite.properties.find((p) => p.name === origProp.name)
         if (!overProp) {
             return { ...origProp }
         }
+        const overwriteFields = { ...overProp };
+        delete overwriteFields.type;
         return {
-            ...overProp,
+            ...overwriteFields,
             name: origProp.name,
             type: origProp.type,
+            ...(origProp.defaultCrs ? { defaultCrs: origProp.defaultCrs } : {}),
         }
     })
 
@@ -58,6 +56,10 @@ export function merge(
         name: original.name,
         title: overwrite.title,
         description: overwrite.description,
+        ...(overwrite['x-ign-theme'] ? { 'x-ign-theme': overwrite['x-ign-theme'] } : {}),
+        ...(overwrite['x-ign-selectionCriteria'] ? { 'x-ign-selectionCriteria': overwrite['x-ign-selectionCriteria'] } : {}),
+        ...(overwrite['x-ign-representedFeatures'] ? { 'x-ign-representedFeatures': overwrite['x-ign-representedFeatures'] } : {}),
+        ...(overwrite.required ? { required: overwrite.required } : {}),
         properties
     }
 }

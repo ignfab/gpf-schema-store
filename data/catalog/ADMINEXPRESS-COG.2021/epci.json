@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2021:epci",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2021 EPCI",
+  "description": "ADMINEXPRESS COG 2021 EPCI",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "code_siren": {
+      "type": "string"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "nature": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

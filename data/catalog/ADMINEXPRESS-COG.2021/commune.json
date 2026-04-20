@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2021:commune",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2021 Commune",
+  "description": "ADMINEXPRESS COG 2021 Commune",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "nom_m": {
+      "type": "string"
+    },
+    "insee_com": {
+      "type": "string"
+    },
+    "statut": {
+      "type": "string"
+    },
+    "population": {
+      "type": "integer"
+    },
+    "insee_can": {
+      "type": "string"
+    },
+    "insee_arr": {
+      "type": "string"
+    },
+    "insee_dep": {
+      "type": "string"
+    },
+    "insee_reg": {
+      "type": "string"
+    },
+    "siren_epci": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

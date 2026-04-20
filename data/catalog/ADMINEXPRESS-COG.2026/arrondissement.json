@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2026:arrondissement",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2026 Arrondissement",
+  "description": "ADMINEXPRESS COG 2026 Arrondissement",
+  "properties": {
+    "cleabs": {
+      "type": "string"
+    },
+    "nom_officiel": {
+      "type": "string"
+    },
+    "nom_officiel_en_majuscules": {
+      "type": "string"
+    },
+    "numero_de_l_arrondissement": {
+      "type": "string"
+    },
+    "code_insee": {
+      "type": "string"
+    },
+    "code_insee_du_departement": {
+      "type": "string"
+    },
+    "code_insee_de_la_region": {
+      "type": "string"
+    },
+    "geometrie": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

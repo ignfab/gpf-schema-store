@@ -1,0 +1,533 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:detail_hydrographique",
+  "type": "object",
+  "title": "Détail hydrographique",
+  "x-ign-theme": "Hydrographie",
+  "description": "",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string"
+    },
+    "nature": {
+      "title": "Nature",
+      "description": "Nature du détail hydrographique.",
+      "oneOf": [
+        {
+          "const": "Amer",
+          "title": "Amer",
+          "description": "Point de repère pour la navigation visible de la mer."
+        },
+        {
+          "const": "Baie",
+          "title": "Baie",
+          "description": "Espace marin pénétrant entre les terres.",
+          "x-ign-representedFeatures": [
+            "Anse",
+            "Calanque",
+            "Crique",
+            "Golfe",
+            "Rade"
+          ]
+        },
+        {
+          "const": "Balise",
+          "title": "Balise",
+          "description": "Balise maritime. Construction fixe ou flottante, destinée à indiquer une particularité intéressante pour la navigation (danger, obstacle, passe).",
+          "x-ign-representedFeatures": [
+            "Tourelle",
+            "Bouée non lumineuse avec balisage maritime",
+            "Bouée lumineuse avec balisage maritime"
+          ]
+        },
+        {
+          "const": "Banc",
+          "title": "Banc",
+          "description": "En mer ou sur un fleuve, relief sous-marin non rocheux représentant un danger potentiel pour la navigation."
+        },
+        {
+          "const": "Cascade",
+          "title": "Cascade",
+          "description": "L'eau dévalant un relief vertical peut provoquer une cascade. La dénivellation peut alors atteindre plusieurs centaines de mètres. Le plus souvent, la cascade est le secteur dans lequel l'eau d'une rivière ne coule plus, mais tombe. C'est une chute d'eau.",
+          "x-ign-representedFeatures": [
+            "Chute d’eau",
+            "Saut (Guyane)"
+          ]
+        },
+        {
+          "const": "Citerne",
+          "title": "Citerne",
+          "description": "Une citerne est un réservoir d'eau alimenté par de l'eau de pluie alors que le réservoir est alimenté par un réseau (captage, pompage, adduction, ...). Seules les citernes importantes sont saisies ; les citernes DFCI (Défense Forestière Contre les Incendies) sont retenues."
+        },
+        {
+          "const": "Embouchure",
+          "title": "Embouchure",
+          "description": "Lieu où un cours d'eau se jette dans un lac, une mer ou un océan.",
+          "x-ign-representedFeatures": [
+            "Delta",
+            "Estuaire"
+          ]
+        },
+        {
+          "const": "Espace maritime",
+          "title": "Espace maritime",
+          "description": "Emplacement géographique en milieu maritime portant un toponyme, à l'exclusion des baies et golfes.",
+          "x-ign-representedFeatures": [
+            "Mer",
+            "Océan",
+            "Passe maritime",
+            "Bras de mer",
+            "Fosse marine",
+            "Plateau marin",
+            "Rade"
+          ]
+        },
+        {
+          "const": "Feu",
+          "title": "Feu",
+          "description": "Foyer lumineux, fixe ou à éclats, de faible puissance, signalant les entrées de passe ou les alignements. Il peut être situé au sol, à l’extrémité d’un mât ou d’un pylône ou sur d’autres constructions.",
+          "x-ign-representedFeatures": [
+            "Bateau-feu",
+            "Tourelle lumineuse",
+            "Bouée lumineuse sans balisage maritime"
+          ]
+        },
+        {
+          "const": "Fontaine",
+          "title": "Fontaine",
+          "description": "Construction comportant une alimentation en eau et, généralement, un bassin. Une fontaine peut être naturelle si elle est alimentée par une source."
+        },
+        {
+          "const": "Lavoir",
+          "title": "Lavoir",
+          "description": "Structure couverte ou non comprenant un bassin alimenté en eau généralement d'origine naturelle qui avait pour vocation première de permettre de mouiller, laver et rincer le linge."
+        },
+        {
+          "const": "Marais",
+          "title": "Marais",
+          "description": "Zone humide, région recouverte par des eaux peu profondes, en partie envahie par la végétation.",
+          "x-ign-representedFeatures": [
+            "Marais (toponyme)",
+            "Tourbière"
+          ]
+        },
+        {
+          "const": "Perte",
+          "title": "Perte",
+          "description": "Lieu où un cours d'eau disparaît totalement ou partiellement par infiltration ou dans un gouffre. Tout ou partie du cours d'eau devient alors souterrain."
+        },
+        {
+          "const": "Point d'eau",
+          "title": "Point d'eau",
+          "description": "Tout point d’eau naturel ou artificiel qui porte un toponyme ou qui a besoin d’être désigné et qui ne peut être classé dans les autres valeur de 'Nature' des objets Détail hydrographique.",
+          "x-ign-representedFeatures": [
+            "Puits remarquable",
+            "Abreuvoir important",
+            "Lavogne",
+            "Réservoir nommé",
+            "Château d’eau nommé"
+          ]
+        },
+        {
+          "const": "Prise d'eau",
+          "title": "Prise d'eau",
+          "description": "Une prise d'eau est un ouvrage maçonné servant à capter et dériver une partie de l’eau d’un cours d’eau ou d’une retenue d’eau afin d’alimenter une infrastructure hydroélectrique."
+        },
+        {
+          "const": "Résurgence",
+          "title": "Résurgence",
+          "description": "Point d'émergence à la surface du sol d’un cours d’eau après un parcours souterrain. Une résurgence est une exsurgence alimentée par au moins un cours d'eau de surface identifié dont une partie ou la totalité s'infiltre dans le sous-sol par une ou plusieurs pertes."
+        },
+        {
+          "const": "Source",
+          "title": "Source",
+          "description": "Point d'émergence à la surface du sol de l'eau emmagasinée à l'intérieur, sans connaissance d’un parcours à l’air libre en amont.",
+          "x-ign-representedFeatures": [
+            "Source isolée",
+            "Source d’eau chaude",
+            "Source ferrugineuse"
+          ]
+        },
+        {
+          "const": "Source captée",
+          "title": "Source captée",
+          "description": "Installation de captage d’une source. Une source captée peut être représentée en Nature=\"Fontaine\" lorsqu'un bassin est aménagé au niveau de son captage."
+        }
+      ],
+      "type": "string"
+    },
+    "nature_detaillee": {
+      "title": "Nature détaillée",
+      "description": "Nature précise du détail hydrographique. En l'absence de précision, la 'Nature détaillée' reste vide.",
+      "oneOf": [
+        {
+          "const": "Abreuvoir",
+          "title": "Abreuvoir",
+          "description": "Construction maçonnée destinée à recueillir de l'eau pour abreuver le bétail."
+        },
+        {
+          "const": "Bouée lumineuse",
+          "title": "Bouée lumineuse",
+          "description": "Balise flottante c'est à dire bouée lumineuse avec balisage maritime réglementaire"
+        },
+        {
+          "const": "DFCI",
+          "title": "DFCI",
+          "description": "Citerne utilisée pour la lutte contre les feux de forêts."
+        },
+        {
+          "const": "Epave",
+          "title": "Epave",
+          "description": "Bateau échoué affleurant et constituant de ce fait un point de repère topographique."
+        },
+        {
+          "const": "Puits",
+          "title": "Puits",
+          "description": "Puits artificiel important."
+        },
+        {
+          "const": "Réservoir",
+          "title": "Réservoir",
+          "description": "Réservoir nommé.",
+          "x-ign-representedFeatures": [
+            "Réservoir nommé",
+            "Château d'eau nommé"
+          ]
+        },
+        {
+          "const": "Saut",
+          "title": "Saut",
+          "description": "Large cascade ou succession de rapides en Guyane."
+        },
+        {
+          "const": "Tourbière",
+          "title": "Tourbière",
+          "description": "Zone humide caractérisée par l'accumulation progressive de tourbe. Le sol y est caractérisé par sa très forte teneur en matière organique, peu ou pas décomposée, d'origine végétale."
+        },
+        {
+          "const": "Tourelle",
+          "title": "Tourelle",
+          "description": "Construction maçonnée de balisage maritime, de forme circulaire et non lumineuse."
+        },
+        {
+          "const": "Tourelle lumineuse",
+          "title": "Tourelle lumineuse",
+          "description": "Construction maçonnée de balisage maritime, de forme circulaire et lumineuse"
+        }
+      ],
+      "type": "string"
+    },
+    "persistance": {
+      "title": "Persistance",
+      "description": "",
+      "oneOf": [
+        {
+          "const": "Intermittent",
+          "title": "Intermittent"
+        },
+        {
+          "const": "Permanent",
+          "title": "Permanent"
+        }
+      ],
+      "type": "string"
+    },
+    "toponyme": {
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet.",
+      "type": "string"
+    },
+    "statut_du_toponyme": {
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
+      ],
+      "type": "string"
+    },
+    "importance": {
+      "title": "Importance",
+      "description": "Attribut permettant de hiérarchiser les objets d'une classe en fonction de leur importance ou notoriété relative.",
+      "oneOf": [
+        {
+          "const": "1",
+          "title": "1",
+          "description": "L'objet a une importance ou un rayonnement national, justifiant de le représenter aux échelles de l'ordre du 1 : 1 000 000."
+        },
+        {
+          "const": "2",
+          "title": "2",
+          "description": "L'objet a une importance ou un rayonnement régional, justifiant de le représenter aux échelles de l'ordre du 1 : 250 000."
+        },
+        {
+          "const": "3",
+          "title": "3",
+          "description": "L'objet a une importance ou un rayonnement départemental, justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
+        },
+        {
+          "const": "4",
+          "title": "4",
+          "description": "L'objet a une importance ou un rayonnement intercommunal ou cantonal, justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
+        },
+        {
+          "const": "5",
+          "title": "5",
+          "description": "L'objet a une importance ou un rayonnement communal, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
+        },
+        {
+          "const": "6",
+          "title": "6",
+          "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
+        }
+      ],
+      "type": "string"
+    },
+    "etat_de_l_objet": {
+      "title": "Etat de l'objet",
+      "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en construction. Dans le cas des Tronçon de route, la date de mise en service prévue est codée dans le champ 'Date de mise en service'."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service."
+        }
+      ],
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "type": "string"
+    },
+    "identifiants_sources": {
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "type": "string"
+    },
+    "methode_d_acquisition_planimetrique": {
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
+      ],
+      "type": "string"
+    },
+    "precision_planimetrique": {
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
+      "type": "number"
+    },
+    "insee_commune": {
+      "title": "Insee commune calculé",
+      "description": "Code INSEE de la commune calculé.",
+      "type": "string"
+    },
+    "identifiant_voie_ban": {
+      "title": "Identifiant voie BAN",
+      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056.",
+      "type": "string"
+    },
+    "id_ban_odonyme": {
+      "title": "Id BAN Odonyme",
+      "description": "Identifiant de l'odonyme de la BAN, au format uuid.",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie",
+      "description": "",
+      "format": "geometry-point",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": [
+    "cleabs",
+    "nature",
+    "importance",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "geometrie"
+  ]
+}

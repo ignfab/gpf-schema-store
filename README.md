@@ -6,16 +6,52 @@
 
 ## Data model
 
-The data model is :
+The internal enriched collection model is :
 
 * **id** : WFS GetCap FeatureType `<Name>` (namespace:name = unique identifier) 
 * **namespace** : namespace identifier (e.g `BDTOPO_V3`)
 * **name** : name identifier (e.g `batiment`)
 * **title** : WFS GetCap `<Title>` "BDTOPO : Bâtiments"
 * **description** : WFS GetCap `<Abstract>`
-* **properties** : Array of property defined by `name`, `type`, `title` and `description`. `enum` is also available when necessary.
+* **x-ign-theme**, **x-ign-selectionCriteria**, **x-ign-representedFeatures** : optional IGN enrichment metadata
+* **required** : optional list of required property names
+* **properties** : Array of property defined by `name`, `type`, `title` and `description`. `oneOf` is available for rich enumerated values.
 
-When merged with `data/overwrites`, title and description are overwritten when available.
+When merged with `data/overwrites`, WFS identifiers and property types are kept from `data/wfs`, while editorial metadata is taken from overwrites when available.
+
+The public catalog output is a logical JSON Schema compatible with OGC API Features schemas. It is not a dump of the internal model.
+
+### Overwrite format
+
+Overwrite files live in `data/overwrites/{namespace}/{name}.json`. The current format does not contain root `id`, `namespace`, or `name`; those values are derived from the WFS snapshot and file path.
+
+```json
+{
+  "title": "Point de repère",
+  "x-ign-theme": "Transport",
+  "description": "Point créé par le gestionnaire du réseau routier...",
+  "x-ign-selectionCriteria": "Les objets Point de repère retenus sont...",
+  "x-ign-representedFeatures": ["Point de repère routier"],
+  "properties": [
+    {
+      "name": "cote",
+      "type": "string",
+      "title": "Côté",
+      "description": "Côté de la route...",
+      "oneOf": [
+        {
+          "const": "D",
+          "title": "D",
+          "description": "Chaussée droite."
+        }
+      ]
+    }
+  ],
+  "required": ["cleabs", "geometrie"]
+}
+```
+
+The overwrite `type` field is accepted as editorial input only. The merged catalog always keeps the WFS property type.
 
 ## Usage
 
@@ -86,17 +122,19 @@ npx gpf-schema-store search bdtopo batiment --limit 3
 
 The output shows the collection identifier, the computed score, and MiniSearch match details, which makes it easier to compare ranking behavior before and after a search change.
 
-### Render merged catalog files
+### Render collection schema files
 
-Useful for debugging : Write the final merged collection JSON files, as seen by the local catalog after applying `data/overwrites`, to an output directory.
+Write the public catalog JSON Schema files after applying `data/overwrites`, to an output directory.
 
 ```bash
-# write merged files to ./tmp/catalog/{namespace}/{name}.json
+# write collection schemas to ./tmp/catalog/{namespace}/{name}.json
 npx gpf-schema-store render-catalog ./tmp/catalog
 
 # start from a clean output directory
 npx gpf-schema-store render-catalog ./tmp/catalog --clean
 ```
+
+Each rendered file is a JSON Schema 2020-12 object with `x-collection-id`, `type`, `title`, `description`, `properties`, and `required`. Geometry properties are represented with `format: "geometry-{type}"` and `x-ogc-role: "primary-geometry"`.
 
 ## Test a local package build in geocontext
 

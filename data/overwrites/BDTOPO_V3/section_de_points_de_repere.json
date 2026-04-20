@@ -1,8 +1,6 @@
 {
-  "id": "Transport:Section de points de repère",
-  "namespace": "Transport",
-  "name": "Section de points de repère",
   "title": "Section de points de repère",
+  "x-ign-theme": "Transport",
   "description": "Portion de route continue portant le même numéro. Les points de repères sont reliés à une section. Chaque section porte un PR de début de section (DS) et un PR de fin de section.",
   "properties": [
     {
@@ -33,7 +31,7 @@
       "name": "lien_vers_route_nommee",
       "type": "string",
       "title": "Lien vers route nommée",
-      "description": "Lien vers l'identifiant (clé absolue) de l'objet <Route numérotée ou nommée> de Nature=\"Route Nommée\" auquel appartient la <Section de points de repère>."
+      "description": "Lien vers l'identifiant (clé absolue) de l'objet Route numérotée ou nommée de Nature=\"Route Nommée\" auquel appartient la Section de points de repère."
     },
     {
       "name": "code_insee_du_departement",
@@ -46,10 +44,19 @@
       "type": "string",
       "title": "Côté",
       "description": "Côté de la route où se situe la section par rapport au sens des PR croissants.",
-      "enum": [
-        "D",
-        "G",
-        "U"
+      "oneOf": [
+        {
+          "const": "D",
+          "title": "D"
+        },
+        {
+          "const": "G",
+          "title": "G"
+        },
+        {
+          "const": "U",
+          "title": "U"
+        }
       ]
     },
     {
@@ -78,9 +85,17 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
       "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "identifiant_de_section",
+    "numero_de_route",
+    "code_insee_du_departement",
+    "cote",
+    "geometrie"
   ]
 }

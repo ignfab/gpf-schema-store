@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_du:municipality",
+  "type": "object",
+  "title": "Communes",
+  "description": "Emprise communale, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "insee": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "is_rnu": {
+      "type": "boolean"
+    },
+    "is_deleted": {
+      "type": "boolean"
+    },
+    "is_coastline": {
+      "type": "boolean"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

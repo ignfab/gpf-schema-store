@@ -1,9 +1,7 @@
 {
-  "id": "Administratif:Département",
-  "namespace": "Administratif",
-  "name": "Département",
   "title": "Département",
-  "description": "Création de la Révolution (loi du 22 décembre 1789), le département est une circonscription administrative de l’État. Le Préfet représente les différentes administrations de l’État au niveau territorial.\r\n\r\nC’est aussi, par la loi du 10 août 1871, une collectivité locale autonome avec un organe délibérant et un exécutif élus. La loi du 17 mai 2013 redéfinit l’élection des assemblées départementales, anciennement conseils généraux, appelées désormais conseils départementaux. Les cantons sont les circonscriptions qui servent de cadre à l’élection des conseils départementaux \r\n\r\nLe conseil départemental est élu pour 6 ans au suffrage universel ; il élit à son tour un président, exécutif du département qui prépare et exécute les délibérations du conseil départemental, gère le budget et dirige le personnel.\r\n\r\nLes compétences des départements sont actuellement en cours de discussion à l’Assemblée Nationale, dans le cadre de la loi portant « Nouvelle Organisation Territoriale de la République ».\r\n\r\nDepuis avril 2011, on compte 101 départements (dont 5 d'outre-mer).\r\n\r\nUn département appartient à une région et une seule. Chaque département d'outre-mer constitue à lui seul une région.\r\n<i>Source Insee</i>",
+  "x-ign-theme": "Administratif",
+  "description": "Création de la Révolution (loi du 22 décembre 1789), le département est une circonscription administrative de l’État. Le Préfet représente les différentes administrations de l’État au niveau territorial. C’est aussi, par la loi du 10 août 1871, une collectivité locale autonome avec un organe délibérant et un exécutif élus. La loi du 17 mai 2013 redéfinit l’élection des assemblées départementales, anciennement conseils généraux, appelées désormais conseils départementaux. Les cantons sont les circonscriptions qui servent de cadre à l’élection des conseils départementaux Le conseil départemental est élu pour 6 ans au suffrage universel ; il élit à son tour un président, exécutif du département qui prépare et exécute les délibérations du conseil départemental, gère le budget et dirige le personnel. Les compétences des départements sont actuellement en cours de discussion à l’Assemblée Nationale, dans le cadre de la loi portant « Nouvelle Organisation Territoriale de la République ». Depuis avril 2011, on compte 101 départements (dont 5 d'outre-mer). Un département appartient à une région et une seule. Chaque département d'outre-mer constitue à lui seul une région. Source Insee",
   "properties": [
     {
       "name": "cleabs",
@@ -15,25 +13,25 @@
       "name": "nom_officiel",
       "type": "string",
       "title": "Nom officiel",
-      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule  aux premières lettres de chaque terme,  et minuscules pour les autres, toutes deux accentuées."
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées."
     },
     {
       "name": "code_insee",
       "type": "string",
       "title": "Code Insee du département",
-      "description": "Il s’agit du numéro officiel attribué par l’Insee au <Département> : il est composé de 2 ou 3 caractères."
+      "description": "Il s’agit du numéro officiel attribué par l’Insee au Département : il est composé de 2 ou 3 caractères."
     },
     {
       "name": "code_insee_de_la_region",
       "type": "string",
       "title": "Code Insee de la région",
-      "description": "Code Insee de la <Région>."
+      "description": "Code Insee de la Région."
     },
     {
       "name": "code_siren",
       "type": "string",
       "title": "Code Siren",
-      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro.\r\n<i>Source Insee</i>"
+      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro. Source Insee"
     },
     {
       "name": "date_creation",
@@ -63,13 +61,16 @@
       "name": "liens_vers_autorite_administrative",
       "type": "string",
       "title": "Liens vers autorité administrative",
-      "description": "Lien vers  (clé absolue) de   l'objet <Zone d'activité ou d'intérêt> de Nature='Préfecture' du département concerné."
+      "description": "Lien vers (clé absolue) de l'objet de Nature='Préfecture' du département concerné."
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie GE MultiPolygone",
       "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle."
     }
+  ],
+  "required": [
+    "cleabs"
   ]
 }

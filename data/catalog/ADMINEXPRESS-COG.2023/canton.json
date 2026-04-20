@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2023:canton",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2023 Canton",
+  "description": "ADMINEXPRESS COG 2023 Canton",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "insee_can": {
+      "type": "string"
+    },
+    "insee_dep": {
+      "type": "string"
+    },
+    "insee_reg": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

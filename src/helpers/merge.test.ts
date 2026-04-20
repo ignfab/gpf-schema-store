@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import type { Collection } from '../types'
+import type { Collection, CollectionOverwrite } from '../types'
 import { merge } from './merge'
 
 const base: Collection = {
@@ -168,14 +168,70 @@ describe('mergeCollectionSchema', () => {
         {
           name: 'geom',
           type: 'geometry',
-          title: 'Original geometry',
-          description: 'Original geometry description',
+          title: 'Overwritten geometry',
+          description: 'Overwritten geometry description',
           defaultCrs: 'EPSG:4326',
         },
         {
           name: 'label',
           type: 'string',
           title: 'Overwritten label',
+        },
+      ],
+    })
+  })
+
+  it('propagates collection and property enrichment fields from overwrite', () => {
+    const overwrite: CollectionOverwrite = {
+      title: 'Overwritten title',
+      description: 'Overwritten description',
+      'x-ign-theme': 'Theme',
+      'x-ign-selectionCriteria': 'Selection criteria',
+      'x-ign-representedFeatures': ['Feature'],
+      required: ['nature'],
+      properties: [
+        {
+          name: 'nature',
+          type: 'number',
+          title: 'Nature',
+          description: 'Nature description',
+          oneOf: [
+            {
+              const: 'A',
+              title: 'Value A',
+              description: 'Value A description',
+              'x-ign-representedFeatures': ['Represented A'],
+            },
+          ],
+        },
+      ],
+    }
+
+    expect(merge(base, overwrite)).toEqual({
+      id: 'NS:collection',
+      namespace: 'NS',
+      name: 'collection',
+      title: 'Overwritten title',
+      description: 'Overwritten description',
+      'x-ign-theme': 'Theme',
+      'x-ign-selectionCriteria': 'Selection criteria',
+      'x-ign-representedFeatures': ['Feature'],
+      required: ['nature'],
+      properties: [
+        { name: 'geom', type: 'geometry' },
+        {
+          name: 'nature',
+          type: 'string',
+          title: 'Nature',
+          description: 'Nature description',
+          oneOf: [
+            {
+              const: 'A',
+              title: 'Value A',
+              description: 'Value A description',
+              'x-ign-representedFeatures': ['Represented A'],
+            },
+          ],
         },
       ],
     })

@@ -1,8 +1,6 @@
 {
-  "id": "Hydrographie:Plan d'eau",
-  "namespace": "Hydrographie",
-  "name": "Plan d'eau",
   "title": "Plan d'eau",
+  "x-ign-theme": "Hydrographie",
   "description": "Une ou plusieurs étendue(s) d’eau continentale de surface, d’origine naturelle ou anthropique, possédant un toponyme ou identifiée(s) par un code hydrographique.",
   "properties": [
     {
@@ -22,37 +20,175 @@
       "type": "string",
       "title": "Nature",
       "description": "",
-      "enum": [
-        "Aqueduc",
-        "Canal",
-        "Conduit buse",
-        "Conduit forcé",
-        "Delta",
-        "Ecoulement canalisé",
-        "Ecoulement endoréique",
-        "Ecoulement hyporhéique",
-        "Ecoulement karstique",
-        "Ecoulement naturel",
-        "Ecoulement phréatique",
-        "Estuaire",
-        "Glacier, névé",
-        "Inconnue",
-        "Lac",
-        "Lagon",
-        "Lagune",
-        "Mangrove",
-        "Marais",
-        "Mare",
-        "Plan d'eau de gravière",
-        "Plan d'eau de mine",
-        "Ravine",
-        "Réservoir-bassin",
-        "Réservoir-bassin d'orage",
-        "Réservoir-bassin piscicole",
-        "Retenue",
-        "Retenue-barrage",
-        "Retenue-bassin portuaire",
-        "Retenue-digue"
+      "oneOf": [
+        {
+          "const": "Aqueduc",
+          "title": "Aqueduc",
+          "description": "Chenal artificiel conçu pour le transport de l'eau."
+        },
+        {
+          "const": "Canal",
+          "title": "Canal",
+          "description": "Voie d'eau artificielle à surface libre."
+        },
+        {
+          "const": "Conduit buse",
+          "title": "Conduit buse",
+          "description": "Ouvrage constitué d'au moins un conduit transversal, généralement fait de béton ou de métal, laissant circuler l'eau sous une route, une voie ferrée ou une autre structure."
+        },
+        {
+          "const": "Conduit forcé",
+          "title": "Conduit forcé",
+          "description": "Tuyau conçu pour le transport de l'eau (usage hydroélectique, industriel,...)."
+        },
+        {
+          "const": "Delta",
+          "title": "Delta",
+          "description": "Construction fluviomarine de forme générale triangulaire, plus ou moins saillante par rapport à la côte, créée par les alluvions à l'embouchure d'un fleuve, dont le cours se sépare en plusieurs défluents avant d'atteindre la mer."
+        },
+        {
+          "const": "Ecoulement canalisé",
+          "title": "Ecoulement canalisé",
+          "description": "Tout ou partie d'un cours d'eau ou d'un tronçon dont le lit et/ou les berges ont été aménagés pour garder son écoulement dans un chenal à des fins multiples (défense des berges, lutte contre les inondations, navigation, etc.)."
+        },
+        {
+          "const": "Ecoulement endoréique",
+          "title": "Ecoulement endoréique",
+          "description": "Eaux de surface n'atteignant pas la mer ou l'océan mais alimentant un plan d'eau sans exutoire ou bien absorbées au cours de leur écoulement par infiltration et/ou évaporation."
+        },
+        {
+          "const": "Ecoulement hyporhéique",
+          "title": "Ecoulement hyporhéique",
+          "description": "Ecoulement se faisant dans les interstices sédimentaires saturés en eau, présent lorsqu'un cours d'eau s'écoule sur un substratum perméable. On parle alors d'écoulement dans une zone hyporhéïque. Ces écoulements peuvent être présent lorsque les écoulements de surface ne le sont plus, c'est le cas des cours d'eau intermittent."
+        },
+        {
+          "const": "Ecoulement karstique",
+          "title": "Ecoulement karstique",
+          "description": "Voie d'eau naturelle à écoulement pérenne ou intermittent traversant des terrains fissurés en général calcaires et pouvant subir des pertes ou bénéficier d'apports dus à des résurgences."
+        },
+        {
+          "const": "Ecoulement naturel",
+          "title": "Ecoulement naturel",
+          "description": "Voie empruntée préférentiellement par l'écoulement gravitaire des eaux météoriques provenant notamment du ruissellement, d'émergences, de la fonte des glaces, d'un étang ou de régions gorgées d'eau."
+        },
+        {
+          "const": "Ecoulement phréatique",
+          "title": "Ecoulement phréatique",
+          "description": "Cours d'eau ou tronçon dont la source et/ou les apports intermédiaires sont directement et uniquement liés au niveau de la nappe phréatique."
+        },
+        {
+          "const": "Estuaire",
+          "title": "Estuaire",
+          "description": "Embouchure de fleuve ou de rivière soumise à la marée et qui forme une indentation profonde et unique du littoral."
+        },
+        {
+          "const": "Glacier, névé",
+          "title": "Glacier, névé",
+          "description": "Toponyme de glacier. Le glacier est une masse de neige et de glace qui, lorsqu'elle repose sur les flancs d'une montagne ou sur le fond d'une vallée, est animée d'un mouvement lent et continu vers le bas, et lorsqu'elle est flottante a tendance à s'étendre constamment. Les névés correspondent à de la vieille neige devenue granuleuse, compacte et dense à la suite de divers processus de fonte, de regel et de sublimation.",
+          "x-ign-representedFeatures": [
+            "Glacier (toponyme)",
+            "Névé (toponyme)"
+          ]
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La 'Nature' n'est pas connue ou n'est pas encore saisie."
+        },
+        {
+          "const": "Lac",
+          "title": "Lac",
+          "description": "Lac ou ensemble de lacs. Masse d'eau continentale accumulée naturellement; suffisamment profond, un lac comporte une stratification thermique stable."
+        },
+        {
+          "const": "Lagon",
+          "title": "Lagon",
+          "description": "Masse d’eau peu profonde en communication avec le milieu marin, spécifiquement séparée de l’océan par un récif corallien (ou un atoll), et non par un simple cordon sableux ou sédimentaire. Le lagon est composé d'eau de mer et n'a pas d'eau saumâtre comme peut en contenir une lagune."
+        },
+        {
+          "const": "Lagune",
+          "title": "Lagune",
+          "description": "Lagune (masse d'eau continentale en communication avec le milieu marin)."
+        },
+        {
+          "const": "Mangrove",
+          "title": "Mangrove",
+          "description": "Zone forestière amphibie composée essentiellement de palétuviers, qu'on trouve sur les sédiments vaseux des littoraux tropicaux."
+        },
+        {
+          "const": "Marais",
+          "title": "Marais",
+          "description": "Au sens de la codification hydrographique, désigne un territoire sans relief significatif irrigué ou drainé par un réseau dense de canaux et/ou de bras et pouvant comporter des plans d'eau.",
+          "x-ign-representedFeatures": [
+            "Marais (toponyme)",
+            "Tourbière (toponyme)",
+            "Marécage (toponyme)"
+          ]
+        },
+        {
+          "const": "Mare",
+          "title": "Mare",
+          "description": "Mare."
+        },
+        {
+          "const": "Plan d'eau de gravière",
+          "title": "Plan d'eau de gravière",
+          "description": "Masse d'eau créée par l'extraction de granulats dans la plaine alluviale d'un cours d'eau et alimentée principalement par la nappe alluviale. Au sens de la codification hydrographique, les gravières ne sont généralement plus en exploitation. De même, il pourra s'agir d'un ensemble de plans d'eau faisant partie d'une même exploitation."
+        },
+        {
+          "const": "Plan d'eau de mine",
+          "title": "Plan d'eau de mine",
+          "description": "Masse d'eau utilisée dans les mines et milieux souterrains (exhaure)."
+        },
+        {
+          "const": "Ravine",
+          "title": "Ravine",
+          "description": "Écoulement naturel créé par le ruissellement concentré des eaux de pluie sur des terrains imperméables lors de phénomènes pluvieux courts et intenses."
+        },
+        {
+          "const": "Réservoir-bassin",
+          "title": "Réservoir-bassin",
+          "description": "Plan d’eau artificiel possédant le plus souvent un usage spécifique. Cela comprend les bassins d’épuration, bassins de décantation, bassins de filtrage, bassins de lagunage, bassins de rétention, bassins ostréicole, cressonnières, excréteurs de crues, réservoirs d’eau à ciel ouvert. Cela comprend également les bassins d'orage, bassins de stockage incendie. Ces réservoirs ne sont pas utilisés pour l'irrigation."
+        },
+        {
+          "const": "Réservoir-bassin d'orage",
+          "title": "Réservoir-bassin d'orage",
+          "description": "Réservoir recueillant les eaux drainées par la voirie lors d’un orage."
+        },
+        {
+          "const": "Réservoir-bassin piscicole",
+          "title": "Réservoir-bassin piscicole",
+          "description": "Toponyme de bassins à usage piscicole."
+        },
+        {
+          "const": "Retenue",
+          "title": "Retenue",
+          "description": "Comprend les retenues collinaires, les étangs."
+        },
+        {
+          "const": "Retenue-barrage",
+          "title": "Retenue-barrage",
+          "description": "Ouvrage construit pour retenir les eaux soit en vue de leur utilisation pour la production d'énergie électrique, l'irrigation des cultures ou l'alimentation des collectivités (barrage-réservoir), soit simplement en vue d'en régulariser l'écoulement (barrage de retenue ou de régulation).",
+          "x-ign-representedFeatures": [
+            "Lac de barrage (toponyme)",
+            "Barrage (toponyme du lac)",
+            "Retenue de barrage (toponyme)"
+          ]
+        },
+        {
+          "const": "Retenue-bassin portuaire",
+          "title": "Retenue-bassin portuaire",
+          "description": "Toponyme de bassin portuaire.",
+          "x-ign-representedFeatures": [
+            "Bassin portuaire (toponyme)",
+            "Darse (toponyme)"
+          ]
+        },
+        {
+          "const": "Retenue-digue",
+          "title": "Retenue-digue",
+          "description": "Plan d'eau endigué. La digue est un ouvrage linéaire, généralement de grande longueur, longitudinal par rapport au sens de l'écoulement de l'eau, surélevé par rapport au terrain naturel et destiné à s’opposer au passage de l’eau ou à la canaliser."
+        }
       ]
     },
     {
@@ -66,12 +202,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -79,13 +235,37 @@
       "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les toponymes de plan d'eau en fonction de leur importance ou notoriété relative.",
-      "enum": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
+      "oneOf": [
+        {
+          "const": "1",
+          "title": "1",
+          "description": "L'objet a une importance ou un rayonnement national, justifiant de le représenter aux échelles de l'ordre du 1 : 1 000 000."
+        },
+        {
+          "const": "2",
+          "title": "2",
+          "description": "L'objet a une importance ou un rayonnement régional, justifiant de le représenter aux échelles de l'ordre du 1 : 250 000."
+        },
+        {
+          "const": "3",
+          "title": "3",
+          "description": "L'objet a une importance ou un rayonnement départemental, justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
+        },
+        {
+          "const": "4",
+          "title": "4",
+          "description": "L'objet a une importance ou un rayonnement intercommunal ou cantonal, justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
+        },
+        {
+          "const": "5",
+          "title": "5",
+          "description": "L'objet a une importance ou un rayonnement communal, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
+        },
+        {
+          "const": "6",
+          "title": "6",
+          "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
+        }
       ]
     },
     {
@@ -128,10 +308,18 @@
       "name": "statut",
       "type": "string",
       "title": "Statut de l'objet hydrographique",
-      "description": "État de validité de l'objet hydrographique au sens du <a href=\"http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html\">dictionnaire du SANDRE.</a>",
-      "enum": [
-        "Gelé",
-        "Validé"
+      "description": "État de validité de l'objet hydrographique au sens du dictionnaire du SANDRE. (http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html)",
+      "oneOf": [
+        {
+          "const": "Gelé",
+          "title": "Gelé",
+          "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Gelé\" lorsqu'il a fait l'objet d'un travail de vérification de sa pertinence par un groupe d'experts du SANDRE, au regard des listes de références existantes. La conclusion de ce travail a mis en évidence une ou plusieurs erreurs pouvant être de nature variée (redondance d'informations, informations incomplètes, confusion) qui n'autorisent pas son usage au sein d'échanges de données. Une nomenclature ou une occurrence de listes nationales de statut \"Gelé\" peut en outre évoluer à l'avenir vers un statut valide, toujours selon l'avis de groupes d'experts."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Valide\" lorsqu'il a été jugé pertinent et cohérent aux yeux d'un groupe d'experts, garantissant ainsi son caractère valide. La nomenclature ou l'occurrence de listes nationales est bien reconnu officiellement par le SANDRE et peut désormais faire l'objet d'échanges de données."
+        }
       ]
     },
     {
@@ -148,7 +336,7 @@
     },
     {
       "name": "altitude_moyenne",
-      "type": "numeric",
+      "type": "number",
       "title": "Altitude moyenne",
       "description": "Altitude à la cote moyenne ou normale du plan d'eau, exprimée en mètres."
     },
@@ -163,20 +351,72 @@
       "type": "string",
       "title": "Mode d'obtention de l'altitude moy",
       "description": "Méthode utilisée pour établir l'altitude de la cote moyenne ou normale du plan d'eau.",
-      "enum": [
-        "Altimétrie radar",
-        "Autres modes",
-        "Carte bathymétrique",
-        "Carte marine de navigation",
-        "Carte topographique géoréférencée",
-        "Carte topographique non géoréférencée",
-        "Globe virtuel",
-        "GPS/GNSS autonome",
-        "GPS/GNSS différentiel",
-        "Inconnu",
-        "MNT",
-        "Nivellement",
-        "Sondeur acoustique"
+      "oneOf": [
+        {
+          "const": "Altimétrie radar",
+          "title": "Altimétrie radar",
+          "description": "Altimétrie déterminée à partir de levés Radar."
+        },
+        {
+          "const": "Autres modes",
+          "title": "Autres modes",
+          "description": "Altimétrie déterminée par d'autres modes non prévus dans les autres valeurs du champ."
+        },
+        {
+          "const": "Carte bathymétrique",
+          "title": "Carte bathymétrique",
+          "description": "Bathymétrie déterminée par interpolation sur une carte bathymétrique"
+        },
+        {
+          "const": "Carte marine de navigation",
+          "title": "Carte marine de navigation",
+          "description": "Bathymétrie déterminée par interpolation sur une carte marine de navigation"
+        },
+        {
+          "const": "Carte topographique géoréférencée",
+          "title": "Carte topographique géoréférencée",
+          "description": "Altimétrie déterminée par interpolation sur une carte topographique géoréférencée (type IGN ou autre)."
+        },
+        {
+          "const": "Carte topographique non géoréférencée",
+          "title": "Carte topographique non géoréférencée",
+          "description": "Altimétrie déterminée par interpolation sur un plan non ou mal géoréférencé."
+        },
+        {
+          "const": "Globe virtuel",
+          "title": "Globe virtuel",
+          "description": "Altimétrie déterminée à partir d'un service de cartographie en ligne (Google Earth, Google Street Map, Microsoft Bing, TerraExplorer, ….)"
+        },
+        {
+          "const": "GPS/GNSS autonome",
+          "title": "GPS/GNSS autonome",
+          "description": "Altimétrie déterminée avec un récepteur GPS grand public (intégré à un smartphone ou autre équipement) en l'absence de correction différentielle"
+        },
+        {
+          "const": "GPS/GNSS différentiel",
+          "title": "GPS/GNSS différentiel",
+          "description": "Altimétrie déterminée avec un récepteur GPS doté de fonctionnalités permettant les corrections différentielles.. Le récepteur peut être un récepteur GPS grand public (assurant la réception d'un signal de correction différentielle type EGNOS) ou professionnel."
+        },
+        {
+          "const": "Inconnu",
+          "title": "Inconnu",
+          "description": "Le mode de détermination de l'altimétrie est inconnu."
+        },
+        {
+          "const": "MNT",
+          "title": "MNT",
+          "description": "Altimétrie déterminée à partir d'un Modèle Numérique de Terrain (MNT)."
+        },
+        {
+          "const": "Nivellement",
+          "title": "Nivellement",
+          "description": "Altimétrie déterminée par nivellement géométrique ou trigonométrique (à l'aide d'un niveau ou d'un théodolite)"
+        },
+        {
+          "const": "Sondeur acoustique",
+          "title": "Sondeur acoustique",
+          "description": "Bathymétrie déterminée à partir de mesures effectuées depuis un sondeur acoustique."
+        }
       ]
     },
     {
@@ -184,19 +424,40 @@
       "type": "string",
       "title": "Précision de l'altitude moyenne",
       "description": "Précision de l'altitude moyenne calculée.",
-      "enum": [
-        "Centimétrique",
-        "Décamétrique < 50 m",
-        "Décamétrique > 50 m",
-        "Décimétrique",
-        "Inconnue",
-        "Métrique < 5 m",
-        "Métrique > 5 m"
+      "oneOf": [
+        {
+          "const": "Centimétrique",
+          "title": "Centimétrique"
+        },
+        {
+          "const": "Décamétrique < 50 m",
+          "title": "Décamétrique < 50 m"
+        },
+        {
+          "const": "Décamétrique > 50 m",
+          "title": "Décamétrique > 50 m"
+        },
+        {
+          "const": "Décimétrique",
+          "title": "Décimétrique"
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue"
+        },
+        {
+          "const": "Métrique < 5 m",
+          "title": "Métrique < 5 m"
+        },
+        {
+          "const": "Métrique > 5 m",
+          "title": "Métrique > 5 m"
+        }
       ]
     },
     {
       "name": "hauteur_d_eau_maximale",
-      "type": "numeric",
+      "type": "number",
       "title": "Hauteur d'eau maximale",
       "description": "Hauteur d’eau maximale d’un plan d’eau artificiel, exprimée en mètres."
     },
@@ -205,9 +466,17 @@
       "type": "string",
       "title": "Mode d'obtention de la hauteur",
       "description": "Description de la méthode d’obtention de la hauteur maximale du plan d'eau : MNT, cote RN (Retenue Normale).",
-      "enum": [
-        "Cote RN",
-        "MNT"
+      "oneOf": [
+        {
+          "const": "Cote RN",
+          "title": "Cote RN",
+          "description": "Cote de retenue normale. L’altitude du plan d’eau est notée à la cote moyenne pour les plans d’eau naturels et à la cote normale d’exploitation pour les plans d’eau artificiels. La cote normale, tout comme la cote moyenne, se définissent comme le niveau habituel de la ligne d’eau du plan d’eau. Par défaut, on utilise l’altitude de la ligne d’eau lors de la délimitation de l’objet d’hydrographie surfacique dans la BD Carthage. Sauf nivellement, l'altitude du plan d’eau est celle de l'indication altimétrique la plus proche obtenue sur les lieux (borne...) ou sur une carte au 1/25 000ème. L'altitude est indiquée au maximum au mètre près. Elle peut être négative pour des stations situées dans des zones inférieures au niveau de la mer"
+        },
+        {
+          "const": "MNT",
+          "title": "MNT",
+          "description": "Cote d’altimétrie déterminée à partir d'un Modèle Numérique de Terrain (MNT)."
+        }
       ]
     },
     {
@@ -218,9 +487,13 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie GE MultiPolygone",
       "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle."
     }
+  ],
+  "required": [
+    "cleabs",
+    "importance"
   ]
 }

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_du:doc_urba",
+  "type": "object",
+  "title": "Document d'urbanisme",
+  "description": "Classe sémantique décrivant le document d'urbanisme, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "idurba": {
+      "type": "string"
+    },
+    "typedoc": {
+      "type": "string"
+    },
+    "datappro": {
+      "type": "string"
+    },
+    "datefin": {
+      "type": "string"
+    },
+    "interco": {
+      "type": "string"
+    },
+    "siren": {
+      "type": "string"
+    },
+    "etat": {
+      "type": "string"
+    },
+    "nomreg": {
+      "type": "string"
+    },
+    "urlreg": {
+      "type": "string"
+    },
+    "nomplan": {
+      "type": "string"
+    },
+    "urlplan": {
+      "type": "string"
+    },
+    "siteweb": {
+      "type": "string"
+    },
+    "typeref": {
+      "type": "string"
+    },
+    "dateref": {
+      "type": "string"
+    },
+    "nomproc": {
+      "type": "string"
+    },
+    "urlpe": {
+      "type": "string"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

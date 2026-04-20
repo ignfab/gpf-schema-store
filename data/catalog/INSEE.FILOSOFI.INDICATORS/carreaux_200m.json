@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "INSEE.FILOSOFI.INDICATORS:carreaux_200m",
+  "type": "object",
+  "title": "Carroyages INSEE",
+  "description": "Carroyages INSEE à 200 m, à 1 km et à la plus grande échelle diffusable ",
+  "properties": {
+    "id_inspire": {
+      "type": "string"
+    },
+    "ind": {
+      "type": "number"
+    },
+    "depcom": {
+      "type": "string"
+    },
+    "nom_com": {
+      "type": "string"
+    },
+    "men": {
+      "type": "number"
+    },
+    "ind_0_3": {
+      "type": "number"
+    },
+    "ind_4_5": {
+      "type": "number"
+    },
+    "ind_6_10": {
+      "type": "number"
+    },
+    "ind_11_17": {
+      "type": "number"
+    },
+    "ind_25_39": {
+      "type": "number"
+    },
+    "ind_40_54": {
+      "type": "number"
+    },
+    "ind_55_64": {
+      "type": "number"
+    },
+    "ind_65_79": {
+      "type": "number"
+    },
+    "ind_80p": {
+      "type": "number"
+    },
+    "men_5ind": {
+      "type": "number"
+    },
+    "men_1ind": {
+      "type": "number"
+    },
+    "men_prop": {
+      "type": "number"
+    },
+    "men_coll": {
+      "type": "number"
+    },
+    "log_soc": {
+      "type": "number"
+    },
+    "men_surf": {
+      "type": "number"
+    },
+    "log_av45": {
+      "type": "number"
+    },
+    "log_45_70": {
+      "type": "number"
+    },
+    "log_70_90": {
+      "type": "number"
+    },
+    "log_ap90": {
+      "type": "number"
+    },
+    "men_fmp": {
+      "type": "number"
+    },
+    "men_mais": {
+      "type": "number"
+    },
+    "ind_snv": {
+      "type": "number"
+    },
+    "men_pauv": {
+      "type": "number"
+    },
+    "i_car_est": {
+      "type": "integer"
+    },
+    "densite_indx25": {
+      "type": "number"
+    },
+    "ind_snv_div_ind": {
+      "type": "number"
+    },
+    "part_ind_0_17_div_ind": {
+      "type": "number"
+    },
+    "part_ind_65p_div_ind": {
+      "type": "number"
+    },
+    "part_men_coll_div_men": {
+      "type": "number"
+    },
+    "part_log_soc_div_men": {
+      "type": "number"
+    },
+    "part_log_av45_div_men": {
+      "type": "number"
+    },
+    "part_log_ap90_div_men": {
+      "type": "number"
+    },
+    "men_5ind_div_men": {
+      "type": "number"
+    },
+    "men_1ind_div_men": {
+      "type": "number"
+    },
+    "men_prop_div_men": {
+      "type": "number"
+    },
+    "ind_25_39_div_ind": {
+      "type": "number"
+    },
+    "ind_40_54_div_ind": {
+      "type": "number"
+    },
+    "ind_55_64_div_ind": {
+      "type": "number"
+    },
+    "log_45_70_div_men": {
+      "type": "number"
+    },
+    "log_70_90_div_men": {
+      "type": "number"
+    },
+    "men_surf_div_men": {
+      "type": "number"
+    },
+    "men_fmp_div_men": {
+      "type": "number"
+    },
+    "men_mais_div_men": {
+      "type": "number"
+    },
+    "men_pauv_div_men": {
+      "type": "number"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

@@ -141,9 +141,39 @@ export type CollectionProperty = {
    */
   enum?: string[];
   /**
+   * Rich enumerated values, used by enriched overwrite files.
+   */
+  oneOf?: CollectionOneOfValue[];
+  /**
+   * IGN-specific represented features annotation.
+   */
+  'x-ign-representedFeatures'?: string[];
+  /**
    * The default CRS of the geometry property (if the property is a geometry).
    */
   defaultCrs?: string;
+};
+
+/**
+ * A rich enumerated value in an enriched collection property.
+ */
+export type CollectionOneOfValue = {
+  /**
+   * The constant value accepted by the schema.
+   */
+  const: string;
+  /**
+   * Human readable title of the value.
+   */
+  title?: string;
+  /**
+   * Human readable description of the value.
+   */
+  description?: string;
+  /**
+   * IGN-specific represented features annotation.
+   */
+  'x-ign-representedFeatures'?: string[];
 };
 
 
@@ -175,6 +205,22 @@ export type Collection = {
    */
   description: string;
   /**
+   * IGN-specific theme annotation.
+   */
+  'x-ign-theme'?: string;
+  /**
+   * IGN-specific selection criteria annotation.
+   */
+  'x-ign-selectionCriteria'?: string;
+  /**
+   * IGN-specific represented features annotation.
+   */
+  'x-ign-representedFeatures'?: string[];
+  /**
+   * Required property names.
+   */
+  required?: string[];
+  /**
    * The properties of the collection.
    */
   properties: CollectionProperty[];
@@ -197,11 +243,69 @@ export type CollectionPropertyOverwrite = Omit<CollectionProperty, 'type'> & {
 /**
  * The schema of a collection overwrite.
  */
-export type CollectionOverwrite = Omit<Collection, 'properties'> & {
+export type CollectionOverwrite = {
+  /**
+   * The title of the collection.
+   */
+  title: string;
+  /**
+   * The description of the collection.
+   */
+  description: string;
+  /**
+   * IGN-specific theme annotation.
+   */
+  'x-ign-theme'?: string;
+  /**
+   * IGN-specific selection criteria annotation.
+   */
+  'x-ign-selectionCriteria'?: string;
+  /**
+   * IGN-specific represented features annotation.
+   */
+  'x-ign-representedFeatures'?: string[];
+  /**
+   * Required property names.
+   */
+  required?: string[];
   /**
    * The properties of the overwrite.
    */
   properties: CollectionPropertyOverwrite[];
+};
+
+export type CollectionSchemaValue = {
+  const: string;
+  title?: string;
+  description?: string;
+  'x-ign-representedFeatures'?: string[];
+};
+
+export type CollectionSchemaProperty = {
+  type?: 'string' | 'boolean' | 'integer' | 'number' | 'object' | 'array';
+  format?: string;
+  title?: string;
+  description?: string;
+  enum?: string[];
+  oneOf?: CollectionSchemaValue[];
+  'x-ogc-role'?: 'primary-geometry';
+  'x-ign-representedFeatures'?: string[];
+};
+
+/**
+ * Public catalog output: a logical JSON Schema for an OGC API Features collection.
+ */
+export type CollectionSchema = {
+  $schema: 'https://json-schema.org/draft/2020-12/schema';
+  'x-collection-id': string;
+  type: 'object';
+  title: string;
+  'x-ign-theme'?: string;
+  description: string;
+  'x-ign-selectionCriteria'?: string;
+  'x-ign-representedFeatures'?: string[];
+  properties: Record<string, CollectionSchemaProperty>;
+  required: string[];
 };
 
 /**

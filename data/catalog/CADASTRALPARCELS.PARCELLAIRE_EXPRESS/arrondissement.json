@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:arrondissement",
+  "type": "object",
+  "title": "PCI Vecteur : Arrondissements",
+  "description": "Arrondissements",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "code_insee": {
+      "type": "string"
+    },
+    "nom_arr": {
+      "type": "string"
+    },
+    "code_arr": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

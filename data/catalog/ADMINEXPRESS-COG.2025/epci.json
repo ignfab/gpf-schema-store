@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2025:epci",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2025 EPCI",
+  "description": "ADMINEXPRESS COG 2025 EPCI",
+  "properties": {
+    "cleabs": {
+      "type": "string"
+    },
+    "nom_officiel": {
+      "type": "string"
+    },
+    "nom_officiel_en_majuscules": {
+      "type": "string"
+    },
+    "nature": {
+      "type": "string"
+    },
+    "codes_insee_des_communes_membres": {
+      "type": "string"
+    },
+    "codes_insee_des_departements_membres": {
+      "type": "string"
+    },
+    "code_siren": {
+      "type": "string"
+    },
+    "geometrie": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": []
+}

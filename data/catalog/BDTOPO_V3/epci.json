@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:epci",
+  "type": "object",
+  "title": "EPCI",
+  "x-ign-theme": "Administratif",
+  "description": "Les établissements publics de coopération intercommunale (EPCI) sont des structures administratives permettant à plusieurs communes d’exercer des compétences en commun. Ils sont soumis à des règles communes, homogènes et comparables à celles de collectivités locales. Les communautés urbaines, communautés d'agglomération, communautés de communes, syndicats d'agglomération nouvelle, syndicats de communes et les syndicats mixtes sont des EPCI. Source Insee",
+  "x-ign-selectionCriteria": "Seuls les EPCI à fiscalité propre sont retenus, ainsi que les EPT (Etablissement public territorial) liés à la métropole du Grand Paris.",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string"
+    },
+    "nom_officiel": {
+      "title": "Nom officiel",
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées.",
+      "type": "string"
+    },
+    "code_siren": {
+      "title": "Code Siren",
+      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro. Source Insee",
+      "type": "string"
+    },
+    "nature": {
+      "title": "Nature",
+      "description": "Nature de l'EPCI",
+      "oneOf": [
+        {
+          "const": "Communauté d'agglomération",
+          "title": "Communauté d'agglomération",
+          "description": "EPCI regroupant plusieurs communes formant, à la date de sa création, un ensemble de plus de 50 000 habitants d'un seul tenant et sans enclave, autour d'une ou plusieurs communes centre de plus de 15 000 habitants. Le seuil démographique de 15 000 habitants ne s'applique pas lorsque la communauté d'agglomération comprend le chef-lieu du Département ou la Commune la plus importante du Département. Le seuil démographique de 50 000 habitants est réduit à 30 000 habitants lorsque la communauté d'agglomération comprend le chef-lieu du Département."
+        },
+        {
+          "const": "Communauté de communes",
+          "title": "Communauté de communes",
+          "description": "EPCI regroupant plusieurs communes d'un seul tenant et sans enclave. Elle a pour objet d'associer des communes au sein d'un espace de solidarité, en vue de l'élaboration d'un projet commun de développement et d'aménagement de l'espace."
+        },
+        {
+          "const": "Communauté urbaine",
+          "title": "Communauté urbaine",
+          "description": "EPCI regroupant plusieurs communes d'un seul tenant et sans enclave qui forment, à la date de sa création, un ensemble de plus de 450 000 habitants et qui s'associent au sein d'un espace de solidarité, pour élaborer et conduire ensemble un projet commun de développement urbain et d'aménagement de leur territoire."
+        },
+        {
+          "const": "Etablissement public territorial",
+          "title": "Etablissement public territorial",
+          "description": "Nouvelle structure administrative créée en 2016 dans le cadre de la création de la Métropole du Grand Paris. Ce sont des EPCI sans fiscalité propre."
+        },
+        {
+          "const": "Métropole",
+          "title": "Métropole",
+          "description": "EPCI qui forment, à la date de la création de la métropole, un ensemble de plus de 400 000 habitants et dans le périmètre desquels se trouve le chef-lieu de Région ; les EPCI, centres d'une zone d'emplois de plus de 400 000 habitants, qui en font la demande. Toutefois la métropole de Lyon n'est pas (en dépit de son nom) réellement une métropole ni même un EPCI, mais une Collectivité territoriale à statut particulier qui (au-delà des autres caractéristiques des métropoles) se substitue à la Collectivité territoriale de son ancien Département."
+        }
+      ],
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "codes_insee_des_communes_membres": {
+      "title": "Codes Insee des communes membres",
+      "description": "Liste des codes Insee des communes membres de l'EPCI séparés par '/'.",
+      "type": "string"
+    },
+    "codes_insee_des_departements_membres": {
+      "title": "Codes Insee des départements membres",
+      "description": "Liste des codes Insee des départements dont les communes sont membres de l'EPCI.",
+      "type": "string"
+    },
+    "liens_vers_autorite_administrative": {
+      "title": "Liens vers autorité administrative",
+      "description": "Lien vers le siège de l'autorité administrative de l'EPCI modélisé par une de Nature=\"Siège d'EPCI\".",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie GE MultiPolygone",
+      "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle.",
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry"
+    }
+  },
+  "required": [
+    "cleabs",
+    "nature"
+  ]
+}
