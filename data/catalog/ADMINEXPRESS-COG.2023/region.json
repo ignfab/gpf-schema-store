@@ -3,7 +3,7 @@
   "x-collection-id": "ADMINEXPRESS-COG.2023:region",
   "type": "object",
   "title": "ADMINEXPRESS COG 2023 Région",
-  "description": "ADMINEXPRESS COG 2023 Région",
+  "description": "ADMINEXPRESS COG 2023 Région ; Édition 2023-01-01",
   "properties": {
     "id": {
       "type": "string"
@@ -19,7 +19,8 @@
     },
     "geom": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

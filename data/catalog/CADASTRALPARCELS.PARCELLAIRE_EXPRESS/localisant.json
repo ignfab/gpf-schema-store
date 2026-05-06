@@ -3,7 +3,7 @@
   "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:localisant",
   "type": "object",
   "title": "PCI Vecteur : Localisants",
-  "description": "Localisants",
+  "description": "Localisants ; Édition 2025-12-01",
   "properties": {
     "gid": {
       "type": "integer"
@@ -37,7 +37,8 @@
     },
     "geom": {
       "format": "geometry-multipoint",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

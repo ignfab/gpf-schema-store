@@ -6,7 +6,8 @@
   "description": "ADMINEXPRESS COG Dernière édition Chef-lieu d Arrondissement municipal",
   "properties": {
     "cleabs": {
-      "type": "string"
+      "type": "string",
+      "x-ogc-role": "id"
     },
     "nom_officiel": {
       "type": "string"
@@ -37,7 +38,8 @@
     },
     "geometrie": {
       "format": "geometry-point",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

@@ -3,10 +3,11 @@
   "x-collection-id": "ADMINEXPRESS-COG.2025:arrondissement_municipal",
   "type": "object",
   "title": "ADMINEXPRESS COG 2025 Arrondissement municipal",
-  "description": "ADMINEXPRESS COG 2025 Arrondissement municipal",
+  "description": "ADMINEXPRESS COG 2025 Arrondissement municipal ; Édition 2025-01-01",
   "properties": {
     "cleabs": {
-      "type": "string"
+      "type": "string",
+      "x-ogc-role": "id"
     },
     "nom_officiel": {
       "type": "string"
@@ -31,7 +32,8 @@
     },
     "geometrie": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

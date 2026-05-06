@@ -1,7 +1,7 @@
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { isAbsolute, join, relative, resolve, sep } from 'node:path';
 
-import type { Collection } from '../types';
+import type { EnrichedCollection } from '../types';
 import { renderCollectionSchema } from '../renderers/collection-schema';
 
 export interface RenderCatalogOptions {
@@ -43,7 +43,7 @@ function assertSafeCleanTarget(outputDir: string): void {
 }
 
 export function writeRenderedCatalog(
-  collections: Collection[],
+  collections: EnrichedCollection[],
   outputDir: string,
   options: RenderCatalogOptions = {},
 ): string {

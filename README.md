@@ -107,7 +107,6 @@ Compare local WFS snapshots stored in `data/wfs` with local overwrite files in `
 npx gpf-schema-store check-overwrites
 ```
 
-
 ### Test local search
 
 Use the `search` command to quickly inspect the results returned by the search engine with its default options.
@@ -134,7 +133,7 @@ npx gpf-schema-store render-catalog ./tmp/catalog
 npx gpf-schema-store render-catalog ./tmp/catalog --clean
 ```
 
-Each rendered file is a JSON Schema 2020-12 object with `x-collection-id`, `type`, `title`, `description`, `properties`, and `required`. Geometry properties are represented with `format: "geometry-{type}"` and `x-ogc-role: "primary-geometry"`.
+Each rendered file is a JSON Schema 2020-12 object with `x-collection-id`, `type`, `title`, `description`, `properties`, and `required`. Geometry properties are represented with `format: "geometry-{type}"` and `x-ogc-role: "primary-geometry"`. The BDTOPO identifier property `cleabs` is annotated with `x-ogc-role: "id"`.
 
 ## Test a local package build in geocontext
 

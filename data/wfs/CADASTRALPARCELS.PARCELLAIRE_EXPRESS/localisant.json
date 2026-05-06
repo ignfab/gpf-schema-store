@@ -3,7 +3,7 @@
   "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
   "name": "localisant",
   "title": "PCI Vecteur : Localisants",
-  "description": "Localisants",
+  "description": "Localisants ; Édition 2025-12-01",
   "properties": [
     {
       "name": "gid",

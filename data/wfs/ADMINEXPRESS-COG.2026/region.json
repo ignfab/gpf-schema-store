@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "region",
   "title": "ADMINEXPRESS COG 2026 Région",
-  "description": "ADMINEXPRESS COG 2026 Région",
+  "description": "ADMINEXPRESS COG 2026 Région ; Édition 2026-01-01",
   "properties": [
     {
       "name": "cleabs",

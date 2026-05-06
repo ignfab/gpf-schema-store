@@ -3,7 +3,7 @@
   "x-collection-id": "ADMINEXPRESS-COG.2019:chef_lieu",
   "type": "object",
   "title": "ADMINEXPRESS COG 2019 Chef-lieu",
-  "description": "ADMINEXPRESS COG 2019 Chef-lieu",
+  "description": "ADMINEXPRESS COG 2019 Chef-lieu ; Édition 2019-01-01",
   "properties": {
     "id": {
       "type": "string"
@@ -19,7 +19,8 @@
     },
     "geom": {
       "format": "geometry-point",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

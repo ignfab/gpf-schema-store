@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2018",
   "name": "region",
   "title": "ADMINEXPRESS COG 2018 Région",
-  "description": "ADMINEXPRESS COG 2018 Région",
+  "description": "ADMINEXPRESS COG 2018 Région ; Édition 2018-01-01",
   "properties": [
     {
       "name": "id",

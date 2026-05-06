@@ -34,11 +34,11 @@ function cliShebang(fileName: string): Plugin {
 export default defineConfig({
   test: {
     environment: 'node',
-    include: ['src/**/*.test.ts'],
+    include: ['test/**/*.test.ts'],
     coverage: {
       provider: 'v8',
       include: ['src/**/*.ts'],
-      exclude: ['src/**/*.test.ts'],
+      exclude: ['test/**/*.test.ts'],
       reporter: ['text', 'lcov', 'html'],
     },
     env: {

@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2021",
   "name": "commune",
   "title": "ADMINEXPRESS COG 2021 Commune",
-  "description": "ADMINEXPRESS COG 2021 Commune",
+  "description": "ADMINEXPRESS COG 2021 Commune ; Édition 2021-01-01",
   "properties": [
     {
       "name": "id",

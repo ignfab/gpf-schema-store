@@ -3,7 +3,7 @@
   "x-collection-id": "ADMINEXPRESS-COG.2022:chef_lieu_commune_associee_ou_deleguee",
   "type": "object",
   "title": "ADMINEXPRESS COG 2022 Chef-lieu Commune associée ou déléguée",
-  "description": "ADMINEXPRESS COG 2022 Chef-lieu Commune associée ou déléguée",
+  "description": "ADMINEXPRESS COG 2022 Chef-lieu Commune associée ou déléguée ; Édition 2022-01-01",
   "properties": {
     "id": {
       "type": "string"
@@ -16,7 +16,8 @@
     },
     "geom": {
       "format": "geometry-point",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

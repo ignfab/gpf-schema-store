@@ -3,7 +3,7 @@
   "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:commune",
   "type": "object",
   "title": "PCI Vecteur : Communes",
-  "description": "Communes",
+  "description": "Communes ; Édition 2025-12-01",
   "properties": {
     "gid": {
       "type": "integer"
@@ -19,7 +19,8 @@
     },
     "geom": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

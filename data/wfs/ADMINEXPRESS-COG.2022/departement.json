@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2022",
   "name": "departement",
   "title": "ADMINEXPRESS COG 2022 Département",
-  "description": "ADMINEXPRESS COG 2022 Département",
+  "description": "ADMINEXPRESS COG 2022 Département ; Édition 2022-01-01",
   "properties": [
     {
       "name": "id",

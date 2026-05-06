@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2025",
   "name": "region",
   "title": "ADMINEXPRESS COG 2025 Région",
-  "description": "ADMINEXPRESS COG 2025 Région",
+  "description": "ADMINEXPRESS COG 2025 Région ; Édition 2025-01-01",
   "properties": [
     {
       "name": "cleabs",

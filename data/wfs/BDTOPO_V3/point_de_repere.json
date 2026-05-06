@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "point_de_repere",
   "title": "BDTOPO : Points de repère",
-  "description": "Points de repère − BDTOPO® V3 2026-03-15",
+  "description": "Points de repère − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

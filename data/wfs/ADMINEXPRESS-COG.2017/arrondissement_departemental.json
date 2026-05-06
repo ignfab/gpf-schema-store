@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2017",
   "name": "arrondissement_departemental",
   "title": "ADMINEXPRESS COG 2017 Arrondissement départemental",
-  "description": "ADMINEXPRESS COG 2017 Arrondissement départemental",
+  "description": "ADMINEXPRESS COG 2017 Arrondissement départemental ; Édition 2017-01-01",
   "properties": [
     {
       "name": "id",

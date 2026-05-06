@@ -4,12 +4,13 @@
   "type": "object",
   "title": "Zone d'activité ou d'intérêt",
   "x-ign-theme": "Services et activités",
-  "description": "",
+  "description": "La table zone_d_activite_ou_d_interet de la BD TOPO représente les emprises surfaciques de sites ou équipements d’activité ou d’intérêt, classés par catégorie et nature, par exemple administratif, culturel, industriel, religieux, santé, enseignement ou sport.",
   "properties": {
     "cleabs": {
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string"
+      "type": "string",
+      "x-ogc-role": "id"
     },
     "categorie": {
       "title": "Catégorie",
@@ -3724,7 +3725,8 @@
       "title": "Géométrie",
       "description": "",
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": [

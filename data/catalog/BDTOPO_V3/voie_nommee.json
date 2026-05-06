@@ -9,7 +9,8 @@
     "cleabs": {
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string"
+      "type": "string",
+      "x-ogc-role": "id"
     },
     "identifiant_voie_ban": {
       "title": "Identifiant voie BAN",
@@ -95,7 +96,8 @@
       "title": "Géométrie",
       "description": "Champ contenant le géométrie concaténée des tronçons composant la voie nommée.",
       "format": "geometry-linestring",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": [

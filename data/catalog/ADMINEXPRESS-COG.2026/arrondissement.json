@@ -3,10 +3,11 @@
   "x-collection-id": "ADMINEXPRESS-COG.2026:arrondissement",
   "type": "object",
   "title": "ADMINEXPRESS COG 2026 Arrondissement",
-  "description": "ADMINEXPRESS COG 2026 Arrondissement",
+  "description": "ADMINEXPRESS COG 2026 Arrondissement ; Édition 2026-01-01",
   "properties": {
     "cleabs": {
-      "type": "string"
+      "type": "string",
+      "x-ogc-role": "id"
     },
     "nom_officiel": {
       "type": "string"
@@ -28,7 +29,8 @@
     },
     "geometrie": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

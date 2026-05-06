@@ -3,7 +3,7 @@
   "x-collection-id": "ADMINEXPRESS-COG.2017:region",
   "type": "object",
   "title": "ADMINEXPRESS COG 2017 Région",
-  "description": "ADMINEXPRESS COG 2017 Région",
+  "description": "ADMINEXPRESS COG 2017 Région ; Édition 2017-01-01",
   "properties": {
     "id": {
       "type": "string"
@@ -16,7 +16,8 @@
     },
     "geom": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

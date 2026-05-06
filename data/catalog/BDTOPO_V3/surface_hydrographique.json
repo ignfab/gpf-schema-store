@@ -10,7 +10,8 @@
     "cleabs": {
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string"
+      "type": "string",
+      "x-ogc-role": "id"
     },
     "code_hydrographique": {
       "title": "Code hydrographique",
@@ -796,7 +797,8 @@
       "title": "Géométrie",
       "description": "",
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": [

@@ -3,10 +3,11 @@
   "x-collection-id": "ADMINEXPRESS-COG.2026:chef_lieu_de_region",
   "type": "object",
   "title": "ADMINEXPRESS COG 2026 Chef-lieu de Région",
-  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Région",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Région ; Édition 2026-01-01",
   "properties": {
     "cleabs": {
-      "type": "string"
+      "type": "string",
+      "x-ogc-role": "id"
     },
     "nom_officiel": {
       "type": "string"
@@ -34,7 +35,8 @@
     },
     "geometrie": {
       "format": "geometry-point",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

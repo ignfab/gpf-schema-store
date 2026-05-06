@@ -9,7 +9,8 @@
     "cleabs": {
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string"
+      "type": "string",
+      "x-ogc-role": "id"
     },
     "date_creation": {
       "title": "Date de création",
@@ -224,7 +225,8 @@
       "title": "Géométrie",
       "description": "",
       "format": "geometry-point",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": [

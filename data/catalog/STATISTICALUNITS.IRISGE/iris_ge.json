@@ -2,11 +2,12 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "x-collection-id": "STATISTICALUNITS.IRISGE:iris_ge",
   "type": "object",
-  "title": "IRIS Grande Echelle",
-  "description": "Contours géométriques des IRIS de l'INSEE à grande échelle sur toute la France ; Edition : 2025-01-01",
+  "title": "Contours géométriques des IRIS de l'INSEE à grande échelle",
+  "description": "Contours géométriques des IRIS de l'INSEE à grande échelle sur toute la France ; Edition : 2026-01-01",
   "properties": {
     "cleabs": {
-      "type": "string"
+      "type": "string",
+      "x-ogc-role": "id"
     },
     "code_insee": {
       "type": "string"
@@ -28,7 +29,8 @@
     },
     "geometrie": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

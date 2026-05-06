@@ -3,7 +3,7 @@
   "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_parcelle",
   "type": "object",
   "title": "PCI Vecteur : Lien bornes parcelles",
-  "description": "Lien bornes parcelles",
+  "description": "Lien bornes parcelles ; Édition 2025-12-01",
   "properties": {
     "gid": {
       "type": "integer"
@@ -16,7 +16,8 @@
     },
     "geom": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry"
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

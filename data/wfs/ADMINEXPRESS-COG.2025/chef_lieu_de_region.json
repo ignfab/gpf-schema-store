@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2025",
   "name": "chef_lieu_de_region",
   "title": "ADMINEXPRESS COG 2025 Chef-lieu de Région",
-  "description": "ADMINEXPRESS COG 2025 Chef-lieu de Région",
+  "description": "ADMINEXPRESS COG 2025 Chef-lieu de Région ; Édition 2025-01-01",
   "properties": [
     {
       "name": "cleabs",

@@ -1,4 +1,4 @@
-import type { Collection, CollectionSchema } from '../types';
+import type { CollectionSchema, EnrichedCollection } from '../types';
 
 /** Generic catalog-level options applied after search-engine evaluation. */
 export type CollectionSearchOptions = {
@@ -24,4 +24,4 @@ export interface CollectionSearchEngine {
 }
 
 /** Factory that builds a search engine from the full collection list at catalog creation time. */
-export type CollectionSearchEngineFactory = (collections: Collection[]) => CollectionSearchEngine;
+export type CollectionSearchEngineFactory = (collections: EnrichedCollection[]) => CollectionSearchEngine;
