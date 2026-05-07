@@ -1,57 +1,15 @@
-import { z } from 'zod';
-
-import type {
-  CollectionOverwrite,
-  SourceCollection,
+import { formatSchemaIssues } from '../helpers/zod';
+import {
+  collectionOverwriteSchema,
+  type CollectionOverwrite,
+  type SourceCollection,
 } from '../types';
-
-/*
- * =============================================================================
- * Overwrite Schemas
- * =============================================================================
- */
-
-const representedFeaturesSchema = z.array(z.string().min(1));
-
-const oneOfValueSchema = z.object({
-  const: z.string(),
-  title: z.string(),
-  description: z.string().optional(),
-  'x-ign-representedFeatures': representedFeaturesSchema.optional(),
-}).strict();
-
-const propertyOverwriteSchema = z.object({
-  name: z.string().min(1),
-  type: z.string(),
-  title: z.string(),
-  description: z.string(),
-  oneOf: z.array(oneOfValueSchema).optional(),
-}).strict();
-
-const collectionOverwriteSchema = z.object({
-  title: z.string(),
-  description: z.string(),
-  'x-ign-theme': z.string(),
-  'x-ign-selectionCriteria': z.string().optional(),
-  'x-ign-representedFeatures': representedFeaturesSchema.optional(),
-  required: z.array(z.string().min(1)),
-  properties: z.array(propertyOverwriteSchema),
-}).strict();
 
 /*
  * =============================================================================
  * Validation Helpers
  * =============================================================================
  */
-
-function formatOverwriteSchemaIssues(error: z.ZodError): string {
-  return error.issues
-    .map((issue) => {
-      const path = issue.path.length > 0 ? issue.path.join('.') : '<root>';
-      return `${path}: ${issue.message}`;
-    })
-    .join('; ');
-}
 
 function getObjectKeys(value: unknown): Set<string> {
   if (!value || typeof value !== 'object' || Array.isArray(value)) {
@@ -104,7 +62,7 @@ export function parseOverwrite(raw: unknown, context = '<unknown>'): CollectionO
 
   const result = collectionOverwriteSchema.safeParse(raw);
   if (!result.success) {
-    throw new Error(`Invalid overwrite ${context}: ${formatOverwriteSchemaIssues(result.error)}`);
+    throw new Error(`Invalid overwrite ${context}: ${formatSchemaIssues(result.error)}`);
   }
 
   validateOneOfDuplicates(result.data, context);

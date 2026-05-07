@@ -100,6 +100,21 @@ describe('WfsClient', () => {
       expect(endpointMocks.isReady).toHaveBeenCalledTimes(1)
       expect(endpointMocks.getFeatureTypes).toHaveBeenCalledTimes(1)
     })
+
+    it('rejects invalid feature type payloads from the WFS endpoint', async () => {
+      endpointMocks.getFeatureTypes.mockReturnValue([
+        { title: 'batiment', abstract: '' },
+      ])
+
+      const wfsClient = new WfsClient('https://example.test/wfs')
+      const promise = wfsClient.getCollections()
+      const assertion = expect(promise).rejects.toThrow(
+        /Invalid WFS GetCapabilities payload: 0\.name/,
+      )
+      await vi.runAllTimersAsync()
+
+      await assertion
+    })
   })
 
   describe('WfsClient getCollection', () => {
@@ -174,6 +189,22 @@ describe('WfsClient', () => {
       expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledTimes(2)
       expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledWith('NS:collection')
     })
+
+    it('rejects invalid feature type details from the WFS endpoint', async () => {
+      endpointMocks.getFeatureTypeFull.mockResolvedValue({
+        title: 'collection title',
+        abstract: 'collection description',
+      })
+
+      const wfsClient = new WfsClient('https://example.test/wfs')
+      const promise = wfsClient.getCollection('NS:collection')
+      const assertion = expect(promise).rejects.toThrow(
+        /Invalid WFS DescribeFeatureType payload for "NS:collection": properties/,
+      )
+      await vi.runAllTimersAsync()
+
+      await assertion
+    })
   })
   
 
@@ -213,6 +244,32 @@ describe('WfsClient', () => {
       await assertion
     });
 
+  })
+
+  describe('WfsClient getCollection with empty default CRS', () => {
+    beforeEach(() => {
+      endpointMocks.getFeatureTypeFull.mockResolvedValue({
+        properties: {
+          prop1: 'string',
+        },
+        geometryName: 'geom',
+        geometryType: 'polygon',
+        defaultCrs: '',
+        title: 'collection title',
+        abstract: 'collection description',
+      })
+    })
+
+    it('rejects empty defaultCrs values from the WFS endpoint', async () => {
+      const wfsClient = new WfsClient('https://example.test/wfs')
+      const promise = wfsClient.getCollection('NS:collection')
+      const assertion = expect(promise).rejects.toThrow(
+        /Invalid WFS DescribeFeatureType payload for "NS:collection": defaultCrs/,
+      )
+      await vi.runAllTimersAsync()
+
+      await assertion
+    })
   })
 
   describe('WfsClient getCollection with unexpected property type', () => {

@@ -77,10 +77,22 @@ describe('writeRenderedCatalog', () => {
     expect(fsMocks.rmSync).not.toHaveBeenCalled();
   });
 
-  it('refuses to clean protected project directories', async () => {
+  it('allows cleaning the catalog output directory under data/catalog', async () => {
     const { writeRenderedCatalog } = await import('../../../src/cli/render-catalog');
 
-    expect(() => writeRenderedCatalog(collections, 'data/catalog', { clean: true })).toThrow(
+    const outputDir = writeRenderedCatalog(collections, 'data/catalog', { clean: true });
+
+    expect(outputDir).toMatch(/[\\/]data[\\/]catalog$/);
+    expect(fsMocks.rmSync).toHaveBeenCalledWith(outputDir, {
+      recursive: true,
+      force: true,
+    });
+  });
+
+  it('refuses to clean protected project directories outside the catalog output', async () => {
+    const { writeRenderedCatalog } = await import('../../../src/cli/render-catalog');
+
+    expect(() => writeRenderedCatalog(collections, 'data/wfs', { clean: true })).toThrow(
       /protected project directory/,
     );
     expect(fsMocks.rmSync).not.toHaveBeenCalled();

@@ -17,7 +17,7 @@ The internal enriched collection model is :
 * **required** : optional list of required property names
 * **properties** : Array of property defined by `name`, `type`, `title` and `description`. `oneOf` is available for rich enumerated values.
 
-When merged with `data/overwrites`, WFS identifiers and property types are kept from `data/wfs`, while editorial metadata is taken from overwrites when available.
+When merged with `data/overwrites`, WFS identifiers and property types are kept from `data/wfs`, while overwrite metadata is taken from overwrites when available.
 
 The public catalog output is a logical JSON Schema compatible with OGC API Features schemas. It is not a dump of the internal model.
 
@@ -51,7 +51,7 @@ Overwrite files live in `data/overwrites/{namespace}/{name}.json`. The current f
 }
 ```
 
-The overwrite `type` field is accepted as editorial input only. The merged catalog always keeps the WFS property type.
+The overwrite `type` field is accepted as overwrite input only. The merged catalog always keeps the WFS property type.
 
 ## Usage
 

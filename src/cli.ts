@@ -10,6 +10,7 @@ import { renderSearchOutputs } from './cli/search-outputs';
 import { loadEnrichedCollections } from './enrichment/load-enriched-collections';
 import { compare } from './helpers/compare';
 import { getMetadataFromNamespace } from './helpers/metadata';
+import { formatSchemaIssues } from './helpers/zod';
 import { getDataDir } from './local-data/data-dir';
 import { getNamespaceFilters } from './local-data/namespace-filters';
 import { validateOverwriteReferences } from './overwrite/overwrite';
@@ -17,7 +18,12 @@ import { loadCollectionOverwrite } from './overwrite/overwrite-store';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
 import { WfsClient } from './services/wfs';
 import { loadSourceCollections, replaceSourceCollections } from './source/source-store';
-import type { NamespaceFilterRule, SourceCollection, SourceCollectionBrief } from './types';
+import {
+  packageMetadataSchema,
+  type NamespaceFilterRule,
+  type SourceCollection,
+  type SourceCollectionBrief,
+} from './types';
 
 /*
  * =============================================================================
@@ -96,8 +102,14 @@ function buildProgram(): Command {
 
 
 function loadPackageVersion(): string {
-  const { version } = JSON.parse(readFileSync(PACKAGE_JSON_PATH, 'utf-8')) as { version: string };
-  return version;
+  const raw = JSON.parse(readFileSync(PACKAGE_JSON_PATH, 'utf-8')) as unknown;
+  const result = packageMetadataSchema.safeParse(raw);
+  if (!result.success) {
+    throw new Error(
+      `Invalid package metadata ${PACKAGE_JSON_PATH}: ${formatSchemaIssues(result.error)}`,
+    );
+  }
+  return result.data.version;
 }
 
 function createWfsClient(): WfsClient {

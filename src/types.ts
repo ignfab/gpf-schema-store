@@ -66,12 +66,12 @@ const PROPERTY_TYPES = [
   'geometry',
 ] as const;
 
-export type CollectionPropertyType = typeof PROPERTY_TYPES[number];
+export const collectionPropertyTypeSchema = z.enum(PROPERTY_TYPES);
 
-const VALID_PROPERTY_TYPES: Set<string> = new Set(PROPERTY_TYPES);
+export type CollectionPropertyType = z.infer<typeof collectionPropertyTypeSchema>;
 
 export function isValidPropertyType(value: unknown): value is CollectionPropertyType {
-  return typeof value === 'string' && VALID_PROPERTY_TYPES.has(value);
+  return collectionPropertyTypeSchema.safeParse(value).success;
 }
 
 export function assertIsValidPropertyType(
@@ -90,27 +90,60 @@ export function assertIsValidPropertyType(
  * ============================================================================
  */
 
-// Raw snapshot loaded from WFS before any editorial enrichment.
+// Raw snapshot loaded from WFS before overwrite-based enrichment.
 // `namespace` and `name` are kept for file layout and search, but are not part
 // of the public JSON Schema output.
-export type SourceCollection = {
-  id: string;
-  namespace: string;
-  name: string;
-  title: string;
-  description: string;
-  properties: SourceCollectionProperty[];
-};
-
-export type SourceCollectionProperty = {
-  name: string;
-  type: CollectionPropertyType;
+export const sourceCollectionPropertySchema = z.object({
+  name: z.string().min(1),
+  type: collectionPropertyTypeSchema,
   // Internal geometry hint later rendered as `x-ign-defaultCrs`.
-  defaultCrs?: string;
-};
+  defaultCrs: z.string().min(1).optional(),
+}).strict();
+
+export type SourceCollectionProperty = z.infer<typeof sourceCollectionPropertySchema>;
+
+export const sourceCollectionSchema = z.object({
+  id: z.string().min(1),
+  namespace: z.string().min(1),
+  name: z.string().min(1),
+  title: z.string(),
+  description: z.string(),
+  properties: z.array(sourceCollectionPropertySchema),
+}).strict();
+
+export type SourceCollection = z.infer<typeof sourceCollectionSchema>;
 
 // GetCapabilities shape before DescribeFeatureType fills `properties`.
-export type SourceCollectionBrief = Omit<SourceCollection, 'properties'>;
+export const sourceCollectionBriefSchema = sourceCollectionSchema.omit({ properties: true });
+
+export type SourceCollectionBrief = z.infer<typeof sourceCollectionBriefSchema>;
+
+/*
+ * ============================================================================
+ * WFS Payload Models
+ * ============================================================================
+ */
+
+// Raw GetCapabilities feature type advertised by ogc-client.
+export const wfsFeatureTypeSchema = z.looseObject({
+  name: z.string().min(1),
+  title: z.string().nullable().optional(),
+  abstract: z.string().nullable().optional(),
+});
+
+export type WfsFeatureType = z.infer<typeof wfsFeatureTypeSchema>;
+
+// Raw DescribeFeatureType payload returned by ogc-client.
+export const wfsFeatureTypeFullSchema = z.looseObject({
+  title: z.string().nullable().optional(),
+  abstract: z.string().nullable().optional(),
+  properties: z.record(z.string(), z.unknown()),
+  geometryName: z.string().min(1).nullable().optional(),
+  geometryType: z.string().nullable().optional(),
+  defaultCrs: z.string().min(1).nullable().optional().transform(v => v ?? undefined),
+});
+
+export type WfsFeatureTypeFull = z.infer<typeof wfsFeatureTypeFullSchema>;
 
 /*
  * ============================================================================
@@ -118,33 +151,41 @@ export type SourceCollectionBrief = Omit<SourceCollection, 'properties'>;
  * ============================================================================
  */
 
-// Editorial input layered on top of WFS snapshots.
-export type CollectionOverwrite = {
-  title: string;
-  'x-ign-theme': string;
-  description: string;
-  'x-ign-selectionCriteria'?: string;
-  'x-ign-representedFeatures'?: string[];
-  required: string[];
-  properties: CollectionOverwriteProperty[];
-};
+const representedFeaturesSchema = z.array(z.string().min(1));
+
+export const collectionOverwriteValueSchema = z.object({
+  const: z.string(),
+  title: z.string(),
+  description: z.string().optional(),
+  'x-ign-representedFeatures': representedFeaturesSchema.optional(),
+}).strict();
+
+export const collectionOverwritePropertySchema = z.object({
+  name: z.string().min(1),
+  type: z.string(),
+  title: z.string(),
+  description: z.string(),
+  oneOf: z.array(collectionOverwriteValueSchema).optional(),
+}).strict();
+
+export const collectionOverwriteSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  'x-ign-theme': z.string(),
+  'x-ign-selectionCriteria': z.string().optional(),
+  'x-ign-representedFeatures': representedFeaturesSchema.optional(),
+  required: z.array(z.string().min(1)),
+  properties: z.array(collectionOverwritePropertySchema),
+}).strict();
+
+// Overwrite input layered on top of WFS snapshots.
+export type CollectionOverwrite = z.infer<typeof collectionOverwriteSchema>;
 
 // Overwrite files may still contain legacy type names. The merge keeps the WFS
 // property type and treats this field as permissive input only.
-export type CollectionOverwriteProperty = {
-  name: string;
-  type: string;
-  title: string;
-  description: string;
-  oneOf?: CollectionOverwriteValue[];
-};
+export type CollectionOverwriteProperty = z.infer<typeof collectionOverwritePropertySchema>;
 
-export type CollectionOverwriteValue = {
-  const: string;
-  title: string;
-  description?: string;
-  'x-ign-representedFeatures'?: string[];
-};
+export type CollectionOverwriteValue = z.infer<typeof collectionOverwriteValueSchema>;
 
 /*
  * ============================================================================
@@ -152,7 +193,7 @@ export type CollectionOverwriteValue = {
  * ============================================================================
  */
 
-// Canonical internal model after applying editorial overrides.
+// Canonical internal model after applying overwrites.
 export type EnrichedCollection = {
   id: string;
   namespace: string;
@@ -215,3 +256,13 @@ export type CollectionSchemaValue = {
   description?: string;
   'x-ign-representedFeatures'?: string[];
 };
+
+/*
+ * ============================================================================
+ * Package Metadata
+ * ============================================================================
+ */
+
+export const packageMetadataSchema = z.looseObject({
+  version: z.string().min(1),
+});

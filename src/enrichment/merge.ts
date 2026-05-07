@@ -12,7 +12,7 @@ import type {
 const debug = debuglog('gpf-schema-store:merge');
 
 /**
- * Merge a raw WFS collection with an optional editorial overwrite.
+ * Merge a raw WFS collection with an optional overwrite.
  *
  * Mapping schema
  *

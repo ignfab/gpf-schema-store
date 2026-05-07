@@ -13,6 +13,72 @@ const fsMocks = vi.hoisted(() => ({
 
 vi.mock('fs', () => fsMocks)
 
+describe('loadSourceCollections', () => {
+  beforeEach(() => {
+    vi.resetModules()
+    fsMocks.existsSync.mockReset()
+    fsMocks.mkdirSync.mockReset()
+    fsMocks.renameSync.mockReset()
+    fsMocks.rmSync.mockReset()
+    fsMocks.readFileSync.mockReset()
+    fsMocks.readdirSync.mockReset()
+    fsMocks.writeFileSync.mockReset()
+
+    // resolveDataDir() lookup: src/services/data -> src/data -> data
+    fsMocks.existsSync
+      .mockReturnValueOnce(false)
+      .mockReturnValueOnce(false)
+      .mockReturnValueOnce(true)
+  })
+
+  it('rejects invalid source collection snapshots', async () => {
+    const { loadSourceCollections } = await import('../../../src/source/source-store')
+
+    fsMocks.existsSync.mockReturnValueOnce(true)
+    fsMocks.readdirSync
+      .mockReturnValueOnce([{ name: 'NS', isDirectory: () => true }] as never)
+      .mockReturnValueOnce(['feature.json'] as never)
+    fsMocks.readFileSync.mockReturnValueOnce(JSON.stringify({
+      id: 'NS:feature',
+      namespace: 'NS',
+      name: 'feature',
+      title: 'Feature',
+      description: 'Feature description',
+      properties: [{ name: 'id', type: 'binary' }],
+    }))
+
+    expect(() => loadSourceCollections()).toThrow(
+      /Invalid source collection .*feature\.json: properties\.0\.type/,
+    )
+  })
+
+  it('parses valid source collection snapshots', async () => {
+    const { loadSourceCollections } = await import('../../../src/source/source-store')
+
+    fsMocks.existsSync.mockReturnValueOnce(true)
+    fsMocks.readdirSync
+      .mockReturnValueOnce([{ name: 'NS', isDirectory: () => true }] as never)
+      .mockReturnValueOnce(['feature.json'] as never)
+    fsMocks.readFileSync.mockReturnValueOnce(JSON.stringify({
+      id: 'NS:feature',
+      namespace: 'NS',
+      name: 'feature',
+      title: 'Feature',
+      description: 'Feature description',
+      properties: [{ name: 'geom', type: 'polygon', defaultCrs: 'EPSG:4326' }],
+    }))
+
+    const collections = loadSourceCollections()
+    expect(collections).toHaveLength(1)
+    expect(collections[0]).toMatchObject({
+      id: 'NS:feature',
+      namespace: 'NS',
+      name: 'feature',
+      properties: [{ name: 'geom', type: 'polygon', defaultCrs: 'EPSG:4326' }],
+    })
+  })
+})
+
 describe('clearWfsCollections', () => {
   beforeEach(() => {
     vi.resetModules()

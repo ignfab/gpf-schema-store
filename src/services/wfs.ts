@@ -1,11 +1,16 @@
 import { debuglog } from 'node:util';
 import { WfsEndpoint } from '@camptocamp/ogc-client';
-import type {
-  SourceCollection,
-  SourceCollectionBrief,
-  SourceCollectionProperty,
+import { formatSchemaIssues } from '../helpers/zod';
+import {
+  assertIsValidPropertyType,
+  wfsFeatureTypeFullSchema,
+  wfsFeatureTypeSchema,
+  type SourceCollection,
+  type SourceCollectionBrief,
+  type SourceCollectionProperty,
+  type WfsFeatureType,
+  type WfsFeatureTypeFull,
 } from '../types';
-import { assertIsValidPropertyType } from '../types';
 import '../helpers/configure-fetch';
 import { parseFeatureTypeName } from '../helpers/metadata';
 import { retry } from '../helpers/retry';
@@ -69,11 +74,25 @@ async function createWfsEndpoint(wfsUrl: string): Promise<WfsEndpoint> {
  * =============================================================================
  */
 
-function toSourceCollectionBrief(featureType: {
-  name: string;
-  title?: string | null;
-  abstract?: string | null;
-}): SourceCollectionBrief {
+function parseWfsFeatureTypes(raw: unknown): WfsFeatureType[] {
+  const result = wfsFeatureTypeSchema.array().safeParse(raw);
+  if (!result.success) {
+    throw new Error(`Invalid WFS GetCapabilities payload: ${formatSchemaIssues(result.error)}`);
+  }
+  return result.data;
+}
+
+function parseWfsFeatureTypeFull(raw: unknown, collectionId: string): WfsFeatureTypeFull {
+  const result = wfsFeatureTypeFullSchema.safeParse(raw);
+  if (!result.success) {
+    throw new Error(
+      `Invalid WFS DescribeFeatureType payload for "${collectionId}": ${formatSchemaIssues(result.error)}`,
+    );
+  }
+  return result.data;
+}
+
+function toSourceCollectionBrief(featureType: WfsFeatureType): SourceCollectionBrief {
   const { namespace, name } = parseFeatureTypeName(featureType.name);
 
   return {
@@ -86,12 +105,7 @@ function toSourceCollectionBrief(featureType: {
 }
 
 function toSourceCollectionProperties(
-  featureTypeFull: {
-    properties: Record<string, unknown>;
-    geometryName?: string | null;
-    geometryType?: string | null;
-    defaultCrs?: string;
-  },
+  featureTypeFull: WfsFeatureTypeFull,
   collectionId: string,
 ): SourceCollectionProperty[] {
   const properties: SourceCollectionProperty[] = Object.entries(featureTypeFull.properties).map(
@@ -123,17 +137,7 @@ function toSourceCollectionProperties(
   return properties;
 }
 
-function toSourceCollection(
-  collectionId: string,
-  featureTypeFull: {
-    title?: string | null;
-    abstract?: string | null;
-    properties: Record<string, unknown>;
-    geometryName?: string | null;
-    geometryType?: string | null;
-    defaultCrs?: string;
-  },
-): SourceCollection {
+function toSourceCollection(collectionId: string, featureTypeFull: WfsFeatureTypeFull): SourceCollection {
   const { namespace, name } = parseFeatureTypeName(collectionId);
 
   return {
@@ -186,13 +190,15 @@ export class WfsClient {
     debug(`Getting collections from ${this.wfsUrl} (GetCapabilities) ...`);
 
     const endpoint = await this.getWfsEndpoint();
-    return endpoint.getFeatureTypes().map(toSourceCollectionBrief);
+    // Cast to unknown: we validate the runtime shape ourselves rather than trusting ogc-client types.
+    const featureTypes = parseWfsFeatureTypes(endpoint.getFeatureTypes() as unknown);
+    return featureTypes.map(toSourceCollectionBrief);
   }
 
   async getCollection(collectionId: string): Promise<SourceCollection> {
     debug(`Getting collection ${collectionId} from ${this.wfsUrl} (DescribeFeatureType) ...`);
 
-    const featureTypeFull = await retry(
+    const rawFeatureTypeFull = await retry(
       `wfs.getFeatureTypeFull(${collectionId})`,
       async (attempt) => {
         const endpoint = attempt === 1
@@ -207,6 +213,7 @@ export class WfsClient {
         return featureType;
       },
     );
+    const featureTypeFull = parseWfsFeatureTypeFull(rawFeatureTypeFull, collectionId);
     return toSourceCollection(collectionId, featureTypeFull);
   }
 }

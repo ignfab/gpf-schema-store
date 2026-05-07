@@ -9,7 +9,11 @@ import {
 } from 'fs';
 import { join } from 'path';
 
-import type { SourceCollection } from '../types';
+import {
+  sourceCollectionSchema,
+  type SourceCollection,
+} from '../types';
+import { formatSchemaIssues } from '../helpers/zod';
 import { getDataDir } from '../local-data/data-dir';
 
 /*
@@ -19,6 +23,14 @@ import { getDataDir } from '../local-data/data-dir';
  *
  * This module owns the local WFS snapshot layout under data/wfs.
  */
+
+function parseSourceCollection(raw: unknown, context: string): SourceCollection {
+  const result = sourceCollectionSchema.safeParse(raw);
+  if (!result.success) {
+    throw new Error(`Invalid source collection ${context}: ${formatSchemaIssues(result.error)}`);
+  }
+  return result.data;
+}
 
 export function loadSourceCollections(): SourceCollection[] {
   const wfsRoot = join(getDataDir(), 'wfs');
@@ -40,7 +52,8 @@ export function loadSourceCollections(): SourceCollection[] {
 
     for (const file of files) {
       const filePath = join(namespacePath, file);
-      collections.push(JSON.parse(readFileSync(filePath, 'utf-8')) as SourceCollection);
+      const raw = JSON.parse(readFileSync(filePath, 'utf-8')) as unknown;
+      collections.push(parseSourceCollection(raw, filePath));
     }
   }
 

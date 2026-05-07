@@ -20,6 +20,10 @@ const PROTECTED_TOP_LEVEL_DIRS = new Set([
   '.git',
 ]);
 
+const ALLOWED_CLEAN_PATH_PREFIXES = [
+  ['data', 'catalog'],
+] as const;
+
 function assertSafeCleanTarget(outputDir: string): void {
   const cwd = process.cwd();
   const relativePath = relative(cwd, outputDir);
@@ -36,7 +40,15 @@ function assertSafeCleanTarget(outputDir: string): void {
     throw new Error(`Refusing to clean outside the current project: ${outputDir}`);
   }
 
-  const topLevelDir = relativePath.split(sep)[0];
+  const pathSegments = relativePath.split(sep);
+  const isAllowedCleanPath = ALLOWED_CLEAN_PATH_PREFIXES.some((prefix) =>
+    prefix.every((segment, index) => pathSegments[index] === segment),
+  );
+  if (isAllowedCleanPath) {
+    return;
+  }
+
+  const topLevelDir = pathSegments[0];
   if (PROTECTED_TOP_LEVEL_DIRS.has(topLevelDir)) {
     throw new Error(`Refusing to clean protected project directory: ${outputDir}`);
   }
