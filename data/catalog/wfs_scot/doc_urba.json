@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_scot:doc_urba",
+  "type": "object",
+  "title": "Document d'urbanisme",
+  "description": "Classe sémantique décrivant le Schéma de Cohérence Territorial, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "idurba": {
+      "type": "string"
+    },
+    "siren": {
+      "type": "string"
+    },
+    "datappro": {
+      "type": "string"
+    },
+    "typeproc": {
+      "type": "string"
+    },
+    "typedoc": {
+      "type": "string"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "datefin": {
+      "type": "string"
+    },
+    "etat": {
+      "type": "string"
+    },
+    "siteweb": {
+      "type": "string"
+    },
+    "doo": {
+      "type": "string"
+    },
+    "rapport": {
+      "type": "string"
+    },
+    "padd": {
+      "type": "string"
+    },
+    "urlpadd": {
+      "type": "string"
+    },
+    "urldoo": {
+      "type": "string"
+    },
+    "urlrapport": {
+      "type": "string"
+    },
+    "urlpe": {
+      "type": "string"
+    },
+    "pas": {
+      "type": "string"
+    },
+    "urlpas": {
+      "type": "string"
+    },
+    "daac": {
+      "type": "string"
+    },
+    "urldaac": {
+      "type": "string"
+    }
+  },
+  "required": []
+}

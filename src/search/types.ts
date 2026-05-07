@@ -1,4 +1,4 @@
-import type { Collection } from '../types';
+import type { CollectionSchema, EnrichedCollection } from '../types';
 
 /** Generic catalog-level options applied after search-engine evaluation. */
 export type CollectionSearchOptions = {
@@ -13,7 +13,8 @@ export type CollectionSearchMatch = {
 
 /** A catalog search result that includes the resolved collection and optional relevance score. */
 export type CollectionSearchResult = {
-  collection: Collection;
+  id: string;
+  collection: CollectionSchema;
   score?: number;
 };
 
@@ -23,4 +24,4 @@ export interface CollectionSearchEngine {
 }
 
 /** Factory that builds a search engine from the full collection list at catalog creation time. */
-export type CollectionSearchEngineFactory = (collections: Collection[]) => CollectionSearchEngine;
+export type CollectionSearchEngineFactory = (collections: EnrichedCollection[]) => CollectionSearchEngine;

@@ -1,8 +1,6 @@
 {
-  "id": "Lieux nommés:Zone d'habitation",
-  "namespace": "Lieux nommés",
-  "name": "Zone d'habitation",
   "title": "Zone d'habitation",
+  "x-ign-theme": "Lieux nommés",
   "description": "",
   "properties": [
     {
@@ -16,14 +14,85 @@
       "type": "string",
       "title": "Nature",
       "description": "Nature de la zone d'habitation",
-      "enum": [
-        "Château",
-        "Grange",
-        "Habitat temporaire",
-        "Lieu-dit habité",
-        "Moulin",
-        "Quartier",
-        "Ruines"
+      "oneOf": [
+        {
+          "const": "Château",
+          "title": "Château",
+          "description": "Lieu-dit, nommé dans la mesure du possible, caractérisé par la présence d'un château ou d'une tour. Le lieu-dit peut ne pas être habité ou ne plus être habité mais n’est pas totalement en ruines.",
+          "x-ign-representedFeatures": [
+            "Manoir remarquable",
+            "Tour nommée",
+            "Château fort"
+          ]
+        },
+        {
+          "const": "Grange",
+          "title": "Grange",
+          "description": "Construction légère de type grange, cabane... nommée.",
+          "x-ign-representedFeatures": [
+            "Abri rural",
+            "Baraquement",
+            "Cabane nommée",
+            "Grange nommée",
+            "Bergerie nommée"
+          ]
+        },
+        {
+          "const": "Habitat temporaire",
+          "title": "Habitat temporaire",
+          "description": "En Guyane française, lieu d'habitat intermittent nommé, régulièrement fréquenté par les habitants ou exploitants de la forêt.",
+          "x-ign-representedFeatures": [
+            "Carbet",
+            "Habitation intermittente (Guyane)",
+            "Maison communautaire (Guyane)"
+          ]
+        },
+        {
+          "const": "Lieu-dit habité",
+          "title": "Lieu-dit habité",
+          "description": "Groupe d’habitations nommé.",
+          "x-ign-representedFeatures": [
+            "Hameau",
+            "Groupe d’habitations",
+            "Habitation isolée",
+            "Ancien chef-lieu de commune",
+            "Ferme",
+            "Enclave (mention cartographique)",
+            "Commune (toponyme)"
+          ]
+        },
+        {
+          "const": "Moulin",
+          "title": "Moulin",
+          "description": "Moulin ou ancien moulin à eau nommé.",
+          "x-ign-representedFeatures": [
+            "Moulin à eau",
+            "Ancien moulin à eau"
+          ]
+        },
+        {
+          "const": "Quartier",
+          "title": "Quartier",
+          "description": "Quartier nommé.",
+          "x-ign-representedFeatures": [
+            "Cité",
+            "Faubourg",
+            "Lotissement",
+            "Immeuble nommé",
+            "Résidence",
+            "Tour d'habitation nommée"
+          ]
+        },
+        {
+          "const": "Ruines",
+          "title": "Ruines",
+          "description": "Bâtiment ou construction en ruines.",
+          "x-ign-representedFeatures": [
+            "Ruine nommée",
+            "Eglise ruinée",
+            "Château ruiné"
+          ]
+        }
       ]
     },
     {
@@ -31,22 +100,86 @@
       "type": "string",
       "title": "Nature détaillée",
       "description": "Précise la 'Nature' de la zone d'habitation.",
-      "enum": [
-        "Bergerie",
-        "Cabane",
-        "Carbet",
-        "Chalet",
-        "Château fort",
-        "Château ruiné",
-        "Eglise ruinée",
-        "Hôtel particulier",
-        "Immeuble",
-        "Lotissement",
-        "Quartier urbain",
-        "Résidence",
-        "Tour",
-        "Tour ruinée",
-        "Village détruit"
+      "oneOf": [
+        {
+          "const": "Bergerie",
+          "title": "Bergerie",
+          "description": "Toponyme de bergerie."
+        },
+        {
+          "const": "Cabane",
+          "title": "Cabane",
+          "description": "Toponyme de cabane isolée."
+        },
+        {
+          "const": "Carbet",
+          "title": "Carbet",
+          "description": "Habitat communautaire temporaire, en forêt guyannaise."
+        },
+        {
+          "const": "Chalet",
+          "title": "Chalet",
+          "description": "Toponyme de chalet isolé."
+        },
+        {
+          "const": "Château fort",
+          "title": "Château fort",
+          "description": "Toponyme de château fort."
+        },
+        {
+          "const": "Château ruiné",
+          "title": "Château ruiné",
+          "description": "Château ruiné nommé ou important (hors château fort)."
+        },
+        {
+          "const": "Eglise ruinée",
+          "title": "Eglise ruinée",
+          "description": "Église ruinée."
+        },
+        {
+          "const": "Hôtel particulier",
+          "title": "Hôtel particulier",
+          "description": "Toponyme d'hôtel particulier célèbre."
+        },
+        {
+          "const": "Immeuble",
+          "title": "Immeuble",
+          "description": "Toponyme d'immeuble ou de tour d'habitation.",
+          "x-ign-representedFeatures": [
+            "Immeuble nommé",
+            "Tour d'habitation nommée"
+          ]
+        },
+        {
+          "const": "Lotissement",
+          "title": "Lotissement",
+          "description": "Toponyme de lotissement."
+        },
+        {
+          "const": "Quartier urbain",
+          "title": "Quartier urbain",
+          "description": "Quartier d'une ville importante défini par la mairie avec des contours précis, et généralement des conseils de quartier."
+        },
+        {
+          "const": "Résidence",
+          "title": "Résidence",
+          "description": "Toponyme de résidence."
+        },
+        {
+          "const": "Tour",
+          "title": "Tour",
+          "description": "Toponyme de tour."
+        },
+        {
+          "const": "Tour ruinée",
+          "title": "Tour ruinée",
+          "description": "Tour ruinée."
+        },
+        {
+          "const": "Village détruit",
+          "title": "Village détruit",
+          "description": "Village détruit durant la première guerre mondiale, parfois reconstruit, parfois non reconstruit."
+        }
       ]
     },
     {
@@ -60,12 +193,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -73,13 +226,37 @@
       "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les zones d'habitation en fonction de leur importance ou notoriété relative.",
-      "enum": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
+      "oneOf": [
+        {
+          "const": "1",
+          "title": "1",
+          "description": "L'objet a une importance ou un rayonnement national, justifiant de le représenter -si la place le permet- aux échelles de l'ordre du 1 : 1 000 000."
+        },
+        {
+          "const": "2",
+          "title": "2",
+          "description": "L'objet a une importance ou un rayonnement régional, justifiant de le représenter aux échelles de l'ordre du 1 : 250 000."
+        },
+        {
+          "const": "3",
+          "title": "3",
+          "description": "L'objet a une importance ou un rayonnement départemental, justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
+        },
+        {
+          "const": "4",
+          "title": "4",
+          "description": "L'objet a une importance ou un rayonnement intercommunal ou cantonal, justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
+        },
+        {
+          "const": "5",
+          "title": "5",
+          "description": "L'objet a une importance ou un rayonnement communal, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
+        },
+        {
+          "const": "6",
+          "title": "6",
+          "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
+        }
       ]
     },
     {
@@ -93,10 +270,22 @@
       "type": "string",
       "title": "Etat de l'objet",
       "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
-      "enum": [
-        "En construction",
-        "En projet",
-        "En service"
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en construction. Dans le cas des Tronçon de route, la date de mise en service prévue est codée dans le champ 'Date de mise en service'."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service."
+        }
       ]
     },
     {
@@ -140,40 +329,142 @@
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "enum": [
-        "BDCarto",
-        "BDNyme",
-        "BDParcellaire",
-        "BDParcellaire recalée",
-        "BDTopo",
-        "Calcul d'enveloppe urbaine",
-        "Calculé",
-        "Fichier numérique décimétrique",
-        "Fichier numérique métrique",
-        "Fichier numérique non métrique",
-        "Géocodage",
-        "Géoroute",
-        "Image satellite",
-        "Image satellite HR",
-        "Inconnue",
-        "Levé GPS",
-        "Levé non GPS",
-        "Lidar",
-        "Lidar HD",
-        "Orthophotographie",
-        "Photogrammétrie",
-        "Plan métrique papier",
-        "Plan non métrique papier",
-        "Processus IA métrique",
-        "Processus IA non métrique",
-        "Scan25"
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "insee_commune",
@@ -189,7 +480,7 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
       "description": ""
     },
@@ -197,7 +488,7 @@
       "name": "identifiant_voie_ban",
       "type": "string",
       "title": "Identifiant voie BAN",
-      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP.\r\n\r\nExemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
+      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
     },
     {
       "name": "id_ban_odonyme",
@@ -205,5 +496,14 @@
       "title": "Id BAN Odonyme",
       "description": "Identifiant de l'odonyme de la BAN, au format uuid."
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature",
+    "importance",
+    "fictif",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "geometrie"
   ]
 }

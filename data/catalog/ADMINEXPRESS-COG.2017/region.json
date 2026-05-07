@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2017:region",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2017 Région",
+  "description": "ADMINEXPRESS COG 2017 Région ; Édition 2017-01-01",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "nom_reg": {
+      "type": "string"
+    },
+    "insee_reg": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

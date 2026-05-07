@@ -1,4 +1,5 @@
-import type { Collection } from '../types';
+import { renderCollectionSchema } from '../renderers/collection-schema';
+import type { CollectionSchema, EnrichedCollection } from '../types';
 import type {
   CollectionSearchEngine,
   CollectionSearchEngineFactory,
@@ -7,10 +8,21 @@ import type {
   CollectionSearchResult,
 } from './types';
 
+/*
+ * =============================================================================
+ * Catalog API
+ * =============================================================================
+ *
+ * The catalog is the public in-memory view exposed to callers:
+ * - it stores internal EnrichedCollection inputs
+ * - it renders them once as public CollectionSchema objects
+ * - it optionally delegates query ranking to a search engine
+ */
+
 export interface CollectionCatalog {
-  list(): Collection[];
-  getById(id: string): Collection | undefined;
-  search(query: string, options?: CollectionSearchOptions): Collection[];
+  list(): CollectionSchema[];
+  getById(id: string): CollectionSchema | undefined;
+  search(query: string, options?: CollectionSearchOptions): CollectionSchema[];
   searchWithScores(query: string, options?: CollectionSearchOptions): CollectionSearchResult[];
 }
 
@@ -19,15 +31,26 @@ export type InMemoryCollectionCatalogOptions =
   | { engineFactory: CollectionSearchEngineFactory; engine?: never }
   | { engine?: never; engineFactory?: never };
 
+/*
+ * =============================================================================
+ * In-memory catalog implementation
+ * =============================================================================
+ */
+
 export class InMemoryCollectionCatalog implements CollectionCatalog {
 
-  private readonly collections: Collection[];
-  private readonly byId: Map<string, Collection>;
+  private readonly collections: EnrichedCollection[];
+  private readonly schemasById: Map<string, CollectionSchema>;
   private readonly searchEngine?: CollectionSearchEngine;
 
-  constructor(collections: Collection[], options: InMemoryCollectionCatalogOptions = {}) {
+  constructor(collections: EnrichedCollection[], options: InMemoryCollectionCatalogOptions = {}) {
     this.collections = collections;
-    this.byId = new Map(collections.map((collection) => [collection.id, collection]));
+
+    // Render the public schema view once at construction time and keep it
+    // indexed by collection id for later lookup and search result resolution.
+    this.schemasById = new Map(
+      collections.map((collection) => [collection.id, renderCollectionSchema(collection)]),
+    );
 
     if (options.engine && options.engineFactory) {
       throw new Error('Cannot specify both engine and engineFactory options');
@@ -39,14 +62,22 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     }
   }
 
-  list(): Collection[] {
-    return structuredClone(this.collections);
+  list(): CollectionSchema[] {
+    // Return the full public catalog view while preserving the original
+    // collection order from the internal source list.
+    return this.collections.map((collection) => structuredClone(this.schemasById.get(collection.id)!));
   }
 
-  getById(id: string): Collection | undefined {
-    const collection = this.byId.get(id);
-    return collection ? structuredClone(collection) : undefined;
+  getById(id: string): CollectionSchema | undefined {
+    const schema = this.schemasById.get(id);
+    return schema ? structuredClone(schema) : undefined;
   }
+
+  /*
+   * =============================================================================
+   * Search helpers
+   * =============================================================================
+   */
 
   private getSearchEngine(): CollectionSearchEngine {
     if (!this.searchEngine) {
@@ -55,38 +86,46 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     return this.searchEngine;
   }
 
-  private resolveMatches(
+  private resolveSearchResults(
     matches: CollectionSearchMatch[],
     options: CollectionSearchOptions = {},
   ): CollectionSearchResult[] {
-    const limit = options.limit;
-    const hasLimit = typeof limit === 'number' && limit >= 0;
-    const resolvedResults: CollectionSearchResult[] = [];
+    
+    const maxResults = typeof options.limit === 'number' && options.limit >= 0
+      ? options.limit
+      : undefined;
+    const results: CollectionSearchResult[] = [];
 
     // Keep the search-engine ranking order while resolving IDs to collections.
     // Stop early once the limit is reached to avoid cloning unused items.
     for (const match of matches) {
-      if (hasLimit && resolvedResults.length >= limit) {
+      if (maxResults !== undefined && results.length >= maxResults) {
         break;
       }
-      const collection = this.byId.get(match.id);
-      if (collection !== undefined) {
-        resolvedResults.push({
-          collection: structuredClone(collection),
-          score: match.score,
-        });
+
+      const schema = this.schemasById.get(match.id);
+      if (!schema) {
+        continue;
       }
+
+      results.push({
+        id: match.id,
+        collection: structuredClone(schema),
+        score: match.score,
+      });
     }
 
-    return resolvedResults;
+    return results;
   }
 
-  search(query: string, options: CollectionSearchOptions = {}): Collection[] {
+  search(query: string, options: CollectionSearchOptions = {}): CollectionSchema[] {
     return this.searchWithScores(query, options).map(({ collection }) => collection);
   }
 
   searchWithScores(query: string, options: CollectionSearchOptions = {}): CollectionSearchResult[] {
+    // The search engine only ranks ids. The catalog resolves those ids back to
+    // the public schema objects returned to callers.
     const matches = this.getSearchEngine().search(query);
-    return this.resolveMatches(matches, options);
+    return this.resolveSearchResults(matches, options);
   }
 }

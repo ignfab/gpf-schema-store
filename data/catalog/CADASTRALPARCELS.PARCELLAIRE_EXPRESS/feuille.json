@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:feuille",
+  "type": "object",
+  "title": "PCI Vecteur : Feuilles",
+  "description": "Feuilles ; Édition 2025-12-01",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "feuille": {
+      "type": "integer"
+    },
+    "section": {
+      "type": "string"
+    },
+    "code_dep": {
+      "type": "string"
+    },
+    "nom_com": {
+      "type": "string"
+    },
+    "code_com": {
+      "type": "string"
+    },
+    "com_abs": {
+      "type": "string"
+    },
+    "echelle": {
+      "type": "string"
+    },
+    "edition": {
+      "type": "string"
+    },
+    "code_arr": {
+      "type": "string"
+    },
+    "code_insee": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

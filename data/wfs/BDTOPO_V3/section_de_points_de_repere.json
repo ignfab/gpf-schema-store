@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "section_de_points_de_repere",
   "title": "BDTOPO : Sections de points de repère",
-  "description": "Sections de points de repère − BDTOPO® V3 2026-03-15",
+  "description": "Sections de points de repère − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

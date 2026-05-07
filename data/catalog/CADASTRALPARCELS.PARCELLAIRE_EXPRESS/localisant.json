@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:localisant",
+  "type": "object",
+  "title": "PCI Vecteur : Localisants",
+  "description": "Localisants ; Édition 2025-12-01",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "numero": {
+      "type": "string"
+    },
+    "feuille": {
+      "type": "integer"
+    },
+    "section": {
+      "type": "string"
+    },
+    "code_dep": {
+      "type": "string"
+    },
+    "nom_com": {
+      "type": "string"
+    },
+    "code_com": {
+      "type": "string"
+    },
+    "com_abs": {
+      "type": "string"
+    },
+    "code_arr": {
+      "type": "string"
+    },
+    "idu": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipoint",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

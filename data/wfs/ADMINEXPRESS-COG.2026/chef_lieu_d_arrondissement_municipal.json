@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "chef_lieu_d_arrondissement_municipal",
   "title": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement municipal",
-  "description": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement municipal",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement municipal ; Édition 2026-01-01",
   "properties": [
     {
       "name": "cleabs",

@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "limite_terre_mer",
   "title": "BDTOPO : Limites terre-mer",
-  "description": "Limites terre-mer − BDTOPO® V3 2026-03-15",
+  "description": "Limites terre-mer − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

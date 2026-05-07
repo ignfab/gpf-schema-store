@@ -1,36 +1,64 @@
 import MiniSearch, { type MatchInfo } from 'minisearch';
-import type { Collection, CollectionProperty } from '../types';
+import type { EnrichedCollection } from '../types';
+import {
+  buildSearchDocuments,
+  type SearchDocument,
+} from './search-document';
 import type {
   CollectionSearchEngine,
   CollectionSearchMatch,
 } from './types';
 
-const INDEXED_COLLECTION_FIELDS = [
+/*
+ * =============================================================================
+ * MiniSearch integration
+ * =============================================================================
+ *
+ * This module adapts SearchDocument to MiniSearch:
+ * - choose which search signals are indexed
+ * - configure default search behavior
+ * - expose lightweight and detailed search results
+ */
+
+/*
+ * =============================================================================
+ * Indexed fields
+ * =============================================================================
+ *
+ * These are the fields MiniSearch sees after projecting an enriched collection
+ * to a dedicated search document.
+ */
+
+const INDEXED_SEARCH_FIELDS = [
   'namespace',
   'name',
+  'identifierTokens',
   'title',
   'description',
-  'properties',
-  'enums',
-  'identifierTokens',
+  'propertyNames',
+  'propertyTitles',
+  'propertyDescriptions',
+  'oneOfConsts',
+  'oneOfDescriptions',
+  'representedFeatures',
+  'selectionCriteria',
 ] as const;
 
-type IndexedCollectionField = typeof INDEXED_COLLECTION_FIELDS[number];
+type IndexedSearchField = typeof INDEXED_SEARCH_FIELDS[number];
 
-// Options for MiniSearch are based on the SearchOptions type defined in the MiniSearch library
-// https://lucaong.github.io/minisearch/types/MiniSearch.SearchOptions.html gives list of all options
+/*
+ * =============================================================================
+ * Search options and defaults
+ * =============================================================================
+ */
+
+// Options for MiniSearch are based on the SearchOptions type defined in the
+// MiniSearch library. This type narrows them to the indexed fields exposed by
+// this engine.
 export type MiniSearchCollectionSearchOptions = {
-  fields?: IndexedCollectionField[];
+  fields?: IndexedSearchField[];
   combineWith?: 'AND' | 'OR';
-  boost?: {
-    namespace?: number;
-    name?: number;
-    title?: number;
-    description?: number;
-    properties?: number;
-    enums?: number;
-    identifierTokens?: number;
-  };
+  boost?: Partial<Record<IndexedSearchField, number>>;
   fuzzy?: number;
 };
 
@@ -44,35 +72,81 @@ export type MiniSearchCollectionSearchMatch = CollectionSearchMatch & {
   match?: MatchInfo;
 };
 
-// All boost fields present and required (no optional keys) — used for the resolved default options.
-type ResolvedBoost = Required<NonNullable<MiniSearchCollectionSearchOptions['boost']>>;
+// Internal helper type used after merging user options with the engine defaults.
+type ResolvedBoost = Required<Record<IndexedSearchField, number>>;
 
-// Baseline search behaviour applied when the caller does not provide overrides.
+// Baseline search behavior applied when the caller does not provide overrides.
 const DEFAULT_MINISEARCH_SEARCH_OPTIONS: { boost: ResolvedBoost; fuzzy: number } = {
   boost: {
-    namespace: 5.0,
-    name: 4.0,
-    identifierTokens: 3.0,
-    title: 2.0,
-    description: 1.5,
-    properties: 1.3,
-    enums: 1.8,
+    namespace: 2.5,
+    name: 3.0,
+    identifierTokens: 3.5,
+    title: 4.0,
+    description: 0.8,
+    propertyNames: 1.8,
+    propertyTitles: 2.2,
+    propertyDescriptions: 1.0,
+    oneOfConsts: 3.0,
+    oneOfDescriptions: 0.7,
+    representedFeatures: 3.8,
+    selectionCriteria: 0.5,
   },
   fuzzy: 0.1,
 };
 
-// A virtual field added to each document before indexing so MiniSearch can index enum values separately.
-type IndexedCollection = Collection & {
-  enums: string;
-  identifierTokens: string;
-};
+/*
+ * =============================================================================
+ * Indexed document shape
+ * =============================================================================
+ *
+ * MiniSearch indexes a dedicated search document rather than the storage model.
+ *
+ * Example with BDTOPO_V3:construction_surfacique (abridged):
+ *
+ * {
+ *   id: "BDTOPO_V3:construction_surfacique",
+ *   namespace: "BDTOPO_V3",
+ *   name: "construction_surfacique",
+ *   identifierTokens:
+ *     "BDTOPO V3 construction surfacique",
+ *   title: "Construction surfacique",
+ *   description:
+ *     "Ouvrage de grande surface lié au franchissement d’un obstacle par une voie de communication...",
+ *   propertyNames:
+ *     "cleabs nature nature_detaillee toponyme ... geometrie",
+ *   propertyTitles:
+ *     "Cleabs Nature Nature detaillee Toponyme ... Geometrie",
+ *   propertyDescriptions:
+ *     "Identifiant unique de l'objet. Nature de la construction. ...",
+ *   oneOfConsts:
+ *     "Barrage Cale Dalle Ecluse Escalier Pont ...",
+ *   oneOfDescriptions:
+ *     "Grand barrage en maçonnerie apparente. Plan incliné destiné ...",
+ *   representedFeatures:
+ *     "Cale seche Cale de lancement de navires Forme de radoub ...",
+ *   selectionCriteria:
+ *     "Voir les différentes valeurs de l'attribut 'Nature'.",
+ * }
+ */
+
+/*
+ * =============================================================================
+ * Engine implementation
+ * =============================================================================
+ */
 
 export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine {
 
-  private readonly miniSearch: MiniSearch<IndexedCollection>;
+  private readonly miniSearch: MiniSearch<SearchDocument>;
 
-  // Resolved at construction time by merging defaults with the caller-supplied options.
-  private readonly defaultSearchOptions: { fields?: IndexedCollectionField[]; combineWith?: 'AND' | 'OR'; boost: ResolvedBoost; fuzzy: number };
+  // Resolved once at construction time by merging defaults with caller options.
+  private readonly defaultSearchOptions: { fields?: IndexedSearchField[]; combineWith?: 'AND' | 'OR'; boost: ResolvedBoost; fuzzy: number };
+
+  /*
+   * ---------------------------------------------------------------------------
+   * Text normalization helpers
+   * ---------------------------------------------------------------------------
+   */
 
   // Normalizes a search term: lowercases, strips accents (é→e, â→a), and trims whitespace.
   // Applied symmetrically at indexing and search time so queries and indexed terms always match.
@@ -86,35 +160,14 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
     return normalized.length > 0 ? normalized : false;
   }
 
-  // Produces a single string from property names, titles, and descriptions for MiniSearch to tokenize.
-  private static stringifyProperties(properties: CollectionProperty[]): string {
-    const terms = properties
-      .flatMap((p) => [p.name, p.title, p.description])
-      .filter(Boolean);
-    return terms.join(' ');
-  }
-
-  // Produces a string that includes both raw identifiers (id, namespace, name) and their
-  // expanded forms with separators (_:./-) replaced by spaces, so that partial queries like
-  // "troncon route" match "troncon_de_route".
-  private static stringifyIdentifierTokens(collection: Collection): string {
-    const rawValues = [collection.id, collection.namespace, collection.name];
-    const expandedValues = rawValues.map((value) => value.replace(/[_:./-]+/g, ' '));
-    return [...rawValues, ...expandedValues].join(' ');
-  }
-
-  // Produces a deduplicated string of normalized enum values so that duplicate entries
-  // (e.g. 'Viaduc', 'viaduc') don't inflate match scores.
-  private static stringifyEnumValues(properties: CollectionProperty[]): string {
-    const values = properties
-      .flatMap((p) => p.enum ?? [])
-      .map((value) => MiniSearchCollectionSearchEngine.normalizeTerm(value))
-      .filter((value): value is string => value !== false);
-    return [...new Set(values)].join(' ');
-  }
+  /*
+   * ---------------------------------------------------------------------------
+   * Construction and indexing
+   * ---------------------------------------------------------------------------
+   */
 
   constructor(
-    collections: Collection[],
+    collections: EnrichedCollection[],
     options: MiniSearchCollectionSearchEngineOptions = {},
   ) {
     const defaultSearchOptions = options.defaultSearchOptions ?? {};
@@ -128,33 +181,32 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
       fuzzy: defaultSearchOptions.fuzzy ?? DEFAULT_MINISEARCH_SEARCH_OPTIONS.fuzzy,
     };
 
-    // Configure MiniSearch: which fields to index and how to stringify non-string fields.
-    // processTerm is applied to every token at both indexing and search time.
-    this.miniSearch = new MiniSearch<IndexedCollection>({
+    // Configure MiniSearch itself:
+    // - which document fields are indexed
+    // - how non-string fields are stringified
+    // - how every token is normalized at both index and query time
+    this.miniSearch = new MiniSearch<SearchDocument>({
       idField: 'id',
-      fields: [...INDEXED_COLLECTION_FIELDS],
+      fields: [...INDEXED_SEARCH_FIELDS],
       processTerm: MiniSearchCollectionSearchEngine.normalizeTerm,
-      stringifyField: (fieldValue, fieldName) => {
-        if (fieldName === 'properties') {
-          return MiniSearchCollectionSearchEngine.stringifyProperties(fieldValue as CollectionProperty[]);
-        }
-        return String(fieldValue);
-      },
     });
 
-    // Pre-compute the enums string for each document before adding it to the index.
-    const documents: IndexedCollection[] = collections.map((c) => ({
-      ...c,
-      enums: MiniSearchCollectionSearchEngine.stringifyEnumValues(c.properties),
-      identifierTokens: MiniSearchCollectionSearchEngine.stringifyIdentifierTokens(c),
-    }));
+    // Project enriched collections to stable search documents before indexing.
+    const documents = buildSearchDocuments(collections);
     this.miniSearch.addAll(documents);
   }
+
+  /*
+   * ---------------------------------------------------------------------------
+   * Query execution
+   * ---------------------------------------------------------------------------
+   */
 
   search(
     query: string,
     options: MiniSearchCollectionSearchOptions = {},
   ): CollectionSearchMatch[] {
+    // The generic search API exposes only id and score.
     return this.searchDetailed(query, options).map(({ id, score }) => ({ id, score }));
   }
 
@@ -162,8 +214,8 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
     query: string,
     options: MiniSearchCollectionSearchOptions = {},
   ): MiniSearchCollectionSearchMatch[] {
-    // Per-query options override the defaults; boost fields are merged so callers can
-    // adjust individual weights without specifying all of them.
+    // Per-query options override the defaults. Boost fields are merged so
+    // callers can tune a single field weight without redefining every weight.
     return this.miniSearch
       .search(query, {
         fields: options.fields ?? this.defaultSearchOptions.fields,
@@ -180,6 +232,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
       }));
   }
 
+  // Exposed mainly for debugging, CLI output, and tests.
   getDefaultSearchOptions(): MiniSearchCollectionSearchOptions {
     return structuredClone(this.defaultSearchOptions);
   }

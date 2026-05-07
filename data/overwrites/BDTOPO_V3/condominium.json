@@ -1,9 +1,7 @@
 {
-  "id": "Administratif:Condominium",
-  "namespace": "Administratif",
-  "name": "Condominium",
   "title": "Condominium",
-  "description": "Zone administrative établie indépendamment de toute division administrative territoriale nationale et administrée par deux pays ou plus.\r\nEn France, désigne l'Île des Faisans, sur la rivière \"la Bidassoa\", près d'Hendaye (64), de souveraineté alternative franco-espagnole.",
+  "x-ign-theme": "Administratif",
+  "description": "Zone administrative établie indépendamment de toute division administrative territoriale nationale et administrée par deux pays ou plus. En France, désigne l'Île des Faisans, sur la rivière \"la Bidassoa\", près d'Hendaye (64), de souveraineté alternative franco-espagnole.",
   "properties": [
     {
       "name": "cleabs",
@@ -45,13 +43,16 @@
       "name": "lien_vers_lieu_dit",
       "type": "string",
       "title": "Lien vers lieu-dit",
-      "description": "Lien vers l'objet <Zone d'habitation> de Nature=\"Lieu-dit habité\" ou <Détail orographique> décrivant ce lieu.\r\nPour le condominium, il s'agit du <Détail orographique> portant le toponyme \"l'île des Faisans\"."
+      "description": "Lien vers l'objet de Nature=\"Lieu-dit habité\" ou Détail orographique décrivant ce lieu. Pour le condominium, il s'agit du Détail orographique portant le toponyme \"l'île des Faisans\"."
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie GE MultiPolygone",
       "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle."
     }
+  ],
+  "required": [
+    "cleabs"
   ]
 }

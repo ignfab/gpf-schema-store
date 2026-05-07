@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "poste_de_transformation",
   "title": "BDTOPO : Postes de transformation",
-  "description": "Postes de transformation − BDTOPO® V3 2026-03-15",
+  "description": "Postes de transformation − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

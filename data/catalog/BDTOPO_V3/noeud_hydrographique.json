@@ -1,0 +1,545 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:noeud_hydrographique",
+  "type": "object",
+  "title": "Noeud hydrographique",
+  "x-ign-theme": "Hydrographie",
+  "description": "Point caractéristique situé sur les sommets du graphe hydrographique hormis la catégorie \"Franchissement\".",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string",
+      "x-ogc-role": "id"
+    },
+    "code_hydrographique": {
+      "title": "Code hydrographique",
+      "description": "Identifiant de l'objet hydrographique.",
+      "type": "string"
+    },
+    "code_du_pays": {
+      "title": "Code du pays",
+      "description": "Code du pays auquel appartient l'objet hydrographique.",
+      "type": "string"
+    },
+    "categorie": {
+      "title": "Catégorie",
+      "description": "Type du nœud hydrographique.",
+      "oneOf": [
+        {
+          "const": "Confluent",
+          "title": "Confluent",
+          "description": "Nœud connecté à 2 ou N tronçons hydrographiques entrants et 1 tronçon hydrographique sortant. source Sandre En hydrologie, le terme confluence désigne la rencontre de plusieurs cours d'eau pour n'en former qu'un seul. Le terme désigne également le site géographique où les cours d'eau se rejoignent : on parle aussi de point de confluence ou encore de confluent. source Wikipédia"
+        },
+        {
+          "const": "Diffluent",
+          "title": "Diffluent",
+          "description": "Nœud connecté à 1 tronçon hydrographique entrant et 2 ou N tronçons hydrographiques sortants. source Sandre"
+        },
+        {
+          "const": "Embranchement",
+          "title": "Embranchement"
+        },
+        {
+          "const": "Exutoire",
+          "title": "Exutoire",
+          "description": "Nœud connecté à 1 ou N tronçons hydrographiques entrants et 0 tronçon hydrographique sortant. Il peut être connecté à d’autres objets hydrographiques tels qu’une surface élémentaire. Remarque : Les pertes sont des cas particuliers d'exutoire. source Sandre En d'autres termes, extrémité située le plus en aval du graphe en prenant en compte le sens de l'écoulement. Concerne également les pertes et infiltrations."
+        },
+        {
+          "const": "Franchissement",
+          "title": "Franchissement",
+          "description": "Croisement par franchissement, à niveaux différents, entre des tronçons hydrographiques sans interaction entre eux (exemple : franchissement par un canal, un tronçon busé, une conduite forcée, etc.). source Sandre"
+        },
+        {
+          "const": "Jonction linéaire",
+          "title": "Jonction linéaire",
+          "description": "Nœud connecté à 1 tronçon hydrographique entrant et 1 tronçon hydrographique sortant. Les sens d’écoulement des deux tronçons sont identiques (même sens ou variable pour les deux tronçons). Exemple : Nœud marquant la jonction entre un tronçon fictif rattaché à une surface élémentaire et un tronçon non fictif rattaché à un cours d’eau. source Sandre Précision : correspond à l'ancienne codification de la nature BDCarthage 'Changement d'attribut'."
+        },
+        {
+          "const": "Source",
+          "title": "Source",
+          "description": "Nœud connecté à 1 ou N tronçons hydrographiques sortant et 0 tronçon hydrographique entrant. Cette catégorie inclut aussi les points d’entrée de territoire des cours d’eau. source Sandre En d'autres termes, extrémité située le plus en amont du graphe en prenant en compte le sens de l'écoulement."
+        }
+      ],
+      "type": "string"
+    },
+    "toponyme": {
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet.",
+      "type": "string"
+    },
+    "statut_du_toponyme": {
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
+      ],
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "type": "string"
+    },
+    "identifiants_sources": {
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "type": "string"
+    },
+    "methode_d_acquisition_planimetrique": {
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
+      ],
+      "type": "string"
+    },
+    "precision_planimetrique": {
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
+      "type": "number"
+    },
+    "methode_d_acquisition_altimetrique": {
+      "title": "Méthode d'acquisition altimétrique",
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDAlti",
+          "title": "BDAlti",
+          "description": "Le Z est interpolé sur un MNT issu de la BD ALTI® (ancienne BD altimétrique issue de la numérisation de cartes et de restitution photogrammétrique)."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "Le Z provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Corrélation",
+          "title": "Corrélation",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues de corrélation."
+        },
+        {
+          "const": "Fichier numérique",
+          "title": "Fichier numérique",
+          "description": "Le Z a été saisi à partir de données numériques fournies par un correspondant."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique"
+        },
+        {
+          "const": "Interpolation bâti BDTopo",
+          "title": "Interpolation bâti BDTopo",
+          "description": "Lors de l’unification avec la BD PARCELLAIRE®, le Z a été calculé à partir des valeurs existantes aux environs."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "Le Z a été saisi directement sur le terrain par lever GPS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues du processus d'acquisition par LIDAR."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Pas de Z",
+          "title": "Pas de Z",
+          "description": "L’objet est défini avec une géométrie 3D mais le Z est inconnu ou sa précision n'est pas connue/fiable."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques (restitution)."
+        },
+        {
+          "const": "Photogrammétrie longue focale",
+          "title": "Photogrammétrie longue focale",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes longue focale selon des processus photogrammétriques (restitution). La longueur de la focale a une incidence sur les pointés en Z qui sont meilleurs sur des focales courtes que sur des focales longues."
+        },
+        {
+          "const": "Plan coté",
+          "title": "Plan coté",
+          "description": "Le Z a été saisi à partir de points côtés figurant sur un plan."
+        },
+        {
+          "const": "Radar",
+          "title": "Radar",
+          "description": "Le Z provient de l’exploitation d’un MNT ou d’un MNS qui a été fait à partir d’acquisitions RADAR."
+        },
+        {
+          "const": "Z corrigé",
+          "title": "Z corrigé",
+          "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
+        }
+      ],
+      "type": "string"
+    },
+    "precision_altimetrique": {
+      "title": "Précision altimétrique",
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet.",
+      "type": "number"
+    },
+    "mode_d_obtention_des_coordonnees": {
+      "title": "Mode d'obtention des coordonnées",
+      "description": "Méthode utilisée pour déterminer les coordonnées de l'objet hydrographique.",
+      "oneOf": [
+        {
+          "const": "Autres modes",
+          "title": "Autres modes",
+          "description": "Autre mode d'obtention du positionnement non liste ci-avant."
+        },
+        {
+          "const": "Carte bathymétrique",
+          "title": "Carte bathymétrique",
+          "description": "Positionnement déterminé par interpolation sur une carte bathymétrique"
+        },
+        {
+          "const": "Carte géoréférencée",
+          "title": "Carte géoréférencée",
+          "description": "Positionnement déterminé à l'aide d'une carte géoréférencée (type IGN ou autre)."
+        },
+        {
+          "const": "Carte marine de navigation",
+          "title": "Carte marine de navigation",
+          "description": "Positionnement déterminé à l'aide d'une carte marine de navigation."
+        },
+        {
+          "const": "Carte non géoréférencée",
+          "title": "Carte non géoréférencée",
+          "description": "Positionnement déterminé par interpolation sur un plan non ou mal géoréférencé (ex : plan historique, extrait de carte ou croquis)."
+        },
+        {
+          "const": "Globe virtuel",
+          "title": "Globe virtuel",
+          "description": "Positionnement déterminé à partir d'un service de cartographie en ligne (Google Earth, Google Street Map, Microsoft Bing, TerraExplorer, …)."
+        },
+        {
+          "const": "GPS/GNSS autonome",
+          "title": "GPS/GNSS autonome",
+          "description": "Positionnement déterminé à l'aide d'un récepteur GPS grand public (intégré à un smartphone ou autre équipement) en l'absence de correction différentielle."
+        },
+        {
+          "const": "GPS/GNSS différentiel",
+          "title": "GPS/GNSS différentiel",
+          "description": "Positionnement déterminé à l'aide d'un récepteur GPS doté de fonctionnalités permettant les corrections différentielles. Le récepteur peut être un récepteur GPS grand public (assurant la réception d'un signal de correction différentielle type EGNOS) ou professionnel."
+        },
+        {
+          "const": "Imagerie satellite ou aérienne",
+          "title": "Imagerie satellite ou aérienne",
+          "description": "Positionnement déterminé à partir d'imagerie satellite ou aérienne (ex : orthophotoplan)."
+        },
+        {
+          "const": "Inconnu",
+          "title": "Inconnu",
+          "description": "Mode d'obtention du positionnement inconnu."
+        },
+        {
+          "const": "Planche cadastrale",
+          "title": "Planche cadastrale",
+          "description": "Positionnement déterminé à l'aide d'un plan cadastral."
+        },
+        {
+          "const": "Théodolite",
+          "title": "Théodolite",
+          "description": "Positionnement déterminé à l'aide d'une station totale (théodolite), permettant de mesurer les angles horizontaux et verticaux entre deux cibles, ainsi que la distance de ces cibles."
+        }
+      ],
+      "type": "string"
+    },
+    "mode_d_obtention_de_l_altitude": {
+      "title": "Mode d'obtention de l'altitude",
+      "description": "Méthode utilisée pour établir l'altitude de l'objet hydrographique.",
+      "oneOf": [
+        {
+          "const": "Altimétrie radar",
+          "title": "Altimétrie radar",
+          "description": "Altimétrie déterminée par corrélation sur images radar."
+        },
+        {
+          "const": "Autres modes",
+          "title": "Autres modes",
+          "description": "Autres modes d'obtention non listés par ailleurs."
+        },
+        {
+          "const": "Carte bathymétrique",
+          "title": "Carte bathymétrique",
+          "description": "Bathymétrie déterminée par interpolation sur une carte bathymétrique."
+        },
+        {
+          "const": "Carte marine de navigation",
+          "title": "Carte marine de navigation",
+          "description": "Bathymétrie déterminée par interpolation sur une carte marine de navigation."
+        },
+        {
+          "const": "Carte topographique géoréférencée",
+          "title": "Carte topographique géoréférencée",
+          "description": "Altimétrie déterminée par interpolation sur une carte topographique géoréférencée (type IGN ou autre)."
+        },
+        {
+          "const": "Carte topographique non géoréférencée",
+          "title": "Carte topographique non géoréférencée",
+          "description": "Altimétrie déterminée par interpolation sur un plan non ou mal géoréférencé."
+        },
+        {
+          "const": "Globe virtuel",
+          "title": "Globe virtuel",
+          "description": "Altimétrie déterminée à partir d'un service de cartographie en ligne (Google Earth, Google Street Map, Microsoft Bing, TerraExplorer, …)."
+        },
+        {
+          "const": "GPS/GNSS autonome",
+          "title": "GPS/GNSS autonome",
+          "description": "Altimétrie déterminée avec un récepteur GPS grand public (intégré à un smartphone ou autre équipement) en l'absence de correction différentielle."
+        },
+        {
+          "const": "GPS/GNSS différentiel",
+          "title": "GPS/GNSS différentiel",
+          "description": "Altimétrie déterminée avec un récepteur GPS doté de fonctionnalités permettant les corrections différentielles.. Le récepteur peut être un récepteur GPS grand public (assurant la réception d'un signal de correction différentielle type EGNOS) ou professionnel."
+        },
+        {
+          "const": "Inconnu",
+          "title": "Inconnu",
+          "description": "Mode d’obtention inconnu."
+        },
+        {
+          "const": "MNT",
+          "title": "MNT",
+          "description": "Altimétrie déterminée à partir d'un Modèle Numérique de Terrain (MNT)."
+        },
+        {
+          "const": "Nivellement",
+          "title": "Nivellement",
+          "description": "Altimétrie déterminée par nivellement géométrique ou trigonométrique (à l'aide d'un niveau ou d'un théodolite)."
+        },
+        {
+          "const": "Sondeur acoustique",
+          "title": "Sondeur acoustique",
+          "description": "Bathymétrie déterminée à partir de mesures effectuées depuis un sondeur acoustique."
+        }
+      ],
+      "type": "string"
+    },
+    "statut": {
+      "title": "Statut de l'objet hydrographique",
+      "description": "État de validité de l'objet hydrographique au sens du dictionnaire du SANDRE. (http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html)",
+      "oneOf": [
+        {
+          "const": "Gelé",
+          "title": "Gelé",
+          "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Gelé\" lorsqu'il a fait l'objet d'un travail de vérification de sa pertinence par un groupe d'experts du SANDRE, au regard des listes de références existantes. La conclusion de ce travail a mis en évidence une ou plusieurs erreurs pouvant être de nature variée (redondance d'informations, informations incomplètes, confusion) qui n'autorisent pas son usage au sein d'échanges de données. Une nomenclature ou une occurrence de listes nationales de statut \"Gelé\" peut en outre évoluer à l'avenir vers un statut valide, toujours selon l'avis de groupes d'experts."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Valide\" lorsqu'il a été jugé pertinent et cohérent aux yeux d'un groupe d'experts, garantissant ainsi son caractère valide. La nomenclature ou l'occurrence de listes nationales est bien reconnu officiellement par le SANDRE et peut désormais faire l'objet d'échanges de données."
+        }
+      ],
+      "type": "string"
+    },
+    "commentaire_sur_l_objet_hydro": {
+      "title": "Commentaire sur l'objet hydro",
+      "description": "Commentaire spécifique au réseau hydrographique.",
+      "type": "string"
+    },
+    "liens_vers_cours_d_eau_amont": {
+      "title": "Liens vers cours d'eau amont",
+      "description": "Liens vers (clé absolue) la classe définissant le ou les cours d'eau amont au niveau du point de confluence (Noeud hydrographique de Nature=\"Confluent\").",
+      "type": "string"
+    },
+    "liens_vers_cours_d_eau_aval": {
+      "title": "Liens vers cours d'eau aval",
+      "description": "Liens vers (clé absolue) la classe définissant le ou les cours d'eau aval au niveau du point de confluence (Noeud hydrographique de Nature=\"Confluent\").",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie",
+      "description": "",
+      "format": "geometry-point",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": [
+    "cleabs",
+    "categorie",
+    "methode_d_acquisition_planimetrique",
+    "methode_d_acquisition_altimetrique",
+    "geometrie"
+  ]
+}

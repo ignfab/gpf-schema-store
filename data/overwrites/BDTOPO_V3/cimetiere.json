@@ -1,9 +1,14 @@
 {
-  "id": "Bâti:Cimetière",
-  "namespace": "Bâti",
-  "name": "Cimetière",
   "title": "Cimetière",
+  "x-ign-theme": "Bâti",
   "description": "Terrain où l'on enterre les morts.",
+  "x-ign-selectionCriteria": "Tous les cimetières sont inclus. Les crématoriums, funérariums, ossuaires,… situés hors d'un cimetière sont exclus.",
+  "x-ign-representedFeatures": [
+    "Cimetière communal",
+    "Cimetière musulman",
+    "Cimetière israélite",
+    "Cimetière militaire"
+  ],
   "properties": [
     {
       "name": "cleabs",
@@ -16,33 +21,132 @@
       "type": "string",
       "title": "Nature",
       "description": "Attribut permettant de distinguer les cimetières civils des cimetières militaires",
-      "enum": [
-        "Civil",
-        "Militaire",
-        "Militaire étranger"
+      "oneOf": [
+        {
+          "const": "Civil",
+          "title": "Civil",
+          "description": "Tout cimetière qui n’est pas militaire.",
+          "x-ign-representedFeatures": [
+            "Cimetière civil",
+            "Cimetière musulman",
+            "Cimetière israélite",
+            "Cimetière chrétien"
+          ]
+        },
+        {
+          "const": "Militaire",
+          "title": "Militaire",
+          "description": "Cimetière militaire français.",
+          "x-ign-representedFeatures": [
+            "Nécropole nationale",
+            "Cimetière militaire français",
+            "Carré militaire"
+          ]
+        },
+        {
+          "const": "Militaire étranger",
+          "title": "Militaire étranger",
+          "description": "Cimetière militaire de combattants étrangers.",
+          "x-ign-representedFeatures": [
+            "Cimetière militaire allemand",
+            "Cimetière militaire américain",
+            "Cimetière militaire britannique",
+            "Cimetière militaire canadien",
+            "Cimetière militaire chinois",
+            "Cimetière militaire danois",
+            "Cimetière militaire italien",
+            "Cimetière militaire néerlandais",
+            "Cimetière militaire portugais",
+            "Cimetière militaire polonais",
+            "Cimetière militaire roumain",
+            "Cimetière militaire russe",
+            "Cimetière militaire tchécoslovaque",
+            "Cimetière militaire étranger"
+          ]
+        }
       ]
     },
     {
       "name": "nature_detaillee",
       "type": "string",
       "title": "Nature détaillée",
-      "description": "Cet attribut <b>précise</b> la 'Nature' du cimetière. Si aucune précision n'est connue ou nécessaire, le champ reste vide.",
-      "enum": [
-        "Cimetière militaire allemand",
-        "Cimetière militaire américain",
-        "Cimetière militaire australien",
-        "Cimetière militaire britannique",
-        "Cimetière militaire canadien",
-        "Cimetière militaire chinois",
-        "Cimetière militaire danois",
-        "Cimetière militaire italien",
-        "Cimetière militaire néerlandais",
-        "Cimetière militaire polonais",
-        "Cimetière militaire portugais",
-        "Cimetière militaire roumain",
-        "Cimetière militaire russe",
-        "Cimetière militaire tchécoslovaque",
-        "Nécropole nationale"
+      "description": "Cet attribut précise la 'Nature' du cimetière. Si aucune précision n'est connue ou nécessaire, le champ reste vide.",
+      "oneOf": [
+        {
+          "const": "Cimetière militaire allemand",
+          "title": "Cimetière militaire allemand",
+          "description": "Cimetière militaire allemand"
+        },
+        {
+          "const": "Cimetière militaire américain",
+          "title": "Cimetière militaire américain",
+          "description": "Cimetière militaire américain"
+        },
+        {
+          "const": "Cimetière militaire australien",
+          "title": "Cimetière militaire australien",
+          "description": "Cimetière militaire australien"
+        },
+        {
+          "const": "Cimetière militaire britannique",
+          "title": "Cimetière militaire britannique",
+          "description": "Cimetière militaire britannique"
+        },
+        {
+          "const": "Cimetière militaire canadien",
+          "title": "Cimetière militaire canadien",
+          "description": "Cimetière militaire canadien"
+        },
+        {
+          "const": "Cimetière militaire chinois",
+          "title": "Cimetière militaire chinois",
+          "description": "Cimetière militaire chinois"
+        },
+        {
+          "const": "Cimetière militaire danois",
+          "title": "Cimetière militaire danois",
+          "description": "Cimetière militaire danois"
+        },
+        {
+          "const": "Cimetière militaire italien",
+          "title": "Cimetière militaire italien",
+          "description": "Cimetière militaire italien"
+        },
+        {
+          "const": "Cimetière militaire néerlandais",
+          "title": "Cimetière militaire néerlandais",
+          "description": "Cimetière militaire néerlandais"
+        },
+        {
+          "const": "Cimetière militaire polonais",
+          "title": "Cimetière militaire polonais",
+          "description": "Cimetière militaire polonais"
+        },
+        {
+          "const": "Cimetière militaire portugais",
+          "title": "Cimetière militaire portugais",
+          "description": "Cimetière militaire portugais"
+        },
+        {
+          "const": "Cimetière militaire roumain",
+          "title": "Cimetière militaire roumain",
+          "description": "Cimetière militaire roumain"
+        },
+        {
+          "const": "Cimetière militaire russe",
+          "title": "Cimetière militaire russe",
+          "description": "Cimetière militaire russe"
+        },
+        {
+          "const": "Cimetière militaire tchécoslovaque",
+          "title": "Cimetière militaire tchécoslovaque",
+          "description": "Cimetière militaire tchécoslovaque"
+        },
+        {
+          "const": "Nécropole nationale",
+          "title": "Nécropole nationale",
+          "description": "Les nécropoles nationales ont pour but de regrouper les corps des combattants « morts pour la France » avec des sépultures perpétuelles. Ces nécropoles sont la propriété de l’État français qui en assure la garde et l'entretien."
+        }
       ]
     },
     {
@@ -56,12 +160,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -69,13 +193,37 @@
       "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les objets d'une classe en fonction de leur importance ou notoriété relative.",
-      "enum": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
+      "oneOf": [
+        {
+          "const": "1",
+          "title": "1",
+          "description": "L'objet a une importance ou un rayonnement national, justifiant de le représenter aux échelles de l'ordre du 1 : 1 000 000."
+        },
+        {
+          "const": "2",
+          "title": "2",
+          "description": "L'objet a une importance ou un rayonnement régional, justifiant de le représenter aux échelles de l'ordre du 1 : 250 000."
+        },
+        {
+          "const": "3",
+          "title": "3",
+          "description": "L'objet a une importance ou un rayonnement départemental, justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
+        },
+        {
+          "const": "4",
+          "title": "4",
+          "description": "L'objet a une importance ou un rayonnement intercommunal ou cantonal, justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
+        },
+        {
+          "const": "5",
+          "title": "5",
+          "description": "L'objet a une importance ou un rayonnement communal, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
+        },
+        {
+          "const": "6",
+          "title": "6",
+          "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
+        }
       ]
     },
     {
@@ -83,11 +231,27 @@
       "type": "string",
       "title": "Etat de l'objet bati",
       "description": "État ou stade de vie d'un objet qui, pour le thème bâti, peut être en projet, en construction, en service ou en ruine.",
-      "enum": [
-        "En construction",
-        "En projet",
-        "En ruine",
-        "En service"
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en cours de construction."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En ruine",
+          "title": "En ruine",
+          "description": "L'objet est en ruine."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service, c'est à dire sa construction est terminée."
+        }
       ]
     },
     {
@@ -131,69 +295,230 @@
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "enum": [
-        "BDCarto",
-        "BDNyme",
-        "BDParcellaire",
-        "BDParcellaire recalée",
-        "BDTopo",
-        "Calcul d'enveloppe urbaine",
-        "Calculé",
-        "Fichier numérique décimétrique",
-        "Fichier numérique métrique",
-        "Fichier numérique non métrique",
-        "Géocodage",
-        "Géoroute",
-        "Image satellite",
-        "Image satellite HR",
-        "Inconnue",
-        "Levé GPS",
-        "Levé non GPS",
-        "Lidar",
-        "Lidar HD",
-        "Orthophotographie",
-        "Photogrammétrie",
-        "Plan métrique papier",
-        "Plan non métrique papier",
-        "Processus IA métrique",
-        "Processus IA non métrique",
-        "Scan25"
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "methode_d_acquisition_altimetrique",
       "type": "string",
       "title": "Méthode d'acquisition altimétrique",
-      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z)  de l'objet.",
-      "enum": [
-        "BDAlti",
-        "BDTopo",
-        "Corrélation",
-        "Fichier numérique",
-        "Fichier numérique décimétrique",
-        "Interpolation bâti BDTopo",
-        "Levé GPS",
-        "Lidar",
-        "Lidar HD",
-        "Pas de Z",
-        "Photogrammétrie",
-        "Photogrammétrie longue focale",
-        "Plan coté",
-        "Radar",
-        "Z corrigé"
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDAlti",
+          "title": "BDAlti",
+          "description": "Le Z est interpolé sur un MNT issu de la BD ALTI® (ancienne BD altimétrique issue de la numérisation de cartes et de restitution photogrammétrique)."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "Le Z provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Corrélation",
+          "title": "Corrélation",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues de corrélation."
+        },
+        {
+          "const": "Fichier numérique",
+          "title": "Fichier numérique",
+          "description": "Le Z a été saisi à partir de données numériques fournies par un correspondant."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique"
+        },
+        {
+          "const": "Interpolation bâti BDTopo",
+          "title": "Interpolation bâti BDTopo",
+          "description": "Lors de l’unification avec la BD PARCELLAIRE®, le Z a été calculé à partir des valeurs existantes aux environs."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "Le Z a été saisi directement sur le terrain par lever GPS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues du processus d'acquisition par LIDAR."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Pas de Z",
+          "title": "Pas de Z",
+          "description": "L’objet est défini avec une géométrie 3D mais le Z est inconnu ou sa précision n'est pas connue/fiable."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques (restitution)."
+        },
+        {
+          "const": "Photogrammétrie longue focale",
+          "title": "Photogrammétrie longue focale",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes longue focale selon des processus photogrammétriques (restitution). La longueur de la focale a une incidence sur les pointés en Z qui sont meilleurs sur des focales courtes que sur des focales longues."
+        },
+        {
+          "const": "Plan coté",
+          "title": "Plan coté",
+          "description": "Le Z a été saisi à partir de points côtés figurant sur un plan."
+        },
+        {
+          "const": "Radar",
+          "title": "Radar",
+          "description": "Le Z provient de l’exploitation d’un MNT ou d’un MNS qui a été fait à partir d’acquisitions RADAR."
+        },
+        {
+          "const": "Z corrigé",
+          "title": "Z corrigé",
+          "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
+        }
       ]
     },
     {
       "name": "precision_altimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision altimétrique",
-      "description": "Précision altimétrique  (en mètres) de la géométrie décrivant l'objet."
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet."
     },
     {
       "name": "geometrie",
@@ -201,5 +526,13 @@
       "title": "Géométrie",
       "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "methode_d_acquisition_altimetrique",
+    "geometrie"
   ]
 }

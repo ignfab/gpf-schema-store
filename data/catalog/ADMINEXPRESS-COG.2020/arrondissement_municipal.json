@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2020:arrondissement_municipal",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2020 Arrondissement municipal",
+  "description": "ADMINEXPRESS COG 2020 Arrondissement municipal ; Édition 2020-01-01",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "nom_com": {
+      "type": "string"
+    },
+    "nom_com_m": {
+      "type": "string"
+    },
+    "insee_com": {
+      "type": "string"
+    },
+    "insee_ratt": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "population": {
+      "type": "integer"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

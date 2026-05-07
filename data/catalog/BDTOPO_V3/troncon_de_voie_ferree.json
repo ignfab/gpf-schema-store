@@ -1,0 +1,542 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:troncon_de_voie_ferree",
+  "type": "object",
+  "title": "Tronçon de voie ferrée",
+  "x-ign-theme": "Transport",
+  "description": "Portion de voie ferrée homogène pour l'ensemble des attributs qui la concernent.",
+  "x-ign-selectionCriteria": "Sont retenus les tronçons ferroviaires suivants : - toutes les voies LGV en site propre, - toutes les voies ferrées principales (dont on assurera la continuité dans les aires de triage), exploitées ou non, - toutes les voies de service, exploitées ou non, à partir de 300 m de long, - les embranchements particuliers, voies industrielles ou de service à partir de 300 m de long, - les voies urbaines connectées par rail au réseau national, de type RER, quelle que soit leur longueur, - les funiculaires d’au moins 100 mètres de long, - les trains à crémaillère d’au moins 100 mètres de long, - les lignes à vocation touristique, - les vélo-rails, à partir de 1 km de long, - les lignes de métro aériennes et les lignes de tramway, - les voies ferrées en construction. Sont exclues : - les voies ferrées déposées (rails supprimés sur le terrain), - les voies de triage et de garage, généralisées en Equipement de transport de Nature=\"Aire de triage\", - les lignes ferrées situées à l’intérieur des parcs d’attractions.",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string",
+      "x-ogc-role": "id"
+    },
+    "nature": {
+      "title": "Nature",
+      "description": "Attribut permettant de distinguer plusieurs types de voies ferrées.",
+      "oneOf": [
+        {
+          "const": "Funiculaire ou crémaillère",
+          "title": "Funiculaire ou crémaillère",
+          "description": "Funiculaire ou voie ferrée à crémaillère.",
+          "x-ign-representedFeatures": [
+            "Funiculaire",
+            "Voie ferrée à crémaillère",
+            "Funiculaire souterrain",
+            "Ascenseur incliné"
+          ]
+        },
+        {
+          "const": "LGV",
+          "title": "LGV",
+          "description": "Ligne ferroviaire réservée aux trains à grande vitesse. On ne retient que les lignes LGV en site propre."
+        },
+        {
+          "const": "Métro",
+          "title": "Métro",
+          "description": "Ligne de métro aérienne.",
+          "x-ign-representedFeatures": [
+            "Ligne de métro",
+            "Ligne de VAL (Véhicule Automatique Léger)"
+          ]
+        },
+        {
+          "const": "Sans objet",
+          "title": "Sans objet",
+          "description": "Aucune autre valeur de 'Nature' ne peut être attribuée. Attribuer cette valeur aux objets Tronçon de voie ferrée non exploités ('Etat de l'objet transport'=\"Non exploité\")."
+        },
+        {
+          "const": "Tramway",
+          "title": "Tramway",
+          "description": "Ligne de transport en commun urbain à guidage au sol.",
+          "x-ign-representedFeatures": [
+            "Tramway (ligne de)",
+            "Tramway sur pneus (ligne de)"
+          ]
+        },
+        {
+          "const": "Voie de service",
+          "title": "Voie de service",
+          "description": "Voie utilisée principalement pour la gestion, le triage ou le stationnement des trains."
+        },
+        {
+          "const": "Voie ferrée principale",
+          "title": "Voie ferrée principale",
+          "description": "Voie ferrée en exploitation servant au transport des voyageurs ou des marchandises.",
+          "x-ign-representedFeatures": [
+            "RER",
+            "Voie ferrée en exploitation",
+            "Voie ferrée touristique",
+            "Voie-mère d’embranchement particulier"
+          ]
+        }
+      ],
+      "type": "string"
+    },
+    "position_par_rapport_au_sol": {
+      "title": "Position par rapport au sol",
+      "description": "Niveau de l’objet par rapport à la surface du sol (valeur négative pour un objet souterrain, nulle pour un objet au sol et positive pour un objet en sursol).",
+      "oneOf": [
+        {
+          "const": "0",
+          "title": "0",
+          "description": "Voie au sol."
+        },
+        {
+          "const": "-1",
+          "title": "-1",
+          "description": "Voie en tunnel, cas général : voie souterraine mais ne passant pas sous un autre tunnel."
+        },
+        {
+          "const": "1",
+          "title": "1",
+          "description": "Voie sur pont de niveau 1."
+        },
+        {
+          "const": "-2",
+          "title": "-2",
+          "description": "Voie en tunnel passant sous un unique autre tunnel."
+        },
+        {
+          "const": "2",
+          "title": "2",
+          "description": "Voie sur pont de niveau 2."
+        },
+        {
+          "const": "-3",
+          "title": "-3"
+        },
+        {
+          "const": "3",
+          "title": "3"
+        },
+        {
+          "const": "-4",
+          "title": "-4"
+        },
+        {
+          "const": "4",
+          "title": "4"
+        }
+      ],
+      "type": "string"
+    },
+    "etat_de_l_objet": {
+      "title": "Etat de l'objet transport",
+      "description": "Etat ou stade d'un objet du thème Transport qui peut être en projet, en construction, en service ou non exploité.",
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en construction."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service."
+        },
+        {
+          "const": "Non exploité",
+          "title": "Non exploité",
+          "description": "La ligne ou l'équipement n’est plus exploité pour le transport de personnes ni de marchandises.",
+          "x-ign-representedFeatures": [
+            "Voie ferrée déclassée",
+            "Voie ferrée fermée à tout trafic ferroviaire",
+            "Voie ferrée neutralisée",
+            "Piste d'aérodrome désaffectée",
+            "Vélo-rail",
+            "Remontée mécanique désaffectée"
+          ]
+        }
+      ],
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "type": "string"
+    },
+    "identifiants_sources": {
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "type": "string"
+    },
+    "methode_d_acquisition_planimetrique": {
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
+      ],
+      "type": "string"
+    },
+    "precision_planimetrique": {
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
+      "type": "number"
+    },
+    "methode_d_acquisition_altimetrique": {
+      "title": "Méthode d'acquisition altimétrique",
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDAlti",
+          "title": "BDAlti",
+          "description": "Le Z est interpolé sur un MNT issu de la BD ALTI® (ancienne BD altimétrique issue de la numérisation de cartes et de restitution photogrammétrique)."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "Le Z provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Corrélation",
+          "title": "Corrélation",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues de corrélation."
+        },
+        {
+          "const": "Fichier numérique",
+          "title": "Fichier numérique",
+          "description": "Le Z a été saisi à partir de données numériques fournies par un correspondant."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique"
+        },
+        {
+          "const": "Interpolation bâti BDTopo",
+          "title": "Interpolation bâti BDTopo",
+          "description": "Lors de l’unification avec la BD PARCELLAIRE®, le Z a été calculé à partir des valeurs existantes aux environs."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "Le Z a été saisi directement sur le terrain par lever GPS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues du processus d'acquisition par LIDAR."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Pas de Z",
+          "title": "Pas de Z",
+          "description": "L’objet est défini avec une géométrie 3D mais le Z est inconnu ou sa précision n'est pas connue/fiable."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques (restitution)."
+        },
+        {
+          "const": "Photogrammétrie longue focale",
+          "title": "Photogrammétrie longue focale",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes longue focale selon des processus photogrammétriques (restitution). La longueur de la focale a une incidence sur les pointés en Z qui sont meilleurs sur des focales courtes que sur des focales longues."
+        },
+        {
+          "const": "Plan coté",
+          "title": "Plan coté",
+          "description": "Le Z a été saisi à partir de points côtés figurant sur un plan."
+        },
+        {
+          "const": "Radar",
+          "title": "Radar",
+          "description": "Le Z provient de l’exploitation d’un MNT ou d’un MNS qui a été fait à partir d’acquisitions RADAR."
+        },
+        {
+          "const": "Z corrigé",
+          "title": "Z corrigé",
+          "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
+        }
+      ],
+      "type": "string"
+    },
+    "precision_altimetrique": {
+      "title": "Précision altimétrique",
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet.",
+      "type": "number"
+    },
+    "electrifie": {
+      "title": "Electrifié",
+      "description": "Indique si la voie ferrée est électrifiée ou non.",
+      "type": "boolean"
+    },
+    "largeur": {
+      "title": "Largeur",
+      "description": "Attribut permettant de distinguer les voies ferrées de largeur standard pour la France (1,435 m), des voies ferrées plus larges ou plus étroites.",
+      "oneOf": [
+        {
+          "const": "Etroite",
+          "title": "Etroite",
+          "description": "Voie étroite, c'est à dire de largeur < 1,435 m."
+        },
+        {
+          "const": "Large",
+          "title": "Large",
+          "description": "Voie large, c'est à dire de largeur > 1,435 m."
+        },
+        {
+          "const": "Normale",
+          "title": "Normale",
+          "description": "Voie normale, c'est à dire de largeur = 1,435 m."
+        }
+      ],
+      "type": "string"
+    },
+    "nombre_de_voies": {
+      "title": "Nombre de voies",
+      "description": "Attribut indiquant le nombre de voies modélisées par le tronçon de voie ferrée.",
+      "oneOf": [
+        {
+          "const": "0",
+          "title": "0",
+          "description": "Le nombre de voies est inconnu."
+        },
+        {
+          "const": "1",
+          "title": "1",
+          "description": "La voie ferrée est constituée d'une voie unique (à sens unique ou à double sens)."
+        },
+        {
+          "const": "2",
+          "title": "2",
+          "description": "La voie ferrée est constituée de deux voies parallèles."
+        },
+        {
+          "const": "3",
+          "title": "3",
+          "description": "La voie ferrée est constituée de trois voies parallèles."
+        },
+        {
+          "const": "4",
+          "title": "4",
+          "description": "La voie ferrée est constituée de quatre voies parallèles."
+        }
+      ],
+      "type": "integer"
+    },
+    "usage": {
+      "title": "Usage",
+      "description": "Précise le type de transport auquel la voie ferrée est destinée.",
+      "oneOf": [
+        {
+          "const": "Fret",
+          "title": "Fret",
+          "description": "La voie ferrée est exploitée exclusivement pour le transport de fret."
+        },
+        {
+          "const": "Sans objet",
+          "title": "Sans objet",
+          "description": "La voie ferrée n'est plus exploitée pour du transport de personnes ou marchandises (Etat de l'objet transport=\"Non exploité\")."
+        },
+        {
+          "const": "Vélo-rail",
+          "title": "Vélo-rail",
+          "description": "La voie ferrée non exploitée (Etat de l'objet transport=\"Non exploité\") est empruntée par un vélo-rail."
+        },
+        {
+          "const": "Voyageur",
+          "title": "Voyageur",
+          "description": "La voie ferrée est exploitée exclusivement pour du transport de voyageurs."
+        },
+        {
+          "const": "Voyageur et fret",
+          "title": "Voyageur et fret",
+          "description": "La voie ferrée est exploitée pour du transport de voyageurs et de fret."
+        }
+      ],
+      "type": "string"
+    },
+    "vitesse_maximale": {
+      "title": "Vitesse maximale",
+      "description": "Vitesse maximale pour laquelle la ligne a été construite, exprimée en km/h.",
+      "type": "integer"
+    },
+    "liens_vers_voie_ferree_nommee": {
+      "title": "Liens vers voie ferrée nommée",
+      "description": "Le cas échéant, lien vers l'identifiant (clé absolue) de l'objet Voie ferrée nommée décrivant le parcours et le toponyme de l'itinéraire ferré auquel ce tronçon appartient.",
+      "type": "string"
+    },
+    "cpx_toponyme": {
+      "title": "CPX_Toponyme",
+      "description": "Toponyme de la voie ferrée issu du champ 'Toponyme' de l'objet complexe Voie ferrée nommée liée au tronçon.",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie",
+      "description": "",
+      "format": "geometry-linestring",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": [
+    "cleabs",
+    "nature",
+    "position_par_rapport_au_sol",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "methode_d_acquisition_altimetrique",
+    "largeur",
+    "nombre_de_voies",
+    "geometrie"
+  ]
+}

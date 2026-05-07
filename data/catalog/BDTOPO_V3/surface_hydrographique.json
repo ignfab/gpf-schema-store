@@ -1,0 +1,814 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:surface_hydrographique",
+  "type": "object",
+  "title": "Surface hydrographique",
+  "x-ign-theme": "Hydrographie",
+  "description": "Zone d'origine naturelle ou artificielle, temporaire ou permanente, couverte d'eau continentale de surface, douce ou salée ou couverte de glace persistante.",
+  "x-ign-selectionCriteria": "Sont à représenter : - Les surfaces d’eau non coulante non souterraines de plus de 200m² ou longues de plus de 20m, - tous les bassins des stations d’épuration ou de décantation, - les bassins ayant totalement perdu leur fonction (anciennes zones de marais salants ou de cultures ostréicoles), - les surfaces d’eau coulante non souterraines de plus de 5 m de large, les zones intermittentes de plus de 20 m de large bordant un écoulement Les surfaces d’eau non coulante non souterraines de moins de 200 m² et longues de moins de 20 m peuvent être représentées en fonction de leur intérêt topographique sans rechercher à obtenir l’exhaustivité. La mer et l’océan ne sont pas saisis en surface hydrographique, la zone d’estran non plus. Des exceptions peuvent être faites au niveau des estuaires et des ports pour lesquels les surfaces hydrographiques peuvent dépasser la limite du tronçon de laisse des plus basses mers (Limite terre-mer de Niveau=\"Plus basses eaux\") pour aller jusqu’à la limite de commune.",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string",
+      "x-ogc-role": "id"
+    },
+    "code_hydrographique": {
+      "title": "Code hydrographique",
+      "description": "Identifiant de l'objet hydrographique.",
+      "type": "string"
+    },
+    "code_du_pays": {
+      "title": "Code du pays",
+      "description": "Code du pays auquel appartient l'objet hydrographique.",
+      "type": "string"
+    },
+    "nature": {
+      "title": "Nature",
+      "description": "Nature d'un objet hydrographique.",
+      "oneOf": [
+        {
+          "const": "Aqueduc",
+          "title": "Aqueduc",
+          "description": "Cette valeur est réservée aux Tronçon hydrographique"
+        },
+        {
+          "const": "Canal",
+          "title": "Canal",
+          "description": "Voie d'eau artificielle essentiellement à l'air libre, à très faible déclivité."
+        },
+        {
+          "const": "Conduit buse",
+          "title": "Conduit buse",
+          "description": "Cette valeur est réservée aux Tronçon hydrographique."
+        },
+        {
+          "const": "Conduit forcé",
+          "title": "Conduit forcé",
+          "description": "Cette valeur est réservée aux Tronçon hydrographique."
+        },
+        {
+          "const": "Delta",
+          "title": "Delta",
+          "description": "Surface d'eau décrivant un delta. Delta : construction fluviomarine de forme générale triangulaire, plus ou moins saillante par rapport à la côte, créée par les alluvions à l'embouchure d'un fleuve, dont le cours se sépare en plusieurs défluents avant d'atteindre la mer."
+        },
+        {
+          "const": "Ecoulement canalisé",
+          "title": "Ecoulement canalisé",
+          "description": "Surface de cours d'eau dont le lit et/ou les berges ont été aménagés pour garder son écoulement dans un chenal à des fins multiples (défense des berges, lutte contre les inondations, navigation, etc.)"
+        },
+        {
+          "const": "Ecoulement endoréique",
+          "title": "Ecoulement endoréique",
+          "description": "Surface de cours d'eau n'atteignant pas la mer ou l'océan mais alimentant un plan d'eau sans exutoire ou bien dont les eaux sont absorbées au cours de leur écoulement par infiltration et/ou évaporation."
+        },
+        {
+          "const": "Ecoulement hyporhéique",
+          "title": "Ecoulement hyporhéique",
+          "description": "Ecoulement se faisant dans les interstices sédimentaires saturés en eau, présent lorsqu'un cours d'eau s'écoule sur un substratum perméable. On parle alors d'écoulement dans une zone hyporhéïque. Ces écoulements peuvent être présent lorsque les écoulements de surface ne le sont plus, c'est le cas des cours d'eau intermittent."
+        },
+        {
+          "const": "Ecoulement karstique",
+          "title": "Ecoulement karstique",
+          "description": "Surface de cours d'eau d'un voie d'eau naturelle à écoulement pérenne ou intermittent traversant des terrains fissurés, en général calcaires, et pouvant subir des pertes ou bénéficier d'apports dus à des résurgences."
+        },
+        {
+          "const": "Ecoulement naturel",
+          "title": "Ecoulement naturel",
+          "description": "Surface de cours d'eau non marine représentant une partie significative des eaux de surface d’une rivière, d’un fleuve ou d’un canal, issue de l'écoulement gravitaire des eaux météoriques provenant notamment du ruissellement, d'émergences, de la fonte des glaces, d'un étang ou de régions gorgées d'eau."
+        },
+        {
+          "const": "Ecoulement phréatique",
+          "title": "Ecoulement phréatique",
+          "description": "Surface de cours d'eau dont la source et/ou les apports intermédiaires sont directement et uniquement liés au niveau de la nappe phréatique."
+        },
+        {
+          "const": "Estuaire",
+          "title": "Estuaire",
+          "description": "Embouchure de fleuve ou de rivière soumise à la marée et qui forme une indentation profonde unique du littoral."
+        },
+        {
+          "const": "Glacier, névé",
+          "title": "Glacier, névé",
+          "description": "Glacier, névé",
+          "x-ign-representedFeatures": [
+            "Glacier",
+            "Névé"
+          ]
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La valeur de 'Nature' n'est pas connue."
+        },
+        {
+          "const": "Lac",
+          "title": "Lac",
+          "description": "Masse d'eau continentale accumulée naturellement; suffisamment profond, il comporte une stratification thermique stable."
+        },
+        {
+          "const": "Lagon",
+          "title": "Lagon",
+          "description": "Masse d’eau peu profonde en communication avec le milieu marin, spécifiquement séparée de l’océan par un récif corallien (ou un atoll), et non par un simple cordon sableux ou sédimentaire. Le lagon est composé d'eau de mer et n'a pas d'eau saumâtre comme peut en contenir une lagune."
+        },
+        {
+          "const": "Lagune",
+          "title": "Lagune",
+          "description": "Masse d'eau continentale en communication avec le milieu marin."
+        },
+        {
+          "const": "Mangrove",
+          "title": "Mangrove",
+          "description": "Surface d'eau délimitée dans une mangrove. Mangrove : zone forestière amphibie composée essentiellement de palétuviers, qu'on trouve sur les sédiments vaseux des littoraux tropicaux."
+        },
+        {
+          "const": "Marais",
+          "title": "Marais",
+          "description": "Au sens de la codification hydrographique, désigne un territoire sans relief significatif, irrigué ou drainé par un réseau dense de canaux et/ou de bras et pouvant comporter des surfaces d'eau.",
+          "x-ign-representedFeatures": [
+            "Tourbière",
+            "Marécage"
+          ]
+        },
+        {
+          "const": "Mare",
+          "title": "Mare",
+          "description": "Étendue d'eau superficielle de petite taille et de faible profondeur, permanente ou saisonnière, ayant un écosystème propre. Petite étendue d'eau dormante, permanente ou temporaire, généralement de formation naturelle, plus petite qu'un étang."
+        },
+        {
+          "const": "Plan d'eau de gravière",
+          "title": "Plan d'eau de gravière",
+          "description": "Masse d'eau créée par l'extraction de granulats dans la plaine alluviale d'un cours d'eau et alimentée principalement par la nappe alluviale. Au sens de la codification hydrographique, les gravières ne sont généralement plus en exploitation.",
+          "x-ign-representedFeatures": [
+            "Gravière (lac)",
+            "Lac de gravière"
+          ]
+        },
+        {
+          "const": "Plan d'eau de mine",
+          "title": "Plan d'eau de mine",
+          "description": "Masse d'eau utilisée dans les mines et milieux souterrains (exhaure)."
+        },
+        {
+          "const": "Ravine",
+          "title": "Ravine",
+          "description": "Écoulement naturel créé par le ruissellement concentré des eaux de pluie sur des terrains imperméables lors de phénomènes pluvieux courts et intenses."
+        },
+        {
+          "const": "Réservoir-bassin",
+          "title": "Réservoir-bassin",
+          "description": "Plan d’eau artificiel possédant le plus souvent un usage spécifique. Il comprend les bassins d’épurations, bassins de décantation, bassins de filtrage, bassins de lagunage, bassins ostréicole, cressonnières, écrêteurs de crues, réservoirs d’eau à ciel ouvert, bassins de stockage incendie, bassins récréatifs (miroirs d'eau, aménagements urbains). Ces réservoirs ne possèdent pas d’usage d'irrigation.",
+          "x-ign-representedFeatures": [
+            "Bassin",
+            "Bassin d’épuration",
+            "Bassin de décantation",
+            "Bassins de filtrage",
+            "Bassin de lagunage",
+            "Bassins ostréicole",
+            "Cressonnière",
+            "Écrêteur de crues",
+            "Réservoir d’eau à ciel ouvert",
+            "Citerne souple DFCI (> 50m)",
+            "Marais salant"
+          ]
+        },
+        {
+          "const": "Réservoir-bassin d'orage",
+          "title": "Réservoir-bassin d'orage",
+          "description": "Réservoir recueillant les eaux drainées par la voirie ou un sol fortement artificialisé lors d'un surplus de précipitation. Situé le plus souvent à proximité d’une route (voire d’un quartier pavillonnaire ou d’une zone commerciale).",
+          "x-ign-representedFeatures": [
+            "Bassin d'orage routier",
+            "Bassin de dépollution routière",
+            "Bassin de rétention"
+          ]
+        },
+        {
+          "const": "Réservoir-bassin piscicole",
+          "title": "Réservoir-bassin piscicole",
+          "description": "Réservoir à usage piscicole."
+        },
+        {
+          "const": "Retenue",
+          "title": "Retenue",
+          "description": "Comprend les étangs, retenues collinaires, ... Il s'agit d'une masse d'eau non accumulée naturellement, contrairement à un 'Lac' naturel. L'eau est généralement retenue par une levée, digue ou barrage.",
+          "x-ign-representedFeatures": [
+            "Etang",
+            "Lac de retenue",
+            "Retenue collinaire",
+            "Retenue pour enneigement artificiel"
+          ]
+        },
+        {
+          "const": "Retenue-barrage",
+          "title": "Retenue-barrage",
+          "description": "Lac de barrage (barrage-réservoir, barrage de retenue ou de régulation).",
+          "x-ign-representedFeatures": [
+            "Lac de barrage",
+            "Barrage (lac)"
+          ]
+        },
+        {
+          "const": "Retenue-bassin portuaire",
+          "title": "Retenue-bassin portuaire",
+          "description": "Ensemble de darses (bassin rectangulaire destiné principalement à l'accostage des cargos) d'un port qui est fermé.",
+          "x-ign-representedFeatures": [
+            "Bassin portuaire",
+            "Darse"
+          ]
+        },
+        {
+          "const": "Retenue-digue",
+          "title": "Retenue-digue",
+          "description": "Plan d'eau endigué. La digue est un ouvrage linéaire, généralement de grande longueur, longitudinal par rapport au sens de l'écoulement de l'eau, surélevé par rapport au terrain naturel et destiné à s’opposer au passage de l’eau ou à la canaliser."
+        }
+      ],
+      "type": "string"
+    },
+    "position_par_rapport_au_sol": {
+      "title": "Position par rapport au sol",
+      "description": "Niveau de l’objet par rapport à la surface du sol.",
+      "oneOf": [
+        {
+          "const": "0",
+          "title": "0",
+          "description": "Surface d'eau au sol."
+        },
+        {
+          "const": "-1",
+          "title": "-1",
+          "description": "Surface de cours d'eau, passant sous le sol, et de contour bien défini.",
+          "x-ign-representedFeatures": [
+            "Conduit busé",
+            "Canal souterrain"
+          ]
+        },
+        {
+          "const": "1",
+          "title": "1",
+          "description": "Surface d'eau artificielle en sursol, enjambant une autre surface d'eau ou un cours d'eau sans mélange des eaux."
+        }
+      ],
+      "type": "string"
+    },
+    "etat_de_l_objet": {
+      "title": "Etat de l'objet",
+      "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en construction. Dans le cas des Tronçon de route, la date de mise en service prévue est codée dans le champ 'Date de mise en service'."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service."
+        }
+      ],
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "type": "string"
+    },
+    "identifiants_sources": {
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "type": "string"
+    },
+    "methode_d_acquisition_planimetrique": {
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
+      ],
+      "type": "string"
+    },
+    "precision_planimetrique": {
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
+      "type": "number"
+    },
+    "methode_d_acquisition_altimetrique": {
+      "title": "Méthode d'acquisition altimétrique",
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDAlti",
+          "title": "BDAlti",
+          "description": "Le Z est interpolé sur un MNT issu de la BD ALTI® (ancienne BD altimétrique issue de la numérisation de cartes et de restitution photogrammétrique)."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "Le Z provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Corrélation",
+          "title": "Corrélation",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues de corrélation."
+        },
+        {
+          "const": "Fichier numérique",
+          "title": "Fichier numérique",
+          "description": "Le Z a été saisi à partir de données numériques fournies par un correspondant."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique"
+        },
+        {
+          "const": "Interpolation bâti BDTopo",
+          "title": "Interpolation bâti BDTopo",
+          "description": "Lors de l’unification avec la BD PARCELLAIRE®, le Z a été calculé à partir des valeurs existantes aux environs."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "Le Z a été saisi directement sur le terrain par lever GPS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues du processus d'acquisition par LIDAR."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Pas de Z",
+          "title": "Pas de Z",
+          "description": "L’objet est défini avec une géométrie 3D mais le Z est inconnu ou sa précision n'est pas connue/fiable."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques (restitution)."
+        },
+        {
+          "const": "Photogrammétrie longue focale",
+          "title": "Photogrammétrie longue focale",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes longue focale selon des processus photogrammétriques (restitution). La longueur de la focale a une incidence sur les pointés en Z qui sont meilleurs sur des focales courtes que sur des focales longues."
+        },
+        {
+          "const": "Plan coté",
+          "title": "Plan coté",
+          "description": "Le Z a été saisi à partir de points côtés figurant sur un plan."
+        },
+        {
+          "const": "Radar",
+          "title": "Radar",
+          "description": "Le Z provient de l’exploitation d’un MNT ou d’un MNS qui a été fait à partir d’acquisitions RADAR."
+        },
+        {
+          "const": "Z corrigé",
+          "title": "Z corrigé",
+          "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
+        }
+      ],
+      "type": "string"
+    },
+    "precision_altimetrique": {
+      "title": "Précision altimétrique",
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet.",
+      "type": "number"
+    },
+    "mode_d_obtention_des_coordonnees": {
+      "title": "Mode d'obtention des coordonnées",
+      "description": "Méthode utilisée pour déterminer les coordonnées de l'objet hydrographique.",
+      "oneOf": [
+        {
+          "const": "Autres modes",
+          "title": "Autres modes",
+          "description": "Autre mode d'obtention du positionnement non liste ci-avant."
+        },
+        {
+          "const": "Carte bathymétrique",
+          "title": "Carte bathymétrique",
+          "description": "Positionnement déterminé par interpolation sur une carte bathymétrique"
+        },
+        {
+          "const": "Carte géoréférencée",
+          "title": "Carte géoréférencée",
+          "description": "Positionnement déterminé à l'aide d'une carte géoréférencée (type IGN ou autre)."
+        },
+        {
+          "const": "Carte marine de navigation",
+          "title": "Carte marine de navigation",
+          "description": "Positionnement déterminé à l'aide d'une carte marine de navigation."
+        },
+        {
+          "const": "Carte non géoréférencée",
+          "title": "Carte non géoréférencée",
+          "description": "Positionnement déterminé par interpolation sur un plan non ou mal géoréférencé (ex : plan historique, extrait de carte ou croquis)."
+        },
+        {
+          "const": "Globe virtuel",
+          "title": "Globe virtuel",
+          "description": "Positionnement déterminé à partir d'un service de cartographie en ligne (Google Earth, Google Street Map, Microsoft Bing, TerraExplorer, …)."
+        },
+        {
+          "const": "GPS/GNSS autonome",
+          "title": "GPS/GNSS autonome",
+          "description": "Positionnement déterminé à l'aide d'un récepteur GPS grand public (intégré à un smartphone ou autre équipement) en l'absence de correction différentielle."
+        },
+        {
+          "const": "GPS/GNSS différentiel",
+          "title": "GPS/GNSS différentiel",
+          "description": "Positionnement déterminé à l'aide d'un récepteur GPS doté de fonctionnalités permettant les corrections différentielles. Le récepteur peut être un récepteur GPS grand public (assurant la réception d'un signal de correction différentielle type EGNOS) ou professionnel."
+        },
+        {
+          "const": "Imagerie satellite ou aérienne",
+          "title": "Imagerie satellite ou aérienne",
+          "description": "Positionnement déterminé à partir d'imagerie satellite ou aérienne (ex : orthophotoplan)."
+        },
+        {
+          "const": "Inconnu",
+          "title": "Inconnu",
+          "description": "Mode d'obtention du positionnement inconnu."
+        },
+        {
+          "const": "Planche cadastrale",
+          "title": "Planche cadastrale",
+          "description": "Positionnement déterminé à l'aide d'un plan cadastral."
+        },
+        {
+          "const": "Théodolite",
+          "title": "Théodolite",
+          "description": "Positionnement déterminé à l'aide d'une station totale (théodolite), permettant de mesurer les angles horizontaux et verticaux entre deux cibles, ainsi que la distance de ces cibles."
+        }
+      ],
+      "type": "string"
+    },
+    "mode_d_obtention_de_l_altitude": {
+      "title": "Mode d'obtention de l'altitude",
+      "description": "Méthode utilisée pour établir l'altitude de l'objet hydrographique.",
+      "oneOf": [
+        {
+          "const": "Altimétrie radar",
+          "title": "Altimétrie radar",
+          "description": "Altimétrie déterminée par corrélation sur images radar."
+        },
+        {
+          "const": "Autres modes",
+          "title": "Autres modes",
+          "description": "Autres modes d'obtention non listés par ailleurs."
+        },
+        {
+          "const": "Carte bathymétrique",
+          "title": "Carte bathymétrique",
+          "description": "Bathymétrie déterminée par interpolation sur une carte bathymétrique."
+        },
+        {
+          "const": "Carte marine de navigation",
+          "title": "Carte marine de navigation",
+          "description": "Bathymétrie déterminée par interpolation sur une carte marine de navigation."
+        },
+        {
+          "const": "Carte topographique géoréférencée",
+          "title": "Carte topographique géoréférencée",
+          "description": "Altimétrie déterminée par interpolation sur une carte topographique géoréférencée (type IGN ou autre)."
+        },
+        {
+          "const": "Carte topographique non géoréférencée",
+          "title": "Carte topographique non géoréférencée",
+          "description": "Altimétrie déterminée par interpolation sur un plan non ou mal géoréférencé."
+        },
+        {
+          "const": "Globe virtuel",
+          "title": "Globe virtuel",
+          "description": "Altimétrie déterminée à partir d'un service de cartographie en ligne (Google Earth, Google Street Map, Microsoft Bing, TerraExplorer, …)."
+        },
+        {
+          "const": "GPS/GNSS autonome",
+          "title": "GPS/GNSS autonome",
+          "description": "Altimétrie déterminée avec un récepteur GPS grand public (intégré à un smartphone ou autre équipement) en l'absence de correction différentielle."
+        },
+        {
+          "const": "GPS/GNSS différentiel",
+          "title": "GPS/GNSS différentiel",
+          "description": "Altimétrie déterminée avec un récepteur GPS doté de fonctionnalités permettant les corrections différentielles.. Le récepteur peut être un récepteur GPS grand public (assurant la réception d'un signal de correction différentielle type EGNOS) ou professionnel."
+        },
+        {
+          "const": "Inconnu",
+          "title": "Inconnu",
+          "description": "Mode d’obtention inconnu."
+        },
+        {
+          "const": "MNT",
+          "title": "MNT",
+          "description": "Altimétrie déterminée à partir d'un Modèle Numérique de Terrain (MNT)."
+        },
+        {
+          "const": "Nivellement",
+          "title": "Nivellement",
+          "description": "Altimétrie déterminée par nivellement géométrique ou trigonométrique (à l'aide d'un niveau ou d'un théodolite)."
+        },
+        {
+          "const": "Sondeur acoustique",
+          "title": "Sondeur acoustique",
+          "description": "Bathymétrie déterminée à partir de mesures effectuées depuis un sondeur acoustique."
+        }
+      ],
+      "type": "string"
+    },
+    "statut": {
+      "title": "Statut de l'objet hydrographique",
+      "description": "État de validité de l'objet hydrographique au sens du dictionnaire du SANDRE. (http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html)",
+      "oneOf": [
+        {
+          "const": "Gelé",
+          "title": "Gelé",
+          "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Gelé\" lorsqu'il a fait l'objet d'un travail de vérification de sa pertinence par un groupe d'experts du SANDRE, au regard des listes de références existantes. La conclusion de ce travail a mis en évidence une ou plusieurs erreurs pouvant être de nature variée (redondance d'informations, informations incomplètes, confusion) qui n'autorisent pas son usage au sein d'échanges de données. Une nomenclature ou une occurrence de listes nationales de statut \"Gelé\" peut en outre évoluer à l'avenir vers un statut valide, toujours selon l'avis de groupes d'experts."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Valide\" lorsqu'il a été jugé pertinent et cohérent aux yeux d'un groupe d'experts, garantissant ainsi son caractère valide. La nomenclature ou l'occurrence de listes nationales est bien reconnu officiellement par le SANDRE et peut désormais faire l'objet d'échanges de données."
+        }
+      ],
+      "type": "string"
+    },
+    "persistance": {
+      "title": "Persistance",
+      "description": "Degré de persistance de l'écoulement de l'eau.",
+      "oneOf": [
+        {
+          "const": "Ephémère",
+          "title": "Ephémère",
+          "description": "Rempli pendant des précipitations et immédiatement après."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "Le degré de persistance de la surface hydrographique n'est pas connu."
+        },
+        {
+          "const": "Intermittent",
+          "title": "Intermittent",
+          "description": "Rempli pendant une partie de l'année.",
+          "x-ign-representedFeatures": [
+            "Cours d'eau temporaire large",
+            "Etang saisonnier",
+            "Zone périphérique de lac",
+            "Marais salants",
+            "Bassin",
+            "Fleuve temporaire large",
+            "Rivière temporaire large",
+            "Zone inondable"
+          ]
+        },
+        {
+          "const": "Permanent",
+          "title": "Permanent",
+          "description": "Rempli de manière permanente."
+        },
+        {
+          "const": "Sec",
+          "title": "Sec",
+          "description": "Rempli de façon temporaire, généralement uniquement pendant de fortes précipitations et/ou immédiatement après. Source : dictionnaire du SANDRE."
+        }
+      ],
+      "type": "string"
+    },
+    "salinite": {
+      "title": "Salinité",
+      "description": "Permet de préciser si la surface hydrographique est salée (Salinité=\"Vrai\") ou douce (Salinité=\"Faux\").",
+      "type": "boolean"
+    },
+    "origine": {
+      "title": "Origine",
+      "description": "Origine, naturelle ou artificielle, de la surface hydrographique.",
+      "oneOf": [
+        {
+          "const": "Artificielle",
+          "title": "Artificielle",
+          "description": "Surface hydrographique dont le lit a été construit ou creusé par l'homme."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "L'origine est inconnue."
+        },
+        {
+          "const": "Naturelle aménagée",
+          "title": "Naturelle aménagée",
+          "description": "Surface hydrographique d'origine naturelle dont les berges et/ou le fond ont été aménagées ou modifés."
+        },
+        {
+          "const": "Naturelle non aménagée",
+          "title": "Naturelle non aménagée",
+          "description": "Surface hydrographique naturelle, n'ayant pas subi d'intervention humaine."
+        }
+      ],
+      "type": "string"
+    },
+    "commentaire_sur_l_objet_hydro": {
+      "title": "Commentaire sur l'objet hydro",
+      "description": "Commentaire spécifique au réseau hydrographique.",
+      "type": "string"
+    },
+    "liens_vers_plan_d_eau": {
+      "title": "Liens vers plan d'eau",
+      "description": "",
+      "type": "string"
+    },
+    "liens_vers_cours_d_eau": {
+      "title": "Liens vers cours d'eau",
+      "description": "Identifiant (clé absolue) de l'objet traversant la Surface hydrographique. Une surface hydrographique peut être liée avec 0 à n objets .",
+      "type": "string"
+    },
+    "lien_vers_entite_de_transition": {
+      "title": "Lien vers entité de transition",
+      "description": "Identifiant (clé absolue) de l'objet Entité de transition à laquelle appartient la Surface hydrographique (estuaires, deltas...). Une surface hydrographique peut être liée avec 0 ou 1 objet Entité de transition.",
+      "type": "string"
+    },
+    "cpx_toponyme_de_plan_d_eau": {
+      "title": "CPX_Toponyme de plan d'eau",
+      "description": "Toponyme(s) du ou des constitués par la surface hydrographique.",
+      "type": "string"
+    },
+    "cpx_toponyme_de_cours_d_eau": {
+      "title": "CPX_Toponyme de cours d'eau",
+      "description": "Toponyme(s) du ou des traversant la surface hydrographique.",
+      "type": "string"
+    },
+    "cpx_toponyme_d_entite_de_transition": {
+      "title": "CPX_Toponyme d'entité de transition",
+      "description": "Toponyme(s) de l'Entité de transition traversant la surface hydrographique.",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie",
+      "description": "",
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": [
+    "cleabs",
+    "nature",
+    "position_par_rapport_au_sol",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "methode_d_acquisition_altimetrique",
+    "persistance",
+    "geometrie"
+  ]
+}

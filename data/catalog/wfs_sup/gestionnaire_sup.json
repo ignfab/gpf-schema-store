@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_sup:gestionnaire_sup",
+  "type": "object",
+  "title": "Organisme gestionnaire ou organisme ressource de la servitude",
+  "description": "Gestionnaires de servitude d'utilité publique, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "idgest": {
+      "type": "string"
+    },
+    "nomgest": {
+      "type": "string"
+    },
+    "nomcorres": {
+      "type": "string"
+    },
+    "numtel": {
+      "type": "string"
+    },
+    "courriel": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

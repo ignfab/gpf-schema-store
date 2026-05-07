@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2024:chef_lieu_commune_associee_ou_deleguee",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2024 Chef-lieu Commune associée ou déléguée",
+  "description": "ADMINEXPRESS COG 2024 Chef-lieu Commune associée ou déléguée ; Édition 2024-01-01",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "id_cad": {
+      "type": "string"
+    },
+    "insee_cad": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-point",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

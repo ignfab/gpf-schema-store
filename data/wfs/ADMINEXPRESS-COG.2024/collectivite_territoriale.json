@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2024",
   "name": "collectivite_territoriale",
   "title": "ADMINEXPRESS COG 2024 Collectivité territoriale",
-  "description": "ADMINEXPRESS COG 2024 Collectivité territoriale",
+  "description": "ADMINEXPRESS COG 2024 Collectivité territoriale ; Édition 2024-01-01",
   "properties": [
     {
       "name": "id",

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_sup:assiette_sup_s",
+  "type": "object",
+  "title": "Assiette de servitude d'utilité publique",
+  "description": "Assiettes surfaciques liées aux servitudes, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "suptype": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "fichier": {
+      "type": "string"
+    },
+    "idass": {
+      "type": "string"
+    },
+    "idgen": {
+      "type": "string"
+    },
+    "nomass": {
+      "type": "string"
+    },
+    "typeass": {
+      "type": "string"
+    },
+    "modegeoass": {
+      "type": "string"
+    },
+    "paramcalc": {
+      "type": "integer"
+    },
+    "srcgeoass": {
+      "type": "string"
+    },
+    "datesrcass": {
+      "type": "string"
+    },
+    "angle1": {
+      "type": "integer"
+    },
+    "angle2": {
+      "type": "integer"
+    },
+    "rayon": {
+      "type": "integer"
+    },
+    "h": {
+      "type": "number"
+    },
+    "href": {
+      "type": "string"
+    },
+    "xdebut": {
+      "type": "number"
+    },
+    "xfinal": {
+      "type": "number"
+    },
+    "ydebut": {
+      "type": "number"
+    },
+    "yfinal": {
+      "type": "number"
+    },
+    "largeur": {
+      "type": "integer"
+    },
+    "nomsuplitt": {
+      "type": "string"
+    },
+    "nomreg": {
+      "type": "string"
+    },
+    "urlreg": {
+      "type": "string"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2025:chef_lieu_de_collectivite_territoriale",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2025 Chef-lieu de Collectivité territoriale",
+  "description": "ADMINEXPRESS COG 2025 Chef-lieu de Collectivité territoriale ; Édition 2025-01-01",
+  "properties": {
+    "cleabs": {
+      "type": "string",
+      "x-ogc-role": "id"
+    },
+    "nom_officiel": {
+      "type": "string"
+    },
+    "nom_officiel_en_majuscules": {
+      "type": "string"
+    },
+    "nom_du_chef_lieu": {
+      "type": "string"
+    },
+    "nom_du_chef_lieu_en_majuscules": {
+      "type": "string"
+    },
+    "nom_du_siege_de_la_collectivite_territoriale": {
+      "type": "string"
+    },
+    "nom_du_siege_de_la_collectivite_territoriale_en_majuscules": {
+      "type": "string"
+    },
+    "code_insee_de_la_collectivite_territoriale": {
+      "type": "string"
+    },
+    "code_siren": {
+      "type": "string"
+    },
+    "code_insee_de_la_commune_siege": {
+      "type": "string"
+    },
+    "geometrie": {
+      "format": "geometry-point",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

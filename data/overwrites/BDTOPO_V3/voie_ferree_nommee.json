@@ -1,9 +1,8 @@
 {
-  "id": "Transport:Voie ferrée nommée",
-  "namespace": "Transport",
-  "name": "Voie ferrée nommée",
   "title": "Voie ferrée nommée",
-  "description": "Objet complexe lié aux objets <Tronçon de voie ferrée> qui constituent un itinéraire ou une voie ferrée nommée, touristique ou non.",
+  "x-ign-theme": "Transport",
+  "description": "Objet complexe lié aux objets Tronçon de voie ferrée qui constituent un itinéraire ou une voie ferrée nommée, touristique ou non.",
+  "x-ign-selectionCriteria": "Toutes les voies ferrées touristiques sont incluses. Tous les vélo-rails sont retenus. Les LGV sont également nommées. En fonction de partenariats locaux, les lignes de transport urbains peuvent être nommées également.",
   "properties": [
     {
       "name": "cleabs",
@@ -22,12 +21,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -68,9 +87,12 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie GE MultiLigne",
-      "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE\n\ndu produit externe."
+      "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE du produit externe."
     }
+  ],
+  "required": [
+    "cleabs"
   ]
 }

@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2020",
   "name": "epci",
   "title": "ADMINEXPRESS COG 2020 EPCI",
-  "description": "ADMINEXPRESS COG 2020 EPCI",
+  "description": "ADMINEXPRESS COG 2020 EPCI ; Édition 2020-01-01",
   "properties": [
     {
       "name": "id",

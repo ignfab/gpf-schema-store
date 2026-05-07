@@ -1,8 +1,6 @@
 {
-  "id": "Adresses:Lien adresse vers BDTopo",
-  "namespace": "Adresses",
-  "name": "Lien adresse vers BDTopo",
   "title": "Lien adresse vers BDTopo",
+  "x-ign-theme": "Adresses",
   "description": "Lien entre les adresses de la BAN et leur support BD TOPO®.",
   "properties": [
     {
@@ -15,37 +13,37 @@
       "name": "identifiant_adresse",
       "type": "string",
       "title": "Identifiant adresse",
-      "description": "Identifiant unique de l'adresse dans la Base Adresse Nationale. Cet identifiant correspond à l'attribut \"uid_adresse\" du format BAL.\r\nPour le moment, cet identifiant n'est pas encore mis à disposition des utilisateurs de la BAN. Il n'est donc pas renseigné."
+      "description": "Identifiant unique de l'adresse dans la Base Adresse Nationale. Cet identifiant correspond à l'attribut \"uid_adresse\" du format BAL. Pour le moment, cet identifiant n'est pas encore mis à disposition des utilisateurs de la BAN. Il n'est donc pas renseigné."
     },
     {
       "name": "cle_d_interoperabilite",
       "type": "string",
       "title": "Clé d'interopérabilité",
-      "description": "Il s'agit de l'identifiant des adresses dans la BAN, formé par concaténation du code INSEE de la commune concernée, du code de la voie liée à l’adresse, du numéro de l’adresse et d’un éventuel indice de répétition. Ces éléments sont séparés par des tirets bas. Le code de la voie peut correspondre au code FANTOIR de la DGFiP lorsqu’il est connu. \r\nCe champ correspond à l’attribut cle_interop du format BAL. \r\n\r\nExemple : 02001_0056_00022_bis correspond à l’adresse 22 bis Rue Jean de la Fontaine (code voie 0056) sur la commune d’Abbécourt (code INSEE : 02001)."
+      "description": "Il s'agit de l'identifiant des adresses dans la BAN, formé par concaténation du code INSEE de la commune concernée, du code de la voie liée à l’adresse, du numéro de l’adresse et d’un éventuel indice de répétition. Ces éléments sont séparés par des tirets bas. Le code de la voie peut correspondre au code FANTOIR de la DGFiP lorsqu’il est connu. Ce champ correspond à l’attribut cle_interop du format BAL. Exemple : 02001_0056_00022_bis correspond à l’adresse 22 bis Rue Jean de la Fontaine (code voie 0056) sur la commune d’Abbécourt (code INSEE : 02001)."
     },
     {
       "name": "numero",
       "type": "integer",
       "title": "Numéro",
-      "description": "Numéro de l’adresse dans la voie, sans indice de répétition.\r\nLa valeur ‘99999’ est utilisée pour les adresses fictives. Il s’agit d’adresses n’existant pas dans la réalité, permettant notamment dans la BAN de créer des voies sans adresse. \r\nCe champ correspond à l'attribut \"numero\" du format BAL.\r\n\r\nExemple : 2 pour « 2 bis Rue Pasteur »."
+      "description": "Numéro de l’adresse dans la voie, sans indice de répétition. La valeur ‘99999’ est utilisée pour les adresses fictives. Il s’agit d’adresses n’existant pas dans la réalité, permettant notamment dans la BAN de créer des voies sans adresse. Ce champ correspond à l'attribut \"numero\" du format BAL. Exemple : 2 pour « 2 bis Rue Pasteur »."
     },
     {
       "name": "suffixe",
       "type": "string",
       "title": "Suffixe",
-      "description": "Mention bis, ter, quater, quinquies, sexies… ou une lettre A, B, C, D… lorsque ce caractère complète une numérotation de voirie. L’indice de répétition permet de différencier plusieurs adresses portant le même numéro dans la même rue.  \r\n\r\nCe champ correspond à l’attribut \"suffixe\" du format BAL."
+      "description": "Mention bis, ter, quater, quinquies, sexies… ou une lettre A, B, C, D… lorsque ce caractère complète une numérotation de voirie. L’indice de répétition permet de différencier plusieurs adresses portant le même numéro dans la même rue. Ce champ correspond à l’attribut \"suffixe\" du format BAL."
     },
     {
       "name": "nom_voie",
       "type": "string",
       "title": "Nom voie",
-      "description": "Nom de la voie BAN. \r\nCe champ correspond à l’attribut \"voie_nom\" du format BAL."
+      "description": "Nom de la voie BAN. Ce champ correspond à l’attribut \"voie_nom\" du format BAL."
     },
     {
       "name": "insee_commune",
       "type": "string",
       "title": "Insee commune",
-      "description": "Code INSEE officiel de la commune associée à chaque adresse.\r\nCe champ correspond à l'attribut \"commune_insee\" du format BAL."
+      "description": "Code INSEE officiel de la commune associée à chaque adresse. Ce champ correspond à l'attribut \"commune_insee\" du format BAL."
     },
     {
       "name": "nom_commune",
@@ -57,34 +55,82 @@
       "name": "type_position",
       "type": "string",
       "title": "Type position",
-      "description": "Description de la position d’une adresse.  \r\n\r\nCe champ correspond à l’attribut \"position\" du format BAL.",
-      "enum": [
-        "bâtiment",
-        "cage d'escalier",
-        "délivrance postale",
-        "entrée",
-        "inconnue",
-        "logement",
-        "parcelle",
-        "segment",
-        "service technique"
+      "description": "Description de la position d’une adresse. Ce champ correspond à l’attribut \"position\" du format BAL.",
+      "oneOf": [
+        {
+          "const": "bâtiment",
+          "title": "bâtiment",
+          "description": "Identifie un bâtiment ou une partie de bâtiment."
+        },
+        {
+          "const": "cage d'escalier",
+          "title": "cage d'escalier",
+          "description": "Identifie une cage d’escalier, en temps normal à l’intérieur d’un bâtiment."
+        },
+        {
+          "const": "délivrance postale",
+          "title": "délivrance postale",
+          "description": "Identifie un point de délivrance postale (boîte aux lettres)."
+        },
+        {
+          "const": "entrée",
+          "title": "entrée",
+          "description": "Identifie l’entrée principale d’un bâtiment ou un portail."
+        },
+        {
+          "const": "inconnue",
+          "title": "inconnue",
+          "description": "Valeur utilisée lorsque le type de positionnement associé à l’adresse n’est pas défini dans la BAN."
+        },
+        {
+          "const": "logement",
+          "title": "logement",
+          "description": "Identifie un logement ou une pièce à l’intérieur d’un bâtiment."
+        },
+        {
+          "const": "parcelle",
+          "title": "parcelle",
+          "description": "Identifie une parcelle cadastrale."
+        },
+        {
+          "const": "segment",
+          "title": "segment",
+          "description": "Position dérivée du segment de la voie de rattachement."
+        },
+        {
+          "const": "service technique",
+          "title": "service technique",
+          "description": "Identifie un point d’accès technique (ex : local disposant d’organe de coupure d’eau, électricité, gaz, etc.)."
+        }
       ]
     },
     {
       "name": "lieu_dit",
       "type": "string",
       "title": "Lieu-dit",
-      "description": "Nom du lieu-dit historique ou complémentaire associé à l’adresse BAN. \r\nCe champ correspond à l’attribut \"lieudit_complement_nom\" du format BAL."
+      "description": "Nom du lieu-dit historique ou complémentaire associé à l’adresse BAN. Ce champ correspond à l’attribut \"lieudit_complement_nom\" du format BAL."
     },
     {
       "name": "cote",
       "type": "string",
       "title": "Côté",
-      "description": "Précise si l’adresse est située à droite ou à gauche du <Tronçon de route> en fonction du sens de numérisation du tronçon, c’est-à-dire du sens géométrique dans la base de données.",
-      "enum": [
-        "Droit",
-        "Gauche",
-        "Indéterminé"
+      "description": "Précise si l’adresse est située à droite ou à gauche du Tronçon de route en fonction du sens de numérisation du tronçon, c’est-à-dire du sens géométrique dans la base de données.",
+      "oneOf": [
+        {
+          "const": "Droit",
+          "title": "Droit",
+          "description": "L'adresse est située à droite du Tronçon de route par rapport au sens de saisie."
+        },
+        {
+          "const": "Gauche",
+          "title": "Gauche",
+          "description": "L'adresse est située à gauche du Tronçon de route par rapport au sens de saisie."
+        },
+        {
+          "const": "Indéterminé",
+          "title": "Indéterminé",
+          "description": "Le côté est indéterminé si l'objet support n'est pas un tronçon de route ou si aucun lien n'a pu être établi."
+        }
       ]
     },
     {
@@ -92,14 +138,22 @@
       "type": "string",
       "title": "Type lien",
       "description": "Méthode qui a permis de détecter le support.",
-      "enum": [
-        "Géométrique",
-        "Sémantique"
+      "oneOf": [
+        {
+          "const": "Géométrique",
+          "title": "Géométrique",
+          "description": "Si la voie associée à l’adresse BAN ne possède pas de support de voie dans la BD TOPO®, le tronçon le plus proche de l’adresse est alors détecté pour générer le lien objet support. Le lien relie l'adresse BAN avec le point du tronçon le plus proche de l’adresse (selon la méthode algorithmique du « plus proche voisin »). Les liens ayant une longueur supérieure à 1000 m sont supprimés."
+        },
+        {
+          "const": "Sémantique",
+          "title": "Sémantique",
+          "description": "Lorsqu’un ou plusieurs tronçons de route sont support pour la voie associée à l’adresse BAN, le tronçon le plus proche parmi ceux-là est détecté pour générer le lien objet support. Concrètement, un lien sémantique est trouvé entre la clé d’interopérabilité de l’adresse BAN et l’identifiant voie ban gauche/droite existant dans la BD TOPO®. Le lien relie l'adresse BAN avec le point du tronçon le plus proche de l’adresse. Lorsque la voie associée à l’adresse BAN possède un support différent, faute de n’avoir pas trouvé de tronçons de route (zone d’activité ou d’intérêt, lieu-dit non habité, équipement de transport, point du réseau, lieu-dit non habité, détail orographique, détail hydrographique), le lien objet support est construit à partir de ce support de voie. Le lien relie l'adresse BAN avec le centroïde du support de voie s'il est surfacique ou sinon le support ponctuel lui-même."
+        }
       ]
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
       "description": "Géométrie permettant de matérialiser le lien établi entre une adresse BAN et un support BDTOPO®. Il s'agit d'un segment reliant l'adresse à son support."
     },
@@ -107,7 +161,7 @@
       "name": "lien_vers_objet_support",
       "type": "string",
       "title": "Lien vers objet support",
-      "description": "Identifiant BDUni (cleabs) du support géométrique BD TOPO® (tronçon de route, zone\r\nd’activité ou d’intérêt, zone d'habitation, point du réseau, lieu-dit non habité, équipement de transport, détail orographique ou détail hydrographique)."
+      "description": "Identifiant BDUni (cleabs) du support géométrique BD TOPO® (tronçon de route, zone d’activité ou d’intérêt, zone d'habitation, point du réseau, lieu-dit non habité, équipement de transport, détail orographique ou détail hydrographique)."
     },
     {
       "name": "date_creation",
@@ -121,5 +175,15 @@
       "title": "Date de modification",
       "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     }
+  ],
+  "required": [
+    "cleabs",
+    "cle_d_interoperabilite",
+    "numero",
+    "nom_voie",
+    "insee_commune",
+    "nom_commune",
+    "geometrie",
+    "lien_vers_objet_support"
   ]
 }

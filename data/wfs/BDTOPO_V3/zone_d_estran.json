@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "zone_d_estran",
   "title": "BDTOPO : Zones d'estran",
-  "description": "Zones d'estran − BDTOPO® V3 2026-03-15",
+  "description": "Zones d'estran − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

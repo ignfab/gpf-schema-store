@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2017",
   "name": "chef_lieu",
   "title": "ADMINEXPRESS COG 2017 Chef-lieu",
-  "description": "ADMINEXPRESS COG 2017 Chef-lieu",
+  "description": "ADMINEXPRESS COG 2017 Chef-lieu ; Édition 2017-01-01",
   "properties": [
     {
       "name": "id",

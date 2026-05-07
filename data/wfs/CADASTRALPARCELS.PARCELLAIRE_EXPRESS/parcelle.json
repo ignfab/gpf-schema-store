@@ -3,7 +3,7 @@
   "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
   "name": "parcelle",
   "title": "PCI Vecteur : Parcelles",
-  "description": "Parcelles",
+  "description": "Parcelles ; Édition 2025-12-01",
   "properties": [
     {
       "name": "gid",

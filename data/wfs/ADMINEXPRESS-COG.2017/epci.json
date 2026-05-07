@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2017",
   "name": "epci",
   "title": "ADMINEXPRESS COG 2017 EPCI",
-  "description": "ADMINEXPRESS COG 2017 EPCI",
+  "description": "ADMINEXPRESS COG 2017 EPCI ; Édition 2017-01-01",
   "properties": [
     {
       "name": "id",

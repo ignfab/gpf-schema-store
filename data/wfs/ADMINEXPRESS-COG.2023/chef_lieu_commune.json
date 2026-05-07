@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2023",
   "name": "chef_lieu_commune",
   "title": "ADMINEXPRESS COG 2023 Chef-lieu commune",
-  "description": "ADMINEXPRESS COG 2023 Chef-lieu commune",
+  "description": "ADMINEXPRESS COG 2023 Chef-lieu commune ; Édition 2023-01-01",
   "properties": [
     {
       "name": "id",
