@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2022:chef_lieu_commune",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2022 Chef-lieu commune",
+  "description": "ADMINEXPRESS COG 2022 Chef-lieu commune ; Édition 2022-01-01",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "id_com": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-point",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

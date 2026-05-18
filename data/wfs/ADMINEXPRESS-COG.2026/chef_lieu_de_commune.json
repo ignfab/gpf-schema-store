@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "chef_lieu_de_commune",
   "title": "ADMINEXPRESS COG 2026 Chef-lieu commune",
-  "description": "ADMINEXPRESS COG 2026 Chef-lieu de commune",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu de commune ; Édition 2026-01-01",
   "properties": [
     {
       "name": "cleabs",

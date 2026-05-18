@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "parc_ou_reserve",
   "title": "BDTOPO : Parcs et réserves",
-  "description": "Parcs et réserves − BDTOPO® V3 2026-03-15",
+  "description": "Parcs et réserves − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

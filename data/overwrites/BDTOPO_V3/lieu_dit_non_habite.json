@@ -1,8 +1,6 @@
 {
-  "id": "Lieux nommés:Lieu-dit non habité",
-  "namespace": "Lieux nommés",
-  "name": "Lieu-dit non habité",
   "title": "Lieu-dit non habité",
+  "x-ign-theme": "Lieux nommés",
   "description": "",
   "properties": [
     {
@@ -16,11 +14,41 @@
       "type": "string",
       "title": "Nature",
       "description": "Précise la nature d'un lieu-dit rural ne correspondant pas à une zone d'habitation.",
-      "enum": [
-        "Arbre",
-        "Bois",
-        "Lieu-dit non habité",
-        "Pare-feu"
+      "oneOf": [
+        {
+          "const": "Arbre",
+          "title": "Arbre",
+          "description": "Arbre remarquable ou nommé.",
+          "x-ign-representedFeatures": [
+            "Arbre isolé nommé",
+            "Arbre remarquable nommé"
+          ]
+        },
+        {
+          "const": "Bois",
+          "title": "Bois",
+          "description": "Bois ou forêt nommé.",
+          "x-ign-representedFeatures": [
+            "Bois (toponyme)",
+            "Forêt (toponyme)",
+            "Forêt domaniale (toponyme)"
+          ]
+        },
+        {
+          "const": "Lieu-dit non habité",
+          "title": "Lieu-dit non habité",
+          "description": "Lieu-dit quelconque, dont le nom est généralement attaché à des terres.",
+          "x-ign-representedFeatures": [
+            "Lieu-dit non habité (toponyme)",
+            "Plantation (toponyme)",
+            "Espace cultivé (toponyme)"
+          ]
+        },
+        {
+          "const": "Pare-feu",
+          "title": "Pare-feu",
+          "description": "Dispositif destiné à empêcher la propagation d’un incendie (généralement, ouverture pratiquée dans le massif forestier menacé)."
+        }
       ]
     },
     {
@@ -34,12 +62,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -47,13 +95,37 @@
       "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les toponymes de lieux-dits non habités en fonction de l'emprise de l'espace naturel qu'ils nomment.",
-      "enum": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
+      "oneOf": [
+        {
+          "const": "1",
+          "title": "1",
+          "description": "Non utilisé."
+        },
+        {
+          "const": "2",
+          "title": "2",
+          "description": "Non utilisé."
+        },
+        {
+          "const": "3",
+          "title": "3",
+          "description": "L'objet désigne un lieu-dit naturel d'emprise comprise entre 5 et 20 km² ou d'un bois nommé d'emprise compris entre 2 et 5 km², justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
+        },
+        {
+          "const": "4",
+          "title": "4",
+          "description": "L'objet désigne un lieu-dit naturel d'emprise comprise entre 2 et 5 km², justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
+        },
+        {
+          "const": "5",
+          "title": "5",
+          "description": "L'objet désigne un bois ou un lieu-dit naturel d'emprise comprise entre 10 et 25 ha, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
+        },
+        {
+          "const": "6",
+          "title": "6",
+          "description": "L'objet désigne un lieu-dit naturel d'emprise inférieure à 10 ha et donc la notoriété est très locale ou constitue une information redondante avec d'autres objets"
+        }
       ]
     },
     {
@@ -97,40 +169,142 @@
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "enum": [
-        "BDCarto",
-        "BDNyme",
-        "BDParcellaire",
-        "BDParcellaire recalée",
-        "BDTopo",
-        "Calcul d'enveloppe urbaine",
-        "Calculé",
-        "Fichier numérique décimétrique",
-        "Fichier numérique métrique",
-        "Fichier numérique non métrique",
-        "Géocodage",
-        "Géoroute",
-        "Image satellite",
-        "Image satellite HR",
-        "Inconnue",
-        "Levé GPS",
-        "Levé non GPS",
-        "Lidar",
-        "Lidar HD",
-        "Orthophotographie",
-        "Photogrammétrie",
-        "Plan métrique papier",
-        "Plan non métrique papier",
-        "Processus IA métrique",
-        "Processus IA non métrique",
-        "Scan25"
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "insee_commune",
@@ -140,7 +314,7 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
       "description": ""
     },
@@ -148,7 +322,7 @@
       "name": "identifiant_voie_ban",
       "type": "string",
       "title": "Identifiant voie BAN",
-      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP.\r\n\r\nExemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
+      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
     },
     {
       "name": "id_ban_odonyme",
@@ -156,5 +330,12 @@
       "title": "Id BAN Odonyme",
       "description": "Identifiant de l'odonyme de la BAN, au format uuid."
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature",
+    "importance",
+    "methode_d_acquisition_planimetrique",
+    "geometrie"
   ]
 }

@@ -1,9 +1,7 @@
 {
-  "id": "Administratif:Canton",
-  "namespace": "Administratif",
-  "name": "Canton",
   "title": "Canton",
-  "description": "Le canton est la circonscription servant de cadre à l'élection des conseils départementaux, anciennement conseils généraux, définie par la loi du 17 mai 2013. Cette loi impose un redécoupage des cantons selon des critères démographiques, et leur nombre est réduit de moitié ; chacun des nouveaux cantons élit au scrutin binominal deux élus, nécessairement de sexes différents.\r\nLa composition des nouveaux cantons est décrite dans des décrets publiés en février 2014.\r\nLes cantons ne sont plus nécessairement des subdivisions territoriales des arrondissements.\r\nDans la plupart des cas, les cantons englobent plusieurs communes. Mais les cantons ne respectent pas toujours les limites communales : ils peuvent être à cheval sur plusieurs communes ou être inclus strictement dans une commune.\r\nLes premières élections des conseils départementaux, appelées « élections départementales », anciennement « élections cantonales », se sont déroulées en mars 2015.\r\nIl n'existe plus désormais de chefs-lieux de canton mais des bureaux centralisateurs, en fonction lors des élections départementales.\r\n<i>Source Insee</i>",
+  "x-ign-theme": "Administratif",
+  "description": "Le canton est la circonscription servant de cadre à l'élection des conseils départementaux, anciennement conseils généraux, définie par la loi du 17 mai 2013. Cette loi impose un redécoupage des cantons selon des critères démographiques, et leur nombre est réduit de moitié ; chacun des nouveaux cantons élit au scrutin binominal deux élus, nécessairement de sexes différents. La composition des nouveaux cantons est décrite dans des décrets publiés en février 2014. Les cantons ne sont plus nécessairement des subdivisions territoriales des arrondissements. Dans la plupart des cas, les cantons englobent plusieurs communes. Mais les cantons ne respectent pas toujours les limites communales : ils peuvent être à cheval sur plusieurs communes ou être inclus strictement dans une commune. Les premières élections des conseils départementaux, appelées « élections départementales », anciennement « élections cantonales », se sont déroulées en mars 2015. Il n'existe plus désormais de chefs-lieux de canton mais des bureaux centralisateurs, en fonction lors des élections départementales. Source Insee",
   "properties": [
     {
       "name": "cleabs",
@@ -15,7 +13,7 @@
       "name": "nom_officiel",
       "type": "string",
       "title": "Nom officiel",
-      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule  aux premières lettres de chaque terme,  et minuscules pour les autres, toutes deux accentuées."
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées."
     },
     {
       "name": "numero_du_canton",
@@ -27,31 +25,46 @@
       "name": "code_insee",
       "type": "string",
       "title": "Code Insee du canton",
-      "description": "Il s’agit du numéro officiel attribué par l’Insee au Canton : il est composé de 4 à 5 caractères, les deux ou trois premiers correspondant au numéro de <Département>."
+      "description": "Il s’agit du numéro officiel attribué par l’Insee au Canton : il est composé de 4 à 5 caractères, les deux ou trois premiers correspondant au numéro de Département."
     },
     {
       "name": "code_insee_du_departement",
       "type": "string",
       "title": "Code Insee du département",
-      "description": "Code Insee du <Département> auquel appartient l'unité administrative concernée."
+      "description": "Code Insee du Département auquel appartient l'unité administrative concernée."
     },
     {
       "name": "code_insee_de_la_region",
       "type": "string",
       "title": "Code Insee de la région",
-      "description": "Code Insee de la <Région> à laquelle appartient l'entité administrative concernée."
+      "description": "Code Insee de la Région à laquelle appartient l'entité administrative concernée."
     },
     {
       "name": "composition_du_canton",
       "type": "string",
       "title": "Composition du canton",
       "description": "Indique que le canton est composé de communes entières ou de fractions de communes.",
-      "enum": [
-        "Commune(s) entière(s)",
-        "Fraction de commune",
-        "Fraction d'une commune et de commune(s) entière(s)",
-        "Fractions de plusieurs communes",
-        "Fractions de plusieurs communes et de commune(s) entière(s)"
+      "oneOf": [
+        {
+          "const": "Commune(s) entière(s)",
+          "title": "Commune(s) entière(s)"
+        },
+        {
+          "const": "Fraction de commune",
+          "title": "Fraction de commune"
+        },
+        {
+          "const": "Fraction d'une commune et de commune(s) entière(s)",
+          "title": "Fraction d'une commune et de commune(s) entière(s)"
+        },
+        {
+          "const": "Fractions de plusieurs communes",
+          "title": "Fractions de plusieurs communes"
+        },
+        {
+          "const": "Fractions de plusieurs communes et de commune(s) entière(s)",
+          "title": "Fractions de plusieurs communes et de commune(s) entière(s)"
+        }
       ]
     },
     {
@@ -86,9 +99,14 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie GE",
       "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "composition_du_canton",
+    "geometrie"
   ]
 }

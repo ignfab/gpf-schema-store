@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:batiment",
+  "type": "object",
+  "title": "PCI Vecteur : Bâtiments",
+  "description": "Bâtiments ; Édition 2025-12-01",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "string"
+    },
+    "code_dep": {
+      "type": "string"
+    },
+    "code_insee": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

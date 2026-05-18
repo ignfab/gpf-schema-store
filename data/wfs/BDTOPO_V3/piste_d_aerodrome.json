@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "piste_d_aerodrome",
   "title": "BDTOPO : Pistes d'aérodrome",
-  "description": "Pistes d'aérodrome − BDTOPO® V3 2026-03-15",
+  "description": "Pistes d'aérodrome − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

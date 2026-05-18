@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2018",
   "name": "commune",
   "title": "ADMINEXPRESS COG 2018 Commune",
-  "description": "ADMINEXPRESS COG 2018 Commune",
+  "description": "ADMINEXPRESS COG 2018 Commune ; Édition 2018-01-01",
   "properties": [
     {
       "name": "id",

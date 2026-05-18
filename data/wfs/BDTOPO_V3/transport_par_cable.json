@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "transport_par_cable",
   "title": "BDTOPO : Transports par câble",
-  "description": "Transports par câble − BDTOPO® V3 2026-03-15",
+  "description": "Transports par câble − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

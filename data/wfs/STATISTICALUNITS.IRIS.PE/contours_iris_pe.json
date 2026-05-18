@@ -2,8 +2,8 @@
   "id": "STATISTICALUNITS.IRIS.PE:contours_iris_pe",
   "namespace": "STATISTICALUNITS.IRIS.PE",
   "name": "contours_iris_pe",
-  "title": "CONTOURS IRIS PE",
-  "description": "Contours géométriques des IRIS de l'INSEE",
+  "title": "Contours géométriques des IRIS de l'INSEE à petite échelle",
+  "description": "Contours géométriques des IRIS de l'INSEE à petite échelle sur toute la France ; Edition : 2026-01-01",
   "properties": [
     {
       "name": "cleabs",

@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "chef_lieu_de_commune_associee_ou_deleguee",
   "title": "ADMINEXPRESS COG 2026 Chef-lieu de Commune associée ou déléguée",
-  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Commune associée ou déléguée",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Commune associée ou déléguée ; Édition 2026-01-01",
   "properties": [
     {
       "name": "cleabs",

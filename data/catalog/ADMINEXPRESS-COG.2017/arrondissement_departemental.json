@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2017:arrondissement_departemental",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2017 Arrondissement départemental",
+  "description": "ADMINEXPRESS COG 2017 Arrondissement départemental ; Édition 2017-01-01",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "insee_arr": {
+      "type": "string"
+    },
+    "insee_dep": {
+      "type": "string"
+    },
+    "insee_reg": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "troncon_de_voie_ferree",
   "title": "BDTOPO : Tronçons de voie ferrée",
-  "description": "Tronçons de voie ferrée − BDTOPO® V3 2026-03-15",
+  "description": "Tronçons de voie ferrée − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

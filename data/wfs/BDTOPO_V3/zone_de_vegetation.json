@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "zone_de_vegetation",
   "title": "BDTOPO : Zones de végétation",
-  "description": "Zones de végétation − BDTOPO® V3 2026-03-15",
+  "description": "Zones de végétation − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

@@ -3,7 +3,7 @@
   "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
   "name": "batiment",
   "title": "PCI Vecteur : Bâtiments",
-  "description": "Bâtiments",
+  "description": "Bâtiments ; Édition 2025-12-01",
   "properties": [
     {
       "name": "gid",

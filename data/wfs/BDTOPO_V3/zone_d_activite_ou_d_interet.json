@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "zone_d_activite_ou_d_interet",
   "title": "BDTOPO : Zones d'activité et zones d'intérêt",
-  "description": "Zones d'activité et zones d'intérêt − BDTOPO® V3 2026-03-15",
+  "description": "Zones d'activité et zones d'intérêt − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

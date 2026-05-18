@@ -1,8 +1,6 @@
 {
-  "id": "Transport:Point du réseau",
-  "namespace": "Transport",
-  "name": "Point du réseau",
   "title": "Point du réseau",
+  "x-ign-theme": "Transport",
   "description": "",
   "properties": [
     {
@@ -16,12 +14,40 @@
       "type": "string",
       "title": "Nature",
       "description": "Nature d'un point particulier situé sur un réseau de communication.",
-      "enum": [
-        "Autre point du réseau",
-        "Barrière",
-        "Obstacle infranchissable",
-        "Passage à niveau",
-        "Poteau de balisage de randonnée"
+      "oneOf": [
+        {
+          "const": "Autre point du réseau",
+          "title": "Autre point du réseau",
+          "description": "Autre noeud caractéristique d'un réseau de transport."
+        },
+        {
+          "const": "Barrière",
+          "title": "Barrière",
+          "description": "L’objet ‘Barrière’ matérialise un obstacle mobile empêchant la circulation des véhicules : barrière, chaîne, plots amovibles, portail.",
+          "x-ign-representedFeatures": [
+            "Plot",
+            "Portail"
+          ]
+        },
+        {
+          "const": "Obstacle infranchissable",
+          "title": "Obstacle infranchissable",
+          "description": "Obstacle infranchissable"
+        },
+        {
+          "const": "Passage à niveau",
+          "title": "Passage à niveau",
+          "description": "Passage à niveau situé à l'intersection d'un tronçon de route et d'un tronçon de voie ferrée.",
+          "x-ign-representedFeatures": [
+            "Passage à niveau avec barrière",
+            "Passage à niveau sans barrière"
+          ]
+        },
+        {
+          "const": "Poteau de balisage de randonnée",
+          "title": "Poteau de balisage de randonnée",
+          "description": "Poteau de balisage de sentier de randonnée."
+        }
       ]
     },
     {
@@ -29,9 +55,17 @@
       "type": "string",
       "title": "Nature détaillée",
       "description": "Attribut précisant la 'Nature' d'un point particulier situé sur un réseau de communication.",
-      "enum": [
-        "Barrière de douane",
-        "Gué ou radier"
+      "oneOf": [
+        {
+          "const": "Barrière de douane",
+          "title": "Barrière de douane",
+          "description": "Barrière de douane située au niveau des frontières avec la Suisse et Andorre."
+        },
+        {
+          "const": "Gué ou radier",
+          "title": "Gué ou radier",
+          "description": "Franchissement d'un cours d'eau par une route ou un chemin"
+        }
       ]
     },
     {
@@ -51,12 +85,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -64,11 +118,35 @@
       "type": "string",
       "title": "Etat de l'objet transport",
       "description": "Etat ou stade d'un objet du thème Transport qui peut être en projet, en construction, en service ou non exploité.",
-      "enum": [
-        "En construction",
-        "En projet",
-        "En service",
-        "Non exploité"
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en construction."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service."
+        },
+        {
+          "const": "Non exploité",
+          "title": "Non exploité",
+          "description": "La ligne ou l'équipement n’est plus exploité pour le transport de personnes ni de marchandises.",
+          "x-ign-representedFeatures": [
+            "Voie ferrée déclassée",
+            "Voie ferrée fermée à tout trafic ferroviaire",
+            "Voie ferrée neutralisée",
+            "Piste d'aérodrome désaffectée",
+            "Vélo-rail",
+            "Remontée mécanique désaffectée"
+          ]
+        }
       ]
     },
     {
@@ -112,69 +190,230 @@
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "enum": [
-        "BDCarto",
-        "BDNyme",
-        "BDParcellaire",
-        "BDParcellaire recalée",
-        "BDTopo",
-        "Calcul d'enveloppe urbaine",
-        "Calculé",
-        "Fichier numérique décimétrique",
-        "Fichier numérique métrique",
-        "Fichier numérique non métrique",
-        "Géocodage",
-        "Géoroute",
-        "Image satellite",
-        "Image satellite HR",
-        "Inconnue",
-        "Levé GPS",
-        "Levé non GPS",
-        "Lidar",
-        "Lidar HD",
-        "Orthophotographie",
-        "Photogrammétrie",
-        "Plan métrique papier",
-        "Plan non métrique papier",
-        "Processus IA métrique",
-        "Processus IA non métrique",
-        "Scan25"
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "methode_d_acquisition_altimetrique",
       "type": "string",
       "title": "Méthode d'acquisition altimétrique",
-      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z)  de l'objet.",
-      "enum": [
-        "BDAlti",
-        "BDTopo",
-        "Corrélation",
-        "Fichier numérique",
-        "Fichier numérique décimétrique",
-        "Interpolation bâti BDTopo",
-        "Levé GPS",
-        "Lidar",
-        "Lidar HD",
-        "Pas de Z",
-        "Photogrammétrie",
-        "Photogrammétrie longue focale",
-        "Plan coté",
-        "Radar",
-        "Z corrigé"
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDAlti",
+          "title": "BDAlti",
+          "description": "Le Z est interpolé sur un MNT issu de la BD ALTI® (ancienne BD altimétrique issue de la numérisation de cartes et de restitution photogrammétrique)."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "Le Z provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Corrélation",
+          "title": "Corrélation",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues de corrélation."
+        },
+        {
+          "const": "Fichier numérique",
+          "title": "Fichier numérique",
+          "description": "Le Z a été saisi à partir de données numériques fournies par un correspondant."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique"
+        },
+        {
+          "const": "Interpolation bâti BDTopo",
+          "title": "Interpolation bâti BDTopo",
+          "description": "Lors de l’unification avec la BD PARCELLAIRE®, le Z a été calculé à partir des valeurs existantes aux environs."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "Le Z a été saisi directement sur le terrain par lever GPS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues du processus d'acquisition par LIDAR."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Pas de Z",
+          "title": "Pas de Z",
+          "description": "L’objet est défini avec une géométrie 3D mais le Z est inconnu ou sa précision n'est pas connue/fiable."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques (restitution)."
+        },
+        {
+          "const": "Photogrammétrie longue focale",
+          "title": "Photogrammétrie longue focale",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes longue focale selon des processus photogrammétriques (restitution). La longueur de la focale a une incidence sur les pointés en Z qui sont meilleurs sur des focales courtes que sur des focales longues."
+        },
+        {
+          "const": "Plan coté",
+          "title": "Plan coté",
+          "description": "Le Z a été saisi à partir de points côtés figurant sur un plan."
+        },
+        {
+          "const": "Radar",
+          "title": "Radar",
+          "description": "Le Z provient de l’exploitation d’un MNT ou d’un MNS qui a été fait à partir d’acquisitions RADAR."
+        },
+        {
+          "const": "Z corrigé",
+          "title": "Z corrigé",
+          "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
+        }
       ]
     },
     {
       "name": "precision_altimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision altimétrique",
-      "description": "Précision altimétrique  (en mètres) de la géométrie décrivant l'objet."
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet."
     },
     {
       "name": "geometrie",
@@ -192,7 +431,7 @@
       "name": "identifiant_voie_ban",
       "type": "string",
       "title": "Identifiant voie BAN",
-      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP.\r\n\r\nExemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
+      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
     },
     {
       "name": "id_ban_odonyme",
@@ -200,5 +439,13 @@
       "title": "Id BAN Odonyme",
       "description": "Identifiant de l'odonyme de la BAN, au format uuid."
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "methode_d_acquisition_altimetrique",
+    "geometrie"
   ]
 }

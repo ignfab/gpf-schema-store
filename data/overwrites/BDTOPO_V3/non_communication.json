@@ -1,9 +1,8 @@
 {
-  "id": "Transport:Non-communication",
-  "namespace": "Transport",
-  "name": "Non-communication",
   "title": "Non-communication",
-  "description": "Nœud du réseau routier indiquant l'impossibilité d'accéder à un <Tronçon de route> ou à un enchaînement de plusieurs tronçons particuliers à partir d'un tronçon de départ donné.",
+  "x-ign-theme": "Transport",
+  "description": "Nœud du réseau routier indiquant l'impossibilité d'accéder à un Tronçon de route ou à un enchaînement de plusieurs tronçons particuliers à partir d'un tronçon de départ donné.",
+  "x-ign-selectionCriteria": "Il n'est à ce jour pas effectué de saisie exhaustive des non-communications.",
   "properties": [
     {
       "name": "cleabs",
@@ -49,9 +48,13 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
       "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "geometrie"
   ]
 }

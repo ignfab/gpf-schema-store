@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2022",
   "name": "chef_lieu_commune_associee_ou_deleguee",
   "title": "ADMINEXPRESS COG 2022 Chef-lieu Commune associée ou déléguée",
-  "description": "ADMINEXPRESS COG 2022 Chef-lieu Commune associée ou déléguée",
+  "description": "ADMINEXPRESS COG 2022 Chef-lieu Commune associée ou déléguée ; Édition 2022-01-01",
   "properties": [
     {
       "name": "id",

@@ -1,0 +1,3741 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:zone_d_activite_ou_d_interet",
+  "type": "object",
+  "title": "Zone d'activité ou d'intérêt",
+  "x-ign-theme": "Services et activités",
+  "description": "La table zone_d_activite_ou_d_interet de la BD TOPO représente les emprises surfaciques de sites ou équipements d’activité ou d’intérêt, classés par catégorie et nature, par exemple administratif, culturel, industriel, religieux, santé, enseignement ou sport.",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string",
+      "x-ogc-role": "id"
+    },
+    "categorie": {
+      "title": "Catégorie",
+      "description": "Attribut permettant de distinguer plusieurs types d'activités sans rentrer dans le détail de chaque nature",
+      "oneOf": [
+        {
+          "const": "Administratif ou militaire",
+          "title": "Administratif ou militaire",
+          "description": "Établissement, site ou terrain ayant un caractère public, administratif ou militaire."
+        },
+        {
+          "const": "Culture et loisirs",
+          "title": "Culture et loisirs",
+          "description": "Établissement ou lieu spécialement aménagé pour une activité culturelle, touristique ou de loisirs."
+        },
+        {
+          "const": "Gestion des eaux",
+          "title": "Gestion des eaux",
+          "description": "Constructions ou sites liés à l’approvisionnement, au traitement de l’eau pour différents besoins (agricole, industriel, consommation) ou à l’épuration des eaux usées avant leur rejet dans la nature."
+        },
+        {
+          "const": "Industriel et commercial",
+          "title": "Industriel et commercial",
+          "description": "Bâtiment, site ou zone à caractère industriel ou commercial."
+        },
+        {
+          "const": "Religieux",
+          "title": "Religieux",
+          "description": "Bâtiment réservé à la pratique d’une religion ou lieu de commémoration funéraire."
+        },
+        {
+          "const": "Santé",
+          "title": "Santé",
+          "description": "Établissement thermal ou de type hospitalier."
+        },
+        {
+          "const": "Science et enseignement",
+          "title": "Science et enseignement",
+          "description": "Établissement d’enseignement ou de recherche."
+        },
+        {
+          "const": "Sport",
+          "title": "Sport",
+          "description": "Établissement ou lieu spécialement aménagé pour la pratique d’activités sportives."
+        }
+      ],
+      "type": "string"
+    },
+    "nature": {
+      "title": "Nature",
+      "description": "Nature de la zone d'activité ou d'intérêt.",
+      "oneOf": [
+        {
+          "const": "Abri de montagne",
+          "title": "Abri de montagne",
+          "description": "Abri ouvert au public. Construit ou naturel, un abri est un lieu habituel et autorisé de bivouac. Il doit permettre de se protéger des conditions météorologiques dangereuses et de sécuriser le randonneur sur des longs trajets sans hébergement.",
+          "x-ign-representedFeatures": [
+            "Abri",
+            "Cabane en montagne (abri)",
+            "Bergerie ouverte au public (abri)",
+            "Chalet ouvert au public"
+          ]
+        },
+        {
+          "const": "Administration centrale de l'Etat",
+          "title": "Administration centrale de l'Etat",
+          "description": "Les administrations centrales de l’État regroupent les ministères, le Sénat, la Présidence de la République, l'Assemblée Nationale ainsi que tous les établissements publics nationaux.",
+          "x-ign-representedFeatures": [
+            "Sénat",
+            "Assemblée nationale",
+            "Ministère",
+            "Secrétariat d'État",
+            "Etablissement public national",
+            "Banque de France",
+            "Direction ministérielle"
+          ]
+        },
+        {
+          "const": "Aire d'accueil des gens du voyage",
+          "title": "Aire d'accueil des gens du voyage",
+          "description": "Espace aménagé et réservé pour l'accueil des gens du voyage."
+        },
+        {
+          "const": "Aire de détente",
+          "title": "Aire de détente",
+          "description": "Espace naturel équipé pour l’accueil du public : il comporte des tables de pique-nique, barbecue, jeux pour enfants…"
+        },
+        {
+          "const": "Aquaculture",
+          "title": "Aquaculture",
+          "description": "Site aménagé pour la culture ou l'élevage d’espèces animales marines ou de rivière.",
+          "x-ign-representedFeatures": [
+            "Bouchot",
+            "Parc à huîtres",
+            "Bassin de claires",
+            "Collecteur d’huîtres",
+            "Zone conchylicole",
+            "Zone mytilicole",
+            "Zone ostréicole",
+            "Pêcherie",
+            "Elevage piscicole",
+            "Salmoniculture"
+          ]
+        },
+        {
+          "const": "Autre équipement sportif",
+          "title": "Autre équipement sportif",
+          "description": "Cette nature est utilisée pour préciser le nom et l'emprise d'installations sportives de plein air de petite taille ou sans installations pérennes.",
+          "x-ign-representedFeatures": [
+            "Terrain de sport nommé de petite taille ou sans installation pérenne",
+            "Stade nommé de petite taille ou sans installation pérenne",
+            "Boulodrome",
+            "Terrain de pelote basque nommé"
+          ]
+        },
+        {
+          "const": "Autre établissement d'enseignement",
+          "title": "Autre établissement d'enseignement",
+          "description": "Établissement d’enseignement ne rentrant dans aucune autre catégorie.",
+          "x-ign-representedFeatures": [
+            "Centre de formation continue",
+            "Centre de formation professionnelle agricole (CFPPA)",
+            "Centre de formation d’apprentis (CFA)",
+            "Section d'enseignement général et professionnel adapté (SEGPA)",
+            "Unité de formation et de recherche",
+            "Maison familiale rurale d’éducation et d’orientation (MFREO)",
+            "Ecole de gendarmerie",
+            "Ecole de police",
+            "Centre AFPA",
+            "Centre de formation au sport (CREPS)",
+            "Etablissement public d’insertion de la défense (EPIDE)",
+            "GRETA",
+            "CNED",
+            "Conservatoire",
+            "Section spécialisée",
+            "Centre régional d'éducation spécialisée pour déficients auditifs (CRESDA)",
+            "Etablissement régional d'enseignement adapté (EREA)",
+            "Ecole de musique, danse ou arts plastiques",
+            "Crèche",
+            "Centre de loisirs",
+            "Restaurant scolaire"
+          ]
+        },
+        {
+          "const": "Autre service déconcentré de l'Etat",
+          "title": "Autre service déconcentré de l'Etat",
+          "description": "Administrations ou services assurant le relais, sur le plan local, des décisions prises par l’administration centrale. Elles assurent la gestion des services de l’État au niveau local.",
+          "x-ign-representedFeatures": [
+            "Service déconcentré de l’État à l’échelon régional",
+            "Service déconcentré de l’État à l’échelon interrégional",
+            "Service déconcentré de l’État à l’échelon départemental",
+            "Service déconcentré de l’État à l’échelon interdépartemental",
+            "Service déconcentré de l’État à l’échelon zonal",
+            "Rectorat d'académie"
+          ]
+        },
+        {
+          "const": "Baignade surveillée",
+          "title": "Baignade surveillée",
+          "description": "Poste de surveillance de plage (en bord de mer ou en eau douce) bénéficiant d’installations fixes, avec surveillance assurée par un maître-nageur qui a les moyens de prévenir rapidement les centres de secours. Ne pas confondre avec baignade aménagée, hors spécification."
+        },
+        {
+          "const": "Borne",
+          "title": "Borne",
+          "description": "Borne nommée.",
+          "x-ign-representedFeatures": [
+            "Borne milliaire nommée",
+            "Borne ou pyramide de sauveté",
+            "Borne Vauthier",
+            "Point de triangulation nommé"
+          ]
+        },
+        {
+          "const": "Borne frontière",
+          "title": "Borne frontière",
+          "description": "Borne frontière.",
+          "x-ign-representedFeatures": [
+            "Croix et poteau frontière",
+            "Point frontière"
+          ]
+        },
+        {
+          "const": "Camping",
+          "title": "Camping",
+          "description": "Terrain aménagé pour la pratique du camping.",
+          "x-ign-representedFeatures": [
+            "Caravaneige",
+            "Caravaning",
+            "Camping naturiste",
+            "Parc résidentiel de loisirs"
+          ]
+        },
+        {
+          "const": "Camp militaire non clos",
+          "title": "Camp militaire non clos",
+          "description": "Terrain militaire non entièrement clôturé dans lequel s’effectuent des exercices ou des manœuvres.",
+          "x-ign-representedFeatures": [
+            "Terrain militaire non clos",
+            "Terrain de manœuvres non clos",
+            "Champ de manœuvres",
+            "Terrain d’exercices non clos"
+          ]
+        },
+        {
+          "const": "Capitainerie",
+          "title": "Capitainerie",
+          "description": "Bâtiment regroupant les différents services pour la gestion d'un port maritime ou fluvial."
+        },
+        {
+          "const": "Carrière",
+          "title": "Carrière",
+          "description": "Lieu d’où l’on extrait à ciel ouvert des matériaux de construction (pierre, roche).",
+          "x-ign-representedFeatures": [
+            "Sablière",
+            "Ballastière",
+            "Gravière",
+            "Ardoisière",
+            "Marbrière",
+            "Marnière",
+            "Extraction industrielle de tourbe",
+            "Ancienne carrière importante"
+          ]
+        },
+        {
+          "const": "Caserne",
+          "title": "Caserne",
+          "description": "Zone en permanence réservée pour les rassemblements de troupes de toutes armes.",
+          "x-ign-representedFeatures": [
+            "Caserne de C.R.S",
+            "Caserne de gendarmes mobiles"
+          ]
+        },
+        {
+          "const": "Caserne de pompiers",
+          "title": "Caserne de pompiers",
+          "description": "Bâtiment ayant ou non un bureau ou une permanence et qui est entièrement concerné par l'activité du corps des Sapeurs-Pompiers ou d'agents de la sécurité civile.",
+          "x-ign-representedFeatures": [
+            "Centre d’incendie et de secours",
+            "Centre de secours principal",
+            "Centre de secours",
+            "Centre de première intervention",
+            "Forestiers-sapeurs",
+            "Service départemental d’incendie et de secours",
+            "Centre de secours renforcé",
+            "Centre de secours d’un aéroport",
+            "Service local d'incendie et de Secours"
+          ]
+        },
+        {
+          "const": "Centrale électrique",
+          "title": "Centrale électrique",
+          "description": "Usine ou site où est produit de l’énergie électrique.",
+          "x-ign-representedFeatures": [
+            "Centrale nucléaire",
+            "Centrale hydroélectrique",
+            "Centrale géothermique",
+            "Centrale marémotrice",
+            "Centrale thermique",
+            "Centrale photovoltaïque",
+            "Centrale solaire thermique",
+            "Centrale éolienne",
+            "Parc éolien",
+            "Ferme solaire",
+            "Ferme hydrolienne",
+            "Centralise électrique"
+          ]
+        },
+        {
+          "const": "Centre de documentation",
+          "title": "Centre de documentation",
+          "description": "Centre de documentation ou d'archives.",
+          "x-ign-representedFeatures": [
+            "Bibliothèque",
+            "Bibliothèque intercommunale",
+            "Bibliothèque départementale",
+            "Bibliothèque nationale",
+            "Médiathèque",
+            "Archives départementales",
+            "Archives nationales",
+            "Archives régionales",
+            "Archives intercommunales"
+          ]
+        },
+        {
+          "const": "Centre équestre",
+          "title": "Centre équestre",
+          "description": "Un centre équestre est un lieu où s'enseigne et se pratique l'équitation à destination du grand public. A l’exclusion des centres purement d’élevage et des centres de chevaux de \"louage\"."
+        },
+        {
+          "const": "Champ de tir",
+          "title": "Champ de tir",
+          "description": "Zone militaire où s’effectuent des tirs réels."
+        },
+        {
+          "const": "Collège",
+          "title": "Collège",
+          "description": "Établissement consacré à l’enseignement secondaire de premier cycle.",
+          "x-ign-representedFeatures": [
+            "Collège spécialisé",
+            "Collège annexe",
+            "Collège d’application"
+          ]
+        },
+        {
+          "const": "Complexe sportif couvert",
+          "title": "Complexe sportif couvert",
+          "description": "Établissement sportif couvert nommé.",
+          "x-ign-representedFeatures": [
+            "Gymnase (toponyme)",
+            "Complexe sportif évolutif couvert (COSEC)",
+            "Gymnase polyvalent (toponyme)",
+            "Trinquet",
+            "Arènes couvertes",
+            "Boulodrome couvert"
+          ]
+        },
+        {
+          "const": "Construction",
+          "title": "Construction",
+          "description": "Construction habitée ou associée à un groupe d’habitations, remarquable par sa forme ou sa fonction.",
+          "x-ign-representedFeatures": [
+            "Ancienne abbaye",
+            "Ancien couvent",
+            "Ancienne glacière",
+            "Ancien prieuré",
+            "Ancien monastère",
+            "Construction remarquable",
+            "Cadole",
+            "Beffroi",
+            "Cheminée sarrasine",
+            "Colombier",
+            "Donjon",
+            "Four à chanvre",
+            "Four à chaux",
+            "Kiosque (Réunion)",
+            "Moulin à vent",
+            "Pigeonnier",
+            "Porte de ville nommée",
+            "Télégraphe Chappe",
+            "Théâtre de plein air",
+            "Théâtre romain",
+            "Borie",
+            "Faré (Mayotte)"
+          ]
+        },
+        {
+          "const": "Culte chrétien",
+          "title": "Culte chrétien",
+          "description": "Bâtiment réservé à l’exercice du culte catholique, protestant ou orthodoxe.",
+          "x-ign-representedFeatures": [
+            "Abbatiale",
+            "Abbaye",
+            "Basilique",
+            "Cathédrale",
+            "Chapelle (toponyme)",
+            "Collégiale",
+            "Couvent",
+            "Eglise (toponyme)",
+            "Monastère",
+            "Oratoire",
+            "Prieuré",
+            "Carmel",
+            "Enclos paroissial",
+            "Eglise orthodoxe",
+            "Temple protestant",
+            "Eglise protestante",
+            "Eglise réformée",
+            "Eglise évangélique baptiste",
+            "Eglise luthérienne",
+            "Eglise pentecôtiste",
+            "Eglise anglicane",
+            "Eglise adventiste",
+            "Eglise presbytérienne",
+            "Eglise d’écosse",
+            "Chapelle mennonite",
+            "Eglise néo-apostolitique",
+            "Eglise simultanée"
+          ]
+        },
+        {
+          "const": "Culte divers",
+          "title": "Culte divers",
+          "description": "Bâtiment réservé à l’exercice d’un culte religieux autre que chrétien, musulman ou israélite.",
+          "x-ign-representedFeatures": [
+            "Temple bouddhiste",
+            "Temple hindouiste"
+          ]
+        },
+        {
+          "const": "Culte israélite",
+          "title": "Culte israélite",
+          "description": "Bâtiment réservé à l’exercice du culte israélite."
+        },
+        {
+          "const": "Culte musulman",
+          "title": "Culte musulman",
+          "description": "Bâtiment réservé à l’exercice du culte musulman."
+        },
+        {
+          "const": "Déchèterie",
+          "title": "Déchèterie",
+          "description": "Lieu destiné à la collecte ou au stockage des déchets et des objets usagés.",
+          "x-ign-representedFeatures": [
+            "Centre d'enfouissement technique (CET)",
+            "Centre de compostage",
+            "Centre de stockage des déchets",
+            "Centre d'apport volontaire",
+            "Plate-forme de compostage",
+            "Centre de traitement et de valorisation des déchets"
+          ]
+        },
+        {
+          "const": "Divers agricole",
+          "title": "Divers agricole",
+          "description": "Site de productions agricoles particulières (liste ci-après).",
+          "x-ign-representedFeatures": [
+            "Cressonnière",
+            "Pépinière",
+            "Champignonnière"
+          ]
+        },
+        {
+          "const": "Divers commercial",
+          "title": "Divers commercial",
+          "description": "Grand bâtiment ou zone d'activité à caractère commercial.",
+          "x-ign-representedFeatures": [
+            "Hypermarché",
+            "Grand magasin",
+            "Centre commercial",
+            "Zone à caractère commercial",
+            "Parc d’activités à caractère commercial",
+            "Autre commerce spécialisé",
+            "Casse automobile",
+            "Commerce réparation véhicules",
+            "Restauration"
+          ]
+        },
+        {
+          "const": "Divers industriel",
+          "title": "Divers industriel",
+          "description": "Organisme ou entreprise à caractère industriel non distingué de façon spécifique.",
+          "x-ign-representedFeatures": [
+            "Abattoir",
+            "Aire de stockage",
+            "Coopérative",
+            "Dépôt",
+            "Entrepôt",
+            "Installation de transport ou de traitement d’hydrocarbures",
+            "Poste de gaz",
+            "Raffinerie",
+            "Site de stockage",
+            "Dépôt d'hydrocarbures",
+            "Poste de pompage d'hydrocarbures",
+            "Chaufferie",
+            "Dépôt de véhicules",
+            "Centre informatique"
+          ]
+        },
+        {
+          "const": "Divers public ou administratif",
+          "title": "Divers public ou administratif",
+          "description": "Bâtiment ou zone à caractère public ou administratif, et qui n’est ni défini dans une autre 'Catégorie' ni par une autre valeur d’attribut 'Nature' des objets de la Catégorie=\"Administratif ou militaire\".",
+          "x-ign-representedFeatures": [
+            "Cité administrative",
+            "Trésorerie générale",
+            "Chambre de métiers et de l'artisanat",
+            "Chambre d'agriculture",
+            "Bourse",
+            "Chambre de commerce et d’industrie",
+            "Centre régional des œuvres universitaires et scolaires",
+            "Maison départementale des personnes handicapées",
+            "Maison de l'État",
+            "CPAM",
+            "CAF",
+            "CCAS",
+            "Centre d’information et d’orientation",
+            "Centre des finances publiques",
+            "Centre des impôts (ancienne dénomination)",
+            "Trésor public (ancienne dénomination)",
+            "Maison de justice et du droit",
+            "Mission locale",
+            "Mutualité sociale agricole",
+            "Point d’information famille",
+            "Point d’information jeunesse",
+            "Pôle emploi",
+            "Service technique municipal",
+            "URSSAF",
+            "Atelier communal",
+            "Atelier municipal",
+            "central téléphonique",
+            "Centre administratif municipal",
+            "Centre d’action sociale",
+            "Centre de prévention civile",
+            "Centre d'accueil de loisirs municipal",
+            "Centre des impôts",
+            "Chambre locale de commerce et d'industrie",
+            "Centre d'intervention routière",
+            "Centre opérationnel routier",
+            "Centre social",
+            "Centre technique municipal",
+            "Conservation des hypothèques",
+            "Foyer rural",
+            "Garage municipal",
+            "Hôtel des finances",
+            "Local pompier",
+            "Local technique municipal",
+            "Maison des associations",
+            "Maison des jeunes et de la culture",
+            "Maison du temps libre",
+            "Maison du peuple",
+            "Maison familiale",
+            "Maison rurale",
+            "Office départemental HLM",
+            "Perception",
+            "Police municipale",
+            "Poste de secours",
+            "Sécurité sociale",
+            "Salle des associations",
+            "Service municipal de proximité",
+            "Service voirie communal",
+            "Services de la voirie départementale",
+            "Subdivision DDT",
+            "Subdivision territoriale de la DDT"
+          ]
+        },
+        {
+          "const": "Ecomusée",
+          "title": "Ecomusée",
+          "description": "Espace public visant à valoriser le patrimoine matériel (outils, habitat…) et immatériel (savoir-faire, métier, élevage…) d’un territoire et d’une population.",
+          "x-ign-representedFeatures": [
+            "Ferme pédagogique",
+            "Centre d’interprétation du patrimoine local",
+            "Musée local relatif au patrimoine d'un territoire ou d'une population"
+          ]
+        },
+        {
+          "const": "Elevage",
+          "title": "Elevage",
+          "description": "Site d'élevage industriel sur la terre ferme.",
+          "x-ign-representedFeatures": [
+            "Elevage (avicole, bovin, ovin, canin...)",
+            "Elevage avicole",
+            "Elevage canin",
+            "Elevage porcin"
+          ]
+        },
+        {
+          "const": "Enceinte militaire",
+          "title": "Enceinte militaire",
+          "description": "Zone en permanence réservée pour les rassemblements de troupes de toutes les armes, soit pour des manœuvres, des exercices (camp d’instruction), soit pour des essais, des études.",
+          "x-ign-representedFeatures": [
+            "Base militaire",
+            "Camp militaire",
+            "Dépôt de matériels",
+            "Terrain permanent d’entraînement",
+            "Arsenal",
+            "Champ de manœuvres clos",
+            "Terrain d’exercices clôturé",
+            "Unité d’instruction et d'intervention de la sécurité civile"
+          ]
+        },
+        {
+          "const": "Enseignement primaire",
+          "title": "Enseignement primaire",
+          "description": "Établissement consacré au premier degré de l'enseignement (école élémentaire ou maternelle).",
+          "x-ign-representedFeatures": [
+            "Ecole primaire",
+            "Ecole maternelle",
+            "Ecole élémentaire",
+            "Ecole élémentaire d’application",
+            "Ecole de plein air",
+            "Ecole régionale du premier degré",
+            "Ecole centre de lecture",
+            "Ecole pour enfants hospitalisés à domicile",
+            "Groupe scolaire"
+          ]
+        },
+        {
+          "const": "Enseignement supérieur",
+          "title": "Enseignement supérieur",
+          "description": "Établissement non universitaire consacré à l’enseignement supérieur",
+          "x-ign-representedFeatures": [
+            "Institut",
+            "Grande École",
+            "I.U.F.M. (anciens...)",
+            "Ecoles supérieures du professorat et de l'éducation (ESPE)",
+            "Ecole d’ingénieurs",
+            "Ecole nationale vétérinaire",
+            "Ecole d’architecture",
+            "Ecole d’infirmières",
+            "Ecoles nationales",
+            "Enseignement supérieur artistique",
+            "Enseignement supérieur agricole",
+            "Collège de France",
+            "Ecole nationale supérieure des mines",
+            "Conservatoire national supérieur d’art dramatique",
+            "Conservatoire national supérieur de musique",
+            "Conservatoire national supérieur de musique et de danse",
+            "Conservatoire national"
+          ]
+        },
+        {
+          "const": "Equipement de cyclisme",
+          "title": "Equipement de cyclisme",
+          "description": "Grande enceinte, souvent entourée de gradins, de tribunes et réservée aux sports non motorisés.",
+          "x-ign-representedFeatures": [
+            "Piste de bicross",
+            "Pumptrack",
+            "Skatepark",
+            "Vélodrome"
+          ]
+        },
+        {
+          "const": "Espace public",
+          "title": "Espace public",
+          "description": "Large espace découvert urbain désigné par un toponyme où aboutissent plusieurs rues, fermé à la circulation automobile, constituant un lieu remarquable.",
+          "x-ign-representedFeatures": [
+            "Arboretum",
+            "Cour",
+            "Esplanade",
+            "Jardin",
+            "Jardin botanique",
+            "Jardins familiaux",
+            "Mail",
+            "Parc",
+            "Parc communal",
+            "Parc départemental",
+            "Parc intercommunal interdépartemental",
+            "Parvis",
+            "Place",
+            "Promenade",
+            "Square",
+            "Terrasse"
+          ]
+        },
+        {
+          "const": "Etablissement extraterritorial",
+          "title": "Etablissement extraterritorial",
+          "description": "Établissement accueillant des organisations internationales sur le territoire français. Par extension, les ambassades et consulats seront saisis dans cette 'Nature'.",
+          "x-ign-representedFeatures": [
+            "Conseil de l’Europe à Strasbourg",
+            "UNESCO",
+            "Comité international de Croix-Rouge",
+            "Ordre de Malte",
+            "Pavillon de Breteuil à Saint-Cloud",
+            "Ambassade",
+            "Consulat",
+            "Parlement européen",
+            "Représentation permanente auprès du conseil de l’Europe",
+            "Institution européenne",
+            "Institution internationale"
+          ]
+        },
+        {
+          "const": "Etablissement hospitalier",
+          "title": "Etablissement hospitalier",
+          "description": "Autres établissements relevant de la loi hospitalière.",
+          "x-ign-representedFeatures": [
+            "Sanatorium",
+            "Etablissement de convalescence ou de repos",
+            "Etablissement de réadaptation fonctionnelle",
+            "Maison de santé pour maladies mentales (MSMM)",
+            "Foyer d’accueil médicalisé (FAM)",
+            "Groupement de coopération sanitaire",
+            "Centre médical",
+            "Protection maternelle et infantile",
+            "Centre médico-social",
+            "Maison ou pôle de santé"
+          ]
+        },
+        {
+          "const": "Etablissement pénitentiaire",
+          "title": "Etablissement pénitentiaire",
+          "description": "Établissement clos aménagé pour recevoir des délinquants condamnés à une peine privative de liberté ou des détenus en instance de jugement.",
+          "x-ign-representedFeatures": [
+            "Maison d’arrêt",
+            "Prison",
+            "Maison centrale",
+            "Centre de détention",
+            "Centre pénitentiaire",
+            "Centre pénitentiaire pour mineurs",
+            "Centre de semi-liberté"
+          ]
+        },
+        {
+          "const": "Etablissement thermal",
+          "title": "Etablissement thermal",
+          "description": "Etablissement où l’on utilise les eaux médicinales à des fins thérapeutiques."
+        },
+        {
+          "const": "Gendarmerie",
+          "title": "Gendarmerie",
+          "description": "Caserne où les gendarmes sont logés; bureaux où ils remplissent leurs fonctions administratives.",
+          "x-ign-representedFeatures": [
+            "Brigade d’autoroute",
+            "Brigade départementale de renseignements et d'investigations judiciaires",
+            "Brigade de recherches",
+            "Brigade de surveillance et d’intervention",
+            "Brigade motorisée",
+            "Brigade rapide d’intervention",
+            "Brigade territoriale autonome",
+            "Brigade territoriale de proximité",
+            "Escadron départemental de la sécurité routière",
+            "Gendarmerie d’autoroute",
+            "Gendarmerie mobile",
+            "Gendarmerie nationale",
+            "Peloton d’autoroute",
+            "Peloton de haute montagne",
+            "Peloton de surveillance et d’intervention de gendarmerie",
+            "Gendarmerie fluviale",
+            "Gendarmerie maritime",
+            "Gendarmerie aérienne",
+            "Gendarmerie de montagne",
+            "Gendarmerie nautique",
+            "Groupement d'hélicoptères de la sécurité civile"
+          ]
+        },
+        {
+          "const": "Golf",
+          "title": "Golf",
+          "description": "Terrain ouvert au public et consacré à la pratique du golf.",
+          "x-ign-representedFeatures": [
+            "Mini-golf",
+            "Practice"
+          ]
+        },
+        {
+          "const": "Habitation troglodytique",
+          "title": "Habitation troglodytique",
+          "description": "Excavation naturelle ou creusée dans le roc (caverne, grotte), habitée ou anciennement habitée."
+        },
+        {
+          "const": "Haras",
+          "title": "Haras",
+          "description": "Lieu ou établissement destiné à la reproduction de l’espèce chevaline, à l’amélioration des races de chevaux par la sélection des étalons."
+        },
+        {
+          "const": "Hébergement de loisirs",
+          "title": "Hébergement de loisirs",
+          "description": "Hébergement ou ensemble d'hébergements collectifs en dur non isolé destiné à accueillir des personnes lors de leurs activités touristiques ou de loisirs.",
+          "x-ign-representedFeatures": [
+            "Auberge de jeunesse",
+            "Gîte d'étape",
+            "Gîte équestre",
+            "Relais équestre",
+            "Village de vacances",
+            "Colonie de vacances",
+            "Centre de vacances"
+          ]
+        },
+        {
+          "const": "Hippodrome",
+          "title": "Hippodrome",
+          "description": "Lieu ouvert au public et consacré aux courses de chevaux."
+        },
+        {
+          "const": "Hôpital",
+          "title": "Hôpital",
+          "description": "Établissement public ou privé, où sont effectués tous les soins médicaux et chirurgicaux, ainsi que les accouchements.",
+          "x-ign-representedFeatures": [
+            "Centre de lutte contre le cancer",
+            "Centre hospitalier",
+            "Centre hospitalier régional",
+            "Centre hospitalier spécialisé pour la lutte des maladies mentales",
+            "Hôpital psychiatrique",
+            "Clinique",
+            "Etablissement de soins de longue durée",
+            "Etablissement de soins de courte durée",
+            "Hôpital local",
+            "Hôpital militaire",
+            "Hôpital spécialisé"
+          ]
+        },
+        {
+          "const": "Hôtel de collectivité",
+          "title": "Hôtel de collectivité",
+          "description": "Bâtiment où siège la collectivité territoriale à statut particulier."
+        },
+        {
+          "const": "Hôtel de département",
+          "title": "Hôtel de département",
+          "description": "Bâtiment où siège le conseil départemental."
+        },
+        {
+          "const": "Hôtel de région",
+          "title": "Hôtel de région",
+          "description": "Bâtiment où siège le conseil régional"
+        },
+        {
+          "const": "Lycée",
+          "title": "Lycée",
+          "description": "Lycée, établissement consacré à l’enseignement secondaire de deuxième cycle.",
+          "x-ign-representedFeatures": [
+            "Lycée général",
+            "Lycée technologique",
+            "Lycée général et technologique",
+            "Lycée polyvalent",
+            "Lycée agricole",
+            "Lycée professionnel",
+            "Lycée d'altitude",
+            "Cité scolaire"
+          ]
+        },
+        {
+          "const": "Mairie",
+          "title": "Mairie",
+          "description": "Bâtiment, ou groupe de bâtiments proches, où se trouvent le bureau du maire, les services de l’administration municipale et où siège normalement le conseil municipal.",
+          "x-ign-representedFeatures": [
+            "Mairie annexe",
+            "Hôtel de ville",
+            "Mairie de proximité",
+            "Mairie de quartier",
+            "Mairie de commune associée ou déléguée",
+            "Mairie d'arrondissement"
+          ]
+        },
+        {
+          "const": "Maison de retraite",
+          "title": "Maison de retraite",
+          "description": "Établissement d'hébergement pour personnes âgées, généralement médicalisé.",
+          "x-ign-representedFeatures": [
+            "EHPAD",
+            "EHPA"
+          ]
+        },
+        {
+          "const": "Maison du parc",
+          "title": "Maison du parc",
+          "description": "Bâtiment ouvert au public et géré par un parc national, un parc naturel, une réserve naturelle, un grand site naturel...",
+          "x-ign-representedFeatures": [
+            "Maison du parc national",
+            "Maison de la réserve naturelle",
+            "Maison du parc naturel régional",
+            "Maison du parc marin",
+            "Maison de grand site",
+            "Maison de site"
+          ]
+        },
+        {
+          "const": "Maison forestière",
+          "title": "Maison forestière",
+          "description": "Maison gérée par l’Office National des Forêts, destinée à accueillir un ou plusieurs gardes forestiers."
+        },
+        {
+          "const": "Marais salant",
+          "title": "Marais salant",
+          "description": "Zone constituée de bassins creusés à proximité des côtes pour extraire le sel de l’eau de mer par évaporation."
+        },
+        {
+          "const": "Marché",
+          "title": "Marché",
+          "description": "Tout ensemble construit dont la finalité est la commercialisation de gros ou de détail de denrées alimentaires.",
+          "x-ign-representedFeatures": [
+            "Marché couvert",
+            "Marché d’intérêt national",
+            "Marché d’intérêt régional",
+            "Halle",
+            "Foire",
+            "Zone d’exposition à caractère permanent",
+            "Criée couverte"
+          ]
+        },
+        {
+          "const": "Mégalithe",
+          "title": "Mégalithe",
+          "description": "Monument lié au mégalithisme et constitué d’une ou plusieurs pierres de grandes dimensions, érigées par les hommes, sans l’aide de mortier ou de ciment pour fixer la structure.",
+          "x-ign-representedFeatures": [
+            "Allée couverte mégalithique",
+            "Allée sépulcrale",
+            "Dolmen",
+            "Dolmen à couloir",
+            "Menhir",
+            "Cromlech",
+            "Tumulus",
+            "Tertre",
+            "Cairn",
+            "Statue-menhir",
+            "Harrespil"
+          ]
+        },
+        {
+          "const": "Mine",
+          "title": "Mine",
+          "description": "Lieu d’extraction de minerai.",
+          "x-ign-representedFeatures": [
+            "Mine de houille",
+            "Mine de Lignite",
+            "Crassier",
+            "Entrée de mine",
+            "Ancienne mine"
+          ]
+        },
+        {
+          "const": "Monument",
+          "title": "Monument",
+          "description": "Monument commémoratif sans caractère religieux particulier.",
+          "x-ign-representedFeatures": [
+            "Arc de triomphe nommé",
+            "Cénotaphe",
+            "Croix de Lorraine",
+            "Mémorial",
+            "Statue d’ordre non religieux",
+            "Stèle",
+            "Stèle gauloise",
+            "Stèle celtique",
+            "Monument aux morts",
+            "Calvaire d’enclos paroissial"
+          ]
+        },
+        {
+          "const": "Musée",
+          "title": "Musée",
+          "description": "Établissement ouvert au public exposant une grande collection d'objets, de documents, etc., généralement relatifs aux arts et aux sciences et pouvant servir à leur histoire.",
+          "x-ign-representedFeatures": [
+            "Musée national",
+            "Musée archéologique",
+            "Musée local non relatif au patrimoine d’un territoire ou d’une population",
+            "Apothicairerie",
+            "Maison natale"
+          ]
+        },
+        {
+          "const": "Office de tourisme",
+          "title": "Office de tourisme",
+          "description": "Office de tourisme ou point d’information touristique qui peut être saisonnier et qui comporte un accueil au public.",
+          "x-ign-representedFeatures": [
+            "Point d’information touristique saisonnier ou non",
+            "Syndicat d’initiative (obsolète)",
+            "Bureau d’information touristique"
+          ]
+        },
+        {
+          "const": "Ouvrage militaire",
+          "title": "Ouvrage militaire",
+          "description": "Ouvrages et installations militaires, ancien ouvrage militaire.",
+          "x-ign-representedFeatures": [
+            "Ancien abri militaire",
+            "Batterie",
+            "Blockhaus",
+            "Casemate",
+            "Citadelle",
+            "Corps de garde",
+            "Fort",
+            "Groupe fortifié",
+            "Ouvrage fortifié",
+            "Redoute, redan",
+            "Tranchée nommée"
+          ]
+        },
+        {
+          "const": "Palais de justice",
+          "title": "Palais de justice",
+          "description": "Bâtiment où l’on rend la justice pénale ou civile.",
+          "x-ign-representedFeatures": [
+            "Conseil de prud’hommes",
+            "Juge de proximité",
+            "Tribunal",
+            "Tribunal judiciaire",
+            "Cour criminelle départementale",
+            "Tribunal de proximité",
+            "Tribunal d’instance (ancienne dénomination)",
+            "Tribunal de grande instance (ancienne dénomination)",
+            "Tribunal de commerce",
+            "Tribunal correctionnel",
+            "Tribunal administratif",
+            "Tribunal de police",
+            "Tribunal pour enfants",
+            "Cour d'appel"
+          ]
+        },
+        {
+          "const": "Parc de loisirs",
+          "title": "Parc de loisirs",
+          "description": "Parc spécialement aménagé pour les loisirs.",
+          "x-ign-representedFeatures": [
+            "Accro-branches",
+            "Base de loisirs",
+            "Base nautique",
+            "Centre de loisirs de plein air",
+            "Centre permanent de jeux",
+            "Parc d’attractions",
+            "Parc de détente",
+            "Parc de loisirs aquatique"
+          ]
+        },
+        {
+          "const": "Parc des expositions",
+          "title": "Parc des expositions",
+          "description": "Parc d'exposition à vocation commerciale ou culturelle."
+        },
+        {
+          "const": "Parc zoologique",
+          "title": "Parc zoologique",
+          "description": "Parc ouvert au public, où il est possible de voir des animaux sauvages vivant en captivité ou en semi-liberté.",
+          "x-ign-representedFeatures": [
+            "Aquarium",
+            "Parc animalier",
+            "Zoo"
+          ]
+        },
+        {
+          "const": "Patinoire",
+          "title": "Patinoire",
+          "description": "Patinoire ouverte au public, couverte ou découverte. Elle peut être saisonnière mais ses installations doivent être pérennes.",
+          "x-ign-representedFeatures": [
+            "Patinoire couverte",
+            "Patinoire découverte pérenne"
+          ]
+        },
+        {
+          "const": "Piscine",
+          "title": "Piscine",
+          "description": "Bassin de natation ouvert au public, et ensemble des installations qui l'entourent.",
+          "x-ign-representedFeatures": [
+            "Piscine couverte",
+            "Piscine découverte",
+            "Centre aquatique",
+            "Complexe aquatique",
+            "Centre nautique couvert"
+          ]
+        },
+        {
+          "const": "Point de vue",
+          "title": "Point de vue",
+          "description": "Endroit d’où l’on jouit d’une vue pittoresque sur le paysage ou un milieu naturel préservé.",
+          "x-ign-representedFeatures": [
+            "Table d'orientation",
+            "Belvédère",
+            "Observatoire ornithologique",
+            "Panorama aménagé"
+          ]
+        },
+        {
+          "const": "Police",
+          "title": "Police",
+          "description": "Établissement occupé par un commissaire de police (officier de police judiciaire chargé de faire observer les règlements de police et de veiller au maintien de la paix publique).",
+          "x-ign-representedFeatures": [
+            "Hôtel de police nationale",
+            "Commissariat",
+            "Commissariat central",
+            "C.R.S. d’autoroute, de port ou d’aéroport",
+            "Police d'autoroute",
+            "Police municipale"
+          ]
+        },
+        {
+          "const": "Poste",
+          "title": "Poste",
+          "description": "Bureau de poste ouvert au public.",
+          "x-ign-representedFeatures": [
+            "Bureau de poste",
+            "Hôtel des postes",
+            "Agence postale communale"
+          ]
+        },
+        {
+          "const": "Préfecture",
+          "title": "Préfecture",
+          "description": "Établissement qui abrite l'ensemble des services de l'administration préfectorale.",
+          "x-ign-representedFeatures": [
+            "Préfecture de département",
+            "Préfecture de département annexe",
+            "Préfecture maritime",
+            "Préfecture de police"
+          ]
+        },
+        {
+          "const": "Préfecture de région",
+          "title": "Préfecture de région",
+          "description": "Établissement qui abrite le siège de l’administration civile de la région."
+        },
+        {
+          "const": "Refuge",
+          "title": "Refuge",
+          "description": "Construction localisée en zone montagneuse, accessible au public, et qui doit toujours offrir un abri ouvert pour permettre aux randonneurs ou alpinistes de passer la nuit à l'abri.",
+          "x-ign-representedFeatures": [
+            "Refuge non gardé",
+            "Refuge d’hiver",
+            "Refuge-bivouac",
+            "Refuge de montagne gardé",
+            "Chalet-refuge",
+            "Gîte d'alpage",
+            "Hôtel de montagne"
+          ]
+        },
+        {
+          "const": "Résidence autonomie",
+          "title": "Résidence autonomie",
+          "description": "Logements pour les personnes âgées autonomes ou relativement autonomes."
+        },
+        {
+          "const": "Salle de danse ou de jeux",
+          "title": "Salle de danse ou de jeux",
+          "description": "Établissements spécialement aménagés pour la danse ou les jeux. Établissements spécialement aménagés pour la danse ou les jeux.",
+          "x-ign-representedFeatures": [
+            "Casino",
+            "Bowling",
+            "Discothèque",
+            "Salle de jeux"
+          ]
+        },
+        {
+          "const": "Salle de spectacle ou conférence",
+          "title": "Salle de spectacle ou conférence",
+          "description": "Salle à usage d'audition, de réunions, de spectacles ou à usages multiples.",
+          "x-ign-representedFeatures": [
+            "Salle de spectacle",
+            "Salle polyvalente",
+            "Théâtre",
+            "Théâtre national",
+            "Centre dramatique régional",
+            "Centre dramatique national",
+            "Cinéma",
+            "Cirque",
+            "Opéra",
+            "Maison des associations",
+            "Centre culturel",
+            "Maison de quartier"
+          ]
+        },
+        {
+          "const": "Science",
+          "title": "Science",
+          "description": "Établissement scientifique ou technique nommé.",
+          "x-ign-representedFeatures": [
+            "Centre de recherche",
+            "Laboratoire national",
+            "Observatoire",
+            "Station scientifique",
+            "Institut national de recherches",
+            "Centre national d’études spatiales (CNES)",
+            "Centre national de la recherche scientifique (CNRS)",
+            "Technopole",
+            "Marégraphe"
+          ]
+        },
+        {
+          "const": "Sentier de découverte",
+          "title": "Sentier de découverte",
+          "description": "Sentier de découverte non décrit par un itinéraire, représenté ponctuellement. Un sentier de découverte est un itinéraire généralement court, équipé de panneaux d'informations pour permettre aux usagers de connaître et surtout décrypter les milieux qu'ils traversent en l'empruntant, en donnant les clés scientifiques, historiques, culturelles voire politiques pour comprendre l'aspect des lieux.",
+          "x-ign-representedFeatures": [
+            "Sentier botanique",
+            "Sentier écologique",
+            "Sentier entomologique"
+          ]
+        },
+        {
+          "const": "Siège d'EPCI",
+          "title": "Siège d'EPCI",
+          "description": "Siège d'intercommunalité."
+        },
+        {
+          "const": "Site d'escalade",
+          "title": "Site d'escalade",
+          "description": "Site naturel d’escalade équipé.",
+          "x-ign-representedFeatures": [
+            "Ecole d’escalade",
+            "Rocher d’escalade",
+            "Echelle sur les sentiers de montagne d’escalade",
+            "Via ferrata",
+            "Site de bloc",
+            "Site de falaise"
+          ]
+        },
+        {
+          "const": "Site de vol libre",
+          "title": "Site de vol libre",
+          "description": "Site de vol libre répertorié à la Fédération Française de Vol Libre.",
+          "x-ign-representedFeatures": [
+            "Deltaplane",
+            "Parapente",
+            "Parachutisme",
+            "Aire d'atterrissage",
+            "Aire de décollage",
+            "Pente école",
+            "Plate-forme de treuil"
+          ]
+        },
+        {
+          "const": "Site skiable",
+          "title": "Site skiable",
+          "description": "Site dédié au ski.",
+          "x-ign-representedFeatures": [
+            "Piste de ski",
+            "Départ de ski de fond"
+          ]
+        },
+        {
+          "const": "Sous-préfecture",
+          "title": "Sous-préfecture",
+          "description": "Établissement qui abrite les services administratifs du sous-préfet et accueil au public."
+        },
+        {
+          "const": "Sports en eaux vives",
+          "title": "Sports en eaux vives",
+          "description": "Centre, école, club, base fixe et infrastructure conséquente où peuvent se pratiquer certains sports en eaux vives.",
+          "x-ign-representedFeatures": [
+            "Canoë-kayak",
+            "Hydrospeed",
+            "Rafting"
+          ]
+        },
+        {
+          "const": "Sports mécaniques",
+          "title": "Sports mécaniques",
+          "description": "Grande enceinte, le plus souvent entourée de gradins, de tribunes et réservée aux sports mécaniques.",
+          "x-ign-representedFeatures": [
+            "Circuit de karting",
+            "Circuit divers",
+            "Circuit auto-moto (toponyme)",
+            "Circuit automobile (toponyme)",
+            "Circuit de moto-cross de notoriété nationale ou régionale (toponyme)",
+            "Circuit divers (toponyme)"
+          ]
+        },
+        {
+          "const": "Sports nautiques",
+          "title": "Sports nautiques",
+          "description": "Centre, école, club, base fixe et infrastructure conséquente où peuvent se pratiquer certains sports nautiques.",
+          "x-ign-representedFeatures": [
+            "Char à voile",
+            "Planche à voile",
+            "Plongée sous-marine",
+            "Ski nautique",
+            "Surf",
+            "Voile"
+          ]
+        },
+        {
+          "const": "Stade",
+          "title": "Stade",
+          "description": "Grande enceinte découverte, terrain aménagé pour la pratique des sports, comportant généralement une tribune.",
+          "x-ign-representedFeatures": [
+            "Stade avec tribune",
+            "Complexe sportif non couvert avec tribune",
+            "Arènes"
+          ]
+        },
+        {
+          "const": "Stand de tir",
+          "title": "Stand de tir",
+          "description": "Enceinte d'un stand de tir de plein air."
+        },
+        {
+          "const": "Station de pompage",
+          "title": "Station de pompage",
+          "description": "Site incluant au moins une construction de plus de 20 m² abritant une installation de captage ou de pompage des eaux, petite installation comprenant une pompe destinée à pomper l’eau du sous-sol, d’une rivière.",
+          "x-ign-representedFeatures": [
+            "Captage",
+            "Pompage important pour besoins agricoles ou industriels",
+            "Pompage pour production en eau potable",
+            "Usine élévatrice",
+            "Petite station de pompage",
+            "Prise d’eau",
+            "Pompage agricole"
+          ]
+        },
+        {
+          "const": "Station d'épuration",
+          "title": "Station d'épuration",
+          "description": "Établissement comprenant des installations destinées à épurer des eaux usées avant leur rejet dans la nature (stations d’épuration, de lagunage).",
+          "x-ign-representedFeatures": [
+            "Station d’épuration",
+            "Station de lagunage",
+            "Station d’épuration par filtre à roseaux",
+            "Station d’épuration par filtre à sable"
+          ]
+        },
+        {
+          "const": "Structure d'accueil pour personnes handicapées",
+          "title": "Structure d'accueil pour personnes handicapées",
+          "description": "Établissement de formation ou d'accompagnement pour personnes en situation de handicap.",
+          "x-ign-representedFeatures": [
+            "Etablissement et service d’aide par le travail (ESAT)",
+            "Institut médico-éducatif (IME)",
+            "Institut thérapeutique éducatif et pédagogique (ITEP)",
+            "Etablissement pour enfants ou adolescents polyhandicapés",
+            "Etablissement pour déficient moteur",
+            "Institut pour déficients sensoriels"
+          ]
+        },
+        {
+          "const": "Surveillance maritime",
+          "title": "Surveillance maritime",
+          "description": "Établissement dévoué à la surveillance du littoral",
+          "x-ign-representedFeatures": [
+            "Sémaphore",
+            "Centre régional opérationnel de surveillance et de sauvetage (CROSS)"
+          ]
+        },
+        {
+          "const": "Tombeau",
+          "title": "Tombeau",
+          "description": "Lieu de sépulture ou de recueillement nommé, à l'exclusion des cimetières.",
+          "x-ign-representedFeatures": [
+            "Tombe",
+            "Mausolée",
+            "Cimetière animalier",
+            "Tombe isolée",
+            "Chapelle funéraire remarquable",
+            "Jardin du souvenir",
+            "Lanterne des morts",
+            "Ossuaire",
+            "Crématorium",
+            "Tombe de guerre du Commonwealth"
+          ]
+        },
+        {
+          "const": "Université",
+          "title": "Université",
+          "description": "Établissement consacré à l’enseignement supérieur.",
+          "x-ign-representedFeatures": [
+            "Centre universitaire",
+            "Centre régional associé au CNAM",
+            "Ecole normale supérieure",
+            "Etablissement d'enseignement universitaire",
+            "Faculté",
+            "Institut universitaire professionnalisé (IUP)",
+            "Institut universitaire de technologie (IUT)",
+            "Unité de formation et de recherche (UFR)",
+            "Institut national polytechnique",
+            "Pôle universitaire européen"
+          ]
+        },
+        {
+          "const": "Usine",
+          "title": "Usine",
+          "description": "Établissement, site ou zone prédominés par une activité industrielle liée à la fabrication d’objets ou de produits, à la transformation ou conservation de matières premières.",
+          "x-ign-representedFeatures": [
+            "Aciérie",
+            "Atelier",
+            "Cimenterie",
+            "Distillerie",
+            "Fabrique",
+            "Fonderie",
+            "Fromagerie",
+            "Laiterie",
+            "Manufacture",
+            "Mine (avec infrastructure bâtie)",
+            "Minoterie",
+            "Papeterie",
+            "Scierie",
+            "Sucrerie",
+            "Tuilerie",
+            "Usine d'embouteillage",
+            "Imprimerie",
+            "Menuiserie"
+          ]
+        },
+        {
+          "const": "Usine de production d'eau potable",
+          "title": "Usine de production d'eau potable",
+          "description": "Établissement comprenant des installations destinées à rendre l’eau propre à la consommation.",
+          "x-ign-representedFeatures": [
+            "Usine de traitement des eaux afin de la rendre potable",
+            "Usine de production d’eau potable."
+          ]
+        },
+        {
+          "const": "Vestige archéologique",
+          "title": "Vestige archéologique",
+          "description": "Vestiges archéologiques",
+          "x-ign-representedFeatures": [
+            "Fouilles archéologiques",
+            "Vestiges archéologiques",
+            "Polissoir",
+            "Camp romain",
+            "Site gallo-romain",
+            "Site préhistorique",
+            "Ruines romaines ou gallo-romaines",
+            "Pont romain",
+            "Pont génois",
+            "Théâtre et amphithéâtre romain",
+            "Oppidum",
+            "Motte castrale",
+            "Motte féodale",
+            "Hypogée"
+          ]
+        },
+        {
+          "const": "Zone industrielle",
+          "title": "Zone industrielle",
+          "description": "Regroupement d'activités de production de biens ou services sur l’initiative des collectivités locales ou d'organismes parapublics (chambres de commerce et d'industrie).",
+          "x-ign-representedFeatures": [
+            "Zone artisanale",
+            "Parc d’activités tertiaires",
+            "Zone d’activités",
+            "Parc d’activités",
+            "Parc technologique",
+            "Zone logistique"
+          ]
+        }
+      ],
+      "type": "string"
+    },
+    "nature_detaillee": {
+      "title": "Nature détaillée",
+      "description": "Cet attribut précise la 'Nature' de la . Si aucune précision n'est connue, le champ reste vide.",
+      "oneOf": [
+        {
+          "const": "Abattoir",
+          "title": "Abattoir",
+          "description": "Abattoir"
+        },
+        {
+          "const": "Abbatiale",
+          "title": "Abbatiale",
+          "description": "Eglise d’une abbaye ou d’un monastère."
+        },
+        {
+          "const": "Abbaye",
+          "title": "Abbaye",
+          "description": "Monastère ou couvent catholique placé sous la direction d'un abbé ou abbesse."
+        },
+        {
+          "const": "Aciérie",
+          "title": "Aciérie",
+          "description": "Aciérie"
+        },
+        {
+          "const": "Agence France travail",
+          "title": "Agence France travail",
+          "description": "Établissement public à caractère administratif, chargé de l'emploi en France."
+        },
+        {
+          "const": "Agence postale",
+          "title": "Agence postale",
+          "description": "Agence postale"
+        },
+        {
+          "const": "Aire d'atterrissage",
+          "title": "Aire d'atterrissage",
+          "description": "Site d'atterrissage répertorié à la Fédération Française de Vol Libre."
+        },
+        {
+          "const": "Aire de bivouac",
+          "title": "Aire de bivouac",
+          "description": "Une aire de bivouac est une zone où il est autorisé de camper pour la nuit, en général dépourvue d'installation."
+        },
+        {
+          "const": "Aire de décollage",
+          "title": "Aire de décollage",
+          "description": "Site de décollage répertorié à la Fédération Française de Vol Libre."
+        },
+        {
+          "const": "Aire de stockage",
+          "title": "Aire de stockage",
+          "description": "Aire de stockage"
+        },
+        {
+          "const": "Aire naturelle",
+          "title": "Aire naturelle",
+          "description": "Aire naturelle de camping"
+        },
+        {
+          "const": "Allée couverte",
+          "title": "Allée couverte",
+          "description": "Construction mégalithique en forme de couloir, constituée de dalles de couverture et servant de sépulture collective",
+          "x-ign-representedFeatures": [
+            "Allée couverte mégalithique",
+            "Allée sépulcrale"
+          ]
+        },
+        {
+          "const": "Ambassade",
+          "title": "Ambassade",
+          "description": "Bâtiment ou ensemble de bâtiments abritant la représentation diplomatique d'un état auprès d'un autre."
+        },
+        {
+          "const": "Ancien abri militaire",
+          "title": "Ancien abri militaire",
+          "description": "Ancien abri militaire"
+        },
+        {
+          "const": "Ancien couvent",
+          "title": "Ancien couvent",
+          "description": "Ancien couvent"
+        },
+        {
+          "const": "Ancien monastère",
+          "title": "Ancien monastère",
+          "description": "Ancien monastère"
+        },
+        {
+          "const": "Ancienne abbaye",
+          "title": "Ancienne abbaye",
+          "description": "Ancienne abbaye"
+        },
+        {
+          "const": "Ancienne carrière",
+          "title": "Ancienne carrière",
+          "description": "Ancienne carrière non nommée"
+        },
+        {
+          "const": "Ancienne glacière",
+          "title": "Ancienne glacière",
+          "description": "Ancienne glacière"
+        },
+        {
+          "const": "Ancienne mine",
+          "title": "Ancienne mine",
+          "description": "Ancienne mine"
+        },
+        {
+          "const": "Ancien prieuré",
+          "title": "Ancien prieuré",
+          "description": "Ancien prieuré"
+        },
+        {
+          "const": "Aquarium",
+          "title": "Aquarium",
+          "description": "Aquarium"
+        },
+        {
+          "const": "Arboretum",
+          "title": "Arboretum",
+          "description": "Arboretum"
+        },
+        {
+          "const": "Archives départementales",
+          "title": "Archives départementales",
+          "description": "Archives départementales"
+        },
+        {
+          "const": "Archives nationales",
+          "title": "Archives nationales",
+          "description": "Archives nationales"
+        },
+        {
+          "const": "Archives régionales",
+          "title": "Archives régionales",
+          "description": "Archives régionales"
+        },
+        {
+          "const": "Ardoisière",
+          "title": "Ardoisière",
+          "description": "Ardoisière"
+        },
+        {
+          "const": "Arènes",
+          "title": "Arènes",
+          "description": "Terrain entouré de gradins, à l'origine dévolu à des activités sportives traditionnelles, aujourd'hui parfois simplement utilisé pour des manifestations culturelles."
+        },
+        {
+          "const": "Arènes couvertes",
+          "title": "Arènes couvertes",
+          "description": "Terrain couvert entouré de gradins, à l'origine dévolu à des activités sportives traditionnelles, aujourd'hui parfois simplement utilisé pour des manifestations culturelles."
+        },
+        {
+          "const": "Arsenal",
+          "title": "Arsenal",
+          "description": "Lieu de fabrication d'armes et de munitions de l'armée."
+        },
+        {
+          "const": "Atelier",
+          "title": "Atelier",
+          "description": "Atelier"
+        },
+        {
+          "const": "Auberge de jeunesse",
+          "title": "Auberge de jeunesse",
+          "description": "Auberge de jeunesse."
+        },
+        {
+          "const": "Autre commerce spécialisé",
+          "title": "Autre commerce spécialisé",
+          "description": "Autre commerce spécialisé"
+        },
+        {
+          "const": "Ballastière",
+          "title": "Ballastière",
+          "description": "Ballastière"
+        },
+        {
+          "const": "Base de loisirs",
+          "title": "Base de loisirs",
+          "description": "Base de loisirs"
+        },
+        {
+          "const": "Base nautique",
+          "title": "Base nautique",
+          "description": "Base nautique"
+        },
+        {
+          "const": "Basilique",
+          "title": "Basilique",
+          "description": "Église catholique dotée par le pape d'une dignité particulière."
+        },
+        {
+          "const": "Beffroi",
+          "title": "Beffroi",
+          "description": "Beffroi"
+        },
+        {
+          "const": "Belvédère",
+          "title": "Belvédère",
+          "description": "Belvédère : Point de vue avec aménagement (banc...), sans table d’orientation."
+        },
+        {
+          "const": "Bergerie",
+          "title": "Bergerie",
+          "description": "Bergerie"
+        },
+        {
+          "const": "Bibliothèque",
+          "title": "Bibliothèque",
+          "description": "Bibliothèque"
+        },
+        {
+          "const": "Bibliothèque départementale",
+          "title": "Bibliothèque départementale",
+          "description": "Bibliothèque départementale"
+        },
+        {
+          "const": "Bibliothèque nationale",
+          "title": "Bibliothèque nationale",
+          "description": "Bibliothèque nationale"
+        },
+        {
+          "const": "Blockhaus",
+          "title": "Blockhaus",
+          "description": "Blockhaus"
+        },
+        {
+          "const": "Borie",
+          "title": "Borie",
+          "description": "Petite construction en pierres sèches",
+          "x-ign-representedFeatures": [
+            "Baracun",
+            "Capitelle",
+            "Orri",
+            "Tonne",
+            "Caborde",
+            "Caselle"
+          ]
+        },
+        {
+          "const": "Borne cistercienne",
+          "title": "Borne cistercienne"
+        },
+        {
+          "const": "Borne de sauveté",
+          "title": "Borne de sauveté",
+          "description": "Borne marquant les limites d'un ancien domaine de sauveté, dans le Sud-Ouest de la France (zone de refuge autour d'une église)."
+        },
+        {
+          "const": "Borne milliaire",
+          "title": "Borne milliaire",
+          "description": "Pierre généralement en forme de colonne portant une inscription et destinée à marquer les distances sur le tracé des principales voies romaines."
+        },
+        {
+          "const": "Boulodrome",
+          "title": "Boulodrome",
+          "description": "Lieu couvert réservé à la pratique de jeux de boules et de quilles."
+        },
+        {
+          "const": "Bowling",
+          "title": "Bowling",
+          "description": "Bowling"
+        },
+        {
+          "const": "Bureau de poste",
+          "title": "Bureau de poste",
+          "description": "Bureau de poste"
+        },
+        {
+          "const": "Bureau du port",
+          "title": "Bureau du port",
+          "description": "Structure administrative gérant un port. Dépendant d'une commune, d'un conseil général, d'une région... dont l'importance ne justifie pas la présence d'un officier de port, mais emploie des surveillants de port ou des maîtres de port."
+        },
+        {
+          "const": "Cabane",
+          "title": "Cabane",
+          "description": "Cabane"
+        },
+        {
+          "const": "Cadole",
+          "title": "Cadole",
+          "description": "Cadole"
+        },
+        {
+          "const": "CAF",
+          "title": "CAF",
+          "description": "Caisse d'allocations familiales"
+        },
+        {
+          "const": "Cairn",
+          "title": "Cairn",
+          "description": "Tumulus en pierre"
+        },
+        {
+          "const": "Camp romain",
+          "title": "Camp romain",
+          "description": "Camp romain"
+        },
+        {
+          "const": "Canoë-kayak",
+          "title": "Canoë-kayak",
+          "description": "Sport pratiqué avec des embarcations propulsées à la pagaie, notamment le canoë, le kayak, ou la pirogue. Pratiqué en eau vive ou sur plan d'eau."
+        },
+        {
+          "const": "Casino",
+          "title": "Casino",
+          "description": "Édifice installé dans une station touristique et ayant reçu une licence pour la pratique des jeux d'argent."
+        },
+        {
+          "const": "Casse automobile",
+          "title": "Casse automobile",
+          "description": "Casse automobile"
+        },
+        {
+          "const": "Cathédrale",
+          "title": "Cathédrale",
+          "description": "Une cathédrale est, à l'origine, une église où se trouve le siège de l'évêque ayant la charge d'un diocèse."
+        },
+        {
+          "const": "CCAS",
+          "title": "CCAS",
+          "description": "Centre communal d'action sociale"
+        },
+        {
+          "const": "Centrale géothermique",
+          "title": "Centrale géothermique",
+          "description": "Centrale électrique fonctionnant à l'énergie géothermique"
+        },
+        {
+          "const": "Centrale hydroélectrique",
+          "title": "Centrale hydroélectrique",
+          "description": "Centrale hydroélectrique"
+        },
+        {
+          "const": "Centrale marémotrice",
+          "title": "Centrale marémotrice",
+          "description": "Centrale électrique fonctionnant grâce à l'énergie de la marée."
+        },
+        {
+          "const": "Centrale photovoltaïque",
+          "title": "Centrale photovoltaïque",
+          "description": "Centrale photovoltaïque",
+          "x-ign-representedFeatures": [
+            "Ferme solaire",
+            "Parc photovoltaïque"
+          ]
+        },
+        {
+          "const": "Centrale thermique",
+          "title": "Centrale thermique",
+          "description": "Centrale thermique"
+        },
+        {
+          "const": "Centre aquatique",
+          "title": "Centre aquatique",
+          "description": "Installation de loisirs, entièrement ou partiellement couverte et parsemée d'attractions aquatiques telles que piscines, plages naturelles ou synthétiques, toboggans aquatiques, etc."
+        },
+        {
+          "const": "Centre commercial",
+          "title": "Centre commercial",
+          "description": "Centre commercial"
+        },
+        {
+          "const": "Centre culturel",
+          "title": "Centre culturel",
+          "description": "Lieu qui propose notamment une programmation de spectacles, des expositions, des conférences, mais aussi de l'animation socioculturelle. Un centre culturel peut contenir un cinéma ou un théâtre."
+        },
+        {
+          "const": "Centre de détention",
+          "title": "Centre de détention",
+          "description": "Etablissement pénitentiaire accueillant les condamnés de deux ans et plus considérés comme présentant les perspectives de réinsertion les meilleures. Ils ont un régime de détention principalement orienté vers la socialisation des détenus."
+        },
+        {
+          "const": "Centre de formation au sport",
+          "title": "Centre de formation au sport",
+          "description": "Centre de formation au sport."
+        },
+        {
+          "const": "Centre de formation continue",
+          "title": "Centre de formation continue",
+          "description": "Centre de formation continue. Les CFA donnent aux apprentis une formation générale et technique qui complète la formation reçue dans les entreprises."
+        },
+        {
+          "const": "Centre de formation d'apprentis",
+          "title": "Centre de formation d'apprentis",
+          "description": "Les CFA donnent aux apprentis une formation générale et technique qui complète la formation reçue dans les entreprises."
+        },
+        {
+          "const": "Centre de formation professionnelle agricole",
+          "title": "Centre de formation professionnelle agricole",
+          "description": "Centre de formation professionnelle agricole. Regroupe les centres de formation professionnelle agricole (CFPPA) et les maisons familiales rurales ou maisons familiales rurales d’éducation et d’orientation (MFREO).",
+          "x-ign-representedFeatures": [
+            "Centre de formation professionnelle agricole (CFPPA)",
+            "Maison familiale rurale d'éducation et d'orientation (MFREO)"
+          ]
+        },
+        {
+          "const": "Centre de loisirs",
+          "title": "Centre de loisirs",
+          "description": "Centre de loisirs"
+        },
+        {
+          "const": "Centre d'enfouissement technique",
+          "title": "Centre d'enfouissement technique",
+          "description": "Centre d'enfouissement de déchets.",
+          "x-ign-representedFeatures": [
+            "Centre d'enfouissement technique (CET)",
+            "Centre de stockage de déchets ultimes",
+            "Centre de stockage de déchets ménagers et assimilés",
+            "Installation de stockage de déchets non dangereux"
+          ]
+        },
+        {
+          "const": "Centre de première intervention",
+          "title": "Centre de première intervention",
+          "description": "Unité de secours pouvant assurer au moins un départ en intervention. Le personnel est composé uniquement de sapeurs-pompiers volontaires d’astreinte qui ne rejoignent le centre que lors d’un départ en intervention."
+        },
+        {
+          "const": "Centre de recherche",
+          "title": "Centre de recherche",
+          "description": "Centre de recherche"
+        },
+        {
+          "const": "Centre de secours",
+          "title": "Centre de secours",
+          "description": "Unité de secours pouvant assurer simultanément au moins un départ en intervention pour une mission de lutte contre l'incendie ou un départ en intervention pour une mission de secours d'urgence aux personnes et un autre départ en intervention. Le personnel est composé uniquement de sapeurs-pompiers volontaires d’astreinte qui ne rejoignent le centre que lors d’un départ en intervention."
+        },
+        {
+          "const": "Centre de secours principal",
+          "title": "Centre de secours principal",
+          "description": "Unité de secours pouvant assurer simultanément au moins un départ en intervention pour une mission de lutte contre l'incendie, deux départs en intervention pour une mission de secours d'urgence aux personnes et un autre départ en intervention. Ils disposent d’une équipe de garde permanente en caserne en mesure d’assurer des départs en intervention immédiats."
+        },
+        {
+          "const": "Centre de secours privé",
+          "title": "Centre de secours privé",
+          "description": "Centre de secours privé (dans un aéroport ou une raffinerie par exemple)."
+        },
+        {
+          "const": "Centre de secours renforcé",
+          "title": "Centre de secours renforcé",
+          "description": "Centre de secours renforcé"
+        },
+        {
+          "const": "Centre de semi-liberté",
+          "title": "Centre de semi-liberté",
+          "description": "Etablissement pénitentiaire permettant au condamné d'exercer à l'extérieur une activité professionnelle, de suivre un enseignement, une formation professionnelle, un stage, de suivre un traitement médical, de participer à la vie de sa famille, tout autre temps disponible étant nécessairement passé à l'intérieur de la prison."
+        },
+        {
+          "const": "Centre des finances publiques",
+          "title": "Centre des finances publiques",
+          "description": "Centre dans lequel sont installés les différents services de la DGFiP."
+        },
+        {
+          "const": "Centre de tri postal",
+          "title": "Centre de tri postal",
+          "description": "Centre de tri postal"
+        },
+        {
+          "const": "Centre de vacances",
+          "title": "Centre de vacances",
+          "description": "Centre de vacances"
+        },
+        {
+          "const": "Centre d'incendie et de secours",
+          "title": "Centre d'incendie et de secours",
+          "description": "Unité territoriale chargée des missions de secours regroupant de manière indifférenciée les centres de secours d'un département."
+        },
+        {
+          "const": "Centre d'information et d'orientation",
+          "title": "Centre d'information et d'orientation",
+          "description": "Service public régional pour l'orientation répondant aux besoins des élèves, étudiants et adultes en matière d'orientation."
+        },
+        {
+          "const": "Centre dramatique",
+          "title": "Centre dramatique",
+          "description": "Établissement administratif, siège d'un centre dramatique à rayonnement régional ou national.",
+          "x-ign-representedFeatures": [
+            "Centre dramatique régional",
+            "Centre dramatique national"
+          ]
+        },
+        {
+          "const": "Centre hospitalier régional",
+          "title": "Centre hospitalier régional",
+          "description": "Centre hospitalier régional (CHR)"
+        },
+        {
+          "const": "Centre informatique",
+          "title": "Centre informatique",
+          "description": "Centre informatique",
+          "x-ign-representedFeatures": [
+            "Data center",
+            "Centre de données"
+          ]
+        },
+        {
+          "const": "Centre médical",
+          "title": "Centre médical",
+          "description": "Centre médical"
+        },
+        {
+          "const": "Centre médico-social",
+          "title": "Centre médico-social",
+          "description": "Centre médico-social"
+        },
+        {
+          "const": "Centre pénitentiaire",
+          "title": "Centre pénitentiaire",
+          "description": "Établissement pénitentiaire regroupant plusieurs types de régimes de détention."
+        },
+        {
+          "const": "Centre pénitentiaire pour mineurs",
+          "title": "Centre pénitentiaire pour mineurs",
+          "description": "Etablissement pénitentiaire réservé aux mineurs de 13 à 18 ans."
+        },
+        {
+          "const": "Centre régional des œuvres universitaires et scolaires",
+          "title": "Centre régional des œuvres universitaires et scolaires",
+          "description": "Établissements publics à caractère administratif chargé principalement de l'aide sociale, de l'accueil des étudiants internationaux, du logement pour étudiants, de la restauration universitaire et de la vie culturelle étudiante."
+        },
+        {
+          "const": "Centre régional opérationnel de surveillance et de sauvetage",
+          "title": "Centre régional opérationnel de surveillance et de sauvetage",
+          "description": "Centre régional opérationnel de surveillance et de sauvetage"
+        },
+        {
+          "const": "Chambre d'agriculture",
+          "title": "Chambre d'agriculture",
+          "description": "Établissement chargées de représenter l'ensemble des différents agents économiques de l'agriculture et d'accompagner les exploitants agricoles dans leur développement."
+        },
+        {
+          "const": "Chambre de commerce et d'industrie",
+          "title": "Chambre de commerce et d'industrie",
+          "description": "Établissement chargé de représenter les intérêts des entreprises commerciales, industrielles et de service."
+        },
+        {
+          "const": "Chambre de métiers et de l'artisanat",
+          "title": "Chambre de métiers et de l'artisanat",
+          "description": "Établissement chargé des questions intéressant l'artisanat. Ces chambres assurent, pour les artisans, les apprentis et les organisations professionnelles de l'artisanat, une mission de formation, de conseil, d'immatriculation des entreprises et de représentation auprès des pouvoirs publics."
+        },
+        {
+          "const": "Champignonnière",
+          "title": "Champignonnière",
+          "description": "Champignonnière"
+        },
+        {
+          "const": "Chapelle",
+          "title": "Chapelle",
+          "description": "Petit édifice religieux chrétien de forme caractéristique."
+        },
+        {
+          "const": "Chapelle funéraire",
+          "title": "Chapelle funéraire",
+          "description": "Chapelle funéraire"
+        },
+        {
+          "const": "Char à voile",
+          "title": "Char à voile",
+          "description": "Sport de conduite d'un véhicule sur roues ou patins à glace, à voile, propulsé par la force du vent. Il est pratiqué sur les grandes plages de sable ou sur glace."
+        },
+        {
+          "const": "Chaufferie",
+          "title": "Chaufferie",
+          "description": "Chaufferie"
+        },
+        {
+          "const": "Cimenterie",
+          "title": "Cimenterie",
+          "description": "Cimenterie"
+        },
+        {
+          "const": "Cimetière animalier",
+          "title": "Cimetière animalier",
+          "description": "Cimetière animalier"
+        },
+        {
+          "const": "Cinéma",
+          "title": "Cinéma",
+          "description": "Cinéma"
+        },
+        {
+          "const": "Circuit automobile",
+          "title": "Circuit automobile",
+          "description": "Aménagement routier formé d'une boucle, dédié aux courses automobiles."
+        },
+        {
+          "const": "Circuit de karting",
+          "title": "Circuit de karting",
+          "description": "Circuit de karting"
+        },
+        {
+          "const": "Circuit divers",
+          "title": "Circuit divers",
+          "description": "Aménagement routier formé d'une boucle utilisé pour les courses motorisées autre que les courses automobiles."
+        },
+        {
+          "const": "Cirque",
+          "title": "Cirque",
+          "description": "Cirque"
+        },
+        {
+          "const": "Citadelle",
+          "title": "Citadelle",
+          "description": "Citadelle"
+        },
+        {
+          "const": "Cité administrative",
+          "title": "Cité administrative",
+          "description": "Bâtiment ou un ensemble de bâtiments qui regroupent plusieurs administrations."
+        },
+        {
+          "const": "Cité scolaire",
+          "title": "Cité scolaire",
+          "description": "Cité scolaire"
+        },
+        {
+          "const": "Collège annexe",
+          "title": "Collège annexe",
+          "description": "Collège annexe"
+        },
+        {
+          "const": "Collège spécialisé",
+          "title": "Collège spécialisé",
+          "description": "Collège spécialisé"
+        },
+        {
+          "const": "Collégiale",
+          "title": "Collégiale",
+          "description": "Eglise qui a été confiée à un collège de clercs ou chapitre collégial, c'est-à-dire à un groupe de chanoines."
+        },
+        {
+          "const": "Colombier",
+          "title": "Colombier",
+          "description": "Colombier"
+        },
+        {
+          "const": "Colonie de vacances",
+          "title": "Colonie de vacances",
+          "description": "Colonie de vacances"
+        },
+        {
+          "const": "Commerce réparation véhicules",
+          "title": "Commerce réparation véhicules",
+          "description": "Commerce de réparation de véhicules"
+        },
+        {
+          "const": "Commissariat",
+          "title": "Commissariat",
+          "description": "Commissariat de police nationale. Dans les grandes villes, il dépend d'un Commissariat principal."
+        },
+        {
+          "const": "Commissariat central",
+          "title": "Commissariat central",
+          "description": "Dans les grandes villes, commissariat central ou principal, dirigé par un commissaire divisionnaire."
+        },
+        {
+          "const": "Complexe sportif",
+          "title": "Complexe sportif",
+          "description": "Ensemble d'équipements sportifs de plein air liés à des sports divers et installés sur un même site, comprenant un stade."
+        },
+        {
+          "const": "Conseil de prud'hommes",
+          "title": "Conseil de prud'hommes",
+          "description": "Conseil de prud'hommes. Le conseil de prud’hommes règle les litiges individuels qui surviennent entre salariés ou apprentis et employeurs."
+        },
+        {
+          "const": "Conservatoire",
+          "title": "Conservatoire",
+          "description": "Conservatoire à rayonnement régional, départemental ou intercommunal."
+        },
+        {
+          "const": "Conservatoire national",
+          "title": "Conservatoire national",
+          "description": "Conservatoire national"
+        },
+        {
+          "const": "Consulat",
+          "title": "Consulat",
+          "description": "Bâtiment ou ensemble de bâtiments abritant les services diplomatiques d'un pays étranger en France, chargé de la protection et du suivi administratif des ressortissants du pays dont il dépend."
+        },
+        {
+          "const": "Consulat honoraire",
+          "title": "Consulat honoraire",
+          "description": "Bâtiment abritant un bureau délégué d'un Consulat et ayant certaines compétences administratives, situé dans une ville autre que celle où se situe le Consulat."
+        },
+        {
+          "const": "Coopérative",
+          "title": "Coopérative",
+          "description": "Coopérative"
+        },
+        {
+          "const": "Cour criminelle départementale",
+          "title": "Cour criminelle départementale",
+          "description": "La cour criminelle départementale est compétente pour juger des personnes majeures accusées d'un crime puni de 15 ou 20 ans de réclusion lorsque l'état de récidive légale n'est pas retenu."
+        },
+        {
+          "const": "Cour d'appel",
+          "title": "Cour d'appel",
+          "description": "Juridiction du second degré qui connait par la voie de l'appel des demandes tendant à la réformation partielle ou à l'infirmation des jugements rendus par les juridictions du premier degré (tribunal judiciaire, tribunal de proximité, tribunal de commerce, conseil de Prud'hommes)."
+        },
+        {
+          "const": "Couvent",
+          "title": "Couvent",
+          "description": "Établissement religieux, généralement chrétien, où des clercs mènent une vie religieuse en communauté. Le couvent n'a pas de vocation monastique. Contrairement à l'abbaye, le couvent n'est pas placé sous la responsabilité d'un abbé, mais d'un(e) supérieur(e)."
+        },
+        {
+          "const": "CPAM",
+          "title": "CPAM",
+          "description": "Caisse primaire d'assurance maladie"
+        },
+        {
+          "const": "Crèche",
+          "title": "Crèche",
+          "description": "Crèche"
+        },
+        {
+          "const": "Crématorium",
+          "title": "Crématorium",
+          "description": "Crématorium"
+        },
+        {
+          "const": "Cressonnière",
+          "title": "Cressonnière",
+          "description": "Cressonnière"
+        },
+        {
+          "const": "Criée",
+          "title": "Criée",
+          "description": "Criée, lieu de vente de produits de la mer."
+        },
+        {
+          "const": "Croix de Lorraine",
+          "title": "Croix de Lorraine",
+          "description": "Croix de Lorraine"
+        },
+        {
+          "const": "Cromlech",
+          "title": "Cromlech",
+          "description": "Pierres verticales disposées généralement en arc de cercle autour d’une autre plus grande. Le menhir central n’existe pas toujours."
+        },
+        {
+          "const": "Départ de ski de fond",
+          "title": "Départ de ski de fond",
+          "description": "Départ des pistes de ski de fond, qui peut être un bâtiment de vente des forfaits, un portique, ou un panneau du plan des pistes."
+        },
+        {
+          "const": "Dépôt de matériels",
+          "title": "Dépôt de matériels",
+          "description": "Lieu de dépôt de matériel militaire."
+        },
+        {
+          "const": "Dépôt de véhicules",
+          "title": "Dépôt de véhicules",
+          "description": "Dépôt de véhicules"
+        },
+        {
+          "const": "Dépôt d'hydrocarbures",
+          "title": "Dépôt d'hydrocarbures",
+          "description": "Dépôt d'hydrocarbures"
+        },
+        {
+          "const": "Discothèque",
+          "title": "Discothèque",
+          "description": "Discothèque"
+        },
+        {
+          "const": "Distillerie",
+          "title": "Distillerie",
+          "description": "Distillerie"
+        },
+        {
+          "const": "Dolmen",
+          "title": "Dolmen",
+          "description": "Monument mégalithique formé d’une grande pierre plate posée sur d’autres pierres dressées verticalement."
+        },
+        {
+          "const": "Donjon",
+          "title": "Donjon",
+          "description": "Donjon"
+        },
+        {
+          "const": "Echelle",
+          "title": "Echelle",
+          "description": "Passage en échelle nommé sur un site d'escalade."
+        },
+        {
+          "const": "Ecole de gendarmerie",
+          "title": "Ecole de gendarmerie",
+          "description": "Ecole de gendarmerie"
+        },
+        {
+          "const": "Ecole de musique, danse ou arts plastiques",
+          "title": "Ecole de musique, danse ou arts plastiques",
+          "description": "Ecole de musique, de danse ou d'arts plastiques"
+        },
+        {
+          "const": "Ecole de plein air",
+          "title": "Ecole de plein air",
+          "description": "Les écoles de plein air sont des écoles publiques accueillant pour une durée limitée des enfants dont l'état de santé rend souhaitable la mise en œuvre de précautions particulières. Elles correspondent à des écoles primaires (elles accueillent des enfants âgés entre 5 et 11 ans)."
+        },
+        {
+          "const": "Ecole de police",
+          "title": "Ecole de police",
+          "description": "Ecole de police"
+        },
+        {
+          "const": "Ecole d'ingénieurs",
+          "title": "Ecole d'ingénieurs",
+          "description": "École d'ingénieurs. Une école d'ingénieur est une école d'enseignement supérieure délivrant une formation ayant pour objectif de former des ingénieurs et délivrer des diplômes d'ingénieurs ou équivalents."
+        },
+        {
+          "const": "Ecole élémentaire",
+          "title": "Ecole élémentaire",
+          "description": "Ecole d'enseignement primaire destiné aux enfants âgés de 6 à 11 ans."
+        },
+        {
+          "const": "Ecole maternelle",
+          "title": "Ecole maternelle",
+          "description": "L’école maternelle est destinée aux enfants âgés de 3 à 6 ans."
+        },
+        {
+          "const": "Ecole primaire",
+          "title": "Ecole primaire",
+          "description": "Établissement consacré au premier degré de l'enseignement (école élémentaire ou maternelle)."
+        },
+        {
+          "const": "Eglise",
+          "title": "Eglise",
+          "description": "Eglise où est célébré un culte catholique."
+        },
+        {
+          "const": "Eglise orthodoxe",
+          "title": "Eglise orthodoxe",
+          "description": "Lieu de culte orthodoxe."
+        },
+        {
+          "const": "Eglise simultanée",
+          "title": "Eglise simultanée",
+          "description": "Lieu où est célébré un culte catholique et protestant en alternance."
+        },
+        {
+          "const": "Elevage avicole",
+          "title": "Elevage avicole",
+          "description": "Elevage avicole."
+        },
+        {
+          "const": "Elevage canin",
+          "title": "Elevage canin",
+          "description": "Elevage canin."
+        },
+        {
+          "const": "Elevage piscicole",
+          "title": "Elevage piscicole",
+          "description": "Site d'élevage piscicole."
+        },
+        {
+          "const": "Elevage porcin",
+          "title": "Elevage porcin",
+          "description": "Elevage porcin."
+        },
+        {
+          "const": "Enclos paroissial",
+          "title": "Enclos paroissial",
+          "description": "Un enclos paroissial est au sens strict une église entourée d'un placître voué ou non à un cimetière, que borne un mur d'enceinte. Les enclos paroissiaux sont caractéristiques de l'architecture religieuse rurale de la Basse-Bretagne et datent pour la plupart des XVIè et XVIIè siècles."
+        },
+        {
+          "const": "Entrepôt",
+          "title": "Entrepôt",
+          "description": "Entrepôt"
+        },
+        {
+          "const": "Esplanade",
+          "title": "Esplanade",
+          "description": "Esplanade nommée"
+        },
+        {
+          "const": "Etablissement de convalescence",
+          "title": "Etablissement de convalescence",
+          "description": "Établissement de convalescence après des soins médicaux."
+        },
+        {
+          "const": "Etablissement de réadaptation fonctionnelle",
+          "title": "Etablissement de réadaptation fonctionnelle",
+          "description": "Établissement de réadaptation fonctionnelle. Ce sont des établissements de soins de suite qui dispensent des soins de rééducation et de réadaptation."
+        },
+        {
+          "const": "Etablissement et service d'aide par le travail",
+          "title": "Etablissement et service d'aide par le travail",
+          "description": "Ces établissements permettent aux personnes handicapées qui n'ont pas acquis suffisamment d'autonomie pour travailler en milieu ordinaire, y compris en entreprise adaptée ou de façon indépendante, d'exercer une activité dans un milieu protégé. Ces personnes bénéficient, en fonction de leurs besoins, d'un suivi médico-social et éducatif. Les ESAT remplacent les C.A.T. ou Centre d’Aide par le Travail."
+        },
+        {
+          "const": "Etablissement pour déficient moteur",
+          "title": "Etablissement pour déficient moteur",
+          "description": "Etablissement pour déficient moteur"
+        },
+        {
+          "const": "Etablissement pour enfants ou adolescents polyhandicapés",
+          "title": "Etablissement pour enfants ou adolescents polyhandicapés",
+          "description": "Les Établissements et services pour enfants et adolescents polyhandicapés accueillent et accompagnent des enfants qui souffrent d'un polyhandicap association d'une déficience mentale grave à une déficience motrice importante) entraînant une réduction notable de leur autonomie. L'accueil se fait le plus souvent en internat ou en semi-internat."
+        },
+        {
+          "const": "Fabrique",
+          "title": "Fabrique",
+          "description": "Fabrique artisanale"
+        },
+        {
+          "const": "Faré",
+          "title": "Faré",
+          "description": "Faré"
+        },
+        {
+          "const": "Ferme hydrolienne",
+          "title": "Ferme hydrolienne",
+          "description": "Ensemble d'hydroliennes affleurant dans un fleuve."
+        },
+        {
+          "const": "Ferme pédagogique",
+          "title": "Ferme pédagogique",
+          "description": "Ferme à vocation pédagogique"
+        },
+        {
+          "const": "Fonderie",
+          "title": "Fonderie",
+          "description": "Fonderie"
+        },
+        {
+          "const": "Forestiers sapeurs",
+          "title": "Forestiers sapeurs",
+          "description": "Unité chargée d'entretenir les espaces naturels et d'intervenir sur les feux de forêts en première intention avant l'arrivée des sapeurs-pompiers."
+        },
+        {
+          "const": "Fort",
+          "title": "Fort",
+          "description": "Fort"
+        },
+        {
+          "const": "Four à chanvre",
+          "title": "Four à chanvre",
+          "description": "Four à chanvre"
+        },
+        {
+          "const": "Four à chaux",
+          "title": "Four à chaux",
+          "description": "Four à chaux"
+        },
+        {
+          "const": "Foyer d'accueil médicalisé",
+          "title": "Foyer d'accueil médicalisé",
+          "description": "Foyer d'accueil médicalisé"
+        },
+        {
+          "const": "Fromagerie",
+          "title": "Fromagerie",
+          "description": "Usine de production de fromages"
+        },
+        {
+          "const": "Gendarmerie aérienne",
+          "title": "Gendarmerie aérienne",
+          "description": "Bureaux d'une unité de gendarmerie de l'air."
+        },
+        {
+          "const": "Gendarmerie d'autoroute",
+          "title": "Gendarmerie d'autoroute",
+          "description": "Bureaux d'une unité de gendarmerie d’autoroute."
+        },
+        {
+          "const": "Gendarmerie de montagne",
+          "title": "Gendarmerie de montagne",
+          "description": "Bureaux d'une unité de gendarmerie de montagne"
+        },
+        {
+          "const": "Gendarmerie mobile",
+          "title": "Gendarmerie mobile",
+          "description": "Bureaux d'une unité de gendarmerie mobile."
+        },
+        {
+          "const": "Gendarmerie motorisée",
+          "title": "Gendarmerie motorisée"
+        },
+        {
+          "const": "Gendarmerie nautique",
+          "title": "Gendarmerie nautique",
+          "description": "Bureaux d'une unité de gendarmerie nautique."
+        },
+        {
+          "const": "Gîte d'étape",
+          "title": "Gîte d'étape",
+          "description": "Le gîte d'étape est un mode d’hébergement collectif à la nuitée conçu pour accueillir des randonneurs, des cyclotouristes ou des cavaliers. Il est accessible en voiture et reste ouvert toute l’année. En principe, les gîtes d’étape se situent sur un itinéraire de randonnée reconnu (sentier de randonnée à moins de 2 km, circuit cyclo/VTT/équestre à moins de 3 à 5 km…)."
+        },
+        {
+          "const": "Gîte équestre",
+          "title": "Gîte équestre",
+          "description": "Les relais équestres ou gîtes équestres se trouvent généralement à proximité des itinéraires de randonnée équestre. Cavaliers et chevaux y trouvent hébergement."
+        },
+        {
+          "const": "Gravière",
+          "title": "Gravière",
+          "description": "Gravière"
+        },
+        {
+          "const": "Groupement de coopération sanitaire",
+          "title": "Groupement de coopération sanitaire",
+          "description": "Un groupement de coopération sanitaire est une personne morale regroupant plusieurs établissements hospitaliers."
+        },
+        {
+          "const": "Groupement d'hélicoptères de la sécurité civile",
+          "title": "Groupement d'hélicoptères de la sécurité civile",
+          "description": "Base d'envol d'un groupement d'hélicoptères de la sécurité civile."
+        },
+        {
+          "const": "Groupe scolaire",
+          "title": "Groupe scolaire",
+          "description": "Le groupe scolaire est composé de deux établissements, maternelle et élémentaire, chacun dirigé par un chef d’établissement. Il est souvent composé de plusieurs bâtiments avec des infrastructures communes."
+        },
+        {
+          "const": "Gymnase",
+          "title": "Gymnase",
+          "description": "Gymnase, complexe sportif évolutif couvert. Bâtiment de grande taille destiné aux sports de salle avec vestiaires...",
+          "x-ign-representedFeatures": [
+            "Gymnase (toponyme)",
+            "Gymnase polyvalent (toponyme)",
+            "Complexe sportif évolutif couvert (COSEC)"
+          ]
+        },
+        {
+          "const": "Halle",
+          "title": "Halle",
+          "description": "Marché couvert avec une architecture en halle."
+        },
+        {
+          "const": "Haras national",
+          "title": "Haras national",
+          "description": "Haras national. Les Haras nationaux sont des anciens établissements publics administratifs français. La plupart sont désormais devenus des pôles patrimoniaux, culturels et touristiques lié au cheval."
+        },
+        {
+          "const": "Hôpital militaire",
+          "title": "Hôpital militaire",
+          "description": "Hôpital d'instruction des armées, dépendant du ministère des armées."
+        },
+        {
+          "const": "Hôpital spécialisé",
+          "title": "Hôpital spécialisé",
+          "description": "Institution hospitalière où l'on prend en charge les maladies ou déficiences non somatiques",
+          "x-ign-representedFeatures": [
+            "Hôpital psychiatrique",
+            "Centre hospitalier spécialisé pour la lutte des maladies mentales"
+          ]
+        },
+        {
+          "const": "Hôtel de département annexe",
+          "title": "Hôtel de département annexe",
+          "description": "Hôtel de département annexe"
+        },
+        {
+          "const": "Hôtel de région annexe",
+          "title": "Hôtel de région annexe",
+          "description": "Hôtel de région annexe"
+        },
+        {
+          "const": "Hôtel de ville",
+          "title": "Hôtel de ville",
+          "description": "Hôtel de ville, bâtiment principal ou emblématique accueillant généralement une partie des services municipaux d'une commune."
+        },
+        {
+          "const": "Hydrospeed",
+          "title": "Hydrospeed",
+          "description": "Sport d'eaux vives qui consiste à descendre des sections de rivière comportant des rapides en l’hydrospeed (planche en forme de coque en mousse ou en plastique, protégeant les bras)."
+        },
+        {
+          "const": "Imprimerie",
+          "title": "Imprimerie",
+          "description": "Imprimerie"
+        },
+        {
+          "const": "Institution européenne",
+          "title": "Institution européenne",
+          "description": "Bâtiment ou ensemble de bâtiments abritant une institution dépendante de l'Union européenne."
+        },
+        {
+          "const": "Institution internationale",
+          "title": "Institution internationale",
+          "description": "Bâtiment ou ensemble de bâtiments abritant un organisme qui dispose du statut d'institution, lui permettant d'exercer des activités au niveau international. (ex : Banque mondiale, Institut du monde arabe, Organisation des Nations unies, ...)",
+          "x-ign-representedFeatures": [
+            "Conseil de l’Europe à Strasbourg",
+            "UNESCO",
+            "Comité international de Croix-Rouge",
+            "Ordre de Malte",
+            "Pavillon de Breteuil à Saint-Cloud"
+          ]
+        },
+        {
+          "const": "Institut médico-éducatif",
+          "title": "Institut médico-éducatif",
+          "description": "Ces établissements accueillent des enfants et adolescents déficients intellectuels quel que soit le degré de leur déficience. Ils ont tendance à remplacer les anciens Instituts Médico-Pédagogiques (IMP), les Institut Médico-Professionnels (IMPro), les Instituts Thérapeutiques Educatifs et Pédagogiques (ITEP) qui sont eux-mêm les anciens Instituts de Rééducation (IR) ou Instituts de Rééducation Psychothérapeutique (IRP)."
+        },
+        {
+          "const": "Institut pour déficients sensoriels",
+          "title": "Institut pour déficients sensoriels",
+          "description": "Établissement de soins et d'éducation spécialisés pour déficients sensoriels (auditifs et visuels) et enfants porteurs de troubles spécifiques du langage."
+        },
+        {
+          "const": "Institut thérapeutique éducatif et pédagogique",
+          "title": "Institut thérapeutique éducatif et pédagogique",
+          "description": "Structure médico-sociale accueillant des enfants et adolescents présentant des difficultés psychologiques perturbant la socialisation et l'accès aux apprentissages."
+        },
+        {
+          "const": "Institut universitaire de technologie",
+          "title": "Institut universitaire de technologie",
+          "description": "Institut interne d’une université qui dispense en formation initiale et continue un enseignement supérieur intermédiaire entre celui de technicien et d'ingénieur."
+        },
+        {
+          "const": "Institut universitaire professionnalisé",
+          "title": "Institut universitaire professionnalisé",
+          "description": "Composante d'une université qui assure une formation à caractère technologique et professionnel. Les IUP sont souvent devenus des master."
+        },
+        {
+          "const": "Jardin botanique",
+          "title": "Jardin botanique",
+          "description": "Jardin botanique"
+        },
+        {
+          "const": "Jardin du souvenir",
+          "title": "Jardin du souvenir",
+          "description": "Jardin du souvenir"
+        },
+        {
+          "const": "Jardin public",
+          "title": "Jardin public",
+          "description": "Espace vert aménagé à caractère de loisir accessible au public, souvent plus petit qu’un parc, avec des compositions végétales élaborées (fleurs, arbustes, allées organisées), pouvant inclure des éléments d’agrément (bassin, fontaine, terrasse, statue, …). Moins vaste, moins feuillu et plus structuré que le parc, le jardin public tient une position intermédiaire entre le parc et le square, qui, lui, n'est qu'une place plantée d'herbe, de fleurs, d'arbustes et de quelques arbres."
+        },
+        {
+          "const": "Jardins familiaux",
+          "title": "Jardins familiaux",
+          "description": "Les jardins familiaux ou jardins ouvriers constituent des terrains divisés en parcelles, affectées par les collectivités territoriales ou par les associations de jardins familiaux à des particuliers y pratiquant le jardinage pour leurs propres besoins et ceux de leur famille, à l'exclusion de tout usage commercial."
+        },
+        {
+          "const": "Kiosque",
+          "title": "Kiosque",
+          "description": "Kiosque"
+        },
+        {
+          "const": "Laboratoire",
+          "title": "Laboratoire",
+          "description": "Laboratoire"
+        },
+        {
+          "const": "Laiterie",
+          "title": "Laiterie",
+          "description": "Usine de production de lait et de produits laitiers."
+        },
+        {
+          "const": "Lycée agricole",
+          "title": "Lycée agricole",
+          "description": "Lycée agricole"
+        },
+        {
+          "const": "Lycée professionnel",
+          "title": "Lycée professionnel",
+          "description": "Lycée professionnel"
+        },
+        {
+          "const": "Mairie annexe",
+          "title": "Mairie annexe",
+          "description": "Mairie annexe d'une commune de plein droit."
+        },
+        {
+          "const": "Mairie d'arrondissement",
+          "title": "Mairie d'arrondissement",
+          "description": "Mairie d'arrondissement"
+        },
+        {
+          "const": "Mairie de commune associée ou déléguée",
+          "title": "Mairie de commune associée ou déléguée",
+          "description": "Mairie de commune associée ou déléguée."
+        },
+        {
+          "const": "Maison centrale",
+          "title": "Maison centrale",
+          "description": "Établissement pénitentiaire prenant en charge les détenus condamnés à de longues peines et accueillant également les détenus les plus difficiles, ou ceux dont on estime qu'ils ont peu de chances de réinsertion sociale."
+        },
+        {
+          "const": "Maison d'arrêt",
+          "title": "Maison d'arrêt",
+          "description": "Établissement pénitentiaire où sont détenus les prévenus en attente de jugement, les condamnés à de courtes peines (inférieures à deux ans) ou les condamnés en attente d’affectation dans un établissement pour peines."
+        },
+        {
+          "const": "Maison de justice et du droit",
+          "title": "Maison de justice et du droit",
+          "description": "Établissement de quartier de grandes agglomérations assurant une présence judiciaire de proximité qui permet de concourir à la prévention de la délinquance et à l’aide aux victimes, de garantir aux citoyens un accès au droit, et de favoriser les modes alternatifs de règlement des litiges du quotidien."
+        },
+        {
+          "const": "Maison de la réserve",
+          "title": "Maison de la réserve",
+          "description": "Maison d'accueil d'une réserve naturelle."
+        },
+        {
+          "const": "Maison de l'Etat",
+          "title": "Maison de l'Etat",
+          "description": "Créées dans le cadre de la loi NOTRe, les Maisons de l’État permettent une rationalisation et une meilleure visibilité de la présence de l’État dans des territoires ruraux, urbains ou périurbains, reposant sur le principe de mutualisation des locaux et de certaines fonctions support."
+        },
+        {
+          "const": "Maison d'enfants à caractère social",
+          "title": "Maison d'enfants à caractère social",
+          "description": "Établissement social ou médico-social dédié à l'accueil temporaire d'enfants en difficulté."
+        },
+        {
+          "const": "Maison départementale des personnes handicapées",
+          "title": "Maison départementale des personnes handicapées",
+          "description": "Établissement à la structure de GIP (Groupement d’intérêt public) présent dans chaque département français et dont les missions couvrent l’accueil et de l’accompagnement des personnes handicapées et de leurs proches, mais aussi la sensibilisation au handicap."
+        },
+        {
+          "const": "Maison de quartier",
+          "title": "Maison de quartier",
+          "description": "Équipement de proximité proposant des activités socio-culturelles et une offre de loisirs artistiques et sportifs. Il est géré par une collectivité locale ou une association.",
+          "x-ign-representedFeatures": [
+            "Maison pour Tous",
+            "Maison du Peuple",
+            "Foyer Socio-Culturel",
+            "MJC"
+          ]
+        },
+        {
+          "const": "Maison de santé pour maladies mentales",
+          "title": "Maison de santé pour maladies mentales",
+          "description": "Les Maison de santé pour maladies mentales (MSMM) sont une forme d'établissement psychiatrique sanitaire non sectorisé, ayant pour vocation d'offrir un soin et un accueil pour des périodes de moyen séjour."
+        },
+        {
+          "const": "Maison des associations",
+          "title": "Maison des associations",
+          "description": "Maison des associations"
+        },
+        {
+          "const": "Maison de services au public",
+          "title": "Maison de services au public",
+          "description": "Les Maisons de services au public et les maison France services sont des lieux d’accueil du public délivrant une offre de proximité. En un lieu unique, les usagers sont accompagnés par des agents dans leurs démarches de la vie quotidienne à travers un accueil et la mise à disposition d'outils numériques."
+        },
+        {
+          "const": "Maison de site",
+          "title": "Maison de site",
+          "description": "Maisons de grand site ou centre d’interprétation de la nature ou du paysage d’importance régionale."
+        },
+        {
+          "const": "Maison du parc national",
+          "title": "Maison du parc national",
+          "description": "Maison du parc national"
+        },
+        {
+          "const": "Maison du parc naturel marin",
+          "title": "Maison du parc naturel marin",
+          "description": "Maison du parc naturel marin"
+        },
+        {
+          "const": "Maison du parc naturel régional",
+          "title": "Maison du parc naturel régional",
+          "description": "Maison du parc naturel régional"
+        },
+        {
+          "const": "Marché d'intérêt national",
+          "title": "Marché d'intérêt national",
+          "description": "Marché d'intérêt national. Il s'agit de marchés de gros auquel les pouvoirs publics ont accordé un statut particulier."
+        },
+        {
+          "const": "Marché d'intérêt régional",
+          "title": "Marché d'intérêt régional",
+          "description": "Marché d'intérêt régional"
+        },
+        {
+          "const": "Marégraphe",
+          "title": "Marégraphe",
+          "description": "Bâtiment abritant un marégraphe."
+        },
+        {
+          "const": "Médiathèque",
+          "title": "Médiathèque",
+          "description": "Médiathèque"
+        },
+        {
+          "const": "Mémorial",
+          "title": "Mémorial",
+          "description": "Mémorial"
+        },
+        {
+          "const": "Menhir",
+          "title": "Menhir",
+          "description": "Pierre allongée dressée verticalement."
+        },
+        {
+          "const": "Menuiserie",
+          "title": "Menuiserie",
+          "description": "Menuiserie"
+        },
+        {
+          "const": "Mine souterraine",
+          "title": "Mine souterraine",
+          "description": "Mine souterraine"
+        },
+        {
+          "const": "Mini-golf",
+          "title": "Mini-golf",
+          "description": "Mini-golf, version miniature du jeu de golf."
+        },
+        {
+          "const": "Minoterie",
+          "title": "Minoterie",
+          "description": "Minoterie"
+        },
+        {
+          "const": "Mission locale",
+          "title": "Mission locale",
+          "description": "Missions locales pour l'insertion professionnelle et sociale des jeunes. Les missions locales sont des organismes publics de statut associatif chargés d’aider les citoyens de 16 à 25 ans dans leur insertion professionnelle et sociale."
+        },
+        {
+          "const": "Monastère",
+          "title": "Monastère",
+          "description": "Ensemble de bâtiments où habite une communauté de moines et moniales. Les monastères des ordres militaires du Moyen-Âge sont appelés commanderie. On parle de couvent pour les monastères franciscains et dominicains. On parle d’abbaye ou de prieuré pour les monastères bénédictins ou de prémontrés (ordre des chanoines de Prémontré)."
+        },
+        {
+          "const": "Monument aux morts",
+          "title": "Monument aux morts",
+          "description": "Monument aux morts"
+        },
+        {
+          "const": "Mosquée",
+          "title": "Mosquée",
+          "description": "Lieu voué à la célébration du culte musulman."
+        },
+        {
+          "const": "Motte castrale",
+          "title": "Motte castrale",
+          "description": "Fortifications de terre, généralement médiévales, composées d'un rehaussement important de terre rapportée de forme circulaire, appelé tertre."
+        },
+        {
+          "const": "Motte féodale",
+          "title": "Motte féodale",
+          "description": "Construction visant à défendre une terre au début du Moyen-Âge. Il s'agit d'une tour de guêt entourée d'une palissade et construite en hauteur sur une motte de terre, elle-même protégée par un fossé. La motte féodale est l'ancêtre du château fort."
+        },
+        {
+          "const": "Moulin à vent",
+          "title": "Moulin à vent",
+          "description": "Moulin à vent"
+        },
+        {
+          "const": "Mutualité sociale agricole",
+          "title": "Mutualité sociale agricole",
+          "description": "Établissement abritant la MSA, régime de protection sociale obligatoire des personnes salariées et non salariées des professions agricoles"
+        },
+        {
+          "const": "Observatoire",
+          "title": "Observatoire",
+          "description": "Établissement scientifique destiné à l'astronomie et à l'observation du ciel."
+        },
+        {
+          "const": "Observatoire ornithologique",
+          "title": "Observatoire ornithologique",
+          "description": "Observatoire destiné notamment à l'observation de l'avifaune."
+        },
+        {
+          "const": "Opéra",
+          "title": "Opéra",
+          "description": "Édifice comprenant une salle de spectacle de grande taille aux caractéristiques acoustiques soignées où sont jouées des représentations lyriques : opéras, ballets..."
+        },
+        {
+          "const": "Oppidum",
+          "title": "Oppidum",
+          "description": "Lieu élevé, généralement situé sur une colline ou sur un plateau, dont les défenses naturelles ont été renforcées par la main de l'homme. Il se caractérise par des murs de terre et de pierres, renforcés par des traverses de bois assemblées perpendiculairement."
+        },
+        {
+          "const": "Oratoire",
+          "title": "Oratoire",
+          "description": "Petit monument (chapelle) voué au culte d'un saint."
+        },
+        {
+          "const": "Ossuaire",
+          "title": "Ossuaire",
+          "description": "Ossuaire"
+        },
+        {
+          "const": "Palais des congrès",
+          "title": "Palais des congrès",
+          "description": "Palais des congrès"
+        },
+        {
+          "const": "Papeterie",
+          "title": "Papeterie",
+          "description": "Papeterie"
+        },
+        {
+          "const": "Parc",
+          "title": "Parc",
+          "description": "Grand espace vert aménagé et planté, formé de bois ou de prairies, à caractère de loisir accessible au public pour la détente, les loisirs et également pour la conservation de la biodiversité. Il peut inclure diverses infrastructures (plans d’eau, bancs, aires de jeux, …) et aménagé d’allées et de chemins destinés à la promenade ou à l’agrément du public.",
+          "x-ign-representedFeatures": [
+            "Parc communal",
+            "Parc départemental",
+            "Parc intercommunal interdépartemental"
+          ]
+        },
+        {
+          "const": "Parc animalier",
+          "title": "Parc animalier",
+          "description": "Parc animalier"
+        },
+        {
+          "const": "Parc d'activités tertiaires",
+          "title": "Parc d'activités tertiaires",
+          "description": "Parc d'activités tertiaires"
+        },
+        {
+          "const": "Parc d'attractions",
+          "title": "Parc d'attractions",
+          "description": "Parc d'attractions"
+        },
+        {
+          "const": "Parc éolien",
+          "title": "Parc éolien",
+          "description": "Parc éolien"
+        },
+        {
+          "const": "Parc résidentiel de loisirs",
+          "title": "Parc résidentiel de loisirs",
+          "description": "Terrain accueillant uniquement des habitations légères de loisirs (cabane, chalet, bungalow), des résidences mobiles de loisirs (mobil-homes, camping-car) et des caravanes."
+        },
+        {
+          "const": "Parvis",
+          "title": "Parvis",
+          "description": "Parvis remarquable nommé. Un parvis est une place sis devant un bâtiments particuliers, le plus souvent un édifice religieux, mais pas uniquement."
+        },
+        {
+          "const": "Pêcherie",
+          "title": "Pêcherie",
+          "description": "Pêcherie"
+        },
+        {
+          "const": "Pelote basque",
+          "title": "Pelote basque",
+          "description": "Terrain de pelote basque extérieur nommé"
+        },
+        {
+          "const": "Pente école",
+          "title": "Pente école",
+          "description": "Pente-école répertoriée à la Fédération Française de Vol Libre."
+        },
+        {
+          "const": "Pépinière",
+          "title": "Pépinière",
+          "description": "Pépinière"
+        },
+        {
+          "const": "Pigeonnier",
+          "title": "Pigeonnier",
+          "description": "Pigeonnier"
+        },
+        {
+          "const": "Piste de bicross",
+          "title": "Piste de bicross",
+          "description": "La piste de bicross est un équipement destiné à la pratique du BMX."
+        },
+        {
+          "const": "Piste de ski",
+          "title": "Piste de ski",
+          "description": "Piste de ski."
+        },
+        {
+          "const": "Place",
+          "title": "Place",
+          "description": "Place"
+        },
+        {
+          "const": "Plage concédée",
+          "title": "Plage concédée",
+          "description": "Plage concédée, encadrée par un décret d'application de la loi littoral, régie par des règles d’occupation qui veillent à la fois au libre accès des plages, à la protection du patrimoine naturel et des paysages et au renforcement de l’attractivité."
+        },
+        {
+          "const": "Planche à voile",
+          "title": "Planche à voile",
+          "description": "Sport de glisse pratiqué sur une étendue d'eau à l'aide d'une flotteur (planche) muni d'une voile."
+        },
+        {
+          "const": "Plate-forme de compostage",
+          "title": "Plate-forme de compostage",
+          "description": "Plate-forme de compostage"
+        },
+        {
+          "const": "Plate-forme de treuil",
+          "title": "Plate-forme de treuil",
+          "description": "Zone permettant le décollage de parapente en plaine, à l'aide d'un treuil."
+        },
+        {
+          "const": "Plongée sous-marine",
+          "title": "Plongée sous-marine",
+          "description": "Sport qui consiste à s'immerger sous la surface de l'eau, équipé d'un matériel comme un masque et un tuba, ou des bouteilles d'oxygène permettant une plus grande autonomie de plongée."
+        },
+        {
+          "const": "Point d'information famille",
+          "title": "Point d'information famille",
+          "description": "Lieu d'information et d'orientation des familles. On y informe et conseille dans tous les domaines ayant trait à la famille, de la naissance à la prise en charge des ascendants."
+        },
+        {
+          "const": "Point d'information jeunesse",
+          "title": "Point d'information jeunesse",
+          "description": "Espace d'accueil et d'information où les jeunes ont accès à une information complète, pratique et actualisée dans tous les domaines."
+        },
+        {
+          "const": "Point d'information touristique",
+          "title": "Point d'information touristique",
+          "description": "Point d'information touristique saisonnier ou pas, antenne saisonnière d’un office de tourisme (près d’un lac, dans un hameau…), syndicat d'initiative"
+        },
+        {
+          "const": "Police d'autoroute",
+          "title": "Police d'autoroute",
+          "description": "Brigade de police d'autoroute, composé, d'officiers de statut civil."
+        },
+        {
+          "const": "Police municipale",
+          "title": "Police municipale",
+          "description": "Police municipale."
+        },
+        {
+          "const": "Pont génois",
+          "title": "Pont génois"
+        },
+        {
+          "const": "Pont romain",
+          "title": "Pont romain",
+          "description": "Pont romain"
+        },
+        {
+          "const": "Porte",
+          "title": "Porte",
+          "description": "Porte remarquable (entrée de ville...)"
+        },
+        {
+          "const": "Poste de gaz",
+          "title": "Poste de gaz",
+          "description": "Poste de gaz"
+        },
+        {
+          "const": "Poste de pompage d'hydrocarbures",
+          "title": "Poste de pompage d'hydrocarbures",
+          "description": "Poste de pompage d'hydrocarbures"
+        },
+        {
+          "const": "Poste saisonnier de gendarmerie",
+          "title": "Poste saisonnier de gendarmerie",
+          "description": "Poste de gendarmerie ouvert certaines périodes de l'année."
+        },
+        {
+          "const": "Practice",
+          "title": "Practice",
+          "description": "Terrain d'entrainement au golf."
+        },
+        {
+          "const": "Préfecture de département",
+          "title": "Préfecture de département",
+          "description": "Préfecture de département"
+        },
+        {
+          "const": "Préfecture de département annexe",
+          "title": "Préfecture de département annexe",
+          "description": "Préfecture de département annexe"
+        },
+        {
+          "const": "Préfecture de police",
+          "title": "Préfecture de police",
+          "description": "Préfecture de police"
+        },
+        {
+          "const": "Préfecture maritime",
+          "title": "Préfecture maritime",
+          "description": "Préfecture maritime"
+        },
+        {
+          "const": "Prieuré",
+          "title": "Prieuré",
+          "description": "Monastère généralement subordonné à une abbaye plus importante ; il est placé sous l'autorité d'un prieur, lui-même dépendant d'un abbé plus important."
+        },
+        {
+          "const": "Promenade",
+          "title": "Promenade",
+          "description": "Promenade"
+        },
+        {
+          "const": "Protection maternelle et infantile",
+          "title": "Protection maternelle et infantile",
+          "description": "Protection maternelle et infantile"
+        },
+        {
+          "const": "Puits de mine",
+          "title": "Puits de mine",
+          "description": "Puits de mine"
+        },
+        {
+          "const": "Pumptrack",
+          "title": "Pumptrack",
+          "description": "Piste en boucle, constituée d'une succession de bosses et de virages relevés, qui peut être utilisée avec différents équipements sportifs, dont les VTT ou les BMX."
+        },
+        {
+          "const": "Raffinerie",
+          "title": "Raffinerie",
+          "description": "Raffinerie"
+        },
+        {
+          "const": "Rafting",
+          "title": "Rafting",
+          "description": "Sport d'eaux vives qui consiste à descendre des sections de rivière comportant des rapides en raft, airboat ou canoraft ."
+        },
+        {
+          "const": "Refuge gardé",
+          "title": "Refuge gardé",
+          "description": "Refuge de montagne gardé en permanence."
+        },
+        {
+          "const": "Refuge non gardé",
+          "title": "Refuge non gardé",
+          "description": "Refuge non gardé",
+          "x-ign-representedFeatures": [
+            "Refuge d’hiver",
+            "Refuge-bivouac",
+            "Refuge ouvert sur réservation"
+          ]
+        },
+        {
+          "const": "Relais équestre",
+          "title": "Relais équestre",
+          "description": "Relais équestre"
+        },
+        {
+          "const": "Résidence universitaire",
+          "title": "Résidence universitaire",
+          "description": "Résidence universitaire"
+        },
+        {
+          "const": "Restaurant scolaire",
+          "title": "Restaurant scolaire"
+        },
+        {
+          "const": "Restaurant universitaire",
+          "title": "Restaurant universitaire",
+          "description": "Restaurant universitaire"
+        },
+        {
+          "const": "Restauration",
+          "title": "Restauration",
+          "description": "Commerce de restauration"
+        },
+        {
+          "const": "Rhumerie",
+          "title": "Rhumerie",
+          "description": "Rhumerie"
+        },
+        {
+          "const": "Sablière",
+          "title": "Sablière",
+          "description": "Site d'extraction de sables"
+        },
+        {
+          "const": "Salle de spectacle",
+          "title": "Salle de spectacle",
+          "description": "Salle de spectacle destinée à recevoir des représentations de spectacles vivants."
+        },
+        {
+          "const": "Salle polyvalente",
+          "title": "Salle polyvalente",
+          "description": "Salle polyvalente | Salle des fêtes | Salle municipale"
+        },
+        {
+          "const": "Sanatorium",
+          "title": "Sanatorium",
+          "description": "Sanatorium ou ancien sanatorium, établissement de convalescence pour personne atteintes d'affections respiratoire, historiquement de tuberculose."
+        },
+        {
+          "const": "Scierie",
+          "title": "Scierie",
+          "description": "Scierie"
+        },
+        {
+          "const": "Section spécialisée",
+          "title": "Section spécialisée",
+          "description": "Regroupe les différents enseignements spécialisés : Enseignement destiné à un public à besoins particuliers * SEGPA ou section d’enseignement général et professionnel adapté. Ce terme remplace le terme section d’éducation spécialisée utilisé auparavant. * CRESDA ou Centre Régional d'Education Spécialisée pour Déficients Auditifs. * EREA ou établissement régional d'enseignement adapté : leur mission est de prendre en charge des adolescents en grande difficulté scolaire et sociale, ou présentant un handicap.",
+          "x-ign-representedFeatures": [
+            "Section d'enseignement général et professionnel adapté (SEGPA)",
+            "Centre régional d'éducation spécialisée pour déficients auditifs (CRESDA)",
+            "Etablissement régional d'enseignement adapté (EREA)"
+          ]
+        },
+        {
+          "const": "Sémaphore",
+          "title": "Sémaphore",
+          "description": "Sémaphore"
+        },
+        {
+          "const": "Sentier botanique",
+          "title": "Sentier botanique",
+          "description": "Sentier botanique"
+        },
+        {
+          "const": "Sentier écologique",
+          "title": "Sentier écologique",
+          "description": "Sentier écologique"
+        },
+        {
+          "const": "Sentier entomologique",
+          "title": "Sentier entomologique",
+          "description": "Sentier entomologique"
+        },
+        {
+          "const": "Sentier sous-marin",
+          "title": "Sentier sous-marin",
+          "description": "Sentier sous-marin"
+        },
+        {
+          "const": "Service départemental d'incendie et de secours",
+          "title": "Service départemental d'incendie et de secours",
+          "description": "Établissement public administratif départemental, composé de sapeurs-pompiers professionnels, de sapeurs-pompiers volontaires et de personnels administratifs et techniques. Il est chargé de mettre à disposition des maires et du préfet les moyens d’intervention nécessaires à assurer leurs pouvoirs respectifs de police en matière de : - Prévention et évaluation des risques de sécurité civile, - Préparation des mesures de sauvegarde et organisation des moyens de secours - Protection des personnes, des biens et de l'environnement - Secours d'urgence aux personnes victimes d'accidents, de sinistres ou de catastrophes, ainsi que leur évacuation."
+        },
+        {
+          "const": "Service Local d'Incendie et de Secours",
+          "title": "Service Local d'Incendie et de Secours",
+          "description": "Un service local d'incendie et de secours est un corps communal ou intercommunal de sapeurs-pompiers, organisé en centre de première intervention, qui relève des communes ou des établissements publics de coopération intercommunale."
+        },
+        {
+          "const": "Service technique municipal",
+          "title": "Service technique municipal",
+          "description": "Service technique municipal"
+        },
+        {
+          "const": "Siège annexe d'EPCI",
+          "title": "Siège annexe d'EPCI",
+          "description": "Siège annexe d'EPCI, généralement ancien siège d'EPCI ayant fusionné."
+        },
+        {
+          "const": "Site de bloc",
+          "title": "Site de bloc",
+          "description": "Site de bloc d'escalade."
+        },
+        {
+          "const": "Site de falaise",
+          "title": "Site de falaise",
+          "description": "Site d'escalade de falaise"
+        },
+        {
+          "const": "Skatepark",
+          "title": "Skatepark",
+          "description": "Lieu aménagé pour la pratique du skateboard."
+        },
+        {
+          "const": "Ski nautique",
+          "title": "Ski nautique",
+          "description": "Sport où l'on glisse sur l'eau, tiré par un canot à moteur ou un câble tracteur et chaussé d'un ou deux longs patins."
+        },
+        {
+          "const": "Sous-préfecture annexe",
+          "title": "Sous-préfecture annexe",
+          "description": "Sous-préfecture annexe"
+        },
+        {
+          "const": "Square",
+          "title": "Square",
+          "description": "Petit espace vert en milieu urbain à caractère de loisir accessible au public, souvent situé dans un quartier résidentiel ou près d’une place publique, conçu comme un îlot de verdure accessible aux habitants, souvent aménagé pour la détente (bancs, jeux pour enfants)."
+        },
+        {
+          "const": "Station d'épuration par filtre à roseaux",
+          "title": "Station d'épuration par filtre à roseaux",
+          "description": "Station d'épuration par filtre à roseaux"
+        },
+        {
+          "const": "Station d'épuration par filtre à sable",
+          "title": "Station d'épuration par filtre à sable",
+          "description": "Station d'épuration par filtre à sable"
+        },
+        {
+          "const": "Station d'épuration par lagunage",
+          "title": "Station d'épuration par lagunage",
+          "description": "Station d'épuration par lagunage"
+        },
+        {
+          "const": "Statue",
+          "title": "Statue",
+          "description": "Statue"
+        },
+        {
+          "const": "Stèle",
+          "title": "Stèle",
+          "description": "Stèle",
+          "x-ign-representedFeatures": [
+            "Stèle celtique",
+            "Stèle gauloise"
+          ]
+        },
+        {
+          "const": "Stockage de gaz",
+          "title": "Stockage de gaz",
+          "description": "Stockage de gaz"
+        },
+        {
+          "const": "Stockage d'électricité",
+          "title": "Stockage d'électricité",
+          "description": "Site dédié au stockage d'électricité."
+        },
+        {
+          "const": "Sucrerie",
+          "title": "Sucrerie",
+          "description": "Sucrerie"
+        },
+        {
+          "const": "Surf",
+          "title": "Surf",
+          "description": "Sport qui consiste à se laisser porter, sur une planche, par une vague déferlante."
+        },
+        {
+          "const": "Synagogue",
+          "title": "Synagogue",
+          "description": "Lieu voué à la célébration du culte israélite."
+        },
+        {
+          "const": "Table d'orientation",
+          "title": "Table d'orientation",
+          "description": "Point de vue avec table d'orientation."
+        },
+        {
+          "const": "Télégraphe Chappe",
+          "title": "Télégraphe Chappe",
+          "description": "Télégraphe Chappe"
+        },
+        {
+          "const": "Temple bouddhiste",
+          "title": "Temple bouddhiste",
+          "description": "Temple voué au culte bouddhiste."
+        },
+        {
+          "const": "Temple hindouiste",
+          "title": "Temple hindouiste",
+          "description": "Temple voué au culte hindouiste."
+        },
+        {
+          "const": "Temple protestant",
+          "title": "Temple protestant",
+          "description": "Lieu dévoué au culte protestant.",
+          "x-ign-representedFeatures": [
+            "Eglise protestante",
+            "Temple adventiste"
+          ]
+        },
+        {
+          "const": "Terrain de manœuvre",
+          "title": "Terrain de manœuvre",
+          "description": "Espace réservé aux exercices militaires de grande ampleur."
+        },
+        {
+          "const": "Terrain de sport",
+          "title": "Terrain de sport",
+          "description": "Terrain de sport de grand jeu ou ensemble de terrains de sports de plein air, d'entrainement... Stade de petite taille ou sans installation bâtie (gymnase, tribune...).",
+          "x-ign-representedFeatures": [
+            "Terrain de sport de plein air nommé de petite taille ou sans installation pérenne",
+            "Stade nommé de petite taille ou sans installation pérenne."
+          ]
+        },
+        {
+          "const": "Terrain militaire",
+          "title": "Terrain militaire",
+          "description": "Surface spécifiquement désignée comme telle sur le terrain."
+        },
+        {
+          "const": "Terrasse",
+          "title": "Terrasse",
+          "description": "Terrasse"
+        },
+        {
+          "const": "Théâtre",
+          "title": "Théâtre",
+          "description": "Théâtre"
+        },
+        {
+          "const": "Théâtre de plein air",
+          "title": "Théâtre de plein air",
+          "description": "Théâtre de plein air"
+        },
+        {
+          "const": "Théâtre national",
+          "title": "Théâtre national",
+          "description": "Théâtre national"
+        },
+        {
+          "const": "Théâtre romain",
+          "title": "Théâtre romain",
+          "description": "Théâtre romain"
+        },
+        {
+          "const": "Tombe",
+          "title": "Tombe",
+          "description": "Tombe"
+        },
+        {
+          "const": "Tombe de guerre du Commonwealth",
+          "title": "Tombe de guerre du Commonwealth",
+          "description": "Tombe ou groupe de tombes, isolés on au cœur d'un cimetière, ayant appartenu aux combattants du Commonwealth."
+        },
+        {
+          "const": "Tribunal administratif",
+          "title": "Tribunal administratif",
+          "description": "Les tribunaux administratifs sont les juridictions compétentes de droit commun en première instance. Ils sont notamment compétents en cas de contestation d’un acte administratif ou d’une action en responsabilité dirigée contre les services publics."
+        },
+        {
+          "const": "Tribunal de commerce",
+          "title": "Tribunal de commerce",
+          "description": "Le tribunal de commerce tranche, de manière générale, les litiges entre commerçants ou entre commerçants et sociétés commerciales, et ceux qui portent sur les actes de commerce."
+        },
+        {
+          "const": "Tribunal de proximité",
+          "title": "Tribunal de proximité",
+          "description": "Le tribunal de proximité dépend du tribunal judiciaire. Il est situé dans une autre ville que celle où siège le tribunal judiciaire. Comme le tribunal judiciaire, le tribunal de proximité peut être compétent pour juger les litiges dont le montant n'excède pas 10 000 €."
+        },
+        {
+          "const": "Tribunal judiciaire",
+          "title": "Tribunal judiciaire",
+          "description": "Le tribunal judiciaire est issu de la fusion du tribunal d'instance et du tribunal de grande instance. Il est compétent pour tous les litiges qui ne sont pas confiés à un autre tribunal (par exemple, au tribunal de commerce ou au conseil de prud'hommes) quelle que soit la valeur du litige."
+        },
+        {
+          "const": "Tribunal pour enfants",
+          "title": "Tribunal pour enfants",
+          "description": "Tribunal pour enfants. Formation du tribunal judiciaire, le tribunal pour enfants juge les auteurs de contraventions de cinquième classe, de délits et de crimes, qui étaient mineurs au moment des faits."
+        },
+        {
+          "const": "Trinquet",
+          "title": "Trinquet",
+          "description": "Salle de pratique de la pelote basque sous toutes ses formes (chistera, ...)."
+        },
+        {
+          "const": "Tuilerie",
+          "title": "Tuilerie",
+          "description": "Tuilerie"
+        },
+        {
+          "const": "Tumulus",
+          "title": "Tumulus",
+          "description": "Éminence artificielle, circulaire ou non, recouvrant une sépulture. Un tertre n'est fait que de terre, un tumulus de terre et de pierres."
+        },
+        {
+          "const": "Unité de formation et de recherche",
+          "title": "Unité de formation et de recherche",
+          "description": "Composante d'une université qui associe des départements de formation et des laboratoires de recherche."
+        },
+        {
+          "const": "Unité de méthanisation",
+          "title": "Unité de méthanisation",
+          "description": "Usine ou plate-forme de méthanisation"
+        },
+        {
+          "const": "Unité d'instruction et d'intervention de la sécurité civile",
+          "title": "Unité d'instruction et d'intervention de la sécurité civile",
+          "description": "Bâtiment ou ensemble de bâtiment abritant le corps militaire des unités d'instruction et d'intervention de la sécurité civile (UIISC)."
+        },
+        {
+          "const": "URSSAF",
+          "title": "URSSAF",
+          "description": "Union de Recouvrement des cotisations de Sécurité Sociale et d'Allocations Familiales. Organisme privé chargé d'une mission de service public, relevant de la branche « recouvrement » du régime général de la sécurité sociale."
+        },
+        {
+          "const": "Usine d'incinération",
+          "title": "Usine d'incinération",
+          "description": "Usine où sont incinérés les déchets aptes à l'être."
+        },
+        {
+          "const": "Usine élévatrice",
+          "title": "Usine élévatrice",
+          "description": "Usine élévatrice"
+        },
+        {
+          "const": "Vélodrome",
+          "title": "Vélodrome",
+          "description": "Circuit destiné à la pratique du cyclisme sur piste.",
+          "x-ign-representedFeatures": [
+            "Vélodrome découvert (toponyme)",
+            "Vélodrome couvert (toponyme)"
+          ]
+        },
+        {
+          "const": "Via ferrata",
+          "title": "Via ferrata",
+          "description": "Sport empruntant un itinéraire aménagé dans une paroi rocheuse, équipé d'éléments métalliques spécifiques (câbles, échelles, rampes, etc.) destinés à faciliter la progression et optimiser la sécurité des personnes qui l'utilisent."
+        },
+        {
+          "const": "Village de vacances",
+          "title": "Village de vacances",
+          "description": "Village de vacances"
+        },
+        {
+          "const": "Voile",
+          "title": "Voile",
+          "description": "Sport de glisse sur l'eau consistant à naviguer sur une embarcation allant du dériveur au multi-coque, à l'aide du vent."
+        },
+        {
+          "const": "Zone artisanale",
+          "title": "Zone artisanale",
+          "description": "Zone artisanale"
+        },
+        {
+          "const": "Zone commerciale",
+          "title": "Zone commerciale",
+          "description": "Zone commerciale"
+        },
+        {
+          "const": "Zone d'activités",
+          "title": "Zone d'activités",
+          "description": "Zone d'activités"
+        }
+      ],
+      "type": "string"
+    },
+    "toponyme": {
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet.",
+      "type": "string"
+    },
+    "statut_du_toponyme": {
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
+      ],
+      "type": "string"
+    },
+    "importance": {
+      "title": "Importance",
+      "description": "Attribut permettant de hiérarchiser les objets d'une classe en fonction de leur importance ou notoriété relative.",
+      "oneOf": [
+        {
+          "const": "1",
+          "title": "1",
+          "description": "L'objet a une importance ou un rayonnement national, justifiant de le représenter aux échelles de l'ordre du 1 : 1 000 000."
+        },
+        {
+          "const": "2",
+          "title": "2",
+          "description": "L'objet a une importance ou un rayonnement régional, justifiant de le représenter aux échelles de l'ordre du 1 : 250 000."
+        },
+        {
+          "const": "3",
+          "title": "3",
+          "description": "L'objet a une importance ou un rayonnement départemental, justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
+        },
+        {
+          "const": "4",
+          "title": "4",
+          "description": "L'objet a une importance ou un rayonnement intercommunal ou cantonal, justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
+        },
+        {
+          "const": "5",
+          "title": "5",
+          "description": "L'objet a une importance ou un rayonnement communal, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
+        },
+        {
+          "const": "6",
+          "title": "6",
+          "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
+        }
+      ],
+      "type": "string"
+    },
+    "fictif": {
+      "title": "Fictif",
+      "description": "Indique si la géométrie de l'objet est réelle ou non significative.",
+      "type": "boolean"
+    },
+    "etat_de_l_objet": {
+      "title": "Etat de l'objet services",
+      "description": "État ou stade de la vie d'un objet qui peut être en projet, en construction, en service ou non exploité.",
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en construction."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En service",
+          "title": "En service"
+        },
+        {
+          "const": "Non exploité",
+          "title": "Non exploité",
+          "description": "La zone d'activité ou d'intérêt n'est plus exploitée mais son implantation est encore présente dans la durée (exemple : centrales électriques)."
+        }
+      ],
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "type": "string"
+    },
+    "identifiants_sources": {
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "type": "string"
+    },
+    "methode_d_acquisition_planimetrique": {
+      "title": "Méthode d'acquisition planimétrique",
+      "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
+      ],
+      "type": "string"
+    },
+    "precision_planimetrique": {
+      "title": "Précision planimétrique",
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
+      "type": "number"
+    },
+    "insee_commune": {
+      "title": "Insee commune calculé",
+      "description": "Code INSEE de la commune calculé.",
+      "type": "string"
+    },
+    "commune": {
+      "title": "Commune",
+      "description": "Commune où se situe l'objet.",
+      "type": "string"
+    },
+    "adresse_postale": {
+      "title": "Adresse postale",
+      "description": "Adresse postale de la .",
+      "type": "string"
+    },
+    "identifiant_voie_ban": {
+      "title": "Identifiant voie BAN",
+      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056.",
+      "type": "string"
+    },
+    "nom_commercial": {
+      "title": "Nom commercial",
+      "description": "Nom commercial de la zone d'activité.",
+      "type": "string"
+    },
+    "id_ban_odonyme": {
+      "title": "Id BAN Odonyme",
+      "description": "Identifiant de l'odonyme de la BAN, au format uuid.",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie",
+      "description": "",
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": [
+    "cleabs",
+    "categorie",
+    "nature",
+    "fictif",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "geometrie"
+  ]
+}

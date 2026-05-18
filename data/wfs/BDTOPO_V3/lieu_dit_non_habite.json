@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "lieu_dit_non_habite",
   "title": "BDTOPO : Lieux-dits non habités",
-  "description": "Lieux-dits non habités − BDTOPO® V3 2026-03-15",
+  "description": "Lieux-dits non habités − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

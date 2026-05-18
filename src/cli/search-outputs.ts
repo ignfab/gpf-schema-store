@@ -4,13 +4,18 @@ import type {
 } from '../search/minisearch-engine';
 
 const FIELD_DISPLAY_ORDER = [
-  'name',
   'title',
-  'description',
+  'representedFeatures',
   'identifierTokens',
+  'name',
   'namespace',
-  'properties',
-  'enums',
+  'oneOfConsts',
+  'propertyTitles',
+  'propertyNames',
+  'propertyDescriptions',
+  'description',
+  'oneOfDescriptions',
+  'selectionCriteria',
 ] as const;
 
 function compareFieldNames(left: string, right: string): number {

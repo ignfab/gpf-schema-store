@@ -1,5 +1,5 @@
 import type { CollectionMetadata, NamespaceFilterRule} from "../types";
-import { findFirstMatchingRule } from "./filter";
+import { findFirstMatchingRule } from "./namespace-filters";
 
 /**
  * Split a WFS feature type identifier into namespace and table (local) name.

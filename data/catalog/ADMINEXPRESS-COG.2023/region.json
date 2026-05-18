@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2023:region",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2023 Région",
+  "description": "ADMINEXPRESS COG 2023 Région ; Édition 2023-01-01",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "nom_m": {
+      "type": "string"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "insee_reg": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

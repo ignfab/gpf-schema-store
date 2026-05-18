@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "ADMINEXPRESS-COG.2018:commune",
+  "type": "object",
+  "title": "ADMINEXPRESS COG 2018 Commune",
+  "description": "ADMINEXPRESS COG 2018 Commune ; Édition 2018-01-01",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "statut": {
+      "type": "string"
+    },
+    "insee_com": {
+      "type": "string"
+    },
+    "nom_com": {
+      "type": "string"
+    },
+    "insee_arr": {
+      "type": "string"
+    },
+    "nom_dep": {
+      "type": "string"
+    },
+    "insee_dep": {
+      "type": "string"
+    },
+    "nom_reg": {
+      "type": "string"
+    },
+    "insee_reg": {
+      "type": "string"
+    },
+    "code_epci": {
+      "type": "string"
+    },
+    "nom_com_m": {
+      "type": "string"
+    },
+    "population": {
+      "type": "integer"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

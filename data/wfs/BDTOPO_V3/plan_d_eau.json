@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "plan_d_eau",
   "title": "BDTOPO : Plans d'eau",
-  "description": "Plans d'eau − BDTOPO® V3 2026-03-15",
+  "description": "Plans d'eau − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

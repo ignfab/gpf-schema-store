@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:section_de_points_de_repere",
+  "type": "object",
+  "title": "Section de points de repère",
+  "x-ign-theme": "Transport",
+  "description": "Portion de route continue portant le même numéro. Les points de repères sont reliés à une section. Chaque section porte un PR de début de section (DS) et un PR de fin de section.",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string",
+      "x-ogc-role": "id"
+    },
+    "identifiant_de_section": {
+      "title": "Identifiant de section",
+      "description": "Identifiant de la section.",
+      "type": "string"
+    },
+    "numero_de_route": {
+      "title": "Numéro de route",
+      "description": "Numéro de la route classée à laquelle la section est associée.",
+      "type": "string"
+    },
+    "gestionnaire": {
+      "title": "Gestionnaire",
+      "description": "Organisme gestionnaire du PR et de la route.",
+      "type": "string"
+    },
+    "lien_vers_route_nommee": {
+      "title": "Lien vers route nommée",
+      "description": "Lien vers l'identifiant (clé absolue) de l'objet Route numérotée ou nommée de Nature=\"Route Nommée\" auquel appartient la Section de points de repère.",
+      "type": "string"
+    },
+    "code_insee_du_departement": {
+      "title": "Code Insee du département",
+      "description": "Code INSEE du département auquel appartient le PR ou la section de PR.",
+      "type": "string"
+    },
+    "cote": {
+      "title": "Côté",
+      "description": "Côté de la route où se situe la section par rapport au sens des PR croissants.",
+      "oneOf": [
+        {
+          "const": "D",
+          "title": "D"
+        },
+        {
+          "const": "G",
+          "title": "G"
+        },
+        {
+          "const": "U",
+          "title": "U"
+        }
+      ],
+      "type": "string"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie",
+      "description": "",
+      "format": "geometry-linestring",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": [
+    "cleabs",
+    "identifiant_de_section",
+    "numero_de_route",
+    "code_insee_du_departement",
+    "cote",
+    "geometrie"
+  ]
+}

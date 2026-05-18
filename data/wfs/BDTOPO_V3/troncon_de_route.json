@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "troncon_de_route",
   "title": "BDTOPO : Tronçons de route",
-  "description": "Tronçons de route − BDTOPO® V3 2026-03-15",
+  "description": "Tronçons de route − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

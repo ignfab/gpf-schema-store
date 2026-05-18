@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2025",
   "name": "departement",
   "title": "ADMINEXPRESS COG 2025 Département",
-  "description": "ADMINEXPRESS COG 2025 Département",
+  "description": "ADMINEXPRESS COG 2025 Département ; Édition 2025-01-01",
   "properties": [
     {
       "name": "cleabs",

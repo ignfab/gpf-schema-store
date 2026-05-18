@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "region",
   "title": "BDTOPO : Régions",
-  "description": "Régions − BDTOPO® V3 2026-03-15",
+  "description": "Régions − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

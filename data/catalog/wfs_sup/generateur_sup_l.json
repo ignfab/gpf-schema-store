@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_sup:generateur_sup_l",
+  "type": "object",
+  "title": "Générateur de servitude d'utilité publique",
+  "description": "Générateurs linéaires liés aux servitudes, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "suptype": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "fichier": {
+      "type": "string"
+    },
+    "idgen": {
+      "type": "string"
+    },
+    "idsup": {
+      "type": "string"
+    },
+    "nomgen": {
+      "type": "string"
+    },
+    "typegen": {
+      "type": "string"
+    },
+    "modegenere": {
+      "type": "string"
+    },
+    "srcgeogen": {
+      "type": "string"
+    },
+    "datesrcgen": {
+      "type": "string"
+    },
+    "refbdext": {
+      "type": "string"
+    },
+    "idbdext": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "diametre": {
+      "type": "integer"
+    },
+    "tension": {
+      "type": "integer"
+    },
+    "croisement": {
+      "type": "string"
+    },
+    "type_gest": {
+      "type": "string"
+    },
+    "type_voie": {
+      "type": "string"
+    },
+    "nomsuplitt": {
+      "type": "string"
+    },
+    "nomreg": {
+      "type": "string"
+    },
+    "urlreg": {
+      "type": "string"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_sup:generateur_sup_p",
+  "type": "object",
+  "title": "Générateur de servitude d'utilité publique",
+  "description": "Générateurs ponctuels liés aux servitudes, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "suptype": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "fichier": {
+      "type": "string"
+    },
+    "idgen": {
+      "type": "string"
+    },
+    "idsup": {
+      "type": "string"
+    },
+    "nomgen": {
+      "type": "string"
+    },
+    "typegen": {
+      "type": "string"
+    },
+    "modegenere": {
+      "type": "string"
+    },
+    "srcgeogen": {
+      "type": "string"
+    },
+    "datesrcgen": {
+      "type": "string"
+    },
+    "refbdext": {
+      "type": "string"
+    },
+    "idbdext": {
+      "type": "string"
+    },
+    "tension": {
+      "type": "integer"
+    },
+    "type": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "nomsuplitt": {
+      "type": "string"
+    },
+    "nomreg": {
+      "type": "string"
+    },
+    "urlreg": {
+      "type": "string"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

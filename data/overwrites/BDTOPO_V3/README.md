@@ -1,8 +1,3 @@
-Ce dossier est généré à partir des données de https://bdtopoexplorer.ign.fr
+Ce dossier est généré à partir des données utilisées par https://bdtopoexplorer.ign.fr
 
-TODO manu :
-
-- batiment.json
-- ...
-
-(au moins les attributs du modèle)
+Le code correspondant à la production de la version courante est sur la branche dev du projet https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/

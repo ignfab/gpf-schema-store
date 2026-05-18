@@ -13,7 +13,7 @@ ADMINEXPRESS-COG.2023,ADMINEXPRESS-COG,false,,"arrondissement|arrondissement_mun
 ADMINEXPRESS-COG.2024,ADMINEXPRESS-COG,false,,"arrondissement|arrondissement_municipal|canton|chef_lieu_arrondissement_municipal|chef_lieu_commune_associee_ou_deleguee|chef_lieu_commune|collectivite_territoriale|commune|commune_associee_ou_deleguee|departement|epci|region"
 ADMINEXPRESS-COG.2025,ADMINEXPRESS-COG,false,,"arrondissement|arrondissement_municipal|canton|chef_lieu_de_commune|chef_lieu_d_arrondissement|chef_lieu_d_arrondissement_municipal|chef_lieu_de_collectivite_territoriale|chef_lieu_de_commune_associee_ou_deleguee|chef_lieu_de_departement|chef_lieu_de_region|collectivite_territoriale|commune|commune_associee_ou_deleguee|departement|epci|region"
 ADMINEXPRESS-COG.2026,ADMINEXPRESS-COG,false,,"arrondissement|arrondissement_municipal|canton|chef_lieu_de_commune|chef_lieu_d_arrondissement|chef_lieu_d_arrondissement_municipal|chef_lieu_de_collectivite_territoriale|chef_lieu_de_commune_associee_ou_deleguee|chef_lieu_de_departement|chef_lieu_de_region|collectivite_territoriale|commune|commune_associee_ou_deleguee|departement|epci|region"
-ADMINEXPRESS-COG.LATEST,ADMINEXPRESS-COG,false,,"arrondissement|arrondissement_municipal|canton|chef_lieu_d_arrondissement_municipal|chef_lieu_d_epci|chef_lieu_de_canton|chef_lieu_de_collectivite_territoriale|chef_lieu_de_region|chef_lieu_de_commune|collectivite_territoriale|commune|commune_associee_ou_deleguee|departement|epci|region"
+ADMINEXPRESS-COG.LATEST,ADMINEXPRESS-COG,false,,"arrondissement|arrondissement_municipal|canton|chef_lieu_d_arrondissement_municipal|chef_lieu_d_epci|chef_lieu_de_canton|chef_lieu_de_collectivite_territoriale|chef_lieu_de_region|chef_lieu_de_commune|chef_lieu_de_commune_associee_ou_deleguee|collectivite_territoriale|commune|commune_associee_ou_deleguee|departement|epci|region"
 ADMINEXPRESS_COG_2018_CARTO,ADMINEXPRESS-COG-CARTO-PE,true,Using ADMINEXPRESS-COG instead,"arrondissement_departemental_carto|commune_carto|departement_carto|epci_carto|region_carto"
 AOC-VITICOLES,AOC,true,Waiting for MCP use case definition,aire_parcellaire
 AREAMANAGEMENT.QP.VECTOR,unknown,true,Fail to assign to an existing product,qp_decretmodif_2015_epsg3857_wm
@@ -61,10 +61,12 @@ IGNF_ACCESSIBILITE-PHYSIQUE-FORETS-MASQUE-FORETV3,unknown,true,Fail to assign to
 IGNF_BD-FRANCE-TOPO-VEGETATION,unknown,true,Fail to assign to an existing product,BD-FRANCE-TOPO-VEGETATION
 IGNF_CARTO-FORMATIONS-VEGETALES_2016,unknown,true,Fail to assign to an existing product,formations_vegetales_d976_2016
 IGNF_CARTO-FORMATIONS-VEGETALES_2017,unknown,true,Fail to assign to an existing product,formations_vegetales_d972_2017
+IGNF_CARTO-FORMATIONS-VEGETALES_2022,,true,No matching rule,formations_vegetales_d972_2022
 IGNF_CARTO-FORMATIONS-VEGETALES_2023,unknown,true,Fail to assign to an existing product,formations_vegetales_d976_2023
 IGNF_CARTO-SP_CARREAU-200m,,true,No matching rule,indicateurs
 IGNF_GEODESIE,,true,Waiting for MCP use case definition,"site-rbf|site-rdf|triplet|point-rdf|point-rbf|rn|rgp"
 IGNF_LIDAR-HD_METADONNEE,,true,No matching rule,metadata
+IGNF_MASQUE-CARTO-FORMATIONS-VEGETALES,,true,No matching rule,"masque-foret_2004|masque-foret_2016|masque-foret_2017|masque-foret_2022|masque-foret_2023"
 IGNF_MASQUE-FORET.2021-2023,unknown,true,Fail to assign to an existing product,masque_foret
 IGNF_MNH-LIDAR-HD,,true,Image index dataset,"bloc|dalle"
 IGNF_MNS-LIDAR-HD,,true,Image index dataset,"bloc|dalle"
@@ -203,6 +205,7 @@ l_rgc_l_008_gpkg_20-02-2026_wfs,,true,Test data,l_rgc_l_008
 lls_wfs,,true,Test data,llssiap
 masseeausouterraine972_wfs,,true,Test data,MasseEauSouterraine972
 monterritoire_gpkg_29-07-2025_wfs,,true,Test data,forets_de_mon_territoire
+n_bassin_vie_zsup_068_zip_01-04-2026_wfs,,true,No matching rule,n_bassin_vie_zsup_068
 n_dfci_zone_regl_s_034_zip_03-02-2026_wfs,,true,Test data,n_dfci_zone_regl_s_034
 n_zone_reg_pprn_20180013_s_072_gpkg_05-11-2025_wfs,,true,Test data,n_zone_reg_pprn_20180013_s_072
 paec_bfc_2023,,true,Waiting for MCP use case definition,Territoires_paec_bfc_2023
@@ -261,9 +264,7 @@ test_CD_La_Ciotat,,true,Test data,"batiment|cd_test_commune|point_du_reseau|tron
 test_fz_la_ciotat,,true,Test data,"fz_test_batiment|fz_test_commune|fz_test_point_du_reseau|fz_test_troncon_de_route"
 test_lc_bdtopo_laCiotat,,true,Test data,"batiment|lc_test_commune|point_du_reseau|troncon_de_route"
 test_mig_rlt,,true,Test data,"dataset|image"
-test_nl_atelier_maj,,true,Test data,table_a_modif
 test_nl_bdtopo_la_ciotat,,true,Test data,"nl_test_batiment|nl_test_commune|nl_test_point_du_reseau|nl_test_troncon_de_route"
-test_nl_bdtopo_laciotat_drv,,true,Test data,troncon_de_route
 test_nl_ifn_stats_2024,,true,Test data,stats_2024
 test_thomas_2,,true,Test data,"troncon_de_route|non communication"
 trichls_s_d51_gpkg_07-10-2024_wfs,,true,Test data,trichls_s_d51
@@ -277,7 +278,6 @@ wfs_du,GPU,false,,"municipality|doc_urba|doc_urba_com|document|habillage_txt|hab
 wfs_scot,GPU,false,,"doc_urba|doc_urba_com|perimetre_scot|scot"
 wfs_sup,GPU,false,,"acte_sup|assiette_sup_l|assiette_sup_p|assiette_sup_s|generateur_sup_l|generateur_sup_p|generateur_sup_s|gestionnaire_sup|servitude_acte_sup|servitude"
 zaer,unknown,true,Fail to assign to an existing product,zaer
-zaer_test_bpy,,true,Test data,zaer_test_bpy
 zdh_87_gpkg_15-01-2025_wfs,,true,Test data,zh_87
 zonealertesecheresse972_gpkg_27-09-2024_wfs,,true,Test data,972_Alerte_Secheresse
 zppa_cvl_executoire_2025_gpkg_06-03-2026_wfs,,true,Test data,zppa_cvl_executoire_2025
@@ -287,3 +287,4 @@ zzz_test_FZ_atelier_maj_donnees_vecteur,,true,Test data,table_a_modif
 zzz_test_LC_atelier_maj_donnees_vecteur,,true,Test data,table_a_modif
 zzz_test_NL_atelier_maj_donnees_vecteur,,true,Test data,table_a_modif
 zzz_test_RM_atelier_maj_donnees_vecteur,,true,Test data,table_a_modif
+zzz_test_nl_pn,,true,Test data,parc_national

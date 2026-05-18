@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_sup:servitude",
+  "type": "object",
+  "title": "Servitude d'utilité publique",
+  "description": "Liste des servitudes d'utilité publique, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "idsup": {
+      "type": "string"
+    },
+    "idgest": {
+      "type": "string"
+    },
+    "nomsup": {
+      "type": "string"
+    },
+    "nomsuplitt": {
+      "type": "string"
+    },
+    "categorie": {
+      "type": "string"
+    },
+    "idintgest": {
+      "type": "string"
+    },
+    "descriptio": {
+      "type": "string"
+    },
+    "datemaj": {
+      "type": "string"
+    },
+    "echnum": {
+      "type": "integer"
+    },
+    "validegest": {
+      "type": "string"
+    },
+    "obsvalidat": {
+      "type": "string"
+    },
+    "estabroge": {
+      "type": "string"
+    },
+    "modeprod": {
+      "type": "string"
+    },
+    "quiprod": {
+      "type": "string"
+    },
+    "docsource": {
+      "type": "string"
+    },
+    "nomreg": {
+      "type": "string"
+    },
+    "urlreg": {
+      "type": "string"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "voie_nommee",
   "title": "BDTOPO : Voies nommées",
-  "description": "Voies nommées − BDTOPO® V3 2026-03-15",
+  "description": "Voies nommées − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

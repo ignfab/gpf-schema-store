@@ -1,9 +1,8 @@
 {
-  "id": "Transport:Itinéraire autre",
-  "namespace": "Transport",
-  "name": "Itinéraire autre",
   "title": "Itinéraire autre",
-  "description": "Itinéraire divers balisé et entretenu sur le terrain, pérenne, non labellisé par la  FFRandonnée ni par le Club Vosgien. Itinéraire référencé dans le PDIPR (Plan Départemental des Itinéraires Pédestres de Randonnée), ou par au moins un organisme officiel qui en a la compétence (office de tourisme, epci, comité départemental de la FFRandonnée).",
+  "x-ign-theme": "Transport",
+  "description": "Itinéraire divers balisé et entretenu sur le terrain, pérenne, non labellisé par la FFRandonnée ni par le Club Vosgien. Itinéraire référencé dans le PDIPR (Plan Départemental des Itinéraires Pédestres de Randonnée), ou par au moins un organisme officiel qui en a la compétence (office de tourisme, epci, comité départemental de la FFRandonnée).",
+  "x-ign-selectionCriteria": "Nature 'Autre' et 'Equestre' : l'exhaustivité n'est visée que sur les zones couvertes par des cartes TOP25 ou le département 02 (convention PDIPR pour la cartographie). En dehors de ces zones, des itinéraires peuvent être saisis en cas de partenariat. Nature 'Sentier de découverte' et 'Parcours sportif' : France entière.",
   "properties": [
     {
       "name": "cleabs",
@@ -16,25 +15,71 @@
       "type": "string",
       "title": "Nature",
       "description": "Renseigne la nature de l'itinéraire : pédestre, équestre ou cyclable.",
-      "enum": [
-        "Itinéraire cyclable",
-        "Itinéraire de randonnée pédestre",
-        "Itinéraire équestre"
+      "oneOf": [
+        {
+          "const": "Itinéraire cyclable",
+          "title": "Itinéraire cyclable",
+          "description": "Itinéraire cyclable continu et jalonné qui doit respecter certaines règles de sécurité. Un itinéraire cyclable emprunte un itinéraire agréable, évite les dénivelés excessifs, et circule autant que possible sur des aménagements en site propre et sur des petites routes tranquilles (trafic inférieur à 1000 véhicules par jour, peu de camions).",
+          "x-ign-representedFeatures": [
+            "Véloroute",
+            "EuroVélo",
+            "Itinéraire VTT",
+            "Voie verte"
+          ]
+        },
+        {
+          "const": "Itinéraire de randonnée pédestre",
+          "title": "Itinéraire de randonnée pédestre",
+          "description": "Itinéraires de randonnée pédestre non labellisés par la FFRandonnée ni par le Club Vosgien, mais balisés, entretenus, pérennes, et référencés."
+        },
+        {
+          "const": "Itinéraire équestre",
+          "title": "Itinéraire équestre",
+          "description": "Itinéraire équestre balisé."
+        }
       ]
     },
     {
       "name": "nature_detaillee",
       "type": "string",
       "title": "Nature détaillée",
-      "description": "Cet attribut <b>précise</b> la valeur de la  'Nature' de l'itinéraire.\r\n\r\nSi aucune précision n'est connue ou nécessaire, le champ reste vide.",
-      "enum": [
-        "Itinéraire VTT",
-        "Parcours sportif",
-        "Sentier botanique",
-        "Sentier de découverte",
-        "Sentier écologique",
-        "Sentier entomologique",
-        "Voie verte"
+      "description": "Cet attribut précise la valeur de la 'Nature' de l'itinéraire. Si aucune précision n'est connue ou nécessaire, le champ reste vide.",
+      "oneOf": [
+        {
+          "const": "Itinéraire VTT",
+          "title": "Itinéraire VTT",
+          "description": "Itinéraire cyclable réservé aux VTT."
+        },
+        {
+          "const": "Parcours sportif",
+          "title": "Parcours sportif",
+          "description": "Circuit de course, entrecoupé d'exercices physiques divers, généralement équipé d'agrès."
+        },
+        {
+          "const": "Sentier botanique",
+          "title": "Sentier botanique",
+          "description": "Sentier botanique"
+        },
+        {
+          "const": "Sentier de découverte",
+          "title": "Sentier de découverte",
+          "description": "Itinéraire généralement court, équipé de panneaux d'informations pour permettre aux usagers de connaître et surtout de décrypter les milieux qu'ils traversent, en donnant des clés scientifiques, historiques, culturelles voire politiques pour comprendre l'aspect des lieux."
+        },
+        {
+          "const": "Sentier écologique",
+          "title": "Sentier écologique",
+          "description": "Sentier écologique"
+        },
+        {
+          "const": "Sentier entomologique",
+          "title": "Sentier entomologique",
+          "description": "Sentier entomologique"
+        },
+        {
+          "const": "Voie verte",
+          "title": "Voie verte",
+          "description": "Itinéraire nommé conçu pour la circulation non motorisée. Il peut être composé de voies vertes, de chemins, de routes empierrées ou de routes à 1 chaussée de faible fréquentation."
+        }
       ]
     },
     {
@@ -48,12 +93,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -100,9 +165,13 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie GE MultiLigne",
-      "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE\n\ndu produit externe."
+      "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE du produit externe."
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature"
   ]
 }

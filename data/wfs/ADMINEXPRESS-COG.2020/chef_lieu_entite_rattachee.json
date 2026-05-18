@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2020",
   "name": "chef_lieu_entite_rattachee",
   "title": "ADMINEXPRESS COG 2020 Chef-lieu entité rattachée",
-  "description": "ADMINEXPRESS COG 2020 Chef-lieu entité rattachée",
+  "description": "ADMINEXPRESS COG 2020 Chef-lieu entité rattachée ; Édition 2020-01-01",
   "properties": [
     {
       "name": "id",

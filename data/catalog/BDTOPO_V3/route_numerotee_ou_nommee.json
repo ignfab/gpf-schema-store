@@ -1,0 +1,1953 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "BDTOPO_V3:route_numerotee_ou_nommee",
+  "type": "object",
+  "title": "Route numérotée ou nommée",
+  "x-ign-theme": "Transport",
+  "description": "Voie de communication destinée aux automobiles, aux piétons, aux cycles ou aux animaux et possédant un numéro ou un nom particulier.",
+  "x-ign-selectionCriteria": "Toutes les autoroutes, routes nationales, départementales, métropolitaine sont incluses. Toutes les routes européennes sont incluses. Les itinéraires nommés sur des parcours autoroutiers, des routes importantes de plus de 20 km de long sont retenus. Les voies vertes nommées et les véloroutes continues sont retenus. Les anciennes voies romaines, chemins et voies forestières nommées sont retenus.",
+  "properties": {
+    "cleabs": {
+      "title": "Cleabs",
+      "description": "Identifiant unique de l'objet.",
+      "type": "string",
+      "x-ogc-role": "id"
+    },
+    "type_de_route": {
+      "title": "Type de route",
+      "description": "Statut de la route numérotée ou nommée.",
+      "oneOf": [
+        {
+          "const": "Autoroute",
+          "title": "Autoroute",
+          "description": "Les autoroutes sont des routes sans croisement à niveau, accessibles seulement en des points aménagés à cet effet et réservées aux véhicules à propulsion mécanique (Article L122-1 du code de la voirie routière). Le classement dans la catégorie des autoroutes est prononcé par décret du Conseil d’État, pris après enquête publique."
+        },
+        {
+          "const": "Bac",
+          "title": "Bac",
+          "description": "Itinéraire de transport maritime de passagers ou de véhicules permettant la traversée d'un fleuve.",
+          "x-ign-representedFeatures": [
+            "Bac auto",
+            "Bac piéton"
+          ]
+        },
+        {
+          "const": "Chemin rural",
+          "title": "Chemin rural",
+          "description": "Chemin affecté à l'usage du public, mais appartenant au domaine privé de la commune, non classé dans la voirie communale."
+        },
+        {
+          "const": "Départementale",
+          "title": "Départementale",
+          "description": "Voie qui fait partie du domaine public routier départemental."
+        },
+        {
+          "const": "Liaison maritime",
+          "title": "Liaison maritime",
+          "description": "Itinéraire de transport maritime de passagers ou de véhicules, à l'exclusion des bacs permettant la traversée d'un fleuve.",
+          "x-ign-representedFeatures": [
+            "Ferry",
+            "Liaison lacustre"
+          ]
+        },
+        {
+          "const": "Nationale",
+          "title": "Nationale",
+          "description": "Route nationale ou territoriale (Corse). Voies du domaine public routier national autres que les autoroutes."
+        },
+        {
+          "const": "Piste DFCI",
+          "title": "Piste DFCI",
+          "description": "Route qui porte un numéro ou un nom de piste DFCI (Défense des forêts contre les incendies)."
+        },
+        {
+          "const": "Route européenne",
+          "title": "Route européenne",
+          "description": "Route qui porte un numéro de route européenne. Une route européenne emprunte en général le réseau autoroutier ou national (exceptionnellement départemental ou non classé)."
+        },
+        {
+          "const": "Route intercommunale",
+          "title": "Route intercommunale",
+          "description": "Voie qui fait partie du domaine public routier géré par une intercommunalité (métropole...).",
+          "x-ign-representedFeatures": [
+            "Route métropolitaine",
+            "Voie d'intérêt comunautaire"
+          ]
+        },
+        {
+          "const": "Route nommée",
+          "title": "Route nommée",
+          "description": "Tronçons de route qui définissent un parcours routier nommé.",
+          "x-ign-representedFeatures": [
+            "Route forestière nommée",
+            "Chemin forestier nommé",
+            "Itinéraire routier touristique nommé"
+          ]
+        },
+        {
+          "const": "Voie communale",
+          "title": "Voie communale",
+          "description": "Voie affectée à la circulation générale, et ayant fait l'objet d'un classement dans le domaine public par délibération du conseil municipal."
+        }
+      ],
+      "type": "string"
+    },
+    "numero": {
+      "title": "Numéro",
+      "description": "Désigne le classement administratif d’un tronçon routier, le numéro de route européenne ou le numéro. Si la route comporte un numéro de route et un numéro de route européenne, il existe 2 objets complexes Route numérotée ou nommée. - Classement administratif d’un tronçon routier : une route est un parcours classé par l’autorité nationale, régionale ou départementale et identifié par un numéro. Sur le territoire national, il existe différentes catégories de routes : les autoroutes, les routes nationales, les routes départementales et les bretelles des échangeurs identifiés par leur gestionnaire. Il existe aussi d'autres types de classement administratif (voie communale, chemin rural, ou route intercommunale supportant par exemple une numérotation propre à une ville nouvelle, …) qui peuvent désormais être saisis. - Numéro de la route européenne L’attribut 'Numéro' contient également le numéro de la route européenne à laquelle appartient éventuellement un tronçon routier. Une route européenne emprunte en général le réseau autoroutier ou national (exceptionnellement départemental ou non classé). Toutes les routes européennes sont retenues.",
+      "type": "string"
+    },
+    "toponyme": {
+      "title": "Toponyme",
+      "description": "Toponyme de l'objet.",
+      "type": "string"
+    },
+    "statut_du_toponyme": {
+      "title": "Statut du toponyme",
+      "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
+      ],
+      "type": "string"
+    },
+    "date_creation": {
+      "title": "Date de création",
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
+      "type": "string"
+    },
+    "date_modification": {
+      "title": "Date de modification",
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
+      "type": "string"
+    },
+    "date_d_apparition": {
+      "title": "Date d'apparition",
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
+      "type": "string"
+    },
+    "date_de_confirmation": {
+      "title": "Date de confirmation",
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
+      "type": "string"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
+      "type": "string"
+    },
+    "identifiants_sources": {
+      "title": "Identifiants sources",
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
+      "type": "string"
+    },
+    "gestionnaire": {
+      "title": "Gestionnaire",
+      "description": "L’attribut 'Gestionnaire' définit le gestionnaire administratif d’une route. Une route classée est un parcours identifié par un numéro. Toutes les routes classées possèdent un 'Gestionnaire'. Il existe plusieurs catégories de routes classées pour lesquelles le gestionnaire diffère : - pour les routes intercommunales, il s’agit du gestionnaire intercommunal de la route au sens administratif (c’est-à-dire le nom de la métropole par exemple) ; - pour les routes départementales, il s’agit du gestionnaire départemental de la route au sens administratif (c’est-à-dire le nom du département) ; - pour les routes nationales et les autoroutes non concédées, le gestionnaire correspond à la Direction Interdépartementale des Routes (DIR) dont chaque route dépend ; - pour les autoroutes concédées, le gestionnaire est la société concessionnaire d’autoroute ; - les routes codées sur les bretelles des échangeurs identifiés prennent le gestionnaire de la route à laquelle l’échangeur est rattaché.",
+      "oneOf": [
+        {
+          "const": "ADELAC",
+          "title": "ADELAC"
+        },
+        {
+          "const": "Ain",
+          "title": "Ain"
+        },
+        {
+          "const": "Aisne",
+          "title": "Aisne"
+        },
+        {
+          "const": "ALBEA",
+          "title": "ALBEA"
+        },
+        {
+          "const": "ALIAE",
+          "title": "ALIAE"
+        },
+        {
+          "const": "ALICORNE",
+          "title": "ALICORNE"
+        },
+        {
+          "const": "A'LIENOR",
+          "title": "A'LIENOR"
+        },
+        {
+          "const": "ALIS",
+          "title": "ALIS"
+        },
+        {
+          "const": "Allemagne",
+          "title": "Allemagne"
+        },
+        {
+          "const": "Allier",
+          "title": "Allier"
+        },
+        {
+          "const": "Alpes-de-Haute-Provence",
+          "title": "Alpes-de-Haute-Provence"
+        },
+        {
+          "const": "Alpes-Maritimes",
+          "title": "Alpes-Maritimes"
+        },
+        {
+          "const": "AMEDEA",
+          "title": "AMEDEA"
+        },
+        {
+          "const": "Ancelle (05004)",
+          "title": "Ancelle (05004)"
+        },
+        {
+          "const": "APRR",
+          "title": "APRR"
+        },
+        {
+          "const": "ARCOS",
+          "title": "ARCOS"
+        },
+        {
+          "const": "ARCOUR",
+          "title": "ARCOUR"
+        },
+        {
+          "const": "Ardèche",
+          "title": "Ardèche"
+        },
+        {
+          "const": "Ardennes",
+          "title": "Ardennes"
+        },
+        {
+          "const": "AREA",
+          "title": "AREA"
+        },
+        {
+          "const": "Argol (29001)",
+          "title": "Argol (29001)"
+        },
+        {
+          "const": "Ariège",
+          "title": "Ariège"
+        },
+        {
+          "const": "Armancourt (60023)",
+          "title": "Armancourt (60023)"
+        },
+        {
+          "const": "Arsy (60024)",
+          "title": "Arsy (60024)"
+        },
+        {
+          "const": "ASF",
+          "title": "ASF"
+        },
+        {
+          "const": "Aspremont (05008)",
+          "title": "Aspremont (05008)"
+        },
+        {
+          "const": "Aspres-lès-Corps (05009)",
+          "title": "Aspres-lès-Corps (05009)"
+        },
+        {
+          "const": "Aspres-sur-Buëch (05100)",
+          "title": "Aspres-sur-Buëch (05100)"
+        },
+        {
+          "const": "ATB",
+          "title": "ATB"
+        },
+        {
+          "const": "ATLANDES",
+          "title": "ATLANDES"
+        },
+        {
+          "const": "ATMB",
+          "title": "ATMB"
+        },
+        {
+          "const": "ATOSCA",
+          "title": "ATOSCA"
+        },
+        {
+          "const": "Attichy (60025)",
+          "title": "Attichy (60025)"
+        },
+        {
+          "const": "Aube",
+          "title": "Aube"
+        },
+        {
+          "const": "Aubessagne (05039)",
+          "title": "Aubessagne (05039)"
+        },
+        {
+          "const": "Aude",
+          "title": "Aude"
+        },
+        {
+          "const": "Autrêches (60032)",
+          "title": "Autrêches (60032)"
+        },
+        {
+          "const": "Auvergne-Rhône-Alpes",
+          "title": "Auvergne-Rhône-Alpes"
+        },
+        {
+          "const": "Avançon (05011)",
+          "title": "Avançon (05011)"
+        },
+        {
+          "const": "Aveyron",
+          "title": "Aveyron"
+        },
+        {
+          "const": "Avrigny (60036)",
+          "title": "Avrigny (60036)"
+        },
+        {
+          "const": "Bailleul-le-Soc (60040)",
+          "title": "Bailleul-le-Soc (60040)"
+        },
+        {
+          "const": "Bailly (60043)",
+          "title": "Bailly (60043)"
+        },
+        {
+          "const": "Barcillonnette (05013)",
+          "title": "Barcillonnette (05013)"
+        },
+        {
+          "const": "Bas-Rhin",
+          "title": "Bas-Rhin"
+        },
+        {
+          "const": "Belgique",
+          "title": "Belgique"
+        },
+        {
+          "const": "Berneuil-sur-Aisne (60064)",
+          "title": "Berneuil-sur-Aisne (60064)"
+        },
+        {
+          "const": "Béthisy-Saint-Martin (60067)",
+          "title": "Béthisy-Saint-Martin (60067)"
+        },
+        {
+          "const": "Béthisy-Saint-Pierre (60068)",
+          "title": "Béthisy-Saint-Pierre (60068)"
+        },
+        {
+          "const": "Bienville (60070)",
+          "title": "Bienville (60070)"
+        },
+        {
+          "const": "Bitry (60072)",
+          "title": "Bitry (60072)"
+        },
+        {
+          "const": "Blincourt (60078)",
+          "title": "Blincourt (60078)"
+        },
+        {
+          "const": "Bohars (29011)",
+          "title": "Bohars (29011)"
+        },
+        {
+          "const": "Bordeaux Métropole",
+          "title": "Bordeaux Métropole"
+        },
+        {
+          "const": "Bouches-du-Rhône",
+          "title": "Bouches-du-Rhône"
+        },
+        {
+          "const": "Bourg-Blanc (29015)",
+          "title": "Bourg-Blanc (29015)"
+        },
+        {
+          "const": "Brélès (29017)",
+          "title": "Brélès (29017)"
+        },
+        {
+          "const": "Brésil",
+          "title": "Brésil"
+        },
+        {
+          "const": "Brest Métropole",
+          "title": "Brest Métropole"
+        },
+        {
+          "const": "Bréziers (05022)",
+          "title": "Bréziers (05022)"
+        },
+        {
+          "const": "Buissard (05025)",
+          "title": "Buissard (05025)"
+        },
+        {
+          "const": "Calvados",
+          "title": "Calvados"
+        },
+        {
+          "const": "Camaret-sur-Mer (29022)",
+          "title": "Camaret-sur-Mer (29022)"
+        },
+        {
+          "const": "Cambronne-lès-Ribécourt (60119)",
+          "title": "Cambronne-lès-Ribécourt (60119)"
+        },
+        {
+          "const": "Canly (60125)",
+          "title": "Canly (60125)"
+        },
+        {
+          "const": "Cantal",
+          "title": "Cantal"
+        },
+        {
+          "const": "CA Plaine Vallée",
+          "title": "CA Plaine Vallée"
+        },
+        {
+          "const": "Carbini (2A061)",
+          "title": "Carbini (2A061)"
+        },
+        {
+          "const": "CCI du Havre",
+          "title": "CCI du Havre"
+        },
+        {
+          "const": "CCI Seine Estuaire",
+          "title": "CCI Seine Estuaire"
+        },
+        {
+          "const": "CEVM",
+          "title": "CEVM"
+        },
+        {
+          "const": "Chabestan (05028)",
+          "title": "Chabestan (05028)"
+        },
+        {
+          "const": "Chabottes (05029)",
+          "title": "Chabottes (05029)"
+        },
+        {
+          "const": "Champoléon (05032)",
+          "title": "Champoléon (05032)"
+        },
+        {
+          "const": "Charente",
+          "title": "Charente"
+        },
+        {
+          "const": "Charente-Maritime",
+          "title": "Charente-Maritime"
+        },
+        {
+          "const": "Châteauneuf d’Oze (05035)",
+          "title": "Châteauneuf d’Oze (05035)"
+        },
+        {
+          "const": "Châteauvieux (05037)",
+          "title": "Châteauvieux (05037)"
+        },
+        {
+          "const": "Chelles (60145)",
+          "title": "Chelles (60145)"
+        },
+        {
+          "const": "Cher",
+          "title": "Cher"
+        },
+        {
+          "const": "Chevincourt (60147)",
+          "title": "Chevincourt (60147)"
+        },
+        {
+          "const": "Chevrières (60149)",
+          "title": "Chevrières (60149)"
+        },
+        {
+          "const": "Chiry-Ourscamp (60150)",
+          "title": "Chiry-Ourscamp (60150)"
+        },
+        {
+          "const": "Choisy-au-Bac (60151)",
+          "title": "Choisy-au-Bac (60151)"
+        },
+        {
+          "const": "Choisy-la-Victoire (60152)",
+          "title": "Choisy-la-Victoire (60152)"
+        },
+        {
+          "const": "Clairoix (60156)",
+          "title": "Clairoix (60156)"
+        },
+        {
+          "const": "Claret (04058)",
+          "title": "Claret (04058)"
+        },
+        {
+          "const": "Clermont Auvergne Métropole",
+          "title": "Clermont Auvergne Métropole"
+        },
+        {
+          "const": "Coat-Méal (29035)",
+          "title": "Coat-Méal (29035)"
+        },
+        {
+          "const": "COFIROUTE",
+          "title": "COFIROUTE"
+        },
+        {
+          "const": "Coignières (78168)",
+          "title": "Coignières (78168)"
+        },
+        {
+          "const": "Collectivité de Corse",
+          "title": "Collectivité de Corse"
+        },
+        {
+          "const": "Collectivité de Saint-Barthélemy",
+          "title": "Collectivité de Saint-Barthélemy"
+        },
+        {
+          "const": "Collectivité de Saint-Martin",
+          "title": "Collectivité de Saint-Martin"
+        },
+        {
+          "const": "Collectivité européenne d'Alsace",
+          "title": "Collectivité européenne d'Alsace"
+        },
+        {
+          "const": "Collectivité territoriale de Guyane",
+          "title": "Collectivité territoriale de Guyane"
+        },
+        {
+          "const": "Collectivité territoriale de Martinique",
+          "title": "Collectivité territoriale de Martinique"
+        },
+        {
+          "const": "Collectivité territoriale de Saint-Pierre-et-Miquelon",
+          "title": "Collectivité territoriale de Saint-Pierre-et-Miquelon"
+        },
+        {
+          "const": "Compiègne (60159)",
+          "title": "Compiègne (60159)"
+        },
+        {
+          "const": "Conseil régional de la Guadeloupe",
+          "title": "Conseil régional de la Guadeloupe"
+        },
+        {
+          "const": "Corrèze",
+          "title": "Corrèze"
+        },
+        {
+          "const": "Corse-du-Sud",
+          "title": "Corse-du-Sud"
+        },
+        {
+          "const": "Côte-d'Or",
+          "title": "Côte-d'Or"
+        },
+        {
+          "const": "Côtes-d'Armor",
+          "title": "Côtes-d'Armor"
+        },
+        {
+          "const": "Couloisy (60167)",
+          "title": "Couloisy (60167)"
+        },
+        {
+          "const": "Courtieux (60171)",
+          "title": "Courtieux (60171)"
+        },
+        {
+          "const": "Creuse",
+          "title": "Creuse"
+        },
+        {
+          "const": "Croutoy (60184)",
+          "title": "Croutoy (60184)"
+        },
+        {
+          "const": "Crozon (29042)",
+          "title": "Crozon (29042)"
+        },
+        {
+          "const": "Cuise-la-Motte (60188)",
+          "title": "Cuise-la-Motte (60188)"
+        },
+        {
+          "const": "Curbans (04066)",
+          "title": "Curbans (04066)"
+        },
+        {
+          "const": "Daoulas (29043)",
+          "title": "Daoulas (29043)"
+        },
+        {
+          "const": "DEALM Mayotte",
+          "title": "DEALM Mayotte"
+        },
+        {
+          "const": "Deux-Sèvres",
+          "title": "Deux-Sèvres"
+        },
+        {
+          "const": "DFCI_04",
+          "title": "DFCI_04"
+        },
+        {
+          "const": "DFCI_05",
+          "title": "DFCI_05"
+        },
+        {
+          "const": "DFCI_06",
+          "title": "DFCI_06"
+        },
+        {
+          "const": "DFCI_07",
+          "title": "DFCI_07"
+        },
+        {
+          "const": "DFCI_11",
+          "title": "DFCI_11"
+        },
+        {
+          "const": "DFCI_13",
+          "title": "DFCI_13"
+        },
+        {
+          "const": "DFCI_24",
+          "title": "DFCI_24"
+        },
+        {
+          "const": "DFCI_26",
+          "title": "DFCI_26"
+        },
+        {
+          "const": "DFCI_2A",
+          "title": "DFCI_2A"
+        },
+        {
+          "const": "DFCI_2B",
+          "title": "DFCI_2B"
+        },
+        {
+          "const": "DFCI_30",
+          "title": "DFCI_30"
+        },
+        {
+          "const": "DFCI_33",
+          "title": "DFCI_33"
+        },
+        {
+          "const": "DFCI_34",
+          "title": "DFCI_34"
+        },
+        {
+          "const": "DFCI_38",
+          "title": "DFCI_38"
+        },
+        {
+          "const": "DFCI_40",
+          "title": "DFCI_40"
+        },
+        {
+          "const": "DFCI_47",
+          "title": "DFCI_47"
+        },
+        {
+          "const": "DFCI_48",
+          "title": "DFCI_48"
+        },
+        {
+          "const": "DFCI_66",
+          "title": "DFCI_66"
+        },
+        {
+          "const": "DFCI_83",
+          "title": "DFCI_83"
+        },
+        {
+          "const": "DFCI_84",
+          "title": "DFCI_84"
+        },
+        {
+          "const": "DFCI_86",
+          "title": "DFCI_86"
+        },
+        {
+          "const": "DGTM Guyane",
+          "title": "DGTM Guyane"
+        },
+        {
+          "const": "Dijon Métropole",
+          "title": "Dijon Métropole"
+        },
+        {
+          "const": "DIR Atlantique",
+          "title": "DIR Atlantique"
+        },
+        {
+          "const": "DIR Centre Est",
+          "title": "DIR Centre Est"
+        },
+        {
+          "const": "DIR Centre Ouest",
+          "title": "DIR Centre Ouest"
+        },
+        {
+          "const": "DIR Est",
+          "title": "DIR Est"
+        },
+        {
+          "const": "DIR Île-de-France",
+          "title": "DIR Île-de-France"
+        },
+        {
+          "const": "Dirinon (29045)",
+          "title": "Dirinon (29045)"
+        },
+        {
+          "const": "DIR Massif Central",
+          "title": "DIR Massif Central"
+        },
+        {
+          "const": "DIR Méditerranée",
+          "title": "DIR Méditerranée"
+        },
+        {
+          "const": "DIR Nord",
+          "title": "DIR Nord"
+        },
+        {
+          "const": "DIR Nord Ouest",
+          "title": "DIR Nord Ouest"
+        },
+        {
+          "const": "DIR Ouest",
+          "title": "DIR Ouest"
+        },
+        {
+          "const": "DIR Sud Ouest",
+          "title": "DIR Sud Ouest"
+        },
+        {
+          "const": "Dordogne",
+          "title": "Dordogne"
+        },
+        {
+          "const": "Doubs",
+          "title": "Doubs"
+        },
+        {
+          "const": "Drôme",
+          "title": "Drôme"
+        },
+        {
+          "const": "DTAM Saint-Pierre-et-Miquelon",
+          "title": "DTAM Saint-Pierre-et-Miquelon"
+        },
+        {
+          "const": "Épineuse (60210)",
+          "title": "Épineuse (60210)"
+        },
+        {
+          "const": "ESCOTA",
+          "title": "ESCOTA"
+        },
+        {
+          "const": "Espagne",
+          "title": "Espagne"
+        },
+        {
+          "const": "Esparron (05049)",
+          "title": "Esparron (05049)"
+        },
+        {
+          "const": "Espinasses (05050)",
+          "title": "Espinasses (05050)"
+        },
+        {
+          "const": "Essonne",
+          "title": "Essonne"
+        },
+        {
+          "const": "Estrées-Saint-Denis (60223)",
+          "title": "Estrées-Saint-Denis (60223)"
+        },
+        {
+          "const": "Eure",
+          "title": "Eure"
+        },
+        {
+          "const": "Eure-et-Loir",
+          "title": "Eure-et-Loir"
+        },
+        {
+          "const": "Eurométropole de Strasbourg",
+          "title": "Eurométropole de Strasbourg"
+        },
+        {
+          "const": "Finistère",
+          "title": "Finistère"
+        },
+        {
+          "const": "Forest-Saint-Julien (05056)",
+          "title": "Forest-Saint-Julien (05056)"
+        },
+        {
+          "const": "Fouillouse (05057)",
+          "title": "Fouillouse (05057)"
+        },
+        {
+          "const": "Francières (60254)",
+          "title": "Francières (60254)"
+        },
+        {
+          "const": "Furmeyer (05060)",
+          "title": "Furmeyer (05060)"
+        },
+        {
+          "const": "Gap (05061)",
+          "title": "Gap (05061)"
+        },
+        {
+          "const": "Gard",
+          "title": "Gard"
+        },
+        {
+          "const": "Gers",
+          "title": "Gers"
+        },
+        {
+          "const": "Gironde",
+          "title": "Gironde"
+        },
+        {
+          "const": "Goulven (29064)",
+          "title": "Goulven (29064)"
+        },
+        {
+          "const": "GPMM",
+          "title": "GPMM"
+        },
+        {
+          "const": "Grand Est",
+          "title": "Grand Est"
+        },
+        {
+          "const": "Grandfresnoy (60284)",
+          "title": "Grandfresnoy (60284)"
+        },
+        {
+          "const": "Grenoble Alpes Métropole",
+          "title": "Grenoble Alpes Métropole"
+        },
+        {
+          "const": "Guadeloupe",
+          "title": "Guadeloupe"
+        },
+        {
+          "const": "Guipavas (29075)",
+          "title": "Guipavas (29075)"
+        },
+        {
+          "const": "Guissény (29077)",
+          "title": "Guissény (29077)"
+        },
+        {
+          "const": "Guyancourt (78297)",
+          "title": "Guyancourt (78297)"
+        },
+        {
+          "const": "Hanvec (29078)",
+          "title": "Hanvec (29078)"
+        },
+        {
+          "const": "Haute-Corse",
+          "title": "Haute-Corse"
+        },
+        {
+          "const": "Hautefontaine (60305)",
+          "title": "Hautefontaine (60305)"
+        },
+        {
+          "const": "Haute-Garonne",
+          "title": "Haute-Garonne"
+        },
+        {
+          "const": "Haute-Loire",
+          "title": "Haute-Loire"
+        },
+        {
+          "const": "Haute-Marne",
+          "title": "Haute-Marne"
+        },
+        {
+          "const": "Hautes-Alpes",
+          "title": "Hautes-Alpes"
+        },
+        {
+          "const": "Haute-Saône",
+          "title": "Haute-Saône"
+        },
+        {
+          "const": "Haute-Savoie",
+          "title": "Haute-Savoie"
+        },
+        {
+          "const": "Hautes-Pyrénées",
+          "title": "Hautes-Pyrénées"
+        },
+        {
+          "const": "Haute-Vienne",
+          "title": "Haute-Vienne"
+        },
+        {
+          "const": "Haut-Rhin",
+          "title": "Haut-Rhin"
+        },
+        {
+          "const": "Hauts-de-Seine",
+          "title": "Hauts-de-Seine"
+        },
+        {
+          "const": "Hémévillers (60308)",
+          "title": "Hémévillers (60308)"
+        },
+        {
+          "const": "Hérault",
+          "title": "Hérault"
+        },
+        {
+          "const": "Hôpital-Camfrout (29080)",
+          "title": "Hôpital-Camfrout (29080)"
+        },
+        {
+          "const": "Houdancourt (60318)",
+          "title": "Houdancourt (60318)"
+        },
+        {
+          "const": "Ille-et-Vilaine",
+          "title": "Ille-et-Vilaine"
+        },
+        {
+          "const": "Indre",
+          "title": "Indre"
+        },
+        {
+          "const": "Indre-et-Loire",
+          "title": "Indre-et-Loire"
+        },
+        {
+          "const": "Irvillac (29086)",
+          "title": "Irvillac (29086)"
+        },
+        {
+          "const": "Isère",
+          "title": "Isère"
+        },
+        {
+          "const": "Italie",
+          "title": "Italie"
+        },
+        {
+          "const": "Janville (60323)",
+          "title": "Janville (60323)"
+        },
+        {
+          "const": "Jarjayes (05068)",
+          "title": "Jarjayes (05068)"
+        },
+        {
+          "const": "Jaulzy (60324)",
+          "title": "Jaulzy (60324)"
+        },
+        {
+          "const": "Jaux (60325)",
+          "title": "Jaux (60325)"
+        },
+        {
+          "const": "Jonquières (60326)",
+          "title": "Jonquières (60326)"
+        },
+        {
+          "const": "Jura",
+          "title": "Jura"
+        },
+        {
+          "const": "Kerlouan (29091)",
+          "title": "Kerlouan (29091)"
+        },
+        {
+          "const": "Kernilis (29093)",
+          "title": "Kernilis (29093)"
+        },
+        {
+          "const": "Kernouës (29094)",
+          "title": "Kernouës (29094)"
+        },
+        {
+          "const": "Kersaint-Plabennec (29095)",
+          "title": "Kersaint-Plabennec (29095)"
+        },
+        {
+          "const": "La Bâtie-Neuve (05017)",
+          "title": "La Bâtie-Neuve (05017)"
+        },
+        {
+          "const": "La Bâtie-Vieille (05018)",
+          "title": "La Bâtie-Vieille (05018)"
+        },
+        {
+          "const": "La Beaume (05019)",
+          "title": "La Beaume (05019)"
+        },
+        {
+          "const": "La Chapelle-en-Valgaudémar (05064)",
+          "title": "La Chapelle-en-Valgaudémar (05064)"
+        },
+        {
+          "const": "Lachelle (60337)",
+          "title": "Lachelle (60337)"
+        },
+        {
+          "const": "Lacroix-Saint-Ouen (60338)",
+          "title": "Lacroix-Saint-Ouen (60338)"
+        },
+        {
+          "const": "La Fare-en-Champsaur (05054)",
+          "title": "La Fare-en-Champsaur (05054)"
+        },
+        {
+          "const": "La Faurie (05055)",
+          "title": "La Faurie (05055)"
+        },
+        {
+          "const": "La Forest-Landerneau (29056)",
+          "title": "La Forest-Landerneau (29056)"
+        },
+        {
+          "const": "La Freissinouse (05059)",
+          "title": "La Freissinouse (05059)"
+        },
+        {
+          "const": "La Haute Beaume (05066)",
+          "title": "La Haute Beaume (05066)"
+        },
+        {
+          "const": "La Martyre (29144)",
+          "title": "La Martyre (29144)"
+        },
+        {
+          "const": "La Motte-en-Champsaur (05090)",
+          "title": "La Motte-en-Champsaur (05090)"
+        },
+        {
+          "const": "Lampaul-Plouarzel (29098)",
+          "title": "Lampaul-Plouarzel (29098)"
+        },
+        {
+          "const": "Lampaul-Ploudalmézeau (29099)",
+          "title": "Lampaul-Ploudalmézeau (29099)"
+        },
+        {
+          "const": "Lanarvily (29100)",
+          "title": "Lanarvily (29100)"
+        },
+        {
+          "const": "Landéda (29101)",
+          "title": "Landéda (29101)"
+        },
+        {
+          "const": "Landerneau (29103)",
+          "title": "Landerneau (29103)"
+        },
+        {
+          "const": "Landes",
+          "title": "Landes"
+        },
+        {
+          "const": "Landévennec (29104)",
+          "title": "Landévennec (29104)"
+        },
+        {
+          "const": "Landunvez (29109)",
+          "title": "Landunvez (29109)"
+        },
+        {
+          "const": "Lanildut (29112)",
+          "title": "Lanildut (29112)"
+        },
+        {
+          "const": "Lanneuffret (29116)",
+          "title": "Lanneuffret (29116)"
+        },
+        {
+          "const": "Lannilis (29117)",
+          "title": "Lannilis (29117)"
+        },
+        {
+          "const": "Lanrivoaré (29119)",
+          "title": "Lanrivoaré (29119)"
+        },
+        {
+          "const": "Lanvéoc (29120)",
+          "title": "Lanvéoc (29120)"
+        },
+        {
+          "const": "Lardier-et-Valença (05071)",
+          "title": "Lardier-et-Valença (05071)"
+        },
+        {
+          "const": "La Roche des Arnauds (05123)",
+          "title": "La Roche des Arnauds (05123)"
+        },
+        {
+          "const": "La Roche-Maurice (29237)",
+          "title": "La Roche-Maurice (29237)"
+        },
+        {
+          "const": "La Rochette (05124)",
+          "title": "La Rochette (05124)"
+        },
+        {
+          "const": "La Saulce (05162)",
+          "title": "La Saulce (05162)"
+        },
+        {
+          "const": "Laye (05072)",
+          "title": "Laye (05072)"
+        },
+        {
+          "const": "Le Conquet (29040)",
+          "title": "Le Conquet (29040)"
+        },
+        {
+          "const": "Le Devoluy (05139)",
+          "title": "Le Devoluy (05139)"
+        },
+        {
+          "const": "Le Drennec (29047)",
+          "title": "Le Drennec (29047)"
+        },
+        {
+          "const": "Le Faou (29053)",
+          "title": "Le Faou (29053)"
+        },
+        {
+          "const": "Le Fayel (60229)",
+          "title": "Le Fayel (60229)"
+        },
+        {
+          "const": "Le Folgoët (29055)",
+          "title": "Le Folgoët (29055)"
+        },
+        {
+          "const": "Le Glaizil (05062)",
+          "title": "Le Glaizil (05062)"
+        },
+        {
+          "const": "Le Meux (60402)",
+          "title": "Le Meux (60402)"
+        },
+        {
+          "const": "Le Noyer (05095)",
+          "title": "Le Noyer (05095)"
+        },
+        {
+          "const": "Le Plessis-Brion (60501)",
+          "title": "Le Plessis-Brion (60501)"
+        },
+        {
+          "const": "Le Saix (05158)",
+          "title": "Le Saix (05158)"
+        },
+        {
+          "const": "Le Tréhou (29294)",
+          "title": "Le Tréhou (29294)"
+        },
+        {
+          "const": "Lettret (05074)",
+          "title": "Lettret (05074)"
+        },
+        {
+          "const": "Locmaria-Plouzané (29130)",
+          "title": "Locmaria-Plouzané (29130)"
+        },
+        {
+          "const": "Logonna-Daoulas (29137)",
+          "title": "Logonna-Daoulas (29137)"
+        },
+        {
+          "const": "Loire",
+          "title": "Loire"
+        },
+        {
+          "const": "Loire-Atlantique",
+          "title": "Loire-Atlantique"
+        },
+        {
+          "const": "Loiret",
+          "title": "Loiret"
+        },
+        {
+          "const": "Loir-et-Cher",
+          "title": "Loir-et-Cher"
+        },
+        {
+          "const": "Longueil-Annel (60368)",
+          "title": "Longueil-Annel (60368)"
+        },
+        {
+          "const": "Longueil-Sainte-Marie (60369)",
+          "title": "Longueil-Sainte-Marie (60369)"
+        },
+        {
+          "const": "Loperhet (29140)",
+          "title": "Loperhet (29140)"
+        },
+        {
+          "const": "Lot",
+          "title": "Lot"
+        },
+        {
+          "const": "Lot-et-Garonne",
+          "title": "Lot-et-Garonne"
+        },
+        {
+          "const": "Lozère",
+          "title": "Lozère"
+        },
+        {
+          "const": "Machemont (60373)",
+          "title": "Machemont (60373)"
+        },
+        {
+          "const": "Magny-les-Hameaux (78356)",
+          "title": "Magny-les-Hameaux (78356)"
+        },
+        {
+          "const": "Maine-et-Loire",
+          "title": "Maine-et-Loire"
+        },
+        {
+          "const": "Manche",
+          "title": "Manche"
+        },
+        {
+          "const": "Manteyer (05075)",
+          "title": "Manteyer (05075)"
+        },
+        {
+          "const": "Marest-sur-Matz (60378)",
+          "title": "Marest-sur-Matz (60378)"
+        },
+        {
+          "const": "Margny-lès-Compiègne (60382)",
+          "title": "Margny-lès-Compiègne (60382)"
+        },
+        {
+          "const": "Marne",
+          "title": "Marne"
+        },
+        {
+          "const": "Maurepas (78383)",
+          "title": "Maurepas (78383)"
+        },
+        {
+          "const": "Mayenne",
+          "title": "Mayenne"
+        },
+        {
+          "const": "Mayotte",
+          "title": "Mayotte"
+        },
+        {
+          "const": "Mélicocq (60392)",
+          "title": "Mélicocq (60392)"
+        },
+        {
+          "const": "Métropole de Lyon",
+          "title": "Métropole de Lyon"
+        },
+        {
+          "const": "Métropole du Grand Nancy",
+          "title": "Métropole du Grand Nancy"
+        },
+        {
+          "const": "Métropole Européenne de Lille",
+          "title": "Métropole Européenne de Lille"
+        },
+        {
+          "const": "Métropole Nice Côte d'Azur",
+          "title": "Métropole Nice Côte d'Azur"
+        },
+        {
+          "const": "Métropole Rouen Normandie",
+          "title": "Métropole Rouen Normandie"
+        },
+        {
+          "const": "Métropole Toulon-Provence-Méditerranée",
+          "title": "Métropole Toulon-Provence-Méditerranée"
+        },
+        {
+          "const": "Metz Métropole",
+          "title": "Metz Métropole"
+        },
+        {
+          "const": "Meurthe-et-Moselle",
+          "title": "Meurthe-et-Moselle"
+        },
+        {
+          "const": "Meuse",
+          "title": "Meuse"
+        },
+        {
+          "const": "Milizac-Guipronvel (29076)",
+          "title": "Milizac-Guipronvel (29076)"
+        },
+        {
+          "const": "Montbrand (05080)",
+          "title": "Montbrand (05080)"
+        },
+        {
+          "const": "Montceau-les-Mines (71306)",
+          "title": "Montceau-les-Mines (71306)"
+        },
+        {
+          "const": "Montgardin (05084)",
+          "title": "Montgardin (05084)"
+        },
+        {
+          "const": "Montmacq (60423)",
+          "title": "Montmacq (60423)"
+        },
+        {
+          "const": "Montmartin (60424)",
+          "title": "Montmartin (60424)"
+        },
+        {
+          "const": "Montmaur (05087)",
+          "title": "Montmaur (05087)"
+        },
+        {
+          "const": "Montpellier Méditerranée Métropole",
+          "title": "Montpellier Méditerranée Métropole"
+        },
+        {
+          "const": "Morbihan",
+          "title": "Morbihan"
+        },
+        {
+          "const": "Moselle",
+          "title": "Moselle"
+        },
+        {
+          "const": "Moulin-sous-Touvent (60438)",
+          "title": "Moulin-sous-Touvent (60438)"
+        },
+        {
+          "const": "Moyvillers (60441)",
+          "title": "Moyvillers (60441)"
+        },
+        {
+          "const": "Nampcel (60445)",
+          "title": "Nampcel (60445)"
+        },
+        {
+          "const": "Nantes Métropole",
+          "title": "Nantes Métropole"
+        },
+        {
+          "const": "Neffes (05092)",
+          "title": "Neffes (05092)"
+        },
+        {
+          "const": "Néry (60447)",
+          "title": "Néry (60447)"
+        },
+        {
+          "const": "Nièvre",
+          "title": "Nièvre"
+        },
+        {
+          "const": "Nord",
+          "title": "Nord"
+        },
+        {
+          "const": "Occitanie",
+          "title": "Occitanie"
+        },
+        {
+          "const": "Oise",
+          "title": "Oise"
+        },
+        {
+          "const": "Orcières (05096)",
+          "title": "Orcières (05096)"
+        },
+        {
+          "const": "Orléans Métropole",
+          "title": "Orléans Métropole"
+        },
+        {
+          "const": "Orne",
+          "title": "Orne"
+        },
+        {
+          "const": "Oze (05099)",
+          "title": "Oze (05099)"
+        },
+        {
+          "const": "Pas-de-Calais",
+          "title": "Pas-de-Calais"
+        },
+        {
+          "const": "Pelleautier (05100)",
+          "title": "Pelleautier (05100)"
+        },
+        {
+          "const": "Pencran (29156)",
+          "title": "Pencran (29156)"
+        },
+        {
+          "const": "Piégut (04150)",
+          "title": "Piégut (04150)"
+        },
+        {
+          "const": "Pierrefonds (60491)",
+          "title": "Pierrefonds (60491)"
+        },
+        {
+          "const": "Pimprez (60492)",
+          "title": "Pimprez (60492)"
+        },
+        {
+          "const": "Plabennec (29160)",
+          "title": "Plabennec (29160)"
+        },
+        {
+          "const": "Plaisir (78490)",
+          "title": "Plaisir (78490)"
+        },
+        {
+          "const": "Ploudalmézeau (29178)",
+          "title": "Ploudalmézeau (29178)"
+        },
+        {
+          "const": "Ploudaniel (29179)",
+          "title": "Ploudaniel (29179)"
+        },
+        {
+          "const": "Ploudiry (29180)",
+          "title": "Ploudiry (29180)"
+        },
+        {
+          "const": "Plouédern (29181)",
+          "title": "Plouédern (29181)"
+        },
+        {
+          "const": "Plougastel-Daoulas (29189)",
+          "title": "Plougastel-Daoulas (29189)"
+        },
+        {
+          "const": "Plougonvelin (29190)",
+          "title": "Plougonvelin (29190)"
+        },
+        {
+          "const": "Plouguerneau (29195)",
+          "title": "Plouguerneau (29195)"
+        },
+        {
+          "const": "Plouguin (29196)",
+          "title": "Plouguin (29196)"
+        },
+        {
+          "const": "Plouider (29198)",
+          "title": "Plouider (29198)"
+        },
+        {
+          "const": "Ploumoguer (29201)",
+          "title": "Ploumoguer (29201)"
+        },
+        {
+          "const": "Plounéour-Brignogan-plages (29021)",
+          "title": "Plounéour-Brignogan-plages (29021)"
+        },
+        {
+          "const": "Plourin (29208)",
+          "title": "Plourin (29208)"
+        },
+        {
+          "const": "Plouvien (29209)",
+          "title": "Plouvien (29209)"
+        },
+        {
+          "const": "Plouzané (29212)",
+          "title": "Plouzané (29212)"
+        },
+        {
+          "const": "Poligny (05104)",
+          "title": "Poligny (05104)"
+        },
+        {
+          "const": "Pont-de-Buis-lès-Quimerch (29302)",
+          "title": "Pont-de-Buis-lès-Quimerch (29302)"
+        },
+        {
+          "const": "Porspoder (29221)",
+          "title": "Porspoder (29221)"
+        },
+        {
+          "const": "Principauté d'Andorre",
+          "title": "Principauté d'Andorre"
+        },
+        {
+          "const": "Principauté de Monaco",
+          "title": "Principauté de Monaco"
+        },
+        {
+          "const": "Puy-de-Dôme",
+          "title": "Puy-de-Dôme"
+        },
+        {
+          "const": "Pyrénées-Atlantiques",
+          "title": "Pyrénées-Atlantiques"
+        },
+        {
+          "const": "Pyrénées-Orientales",
+          "title": "Pyrénées-Orientales"
+        },
+        {
+          "const": "Rabou (05112)",
+          "title": "Rabou (05112)"
+        },
+        {
+          "const": "Rambaud (05113)",
+          "title": "Rambaud (05113)"
+        },
+        {
+          "const": "Région Réunion",
+          "title": "Région Réunion"
+        },
+        {
+          "const": "Remollon (05115)",
+          "title": "Remollon (05115)"
+        },
+        {
+          "const": "Remy (60531)",
+          "title": "Remy (60531)"
+        },
+        {
+          "const": "Rennes Métropole",
+          "title": "Rennes Métropole"
+        },
+        {
+          "const": "Rethondes (60534)",
+          "title": "Rethondes (60534)"
+        },
+        {
+          "const": "Réunion",
+          "title": "Réunion"
+        },
+        {
+          "const": "Rhône",
+          "title": "Rhône"
+        },
+        {
+          "const": "Ribécourt-Dreslincourt (60537)",
+          "title": "Ribécourt-Dreslincourt (60537)"
+        },
+        {
+          "const": "Rivecourt (60540)",
+          "title": "Rivecourt (60540)"
+        },
+        {
+          "const": "Rochebrune (05121)",
+          "title": "Rochebrune (05121)"
+        },
+        {
+          "const": "Roscanvel (29238)",
+          "title": "Roscanvel (29238)"
+        },
+        {
+          "const": "Rosnoën (29240)",
+          "title": "Rosnoën (29240)"
+        },
+        {
+          "const": "Rousset Serre-Ponçon (05127)",
+          "title": "Rousset Serre-Ponçon (05127)"
+        },
+        {
+          "const": "Royaume-Uni",
+          "title": "Royaume-Uni"
+        },
+        {
+          "const": "Saint Auban d’Oze (05131)",
+          "title": "Saint Auban d’Oze (05131)"
+        },
+        {
+          "const": "Saint-Bonnet-en-Champsaur (05132)",
+          "title": "Saint-Bonnet-en-Champsaur (05132)"
+        },
+        {
+          "const": "Saint-Crépin-aux-Bois (60569)",
+          "title": "Saint-Crépin-aux-Bois (60569)"
+        },
+        {
+          "const": "Saint-Divy (29245)",
+          "title": "Saint-Divy (29245)"
+        },
+        {
+          "const": "Saint-Eloy (29246)",
+          "title": "Saint-Eloy (29246)"
+        },
+        {
+          "const": "Saint-Etienne-le-Laus (05140)",
+          "title": "Saint-Etienne-le-Laus (05140)"
+        },
+        {
+          "const": "Saint-Etienne Métropole",
+          "title": "Saint-Etienne Métropole"
+        },
+        {
+          "const": "Saint-Étienne-Roilaye (60572)",
+          "title": "Saint-Étienne-Roilaye (60572)"
+        },
+        {
+          "const": "Saint-Firmin (05142)",
+          "title": "Saint-Firmin (05142)"
+        },
+        {
+          "const": "Saint-Frégant (29248)",
+          "title": "Saint-Frégant (29248)"
+        },
+        {
+          "const": "Saintines (60578)",
+          "title": "Saintines (60578)"
+        },
+        {
+          "const": "Saint-Jacques-en-Valgodemard (05144)",
+          "title": "Saint-Jacques-en-Valgodemard (05144)"
+        },
+        {
+          "const": "Saint-Jean-aux-Bois (60579)",
+          "title": "Saint-Jean-aux-Bois (60579)"
+        },
+        {
+          "const": "Saint-Jean-Saint-Nicolas (05145)",
+          "title": "Saint-Jean-Saint-Nicolas (05145)"
+        },
+        {
+          "const": "Saint Julien en Beauchêne (05146)",
+          "title": "Saint Julien en Beauchêne (05146)"
+        },
+        {
+          "const": "Saint-Julien-en-Champsaur (05147)",
+          "title": "Saint-Julien-en-Champsaur (05147)"
+        },
+        {
+          "const": "Saint-Laurent-du-Cros (05148)",
+          "title": "Saint-Laurent-du-Cros (05148)"
+        },
+        {
+          "const": "Saint-Léger-aux-Bois (60582)",
+          "title": "Saint-Léger-aux-Bois (60582)"
+        },
+        {
+          "const": "Saint-Léger-les-Mélèzes (05149)",
+          "title": "Saint-Léger-les-Mélèzes (05149)"
+        },
+        {
+          "const": "Saint-Maurice-en-Valgodemard (05152)",
+          "title": "Saint-Maurice-en-Valgodemard (05152)"
+        },
+        {
+          "const": "Saint-Méen (29255)",
+          "title": "Saint-Méen (29255)"
+        },
+        {
+          "const": "Saint-Michel-de-Chaillol (05153)",
+          "title": "Saint-Michel-de-Chaillol (05153)"
+        },
+        {
+          "const": "Saint-Pabu (29257)",
+          "title": "Saint-Pabu (29257)"
+        },
+        {
+          "const": "Saint-Pierre-d’Argençon (05154)",
+          "title": "Saint-Pierre-d’Argençon (05154)"
+        },
+        {
+          "const": "Saint-Pierre-lès-Bitry (60593)",
+          "title": "Saint-Pierre-lès-Bitry (60593)"
+        },
+        {
+          "const": "Saint-Renan (29260)",
+          "title": "Saint-Renan (29260)"
+        },
+        {
+          "const": "Saint-Sauveur (60597)",
+          "title": "Saint-Sauveur (60597)"
+        },
+        {
+          "const": "Saint-Ségal (29263)",
+          "title": "Saint-Ségal (29263)"
+        },
+        {
+          "const": "Saint-Thonan (29268)",
+          "title": "Saint-Thonan (29268)"
+        },
+        {
+          "const": "Saint-Urbain (29270)",
+          "title": "Saint-Urbain (29270)"
+        },
+        {
+          "const": "Saint-Vaast-de-Longmont (60600)",
+          "title": "Saint-Vaast-de-Longmont (60600)"
+        },
+        {
+          "const": "SANEF",
+          "title": "SANEF"
+        },
+        {
+          "const": "Saône-et-Loire",
+          "title": "Saône-et-Loire"
+        },
+        {
+          "const": "SAPN",
+          "title": "SAPN"
+        },
+        {
+          "const": "Sarthe",
+          "title": "Sarthe"
+        },
+        {
+          "const": "Savoie",
+          "title": "Savoie"
+        },
+        {
+          "const": "SE BPNL",
+          "title": "SE BPNL"
+        },
+        {
+          "const": "Seine-et-Marne",
+          "title": "Seine-et-Marne"
+        },
+        {
+          "const": "Seine-Maritime",
+          "title": "Seine-Maritime"
+        },
+        {
+          "const": "Seine-Saint-Denis",
+          "title": "Seine-Saint-Denis"
+        },
+        {
+          "const": "SFTRF",
+          "title": "SFTRF"
+        },
+        {
+          "const": "Sigoyer (05168)",
+          "title": "Sigoyer (05168)"
+        },
+        {
+          "const": "SMTPC",
+          "title": "SMTPC"
+        },
+        {
+          "const": "Somme",
+          "title": "Somme"
+        },
+        {
+          "const": "SPS",
+          "title": "SPS"
+        },
+        {
+          "const": "Suisse",
+          "title": "Suisse"
+        },
+        {
+          "const": "Sytral",
+          "title": "Sytral"
+        },
+        {
+          "const": "Tallard (05170)",
+          "title": "Tallard (05170)"
+        },
+        {
+          "const": "Tarn",
+          "title": "Tarn"
+        },
+        {
+          "const": "Tarn-et-Garonne",
+          "title": "Tarn-et-Garonne"
+        },
+        {
+          "const": "Telgruc-sur-Mer (29280)",
+          "title": "Telgruc-sur-Mer (29280)"
+        },
+        {
+          "const": "Territoire de Belfort",
+          "title": "Territoire de Belfort"
+        },
+        {
+          "const": "Théus (05171)",
+          "title": "Théus (05171)"
+        },
+        {
+          "const": "Toulouse Métropole",
+          "title": "Toulouse Métropole"
+        },
+        {
+          "const": "Tours Métropole Val de Loire",
+          "title": "Tours Métropole Val de Loire"
+        },
+        {
+          "const": "Tracy-le-Mont (60641)",
+          "title": "Tracy-le-Mont (60641)"
+        },
+        {
+          "const": "Tracy-le-Val (60642)",
+          "title": "Tracy-le-Val (60642)"
+        },
+        {
+          "const": "Tréflévénez (29286)",
+          "title": "Tréflévénez (29286)"
+        },
+        {
+          "const": "Trégarantec (29288)",
+          "title": "Trégarantec (29288)"
+        },
+        {
+          "const": "Trémaouézan (29295)",
+          "title": "Trémaouézan (29295)"
+        },
+        {
+          "const": "Tréouergat (29299)",
+          "title": "Tréouergat (29299)"
+        },
+        {
+          "const": "Trosly-Breuil (60647)",
+          "title": "Trosly-Breuil (60647)"
+        },
+        {
+          "const": "Val-de-Marne",
+          "title": "Val-de-Marne"
+        },
+        {
+          "const": "Val-d'Oise",
+          "title": "Val-d'Oise"
+        },
+        {
+          "const": "Valserres (05176)",
+          "title": "Valserres (05176)"
+        },
+        {
+          "const": "Vandélicourt (60654)",
+          "title": "Vandélicourt (60654)"
+        },
+        {
+          "const": "Var",
+          "title": "Var"
+        },
+        {
+          "const": "Vaucluse",
+          "title": "Vaucluse"
+        },
+        {
+          "const": "Vendée",
+          "title": "Vendée"
+        },
+        {
+          "const": "Venette (60665)",
+          "title": "Venette (60665)"
+        },
+        {
+          "const": "Venterol (04234)",
+          "title": "Venterol (04234)"
+        },
+        {
+          "const": "Verberie (60667)",
+          "title": "Verberie (60667)"
+        },
+        {
+          "const": "Veynes (05179)",
+          "title": "Veynes (05179)"
+        },
+        {
+          "const": "Vienne",
+          "title": "Vienne"
+        },
+        {
+          "const": "Villar-Loubière (05182)",
+          "title": "Villar-Loubière (05182)"
+        },
+        {
+          "const": "Ville de Paris",
+          "title": "Ville de Paris"
+        },
+        {
+          "const": "Vitrolles (05184)",
+          "title": "Vitrolles (05184)"
+        },
+        {
+          "const": "Vosges",
+          "title": "Vosges"
+        },
+        {
+          "const": "Yonne",
+          "title": "Yonne"
+        },
+        {
+          "const": "Yvelines",
+          "title": "Yvelines"
+        }
+      ],
+      "type": "string"
+    },
+    "geometrie": {
+      "title": "Géométrie GE MultiLigne",
+      "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE du produit externe.",
+      "format": "geometry-linestring",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": [
+    "cleabs"
+  ]
+}

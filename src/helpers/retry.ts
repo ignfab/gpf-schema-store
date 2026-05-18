@@ -1,8 +1,20 @@
 import {debuglog} from 'node:util';
 const debug = debuglog('gpf-schema-store:retry');
 
+/*
+ * =============================================================================
+ * Retry Policy
+ * =============================================================================
+ */
+
 const MAX_ATTEMPTS = 3;
 const BASE_DELAY_MS = 1000;
+
+/*
+ * =============================================================================
+ * Delay Helpers
+ * =============================================================================
+ */
 
 function wait(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -12,6 +24,12 @@ function computeDelayMs(attempt: number): number {
   const exp = BASE_DELAY_MS * (2 ** (attempt - 1));
   return exp + Math.floor(Math.random() * (exp + 1));
 }
+
+/*
+ * =============================================================================
+ * Public Retry API
+ * =============================================================================
+ */
 
 export async function retry<T>(
   operationName: string,

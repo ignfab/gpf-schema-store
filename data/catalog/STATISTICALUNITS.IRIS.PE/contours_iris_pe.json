@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "STATISTICALUNITS.IRIS.PE:contours_iris_pe",
+  "type": "object",
+  "title": "Contours géométriques des IRIS de l'INSEE à petite échelle",
+  "description": "Contours géométriques des IRIS de l'INSEE à petite échelle sur toute la France ; Edition : 2026-01-01",
+  "properties": {
+    "cleabs": {
+      "type": "string",
+      "x-ogc-role": "id"
+    },
+    "code_insee": {
+      "type": "string"
+    },
+    "nom_commune": {
+      "type": "string"
+    },
+    "iris": {
+      "type": "string"
+    },
+    "code_iris": {
+      "type": "string"
+    },
+    "nom_iris": {
+      "type": "string"
+    },
+    "type_iris": {
+      "type": "string"
+    },
+    "geometrie": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

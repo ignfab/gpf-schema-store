@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_scot:scot",
+  "type": "object",
+  "title": "Schéma de cohérence territorial",
+  "description": "Etat du Schéma de Cohérence Territorial, données issues du Géoportail de l'urbanisme",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "gpu_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

@@ -1,13 +1,11 @@
 {
-  "id": "Lieux nommés:Toponymie",
-  "namespace": "Lieux nommés",
-  "name": "Toponymie",
   "title": "Toponymie",
+  "x-ign-theme": "Lieux nommés",
   "description": "",
   "properties": [
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
       "description": ""
     },
@@ -21,13 +19,13 @@
       "name": "nature_de_l_objet",
       "type": "string",
       "title": "Nature de l'objet",
-      "description": "Le cas échéant, valeur du champ 'Nature' de l'objet dont la toponymie est détaillée.\r\nEn l'absence de champ 'Nature', valeur du champ équivalent (ex : Type de route) de la classe mère."
+      "description": "Le cas échéant, valeur du champ 'Nature' de l'objet dont la toponymie est détaillée. En l'absence de champ 'Nature', valeur du champ équivalent (ex : Type de route) de la classe mère."
     },
     {
       "name": "nature_detaillee_de_l_objet",
       "type": "string",
       "title": "Nature détaillée de l'objet",
-      "description": "Le cas échéant, valeur du champ 'Nature détaillée' de l'objet dont la toponymie est détaillée.\r\nEn l'absence de champ 'Nature détaillée', valeur du champ équivalent (ex : Type de route) de la classe mère, sinon, pas de valeur."
+      "description": "Le cas échéant, valeur du champ 'Nature détaillée' de l'objet dont la toponymie est détaillée. En l'absence de champ 'Nature détaillée', valeur du champ équivalent (ex : Type de route) de la classe mère, sinon, pas de valeur."
     },
     {
       "name": "graphie_du_toponyme",
@@ -46,12 +44,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -72,5 +90,8 @@
       "title": "Cleabs de l'objet",
       "description": "Clé absolue (ID) de l'objet BD TOPO® auquel se rapporte ce toponyme."
     }
+  ],
+  "required": [
+    "geometrie"
   ]
 }

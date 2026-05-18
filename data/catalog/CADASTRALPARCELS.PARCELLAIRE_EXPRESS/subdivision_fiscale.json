@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:subdivision_fiscale",
+  "type": "object",
+  "title": "PCI Vecteur : Subdivisions fiscales",
+  "description": "Subdivisions fiscales ; Édition 2025-12-01",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "idu_parcel": {
+      "type": "string"
+    },
+    "lettre": {
+      "type": "string"
+    },
+    "geom": {
+      "format": "geometry-multipolygon",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

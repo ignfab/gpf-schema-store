@@ -1,8 +1,6 @@
 {
-  "id": "Hydrographie:Entité de transition",
-  "namespace": "Hydrographie",
-  "name": "Entité de transition",
   "title": "Entité de transition",
+  "x-ign-theme": "Hydrographie",
   "description": "Partie terminale d'un fleuve, de forme évasée et où la mer remonte (estuaire, delta)",
   "properties": [
     {
@@ -28,12 +26,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -41,13 +59,37 @@
       "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les objets d'une classe en fonction de leur importance ou notoriété relative.",
-      "enum": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6"
+      "oneOf": [
+        {
+          "const": "1",
+          "title": "1",
+          "description": "L'objet a une importance ou un rayonnement national, justifiant de le représenter aux échelles de l'ordre du 1 : 1 000 000."
+        },
+        {
+          "const": "2",
+          "title": "2",
+          "description": "L'objet a une importance ou un rayonnement régional, justifiant de le représenter aux échelles de l'ordre du 1 : 250 000."
+        },
+        {
+          "const": "3",
+          "title": "3",
+          "description": "L'objet a une importance ou un rayonnement départemental, justifiant de le représenter aux échelles de l'ordre du 1 : 100 000."
+        },
+        {
+          "const": "4",
+          "title": "4",
+          "description": "L'objet a une importance ou un rayonnement intercommunal ou cantonal, justifiant de le représenter aux échelles de l'ordre du 1 : 50 000."
+        },
+        {
+          "const": "5",
+          "title": "5",
+          "description": "L'objet a une importance ou un rayonnement communal, justifiant de le représenter aux échelles de l'ordre du 1 : 25 000."
+        },
+        {
+          "const": "6",
+          "title": "6",
+          "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
+        }
       ]
     },
     {
@@ -90,10 +132,18 @@
       "name": "statut",
       "type": "string",
       "title": "Statut de l'objet hydrographique",
-      "description": "État de validité de l'objet hydrographique au sens du <a href=\"http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html\">dictionnaire du SANDRE.</a>",
-      "enum": [
-        "Gelé",
-        "Validé"
+      "description": "État de validité de l'objet hydrographique au sens du dictionnaire du SANDRE. (http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html)",
+      "oneOf": [
+        {
+          "const": "Gelé",
+          "title": "Gelé",
+          "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Gelé\" lorsqu'il a fait l'objet d'un travail de vérification de sa pertinence par un groupe d'experts du SANDRE, au regard des listes de références existantes. La conclusion de ce travail a mis en évidence une ou plusieurs erreurs pouvant être de nature variée (redondance d'informations, informations incomplètes, confusion) qui n'autorisent pas son usage au sein d'échanges de données. Une nomenclature ou une occurrence de listes nationales de statut \"Gelé\" peut en outre évoluer à l'avenir vers un statut valide, toujours selon l'avis de groupes d'experts."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Valide\" lorsqu'il a été jugé pertinent et cohérent aux yeux d'un groupe d'experts, garantissant ainsi son caractère valide. La nomenclature ou l'occurrence de listes nationales est bien reconnu officiellement par le SANDRE et peut désormais faire l'objet d'échanges de données."
+        }
       ]
     },
     {
@@ -110,9 +160,14 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
       "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "importance",
+    "geometrie"
   ]
 }

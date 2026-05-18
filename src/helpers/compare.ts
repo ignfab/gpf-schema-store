@@ -1,4 +1,4 @@
-import type { Collection, CollectionOverwrite } from "../types";
+import type { CollectionOverwrite, SourceCollection } from "../types";
 
 /**
  * Compare properties between original and overwrite to ensure that both are synchronized.
@@ -7,7 +7,7 @@ import type { Collection, CollectionOverwrite } from "../types";
  * @param overwrite The collection from data/overwrite
  * @returns 
  */
-export function compare(original: Collection, overwrite?: CollectionOverwrite|null): string[] {
+export function compare(original: SourceCollection, overwrite?: CollectionOverwrite | null): string[] {
     if (!overwrite) {
         return [];
     }
@@ -23,4 +23,3 @@ export function compare(original: Collection, overwrite?: CollectionOverwrite|nu
 
     return differences;
 }
-

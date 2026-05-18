@@ -1,9 +1,7 @@
 {
-  "id": "Administratif:Région",
-  "namespace": "Administratif",
-  "name": "Région",
   "title": "Région",
-  "description": "Structure la plus récente de l'administration locale française, la région est devenue collectivité territoriale à la suite des lois de décentralisation, le 16 mars 1986, date de la première élection des conseillers régionaux élus au suffrage universel; son existence a été consacrée par la révision constitutionnelle du 28 mars 2003.\r\n\r\nLes conseillers régionaux élisent le président du conseil régional qui gère le budget, dirige le personnel et conduit la politique de la région. Les compétences propres de la région concernent principalement l'aménagement du territoire, le développement  économique, la formation professionnelle, la construction ou l'entretien des lycées, les transports ferroviaires de voyageurs.\r\n\r\nIl y a en France 17 régions dont 5 d'outre-mer. La collectivité territoriale de Corse est le plus souvent assimilée à une région.\r\n<i>Source Insee </i>",
+  "x-ign-theme": "Administratif",
+  "description": "Structure la plus récente de l'administration locale française, la région est devenue collectivité territoriale à la suite des lois de décentralisation, le 16 mars 1986, date de la première élection des conseillers régionaux élus au suffrage universel; son existence a été consacrée par la révision constitutionnelle du 28 mars 2003. Les conseillers régionaux élisent le président du conseil régional qui gère le budget, dirige le personnel et conduit la politique de la région. Les compétences propres de la région concernent principalement l'aménagement du territoire, le développement économique, la formation professionnelle, la construction ou l'entretien des lycées, les transports ferroviaires de voyageurs. Il y a en France 17 régions dont 5 d'outre-mer. La collectivité territoriale de Corse est le plus souvent assimilée à une région. Source Insee",
   "properties": [
     {
       "name": "cleabs",
@@ -15,19 +13,19 @@
       "name": "nom_officiel",
       "type": "string",
       "title": "Nom officiel",
-      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule  aux premières lettres de chaque terme,  et minuscules pour les autres, toutes deux accentuées."
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées."
     },
     {
       "name": "code_insee",
       "type": "string",
       "title": "Code Insee de la région",
-      "description": "Il s’agit du numéro officiel attribué par l’Insee à la <Région> : il est composé de 2 caractères."
+      "description": "Il s’agit du numéro officiel attribué par l’Insee à la Région : il est composé de 2 caractères."
     },
     {
       "name": "code_siren",
       "type": "string",
       "title": "Code Siren",
-      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro.\r\n<i>Source Insee</i>"
+      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro. Source Insee"
     },
     {
       "name": "date_creation",
@@ -57,13 +55,16 @@
       "name": "liens_vers_autorite_administrative",
       "type": "string",
       "title": "Liens vers autorité administrative",
-      "description": "Lien vers la clé absolue de l'objet <Zone d'activité ou d'intérêt> de Nature=\"Préfecture de région\" de la région concernée."
+      "description": "Lien vers la clé absolue de l'objet de Nature=\"Préfecture de région\" de la région concernée."
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie GE MultiPolygone",
       "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle."
     }
+  ],
+  "required": [
+    "cleabs"
   ]
 }

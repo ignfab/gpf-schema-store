@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-collection-id": "wfs_du:mec",
+  "type": "object",
+  "title": "Mise en compatibilité",
+  "description": "Mise en compatibilité",
+  "properties": {
+    "gid": {
+      "type": "integer"
+    },
+    "libelle": {
+      "type": "string"
+    },
+    "idurba": {
+      "type": "string"
+    },
+    "datvalid": {
+      "type": "string"
+    },
+    "nomfic": {
+      "type": "string"
+    },
+    "nomrapp": {
+      "type": "string"
+    },
+    "nomarr": {
+      "type": "string"
+    },
+    "gpu_status": {
+      "type": "string"
+    },
+    "gpu_timestamp": {
+      "type": "string"
+    },
+    "gpu_doc_id": {
+      "type": "string"
+    },
+    "partition": {
+      "type": "string"
+    },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    }
+  },
+  "required": []
+}

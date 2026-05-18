@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2023",
   "name": "collectivite_territoriale",
   "title": "ADMINEXPRESS COG 2023 Collectivité territoriale",
-  "description": "ADMINEXPRESS COG 2023 Collectivité territoriale",
+  "description": "ADMINEXPRESS COG 2023 Collectivité territoriale ; Édition 2023-01-01",
   "properties": [
     {
       "name": "id",

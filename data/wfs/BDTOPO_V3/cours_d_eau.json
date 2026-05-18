@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "cours_d_eau",
   "title": "BDTOPO : Cours d'eau",
-  "description": "Cours d'eau − BDTOPO® V3 2026-03-15",
+  "description": "Cours d'eau − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

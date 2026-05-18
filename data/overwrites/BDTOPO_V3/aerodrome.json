@@ -1,9 +1,16 @@
 {
-  "id": "Transport:Aérodrome",
-  "namespace": "Transport",
-  "name": "Aérodrome",
   "title": "Aérodrome",
+  "x-ign-theme": "Transport",
   "description": "Tout terrain ou plan d'eau spécialement aménagé pour l'atterrissage, le décollage et les manœuvres des aéronefs y compris les installations annexes qu'il peut comporter pour les besoins du trafic et le service des aéronefs.",
+  "x-ign-representedFeatures": [
+    "Aéroport",
+    "Aérodrome militaire",
+    "Aérodrome civil",
+    "Altiport",
+    "Altisurface",
+    "Héliport",
+    "Hydrobase"
+  ],
   "properties": [
     {
       "name": "cleabs",
@@ -16,10 +23,22 @@
       "type": "string",
       "title": "Catégorie",
       "description": "Définit le rayonnement de l'aérodrome.",
-      "enum": [
-        "Autre",
-        "Internationale",
-        "Nationale"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Aérodrome de statut autre que \"National\" ou \"International\", c'est à dire sans liaisons aériennes régulières."
+        },
+        {
+          "const": "Internationale",
+          "title": "Internationale",
+          "description": "Aérodrome de statut international."
+        },
+        {
+          "const": "Nationale",
+          "title": "Nationale",
+          "description": "Aérodrome de statut national"
+        }
       ]
     },
     {
@@ -27,11 +46,36 @@
       "type": "string",
       "title": "Nature",
       "description": "Précise la nature de l'aérodrome.",
-      "enum": [
-        "Aérodrome",
-        "Altiport",
-        "Héliport",
-        "Hydrobase"
+      "oneOf": [
+        {
+          "const": "Aérodrome",
+          "title": "Aérodrome",
+          "description": "Tout terrain ou plan d'eau spécialement aménagé pour l'atterrissage, le décollage et les manœuvres des aéronefs y compris les installations annexes qu'il peut comporter pour les besoins du trafic et le service des aéronefs.",
+          "x-ign-representedFeatures": [
+            "Aérodrome militaire",
+            "Aéroport",
+            "Aéroport international"
+          ]
+        },
+        {
+          "const": "Altiport",
+          "title": "Altiport",
+          "description": "Un altiport est une aire d’atterrissage en haute montagne possédant un équipement minimum : bâtiment, hangar... En raison des conditions climatiques, un altiport n’est pas nécessairement ouvert toute l’année. Une altisurface est une zone située en haute montagne, sommairement aménagée, où un aéronef peut atterrir."
+        },
+        {
+          "const": "Héliport",
+          "title": "Héliport",
+          "description": "Aérodrome ou zone d’aérodrome exclusivement réservée au trafic d’aéronef à voilure tournante.",
+          "x-ign-representedFeatures": [
+            "Hélistation",
+            "Héliport militaire"
+          ]
+        },
+        {
+          "const": "Hydrobase",
+          "title": "Hydrobase",
+          "description": "Base aérienne aménagée sur un plan d’eau pour le décollage et l'amerrissage des hydravions."
+        }
       ]
     },
     {
@@ -39,11 +83,27 @@
       "type": "string",
       "title": "Usage",
       "description": "Défini l'usage de l'aérodrome.",
-      "enum": [
-        "Civil",
-        "Civil et militaire",
-        "Militaire",
-        "Privé"
+      "oneOf": [
+        {
+          "const": "Civil",
+          "title": "Civil",
+          "description": "Aérodrome à usage civil"
+        },
+        {
+          "const": "Civil et militaire",
+          "title": "Civil et militaire",
+          "description": "Aérodrome à usage mixte."
+        },
+        {
+          "const": "Militaire",
+          "title": "Militaire",
+          "description": "Aérodrome à usage militaire."
+        },
+        {
+          "const": "Privé",
+          "title": "Privé",
+          "description": "Aérodrome à usage privé."
+        }
       ]
     },
     {
@@ -57,12 +117,32 @@
       "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
-      "enum": [
-        "Autre",
-        "Collecté",
-        "Historique",
-        "Régional",
-        "Validé"
+      "oneOf": [
+        {
+          "const": "Autre",
+          "title": "Autre",
+          "description": "Autre statut. Surnom, toponyme de source non certaine.."
+        },
+        {
+          "const": "Collecté",
+          "title": "Collecté",
+          "description": "Toponyme d'usage local ou issu d'un fichier partenaire et n'ayant pas fait l'objet d'une procédure de validation IGN."
+        },
+        {
+          "const": "Historique",
+          "title": "Historique",
+          "description": "Toponyme historique ou ancien toponyme n'étant plus d'usage."
+        },
+        {
+          "const": "Régional",
+          "title": "Régional",
+          "description": "Toponyme en langue régionale."
+        },
+        {
+          "const": "Validé",
+          "title": "Validé",
+          "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
+        }
       ]
     },
     {
@@ -76,11 +156,35 @@
       "type": "string",
       "title": "Etat de l'objet transport",
       "description": "Etat ou stade d'un objet du thème Transport qui peut être en projet, en construction, en service ou non exploité.",
-      "enum": [
-        "En construction",
-        "En projet",
-        "En service",
-        "Non exploité"
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en construction."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service."
+        },
+        {
+          "const": "Non exploité",
+          "title": "Non exploité",
+          "description": "La ligne ou l'équipement n’est plus exploité pour le transport de personnes ni de marchandises.",
+          "x-ign-representedFeatures": [
+            "Voie ferrée déclassée",
+            "Voie ferrée fermée à tout trafic ferroviaire",
+            "Voie ferrée neutralisée",
+            "Piste d'aérodrome désaffectée",
+            "Vélo-rail",
+            "Remontée mécanique désaffectée"
+          ]
+        }
       ]
     },
     {
@@ -124,44 +228,146 @@
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "enum": [
-        "BDCarto",
-        "BDNyme",
-        "BDParcellaire",
-        "BDParcellaire recalée",
-        "BDTopo",
-        "Calcul d'enveloppe urbaine",
-        "Calculé",
-        "Fichier numérique décimétrique",
-        "Fichier numérique métrique",
-        "Fichier numérique non métrique",
-        "Géocodage",
-        "Géoroute",
-        "Image satellite",
-        "Image satellite HR",
-        "Inconnue",
-        "Levé GPS",
-        "Levé non GPS",
-        "Lidar",
-        "Lidar HD",
-        "Orthophotographie",
-        "Photogrammétrie",
-        "Plan métrique papier",
-        "Plan non métrique papier",
-        "Processus IA métrique",
-        "Processus IA non métrique",
-        "Scan25"
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "altitude",
-      "type": "numeric",
+      "type": "number",
       "title": "Altitude",
       "description": "Altitude moyenne de référence de l'aérodrome selon le Service de l’Information Aéronautique (SIA)."
     },
@@ -169,7 +375,7 @@
       "name": "code_icao",
       "type": "string",
       "title": "Code ICAO",
-      "description": "Le code ICAO des aérodromes est un code de classement géographique à quatre lettres attribué à chaque aéroport à l'échelle mondiale. Ces codes sont définis par l’International Civil Aviation Organization.\r\n\r\nLes codes ICAO ont une structure géographique :\r\n- la première lettre détermine le continent, ou un regroupement d'États ou Provinces (États-Unis, Australie, Chine),\r\n- la seconde désigne le pays dans le continent, ou un regroupement d'aéroports par région ou ordre alphabétique (aux États-Unis, en Australie, en Chine),\r\n- les deux dernières sont utilisées pour identifier chaque aéroport.\r\n\r\n<b>Exemples </b>:\r\n- Paris-Orly : <b>‎LFPO</b>\r\n- Paris-Charles-de-Gaulle : <b>LFPG</b>"
+      "description": "Le code ICAO des aérodromes est un code de classement géographique à quatre lettres attribué à chaque aéroport à l'échelle mondiale. Ces codes sont définis par l’International Civil Aviation Organization. Les codes ICAO ont une structure géographique : - la première lettre détermine le continent, ou un regroupement d'États ou Provinces (États-Unis, Australie, Chine), - la seconde désigne le pays dans le continent, ou un regroupement d'aéroports par région ou ordre alphabétique (aux États-Unis, en Australie, en Chine), - les deux dernières sont utilisées pour identifier chaque aéroport. Exemples : - Paris-Orly : LFPO - Paris-Charles-de-Gaulle : LFPG"
     },
     {
       "name": "code_iata",
@@ -179,9 +385,19 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
       "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "categorie",
+    "nature",
+    "usage",
+    "fictif",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "geometrie"
   ]
 }

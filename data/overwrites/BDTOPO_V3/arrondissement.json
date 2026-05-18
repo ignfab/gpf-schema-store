@@ -1,9 +1,7 @@
 {
-  "id": "Administratif:Arrondissement",
-  "namespace": "Administratif",
-  "name": "Arrondissement",
   "title": "Arrondissement",
-  "description": "L'arrondissement est une circonscription administrative de l'État dont le chef-lieu est la sous-préfecture. Le sous-préfet est chargé de son administration ; il relaie le préfet en assurant le contrôle administratif des communes de son arrondissement. Le libellé de l'arrondissement est le plus souvent celui du chef-lieu.\r\nL'arrondissement est une subdivision du département. Depuis le redécoupage cantonal lié aux élections départementales de mars 2015, l'arrondissement n’est plus un regroupement de cantons mais de communes.\r\n<i>Source Insee </i>",
+  "x-ign-theme": "Administratif",
+  "description": "L'arrondissement est une circonscription administrative de l'État dont le chef-lieu est la sous-préfecture. Le sous-préfet est chargé de son administration ; il relaie le préfet en assurant le contrôle administratif des communes de son arrondissement. Le libellé de l'arrondissement est le plus souvent celui du chef-lieu. L'arrondissement est une subdivision du département. Depuis le redécoupage cantonal lié aux élections départementales de mars 2015, l'arrondissement n’est plus un regroupement de cantons mais de communes. Source Insee",
   "properties": [
     {
       "name": "cleabs",
@@ -15,37 +13,37 @@
       "name": "nom_officiel",
       "type": "string",
       "title": "Nom officiel",
-      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule  aux premières lettres de chaque terme,  et minuscules pour les autres, toutes deux accentuées."
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées."
     },
     {
       "name": "code_insee_de_l_arrondissement",
       "type": "string",
       "title": "Code Insee de l'arrondissement",
-      "description": "Code INSEE de l'<Arrondissement>."
+      "description": "Code INSEE de l'Arrondissement."
     },
     {
       "name": "numero_de_l_arrondissement",
       "type": "string",
       "title": "Numéro de l'arrondissement",
-      "description": "Il s’agit du numéro officiel attribué par l’Insee à l'<Arrondissement> : c'est un chiffre."
+      "description": "Il s’agit du numéro officiel attribué par l’Insee à l'Arrondissement : c'est un chiffre."
     },
     {
       "name": "code_insee_du_departement",
       "type": "string",
       "title": "Code Insee du département",
-      "description": "Code Insee du <Département> auquel appartient l'unité administrative concernée."
+      "description": "Code Insee du Département auquel appartient l'unité administrative concernée."
     },
     {
       "name": "code_insee_de_la_region",
       "type": "string",
       "title": "Code Insee de la région",
-      "description": "Code Insee de la <Région> à laquelle appartient l'entité administrative concernée."
+      "description": "Code Insee de la Région à laquelle appartient l'entité administrative concernée."
     },
     {
       "name": "liens_vers_autorite_administrative",
       "type": "string",
       "title": "Liens vers autorité administrative",
-      "description": "Lien vers  (clé absolue) l'objet <Zone d'activité ou d'intérêt> de Nature=\"Sous-préfecture\" de l'arrondissement."
+      "description": "Lien vers (clé absolue) l'objet de Nature=\"Sous-préfecture\" de l'arrondissement."
     },
     {
       "name": "date_creation",
@@ -73,9 +71,12 @@
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie GE MultiPolygone",
       "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle."
     }
+  ],
+  "required": [
+    "cleabs"
   ]
 }

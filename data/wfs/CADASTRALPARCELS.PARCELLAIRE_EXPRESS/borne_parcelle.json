@@ -3,7 +3,7 @@
   "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
   "name": "borne_parcelle",
   "title": "PCI Vecteur : Lien bornes parcelles",
-  "description": "Lien bornes parcelles",
+  "description": "Lien bornes parcelles ; Édition 2025-12-01",
   "properties": [
     {
       "name": "gid",

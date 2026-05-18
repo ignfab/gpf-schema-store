@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2020",
   "name": "chef_lieu",
   "title": "ADMINEXPRESS COG 2020 Chef-lieu",
-  "description": "ADMINEXPRESS COG 2020 Chef-lieu",
+  "description": "ADMINEXPRESS COG 2020 Chef-lieu ; Édition 2020-01-01",
   "properties": [
     {
       "name": "id",

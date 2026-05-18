@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2025",
   "name": "chef_lieu_de_departement",
   "title": "ADMINEXPRESS COG 2025 Chef-lieu de Département",
-  "description": "ADMINEXPRESS COG 2025 Chef-lieu de Département",
+  "description": "ADMINEXPRESS COG 2025 Chef-lieu de Département ; Édition 2025-01-01",
   "properties": [
     {
       "name": "cleabs",

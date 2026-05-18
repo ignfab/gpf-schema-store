@@ -3,7 +3,7 @@
   "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
   "name": "commune",
   "title": "PCI Vecteur : Communes",
-  "description": "Communes",
+  "description": "Communes ; Édition 2025-12-01",
   "properties": [
     {
       "name": "gid",

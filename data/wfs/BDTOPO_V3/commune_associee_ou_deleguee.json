@@ -3,7 +3,7 @@
   "namespace": "BDTOPO_V3",
   "name": "commune_associee_ou_deleguee",
   "title": "BDTOPO : Communes associées ou déléguées",
-  "description": "Communes associées ou déléguées − BDTOPO® V3 2026-03-15",
+  "description": "Communes associées ou déléguées − BDTOPO® V3 2026-03-15 ; Édition 2026-03-15",
   "properties": [
     {
       "name": "cleabs",

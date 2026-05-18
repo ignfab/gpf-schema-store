@@ -1,8 +1,6 @@
 {
-  "id": "Adresses:Voie nommée",
-  "namespace": "Adresses",
-  "name": "Voie nommée",
   "title": "Voie nommée",
+  "x-ign-theme": "Adresses",
   "description": "",
   "properties": [
     {
@@ -15,7 +13,7 @@
       "name": "identifiant_voie_ban",
       "type": "string",
       "title": "Identifiant voie BAN",
-      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP.\r\n\r\nExemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
+      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
     },
     {
       "name": "nom_voie_ban",
@@ -27,7 +25,7 @@
       "name": "insee_commune",
       "type": "string",
       "title": "Insee commune",
-      "description": "Code INSEE officiel de la commune associée à chaque adresse.\r\nCe champ correspond à l'attribut \"commune_insee\" du format BAL."
+      "description": "Code INSEE officiel de la commune associée à chaque adresse. Ce champ correspond à l'attribut \"commune_insee\" du format BAL."
     },
     {
       "name": "nom_commune",
@@ -45,7 +43,7 @@
       "name": "nom_collaboratif",
       "type": "string",
       "title": "Nom collaboratif",
-      "description": "Nom de la voie nommée lorsque celui-ci ne provient pas de la BAN.\r\nLa voie nommée correspond alors à la concaténation des tronçons de route non liés à la BAN (avec un identifiant de voie BAN gauche et/ou droite vide), mais possédant le même nom collaboratif (gauche et/ou droite) sur la même commune."
+      "description": "Nom de la voie nommée lorsque celui-ci ne provient pas de la BAN. La voie nommée correspond alors à la concaténation des tronçons de route non liés à la BAN (avec un identifiant de voie BAN gauche et/ou droite vide), mais possédant le même nom collaboratif (gauche et/ou droite) sur la même commune."
     },
     {
       "name": "type_voie",
@@ -57,7 +55,7 @@
       "name": "mot_directeur",
       "type": "string",
       "title": "Mot directeur",
-      "description": "dernier mot en caractères alphabétiques du libellé de la voie, sauf si le dernier mot est :\r\n• un mot qualifiant la voie tel que ‘inférieur’ ou ‘supérieur’ ou ‘prolongée’…,\r\n• un nombre écrit en chiffres romains ou ‘bis’ ou ‘ter’…,\r\n• un nombre ordinal,\r\n• la mention ‘pair’ ou ‘impair’,\r\n• une lettre isolée.\r\nPar exemple :\r\nChemin de l’aviation : aviation\r\nAllée des frères caudron : caudron\r\n\r\nAttention : cette règle n’est pas vraie lorsque un de ces éléments est le seul du libellé de la voie.\r\n\r\nExemple : R DU 17EME"
+      "description": "dernier mot en caractères alphabétiques du libellé de la voie, sauf si le dernier mot est : - un mot qualifiant la voie tel que ‘inférieur’ ou ‘supérieur’ ou ‘prolongée’…, - un nombre écrit en chiffres romains ou ‘bis’ ou ‘ter’…, - un nombre ordinal, - la mention ‘pair’ ou ‘impair’, - une lettre isolée. Par exemple : Chemin de l’aviation : aviation Allée des frères caudron : caudron Attention : cette règle n’est pas vraie lorsque un de ces éléments est le seul du libellé de la voie. Exemple : R DU 17EME"
     },
     {
       "name": "lieux_dits_ban",
@@ -69,23 +67,23 @@
       "name": "liens_vers_supports",
       "type": "string",
       "title": "Liens vers supports",
-      "description": "Identifiant(s)  (clé absolue) des objets de la classe <Tronçon de route> constituant la voie nommée.\r\n\r\nL’attribut 'Liens vers supports' permet de construire le lien entre une liste d'objets de la classe <Tronçon de route> et une voie nommée. Les différentes clés absolues sont séparées par un “/”."
+      "description": "Identifiant(s) (clé absolue) des objets de la classe Tronçon de route constituant la voie nommée. L’attribut 'Liens vers supports' permet de construire le lien entre une liste d'objets de la classe Tronçon de route et une voie nommée. Les différentes clés absolues sont séparées par un “/”."
     },
     {
       "name": "insee_communes_deleguees_ban",
       "type": "string",
       "title": "Insee communes déléguées BAN",
-      "description": "Suite à une fusion de communes, il s’agit du code INSEE officiel de l’ancienne commune associée à la voie.\r\nSi plusieurs anciennes communes sont concernées, leurs codes INSEE respectifs sont concaténés et séparés par des \"/\"."
+      "description": "Suite à une fusion de communes, il s’agit du code INSEE officiel de l’ancienne commune associée à la voie. Si plusieurs anciennes communes sont concernées, leurs codes INSEE respectifs sont concaténés et séparés par des \"/\"."
     },
     {
       "name": "noms_communes_deleguees_ban",
       "type": "string",
       "title": "Noms communes déléguées BAN",
-      "description": "Suite à une fusion de communes, nom de l’ancienne commune sur laquelle est située la voie.\r\nSi plusieurs anciennes communes sont concernées, leurs noms respectifs sont concaténés et séparés par des \"/\"."
+      "description": "Suite à une fusion de communes, nom de l’ancienne commune sur laquelle est située la voie. Si plusieurs anciennes communes sont concernées, leurs noms respectifs sont concaténés et séparés par des \"/\"."
     },
     {
       "name": "geometrie",
-      "type": "geometry",
+      "type": "object",
       "title": "Géométrie",
       "description": "Champ contenant le géométrie concaténée des tronçons composant la voie nommée."
     },
@@ -105,7 +103,7 @@
       "name": "nom_normalise",
       "type": "string",
       "title": "Nom normalisé",
-      "description": "Proposition d'une graphie homogénéisée des noms des voies nommées.\r\nLorsque la voie nommée possède un nom BAN, celui-ci est exploité pour construire le nom normalisé. A défaut, le nom collaboratif de la voie nommée est utilisé.\r\nLa normalisation consiste en un passage du nom en majuscules non accentuées avec abréviation du type de voie.\r\nLa liste des abréviations des types de voies est disponible en annexe 1 du descriptif du Nom collaboratif gauche de la classe Tronçon de route."
+      "description": "Proposition d'une graphie homogénéisée des noms des voies nommées. Lorsque la voie nommée possède un nom BAN, celui-ci est exploité pour construire le nom normalisé. A défaut, le nom collaboratif de la voie nommée est utilisé. La normalisation consiste en un passage du nom en majuscules non accentuées avec abréviation du type de voie. La liste des abréviations des types de voies est disponible en annexe 1 du descriptif du Nom collaboratif gauche de la classe Tronçon de route."
     },
     {
       "name": "id_ban_odonyme",
@@ -113,5 +111,12 @@
       "title": "Id BAN Odonyme",
       "description": "Identifiant de l'odonyme de la BAN, au format uuid."
     }
+  ],
+  "required": [
+    "cleabs",
+    "insee_commune",
+    "nom_commune",
+    "liens_vers_supports",
+    "geometrie"
   ]
 }

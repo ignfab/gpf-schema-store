@@ -3,7 +3,7 @@
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "collectivite_territoriale",
   "title": "ADMINEXPRESS COG 2026 Collectivité territoriale",
-  "description": "ADMINEXPRESS COG 2026 Collectivité territoriale",
+  "description": "ADMINEXPRESS COG 2026 Collectivité territoriale ; Édition 2026-01-01",
   "properties": [
     {
       "name": "cleabs",

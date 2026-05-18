@@ -1,9 +1,8 @@
 {
-  "id": "Bâti:Terrain de sport",
-  "namespace": "Bâti",
-  "name": "Terrain de sport",
   "title": "Terrain de sport",
+  "x-ign-theme": "Bâti",
   "description": "Équipement sportif de plein air.",
+  "x-ign-selectionCriteria": "Sont retenus : - les plate-formes multi-sports, les terrains d’entraînement, les terrains de football, les terrains de rugby, les stades, les petits terrains de sports référencés par le Ministère des Sports, - les pistes d’autodrome, les circuits auto-moto, - les hippodromes (piste), les vélodromes (piste), les cynodromes (piste), les grands stades d’athlétisme (piste), - les terrains de tennis, - les bassins de natation à l’air libre, les piscines découvertes. Voir les différentes valeurs de l'attribut 'Nature'.",
   "properties": [
     {
       "name": "cleabs",
@@ -16,35 +15,154 @@
       "type": "string",
       "title": "Nature",
       "description": "Nature du terrain de sport",
-      "enum": [
-        "Bassin de natation",
-        "Carrière équestre",
-        "Grand terrain de sport",
-        "Petit terrain multi-sports",
-        "Piste de sport",
-        "Terrain de tennis"
+      "oneOf": [
+        {
+          "const": "Bassin de natation",
+          "title": "Bassin de natation",
+          "description": "Bassin artificiel découvert, aménagé pour la pratique de la natation ou de la baignade.",
+          "x-ign-representedFeatures": [
+            "Piscine découverte",
+            "Bassin de baignade"
+          ]
+        },
+        {
+          "const": "Carrière équestre",
+          "title": "Carrière équestre",
+          "description": "Espace découvert bordé de barrières (ou lices) pour pratiquer l'équitation.",
+          "x-ign-representedFeatures": [
+            "Carrière de dressage",
+            "Rond de longe"
+          ]
+        },
+        {
+          "const": "Grand terrain de sport",
+          "title": "Grand terrain de sport",
+          "description": "Grand terrain découvert servant à la pratique de sports collectifs tels que le football, le rugby, etc., d'au moins 50 m de long.",
+          "x-ign-representedFeatures": [
+            "Plate-forme multi-sports",
+            "Terrain d’entrainement",
+            "Terrain de football",
+            "Terrain de rugby",
+            "Terrain de base-ball",
+            "Terrain de criquet",
+            "Terrain de hockey",
+            "Terrain de football américain",
+            "Terrain de balle au tambourin",
+            "Terrain de polo"
+          ]
+        },
+        {
+          "const": "Petit terrain multi-sports",
+          "title": "Petit terrain multi-sports",
+          "description": "Petit terrain de sport découvert servant à la pratique de sports collectifs tels que le basket, jeux urbains.",
+          "x-ign-representedFeatures": [
+            "City-stade",
+            "Terrain de pelote basque"
+          ]
+        },
+        {
+          "const": "Piste de sport",
+          "title": "Piste de sport",
+          "description": "Large piste réservée aux sports de courses mécaniques (circuit F1, vélodrome découvert), aux courses d’animaux (cynodrome, hippodrome) et à la pratique de l’athlétisme (piste des stades d’athlétisme homologués).",
+          "x-ign-representedFeatures": [
+            "Autodrome (piste)",
+            "Circuit auto-moto (piste)",
+            "Cynodrome (piste)",
+            "Hippodrome (piste)",
+            "Vélodrome (piste)",
+            "Stade d’athlétisme (piste)."
+          ]
+        },
+        {
+          "const": "Terrain de tennis",
+          "title": "Terrain de tennis",
+          "description": "Terrain extérieur spécialement aménagé pour la pratique du tennis.",
+          "x-ign-representedFeatures": [
+            "Terrain de tennis découvert",
+            "Terrain de padel découvert"
+          ]
+        }
       ]
     },
     {
       "name": "nature_detaillee",
       "type": "string",
       "title": "Nature détaillée",
-      "description": "Cet attribut <b>précise</b> la 'Nature' du terrain de sport.",
-      "enum": [
-        "City-stade",
-        "Piste de cynodrome",
-        "Piste de sports mécaniques",
-        "Piste de vélodrome",
-        "Piste d'hippodrome",
-        "Stade d'athlétisme",
-        "Terrain de basket-ball",
-        "Terrain de football",
-        "Terrain de handball",
-        "Terrain de padel",
-        "Terrain de pelote basque",
-        "Terrain de polo",
-        "Terrain de rugby",
-        "Terrain de volley-ball"
+      "description": "Cet attribut précise la 'Nature' du terrain de sport.",
+      "oneOf": [
+        {
+          "const": "City-stade",
+          "title": "City-stade",
+          "description": "Petit terrain entouré par des protections physiques localement élevées pour éviter au maximum la sortie des ballons vers la voirie. Sa surface n’excède généralement pas 800 m²."
+        },
+        {
+          "const": "Piste de cynodrome",
+          "title": "Piste de cynodrome",
+          "description": "Piste de cynodrome."
+        },
+        {
+          "const": "Piste de sports mécaniques",
+          "title": "Piste de sports mécaniques",
+          "description": "Piste de circuit automobile.",
+          "x-ign-representedFeatures": [
+            "Autodrome (piste)",
+            "Circuit auto-moto (piste)"
+          ]
+        },
+        {
+          "const": "Piste de vélodrome",
+          "title": "Piste de vélodrome",
+          "description": "Piste de vélodrome découvert."
+        },
+        {
+          "const": "Piste d'hippodrome",
+          "title": "Piste d'hippodrome",
+          "description": "Piste d'hippodrome."
+        },
+        {
+          "const": "Stade d'athlétisme",
+          "title": "Stade d'athlétisme",
+          "description": "Piste de course circulaire d'un stade d'athlétisme."
+        },
+        {
+          "const": "Terrain de basket-ball",
+          "title": "Terrain de basket-ball",
+          "description": "Terrain extérieur dédié à la pratique du basket-ball."
+        },
+        {
+          "const": "Terrain de football",
+          "title": "Terrain de football",
+          "description": "Grand terrain extérieur dédié à la pratique du football."
+        },
+        {
+          "const": "Terrain de handball",
+          "title": "Terrain de handball",
+          "description": "Terrain extérieur dédié à la pratique du handball."
+        },
+        {
+          "const": "Terrain de padel",
+          "title": "Terrain de padel",
+          "description": "Le padel est un sport de raquette qui se joue sur un court encadré de vitres et grillages et divisé par un filet. Le terrain mesure 20 m de long pour 10 m de large."
+        },
+        {
+          "const": "Terrain de pelote basque",
+          "title": "Terrain de pelote basque",
+          "description": "Terrain extérieur dédié à la pratique de la pelote basque et sports associés."
+        },
+        {
+          "const": "Terrain de polo",
+          "title": "Terrain de polo"
+        },
+        {
+          "const": "Terrain de rugby",
+          "title": "Terrain de rugby",
+          "description": "Grand terrain extérieur dédié à la pratique du rugby."
+        },
+        {
+          "const": "Terrain de volley-ball",
+          "title": "Terrain de volley-ball",
+          "description": "Terrain extérieur dédié à la pratique du volley-ball."
+        }
       ]
     },
     {
@@ -52,11 +170,27 @@
       "type": "string",
       "title": "Etat de l'objet bati",
       "description": "État ou stade de vie d'un objet qui, pour le thème bâti, peut être en projet, en construction, en service ou en ruine.",
-      "enum": [
-        "En construction",
-        "En projet",
-        "En ruine",
-        "En service"
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en cours de construction."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En ruine",
+          "title": "En ruine",
+          "description": "L'objet est en ruine."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service, c'est à dire sa construction est terminée."
+        }
       ]
     },
     {
@@ -100,69 +234,230 @@
       "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
-      "enum": [
-        "BDCarto",
-        "BDNyme",
-        "BDParcellaire",
-        "BDParcellaire recalée",
-        "BDTopo",
-        "Calcul d'enveloppe urbaine",
-        "Calculé",
-        "Fichier numérique décimétrique",
-        "Fichier numérique métrique",
-        "Fichier numérique non métrique",
-        "Géocodage",
-        "Géoroute",
-        "Image satellite",
-        "Image satellite HR",
-        "Inconnue",
-        "Levé GPS",
-        "Levé non GPS",
-        "Lidar",
-        "Lidar HD",
-        "Orthophotographie",
-        "Photogrammétrie",
-        "Plan métrique papier",
-        "Plan non métrique papier",
-        "Processus IA métrique",
-        "Processus IA non métrique",
-        "Scan25"
+      "oneOf": [
+        {
+          "const": "BDCarto",
+          "title": "BDCarto",
+          "description": "La géométrie provient de la BD CARTO® v.1 et v.2, qui a fourni les primitives géométriques permettant de modéliser l’objet dans la base."
+        },
+        {
+          "const": "BDNyme",
+          "title": "BDNyme",
+          "description": "La géométrie provient de la BD Nyme®, ancienne base de données de toponymie de l’IGN, qui a servi de référence géométrique pour le positionnement de l’objet."
+        },
+        {
+          "const": "BDParcellaire",
+          "title": "BDParcellaire",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, issue du géoréférencement, de la remise en géométrie et de l’assemblage des plans cadastraux image et vecteur."
+        },
+        {
+          "const": "BDParcellaire recalée",
+          "title": "BDParcellaire recalée",
+          "description": "La géométrie provient de la BD PARCELLAIRE®, mais elle a été recalée (translation, rotation) sur la géométrie du bâti de la BD TOPO® voire sur Orthophotographie IGN."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "La géométrie provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Calcul d'enveloppe urbaine",
+          "title": "Calcul d'enveloppe urbaine",
+          "description": "La géométrie de la a été calculée à partir de l'emprise des éléments bâtis."
+        },
+        {
+          "const": "Calculé",
+          "title": "Calculé",
+          "description": "La géométrie de l’objet est le résultat d’un calcul ou d’une interpolation manuelle."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique",
+          "description": "La géométrie provient de données numériques de précision décimétrique."
+        },
+        {
+          "const": "Fichier numérique métrique",
+          "title": "Fichier numérique métrique",
+          "description": "La géométrie provient de données numériques de précision métrique."
+        },
+        {
+          "const": "Fichier numérique non métrique",
+          "title": "Fichier numérique non métrique",
+          "description": "La géométrie provient de données numériques dont la précision métrique n’est pas assurée."
+        },
+        {
+          "const": "Géocodage",
+          "title": "Géocodage",
+          "description": "La géométrie de l'objet a été calculée par géocodage d'adresses."
+        },
+        {
+          "const": "Géoroute",
+          "title": "Géoroute",
+          "description": "La géométrie provient de la base IGN GEOROUTE® (ancienne base de données routière de précision décamétrique) qui a été utilisée pour constituer la BD TOPO® dans certaines villes."
+        },
+        {
+          "const": "Image satellite",
+          "title": "Image satellite",
+          "description": "La géométrie provient d’une saisie sur image satellite géoréférencée (Landsat, Spot, …)."
+        },
+        {
+          "const": "Image satellite HR",
+          "title": "Image satellite HR",
+          "description": "La géométrie provient d’une saisie sur image satellite à haute résolution (Pléiade, ...)."
+        },
+        {
+          "const": "Inconnue",
+          "title": "Inconnue",
+          "description": "La méthode d'acquisition de la géométrie de l’objet géographique est inconnue."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS en mode différentiel (données corrigées à partir d'une ou plusieurs stations de référence) effectué par l'IGN."
+        },
+        {
+          "const": "Levé non GPS",
+          "title": "Levé non GPS",
+          "description": "La géométrie de l’objet géographique provient d’un levé GNSS effectué par l'IGN en mode navigation (données calculées à partir des informations de navigation, comme c'est le cas pour les géonavigateurs standards), ou d'une méthode autre que le GNSS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "La géométrie provient de l’exploitation d'un MNT issu d'acquisition Lidar."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Orthophotographie",
+          "title": "Orthophotographie",
+          "description": "La géométrie provient de l’exploitation d’une orthophotographie couleur, soit par des processus semi-automatiques (extraction de la végétation), soit par interprétation et numérisation des images."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "La géométrie provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques divers tels que la restitution analytique, numérique ou la restitution altimétrique assistée par ordinateur."
+        },
+        {
+          "const": "Plan métrique papier",
+          "title": "Plan métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision planimétrique est de l’ordre du mètre."
+        },
+        {
+          "const": "Plan non métrique papier",
+          "title": "Plan non métrique papier",
+          "description": "La géométrie a été numérisée à partir d’un plan classique (support papier) dont la précision métrique n'est pas assurée."
+        },
+        {
+          "const": "Processus IA métrique",
+          "title": "Processus IA métrique"
+        },
+        {
+          "const": "Processus IA non métrique",
+          "title": "Processus IA non métrique"
+        },
+        {
+          "const": "Scan25",
+          "title": "Scan25",
+          "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
+        }
       ]
     },
     {
       "name": "precision_planimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique  (en mètres) de la géométrie décrivant l'objet"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     {
       "name": "methode_d_acquisition_altimetrique",
       "type": "string",
       "title": "Méthode d'acquisition altimétrique",
-      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z)  de l'objet.",
-      "enum": [
-        "BDAlti",
-        "BDTopo",
-        "Corrélation",
-        "Fichier numérique",
-        "Fichier numérique décimétrique",
-        "Interpolation bâti BDTopo",
-        "Levé GPS",
-        "Lidar",
-        "Lidar HD",
-        "Pas de Z",
-        "Photogrammétrie",
-        "Photogrammétrie longue focale",
-        "Plan coté",
-        "Radar",
-        "Z corrigé"
+      "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
+      "oneOf": [
+        {
+          "const": "BDAlti",
+          "title": "BDAlti",
+          "description": "Le Z est interpolé sur un MNT issu de la BD ALTI® (ancienne BD altimétrique issue de la numérisation de cartes et de restitution photogrammétrique)."
+        },
+        {
+          "const": "BDTopo",
+          "title": "BDTopo",
+          "description": "Le Z provient de la BD TOPO® v.1, constituée par restitution photogrammétrique ainsi que par des levés de terrain."
+        },
+        {
+          "const": "Corrélation",
+          "title": "Corrélation",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues de corrélation."
+        },
+        {
+          "const": "Fichier numérique",
+          "title": "Fichier numérique",
+          "description": "Le Z a été saisi à partir de données numériques fournies par un correspondant."
+        },
+        {
+          "const": "Fichier numérique décimétrique",
+          "title": "Fichier numérique décimétrique"
+        },
+        {
+          "const": "Interpolation bâti BDTopo",
+          "title": "Interpolation bâti BDTopo",
+          "description": "Lors de l’unification avec la BD PARCELLAIRE®, le Z a été calculé à partir des valeurs existantes aux environs."
+        },
+        {
+          "const": "Levé GPS",
+          "title": "Levé GPS",
+          "description": "Le Z a été saisi directement sur le terrain par lever GPS."
+        },
+        {
+          "const": "Lidar",
+          "title": "Lidar",
+          "description": "Le Z est calculé à partir de données de modèles numériques de terrain (MNT) ou d’élévation (MNE) issues du processus d'acquisition par LIDAR."
+        },
+        {
+          "const": "Lidar HD",
+          "title": "Lidar HD",
+          "description": "La géométrie provient d'un calcul à partir du nuage de points Lidar HD."
+        },
+        {
+          "const": "Pas de Z",
+          "title": "Pas de Z",
+          "description": "L’objet est défini avec une géométrie 3D mais le Z est inconnu ou sa précision n'est pas connue/fiable."
+        },
+        {
+          "const": "Photogrammétrie",
+          "title": "Photogrammétrie",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes selon des processus photogrammétriques (restitution)."
+        },
+        {
+          "const": "Photogrammétrie longue focale",
+          "title": "Photogrammétrie longue focale",
+          "description": "Le Z provient de l’exploitation d’une prise de vues aériennes longue focale selon des processus photogrammétriques (restitution). La longueur de la focale a une incidence sur les pointés en Z qui sont meilleurs sur des focales courtes que sur des focales longues."
+        },
+        {
+          "const": "Plan coté",
+          "title": "Plan coté",
+          "description": "Le Z a été saisi à partir de points côtés figurant sur un plan."
+        },
+        {
+          "const": "Radar",
+          "title": "Radar",
+          "description": "Le Z provient de l’exploitation d’un MNT ou d’un MNS qui a été fait à partir d’acquisitions RADAR."
+        },
+        {
+          "const": "Z corrigé",
+          "title": "Z corrigé",
+          "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
+        }
       ]
     },
     {
       "name": "precision_altimetrique",
-      "type": "numeric",
+      "type": "number",
       "title": "Précision altimétrique",
-      "description": "Précision altimétrique  (en mètres) de la géométrie décrivant l'objet."
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet."
     },
     {
       "name": "geometrie",
@@ -170,5 +465,13 @@
       "title": "Géométrie",
       "description": ""
     }
+  ],
+  "required": [
+    "cleabs",
+    "nature",
+    "etat_de_l_objet",
+    "methode_d_acquisition_planimetrique",
+    "methode_d_acquisition_altimetrique",
+    "geometrie"
   ]
 }
