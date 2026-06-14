@@ -73,10 +73,12 @@ npm run test
 # To compute coverage :
 npm run test:coverage
 
-# To run integration test on https://data.geopf.fr/wfs 
-# and integrated search engine (MiniSearch).
+# To run integration test (WFS and search)
 npm run test:all
 ```
+
+> See [test/integration/search/use-case.yaml](test/integration/search/use-case.yaml) for the search tests.
+
 
 ### Configure filtering
 
