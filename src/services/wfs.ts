@@ -1,15 +1,10 @@
 import { debuglog } from 'node:util';
-import { WfsEndpoint } from '@camptocamp/ogc-client';
-import { formatSchemaIssues } from '../helpers/zod';
+import { WfsEndpoint, type WfsFeatureTypeBrief, type WfsFeatureTypeFull } from '@camptocamp/ogc-client';
 import {
   assertIsValidPropertyType,
-  wfsFeatureTypeFullSchema,
-  wfsFeatureTypeSchema,
   type SourceCollection,
   type SourceCollectionBrief,
   type SourceCollectionProperty,
-  type WfsFeatureType,
-  type WfsFeatureTypeFull,
 } from '../types';
 import '../helpers/configure-fetch';
 import { parseFeatureTypeName } from '../helpers/metadata';
@@ -74,25 +69,12 @@ async function createWfsEndpoint(wfsUrl: string): Promise<WfsEndpoint> {
  * =============================================================================
  */
 
-function parseWfsFeatureTypes(raw: unknown): WfsFeatureType[] {
-  const result = wfsFeatureTypeSchema.array().safeParse(raw);
-  if (!result.success) {
-    throw new Error(`Invalid WFS GetCapabilities payload: ${formatSchemaIssues(result.error)}`);
-  }
-  return result.data;
-}
-
-function parseWfsFeatureTypeFull(raw: unknown, collectionId: string): WfsFeatureTypeFull {
-  const result = wfsFeatureTypeFullSchema.safeParse(raw);
-  if (!result.success) {
-    throw new Error(
-      `Invalid WFS DescribeFeatureType payload for "${collectionId}": ${formatSchemaIssues(result.error)}`,
-    );
-  }
-  return result.data;
-}
-
-function toSourceCollectionBrief(featureType: WfsFeatureType): SourceCollectionBrief {
+/**
+ * Converts entry from WFS GetCapabilities into a SourceCollectionBrief.
+ * @param featureType 
+ * @returns 
+ */
+function toSourceCollectionBrief(featureType: WfsFeatureTypeBrief): SourceCollectionBrief {
   const { namespace, name } = parseFeatureTypeName(featureType.name);
 
   return {
@@ -191,14 +173,14 @@ export class WfsClient {
 
     const endpoint = await this.getWfsEndpoint();
     // Cast to unknown: we validate the runtime shape ourselves rather than trusting ogc-client types.
-    const featureTypes = parseWfsFeatureTypes(endpoint.getFeatureTypes() as unknown);
+    const featureTypes = endpoint.getFeatureTypes();
     return featureTypes.map(toSourceCollectionBrief);
   }
 
   async getCollection(collectionId: string): Promise<SourceCollection> {
     debug(`Getting collection ${collectionId} from ${this.wfsUrl} (DescribeFeatureType) ...`);
 
-    const rawFeatureTypeFull = await retry(
+    const featureTypeFull = await retry(
       `wfs.getFeatureTypeFull(${collectionId})`,
       async (attempt) => {
         const endpoint = attempt === 1
@@ -213,7 +195,6 @@ export class WfsClient {
         return featureType;
       },
     );
-    const featureTypeFull = parseWfsFeatureTypeFull(rawFeatureTypeFull, collectionId);
     return toSourceCollection(collectionId, featureTypeFull);
   }
 }

@@ -120,33 +120,6 @@ export type SourceCollectionBrief = z.infer<typeof sourceCollectionBriefSchema>;
 
 /*
  * ============================================================================
- * WFS Payload Models
- * ============================================================================
- */
-
-// Raw GetCapabilities feature type advertised by ogc-client.
-export const wfsFeatureTypeSchema = z.looseObject({
-  name: z.string().min(1),
-  title: z.string().nullable().optional(),
-  abstract: z.string().nullable().optional(),
-});
-
-export type WfsFeatureType = z.infer<typeof wfsFeatureTypeSchema>;
-
-// Raw DescribeFeatureType payload returned by ogc-client.
-export const wfsFeatureTypeFullSchema = z.looseObject({
-  title: z.string().nullable().optional(),
-  abstract: z.string().nullable().optional(),
-  properties: z.record(z.string(), z.unknown()),
-  geometryName: z.string().min(1).nullable().optional(),
-  geometryType: z.string().nullable().optional(),
-  defaultCrs: z.string().min(1).nullable().optional().transform(v => v ?? undefined),
-});
-
-export type WfsFeatureTypeFull = z.infer<typeof wfsFeatureTypeFullSchema>;
-
-/*
- * ============================================================================
  * Overwrite Model
  * ============================================================================
  */
