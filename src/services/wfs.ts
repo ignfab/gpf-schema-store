@@ -65,75 +65,6 @@ async function createWfsEndpoint(wfsUrl: string): Promise<WfsEndpoint> {
 
 /*
  * =============================================================================
- * Collection Mapping
- * =============================================================================
- */
-
-/**
- * Converts entry from WFS GetCapabilities into a SourceCollectionBrief.
- * @param featureType 
- * @returns 
- */
-function toSourceCollectionBrief(featureType: WfsFeatureTypeBrief): SourceCollectionBrief {
-  const { namespace, name } = parseFeatureTypeName(featureType.name);
-
-  return {
-    id: featureType.name,
-    namespace,
-    name,
-    title: featureType.title ?? '',
-    description: featureType.abstract ?? '',
-  };
-}
-
-function toSourceCollectionProperties(
-  featureTypeFull: WfsFeatureTypeFull,
-  collectionId: string,
-): SourceCollectionProperty[] {
-  const properties: SourceCollectionProperty[] = Object.entries(featureTypeFull.properties).map(
-    ([propertyName, propertyType]) => ({
-      name: propertyName,
-      type: assertIsValidPropertyType(
-        propertyType,
-        `for property "${propertyName}" in collection "${collectionId}"`,
-      ),
-    }),
-  );
-
-  if (!featureTypeFull.geometryName) {
-    return properties;
-  }
-
-  const geometryType = featureTypeFull.geometryType ?? 'geometry';
-  const normalizedGeometryType = geometryType !== 'unknown' ? geometryType : 'geometry';
-
-  properties.push({
-    name: featureTypeFull.geometryName,
-    type: assertIsValidPropertyType(
-      normalizedGeometryType,
-      `for geometry property "${featureTypeFull.geometryName}" in collection "${collectionId}"`,
-    ),
-    defaultCrs: featureTypeFull.defaultCrs,
-  });
-
-  return properties;
-}
-
-function toSourceCollection(collectionId: string, featureTypeFull: WfsFeatureTypeFull): SourceCollection {
-  const { namespace, name } = parseFeatureTypeName(collectionId);
-
-  return {
-    id: collectionId,
-    namespace,
-    name,
-    title: featureTypeFull.title ?? '',
-    description: featureTypeFull.abstract ?? '',
-    properties: toSourceCollectionProperties(featureTypeFull, collectionId),
-  };
-}
-
-/*
- * =============================================================================
  * WFS Client
  * =============================================================================
  */
@@ -168,15 +99,24 @@ export class WfsClient {
    * ---------------------------------------------------------------------------
    */
 
+  /**
+   * Gets the list of collections from the WFS endpoint (GetCapabilities).
+   * @returns an array of SourceCollectionBrief objects representing the collections
+   */
   async getCollections(): Promise<SourceCollectionBrief[]> {
     debug(`Getting collections from ${this.wfsUrl} (GetCapabilities) ...`);
 
     const endpoint = await this.getWfsEndpoint();
     // Cast to unknown: we validate the runtime shape ourselves rather than trusting ogc-client types.
     const featureTypes = endpoint.getFeatureTypes();
-    return featureTypes.map(toSourceCollectionBrief);
+    return featureTypes.map(this.toSourceCollectionBrief.bind(this));
   }
 
+  /**
+   * Gets a specific collection from the WFS endpoint (DescribeFeatureType).
+   * @param collectionId the ID of the collection to retrieve
+   * @returns the requested SourceCollection
+   */
   async getCollection(collectionId: string): Promise<SourceCollection> {
     debug(`Getting collection ${collectionId} from ${this.wfsUrl} (DescribeFeatureType) ...`);
 
@@ -195,6 +135,89 @@ export class WfsClient {
         return featureType;
       },
     );
-    return toSourceCollection(collectionId, featureTypeFull);
+    return this.toSourceCollection(collectionId, featureTypeFull);
   }
+
+  /*
+   * =============================================================================
+   * Collection Mapping (WFS -> SourceCollectionBrief / SourceCollection)
+   * =============================================================================
+   */
+
+  /**
+   * Converts entry from WFS GetCapabilities into a SourceCollectionBrief.
+   * @param featureType the WFS feature type brief to convert
+   * @returns the converted SourceCollectionBrief
+   */
+  private toSourceCollectionBrief(featureType: WfsFeatureTypeBrief): SourceCollectionBrief {
+    const { namespace, name } = parseFeatureTypeName(featureType.name);
+
+    return {
+      id: featureType.name,
+      namespace,
+      name,
+      title: featureType.title ?? '',
+      description: featureType.abstract ?? '',
+    };
+  }
+
+  /**
+   * Converts entry from WFS DescribeFeatureType into a SourceCollection.
+   * @param collectionId the collection ID (feature type name) to convert
+   * @param featureTypeFull the result of WFS DescribeFeatureType for the given collection ID
+   * @returns the converted SourceCollection
+   */
+  private toSourceCollection(collectionId: string, featureTypeFull: WfsFeatureTypeFull): SourceCollection {
+    const { namespace, name } = parseFeatureTypeName(collectionId);
+
+    return {
+      id: collectionId,
+      namespace,
+      name,
+      title: featureTypeFull.title ?? '',
+      description: featureTypeFull.abstract ?? '',
+      properties: this.toSourceCollectionProperties(featureTypeFull, collectionId),
+    };
+  }
+
+  /**
+   * Converts entry from WFS DescribeFeatureType into SourceCollectionProperty array.
+   * @param featureTypeFull the result of WFS DescribeFeatureType for the given collection ID
+   * @param collectionId the collection ID (feature type name) to convert
+   * @returns the converted SourceCollectionProperty array
+   */
+  private toSourceCollectionProperties(
+    featureTypeFull: WfsFeatureTypeFull,
+    collectionId: string,
+  ): SourceCollectionProperty[] {
+    const properties: SourceCollectionProperty[] = Object.entries(featureTypeFull.properties).map(
+      ([propertyName, propertyType]) => ({
+        name: propertyName,
+        type: assertIsValidPropertyType(
+          propertyType,
+          `for property "${propertyName}" in collection "${collectionId}"`,
+        ),
+      }),
+    );
+
+    if (!featureTypeFull.geometryName) {
+      return properties;
+    }
+
+    const geometryType = featureTypeFull.geometryType ?? 'geometry';
+    const normalizedGeometryType = geometryType !== 'unknown' ? geometryType : 'geometry';
+
+    properties.push({
+      name: featureTypeFull.geometryName,
+      type: assertIsValidPropertyType(
+        normalizedGeometryType,
+        `for geometry property "${featureTypeFull.geometryName}" in collection "${collectionId}"`,
+      ),
+      defaultCrs: featureTypeFull.defaultCrs,
+    });
+
+    return properties;
+  }
+
+
 }

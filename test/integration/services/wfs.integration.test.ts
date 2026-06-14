@@ -4,6 +4,14 @@ import { WfsClient } from '../../../src/services/wfs'
 
 const originalFetch = globalThis.fetch
 
+/*
+ * This integration test suite verifies that WfsClient can successfully interact
+ * with a real ogc-client instance.
+ * It doesn't use a real WFS server, but instead mocks the fetch function to simulate
+ * the behavior of a WFS server, including transient failures.
+ */
+
+
 // --- fixtures ---
 
 const expectedCollections = [
