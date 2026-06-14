@@ -1,0 +1,10 @@
+- name: "search_batiment"
+  query: "batiment"
+  expected:
+    - BDTOPO_V3:batiment
+    - CADASTRALPARCELS.PARCELLAIRE_EXPRESS:batiment
+
+- name: "search_ecole"
+  query: "école"
+  expected:
+    - BDTOPO_V3:zone_d_activite_ou_d_interet

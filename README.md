@@ -73,7 +73,8 @@ npm run test
 # To compute coverage :
 npm run test:coverage
 
-# To run integration test on https://data.geopf.fr/wfs
+# To run integration test on https://data.geopf.fr/wfs 
+# and integrated search engine (MiniSearch).
 npm run test:all
 ```
 
