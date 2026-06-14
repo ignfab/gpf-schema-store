@@ -17,25 +17,25 @@ interface UseCase {
 
 const runLiveIntegrationTests = isRunLiveIntegrationTestsEnabled();
 
-const useCases = yaml.load(
-    readFileSync(join(__dirname, 'use-case.yaml'), 'utf-8'),
-) as UseCase[]
+describe.skipIf(!runLiveIntegrationTests)(
+  'CollectionCatalog - searchWithScores with samples from use-case.yaml',
+  () => {
+    const useCases = yaml.load(
+      readFileSync(join(__dirname, 'use-case.yaml'), 'utf-8'),
+    ) as UseCase[]
 
-const catalog = getCollectionCatalog()
+    const catalog = getCollectionCatalog()
 
-describe.skipIf(!runLiveIntegrationTests)(
-    'CollectionCatalog - searchWithScores with samples from use-case.yaml',
-    () => {
-        for (const useCase of useCases) {
-            it(useCase.name, () => {
-                const results = catalog.searchWithScores(useCase.query, { limit: 5 })
-                const ids = results.map((r) => r.id)
+    for (const useCase of useCases) {
+      it(useCase.name, () => {
+        const results = catalog.searchWithScores(useCase.query, { limit: 5 })
+        const ids = results.map((r) => r.id)
 
-                expect(
-                    ids.slice(0, useCase.expected.length),
-                    `expected top ${useCase.expected.length} IDs for query "${useCase.query}"`,
-                ).toEqual(useCase.expected)
-            })
-        }
+        expect(
+          ids.slice(0, useCase.expected.length),
+          `expected top ${useCase.expected.length} IDs for query "${useCase.query}"`,
+        ).toEqual(useCase.expected)
+      })
     }
+  },
 )
