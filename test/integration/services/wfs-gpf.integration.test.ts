@@ -36,7 +36,7 @@ describe.skipIf(!runLiveIntegrationTests)(
 
       expect(collection.properties).toBeDefined()
       expect(collection.properties.length).toBeGreaterThan(0)
-      const propertyNames = collection.properties.map((p) => p.name);
+      const propertyNames = collection.properties.map((p) => p.name)
       expect(propertyNames).toContain('cleabs')
       expect(propertyNames).toContain('nature')
       expect(propertyNames).toContain('usage_1')
