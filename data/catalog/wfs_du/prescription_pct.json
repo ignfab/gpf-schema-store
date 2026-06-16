@@ -59,16 +59,16 @@
     "lib_idpsc": {
       "type": "string"
     },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    },
     "nature": {
       "type": "string"
     },
     "symbole": {
       "type": "string"
-    },
-    "the_geom": {
-      "format": "geometry-geometry",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

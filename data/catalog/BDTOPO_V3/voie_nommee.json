@@ -95,7 +95,7 @@
     "geometrie": {
       "title": "Géométrie",
       "description": "Champ contenant le géométrie concaténée des tronçons composant la voie nommée.",
-      "format": "geometry-linestring",
+      "format": "geometry-multilinestring",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }
