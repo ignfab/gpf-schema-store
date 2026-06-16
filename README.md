@@ -8,7 +8,7 @@
 
 The internal enriched collection model is :
 
-* **id** : WFS GetCap FeatureType `<Name>` (namespace:name = unique identifier) 
+* **id** : WFS GetCap FeatureType `<Name>` (namespace:name = unique identifier)
 * **namespace** : namespace identifier (e.g `BDTOPO_V3`)
 * **name** : name identifier (e.g `batiment`)
 * **title** : WFS GetCap `<Title>` "BDTOPO : Bâtiments"
@@ -64,7 +64,7 @@ npm install
 npm run build
 ```
 
-### Test 
+### Test
 
 ```bash
 # To run unit test only :
@@ -73,10 +73,11 @@ npm run test
 # To compute coverage :
 npm run test:coverage
 
-# To run integration test on https://data.geopf.fr/wfs
+# To run integration test (WFS and search)
 npm run test:all
 ```
 
+> See [test/integration/search/use-case.yaml](test/integration/search/use-case.yaml) for the search tests.
 ### Configure filtering
 
 Edit [data/namespace-filters.yaml](data/namespace-filters.yaml) to decide which namespaces are kept or ignored and to assign metadata (`product`, `ignoredReason`) using first-match-wins rules.

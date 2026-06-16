@@ -1,13 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { WfsClient } from '../../../src/services/wfs'
-
-/** Désactivé par défaut ; activer avec `RUN_LIVE_INTEGRATION_TESTS=1` (ou `true`, `yes`, `on`). */
-function isRunLiveIntegrationTestsEnabled(): boolean {
-  const v = process.env.RUN_LIVE_INTEGRATION_TESTS?.trim().toLowerCase()
-  if (!v) return false
-  return v === '1' || v === 'true' || v === 'yes' || v === 'on'
-}
+import { isRunLiveIntegrationTestsEnabled } from '../config'
 
 const runLiveIntegrationTests = isRunLiveIntegrationTestsEnabled()
 
@@ -42,7 +36,7 @@ describe.skipIf(!runLiveIntegrationTests)(
 
       expect(collection.properties).toBeDefined()
       expect(collection.properties.length).toBeGreaterThan(0)
-      const propertyNames = collection.properties.map((p) => p.name);
+      const propertyNames = collection.properties.map((p) => p.name)
       expect(propertyNames).toContain('cleabs')
       expect(propertyNames).toContain('nature')
       expect(propertyNames).toContain('usage_1')
