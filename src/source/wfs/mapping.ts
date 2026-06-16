@@ -1,4 +1,12 @@
-import { UnexpectedTypeError, type CollectionPropertyType } from "../../types";
+import { type CollectionPropertyType } from "../../pivot/types";
+import { UnexpectedTypeError } from "../../types";
+
+/*
+ * =============================================================================
+ * Mapping from WFS to pivot model
+ * =============================================================================
+ */
+
 
 /**
  * TODO : add const for target types (TYPE_STRING,...)
@@ -6,6 +14,7 @@ import { UnexpectedTypeError, type CollectionPropertyType } from "../../types";
 const MAPPING: Record<string, CollectionPropertyType> = {
     'string': 'string',
     'boolean': 'boolean',
+    'float': 'float',
     'number': 'float',
     'int': 'integer',
     'point': 'point',
@@ -17,13 +26,16 @@ const MAPPING: Record<string, CollectionPropertyType> = {
     'geometry': 'geometry',
 
     /*
-     * WARNING : data loss.
+     * WARNING : data loss
      * 
-     * TODO : add date and date-time to CollectionPropertyType 
+     * TODO : date and date-time to CollectionPropertyType
+     * 
+     * @see https://github.com/ignfab/gpf-schema-store/issues/37
      */
     'date': 'string',
     'date-time': 'string',
 };
+
 
 /**
  * Convert localType from DescribeFeatureType to property type SourceCollection 

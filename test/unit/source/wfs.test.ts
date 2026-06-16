@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { UnexpectedTypeError } from '../../../src/types'
+
 
 const describeFeatureTypeMock = vi.hoisted(() => vi.fn())
 
@@ -32,6 +32,7 @@ vi.mock('@camptocamp/ogc-client', () => {
 })
 
 import { WfsClient } from '../../../src/source/wfs'
+import { UnexpectedTypeError } from '../../../src/types'
 
 describe('WfsClient', () => {
   beforeEach(() => {

@@ -1,7 +1,6 @@
 import { debuglog } from 'node:util';
 import { WfsEndpoint, type WfsFeatureTypeBrief } from '@camptocamp/ogc-client';
 import {
-  isGeometryPropertyType,
   type SourceCollection,
   type SourceCollectionBrief,
   type SourceCollectionProperty,
@@ -10,7 +9,8 @@ import '../helpers/configure-fetch';
 import { parseFeatureTypeName } from '../helpers/metadata';
 import { retry } from '../helpers/retry';
 import { describeFeatureType, type WfsFeatureType } from './wfs/describeFeatureType';
-import { toPropertyType } from './wfs/toPropertyType';
+import { toPropertyType } from './wfs/mapping';
+import { isGeometryPropertyType } from '../pivot/types';
 
 const debug = debuglog('gpf-schema-store:wfs');
 
@@ -20,6 +20,9 @@ const debug = debuglog('gpf-schema-store:wfs');
  * =============================================================================
  */
 
+/**
+ * Add random _t query param to bypass ogc-client cache.
+ */
 function withTimestampCacheBuster(wfsUrl: string): string {
   const url = new URL(wfsUrl);
   url.searchParams.set('_t', String(Date.now() + Math.random()));
@@ -30,6 +33,11 @@ function isEndpointError(error: unknown): boolean {
   return error instanceof Error && error.name === 'EndpointError';
 }
 
+/**
+ * flush pending promise for ogc-client
+ *
+ * @see https://github.com/camptocamp/ogc-client/issues/138
+ */
 async function flushUnhandledRejectionQueue(): Promise<void> {
   await new Promise<void>((resolve) => setImmediate(resolve));
 }
@@ -57,6 +65,9 @@ async function withScopedEndpointErrorSuppression<T>(operation: () => Promise<T>
   }
 }
 
+/**
+ * Wrapper for ogc-client instanciation to allow retries.
+ */
 async function createWfsEndpoint(wfsUrl: string): Promise<WfsEndpoint> {
   debug(`Create WfsEndpoint for ${wfsUrl} ...`);
   const endpoint = new WfsEndpoint(wfsUrl);

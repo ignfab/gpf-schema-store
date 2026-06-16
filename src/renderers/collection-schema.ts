@@ -1,5 +1,5 @@
+import type { CollectionPropertyType } from '../pivot/types';
 import type {
-  CollectionPropertyType,
   CollectionSchema,
   CollectionSchemaProperty,
   EnrichedCollection,

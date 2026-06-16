@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { collectionPropertyTypeSchema } from './pivot/types';
 
 /*
  * ============================================================================
@@ -6,14 +7,17 @@ import { z } from 'zod';
  * ============================================================================
  */
 
+/**
+ * Thrown when a type is not supported.
+ */
 export class UnexpectedTypeError extends Error {
-  constructor(value: unknown, context?: string) {
-    const message = context
-      ? `Unexpected type: "${value}" ${context}`
-      : `Unexpected type: "${value}"`;
-    super(message);
-    this.name = 'UnexpectedTypeError';
-  }
+    constructor(value: unknown, context?: string) {
+        const message = context
+            ? `Unexpected type: "${value}" ${context}`
+            : `Unexpected type: "${value}"`;
+        super(message);
+        this.name = 'UnexpectedTypeError';
+    }
 }
 
 /*
@@ -42,64 +46,6 @@ export type NamespaceFilterRule = z.infer<typeof namespaceFilterRuleSchema>;
 export const namespaceFiltersSchema = z.object({
   rules: z.array(namespaceFilterRuleSchema),
 });
-
-/*
- * ============================================================================
- * Property Types
- * ============================================================================
- */
-
-// Shared property types seen in WFS snapshots and carried through enrichment.
-// Keep this list aligned with the ogc-client output, plus the extra "geometry"
-// fallback used when a geometry type cannot be made more specific.
-const PROPERTY_TYPES = [
-  'string',
-  'boolean',
-  'float',
-  'integer',
-  'point',
-  'linestring',
-  'polygon',
-  'multilinestring',
-  'multipolygon',
-  'multipoint',
-  'geometry',
-] as const;
-
-const GEOMETRY_TYPES = [
-  'point',
-  'linestring',
-  'polygon',
-  'multilinestring',
-  'multipolygon',
-  'multipoint',
-  'geometry'
-] as const;
-
-export const collectionPropertyTypeSchema = z.enum(PROPERTY_TYPES);
-export type CollectionPropertyType = z.infer<typeof collectionPropertyTypeSchema>;
-
-
-export function isValidPropertyType(value: unknown): value is CollectionPropertyType {
-  return collectionPropertyTypeSchema.safeParse(value).success;
-}
-
-export function isGeometryPropertyType(value: unknown): boolean {
-  if ( ! isValidPropertyType(value) ){
-    return false;
-  }
-  return (GEOMETRY_TYPES as readonly CollectionPropertyType[]).includes(value);
-}
-
-export function assertIsValidPropertyType(
-  value: unknown,
-  context?: string,
-): CollectionPropertyType {
-  if (!isValidPropertyType(value)) {
-    throw new UnexpectedTypeError(value, context);
-  }
-  return value;
-}
 
 /*
  * ============================================================================
