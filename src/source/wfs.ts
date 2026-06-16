@@ -10,7 +10,7 @@ import { parseFeatureTypeName } from '../helpers/metadata';
 import { retry } from '../helpers/retry';
 import { describeFeatureType, type WfsFeatureType } from './wfs/describeFeatureType';
 import { toPropertyType } from './wfs/mapping';
-import { isGeometryPropertyType } from '../pivot/types';
+import { isGeometryType } from '../pivot/types';
 
 const debug = debuglog('gpf-schema-store:wfs');
 
@@ -179,7 +179,7 @@ export class WfsClient {
         name: wfsProperty.name,
         type: toPropertyType(wfsProperty.localType)
       };
-      if ( isGeometryPropertyType(property.type) ){
+      if ( isGeometryType(property.type) ){
         property.defaultCrs = featureTypeSummary.defaultCrs
       }
       properties.push(property);

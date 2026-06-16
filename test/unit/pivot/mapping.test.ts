@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isGeometryPropertyType, isValidPropertyType } from '../../../src/pivot/types';
+import { isGeometryType, isValidPropertyType } from '../../../src/pivot/types';
 
 describe('isValidPropertyType', () => {
   it('should return true for "string"', () => {
@@ -16,19 +16,19 @@ describe('isValidPropertyType', () => {
 
 })
 
-describe('isGeometryPropertyType', () => {
+describe('isGeometryType', () => {
 
   it('should return false for "string"', () => {
-    expect(isGeometryPropertyType('string')).to.be.false;
+    expect(isGeometryType('string')).to.be.false;
   });
 
   it('should return false for "list"', () => {
-    expect(isGeometryPropertyType('list')).to.be.false;
+    expect(isGeometryType('list')).to.be.false;
   });
 
 
   it('should return true for "point"', () => {
-    expect(isGeometryPropertyType('point')).to.be.true;
+    expect(isGeometryType('point')).to.be.true;
   });
 
 })

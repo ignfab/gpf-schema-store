@@ -47,7 +47,7 @@ export function isValidPropertyType(value: unknown): value is CollectionProperty
 /**
  * Test if the value is a geometry type name.
  */
-export function isGeometryPropertyType(value: unknown): boolean {
+export function isGeometryType(value: unknown): boolean {
   if ( ! isValidPropertyType(value) ){
     return false;
   }
