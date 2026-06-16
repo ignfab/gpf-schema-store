@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { WfsClient } from '../../../src/services/wfs'
+import { WfsClient } from '../../../src/source/wfs'
 import { isRunLiveIntegrationTestsEnabled } from '../config'
 
 const runLiveIntegrationTests = isRunLiveIntegrationTestsEnabled()

@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { WfsClient } from '../../../src/services/wfs'
+import { WfsClient } from '../../../src/source/wfs'
 
 const originalFetch = globalThis.fetch
 

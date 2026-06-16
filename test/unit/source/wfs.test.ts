@@ -25,7 +25,7 @@ vi.mock('@camptocamp/ogc-client', () => {
   return { WfsEndpoint }
 })
 
-import { WfsClient } from '../../../src/services/wfs'
+import { WfsClient } from '../../../src/source/wfs'
 
 describe('WfsClient', () => {
   beforeEach(() => {
