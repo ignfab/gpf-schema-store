@@ -1,5 +1,5 @@
 import { debuglog } from 'node:util';
-import { WfsEndpoint, type WfsFeatureTypeBrief } from '@camptocamp/ogc-client';
+import { WfsEndpoint, type WfsFeatureTypeBrief, type WfsFeatureTypeSummary } from '@camptocamp/ogc-client';
 import {
   type SourceCollection,
   type SourceCollectionBrief,
@@ -130,13 +130,29 @@ export class WfsClient {
   async getCollection(collectionId: string): Promise<SourceCollection> {
     debug(`Getting collection ${collectionId} from ${this.wfsUrl} (DescribeFeatureType) ...`);
 
+    /*
+     * Retreive infos from GetCapabilities
+     */
+    const endpoint = await this.getWfsEndpoint();
+    const featureTypeSummary = endpoint.getFeatureTypeSummary(collectionId);
+    if (!featureTypeSummary) {
+      throw new Error(`fail to retrieve FeatureTypeSummary from ogc-client for ${collectionId}`);
+    }
+
+    /*
+     * Retrieve infos from DescribeFeatureType
+     */
     const featureType = await retry(
       `wfs.describeFeatureType(${collectionId})`,
       async () => {
         return describeFeatureType(this.wfsUrl, collectionId);
       },
     );
-    return this.toSourceCollection(collectionId, featureType);
+
+    /*
+     * Merge info from GetCapabilities and DescribeFeatureType into SourceCollection
+     */
+    return this.toSourceCollection(collectionId, featureTypeSummary, featureType);
   }
 
 
@@ -159,29 +175,23 @@ export class WfsClient {
   }
 
 
-  private toSourceCollection(collectionId: string, featureType: WfsFeatureType): SourceCollection {
+  private toSourceCollection(
+    collectionId: string,
+    featureTypeSummary: WfsFeatureTypeSummary,
+    featureType: WfsFeatureType
+  ): SourceCollection {
     const { namespace, name } = parseFeatureTypeName(collectionId);
-
-    /*
-     * Retreive infos available in GetCapabilities
-     */
-    const featureTypeSummary = this.endpoint?.getFeatureTypeSummary(collectionId);
-    if (!featureTypeSummary) {
-      throw new Error(
-        `Failed to retrieve feature type summary from ogc-client for "${collectionId}"`,
-      );
-    }
 
     /*
      * Convert wfs properties
      */
     const properties: SourceCollectionProperty[] = [];
-    for ( const wfsProperty of featureType.properties ){
-      const property : SourceCollectionProperty = {
+    for (const wfsProperty of featureType.properties) {
+      const property: SourceCollectionProperty = {
         name: wfsProperty.name,
         type: toPropertyType(wfsProperty.localType)
       };
-      if ( isGeometryType(property.type) ){
+      if (isGeometryType(property.type)) {
         property.defaultCrs = featureTypeSummary.defaultCrs
       }
       properties.push(property);
