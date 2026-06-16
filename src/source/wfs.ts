@@ -166,8 +166,10 @@ export class WfsClient {
      * Retreive infos available in GetCapabilities
      */
     const featureTypeSummary = this.endpoint?.getFeatureTypeSummary(collectionId);
-    if ( ! featureTypeSummary ){
-      throw new Error(`fail to retreive FeatureTypeSummary from ogc-client for ${collectionId}`);
+    if (!featureTypeSummary) {
+      throw new Error(
+        `Failed to retrieve feature type summary from ogc-client for "${collectionId}"`,
+      );
     }
 
     /*
