@@ -42,9 +42,9 @@ describe('describeFeatureType', () => {
       expect(calledUrl.origin + calledUrl.pathname).toBe('https://example.test/wfs')
       expect(calledUrl.searchParams.get('request')).toBe('DescribeFeatureType')
       expect(calledUrl.searchParams.get('service')).toBe('WFS')
+      expect(calledUrl.searchParams.get('version')).toBe('2.0.0')
       expect(calledUrl.searchParams.get('outputFormat')).toBe('application/json')
       expect(calledUrl.searchParams.get('typename')).toBe('ADMINEXPRESS-COG.2017:departement')
-    })
 
     it('preserves existing query parameters on the base URL', async () => {
       mockFetchJson(validResponse)
