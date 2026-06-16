@@ -55,6 +55,7 @@ export async function describeFeatureType(wfsUrl: string, typename: string): Pro
     const url = new URL(wfsUrl);
     url.searchParams.set('request', 'DescribeFeatureType');
     url.searchParams.set('service', 'WFS');
+    url.searchParams.set('version', '2.0.0');
     url.searchParams.set('outputFormat', 'application/json');
     url.searchParams.set('typename', typename);
 
