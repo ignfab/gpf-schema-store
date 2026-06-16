@@ -22,13 +22,13 @@
       "type": "boolean"
     },
     {
-      "name": "is_coastline",
-      "type": "boolean"
-    },
-    {
       "name": "the_geom",
       "type": "geometry",
       "defaultCrs": "EPSG:4326"
+    },
+    {
+      "name": "is_coastline",
+      "type": "boolean"
     }
   ]
 }

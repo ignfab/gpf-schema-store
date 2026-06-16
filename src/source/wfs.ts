@@ -1,7 +1,7 @@
 import { debuglog } from 'node:util';
-import { WfsEndpoint, type WfsFeatureTypeBrief, type WfsFeatureTypeFull } from '@camptocamp/ogc-client';
+import { WfsEndpoint, type WfsFeatureTypeBrief } from '@camptocamp/ogc-client';
 import {
-  assertIsValidPropertyType,
+  isGeometryPropertyType,
   type SourceCollection,
   type SourceCollectionBrief,
   type SourceCollectionProperty,
@@ -9,6 +9,8 @@ import {
 import '../helpers/configure-fetch';
 import { parseFeatureTypeName } from '../helpers/metadata';
 import { retry } from '../helpers/retry';
+import { describeFeatureType, type WfsFeatureType } from './wfs/describeFeatureType';
+import { toPropertyType } from './wfs/toPropertyType';
 
 const debug = debuglog('gpf-schema-store:wfs');
 
@@ -63,70 +65,6 @@ async function createWfsEndpoint(wfsUrl: string): Promise<WfsEndpoint> {
   return endpoint;
 }
 
-/*
- * =============================================================================
- * Collection Mapping
- * =============================================================================
- */
-
-
-function toSourceCollectionBrief(featureType: WfsFeatureTypeBrief): SourceCollectionBrief {
-  const { namespace, name } = parseFeatureTypeName(featureType.name);
-
-  return {
-    id: featureType.name,
-    namespace,
-    name,
-    title: featureType.title ?? '',
-    description: featureType.abstract ?? '',
-  };
-}
-
-function toSourceCollectionProperties(
-  featureTypeFull: WfsFeatureTypeFull,
-  collectionId: string,
-): SourceCollectionProperty[] {
-  const properties: SourceCollectionProperty[] = Object.entries(featureTypeFull.properties).map(
-    ([propertyName, propertyType]) => ({
-      name: propertyName,
-      type: assertIsValidPropertyType(
-        propertyType,
-        `for property "${propertyName}" in collection "${collectionId}"`,
-      ),
-    }),
-  );
-
-  if (!featureTypeFull.geometryName) {
-    return properties;
-  }
-
-  const geometryType = featureTypeFull.geometryType ?? 'geometry';
-  const normalizedGeometryType = geometryType !== 'unknown' ? geometryType : 'geometry';
-
-  properties.push({
-    name: featureTypeFull.geometryName,
-    type: assertIsValidPropertyType(
-      normalizedGeometryType,
-      `for geometry property "${featureTypeFull.geometryName}" in collection "${collectionId}"`,
-    ),
-    defaultCrs: featureTypeFull.defaultCrs,
-  });
-
-  return properties;
-}
-
-function toSourceCollection(collectionId: string, featureTypeFull: WfsFeatureTypeFull): SourceCollection {
-  const { namespace, name } = parseFeatureTypeName(collectionId);
-
-  return {
-    id: collectionId,
-    namespace,
-    name,
-    title: featureTypeFull.title ?? '',
-    description: featureTypeFull.abstract ?? '',
-    properties: toSourceCollectionProperties(featureTypeFull, collectionId),
-  };
-}
 
 /*
  * =============================================================================
@@ -171,9 +109,8 @@ export class WfsClient {
     debug(`Getting collections from ${this.wfsUrl} (GetCapabilities) ...`);
 
     const endpoint = await this.getWfsEndpoint();
-    // Cast to unknown: we validate the runtime shape ourselves rather than trusting ogc-client types.
     const featureTypes = endpoint.getFeatureTypes();
-    return featureTypes.map(toSourceCollectionBrief);
+    return featureTypes.map(this.toSourceCollectionBrief.bind(this));
   }
 
   /**
@@ -182,22 +119,70 @@ export class WfsClient {
   async getCollection(collectionId: string): Promise<SourceCollection> {
     debug(`Getting collection ${collectionId} from ${this.wfsUrl} (DescribeFeatureType) ...`);
 
-    const featureTypeFull = await retry(
-      `wfs.getFeatureTypeFull(${collectionId})`,
-      async (attempt) => {
-        const endpoint = attempt === 1
-          ? await this.getWfsEndpoint()
-          : await createWfsEndpoint(withTimestampCacheBuster(this.wfsUrl));
-        const featureType = await withScopedEndpointErrorSuppression(
-          () => endpoint.getFeatureTypeFull(collectionId),
-        );
-        if (attempt > 1) {
-          this.endpoint = endpoint;
-        }
-        return featureType;
+    const featureType = await retry(
+      `wfs.describeFeatureType(${collectionId})`,
+      async () => {
+        return describeFeatureType(this.wfsUrl, collectionId);
       },
     );
-    return toSourceCollection(collectionId, featureTypeFull);
+    return this.toSourceCollection(collectionId, featureType);
   }
+
+
+  /*
+  * =============================================================================
+  * Collection Mapping
+  * =============================================================================
+  */
+
+  private toSourceCollectionBrief(featureType: WfsFeatureTypeBrief): SourceCollectionBrief {
+    const { namespace, name } = parseFeatureTypeName(featureType.name);
+
+    return {
+      id: featureType.name,
+      namespace,
+      name,
+      title: featureType.title ?? '',
+      description: featureType.abstract ?? '',
+    };
+  }
+
+
+  private toSourceCollection(collectionId: string, featureType: WfsFeatureType): SourceCollection {
+    const { namespace, name } = parseFeatureTypeName(collectionId);
+
+    /*
+     * Retreive infos available in GetCapabilities
+     */
+    const featureTypeSummary = this.endpoint?.getFeatureTypeSummary(collectionId);
+    if ( ! featureTypeSummary ){
+      throw new Error(`fail to retreive FeatureTypeSummary from ogc-client for ${collectionId}`);
+    }
+
+    /*
+     * Convert wfs properties
+     */
+    const properties: SourceCollectionProperty[] = [];
+    for ( const wfsProperty of featureType.properties ){
+      const property : SourceCollectionProperty = {
+        name: wfsProperty.name,
+        type: toPropertyType(wfsProperty.localType)
+      };
+      if ( isGeometryPropertyType(property.type) ){
+        property.defaultCrs = featureTypeSummary.defaultCrs
+      }
+      properties.push(property);
+    }
+
+    return {
+      id: collectionId,
+      namespace,
+      name,
+      title: featureTypeSummary.title ?? '',
+      description: featureTypeSummary.abstract ?? '',
+      properties: properties,
+    };
+  }
+
 
 }

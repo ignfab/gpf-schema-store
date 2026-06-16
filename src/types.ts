@@ -66,12 +66,29 @@ const PROPERTY_TYPES = [
   'geometry',
 ] as const;
 
-export const collectionPropertyTypeSchema = z.enum(PROPERTY_TYPES);
+const GEOMETRY_TYPES = [
+  'point',
+  'linestring',
+  'polygon',
+  'multilinestring',
+  'multipolygon',
+  'multipoint',
+  'geometry'
+] as const;
 
+export const collectionPropertyTypeSchema = z.enum(PROPERTY_TYPES);
 export type CollectionPropertyType = z.infer<typeof collectionPropertyTypeSchema>;
+
 
 export function isValidPropertyType(value: unknown): value is CollectionPropertyType {
   return collectionPropertyTypeSchema.safeParse(value).success;
+}
+
+export function isGeometryPropertyType(value: unknown): boolean {
+  if ( ! isValidPropertyType(value) ){
+    return false;
+  }
+  return (GEOMETRY_TYPES as readonly CollectionPropertyType[]).includes(value);
 }
 
 export function assertIsValidPropertyType(

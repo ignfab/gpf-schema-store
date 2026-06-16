@@ -74,6 +74,11 @@
       "type": "string"
     },
     {
+      "name": "the_geom",
+      "type": "geometry",
+      "defaultCrs": "EPSG:4326"
+    },
+    {
       "name": "formdomi",
       "type": "string"
     },
@@ -92,11 +97,6 @@
     {
       "name": "symbole",
       "type": "string"
-    },
-    {
-      "name": "the_geom",
-      "type": "geometry",
-      "defaultCrs": "EPSG:4326"
     }
   ]
 }
