@@ -45,6 +45,7 @@ describe('describeFeatureType', () => {
       expect(calledUrl.searchParams.get('version')).toBe('2.0.0')
       expect(calledUrl.searchParams.get('outputFormat')).toBe('application/json')
       expect(calledUrl.searchParams.get('typename')).toBe('ADMINEXPRESS-COG.2017:departement')
+    })
 
     it('preserves existing query parameters on the base URL', async () => {
       mockFetchJson(validResponse)
@@ -55,6 +56,7 @@ describe('describeFeatureType', () => {
       expect(calledUrl.searchParams.get('token')).toBe('abc')
       expect(calledUrl.searchParams.get('request')).toBe('DescribeFeatureType')
     })
+
   })
 
   describe('successful response', () => {
@@ -105,7 +107,7 @@ describe('describeFeatureType', () => {
     })
   })
 
-  describe('invalid response shape', () => {
+  describe('invalid response content', () => {
     it('throws on missing featureTypes field', async () => {
       mockFetchJson({ elementFormDefault: 'qualified' })
 
@@ -142,3 +144,4 @@ describe('describeFeatureType', () => {
     })
   })
 })
+
