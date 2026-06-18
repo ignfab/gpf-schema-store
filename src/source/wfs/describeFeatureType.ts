@@ -44,8 +44,8 @@ export type DescribeFeatureTypeResult = z.infer<typeof describeFeatureTypeResult
  */
 
 /**
- * Performs a DescribeFeatureType request and returns the JSON response
- * 
+ * Performs a DescribeFeatureType request and returns the first feature type from the JSON response
+ *
  * Example : https://data.geopf.fr/wfs?request=DescribeFeatureType&service=WFS&outputFormat=application/json&typename=ADMINEXPRESS-COG.2017:departement
  * 
  * @param wfsUrl the URL of the WFS (example : https://data.geopf.fr/wfs)
