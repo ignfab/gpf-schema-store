@@ -136,7 +136,7 @@ export class WfsClient {
     const endpoint = await this.getWfsEndpoint();
     const featureTypeSummary = endpoint.getFeatureTypeSummary(collectionId);
     if (!featureTypeSummary) {
-      throw new Error(`fail to retrieve FeatureTypeSummary from ogc-client for ${collectionId}`);
+      throw new Error(`Failed to retrieve FeatureTypeSummary from ogc-client for "${collectionId}"`);
     }
 
     /*
