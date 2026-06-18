@@ -131,7 +131,7 @@ export class WfsClient {
     debug(`Getting collection ${collectionId} from ${this.wfsUrl} (DescribeFeatureType) ...`);
 
     /*
-     * Retreive infos from GetCapabilities
+     * Retrieve info from GetCapabilities
      */
     const endpoint = await this.getWfsEndpoint();
     const featureTypeSummary = endpoint.getFeatureTypeSummary(collectionId);
