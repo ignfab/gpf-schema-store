@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { collectionPropertyTypeSchema } from './pivot/types';
 
 /*
  * ============================================================================
@@ -6,14 +7,17 @@ import { z } from 'zod';
  * ============================================================================
  */
 
+/**
+ * Thrown when a type is not supported.
+ */
 export class UnexpectedTypeError extends Error {
-  constructor(value: unknown, context?: string) {
-    const message = context
-      ? `Unexpected type: "${value}" ${context}`
-      : `Unexpected type: "${value}"`;
-    super(message);
-    this.name = 'UnexpectedTypeError';
-  }
+    constructor(value: unknown, context?: string) {
+        const message = context
+            ? `Unexpected type: "${value}" ${context}`
+            : `Unexpected type: "${value}"`;
+        super(message);
+        this.name = 'UnexpectedTypeError';
+    }
 }
 
 /*
@@ -42,47 +46,6 @@ export type NamespaceFilterRule = z.infer<typeof namespaceFilterRuleSchema>;
 export const namespaceFiltersSchema = z.object({
   rules: z.array(namespaceFilterRuleSchema),
 });
-
-/*
- * ============================================================================
- * Property Types
- * ============================================================================
- */
-
-// Shared property types seen in WFS snapshots and carried through enrichment.
-// Keep this list aligned with the ogc-client output, plus the extra "geometry"
-// fallback used when a geometry type cannot be made more specific.
-const PROPERTY_TYPES = [
-  'string',
-  'boolean',
-  'float',
-  'integer',
-  'point',
-  'linestring',
-  'polygon',
-  'multilinestring',
-  'multipolygon',
-  'multipoint',
-  'geometry',
-] as const;
-
-export const collectionPropertyTypeSchema = z.enum(PROPERTY_TYPES);
-
-export type CollectionPropertyType = z.infer<typeof collectionPropertyTypeSchema>;
-
-export function isValidPropertyType(value: unknown): value is CollectionPropertyType {
-  return collectionPropertyTypeSchema.safeParse(value).success;
-}
-
-export function assertIsValidPropertyType(
-  value: unknown,
-  context?: string,
-): CollectionPropertyType {
-  if (!isValidPropertyType(value)) {
-    throw new UnexpectedTypeError(value, context);
-  }
-  return value;
-}
 
 /*
  * ============================================================================
@@ -117,33 +80,6 @@ export type SourceCollection = z.infer<typeof sourceCollectionSchema>;
 export const sourceCollectionBriefSchema = sourceCollectionSchema.omit({ properties: true });
 
 export type SourceCollectionBrief = z.infer<typeof sourceCollectionBriefSchema>;
-
-/*
- * ============================================================================
- * WFS Payload Models
- * ============================================================================
- */
-
-// Raw GetCapabilities feature type advertised by ogc-client.
-export const wfsFeatureTypeSchema = z.looseObject({
-  name: z.string().min(1),
-  title: z.string().nullable().optional(),
-  abstract: z.string().nullable().optional(),
-});
-
-export type WfsFeatureType = z.infer<typeof wfsFeatureTypeSchema>;
-
-// Raw DescribeFeatureType payload returned by ogc-client.
-export const wfsFeatureTypeFullSchema = z.looseObject({
-  title: z.string().nullable().optional(),
-  abstract: z.string().nullable().optional(),
-  properties: z.record(z.string(), z.unknown()),
-  geometryName: z.string().min(1).nullable().optional(),
-  geometryType: z.string().nullable().optional(),
-  defaultCrs: z.string().min(1).nullable().optional().transform(v => v ?? undefined),
-});
-
-export type WfsFeatureTypeFull = z.infer<typeof wfsFeatureTypeFullSchema>;
 
 /*
  * ============================================================================

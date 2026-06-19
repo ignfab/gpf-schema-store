@@ -1,5 +1,5 @@
+import { isGeometryType, type CollectionPropertyType } from '../pivot/types';
 import type {
-  CollectionPropertyType,
   CollectionSchema,
   CollectionSchemaProperty,
   EnrichedCollection,
@@ -22,20 +22,6 @@ const JSON_SCHEMA_DRAFT = 'https://json-schema.org/draft/2020-12/schema' as cons
  * Property helpers
  * =============================================================================
  */
-
-const GEOMETRY_TYPES = new Set<CollectionPropertyType>([
-  'point',
-  'linestring',
-  'polygon',
-  'multilinestring',
-  'multipolygon',
-  'multipoint',
-  'geometry',
-]);
-
-function isGeometryType(type: CollectionPropertyType): boolean {
-  return GEOMETRY_TYPES.has(type);
-}
 
 function isOgcIdentifierProperty(property: EnrichedCollectionProperty): boolean {
   return property.name === 'cleabs';

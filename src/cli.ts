@@ -16,7 +16,7 @@ import { getNamespaceFilters } from './local-data/namespace-filters';
 import { validateOverwriteReferences } from './overwrite/overwrite';
 import { loadCollectionOverwrite } from './overwrite/overwrite-store';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
-import { WfsClient } from './services/wfs';
+import { WfsClient } from './source/wfs';
 import { loadSourceCollections, replaceSourceCollections } from './source/source-store';
 import {
   packageMetadataSchema,

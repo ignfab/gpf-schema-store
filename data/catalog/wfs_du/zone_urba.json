@@ -56,6 +56,11 @@
     "lib_idzone": {
       "type": "string"
     },
+    "the_geom": {
+      "format": "geometry-geometry",
+      "x-ogc-role": "primary-geometry",
+      "x-ign-defaultCrs": "EPSG:4326"
+    },
     "formdomi": {
       "type": "string"
     },
@@ -70,11 +75,6 @@
     },
     "symbole": {
       "type": "string"
-    },
-    "the_geom": {
-      "format": "geometry-geometry",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
     }
   },
   "required": []

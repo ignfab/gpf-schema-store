@@ -78,17 +78,17 @@
       "type": "string"
     },
     {
+      "name": "the_geom",
+      "type": "geometry",
+      "defaultCrs": "EPSG:4326"
+    },
+    {
       "name": "nomreg",
       "type": "string"
     },
     {
       "name": "urlreg",
       "type": "string"
-    },
-    {
-      "name": "the_geom",
-      "type": "geometry",
-      "defaultCrs": "EPSG:4326"
     }
   ]
 }

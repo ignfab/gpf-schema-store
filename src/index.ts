@@ -7,6 +7,12 @@ import { InMemoryCollectionCatalog } from "./search/catalog";
 import { MiniSearchCollectionSearchEngine } from "./search/minisearch-engine";
 import { renderCollectionSchema } from "./renderers/collection-schema";
 
+/*
+ * ============================================================================
+ * Public API for MCP geocontext integration
+ * ============================================================================
+ */
+
 export type {
     CollectionSchema,
     CollectionSchemaProperty,

@@ -67,7 +67,7 @@
     },
     {
       "name": "geometrie",
-      "type": "linestring",
+      "type": "multilinestring",
       "defaultCrs": "EPSG:4326"
     }
   ]

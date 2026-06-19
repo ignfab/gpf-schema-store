@@ -1942,7 +1942,7 @@
     "geometrie": {
       "title": "Géométrie GE MultiLigne",
       "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE du produit externe.",
-      "format": "geometry-linestring",
+      "format": "geometry-multilinestring",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

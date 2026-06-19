@@ -1,5 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { UnexpectedTypeError } from '../../../src/types'
+
+
+const describeFeatureTypeMock = vi.hoisted(() => vi.fn())
 
 /**
  * Mocks for WfsEndpoint methods used by the unit tests.
@@ -7,8 +9,12 @@ import { UnexpectedTypeError } from '../../../src/types'
 const endpointMocks = vi.hoisted(() => ({
   isReady: vi.fn(),
   getFeatureTypes: vi.fn(),
-  getFeatureTypeFull: vi.fn(),
+  getFeatureTypeSummary: vi.fn(),
   constructor: vi.fn(),
+}))
+
+vi.mock('../../../src/source/wfs/describeFeatureType', () => ({
+  describeFeatureType: describeFeatureTypeMock,
 }))
 
 vi.mock('@camptocamp/ogc-client', () => {
@@ -19,13 +25,14 @@ vi.mock('@camptocamp/ogc-client', () => {
 
     isReady = endpointMocks.isReady
     getFeatureTypes = endpointMocks.getFeatureTypes
-    getFeatureTypeFull = endpointMocks.getFeatureTypeFull
+    getFeatureTypeSummary = endpointMocks.getFeatureTypeSummary
   }
 
   return { WfsEndpoint }
 })
 
-import { WfsClient } from '../../../src/services/wfs'
+import { WfsClient } from '../../../src/source/wfs'
+import { UnexpectedTypeError } from '../../../src/types'
 
 describe('WfsClient', () => {
   beforeEach(() => {
@@ -35,7 +42,8 @@ describe('WfsClient', () => {
     endpointMocks.constructor.mockReset()
     endpointMocks.isReady.mockReset()
     endpointMocks.getFeatureTypes.mockReset()
-    endpointMocks.getFeatureTypeFull.mockReset()
+    endpointMocks.getFeatureTypeSummary.mockReset()
+    describeFeatureTypeMock.mockReset()
     endpointMocks.isReady.mockResolvedValue(undefined)
     endpointMocks.getFeatureTypes.mockReturnValue([])
   })
@@ -100,40 +108,52 @@ describe('WfsClient', () => {
       expect(endpointMocks.isReady).toHaveBeenCalledTimes(1)
       expect(endpointMocks.getFeatureTypes).toHaveBeenCalledTimes(1)
     })
-
-    it('rejects invalid feature type payloads from the WFS endpoint', async () => {
-      endpointMocks.getFeatureTypes.mockReturnValue([
-        { title: 'batiment', abstract: '' },
-      ])
-
-      const wfsClient = new WfsClient('https://example.test/wfs')
-      const promise = wfsClient.getCollections()
-      const assertion = expect(promise).rejects.toThrow(
-        /Invalid WFS GetCapabilities payload: 0\.name/,
-      )
-      await vi.runAllTimersAsync()
-
-      await assertion
-    })
   })
 
   describe('WfsClient getCollection', () => {
     beforeEach(() => {
-      endpointMocks.getFeatureTypeFull.mockResolvedValue({
-        properties: {
-          prop1: 'string',
-          prop2: 'float',
-        },
-        geometryName: 'geom',
-        geometryType: 'polygon',
+      endpointMocks.getFeatureTypeSummary.mockReturnValue({
         defaultCrs: 'EPSG:4326',
         title: 'collection title',
         abstract: 'collection description',
       })
+      describeFeatureTypeMock.mockResolvedValue({
+        typeName: 'collection',
+        properties: [
+          {
+            name: 'prop1',
+            maxOccurs: 1,
+            minOccurs: 0,
+            nillable: true,
+            type: 'xsd:string',
+            localType: 'string',
+          },
+          {
+            name: 'prop2',
+            maxOccurs: 1,
+            minOccurs: 0,
+            nillable: true,
+            type: 'xsd:float',
+            localType: 'float',
+          },
+          {
+            name: 'geom',
+            maxOccurs: 1,
+            minOccurs: 0,
+            nillable: true,
+            type: 'gml:PolygonPropertyType',
+            localType: 'polygon',
+          },
+        ],
+      })
     })
 
-    it('returns the collection with properties from the WFS endpoint', async () => {
+    it('returns the collection with properties from DescribeFeatureType', async () => {
       const wfsClient = new WfsClient('https://example.test/wfs')
+      const endpointPromise = wfsClient.getWfsEndpoint()
+      await vi.runAllTimersAsync()
+      await endpointPromise
+
       const promise = wfsClient.getCollection('NS:collection')
       const assertion = expect(promise).resolves.toEqual({
         id: 'NS:collection',
@@ -153,20 +173,30 @@ describe('WfsClient', () => {
       expect(endpointMocks.constructor).toHaveBeenCalledTimes(1)
       expect(endpointMocks.constructor).toHaveBeenCalledWith('https://example.test/wfs?_t=1704067200000')
       expect(endpointMocks.isReady).toHaveBeenCalledTimes(1)
-      expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledTimes(1)
-      expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledWith('NS:collection')
+      expect(endpointMocks.getFeatureTypeSummary).toHaveBeenCalledTimes(1)
+      expect(endpointMocks.getFeatureTypeSummary).toHaveBeenCalledWith('NS:collection')
+      expect(describeFeatureTypeMock).toHaveBeenCalledTimes(1)
+      expect(describeFeatureTypeMock).toHaveBeenCalledWith('https://example.test/wfs', 'NS:collection')
     })
 
-    it('retries when getFeatureTypeFull fails once', async () => {
-      endpointMocks.getFeatureTypeFull
+    it('retries when describeFeatureType fails once', async () => {
+      endpointMocks.getFeatureTypeSummary.mockReturnValue({
+        defaultCrs: 'EPSG:4326',
+        title: '',
+        abstract: '',
+      })
+      describeFeatureTypeMock
         .mockRejectedValueOnce(new Error('types network'))
         .mockResolvedValueOnce({
-          properties: {},
-          title: '',
-          abstract: '',
+          typeName: 'collection',
+          properties: [],
         })
 
       const wfsClient = new WfsClient('https://example.test/wfs')
+      const endpointPromise = wfsClient.getWfsEndpoint()
+      await vi.runAllTimersAsync()
+      await endpointPromise
+
       const promise = wfsClient.getCollection('NS:collection')
       const assertion = expect(promise).resolves.toEqual({
         id: 'NS:collection',
@@ -179,53 +209,58 @@ describe('WfsClient', () => {
       await vi.runAllTimersAsync()
 
       await assertion
-      // First getFeatureTypeFull failure builds a fresh cache-busted endpoint.
-      expect(endpointMocks.constructor).toHaveBeenCalledTimes(2)
-      expect(endpointMocks.constructor.mock.calls.map(([url]) => url)).toEqual([
-        'https://example.test/wfs?_t=1704067200000',
-        'https://example.test/wfs?_t=1704067201000',
-      ])
-      expect(endpointMocks.isReady).toHaveBeenCalledTimes(2)
-      expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledTimes(2)
-      expect(endpointMocks.getFeatureTypeFull).toHaveBeenCalledWith('NS:collection')
-    })
-
-    it('rejects invalid feature type details from the WFS endpoint', async () => {
-      endpointMocks.getFeatureTypeFull.mockResolvedValue({
-        title: 'collection title',
-        abstract: 'collection description',
-      })
-
-      const wfsClient = new WfsClient('https://example.test/wfs')
-      const promise = wfsClient.getCollection('NS:collection')
-      const assertion = expect(promise).rejects.toThrow(
-        /Invalid WFS DescribeFeatureType payload for "NS:collection": properties/,
-      )
-      await vi.runAllTimersAsync()
-
-      await assertion
+      expect(endpointMocks.constructor).toHaveBeenCalledTimes(1)
+      expect(endpointMocks.isReady).toHaveBeenCalledTimes(1)
+      expect(endpointMocks.getFeatureTypeSummary).toHaveBeenCalledTimes(1)
+      expect(describeFeatureTypeMock).toHaveBeenCalledTimes(2)
+      expect(describeFeatureTypeMock).toHaveBeenCalledWith('https://example.test/wfs', 'NS:collection')
     })
   })
-  
 
-
-  describe('WfsClient getCollection with unknown geometry type', () => {
+  describe('WfsClient getCollection with geometry property type', () => {
     beforeEach(() => {
-      endpointMocks.getFeatureTypeFull.mockResolvedValue({
-        properties: {
-          prop1: 'string',
-          prop2: 'float',
-        },
-        geometryName: 'geom',
-        geometryType: 'unknown',
+      endpointMocks.getFeatureTypeSummary.mockReturnValue({
         defaultCrs: 'EPSG:4326',
         title: 'collection title',
         abstract: 'collection description',
       })
+      describeFeatureTypeMock.mockResolvedValue({
+        typeName: 'collection',
+        properties: [
+          {
+            name: 'prop1',
+            maxOccurs: 1,
+            minOccurs: 0,
+            nillable: true,
+            type: 'xsd:string',
+            localType: 'string',
+          },
+          {
+            name: 'prop2',
+            maxOccurs: 1,
+            minOccurs: 0,
+            nillable: true,
+            type: 'xsd:float',
+            localType: 'float',
+          },
+          {
+            name: 'geom',
+            maxOccurs: 1,
+            minOccurs: 0,
+            nillable: true,
+            type: 'gml:GeometryPropertyType',
+            localType: 'geometry',
+          },
+        ],
+      })
     })
 
-    it('returns the collection with geometry type set to "geometry" when geometryType is "unknown"', async () => {
+    it('returns the collection with geometry default CRS from FeatureType summary', async () => {
       const wfsClient = new WfsClient('https://example.test/wfs')
+      const endpointPromise = wfsClient.getWfsEndpoint()
+      await vi.runAllTimersAsync()
+      await endpointPromise
+
       const promise = wfsClient.getCollection('NS:collection')
       const assertion = expect(promise).resolves.toEqual({
         id: 'NS:collection',
@@ -242,53 +277,45 @@ describe('WfsClient', () => {
       await vi.runAllTimersAsync()
 
       await assertion
-    });
-
-  })
-
-  describe('WfsClient getCollection with empty default CRS', () => {
-    beforeEach(() => {
-      endpointMocks.getFeatureTypeFull.mockResolvedValue({
-        properties: {
-          prop1: 'string',
-        },
-        geometryName: 'geom',
-        geometryType: 'polygon',
-        defaultCrs: '',
-        title: 'collection title',
-        abstract: 'collection description',
-      })
-    })
-
-    it('rejects empty defaultCrs values from the WFS endpoint', async () => {
-      const wfsClient = new WfsClient('https://example.test/wfs')
-      const promise = wfsClient.getCollection('NS:collection')
-      const assertion = expect(promise).rejects.toThrow(
-        /Invalid WFS DescribeFeatureType payload for "NS:collection": defaultCrs/,
-      )
-      await vi.runAllTimersAsync()
-
-      await assertion
     })
   })
 
   describe('WfsClient getCollection with unexpected property type', () => {
     beforeEach(() => {
-      endpointMocks.getFeatureTypeFull.mockResolvedValue({
-        properties: {
-          prop1: 'string',
-          prop2: 'binary',
-        },
-        geometryName: 'geom',
-        geometryType: 'polygon',
+      endpointMocks.getFeatureTypeSummary.mockReturnValue({
         defaultCrs: 'EPSG:4326',
         title: 'collection title',
         abstract: 'collection description',
+      })
+      describeFeatureTypeMock.mockResolvedValue({
+        typeName: 'collection',
+        properties: [
+          {
+            name: 'prop1',
+            maxOccurs: 1,
+            minOccurs: 0,
+            nillable: true,
+            type: 'xsd:string',
+            localType: 'string',
+          },
+          {
+            name: 'prop2',
+            maxOccurs: 1,
+            minOccurs: 0,
+            nillable: true,
+            type: 'xsd:base64Binary',
+            localType: 'binary',
+          },
+        ],
       })
     })
 
     it('throws UnexpectedTypeError when property type is invalid', async () => {
       const wfsClient = new WfsClient('https://example.test/wfs')
+      const endpointPromise = wfsClient.getWfsEndpoint()
+      await vi.runAllTimersAsync()
+      await endpointPromise
+
       const promise = wfsClient.getCollection('NS:collection')
       const assertion = expect(promise).rejects.toThrow(UnexpectedTypeError)
       await vi.runAllTimersAsync()

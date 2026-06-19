@@ -74,17 +74,17 @@
       "type": "string"
     },
     {
+      "name": "the_geom",
+      "type": "geometry",
+      "defaultCrs": "EPSG:4326"
+    },
+    {
       "name": "nature",
       "type": "string"
     },
     {
       "name": "symbole",
       "type": "string"
-    },
-    {
-      "name": "the_geom",
-      "type": "geometry",
-      "defaultCrs": "EPSG:4326"
     }
   ]
 }
