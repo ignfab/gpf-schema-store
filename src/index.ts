@@ -5,7 +5,7 @@ import type { CollectionSchema } from "./types";
 import { loadEnrichedCollections } from "./enrichment/load-enriched-collections";
 import { InMemoryCollectionCatalog } from "./search/catalog";
 import { MiniSearchCollectionSearchEngine } from "./search/minisearch-engine";
-import { renderCollectionSchema } from "./renderers/collection-schema";
+import { renderCollectionSchema } from "./ogc-api-feature/writer";
 
 /*
  * ============================================================================

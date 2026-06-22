@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { EnrichedCollection } from '@/pivot/types';
-import { renderCollectionSchema } from '@/renderers/collection-schema';
+import { renderCollectionSchema } from '@/ogc-api-feature/writer';
 
 describe('renderCollectionSchema', () => {
   it('renders scalar, identifier, and geometry properties as an OGC logical JSON Schema', () => {

@@ -1,4 +1,4 @@
-import { renderCollectionSchema } from '../renderers/collection-schema';
+import { renderCollectionSchema } from '../ogc-api-feature/writer';
 import type { CollectionSchema } from '../types';
 import type { EnrichedCollection } from '@/pivot/types';
 import type {

@@ -25,6 +25,11 @@ const JSON_SCHEMA_DRAFT = 'https://json-schema.org/draft/2020-12/schema' as cons
  * =============================================================================
  */
 
+/**
+ * TODO : remove this hack. Note that :
+ * - "cleabs" should be marked as primaryKey in overwrites/BDTOPO_V3/{table}.json
+ * - Both TableSchema and IGNF/validator allows primaryKey: string|string[]
+ */
 function isOgcIdentifierProperty(property: EnrichedCollectionProperty): boolean {
   return property.name === 'cleabs';
 }
@@ -95,6 +100,9 @@ function renderProperty(property: EnrichedCollectionProperty): CollectionSchemaP
  * =============================================================================
  */
 
+/**
+ * Converts pivot collection to OGC API Feature - schema
+ */
 export function renderCollectionSchema(collection: EnrichedCollection): CollectionSchema {
   // The public schema exposes properties as a keyed object, while the internal
   // model keeps them as an ordered array.

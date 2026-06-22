@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { renderCollectionSchema } from '@/renderers/collection-schema';
+import { renderCollectionSchema } from '@/ogc-api-feature/writer';
 import type { EnrichedCollection } from '@/pivot/types';
 import { InMemoryCollectionCatalog } from '@/search/catalog';
 import type { CollectionSearchEngine, CollectionSearchMatch } from '@/search/types';
