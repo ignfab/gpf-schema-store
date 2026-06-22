@@ -1,5 +1,5 @@
 import { type CollectionPropertyType } from "../../pivot/types";
-import { UnexpectedTypeError } from "../../types";
+import { UnexpectedTypeError } from '@/errors/types';
 
 /*
  * =============================================================================

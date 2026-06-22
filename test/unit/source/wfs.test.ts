@@ -32,7 +32,7 @@ vi.mock('@camptocamp/ogc-client', () => {
 })
 
 import { WfsClient } from '@/source/wfs'
-import { UnexpectedTypeError } from '@/types'
+import { UnexpectedTypeError } from '@/errors/types'
 
 describe('WfsClient', () => {
   beforeEach(() => {
