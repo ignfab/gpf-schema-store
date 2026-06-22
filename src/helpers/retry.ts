@@ -8,7 +8,7 @@ const debug = debuglog('gpf-schema-store:retry');
  */
 
 const MAX_ATTEMPTS = 3;
-const BASE_DELAY_MS = 1000;
+const BASE_DELAY_MS = 2000;
 
 /*
  * =============================================================================
