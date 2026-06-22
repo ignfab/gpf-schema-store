@@ -18,9 +18,7 @@ import { loadCollectionOverwrite } from './overwrite/overwrite-store';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
 import { WfsClient } from './source/wfs';
 import { loadSourceCollections, replaceSourceCollections } from './source/source-store';
-import {
-  packageMetadataSchema,
-} from './types';
+import { packageMetadataSchema } from './config/types';
 import { type NamespaceFilterRule } from './config/types';
 import {
   type SourceCollection,
