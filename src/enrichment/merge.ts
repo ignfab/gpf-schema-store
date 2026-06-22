@@ -2,8 +2,8 @@ import { debuglog } from 'node:util';
 
 import type {
   EnrichedCollection,
-  EnrichedCollectionProperty,
-} from '../types';
+  EnrichedCollectionProperty
+} from '@/pivot/types';
 import type {
   CollectionOverwrite,
   CollectionOverwriteProperty

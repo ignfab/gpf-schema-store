@@ -1,5 +1,5 @@
 import MiniSearch, { type MatchInfo } from 'minisearch';
-import type { EnrichedCollection } from '../types';
+import type { EnrichedCollection } from '@/pivot/types';
 import {
   buildSearchDocuments,
   type SearchDocument,

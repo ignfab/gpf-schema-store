@@ -1,5 +1,6 @@
 import { renderCollectionSchema } from '../renderers/collection-schema';
-import type { CollectionSchema, EnrichedCollection } from '../types';
+import type { CollectionSchema } from '../types';
+import type { EnrichedCollection } from '@/pivot/types';
 import type {
   CollectionSearchEngine,
   CollectionSearchEngineFactory,

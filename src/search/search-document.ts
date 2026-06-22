@@ -1,4 +1,4 @@
-import type { EnrichedCollection, EnrichedCollectionValue } from '../types';
+import type { EnrichedCollection, EnrichedCollectionValue } from '@/pivot/types';
 
 /*
  * =============================================================================

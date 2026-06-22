@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import type { EnrichedCollection } from '@/types';
+import type { EnrichedCollection } from '@/pivot/types';
 
 const fsMocks = vi.hoisted(() => ({
   mkdirSync: vi.fn(),

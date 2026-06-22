@@ -1,4 +1,5 @@
-import type { CollectionSchema, EnrichedCollection } from '../types';
+import type { CollectionSchema } from '../types';
+import type { EnrichedCollection } from '@/pivot/types';
 
 /** Generic catalog-level options applied after search-engine evaluation. */
 export type CollectionSearchOptions = {

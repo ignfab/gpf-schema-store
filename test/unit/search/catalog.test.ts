@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { renderCollectionSchema } from '@/renderers/collection-schema';
-import type { EnrichedCollection } from '@/types';
+import type { EnrichedCollection } from '@/pivot/types';
 import { InMemoryCollectionCatalog } from '@/search/catalog';
 import type { CollectionSearchEngine, CollectionSearchMatch } from '@/search/types';
 

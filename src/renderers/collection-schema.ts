@@ -2,9 +2,11 @@ import { isGeometryType, type CollectionPropertyType } from '../pivot/types';
 import type {
   CollectionSchema,
   CollectionSchemaProperty,
-  EnrichedCollection,
-  EnrichedCollectionProperty,
 } from '../types';
+import type {
+  EnrichedCollection,
+  EnrichedCollectionProperty
+} from '@/pivot/types';
 
 /*
  * =============================================================================

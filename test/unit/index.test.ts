@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import type { EnrichedCollection } from '@/types'
+import type { EnrichedCollection } from '@/pivot/types'
 
 vi.mock('@/enrichment/load-enriched-collections', () => ({
   loadEnrichedCollections: vi.fn(),

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { EnrichedCollection } from '@/types';
+import type { EnrichedCollection } from '@/pivot/types';
 import { MiniSearchCollectionSearchEngine } from '@/search/minisearch-engine';
 
 const COLLECTIONS: EnrichedCollection[] = [
