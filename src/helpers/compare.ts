@@ -1,4 +1,4 @@
-import type { CollectionOverwrite } from "../types";
+import type { CollectionOverwrite } from '@/overwrite/types';
 import type { SourceCollection } from '@/source/types';
 
 /**

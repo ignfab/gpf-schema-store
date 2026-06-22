@@ -1,8 +1,8 @@
 import { formatSchemaIssues } from '../helpers/zod';
 import {
   collectionOverwriteSchema,
-  type CollectionOverwrite,
-} from '../types';
+  type CollectionOverwrite
+} from './types';
 import { type SourceCollection } from '@/source/types';
 
 /*

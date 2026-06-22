@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import type { CollectionOverwrite } from '@/types'
+import type { CollectionOverwrite } from '@/overwrite/types'
 import { loadEnrichedCollections } from '@/enrichment/load-enriched-collections'
 import { loadCollectionOverwrite } from '@/overwrite/overwrite-store'
 

@@ -1,11 +1,13 @@
 import { debuglog } from 'node:util';
 
 import type {
-  CollectionOverwrite,
-  CollectionOverwriteProperty,
   EnrichedCollection,
   EnrichedCollectionProperty,
 } from '../types';
+import type {
+  CollectionOverwrite,
+  CollectionOverwriteProperty
+} from '@/overwrite/types';
 import type {
   SourceCollection,
   SourceCollectionProperty
