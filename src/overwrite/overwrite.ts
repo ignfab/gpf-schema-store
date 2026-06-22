@@ -2,8 +2,8 @@ import { formatSchemaIssues } from '../helpers/zod';
 import {
   collectionOverwriteSchema,
   type CollectionOverwrite,
-  type SourceCollection,
 } from '../types';
+import { type SourceCollection } from '@/source/types';
 
 /*
  * =============================================================================

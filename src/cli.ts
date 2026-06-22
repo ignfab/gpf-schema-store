@@ -21,9 +21,11 @@ import { loadSourceCollections, replaceSourceCollections } from './source/source
 import {
   packageMetadataSchema,
   type NamespaceFilterRule,
-  type SourceCollection,
-  type SourceCollectionBrief,
 } from './types';
+import {
+  type SourceCollection,
+  type SourceCollectionBrief
+} from './source/types';
 
 /*
  * =============================================================================

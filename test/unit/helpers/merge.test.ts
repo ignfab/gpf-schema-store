@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import type { CollectionOverwrite, SourceCollection } from '@/types'
+import type { CollectionOverwrite } from '@/types'
+import type { SourceCollection } from '@/source/types'
 import { merge } from '@/enrichment/merge'
 
 const base: SourceCollection = {

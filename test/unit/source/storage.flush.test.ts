@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import type { SourceCollection } from '@/types'
+import type { SourceCollection } from '@/source/types'
 
 const fsMocks = vi.hoisted(() => ({
   existsSync: vi.fn(),

@@ -3,8 +3,8 @@ import { WfsEndpoint, type WfsFeatureTypeBrief, type WfsFeatureTypeSummary } fro
 import {
   type SourceCollection,
   type SourceCollectionBrief,
-  type SourceCollectionProperty,
-} from '../types';
+  type SourceCollectionProperty
+} from './types';
 import '../helpers/configure-fetch';
 import { parseFeatureTypeName } from '../helpers/metadata';
 import { retry } from '../helpers/retry';

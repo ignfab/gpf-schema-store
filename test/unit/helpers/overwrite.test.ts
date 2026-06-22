@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import type { SourceCollection } from '@/types';
+import type { SourceCollection } from '@/source/types';
 import {
   parseOverwrite,
   validateOverwriteReferences,

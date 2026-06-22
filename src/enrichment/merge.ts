@@ -5,9 +5,11 @@ import type {
   CollectionOverwriteProperty,
   EnrichedCollection,
   EnrichedCollectionProperty,
-  SourceCollection,
-  SourceCollectionProperty,
 } from '../types';
+import type {
+  SourceCollection,
+  SourceCollectionProperty
+} from '@/source/types';
 
 const debug = debuglog('gpf-schema-store:merge');
 

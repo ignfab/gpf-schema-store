@@ -11,8 +11,8 @@ import { join } from 'path';
 
 import {
   sourceCollectionSchema,
-  type SourceCollection,
-} from '../types';
+  type SourceCollection
+} from './types';
 import { formatSchemaIssues } from '../helpers/zod';
 import { getDataDir } from '../config/data-dir';
 
