@@ -11,8 +11,8 @@ import { loadEnrichedCollections } from './enrichment/load-enriched-collections'
 import { compare } from './helpers/compare';
 import { getMetadataFromNamespace } from './helpers/metadata';
 import { formatSchemaIssues } from './helpers/zod';
-import { getDataDir } from './local-data/data-dir';
-import { getNamespaceFilters } from './local-data/namespace-filters';
+import { getDataDir } from './config/data-dir';
+import { getNamespaceFilters } from './config/namespace-filters';
 import { validateOverwriteReferences } from './overwrite/overwrite';
 import { loadCollectionOverwrite } from './overwrite/overwrite-store';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';

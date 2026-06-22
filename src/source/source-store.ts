@@ -14,7 +14,7 @@ import {
   type SourceCollection,
 } from '../types';
 import { formatSchemaIssues } from '../helpers/zod';
-import { getDataDir } from '../local-data/data-dir';
+import { getDataDir } from '../config/data-dir';
 
 /*
  * =============================================================================
