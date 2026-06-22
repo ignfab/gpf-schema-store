@@ -1,4 +1,4 @@
-import type { CollectionSchema } from '../types';
+import type { CollectionSchema } from '@/ogc-api-feature/types';
 import type { EnrichedCollection } from '@/pivot/types';
 
 /** Generic catalog-level options applied after search-engine evaluation. */

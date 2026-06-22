@@ -1,8 +1,8 @@
 import { isGeometryType, type CollectionPropertyType } from '../pivot/types';
 import type {
   CollectionSchema,
-  CollectionSchemaProperty,
-} from '../types';
+  CollectionSchemaProperty
+} from './types';
 import type {
   EnrichedCollection,
   EnrichedCollectionProperty

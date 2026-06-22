@@ -1,5 +1,5 @@
 import { renderCollectionSchema } from '../ogc-api-feature/writer';
-import type { CollectionSchema } from '../types';
+import type { CollectionSchema } from '@/ogc-api-feature/types';
 import type { EnrichedCollection } from '@/pivot/types';
 import type {
   CollectionSearchEngine,

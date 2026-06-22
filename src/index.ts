@@ -1,7 +1,7 @@
 import type { CollectionCatalog } from "./search/catalog";
 import type { CollectionSearchEngine } from "./search/types";
 import type { MiniSearchCollectionSearchOptions } from "./search/minisearch-engine";
-import type { CollectionSchema } from "./types";
+import type { CollectionSchema } from './ogc-api-feature/types';
 import { loadEnrichedCollections } from "./enrichment/load-enriched-collections";
 import { InMemoryCollectionCatalog } from "./search/catalog";
 import { MiniSearchCollectionSearchEngine } from "./search/minisearch-engine";
@@ -17,7 +17,8 @@ export type {
     CollectionSchema,
     CollectionSchemaProperty,
     CollectionSchemaValue,
-} from "./types";
+} from "./ogc-api-feature/types";
+
 export type { CollectionCatalog } from "./search/catalog";
 export type {
     CollectionSearchEngine,
@@ -25,6 +26,7 @@ export type {
     CollectionSearchResult,
     CollectionSearchOptions,
 } from "./search/types";
+
 export type { MiniSearchCollectionSearchOptions } from "./search/minisearch-engine";
 
 export type CollectionCatalogOptions =
