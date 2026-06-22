@@ -1,12 +1,12 @@
 import { describe, expect, it, vi } from 'vitest'
-import type { EnrichedCollection } from '../../src/types'
+import type { EnrichedCollection } from '@/types'
 
-vi.mock('../../src/enrichment/load-enriched-collections', () => ({
+vi.mock('@/enrichment/load-enriched-collections', () => ({
   loadEnrichedCollections: vi.fn(),
 }))
 
-import { getCollections } from '../../src/index'
-import { loadEnrichedCollections } from '../../src/enrichment/load-enriched-collections'
+import { getCollections } from '@/index'
+import { loadEnrichedCollections } from '@/enrichment/load-enriched-collections'
 
 const loadEnrichedCollectionsMock = vi.mocked(loadEnrichedCollections)
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isGeometryType, isValidPropertyType } from '../../../src/pivot/types';
+import { isGeometryType, isValidPropertyType } from '@/pivot/types';
 
 describe('isValidPropertyType', () => {
   it('should return true for "string"', () => {

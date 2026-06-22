@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { packageMetadataSchema } from '../../src/types';
+import { packageMetadataSchema } from '@/types';
 
 describe('packageMetadataSchema', () => {
   it('accepts a real package.json shape with additional keys', () => {

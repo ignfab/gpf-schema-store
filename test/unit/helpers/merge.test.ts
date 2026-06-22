@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import type { CollectionOverwrite, SourceCollection } from '../../../src/types'
-import { merge } from '../../../src/enrichment/merge'
+import type { CollectionOverwrite, SourceCollection } from '@/types'
+import { merge } from '@/enrichment/merge'
 
 const base: SourceCollection = {
   id: 'NS:collection',

@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest'
 import yaml from 'js-yaml'
 import { z } from 'zod'
 
-import { getCollectionCatalog } from '../../../src/index'
+import { getCollectionCatalog } from '@/index'
 import { isRunLiveIntegrationTestsEnabled } from '../config'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))

@@ -32,6 +32,11 @@ function cliShebang(fileName: string): Plugin {
 }
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': resolve(root, 'src'),
+    },
+  },
   test: {
     environment: 'node',
     include: ['test/**/*.test.ts'],

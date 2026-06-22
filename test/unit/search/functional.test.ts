@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { load } from 'js-yaml';
 import { describe, expect, it } from 'vitest';
-import { getCollectionCatalog } from '../../../src/index';
+import { getCollectionCatalog } from '@/index';
 
 type SearchFunctionalCase = {
   query: string;

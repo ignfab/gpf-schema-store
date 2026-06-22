@@ -2,9 +2,9 @@ import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import type { CollectionOverwrite } from '../../../src/types'
-import { loadEnrichedCollections } from '../../../src/enrichment/load-enriched-collections'
-import { loadCollectionOverwrite } from '../../../src/overwrite/overwrite-store'
+import type { CollectionOverwrite } from '@/types'
+import { loadEnrichedCollections } from '@/enrichment/load-enriched-collections'
+import { loadCollectionOverwrite } from '@/overwrite/overwrite-store'
 
 const DATA_DIR = join(dirname(fileURLToPath(import.meta.url)), '../../../data')
 

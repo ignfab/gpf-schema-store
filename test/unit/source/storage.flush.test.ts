@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import type { SourceCollection } from '../../../src/types'
+import type { SourceCollection } from '@/types'
 
 const fsMocks = vi.hoisted(() => ({
   existsSync: vi.fn(),
@@ -32,7 +32,7 @@ describe('loadSourceCollections', () => {
   })
 
   it('rejects invalid source collection snapshots', async () => {
-    const { loadSourceCollections } = await import('../../../src/source/source-store')
+    const { loadSourceCollections } = await import('@/source/source-store')
 
     fsMocks.existsSync.mockReturnValueOnce(true)
     fsMocks.readdirSync
@@ -53,7 +53,7 @@ describe('loadSourceCollections', () => {
   })
 
   it('parses valid source collection snapshots', async () => {
-    const { loadSourceCollections } = await import('../../../src/source/source-store')
+    const { loadSourceCollections } = await import('@/source/source-store')
 
     fsMocks.existsSync.mockReturnValueOnce(true)
     fsMocks.readdirSync
@@ -99,7 +99,7 @@ describe('clearWfsCollections', () => {
   })
 
   it('flushes data/wfs before writing a new collection', async () => {
-    const { clearSourceCollections, writeSourceCollection } = await import('../../../src/source/source-store')
+    const { clearSourceCollections, writeSourceCollection } = await import('@/source/source-store')
 
     const collection: SourceCollection = {
       id: 'NS:feature',
@@ -148,7 +148,7 @@ describe('replaceWfsCollections', () => {
   })
 
   it('refuses to replace data/wfs with an empty snapshot', async () => {
-    const { replaceSourceCollections } = await import('../../../src/source/source-store')
+    const { replaceSourceCollections } = await import('@/source/source-store')
 
     fsMocks.existsSync.mockClear()
     fsMocks.mkdirSync.mockClear()
@@ -167,7 +167,7 @@ describe('replaceWfsCollections', () => {
   })
 
   it('writes the replacement snapshot before moving the existing data/wfs directory', async () => {
-    const { replaceSourceCollections } = await import('../../../src/source/source-store')
+    const { replaceSourceCollections } = await import('@/source/source-store')
 
     const collection: SourceCollection = {
       id: 'NS:feature',
@@ -212,7 +212,7 @@ describe('replaceWfsCollections', () => {
   })
 
   it('does not move the existing data/wfs directory when writing the replacement fails', async () => {
-    const { replaceSourceCollections } = await import('../../../src/source/source-store')
+    const { replaceSourceCollections } = await import('@/source/source-store')
 
     const collection: SourceCollection = {
       id: 'NS:feature',
@@ -235,7 +235,7 @@ describe('replaceWfsCollections', () => {
   })
 
   it('restores the previous snapshot when promoting the replacement fails', async () => {
-    const { replaceSourceCollections } = await import('../../../src/source/source-store')
+    const { replaceSourceCollections } = await import('@/source/source-store')
 
     const collection: SourceCollection = {
       id: 'NS:feature',
@@ -268,7 +268,7 @@ describe('replaceWfsCollections', () => {
   })
 
   it('reports both promotion and restore failures when rollback fails', async () => {
-    const { replaceSourceCollections } = await import('../../../src/source/source-store')
+    const { replaceSourceCollections } = await import('@/source/source-store')
 
     const collection: SourceCollection = {
       id: 'NS:feature',
@@ -305,7 +305,7 @@ describe('replaceWfsCollections', () => {
   })
 
   it('preserves the original failure when temporary snapshot cleanup fails', async () => {
-    const { replaceSourceCollections } = await import('../../../src/source/source-store')
+    const { replaceSourceCollections } = await import('@/source/source-store')
 
     const collection: SourceCollection = {
       id: 'NS:feature',
@@ -333,7 +333,7 @@ describe('replaceWfsCollections', () => {
   })
 
   it('does not fail the update when previous snapshot cleanup fails after promotion', async () => {
-    const { replaceSourceCollections } = await import('../../../src/source/source-store')
+    const { replaceSourceCollections } = await import('@/source/source-store')
 
     const collection: SourceCollection = {
       id: 'NS:feature',
@@ -366,7 +366,7 @@ describe('replaceWfsCollections', () => {
   })
 
   it('restores an interrupted previous snapshot before writing a new replacement', async () => {
-    const { replaceSourceCollections } = await import('../../../src/source/source-store')
+    const { replaceSourceCollections } = await import('@/source/source-store')
 
     const collection: SourceCollection = {
       id: 'NS:feature',

@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { renderCollectionSchema } from '../../../src/renderers/collection-schema';
-import type { EnrichedCollection } from '../../../src/types';
-import { InMemoryCollectionCatalog } from '../../../src/search/catalog';
-import type { CollectionSearchEngine, CollectionSearchMatch } from '../../../src/search/types';
+import { renderCollectionSchema } from '@/renderers/collection-schema';
+import type { EnrichedCollection } from '@/types';
+import { InMemoryCollectionCatalog } from '@/search/catalog';
+import type { CollectionSearchEngine, CollectionSearchMatch } from '@/search/types';
 
 const FIXTURES: EnrichedCollection[] = [
   {

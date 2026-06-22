@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import type { EnrichedCollection } from '../../../src/types';
-import { renderCollectionSchema } from '../../../src/renderers/collection-schema';
+import type { EnrichedCollection } from '@/types';
+import { renderCollectionSchema } from '@/renderers/collection-schema';
 
 describe('renderCollectionSchema', () => {
   it('renders scalar, identifier, and geometry properties as an OGC logical JSON Schema', () => {

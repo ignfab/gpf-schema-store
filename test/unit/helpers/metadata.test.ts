@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { parseFeatureTypeName } from '../../../src/helpers/metadata';
+import { parseFeatureTypeName } from '@/helpers/metadata';
 
 const expectedFormatHint = '(expected : {namespace}:{table})';
 

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { getCollectionCatalog } from '../../../src/index';
-import type { CollectionSearchEngine } from '../../../src/search/types';
+import { getCollectionCatalog } from '@/index';
+import type { CollectionSearchEngine } from '@/search/types';
 
 class SingleMatchEngine implements CollectionSearchEngine {
   private readonly id: string;
