@@ -69,7 +69,7 @@ describe('WfsClient', () => {
       expect(endpointMocks.constructor).toHaveBeenCalledTimes(2)
       expect(endpointMocks.constructor.mock.calls.map(([url]) => url)).toEqual([
         'https://example.test/wfs?_t=1704067200000',
-        'https://example.test/wfs?_t=1704067201000',
+        'https://example.test/wfs?_t=1704067202000',
       ])
       expect(endpointMocks.isReady).toHaveBeenCalledTimes(2)
     })
