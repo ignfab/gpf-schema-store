@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 
 import { loadNamespaceFilters } from '../helpers/namespace-filters';
-import type { NamespaceFilterRule } from '../types';
+import type { NamespaceFilterRule } from './types';
 import { getDataDir } from './data-dir';
 
 /*

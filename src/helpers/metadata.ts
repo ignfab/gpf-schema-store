@@ -1,4 +1,4 @@
-import type { CollectionMetadata, NamespaceFilterRule} from "../types";
+import type { CollectionMetadata, NamespaceFilterRule } from '@/config/types';
 import { findFirstMatchingRule } from "./namespace-filters";
 
 /**

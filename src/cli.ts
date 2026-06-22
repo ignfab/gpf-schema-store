@@ -20,8 +20,8 @@ import { WfsClient } from './source/wfs';
 import { loadSourceCollections, replaceSourceCollections } from './source/source-store';
 import {
   packageMetadataSchema,
-  type NamespaceFilterRule,
 } from './types';
+import { type NamespaceFilterRule } from './config/types';
 import {
   type SourceCollection,
   type SourceCollectionBrief

@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 
-import { namespaceFiltersSchema, type NamespaceFilterRule } from '../types';
+import { namespaceFiltersSchema, type NamespaceFilterRule } from '@/config/types';
 import { formatSchemaIssues } from './zod';
 
 /**
