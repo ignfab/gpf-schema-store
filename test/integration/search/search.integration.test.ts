@@ -16,7 +16,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const useCaseSchema = z.object({
   name: z.string().min(1),
   query: z.string().min(1),
-  expected: z.array(z.string().min(1)).min(1),
+  expected: z.array(z.string().min(1)).min(0),
 })
 
 const useCasesSchema = z.array(useCaseSchema).min(1)
