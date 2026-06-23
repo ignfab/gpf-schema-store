@@ -1,7 +1,7 @@
 import type { OgcCollectionSchema } from '@/ogc-api-feature/types';
 import { renderCollectionSchema } from '@/ogc-api-feature/writer';
 import type { EnrichedCollection } from '@/pivot/types';
-import type { CollectionSearchEngine, CollectionSearchMatch, CollectionSearchOptions, CollectionSearchResult } from '@/search/types';
+import type { CollectionSearchEngine, CollectionSearchMatch, CollectionSearchOptions } from '@/search/types';
 import type { CollectionCatalog } from './types';
 
 /*
@@ -30,13 +30,11 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     this.schemasById = new Map(
       collections.map((collection) => [collection.id, renderCollectionSchema(collection)])
     );
-    
+
     this.searchEngine = searchEngine;
   }
 
   list(): OgcCollectionSchema[] {
-    // Return the full public catalog view while preserving the original
-    // collection order from the internal source list.
     return this.collections.map((collection) => structuredClone(this.schemasById.get(collection.id)!));
   }
 
@@ -45,58 +43,23 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     return schema ? structuredClone(schema) : undefined;
   }
 
-  /*
-   * =============================================================================
-   * Search helpers
-   * =============================================================================
-   */
-  private getSearchEngine(): CollectionSearchEngine {
-    if (!this.searchEngine) {
-      throw new Error('No search engine configured');
-    }
-    return this.searchEngine;
-  }
-
-  private resolveSearchResults(
-    matches: CollectionSearchMatch[],
-    options: CollectionSearchOptions = {}
-  ): CollectionSearchResult[] {
-
-    const maxResults = typeof options.limit === 'number' && options.limit >= 0
-      ? options.limit
-      : undefined;
-    const results: CollectionSearchResult[] = [];
-
-    // Keep the search-engine ranking order while resolving IDs to collections.
-    // Stop early once the limit is reached to avoid cloning unused items.
-    for (const match of matches) {
-      if (maxResults !== undefined && results.length >= maxResults) {
-        break;
-      }
-
-      const schema = this.schemasById.get(match.id);
-      if (!schema) {
-        continue;
-      }
-
-      results.push({
-        id: match.id,
-        collection: structuredClone(schema),
-        score: match.score,
-      });
-    }
-
-    return results;
-  }
-
   search(query: string, options: CollectionSearchOptions = {}): OgcCollectionSchema[] {
-    return this.searchWithScores(query, options).map(({ collection }) => collection);
+    const schemas: OgcCollectionSchema[] = [];
+
+    for (const match of this.searchWithScores(query, options)) {
+      const schema = this.getById(match.id);
+      if (! schema) {
+        throw new Error(`Indexed collection "${match.id}" not found in the catalog!`);
+      }
+      schemas.push(schema);
+    }
+
+    return schemas;
   }
 
-  searchWithScores(query: string, options: CollectionSearchOptions = {}): CollectionSearchResult[] {
-    // The search engine only ranks ids. The catalog resolves those ids back to
-    // the public schema objects returned to callers.
-    const matches = this.getSearchEngine().search(query);
-    return this.resolveSearchResults(matches, options);
+  searchWithScores(query: string, options: CollectionSearchOptions = {}): CollectionSearchMatch[] {
+    const matches = this.searchEngine.search(query);
+    return options.limit ? matches.slice(0,options.limit) : matches;
   }
+
 }

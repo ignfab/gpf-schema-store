@@ -25,7 +25,6 @@ export type { CollectionCatalog } from "./catalog/types";
 export type {
     CollectionSearchEngine,
     CollectionSearchMatch,
-    CollectionSearchResult,
     CollectionSearchOptions,
 } from "./search/types";
 

@@ -1,5 +1,5 @@
 import type { OgcCollectionSchema } from '@/ogc-api-feature/types';
-import type { CollectionSearchOptions, CollectionSearchResult } from '@/search/types';
+import type { CollectionSearchOptions, CollectionSearchMatch } from '@/search/types';
 
 /*
  * =============================================================================
@@ -11,5 +11,5 @@ export interface CollectionCatalog {
   list(): OgcCollectionSchema[];
   getById(id: string): OgcCollectionSchema | undefined;
   search(query: string, options?: CollectionSearchOptions): OgcCollectionSchema[];
-  searchWithScores(query: string, options?: CollectionSearchOptions): CollectionSearchResult[];
+  searchWithScores(query: string, options?: CollectionSearchOptions): CollectionSearchMatch[];
 }

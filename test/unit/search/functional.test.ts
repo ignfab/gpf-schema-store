@@ -13,6 +13,9 @@ function loadSearchFunctionalCases(): SearchFunctionalCase[] {
   return load(readFileSync(yamlPath, 'utf-8')) as SearchFunctionalCase[];
 }
 
+/**
+ * TODO : move and merge into tests/integration/search 
+ */
 describe('search functional cases (real dataset)', () => {
   const catalog = getCollectionCatalog();
   const searchCases = loadSearchFunctionalCases();

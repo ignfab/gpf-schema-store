@@ -30,6 +30,11 @@ export const zOgcCollectionProperty = z.object({
 
 export type OgcCollectionProperty = z.infer<typeof zOgcCollectionProperty>;
 
+/**
+ * TODO :
+ * - Add lightweight OgcCollectionSchemaBrief matching with /api/collections
+ * - Clarify "x-collection-id" and "id" ensuring that linking with WFS typename is still possible
+ */
 export const zOgcCollectionSchema = z.object({
   $schema: z.literal('https://json-schema.org/draft/2020-12/schema'),
   'x-collection-id': z.string(),
