@@ -1,7 +1,7 @@
 import type { CollectionCatalog } from "./search/catalog";
 import type { CollectionSearchEngine } from "./search/types";
 import type { MiniSearchCollectionSearchOptions } from "./search/minisearch-engine";
-import type { CollectionSchema } from './ogc-api-feature/types';
+import { type OgcCollectionSchema } from './ogc-api-feature/types';
 import { loadEnrichedCollections } from "./enrichment/load-enriched-collections";
 import { InMemoryCollectionCatalog } from "./search/catalog";
 import { MiniSearchCollectionSearchEngine } from "./search/minisearch-engine";
@@ -14,9 +14,13 @@ import { renderCollectionSchema } from "./ogc-api-feature/writer";
  */
 
 export type {
-    CollectionSchema,
-    CollectionSchemaProperty,
-    CollectionSchemaValue,
+    OgcCollectionSchema,
+    OgcCollectionProperty,
+    OgcCollectionPropertyEnumValue,
+} from "./ogc-api-feature/types";
+
+export {
+    zOgcCollectionSchema
 } from "./ogc-api-feature/types";
 
 export type { CollectionCatalog } from "./search/catalog";
@@ -37,7 +41,7 @@ export type CollectionCatalogOptions =
 // Returns the full public catalog as a plain array of rendered JSON Schemas.
 // Use this when the caller wants a snapshot of every collection and does not
 // need lookup or search capabilities.
-export function getCollections(): CollectionSchema[] {
+export function getCollections(): OgcCollectionSchema[] {
     return loadEnrichedCollections().map((collection) => renderCollectionSchema(collection));
 }
 

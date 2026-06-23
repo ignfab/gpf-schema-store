@@ -1,4 +1,4 @@
-import type { CollectionSchema } from '@/ogc-api-feature/types';
+import type { OgcCollectionSchema } from '@/ogc-api-feature/types';
 import type { EnrichedCollection } from '@/pivot/types';
 
 /** Generic catalog-level options applied after search-engine evaluation. */
@@ -15,7 +15,7 @@ export type CollectionSearchMatch = {
 /** A catalog search result that includes the resolved collection and optional relevance score. */
 export type CollectionSearchResult = {
   id: string;
-  collection: CollectionSchema;
+  collection: OgcCollectionSchema;
   score?: number;
 };
 

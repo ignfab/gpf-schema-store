@@ -1,5 +1,5 @@
 import { renderCollectionSchema } from '../ogc-api-feature/writer';
-import type { CollectionSchema } from '@/ogc-api-feature/types';
+import type { OgcCollectionSchema } from '@/ogc-api-feature/types';
 import type { EnrichedCollection } from '@/pivot/types';
 import type {
   CollectionSearchEngine,
@@ -21,9 +21,9 @@ import type {
  */
 
 export interface CollectionCatalog {
-  list(): CollectionSchema[];
-  getById(id: string): CollectionSchema | undefined;
-  search(query: string, options?: CollectionSearchOptions): CollectionSchema[];
+  list(): OgcCollectionSchema[];
+  getById(id: string): OgcCollectionSchema | undefined;
+  search(query: string, options?: CollectionSearchOptions): OgcCollectionSchema[];
   searchWithScores(query: string, options?: CollectionSearchOptions): CollectionSearchResult[];
 }
 
@@ -41,7 +41,7 @@ export type InMemoryCollectionCatalogOptions =
 export class InMemoryCollectionCatalog implements CollectionCatalog {
 
   private readonly collections: EnrichedCollection[];
-  private readonly schemasById: Map<string, CollectionSchema>;
+  private readonly schemasById: Map<string, OgcCollectionSchema>;
   private readonly searchEngine?: CollectionSearchEngine;
 
   constructor(collections: EnrichedCollection[], options: InMemoryCollectionCatalogOptions = {}) {
@@ -63,13 +63,13 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     }
   }
 
-  list(): CollectionSchema[] {
+  list(): OgcCollectionSchema[] {
     // Return the full public catalog view while preserving the original
     // collection order from the internal source list.
     return this.collections.map((collection) => structuredClone(this.schemasById.get(collection.id)!));
   }
 
-  getById(id: string): CollectionSchema | undefined {
+  getById(id: string): OgcCollectionSchema | undefined {
     const schema = this.schemasById.get(id);
     return schema ? structuredClone(schema) : undefined;
   }
@@ -119,7 +119,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     return results;
   }
 
-  search(query: string, options: CollectionSearchOptions = {}): CollectionSchema[] {
+  search(query: string, options: CollectionSearchOptions = {}): OgcCollectionSchema[] {
     return this.searchWithScores(query, options).map(({ collection }) => collection);
   }
 
