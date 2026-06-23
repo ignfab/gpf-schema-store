@@ -24,11 +24,12 @@ import type {
  * =============================================================================
  * Indexed fields
  * =============================================================================
- *
+ */
+
+/**
  * These are the fields MiniSearch sees after projecting an enriched collection
  * to a dedicated search document.
  */
-
 const INDEXED_SEARCH_FIELDS = [
   'namespace',
   'name',
@@ -52,9 +53,11 @@ type IndexedSearchField = typeof INDEXED_SEARCH_FIELDS[number];
  * =============================================================================
  */
 
-// Options for MiniSearch are based on the SearchOptions type defined in the
-// MiniSearch library. This type narrows them to the indexed fields exposed by
-// this engine.
+/**
+ * Options for MiniSearch are based on the SearchOptions type defined in the
+ * MiniSearch library. This type narrows them to the indexed fields exposed by
+ * this engine.
+ */
 export type MiniSearchCollectionSearchOptions = {
   fields?: IndexedSearchField[];
   combineWith?: 'AND' | 'OR';
@@ -66,16 +69,23 @@ export type MiniSearchCollectionSearchEngineOptions = {
   defaultSearchOptions?: MiniSearchCollectionSearchOptions;
 };
 
+/**
+ * CollectionSearchMatch extended with MiniSearch specific metadata
+ */
 export type MiniSearchCollectionSearchMatch = CollectionSearchMatch & {
   queryTerms?: string[];
   terms?: string[];
   match?: MatchInfo;
 };
 
-// Internal helper type used after merging user options with the engine defaults.
+/**
+ * Internal helper type used after merging user options with the engine defaults.
+ */
 type ResolvedBoost = Required<Record<IndexedSearchField, number>>;
 
-// Baseline search behavior applied when the caller does not provide overrides.
+/**
+ * Baseline search behavior applied when the caller does not provide overrides.
+ */
 const DEFAULT_MINISEARCH_SEARCH_OPTIONS: { boost: ResolvedBoost; fuzzy: number } = {
   boost: {
     namespace: 2.5,

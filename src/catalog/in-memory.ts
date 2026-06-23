@@ -1,36 +1,8 @@
-import { renderCollectionSchema } from '../ogc-api-feature/writer';
 import type { OgcCollectionSchema } from '@/ogc-api-feature/types';
+import { renderCollectionSchema } from '@/ogc-api-feature/writer';
 import type { EnrichedCollection } from '@/pivot/types';
-import type {
-  CollectionSearchEngine,
-  CollectionSearchEngineFactory,
-  CollectionSearchMatch,
-  CollectionSearchOptions,
-  CollectionSearchResult,
-} from './types';
-
-/*
- * =============================================================================
- * Catalog API
- * =============================================================================
- *
- * The catalog is the public in-memory view exposed to callers:
- * - it stores internal EnrichedCollection inputs
- * - it renders them once as public CollectionSchema objects
- * - it optionally delegates query ranking to a search engine
- */
-
-export interface CollectionCatalog {
-  list(): OgcCollectionSchema[];
-  getById(id: string): OgcCollectionSchema | undefined;
-  search(query: string, options?: CollectionSearchOptions): OgcCollectionSchema[];
-  searchWithScores(query: string, options?: CollectionSearchOptions): CollectionSearchResult[];
-}
-
-export type InMemoryCollectionCatalogOptions =
-  | { engine: CollectionSearchEngine; engineFactory?: never }
-  | { engineFactory: CollectionSearchEngineFactory; engine?: never }
-  | { engine?: never; engineFactory?: never };
+import type { CollectionSearchEngine, CollectionSearchMatch, CollectionSearchOptions, CollectionSearchResult } from '@/search/types';
+import type { CollectionCatalog } from './types';
 
 /*
  * =============================================================================
@@ -38,29 +10,28 @@ export type InMemoryCollectionCatalogOptions =
  * =============================================================================
  */
 
+/**
+ * The catalog is the public in-memory view exposed to callers:
+ * - it stores internal EnrichedCollection inputs
+ * - it renders them once as public CollectionSchema objects
+ * - it optionally delegates query ranking to a search engine
+ */
 export class InMemoryCollectionCatalog implements CollectionCatalog {
 
   private readonly collections: EnrichedCollection[];
   private readonly schemasById: Map<string, OgcCollectionSchema>;
-  private readonly searchEngine?: CollectionSearchEngine;
+  private readonly searchEngine: CollectionSearchEngine;
 
-  constructor(collections: EnrichedCollection[], options: InMemoryCollectionCatalogOptions = {}) {
+  constructor(collections: EnrichedCollection[], searchEngine: CollectionSearchEngine) {
     this.collections = collections;
 
     // Render the public schema view once at construction time and keep it
     // indexed by collection id for later lookup and search result resolution.
     this.schemasById = new Map(
-      collections.map((collection) => [collection.id, renderCollectionSchema(collection)]),
+      collections.map((collection) => [collection.id, renderCollectionSchema(collection)])
     );
-
-    if (options.engine && options.engineFactory) {
-      throw new Error('Cannot specify both engine and engineFactory options');
-    }
-    if (options.engine) {
-      this.searchEngine = options.engine;
-    } else if (options.engineFactory) {
-      this.searchEngine = options.engineFactory(collections);
-    }
+    
+    this.searchEngine = searchEngine;
   }
 
   list(): OgcCollectionSchema[] {
@@ -79,7 +50,6 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
    * Search helpers
    * =============================================================================
    */
-
   private getSearchEngine(): CollectionSearchEngine {
     if (!this.searchEngine) {
       throw new Error('No search engine configured');
@@ -89,9 +59,9 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
 
   private resolveSearchResults(
     matches: CollectionSearchMatch[],
-    options: CollectionSearchOptions = {},
+    options: CollectionSearchOptions = {}
   ): CollectionSearchResult[] {
-    
+
     const maxResults = typeof options.limit === 'number' && options.limit >= 0
       ? options.limit
       : undefined;

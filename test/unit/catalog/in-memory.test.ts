@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { renderCollectionSchema } from '@/ogc-api-feature/writer';
 import type { EnrichedCollection } from '@/pivot/types';
-import { InMemoryCollectionCatalog } from '@/search/catalog';
+import { InMemoryCollectionCatalog } from '@/catalog/in-memory';
 import type { CollectionSearchEngine, CollectionSearchMatch } from '@/search/types';
 
 const FIXTURES: EnrichedCollection[] = [
@@ -49,12 +49,20 @@ class StubSearchEngine implements CollectionSearchEngine {
   }
 }
 
+class NullSearchEngine implements CollectionSearchEngine {
+  search(_: string): CollectionSearchMatch[] {
+    return [];
+  }
+}
+
+
+
 describe('InMemoryCollectionCatalog', () => {
   it('keeps engine order and ignores unknown ids', () => {
     const engine = new StubSearchEngine({
       ordered: ['NS:third', 'NS:unknown', 'NS:first'],
     });
-    const catalog = new InMemoryCollectionCatalog(FIXTURES, { engine });
+    const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
 
     const titles = catalog.search('ordered').map((schema) => schema.title);
     expect(titles).toEqual(['Third', 'First']);
@@ -64,7 +72,7 @@ describe('InMemoryCollectionCatalog', () => {
     const engine = new StubSearchEngine({
       many: ['NS:third', 'NS:second', 'NS:first'],
     });
-    const catalog = new InMemoryCollectionCatalog(FIXTURES, { engine });
+    const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
 
     const titles = catalog.search('many', { limit: 2 }).map((schema) => schema.title);
     expect(titles).toEqual(['Third', 'Second']);
@@ -74,7 +82,7 @@ describe('InMemoryCollectionCatalog', () => {
     const engine = new StubSearchEngine({
       scored: [{ id: 'NS:first', score: 4.2 }],
     });
-    const catalog = new InMemoryCollectionCatalog(FIXTURES, { engine });
+    const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
 
     expect(catalog.search('scored')).toEqual([SCHEMAS[0]]);
   });
@@ -87,7 +95,7 @@ describe('InMemoryCollectionCatalog', () => {
         { id: 'NS:first', score: 1.2 },
       ],
     });
-    const catalog = new InMemoryCollectionCatalog(FIXTURES, { engine });
+    const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
 
     expect(catalog.searchWithScores('ordered')).toEqual([
       { id: 'NS:third', collection: SCHEMAS[2], score: 3.5 },
@@ -103,7 +111,7 @@ describe('InMemoryCollectionCatalog', () => {
         { id: 'NS:first', score: 1 },
       ],
     });
-    const catalog = new InMemoryCollectionCatalog(FIXTURES, { engine });
+    const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
 
     expect(catalog.searchWithScores('many', { limit: 2 })).toEqual([
       { id: 'NS:third', collection: SCHEMAS[2], score: 3 },
@@ -115,7 +123,7 @@ describe('InMemoryCollectionCatalog', () => {
     const engine = new StubSearchEngine({
       scored: [{ id: 'NS:first', score: 4.2 }],
     });
-    const catalog = new InMemoryCollectionCatalog(FIXTURES, { engine });
+    const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
 
     const [result] = catalog.searchWithScores('scored');
     result.collection.title = 'Mutated title';
@@ -131,7 +139,7 @@ describe('InMemoryCollectionCatalog', () => {
   });
 
   it('returns cloned values from list and getById', () => {
-    const catalog = new InMemoryCollectionCatalog(FIXTURES);
+    const catalog = new InMemoryCollectionCatalog(FIXTURES, new NullSearchEngine());
 
     const listed = catalog.list();
     listed[0].title = 'Mutated title';
@@ -152,9 +160,4 @@ describe('InMemoryCollectionCatalog', () => {
     expect(firstAgain?.title).toBe('First');
   });
 
-  it('throws when searching without a configured search engine', () => {
-    const catalog = new InMemoryCollectionCatalog(FIXTURES);
-
-    expect(() => catalog.search('anything')).toThrow('No search engine configured');
-  });
 });
