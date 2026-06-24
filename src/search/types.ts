@@ -23,7 +23,7 @@ export type CollectionSearchMatch = {
  * Contract that any search engine implementation must satisfy.
  */
 export interface CollectionSearchEngine {
-  search(query: string): CollectionSearchMatch[];
+  search(query: string, options?: CollectionSearchOptions): CollectionSearchMatch[];
 }
 
 /** Factory that builds a search engine from the full collection list at catalog creation time. */

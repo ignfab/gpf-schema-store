@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { renderCollectionSchema } from '@/ogc-api-feature/writer';
 import type { EnrichedCollection } from '@/pivot/types';
 import { InMemoryCollectionCatalog } from '@/catalog/in-memory';
-import type { CollectionSearchEngine, CollectionSearchMatch } from '@/search/types';
+import type { CollectionSearchEngine, CollectionSearchMatch, CollectionSearchOptions } from '@/search/types';
 
 const FIXTURES: EnrichedCollection[] = [
   {
@@ -44,8 +44,12 @@ class StubSearchEngine implements CollectionSearchEngine {
     );
   }
 
-  search(query: string) {
-    return this.matchesByQuery[query] || [];
+  search(query: string, options?: CollectionSearchOptions) {
+    const matches = this.matchesByQuery[query] || [];
+    if (options?.limit === undefined) {
+      return matches;
+    }
+    return matches.slice(0, Math.max(0, options.limit));
   }
 }
 

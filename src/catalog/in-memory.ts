@@ -58,8 +58,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
   }
 
   searchWithScores(query: string, options: CollectionSearchOptions = {}): CollectionSearchMatch[] {
-    const matches = this.searchEngine.search(query);
-    return options.limit ? matches.slice(0,options.limit) : matches;
+    return this.searchEngine.search(query, options);
   }
 
 }

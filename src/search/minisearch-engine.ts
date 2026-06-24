@@ -7,6 +7,7 @@ import {
 import type {
   CollectionSearchEngine,
   CollectionSearchMatch,
+  CollectionSearchOptions,
 } from './types';
 
 /*
@@ -58,12 +59,12 @@ type IndexedSearchField = typeof INDEXED_SEARCH_FIELDS[number];
  * MiniSearch library. This type narrows them to the indexed fields exposed by
  * this engine.
  */
-export type MiniSearchCollectionSearchOptions = {
+export interface MiniSearchCollectionSearchOptions extends CollectionSearchOptions {
   fields?: IndexedSearchField[];
   combineWith?: 'AND' | 'OR';
   boost?: Partial<Record<IndexedSearchField, number>>;
   fuzzy?: number;
-};
+}
 
 export type MiniSearchCollectionSearchEngineOptions = {
   defaultSearchOptions?: MiniSearchCollectionSearchOptions;
@@ -214,7 +215,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
 
   search(
     query: string,
-    options: MiniSearchCollectionSearchOptions = {},
+    options?: MiniSearchCollectionSearchOptions,
   ): CollectionSearchMatch[] {
     // The generic search API exposes only id and score.
     return this.searchDetailed(query, options).map(({ id, score }) => ({ id, score }));
@@ -226,7 +227,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
   ): MiniSearchCollectionSearchMatch[] {
     // Per-query options override the defaults. Boost fields are merged so
     // callers can tune a single field weight without redefining every weight.
-    return this.miniSearch
+    const results = this.miniSearch
       .search(query, {
         fields: options.fields ?? this.defaultSearchOptions.fields,
         combineWith: options.combineWith ?? this.defaultSearchOptions.combineWith,
@@ -240,6 +241,12 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
         terms: result.terms,
         match: result.match,
       }));
+
+    if (options.limit === undefined) {
+      return results;
+    }
+
+    return results.slice(0, Math.max(0, options.limit));
   }
 
   // Exposed mainly for debugging, CLI output, and tests.
