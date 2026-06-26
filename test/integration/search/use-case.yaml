@@ -6,7 +6,7 @@
 # BDTOPO_V3:batiment
 #--------------------------------------------------------------
 
-# TODO : harden alllowing different order
+# TODO : harden allowing different order
 - query: "batiment"
   expected:
     - BDTOPO_V3:batiment

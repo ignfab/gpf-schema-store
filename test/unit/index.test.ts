@@ -75,7 +75,7 @@ describe('getCollectionCatalog', () => {
 
   describe('getCollectionCatalog with searchEngine and miniSearch', () => {
 
-    it('throws as searchEngine and miniSearch are mutualy exclusive', () => {
+    it('throws as searchEngine and miniSearch are mutually exclusive', () => {
       expect(() => {
         getCollectionCatalog({
           searchEngine: new SingleMatchEngine('BDTOPO_V3:batiment'),
