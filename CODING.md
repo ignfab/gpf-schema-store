@@ -37,6 +37,7 @@ npm run test:all
 ```
 
 > See [test/integration/search/use-case.yaml](test/integration/search/use-case.yaml) for the search tests.
+
 ### Configure filtering
 
 Edit [data/namespace-filters.yaml](data/namespace-filters.yaml) to decide which namespaces are kept or ignored and to assign metadata (`product`, `ignoredReason`) using first-match-wins rules.

@@ -26,7 +26,7 @@ type UseCase = z.infer<typeof useCaseSchema>
  * Load use cases from use-case.yaml file and validate them against the schema.
  */
 function loadSearchUseCases(): UseCase[] {
-  const data = yaml.load(readFileSync(join(__dirname, 'search-use-case.yaml'), 'utf-8'))
+  const data = yaml.load(readFileSync(join(__dirname, 'use-case.yaml'), 'utf-8'))
   const result = useCasesSchema.safeParse(data)
 
   if (!result.success) {
@@ -39,7 +39,7 @@ function loadSearchUseCases(): UseCase[] {
 const runLiveIntegrationTests = isRunLiveIntegrationTestsEnabled()
 
 describe.skipIf(!runLiveIntegrationTests)(
-  'CollectionCatalog - search with samples from search-use-case.yaml',
+  'CollectionCatalog - search with samples from use-case.yaml',
   () => {
     const useCases = loadSearchUseCases()
 
