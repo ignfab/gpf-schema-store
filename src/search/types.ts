@@ -1,10 +1,7 @@
 import type { EnrichedCollection } from '@/pivot/types';
 
 /**
- * Generic catalog-level options applied after search-engine evaluation.
- * 
- * TODO : add corresponding parameter to CollectionSearchEngine and extend
- * this type for MiniSearch.
+ * Generic search options that a catalog can pass to a search engine.
  */
 export type CollectionSearchOptions = {
   limit?: number;
