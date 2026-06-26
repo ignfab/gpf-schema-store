@@ -1,5 +1,5 @@
 # This file contains test cases for the search functionality of the catalog.
-# Each test case consists of a name, a query string, and an expected list of IDs that should be returned by the search.
+# Each test case consists of a a query string and an expected list of IDs that should be returned by the search.
 # Order of expected IDs matters, as the search results are expected to be sorted by relevance.
 
 #--------------------------------------------------------------
