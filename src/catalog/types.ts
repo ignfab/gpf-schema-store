@@ -1,4 +1,4 @@
-import type { OgcCollectionBrief } from '@/ogc-api-feature/types';
+import type { OgcCollectionBrief, OgcCollectionSchema } from '@/ogc-api-feature/types';
 import type { CollectionSearchOptions, CollectionSearchMatch } from '@/search/types';
 
 /*
@@ -20,7 +20,7 @@ export interface CollectionCatalog {
    * 
    * Expected as "GET /collections/{id}/schema"
    */
-  getById(id: string): OgcCollectionBrief | undefined;
+  getById(id: string): OgcCollectionSchema | undefined;
 
   /**
    * Search collection by keyword

@@ -47,7 +47,7 @@ describe.skipIf(!runLiveIntegrationTests)(
 
     for (const useCase of useCases) {
 
-      const description = `should find ${JSON.stringify(useCase.expected)} with query=${useCase.query}`;
+      const description = `should find ${JSON.stringify(useCase.expected)} with query="${useCase.query}"`;
 
       it(description, () => {
         const results = catalog.search(useCase.query, { limit: 5 })

@@ -60,9 +60,15 @@ class NullSearchEngine implements CollectionSearchEngine {
 
 describe('InMemoryCollectionCatalog', () => {
 
-  describe('getById', () => {
+  describe('list', () => {
 
-    it('returns cloned values from list and getById', () => {
+    it('returns all the elements', () => {
+      const catalog = new InMemoryCollectionCatalog(FIXTURES, new NullSearchEngine());
+      const collections = catalog.list();
+      expect(collections.length).toEqual(3);
+    });
+
+    it('returns cloned values from list', () => {
       const catalog = new InMemoryCollectionCatalog(FIXTURES, new NullSearchEngine());
 
       const listed = catalog.list();
@@ -72,6 +78,21 @@ describe('InMemoryCollectionCatalog', () => {
       const listedAgain = catalog.list();
       expect(listedAgain[0].title).toBe('First');
       expect(listedAgain[0].description).toBe('First collection');
+    });
+
+  });
+
+
+  describe('getById', () => {
+
+    it("returns null if the type doesn't exists", () => {
+      const catalog = new InMemoryCollectionCatalog(FIXTURES, new NullSearchEngine());
+      const collection = catalog.getById('NS:not_found');
+      expect(collection).toBeUndefined();
+    });
+
+    it('returns cloned values from getById', () => {
+      const catalog = new InMemoryCollectionCatalog(FIXTURES, new NullSearchEngine());
 
       const first = catalog.getById('NS:first');
       expect(first).toBeDefined();
