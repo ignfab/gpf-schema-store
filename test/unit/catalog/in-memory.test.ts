@@ -88,7 +88,7 @@ describe('InMemoryCollectionCatalog', () => {
 
 
   describe('search', () => {
-    it('returns OGC schemas from search', () => {
+    it('returns search matches from the search engine', () => {
       const SCORED = [{ id: 'NS:first', score: 4.2 }];
       const engine = new StubSearchEngine({
         scored: SCORED,
