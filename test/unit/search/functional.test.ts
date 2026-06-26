@@ -22,7 +22,7 @@ describe('search functional cases (real dataset)', () => {
 
   for (const searchCase of searchCases) {
     it(`finds expected collections for '${searchCase.query}'`, () => {
-      const foundIds = catalog.searchWithScores(searchCase.query).map((result) => result.id);
+      const foundIds = catalog.search(searchCase.query).map((result) => result.id);
       for ( const expectedId of searchCase.expected ) {
         expect(
           foundIds,

@@ -46,21 +46,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     return brief ? structuredClone(brief) : undefined;
   }
 
-  search(query: string, options: CollectionSearchOptions = {}): OgcCollectionBrief[] {
-    const briefs: OgcCollectionBrief[] = [];
-
-    for (const match of this.searchWithScores(query, options)) {
-      const brief = this.getById(match.id);
-      if (! brief) {
-        throw new Error(`Indexed collection "${match.id}" not found in the catalog!`);
-      }
-      briefs.push(brief);
-    }
-
-    return briefs;
-  }
-
-  searchWithScores(query: string, options: CollectionSearchOptions = {}): CollectionSearchMatch[] {
+  search(query: string, options: CollectionSearchOptions = {}): CollectionSearchMatch[] {
     return this.searchEngine.search(query, options);
   }
 

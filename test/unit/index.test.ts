@@ -46,7 +46,7 @@ describe('getCollectionCatalog', () => {
 
       expect(catalog.getById('BDTOPO_V3:batiment')).to.be.not.null;
 
-      const ids = catalog.searchWithScores('bâtiments bdtopo', {
+      const ids = catalog.search('bâtiments bdtopo', {
         limit: 10,
       }).map((result) => result.id);
 
@@ -63,7 +63,7 @@ describe('getCollectionCatalog', () => {
         fields: ['namespace', 'name']
       } });
 
-      const ids = catalog.searchWithScores('bâtiments bdtopo', {
+      const ids = catalog.search('bâtiments bdtopo', {
         limit: 10,
       }).map((result) => result.id);
 

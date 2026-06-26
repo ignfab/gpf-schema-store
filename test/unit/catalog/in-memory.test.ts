@@ -93,42 +93,6 @@ describe('InMemoryCollectionCatalog', () => {
 
 
   describe('search', () => {
-    it('returns OGC collection briefs from search', () => {
-      const engine = new StubSearchEngine({
-        scored: [{ id: 'NS:first', score: 4.2 }],
-      });
-      const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
-
-      expect(catalog.search('scored')).toEqual([BRIEFS[0]]);
-    });
-
-    it('applies limit at catalog level', () => {
-      const engine = new StubSearchEngine({
-        many: ['NS:third', 'NS:second', 'NS:first'],
-      });
-      const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
-
-      const titles = catalog.search('many', { limit: 2 }).map((schema) => schema.title);
-      expect(titles).toEqual(['Third', 'Second']);
-    });
-
-    it('throws if indexed collection is missing in the catalog', () => {
-      const engine = new StubSearchEngine({
-        many: [
-          { id: 'NS:only_in_index', score: 3 },
-        ],
-      });
-      const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
-
-      expect(() => {
-        catalog.search('many', { limit: 2 })
-      }).toThrow('Indexed collection "NS:only_in_index" not found in the catalog!');
-    });
-
-  });
-
-
-  describe('searchWithScore', () => {
     it('returns OGC schemas from search', () => {
       const SCORED = [{ id: 'NS:first', score: 4.2 }];
       const engine = new StubSearchEngine({
@@ -136,7 +100,7 @@ describe('InMemoryCollectionCatalog', () => {
       });
       const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
 
-      expect(catalog.searchWithScores('scored')).toEqual(SCORED);
+      expect(catalog.search('scored')).toEqual(SCORED);
     });
   });
 

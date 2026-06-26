@@ -12,6 +12,10 @@ import { z } from 'zod';
 
 /**
  * Model for the results of "GET /collections"
+ * 
+ * Note :
+ * - that "extent", "links", "crs" and "storageCrs" are ignored for now
+ * - "storageCrs" is currently modeled as 'x-ign-defaultCrs' in the schema (mistake?)
  */
 export const zOgcCollectionBrief = z.object({
   id: z.string(),

@@ -48,7 +48,7 @@ describe.skipIf(!runLiveIntegrationTests)(
 
     for (const useCase of useCases) {
       it(useCase.name, () => {
-        const results = catalog.searchWithScores(useCase.query, { limit: 5 })
+        const results = catalog.search(useCase.query, { limit: 5 })
         const ids = results.map((r) => r.id)
 
         /*

@@ -8,8 +8,24 @@ import type { CollectionSearchOptions, CollectionSearchMatch } from '@/search/ty
  */
 
 export interface CollectionCatalog {
+  /**
+   * List collections
+   * 
+   * Expected as "GET /collections"
+   */
   list(): OgcCollectionBrief[];
+
+  /**
+   * Get collection schema by id
+   * 
+   * Expected as "GET /collections/{id}/schema"
+   */
   getById(id: string): OgcCollectionBrief | undefined;
-  search(query: string, options?: CollectionSearchOptions): OgcCollectionBrief[];
-  searchWithScores(query: string, options?: CollectionSearchOptions): CollectionSearchMatch[];
+
+  /**
+   * Search collection by keyword
+   * 
+   * Expected as "GET /collections?q={query}" at GPF level
+   */
+  search(query: string, options?: CollectionSearchOptions): CollectionSearchMatch[];
 }
