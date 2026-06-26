@@ -14,7 +14,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
  * Schema for validating the structure of use-case.yaml file.
  */
 const useCaseSchema = z.object({
-  name: z.string().min(1),
   query: z.string().min(1),
   expected: z.array(z.string().min(1)).min(0),
 })
@@ -26,8 +25,8 @@ type UseCase = z.infer<typeof useCaseSchema>
 /**
  * Load use cases from use-case.yaml file and validate them against the schema.
  */
-function loadUseCases(): UseCase[] {
-  const data = yaml.load(readFileSync(join(__dirname, 'use-case.yaml'), 'utf-8'))
+function loadSearchUseCases(): UseCase[] {
+  const data = yaml.load(readFileSync(join(__dirname, 'search-use-case.yaml'), 'utf-8'))
   const result = useCasesSchema.safeParse(data)
 
   if (!result.success) {
@@ -40,14 +39,17 @@ function loadUseCases(): UseCase[] {
 const runLiveIntegrationTests = isRunLiveIntegrationTestsEnabled()
 
 describe.skipIf(!runLiveIntegrationTests)(
-  'CollectionCatalog - searchWithScores with samples from use-case.yaml',
+  'CollectionCatalog - search with samples from search-use-case.yaml',
   () => {
-    const useCases = loadUseCases()
+    const useCases = loadSearchUseCases()
 
     const catalog = getCollectionCatalog()
 
     for (const useCase of useCases) {
-      it(useCase.name, () => {
+
+      const description = `should find ${JSON.stringify(useCase.expected)} with query=${useCase.query}`;
+
+      it(description, () => {
         const results = catalog.search(useCase.query, { limit: 5 })
         const ids = results.map((r) => r.id)
 
