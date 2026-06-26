@@ -29,11 +29,6 @@ const FIXTURES: EnrichedCollection[] = [
     properties: [{ name: 'id', type: 'string' }],
   },
 ];
-const BRIEFS = FIXTURES.map((collection) => ({
-  id: collection.id,
-  title: collection.title,
-  description: collection.description,
-}));
 
 class StubSearchEngine implements CollectionSearchEngine {
   private readonly matchesByQuery: Record<string, CollectionSearchMatch[]>;
