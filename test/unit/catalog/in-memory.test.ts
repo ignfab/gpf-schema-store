@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-import { renderCollectionSchema } from '@/ogc-api-feature/writer';
 import type { EnrichedCollection } from '@/pivot/types';
 import { InMemoryCollectionCatalog } from '@/catalog/in-memory';
 import type { CollectionSearchEngine, CollectionSearchMatch, CollectionSearchOptions } from '@/search/types';
@@ -30,7 +29,11 @@ const FIXTURES: EnrichedCollection[] = [
     properties: [{ name: 'id', type: 'string' }],
   },
 ];
-const SCHEMAS = FIXTURES.map((collection) => renderCollectionSchema(collection));
+const BRIEFS = FIXTURES.map((collection) => ({
+  id: collection.id,
+  title: collection.title,
+  description: collection.description,
+}));
 
 class StubSearchEngine implements CollectionSearchEngine {
   private readonly matchesByQuery: Record<string, CollectionSearchMatch[]>;
@@ -69,11 +72,11 @@ describe('InMemoryCollectionCatalog', () => {
 
       const listed = catalog.list();
       listed[0].title = 'Mutated title';
-      listed[0].properties.id.type = 'number';
+      listed[0].description = 'Mutated description';
 
       const listedAgain = catalog.list();
       expect(listedAgain[0].title).toBe('First');
-      expect(listedAgain[0].properties.id.type).toBe('string');
+      expect(listedAgain[0].description).toBe('First collection');
 
       const first = catalog.getById('NS:first');
       expect(first).toBeDefined();
@@ -90,13 +93,13 @@ describe('InMemoryCollectionCatalog', () => {
 
 
   describe('search', () => {
-    it('returns OGC schemas from search', () => {
+    it('returns OGC collection briefs from search', () => {
       const engine = new StubSearchEngine({
         scored: [{ id: 'NS:first', score: 4.2 }],
       });
       const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
 
-      expect(catalog.search('scored')).toEqual([SCHEMAS[0]]);
+      expect(catalog.search('scored')).toEqual([BRIEFS[0]]);
     });
 
     it('applies limit at catalog level', () => {

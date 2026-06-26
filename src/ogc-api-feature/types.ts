@@ -2,13 +2,29 @@ import { z } from 'zod';
 
 /*
  * ============================================================================
- * Public Catalog Model from OGC API - Features - Part 5: Schemas (draft)
+ * Public Catalog Model from OGC API - Features
  * 
- * https://ogcapi.ogc.org/features/
+ * @see https://ogcapi.ogc.org/features/
  * 
  * ============================================================================
  */
 
+
+/**
+ * Model for the results of "GET /collections"
+ */
+export const zOgcCollectionBrief = z.object({
+  id: z.string(),
+  title: z.string(),
+  description: z.string()
+}).strict();
+
+export type OgcCollectionBrief = z.infer<typeof zOgcCollectionBrief>;
+
+
+/**
+ * An allowed value in a oneOf (equivalent to a CodeList value)
+ */
 export const zOgcCollectionPropertyEnumValue = z.object({
   const: z.string(),
   title: z.string(),
@@ -18,6 +34,9 @@ export const zOgcCollectionPropertyEnumValue = z.object({
 
 export type OgcCollectionPropertyEnumValue = z.infer<typeof zOgcCollectionPropertyEnumValue>;
 
+/**
+ * The JSON schema of a property
+ */
 export const zOgcCollectionProperty = z.object({
   type: z.enum(['string', 'boolean', 'integer', 'number']).optional(),
   format: z.string().optional(),
@@ -31,9 +50,15 @@ export const zOgcCollectionProperty = z.object({
 export type OgcCollectionProperty = z.infer<typeof zOgcCollectionProperty>;
 
 /**
- * TODO :
- * - Add lightweight OgcCollectionSchemaBrief matching with /api/collections
- * - Clarify "x-collection-id" and "id" ensuring that linking with WFS typename is still possible
+ * Model for the OGC API - Features - Schemas.
+ * 
+ * Note that :
+ * 
+ * - It should match the futur /collections/{collectionId}/schema on the GPF
+ * - "id" is reserved for the schema ID as an URL
+ * - "x-collection-id" with the collectionId
+ * 
+ * @see https://docs.ogc.org/is/23-058r2/23-058r2.html
  */
 export const zOgcCollectionSchema = z.object({
   $schema: z.literal('https://json-schema.org/draft/2020-12/schema'),

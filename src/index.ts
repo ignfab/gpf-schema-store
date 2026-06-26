@@ -12,12 +12,14 @@ import type { CollectionSearchEngine } from './search/types';
  */
 
 export type {
+    OgcCollectionBrief,
     OgcCollectionSchema,
     OgcCollectionProperty,
     OgcCollectionPropertyEnumValue,
 } from "./ogc-api-feature/types";
 
 export {
+    zOgcCollectionBrief,
     zOgcCollectionSchema
 } from "./ogc-api-feature/types";
 
