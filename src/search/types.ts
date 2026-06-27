@@ -22,6 +22,3 @@ export type CollectionSearchMatch = {
 export interface CollectionSearchEngine {
   search(query: string, options?: CollectionSearchOptions): CollectionSearchMatch[];
 }
-
-/** Factory that builds a search engine from the full collection list at catalog creation time. */
-export type CollectionSearchEngineFactory = (collections: EnrichedCollection[]) => CollectionSearchEngine;
