@@ -3,7 +3,7 @@
   "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
   "name": "feuille",
   "title": "PCI Vecteur : Feuilles",
-  "description": "Feuilles ; Édition 2025-12-01",
+  "description": "Feuilles ; Édition 2026-03-01",
   "properties": [
     {
       "name": "gid",

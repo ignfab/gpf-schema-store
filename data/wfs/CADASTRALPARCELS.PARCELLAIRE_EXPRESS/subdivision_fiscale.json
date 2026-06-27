@@ -3,7 +3,7 @@
   "namespace": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
   "name": "subdivision_fiscale",
   "title": "PCI Vecteur : Subdivisions fiscales",
-  "description": "Subdivisions fiscales ; Édition 2025-12-01",
+  "description": "Subdivisions fiscales ; Édition 2026-03-01",
   "properties": [
     {
       "name": "gid",
