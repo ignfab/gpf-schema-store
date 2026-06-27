@@ -9,7 +9,7 @@
 
 ## Warnings
 
-- `src/index.ts` is the public API of the library (**changes may brake geocontext integration**)
+- `src/index.ts` is the public API of the library (**changes may break geocontext integration**)
 - `src/catalog` : public API for the `CollectionCatalog` with an in-memory implementation (**we should be able to implement an `GpfCollectionCatalog` once OGC API Feature will be implement with schema and search in the Geoplateforme**)
 
 ## Usage
@@ -95,10 +95,6 @@ npx gpf-schema-store render-catalog ./tmp/catalog --clean
 ```
 
 Each rendered file is a JSON Schema 2020-12 object with `x-collection-id`, `type`, `title`, `description`, `properties`, and `required`. Geometry properties are represented with `format: "geometry-{type}"` and `x-ogc-role: "primary-geometry"`. The BDTOPO identifier property `cleabs` is annotated with `x-ogc-role: "id"`.
-
-## Test a local package build in geocontext
-
-See [docs/local-package-build-geocontext.md](docs/local-package-build-geocontext.md).
 
 ## Test a local package build in geocontext
 
