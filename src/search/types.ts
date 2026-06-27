@@ -1,5 +1,3 @@
-import type { EnrichedCollection } from '@/pivot/types';
-
 /**
  * Generic search options that a catalog can pass to a search engine.
  */
