@@ -30,22 +30,8 @@ const PROPERTY_TYPES = [...SCALAR_PROPERTY_TYPES, ...GEOMETRY_PROPERTY_TYPES] as
 export const collectionPropertyTypeSchema = z.enum(PROPERTY_TYPES);
 export type CollectionPropertyType = z.infer<typeof collectionPropertyTypeSchema>;
 
-/**
- * Test if the value is a supported type name.
- */
-export function isValidPropertyType(value: unknown): value is CollectionPropertyType {
-  return collectionPropertyTypeSchema.safeParse(value).success;
-}
-
-/**
- * Test if the value is a geometry type name.
- */
-export function isGeometryType(value: unknown): boolean {
-  if ( ! isValidPropertyType(value) ){
-    return false;
-  }
-  return (GEOMETRY_PROPERTY_TYPES as readonly CollectionPropertyType[]).includes(value);
-}
+export const geometryPropertyTypeSchema = z.enum(GEOMETRY_PROPERTY_TYPES);
+export type GeometryPropertyType = z.infer<typeof geometryPropertyTypeSchema>;
 
 /*
  * ============================================================================
@@ -80,4 +66,24 @@ export type EnrichedCollectionValue = {
   description?: string;
   'x-ign-representedFeatures'?: string[];
 };
+
+/*
+ * ============================================================================
+ * helpers for the pivot model
+ * ============================================================================
+ */
+
+/**
+ * Test if the value is a supported type name.
+ */
+export function isValidPropertyType(value: unknown): value is CollectionPropertyType {
+  return collectionPropertyTypeSchema.safeParse(value).success;
+}
+
+/**
+ * Test if the value is a geometry type name.
+ */
+export function isGeometryType(value: unknown): value is GeometryPropertyType {
+  return geometryPropertyTypeSchema.safeParse(value).success;
+}
 
