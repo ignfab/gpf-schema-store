@@ -35,10 +35,10 @@ export type { MiniSearchCollectionSearchOptions } from "./search/minisearch-engi
 /**
  * Allows to configure miniSearch or to provide a custom searchEngine (mutually exclusive)
  */
-export type CollectionCatalogOptions = {
-    miniSearch?: MiniSearchCollectionSearchOptions;
-    searchEngine?: CollectionSearchEngine;
-};
+export type CollectionCatalogOptions =
+    | { searchEngine: CollectionSearchEngine; miniSearch?: never }
+    | { miniSearch: MiniSearchCollectionSearchOptions; searchEngine?: never }
+    | { searchEngine?: never; miniSearch?: never };
 
 /**
  * Returns a CollectionCatalog built from the enriched collections using
@@ -47,12 +47,6 @@ export type CollectionCatalogOptions = {
 export function getCollectionCatalog(
     options: CollectionCatalogOptions = {},
 ): CollectionCatalog {
-    if (options.miniSearch && options.searchEngine) {
-        throw new Error(
-            "miniSearch and searchEngine options are mutually exclusive: provide at most one.",
-        );
-    }
-
     const collections = loadEnrichedCollections();
 
     const searchEngine =

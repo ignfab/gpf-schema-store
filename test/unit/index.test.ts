@@ -73,19 +73,4 @@ describe('getCollectionCatalog', () => {
   });
 
 
-  describe('getCollectionCatalog with searchEngine and miniSearch', () => {
-
-    it('throws as searchEngine and miniSearch are mutually exclusive', () => {
-      expect(() => {
-        getCollectionCatalog({
-          searchEngine: new SingleMatchEngine('BDTOPO_V3:batiment'),
-          miniSearch: {
-            fields: ['title'],
-          },
-        });
-      }).toThrow('miniSearch and searchEngine options are mutually exclusive: provide at most one.');
-    });
-
-  });
-
 });
