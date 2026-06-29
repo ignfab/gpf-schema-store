@@ -1,4 +1,4 @@
-import type { CollectionMetadata, NamespaceFilterRule } from '@/config/types';
+import type { NamespaceFilterMetadata, NamespaceFilterRule } from '@/config/types';
 import { findFirstMatchingRule } from "./namespace-filters";
 
 /**
@@ -26,7 +26,7 @@ export function parseFeatureTypeName(fullName: string): { namespace: string; nam
  * @param namespace - The namespace of the collection
  * @returns The metadata of the collection
  */
-export function getMetadataFromNamespace(namespace: string, namespaceFilterRules: NamespaceFilterRule[]): CollectionMetadata {
+export function getMetadataFromNamespace(namespace: string, namespaceFilterRules: NamespaceFilterRule[]): NamespaceFilterMetadata {
     const matchingRule = findFirstMatchingRule(namespace, namespaceFilterRules);
     if (matchingRule) {
         return matchingRule.metadata;

@@ -20,28 +20,28 @@ export const zPackageMetadata = z.looseObject({
 /**
  * Metadata assigned to namespaces through data/namespace-filters.yaml.
  */
-export const collectionMetadataSchema = z.object({
+export const zNamespaceFilterMetadata = z.object({
   ignored: z.boolean().describe('Indicates whether the namespace should be ignored'),
   ignoredReason: z.string().optional().describe('The reason for ignoring the namespace'),
   product: z.string().optional().describe('The product associated with the namespace'),
 }).strict();
 
-export type CollectionMetadata = z.infer<typeof collectionMetadataSchema>;
+export type NamespaceFilterMetadata = z.infer<typeof zNamespaceFilterMetadata>;
 
 /**
  * Zod schema for a rule in data/namespace-filters.yaml
  */
-export const namespaceFilterRuleSchema = z.object({
+export const zNamespaceFilterRule = z.object({
   id: z.string().min(1).describe('The unique identifier of the rule'),
   patterns: z.array(z.string()).describe('The patterns to match against the namespace'),
-  metadata: collectionMetadataSchema.describe('The metadata to assign if the namespace matches the patterns'),
+  metadata: zNamespaceFilterMetadata.describe('The metadata to assign if the namespace matches the patterns'),
 });
 
-export type NamespaceFilterRule = z.infer<typeof namespaceFilterRuleSchema>;
+export type NamespaceFilterRule = z.infer<typeof zNamespaceFilterRule>;
 
 /**
  * Zod schema for data/namespace-filters.yaml
  */
-export const namespaceFiltersSchema = z.object({
-  rules: z.array(namespaceFilterRuleSchema),
+export const zNamespaceFiltersFile = z.object({
+  rules: z.array(zNamespaceFilterRule),
 });
