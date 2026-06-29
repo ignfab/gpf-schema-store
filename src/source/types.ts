@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { collectionPropertyTypeSchema } from '@/pivot/types';
+import { zCollectionPropertyType } from '@/pivot/types';
 
 /*
  * ============================================================================
@@ -11,27 +11,30 @@ import { collectionPropertyTypeSchema } from '@/pivot/types';
 // `namespace` and `name` are kept for file layout and search, but are not part
 // of the public JSON Schema output.
 
-export const sourceCollectionPropertySchema = z.object({
+export const zSourceCollectionProperty = z.object({
   name: z.string().min(1),
-  type: collectionPropertyTypeSchema,
+  type: zCollectionPropertyType,
   // Internal geometry hint later rendered as `x-ign-defaultCrs`.
   defaultCrs: z.string().min(1).optional(),
 }).strict();
 
-export type SourceCollectionProperty = z.infer<typeof sourceCollectionPropertySchema>;
+export type SourceCollectionProperty = z.infer<typeof zSourceCollectionProperty>;
 
-export const sourceCollectionSchema = z.object({
+
+export const zSourceCollection = z.object({
   id: z.string().min(1),
   namespace: z.string().min(1),
   name: z.string().min(1),
   title: z.string(),
   description: z.string(),
-  properties: z.array(sourceCollectionPropertySchema),
+  properties: z.array(zSourceCollectionProperty),
 }).strict();
 
-export type SourceCollection = z.infer<typeof sourceCollectionSchema>;
-// GetCapabilities shape before DescribeFeatureType fills `properties`.
+export type SourceCollection = z.infer<typeof zSourceCollection>;
 
-export const sourceCollectionBriefSchema = sourceCollectionSchema.omit({ properties: true });
 
-export type SourceCollectionBrief = z.infer<typeof sourceCollectionBriefSchema>;
+export const zSourceCollectionBrief = zSourceCollection.omit({ properties: true });
+/**
+ * Informations from GetCapabilities before DescribeFeatureType fills `properties`
+ */
+export type SourceCollectionBrief = z.infer<typeof zSourceCollectionBrief>;

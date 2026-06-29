@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
-import { packageMetadataSchema } from '@/config/types';
+import { zPackageMetadata } from '@/config/types';
 
 describe('packageMetadataSchema', () => {
   it('accepts a real package.json shape with additional keys', () => {
-    const result = packageMetadataSchema.safeParse({
+    const result = zPackageMetadata.safeParse({
       name: '@ignfab/gpf-schema-store',
       description: 'Experimental OGC API Features schema store enriched from Geoplateforme WFS.',
       version: '0.1.4',
@@ -22,7 +22,7 @@ describe('packageMetadataSchema', () => {
   });
 
   it('rejects package metadata without a version', () => {
-    const result = packageMetadataSchema.safeParse({
+    const result = zPackageMetadata.safeParse({
       name: '@ignfab/gpf-schema-store',
     });
 

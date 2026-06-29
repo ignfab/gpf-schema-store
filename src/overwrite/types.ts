@@ -7,38 +7,37 @@ import { z } from 'zod';
  * (eg. EnrichedCollection has id, namespace and name)
  * ============================================================================
  */
-const representedFeaturesSchema = z.array(z.string().min(1));
+const zRepresentedFeatures = z.array(z.string().min(1));
 
-export const collectionOverwriteValueSchema = z.object({
+export const zCollectionOverwriteValue = z.object({
   const: z.string(),
   title: z.string(),
   description: z.string().optional(),
-  'x-ign-representedFeatures': representedFeaturesSchema.optional(),
+  'x-ign-representedFeatures': zRepresentedFeatures.optional(),
 }).strict();
 
-export const collectionOverwritePropertySchema = z.object({
+export type CollectionOverwriteValue = z.infer<typeof zCollectionOverwriteValue>;
+
+
+export const zCollectionOverwriteProperty = z.object({
   name: z.string().min(1),
   type: z.string(),
   title: z.string(),
   description: z.string(),
-  oneOf: z.array(collectionOverwriteValueSchema).optional(),
+  oneOf: z.array(zCollectionOverwriteValue).optional(),
 }).strict();
 
-export const collectionOverwriteSchema = z.object({
+export type CollectionOverwriteProperty = z.infer<typeof zCollectionOverwriteProperty>;
+
+
+export const zCollectionOverwrite = z.object({
   title: z.string(),
   description: z.string(),
   'x-ign-theme': z.string(),
   'x-ign-selectionCriteria': z.string().optional(),
-  'x-ign-representedFeatures': representedFeaturesSchema.optional(),
+  'x-ign-representedFeatures': zRepresentedFeatures.optional(),
   required: z.array(z.string().min(1)),
-  properties: z.array(collectionOverwritePropertySchema),
+  properties: z.array(zCollectionOverwriteProperty),
 }).strict();
-// Overwrite input layered on top of WFS snapshots.
 
-export type CollectionOverwrite = z.infer<typeof collectionOverwriteSchema>;
-// Overwrite files may still contain legacy type names. The merge keeps the WFS
-// property type and treats this field as permissive input only.
-
-export type CollectionOverwriteProperty = z.infer<typeof collectionOverwritePropertySchema>;
-
-export type CollectionOverwriteValue = z.infer<typeof collectionOverwriteValueSchema>;
+export type CollectionOverwrite = z.infer<typeof zCollectionOverwrite>;

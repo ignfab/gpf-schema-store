@@ -27,11 +27,11 @@ const GEOMETRY_PROPERTY_TYPES = [
 // Single source of truth: scalar and geometry types are each listed once.
 const PROPERTY_TYPES = [...SCALAR_PROPERTY_TYPES, ...GEOMETRY_PROPERTY_TYPES] as const;
 
-export const collectionPropertyTypeSchema = z.enum(PROPERTY_TYPES);
-export type CollectionPropertyType = z.infer<typeof collectionPropertyTypeSchema>;
+export const zCollectionPropertyType = z.enum(PROPERTY_TYPES);
+export type CollectionPropertyType = z.infer<typeof zCollectionPropertyType>;
 
-export const geometryPropertyTypeSchema = z.enum(GEOMETRY_PROPERTY_TYPES);
-export type GeometryPropertyType = z.infer<typeof geometryPropertyTypeSchema>;
+export const zGeometryPropertyType = z.enum(GEOMETRY_PROPERTY_TYPES);
+export type GeometryPropertyType = z.infer<typeof zGeometryPropertyType>;
 
 /*
  * ============================================================================
@@ -77,13 +77,13 @@ export type EnrichedCollectionValue = {
  * Test if the value is a supported type name.
  */
 export function isValidPropertyType(value: unknown): value is CollectionPropertyType {
-  return collectionPropertyTypeSchema.safeParse(value).success;
+  return zCollectionPropertyType.safeParse(value).success;
 }
 
 /**
  * Test if the value is a geometry type name.
  */
 export function isGeometryType(value: unknown): value is GeometryPropertyType {
-  return geometryPropertyTypeSchema.safeParse(value).success;
+  return zGeometryPropertyType.safeParse(value).success;
 }
 

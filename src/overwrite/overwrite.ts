@@ -1,6 +1,6 @@
 import { formatSchemaIssues } from '@/helpers/zod';
 import {
-  collectionOverwriteSchema,
+  zCollectionOverwrite,
   type CollectionOverwrite
 } from './types';
 import { type SourceCollection } from '@/source/types';
@@ -60,7 +60,7 @@ function validateOneOfDuplicates(overwrite: CollectionOverwrite, context: string
 export function parseOverwrite(raw: unknown, context = '<unknown>'): CollectionOverwrite {
   validateNoLegacyRootIdentifiers(raw, context);
 
-  const result = collectionOverwriteSchema.safeParse(raw);
+  const result = zCollectionOverwrite.safeParse(raw);
   if (!result.success) {
     throw new Error(`Invalid overwrite ${context}: ${formatSchemaIssues(result.error)}`);
   }

@@ -18,7 +18,7 @@ import { loadCollectionOverwrite } from './overwrite/overwrite-store';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
 import { WfsClient } from './source/wfs';
 import { loadSourceCollections, replaceSourceCollections } from './source/source-store';
-import { packageMetadataSchema } from './config/types';
+import { zPackageMetadata } from './config/types';
 import { type NamespaceFilterRule } from './config/types';
 import {
   type SourceCollection,
@@ -103,7 +103,7 @@ function buildProgram(): Command {
 
 function loadPackageVersion(): string {
   const raw = JSON.parse(readFileSync(PACKAGE_JSON_PATH, 'utf-8')) as unknown;
-  const result = packageMetadataSchema.safeParse(raw);
+  const result = zPackageMetadata.safeParse(raw);
   if (!result.success) {
     throw new Error(
       `Invalid package metadata ${PACKAGE_JSON_PATH}: ${formatSchemaIssues(result.error)}`,
