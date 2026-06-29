@@ -1,4 +1,4 @@
-import { type CollectionPropertyType } from "../../pivot/types";
+import { type CollectionPropertyType } from "@/pivot/types";
 import { UnexpectedTypeError } from '@/errors/types';
 
 /*

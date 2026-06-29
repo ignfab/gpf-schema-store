@@ -1,4 +1,4 @@
-import { formatSchemaIssues } from '../helpers/zod';
+import { formatSchemaIssues } from '@/helpers/zod';
 import {
   collectionOverwriteSchema,
   type CollectionOverwrite
