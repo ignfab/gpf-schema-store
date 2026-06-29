@@ -7,32 +7,6 @@ import { z } from 'zod';
  * ============================================================================
  */
 
-/**
- * The list of the supported property types currently aligned with
- * @camptocamp/ogc-client.
- */
-const PROPERTY_TYPES = [
-  'string',
-  'boolean',
-  'float',   // WARNING : number with TableSchema and JsonSchema (API FEATURE)
-  'integer',
-  'point',
-  'linestring',
-  'polygon',
-  'multilinestring',
-  'multipolygon',
-  'multipoint',
-  'geometry',
-] as const;
-
-const GEOMETRY_TYPES = [
-  'point',
-  'linestring',
-  'polygon',
-  'multilinestring',
-  'multipolygon',
-  'multipoint',
-  'geometry'
 const SCALAR_PROPERTY_TYPES = [
   'string',
   'boolean',
@@ -70,7 +44,7 @@ export function isGeometryType(value: unknown): boolean {
   if ( ! isValidPropertyType(value) ){
     return false;
   }
-  return (GEOMETRY_TYPES as readonly CollectionPropertyType[]).includes(value);
+  return (GEOMETRY_PROPERTY_TYPES as readonly CollectionPropertyType[]).includes(value);
 }
 
 /*
