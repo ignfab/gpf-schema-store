@@ -62,7 +62,6 @@ function mergeProperty(
 
   const merged: EnrichedCollectionProperty = {
     ...sourceProperty,
-    name: overwriteProperty.name,
     title: overwriteProperty.title,
     description: overwriteProperty.description,
   };
