@@ -8,22 +8,23 @@
   "x-ign-selectionCriteria": "Seuls les EPCI à fiscalité propre sont retenus, ainsi que les EPT (Etablissement public territorial) liés à la métropole du Grand Paris.",
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "nom_officiel": {
+      "type": "string",
       "title": "Nom officiel",
-      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées.",
-      "type": "string"
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées."
     },
     "code_siren": {
+      "type": "string",
       "title": "Code Siren",
-      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro. Source Insee",
-      "type": "string"
+      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro. Source Insee"
     },
     "nature": {
+      "type": "string",
       "title": "Nature",
       "description": "Nature de l'EPCI",
       "oneOf": [
@@ -52,48 +53,47 @@
           "title": "Métropole",
           "description": "EPCI qui forment, à la date de la création de la métropole, un ensemble de plus de 400 000 habitants et dans le périmètre desquels se trouve le chef-lieu de Région ; les EPCI, centres d'une zone d'emplois de plus de 400 000 habitants, qui en font la demande. Toutefois la métropole de Lyon n'est pas (en dépit de son nom) réellement une métropole ni même un EPCI, mais une Collectivité territoriale à statut particulier qui (au-delà des autres caractéristiques des métropoles) se substitue à la Collectivité territoriale de son ancien Département."
         }
-      ],
-      "type": "string"
+      ]
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "codes_insee_des_communes_membres": {
+      "type": "string",
       "title": "Codes Insee des communes membres",
-      "description": "Liste des codes Insee des communes membres de l'EPCI séparés par '/'.",
-      "type": "string"
+      "description": "Liste des codes Insee des communes membres de l'EPCI séparés par '/'."
     },
     "codes_insee_des_departements_membres": {
+      "type": "string",
       "title": "Codes Insee des départements membres",
-      "description": "Liste des codes Insee des départements dont les communes sont membres de l'EPCI.",
-      "type": "string"
+      "description": "Liste des codes Insee des départements dont les communes sont membres de l'EPCI."
     },
     "liens_vers_autorite_administrative": {
+      "type": "string",
       "title": "Liens vers autorité administrative",
-      "description": "Lien vers le siège de l'autorité administrative de l'EPCI modélisé par une de Nature=\"Siège d'EPCI\".",
-      "type": "string"
+      "description": "Lien vers le siège de l'autorité administrative de l'EPCI modélisé par une de Nature=\"Siège d'EPCI\"."
     },
     "geometrie": {
+      "format": "geometry-multipolygon",
       "title": "Géométrie GE MultiPolygone",
       "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle.",
-      "format": "geometry-multipolygon",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

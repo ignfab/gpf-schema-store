@@ -7,12 +7,13 @@
   "description": "",
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "nature": {
+      "type": "string",
       "title": "Nature",
       "description": "Précise la nature d'un lieu-dit rural ne correspondant pas à une zone d'habitation.",
       "oneOf": [
@@ -50,15 +51,15 @@
           "title": "Pare-feu",
           "description": "Dispositif destiné à empêcher la propagation d’un incendie (généralement, ouverture pratiquée dans le massif forestier menacé)."
         }
-      ],
-      "type": "string"
+      ]
     },
     "toponyme": {
+      "type": "string",
       "title": "Toponyme",
-      "description": "Toponyme de l'objet.",
-      "type": "string"
+      "description": "Toponyme de l'objet."
     },
     "statut_du_toponyme": {
+      "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
       "oneOf": [
@@ -87,10 +88,10 @@
           "title": "Validé",
           "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
         }
-      ],
-      "type": "string"
+      ]
     },
     "importance": {
+      "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les toponymes de lieux-dits non habités en fonction de l'emprise de l'espace naturel qu'ils nomment.",
       "oneOf": [
@@ -124,40 +125,40 @@
           "title": "6",
           "description": "L'objet désigne un lieu-dit naturel d'emprise inférieure à 10 ha et donc la notoriété est très locale ou constitue une information redondante avec d'autres objets"
         }
-      ],
-      "type": "string"
+      ]
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "sources": {
+      "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "type": "string"
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     "identifiants_sources": {
+      "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "type": "string"
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     "methode_d_acquisition_planimetrique": {
+      "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
       "oneOf": [
@@ -289,33 +290,32 @@
           "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
-      ],
-      "type": "string"
+      ]
     },
     "precision_planimetrique": {
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "type": "number"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     "insee_commune": {
+      "type": "string",
       "title": "Insee commune calculé",
-      "description": "Code INSEE de la commune calculé.",
-      "type": "string"
+      "description": "Code INSEE de la commune calculé."
     },
     "identifiant_voie_ban": {
+      "type": "string",
       "title": "Identifiant voie BAN",
-      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056.",
-      "type": "string"
+      "description": "Définition : Identifiant unique de voie généré à partir de la clé d’interopérabilité des adresses de la BAN. Il est composé du code INSEE de la commune suivi par le code caractérisant la voie. Il peut s’agir du code FANTOIR de la DGFiP. Exemple : l’identifiant de voie correspondant à la clé d’interopérabilité 02001_0056_00022_bis est 02001_0056."
     },
     "id_ban_odonyme": {
+      "type": "string",
       "title": "Id BAN Odonyme",
-      "description": "Identifiant de l'odonyme de la BAN, au format uuid.",
-      "type": "string"
+      "description": "Identifiant de l'odonyme de la BAN, au format uuid."
     },
     "geometrie": {
+      "format": "geometry-point",
       "title": "Géométrie",
       "description": "",
-      "format": "geometry-point",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

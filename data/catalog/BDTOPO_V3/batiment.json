@@ -8,12 +8,13 @@
   "x-ign-selectionCriteria": "Initialement, les seuils de sélection des bâtiments étaient les suivants : - Tous les bâtiments de plus de 50 m² sont inclus. - Les bâtiments faisant entre 20 et 50 m² sont sélectionnés en fonction de leur environnement et de leur aspect. - Les bâtiments de moins de 20 m² sont représentés par un objet de classe Construction ponctuelle s’ils sont très hauts, ou s’ils sont spécifiquement désignés sur la carte au 1 : 25 000 en cours (ex: antenne, transformateur…). Après unification de la BD TOPO® avec la BD PARCELLAIRE® Tous les bâtiments présents dans la dernière édition de la BD PARCELLAIRE® vecteur sont inclus, sauf éventuellement des bâtiments manifestement détruits depuis la date de validité de la BD PARCELLAIRE®. Les petits bâtiments de la BD PARCELLAIRE® qui représentent des constructions ponctuelles (exemple des transformateurs) ou des constructions linéaires (exemple des murs de remparts) sont saisis avec leur modélisation initiale respective en BD TOPO®. Il n’existe plus de seuil minimal pour la superficie des bâtiments. Cependant, si une nouvelle saisie photogrammétrique a lieu après les phases d’unification du bâti, les nouveaux bâtiments ne posséderont pas la granularité de la BD PARCELLAIRE®. Pour la restitution, les seuils de sélection initiaux sont alors appliqués (bâtiments de plus de 50 m² et bâtiments de 20 à 50 m² en fonction de leur environnement et de leur aspect).",
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "nature": {
+      "type": "string",
       "title": "Nature",
       "description": "Attribut permettant de distinguer différents types de bâtiments selon leur architecture.",
       "oneOf": [
@@ -166,10 +167,10 @@
           "title": "Tribune",
           "description": "Tribune de terrain de sport (stade, hippodrome, vélodrome,…)."
         }
-      ],
-      "type": "string"
+      ]
     },
     "usage_1": {
+      "type": "string",
       "title": "Usage 1",
       "description": "Usage du bâtiment ou d'une partie du bâtiment.",
       "oneOf": [
@@ -285,10 +286,10 @@
             "Manège couvert"
           ]
         }
-      ],
-      "type": "string"
+      ]
     },
     "usage_2": {
+      "type": "string",
       "title": "Usage 2",
       "description": "Autre usage d'un bâtiment de fonction mixte.",
       "oneOf": [
@@ -324,15 +325,15 @@
           "const": "Sportif",
           "title": "Sportif"
         }
-      ],
-      "type": "string"
+      ]
     },
     "construction_legere": {
+      "type": "boolean",
       "title": "Construction légère",
-      "description": "Indique qu'il s'agit d'une structure légère, non attachée au sol par l'intermédiaire de fondations, ou d'un bâtiment ou partie de bâtiment ouvert sur au moins un côté.",
-      "type": "boolean"
+      "description": "Indique qu'il s'agit d'une structure légère, non attachée au sol par l'intermédiaire de fondations, ou d'un bâtiment ou partie de bâtiment ouvert sur au moins un côté."
     },
     "etat_de_l_objet": {
+      "type": "string",
       "title": "Etat de l'objet bati",
       "description": "État ou stade de vie d'un objet qui, pour le thème bâti, peut être en projet, en construction, en service ou en ruine.",
       "oneOf": [
@@ -356,40 +357,40 @@
           "title": "En service",
           "description": "L'objet géographique est en service, c'est à dire sa construction est terminée."
         }
-      ],
-      "type": "string"
+      ]
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "sources": {
+      "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "type": "string"
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     "identifiants_sources": {
+      "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "type": "string"
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     "methode_d_acquisition_planimetrique": {
+      "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
       "oneOf": [
@@ -521,10 +522,10 @@
           "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
-      ],
-      "type": "string"
+      ]
     },
     "methode_d_acquisition_altimetrique": {
+      "type": "string",
       "title": "Méthode d'acquisition altimétrique",
       "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
       "oneOf": [
@@ -602,65 +603,65 @@
           "title": "Z corrigé",
           "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
         }
-      ],
-      "type": "string"
+      ]
     },
     "precision_planimetrique": {
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "type": "number"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     "precision_altimetrique": {
+      "type": "number",
       "title": "Précision altimétrique",
-      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet.",
-      "type": "number"
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet."
     },
     "nombre_de_logements": {
+      "type": "integer",
       "title": "Nombre de logements",
-      "description": "Nombre de logement dans le bâtiment.",
-      "type": "integer"
+      "description": "Nombre de logement dans le bâtiment."
     },
     "nombre_d_etages": {
+      "type": "integer",
       "title": "Nombre d'étages",
-      "description": "Nombre total d'étages du bâtiment, rez-de-chaussée compris. Les sous-sol ne sont pas comptés.",
-      "type": "integer"
+      "description": "Nombre total d'étages du bâtiment, rez-de-chaussée compris. Les sous-sol ne sont pas comptés."
     },
     "materiaux_des_murs": {
+      "type": "string",
       "title": "Matériaux des murs",
-      "description": "Code indiquant les matériaux des murs du bâtiment, issu des informations contenues dans les fichiers fonciers.",
-      "type": "string"
+      "description": "Code indiquant les matériaux des murs du bâtiment, issu des informations contenues dans les fichiers fonciers."
     },
     "materiaux_de_la_toiture": {
+      "type": "string",
       "title": "Matériaux de la toiture",
-      "description": "Code indiquant les matériaux de la toiture du bâtiment, issu des informations contenues dans les fichiers fonciers.",
-      "type": "string"
+      "description": "Code indiquant les matériaux de la toiture du bâtiment, issu des informations contenues dans les fichiers fonciers."
     },
     "hauteur": {
+      "type": "number",
       "title": "Hauteur",
-      "description": "Hauteur du bâtiment mesurée entre le sol et le point haut de la gouttière (altitude maximum de la polyligne décrivant le bâtiment), exprimée en mètres.",
-      "type": "number"
+      "description": "Hauteur du bâtiment mesurée entre le sol et le point haut de la gouttière (altitude maximum de la polyligne décrivant le bâtiment), exprimée en mètres."
     },
     "altitude_minimale_sol": {
+      "type": "number",
       "title": "Altitude minimale sol",
-      "description": "Altitude représentative au pied du bâtiment, du côté bas de la pente, exprimée en mètres.",
-      "type": "number"
+      "description": "Altitude représentative au pied du bâtiment, du côté bas de la pente, exprimée en mètres."
     },
     "altitude_minimale_toit": {
+      "type": "number",
       "title": "Altitude minimale toit",
-      "description": "Altitude du toit du bâtiment au niveau de l'arête décrivant son contour, exprimée en mètres.",
-      "type": "number"
+      "description": "Altitude du toit du bâtiment au niveau de l'arête décrivant son contour, exprimée en mètres."
     },
     "altitude_maximale_toit": {
+      "type": "number",
       "title": "Altitude maximale toit",
-      "description": "Altitude qui correspond à la hauteur maximale du toit, c’est-à-dire au faîte du toit, exprimée en mètres.",
-      "type": "number"
+      "description": "Altitude qui correspond à la hauteur maximale du toit, c’est-à-dire au faîte du toit, exprimée en mètres."
     },
     "altitude_maximale_sol": {
+      "type": "number",
       "title": "Altitude maximale sol",
-      "description": "Altitude qui correspond à l’altitude maximale située au pied d’un bâtiment, exprimée en mètres.",
-      "type": "number"
+      "description": "Altitude qui correspond à l’altitude maximale située au pied d’un bâtiment, exprimée en mètres."
     },
     "origine_du_batiment": {
+      "type": "string",
       "title": "Origine du bâtiment",
       "description": "Précise l'origine de la géométrie du Bâtiment ou Réservoir.",
       "oneOf": [
@@ -684,23 +685,22 @@
           "title": "Lidar HD",
           "description": "La géométrie du bâtiment ou du réservoir provient d'un calcul à partir du nuage de points Lidar HD."
         }
-      ],
-      "type": "string"
+      ]
     },
     "appariement_fichiers_fonciers": {
+      "type": "string",
       "title": "Appariement fichiers fonciers",
-      "description": "Indicateur relatif à la fiabilité de l'appariement avec les fichiers fonciers. Ce chiffre exprime un taux de concordance entre la BD TOPO® et les fichiers fonciers basé sur plusieurs critères dont les principaux sont la surface, l'adresse, la nature et la hauteur.",
-      "type": "string"
+      "description": "Indicateur relatif à la fiabilité de l'appariement avec les fichiers fonciers. Ce chiffre exprime un taux de concordance entre la BD TOPO® et les fichiers fonciers basé sur plusieurs critères dont les principaux sont la surface, l'adresse, la nature et la hauteur."
     },
     "identifiants_rnb": {
+      "type": "string",
       "title": "Identifiants RNB",
-      "description": "Concaténation des identifiants du Référentiel National des Bâtiments Référentiel National des Bâtiments (RNB (https://rnb.beta.gouv.fr/definition)) associés au bâtiment BD TOPO®.",
-      "type": "string"
+      "description": "Concaténation des identifiants du Référentiel National des Bâtiments Référentiel National des Bâtiments (RNB (https://rnb.beta.gouv.fr/definition)) associés au bâtiment BD TOPO®."
     },
     "geometrie": {
+      "format": "geometry-multipolygon",
       "title": "Géométrie",
       "description": "Géométrie de l'objet.",
-      "format": "geometry-multipolygon",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

@@ -8,12 +8,13 @@
   "x-ign-selectionCriteria": "Voir les différentes valeurs de l'attribut 'Nature'.",
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "nature": {
+      "type": "string",
       "title": "Nature",
       "description": "Nature de la construction.",
       "oneOf": [
@@ -62,10 +63,10 @@
             "Pont mobile large"
           ]
         }
-      ],
-      "type": "string"
+      ]
     },
     "nature_detaillee": {
+      "type": "string",
       "title": "Nature détaillée",
       "description": "Cet attribut précise la 'Nature' de la construction.",
       "oneOf": [
@@ -99,15 +100,15 @@
           "title": "Viaduc",
           "description": "Viaduc"
         }
-      ],
-      "type": "string"
+      ]
     },
     "toponyme": {
+      "type": "string",
       "title": "Toponyme",
-      "description": "Toponyme de l'objet.",
-      "type": "string"
+      "description": "Toponyme de l'objet."
     },
     "statut_du_toponyme": {
+      "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
       "oneOf": [
@@ -136,10 +137,10 @@
           "title": "Validé",
           "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
         }
-      ],
-      "type": "string"
+      ]
     },
     "importance": {
+      "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les objets d'une classe en fonction de leur importance ou notoriété relative.",
       "oneOf": [
@@ -173,10 +174,10 @@
           "title": "6",
           "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
         }
-      ],
-      "type": "string"
+      ]
     },
     "etat_de_l_objet": {
+      "type": "string",
       "title": "Etat de l'objet bati",
       "description": "État ou stade de vie d'un objet qui, pour le thème bâti, peut être en projet, en construction, en service ou en ruine.",
       "oneOf": [
@@ -200,40 +201,40 @@
           "title": "En service",
           "description": "L'objet géographique est en service, c'est à dire sa construction est terminée."
         }
-      ],
-      "type": "string"
+      ]
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "sources": {
+      "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "type": "string"
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     "identifiants_sources": {
+      "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "type": "string"
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     "methode_d_acquisition_planimetrique": {
+      "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
       "oneOf": [
@@ -365,15 +366,15 @@
           "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
-      ],
-      "type": "string"
+      ]
     },
     "precision_planimetrique": {
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "type": "number"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     "methode_d_acquisition_altimetrique": {
+      "type": "string",
       "title": "Méthode d'acquisition altimétrique",
       "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
       "oneOf": [
@@ -451,18 +452,17 @@
           "title": "Z corrigé",
           "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
         }
-      ],
-      "type": "string"
+      ]
     },
     "precision_altimetrique": {
+      "type": "number",
       "title": "Précision altimétrique",
-      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet.",
-      "type": "number"
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet."
     },
     "geometrie": {
+      "format": "geometry-multipolygon",
       "title": "Géométrie",
       "description": "",
-      "format": "geometry-multipolygon",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

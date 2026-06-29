@@ -8,140 +8,140 @@
   "x-ign-selectionCriteria": "Un objet Commune est saisi pour chaque commune définie par l’INSEE.",
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "code_insee": {
+      "type": "string",
       "title": "Code Insee de la commune",
-      "description": "Il s’agit du numéro officiel attribué par l’Insee à la Commune : il est composé de 5 caractères, les deux premiers correspondant au numéro de Département.",
-      "type": "string"
+      "description": "Il s’agit du numéro officiel attribué par l’Insee à la Commune : il est composé de 5 caractères, les deux premiers correspondant au numéro de Département."
     },
     "code_insee_du_canton": {
+      "type": "string",
       "title": "Code Insee du canton",
-      "description": "Il s'agit plus précisément du code du pseudo-canton fourni par l'Insee. La commune peut appartenir à plusieurs cantons. Dans ce cas, le code canton attribué est un numéro de canton supérieur ou égal à 80.",
-      "type": "string"
+      "description": "Il s'agit plus précisément du code du pseudo-canton fourni par l'Insee. La commune peut appartenir à plusieurs cantons. Dans ce cas, le code canton attribué est un numéro de canton supérieur ou égal à 80."
     },
     "code_insee_de_l_arrondissement": {
+      "type": "string",
       "title": "Code Insee de l'arrondissement",
-      "description": "Code Insee de l'Arrondissement. Pour la classe Commune : Code Insee de l'Arrondissement auquel appartient la Commune.",
-      "type": "string"
+      "description": "Code Insee de l'Arrondissement. Pour la classe Commune : Code Insee de l'Arrondissement auquel appartient la Commune."
     },
     "code_insee_de_la_collectivite_terr": {
+      "type": "string",
       "title": "Code Insee de la collectivité terr",
-      "description": "Code INSEE de la Collectivité territoriale de niveau départemental incluant cette Commune.",
-      "type": "string"
+      "description": "Code INSEE de la Collectivité territoriale de niveau départemental incluant cette Commune."
     },
     "code_insee_du_departement": {
+      "type": "string",
       "title": "Code Insee du département",
-      "description": "Code Insee du Département auquel appartient l'unité administrative concernée.",
-      "type": "string"
+      "description": "Code Insee du Département auquel appartient l'unité administrative concernée."
     },
     "code_insee_de_la_region": {
+      "type": "string",
       "title": "Code Insee de la région",
-      "description": "Code Insee de la Région à laquelle appartient l'entité administrative concernée.",
-      "type": "string"
+      "description": "Code Insee de la Région à laquelle appartient l'entité administrative concernée."
     },
     "population": {
+      "type": "integer",
       "title": "Population",
-      "description": "La population municipale comprend les personnes : - ayant leur résidence habituelle sur le territoire de la commune, dans un logement ou une communauté - détenues dans les établissements pénitentiaires de la commune - les sans-abri recensées sur le territoire de la commune - résidant habituellement dans une habitation mobile recensée sur le territoire de la commune La population municipale d'un ensemble de communes est égale à la somme des populations municipales des communes qui le composent. Le concept de population municipale correspond désormais à la notion de population utilisée usuellement en statistique. En effet, elle ne comporte pas de doubles comptes : chaque personne vivant en France est comptée une fois et une seule. En 1999, c'était le concept de population sans doubles comptes qui correspondait à la notion de population statistique. Source Insee",
-      "type": "integer"
+      "description": "La population municipale comprend les personnes : - ayant leur résidence habituelle sur le territoire de la commune, dans un logement ou une communauté - détenues dans les établissements pénitentiaires de la commune - les sans-abri recensées sur le territoire de la commune - résidant habituellement dans une habitation mobile recensée sur le territoire de la commune La population municipale d'un ensemble de communes est égale à la somme des populations municipales des communes qui le composent. Le concept de population municipale correspond désormais à la notion de population utilisée usuellement en statistique. En effet, elle ne comporte pas de doubles comptes : chaque personne vivant en France est comptée une fois et une seule. En 1999, c'était le concept de population sans doubles comptes qui correspondait à la notion de population statistique. Source Insee"
     },
     "superficie_cadastrale": {
+      "type": "integer",
       "title": "Superficie cadastrale",
-      "description": "La superficie est exprimée en ha et correspond à la superficie cadastrale publiée par l'Insee, qui comprend « toutes les surfaces du domaine public et privé, cadastrées ou non cadastrées, à l'exception des lacs, étangs et glaciers de plus d'un kilomètre carré ainsi que des estuaires ». Source Insee",
-      "type": "integer"
+      "description": "La superficie est exprimée en ha et correspond à la superficie cadastrale publiée par l'Insee, qui comprend « toutes les surfaces du domaine public et privé, cadastrées ou non cadastrées, à l'exception des lacs, étangs et glaciers de plus d'un kilomètre carré ainsi que des estuaires ». Source Insee"
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "code_postal": {
+      "type": "string",
       "title": "Code postal",
-      "description": "Code postal utilisé pour la commune.",
-      "type": "string"
+      "description": "Code postal utilisé pour la commune."
     },
     "nom_officiel": {
+      "type": "string",
       "title": "Nom officiel",
-      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées.",
-      "type": "string"
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées."
     },
     "chef_lieu_d_arrondissement": {
+      "type": "boolean",
       "title": "Chef-lieu d'arrondissement",
-      "description": "Indique si la commune est chef-lieu d'Arrondissement ou non.",
-      "type": "boolean"
+      "description": "Indique si la commune est chef-lieu d'Arrondissement ou non."
     },
     "chef_lieu_de_collectivite_terr": {
+      "type": "boolean",
       "title": "Chef-lieu de collectivité terr",
-      "description": "Indique si la commune est chef-lieu d'une Collectivité territoriale ou non.",
-      "type": "boolean"
+      "description": "Indique si la commune est chef-lieu d'une Collectivité territoriale ou non."
     },
     "chef_lieu_de_departement": {
+      "type": "boolean",
       "title": "Chef-lieu de département",
-      "description": "Indique si la commune est chef-lieu d'un Département ou non.",
-      "type": "boolean"
+      "description": "Indique si la commune est chef-lieu d'un Département ou non."
     },
     "chef_lieu_de_region": {
+      "type": "boolean",
       "title": "Chef-lieu de région",
-      "description": "Indique si la commune est chef-lieu d'une Région ou non.",
-      "type": "boolean"
+      "description": "Indique si la commune est chef-lieu d'une Région ou non."
     },
     "capitale_d_etat": {
+      "type": "boolean",
       "title": "Capitale d'Etat",
-      "description": "Indique si la commune est la capitale d'Etat ou non.",
-      "type": "boolean"
+      "description": "Indique si la commune est la capitale d'Etat ou non."
     },
     "date_du_recensement": {
+      "type": "string",
       "title": "Date du recensement",
-      "description": "Date du recensement correspondant au chiffre de population saisi dans le champ 'Population'.",
-      "type": "string"
+      "description": "Date du recensement correspondant au chiffre de population saisi dans le champ 'Population'."
     },
     "organisme_recenseur": {
+      "type": "string",
       "title": "Organisme recenseur",
-      "description": "Organisme officiel fournissant les données de la population des unités administratives françaises. L'Insee étant le seul fournisseur officiel de cette donnée, l'organisme recenseur présente l'unique valeur \" INSEE\".",
-      "type": "string"
+      "description": "Organisme officiel fournissant les données de la population des unités administratives françaises. L'Insee étant le seul fournisseur officiel de cette donnée, l'organisme recenseur présente l'unique valeur \" INSEE\"."
     },
     "code_siren": {
+      "type": "string",
       "title": "Code Siren",
-      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro. Source Insee",
-      "type": "string"
+      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro. Source Insee"
     },
     "codes_siren_des_epci": {
+      "type": "string",
       "title": "Codes SIREN des EPCI",
-      "description": "codes SIREN des EPCI à fiscalité propre auxquels appartient la Commune.",
-      "type": "string"
+      "description": "codes SIREN des EPCI à fiscalité propre auxquels appartient la Commune."
     },
     "lien_vers_chef_lieu": {
+      "type": "string",
       "title": "Lien vers chef-lieu",
-      "description": "Lien vers l’identifiant de la du chef-lieu duquel dépend la Commune.",
-      "type": "string"
+      "description": "Lien vers l’identifiant de la du chef-lieu duquel dépend la Commune."
     },
     "liens_vers_autorite_administrative": {
+      "type": "string",
       "title": "Liens vers autorité administrative",
-      "description": "Lien vers la clé absolue de l'objet , de Nature=\"Mairie\", de la Commune concernée, lieu de l'autorité administrative communale.",
-      "type": "string"
+      "description": "Lien vers la clé absolue de l'objet , de Nature=\"Mairie\", de la Commune concernée, lieu de l'autorité administrative communale."
     },
     "geometrie": {
+      "format": "geometry-multipolygon",
       "title": "Géométrie GE MultiPolygone",
       "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle.",
-      "format": "geometry-multipolygon",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

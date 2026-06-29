@@ -1,7 +1,8 @@
 import { isGeometryType, type CollectionPropertyType } from '@/pivot/types';
-import type {
-  OgcCollectionSchema,
-  OgcCollectionProperty
+import {
+  type OgcCollectionSchema,
+  type OgcCollectionProperty,
+  zOgcCollectionSchema
 } from './types';
 import type {
   EnrichedCollection,
@@ -135,5 +136,5 @@ export function renderCollectionSchema(collection: EnrichedCollection): OgcColle
   schema.properties = properties;
   schema.required = collection.required ? [...collection.required] : [];
 
-  return schema as OgcCollectionSchema;
+  return zOgcCollectionSchema.parse(schema);
 }
