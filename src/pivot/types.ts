@@ -33,7 +33,25 @@ const GEOMETRY_TYPES = [
   'multipolygon',
   'multipoint',
   'geometry'
+const SCALAR_PROPERTY_TYPES = [
+  'string',
+  'boolean',
+  'float',   // WARNING : number with TableSchema and JsonSchema (API FEATURE)
+  'integer',
 ] as const;
+
+const GEOMETRY_PROPERTY_TYPES = [
+  'point',
+  'linestring',
+  'polygon',
+  'multilinestring',
+  'multipolygon',
+  'multipoint',
+  'geometry',
+] as const;
+
+// Single source of truth: scalar and geometry types are each listed once.
+const PROPERTY_TYPES = [...SCALAR_PROPERTY_TYPES, ...GEOMETRY_PROPERTY_TYPES] as const;
 
 export const collectionPropertyTypeSchema = z.enum(PROPERTY_TYPES);
 export type CollectionPropertyType = z.infer<typeof collectionPropertyTypeSchema>;
