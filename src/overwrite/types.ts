@@ -3,7 +3,8 @@ import { z } from 'zod';
 /*
  * ============================================================================
  * Overwrite Model
- * TODO : align with pivot model
+ * TODO : align with pivot model 
+ * (eg. EnrichedCollection has id, namespace and name)
  * ============================================================================
  */
 const representedFeaturesSchema = z.array(z.string().min(1));
