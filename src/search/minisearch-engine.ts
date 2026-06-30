@@ -151,7 +151,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
   private readonly miniSearch: MiniSearch<SearchDocument>;
 
   // Resolved once at construction time by merging defaults with caller options.
-  private readonly defaultSearchOptions: { fields?: IndexedSearchField[]; combineWith?: 'AND' | 'OR'; boost: ResolvedBoost; fuzzy: number };
+  private readonly defaultSearchOptions: { limit?: number, fields?: IndexedSearchField[]; combineWith?: 'AND' | 'OR'; boost: ResolvedBoost; fuzzy: number };
 
   /*
    * ---------------------------------------------------------------------------
@@ -183,6 +183,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
   ) {
     const defaultSearchOptions = options.defaultSearchOptions ?? {};
     this.defaultSearchOptions = {
+      limit: defaultSearchOptions.limit,
       fields: defaultSearchOptions.fields,
       combineWith: defaultSearchOptions.combineWith,
       boost: {
@@ -242,12 +243,27 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
         match: result.match,
       }));
 
-    if (options.limit === undefined) {
+    const limit = this.getSearchLimit(options);
+    if (limit === undefined) {
       return results;
     }
 
-    return results.slice(0, Math.max(0, options.limit));
+    return results.slice(0, Math.max(0, limit));
   }
+
+  /**
+   * Get search limit 
+   */
+  private getSearchLimit(options: MiniSearchCollectionSearchOptions): number|undefined {
+    if ( options.limit !== undefined ){
+      return options.limit;
+    }
+    if ( this.defaultSearchOptions.limit !== undefined ){
+      return this.defaultSearchOptions.limit;
+    }
+    return undefined
+  }
+
 
   // Exposed mainly for debugging, CLI output, and tests.
   getDefaultSearchOptions(): MiniSearchCollectionSearchOptions {
