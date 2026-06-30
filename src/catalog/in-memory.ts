@@ -18,19 +18,13 @@ import type { CollectionCatalog } from './types';
  */
 export class InMemoryCollectionCatalog implements CollectionCatalog {
 
-  private readonly collections: EnrichedCollection[];
-  private readonly briefsById: Map<string, OgcCollectionBrief>;
+  private readonly briefs: OgcCollectionBrief[];
   private readonly schemasById: Map<string, OgcCollectionSchema>;
   private readonly searchEngine: CollectionSearchEngine;
 
   constructor(collections: EnrichedCollection[], searchEngine: CollectionSearchEngine) {
-    this.collections = collections;
-
-    // Render the public brief view once at construction time and keep it
-    // indexed by collection id for later lookup and search result resolution.
-    this.briefsById = new Map(
-      collections.map((collection) => [collection.id, renderCollectionBrief(collection)])
-    );
+    // Render the public brief view once at construction time.
+    this.briefs = collections.map((collection) => renderCollectionBrief(collection));
 
     this.schemasById = new Map(
       collections.map((collection) => [collection.id, renderCollectionSchema(collection)])
@@ -40,7 +34,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
   }
 
   list(): OgcCollectionBrief[] {
-    return this.collections.map((collection) => structuredClone(this.briefsById.get(collection.id)!));
+    return this.briefs.map((brief) => structuredClone(brief));
   }
 
   getById(id: string): OgcCollectionSchema | undefined {
