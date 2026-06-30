@@ -10,7 +10,7 @@ import { parseFeatureTypeName } from '@/helpers/metadata';
 import { retry } from '@/helpers/retry';
 import { describeFeatureType, type WfsFeatureType } from './wfs/describeFeatureType';
 import { toPropertyType } from './wfs/mapping';
-import { isGeometryType } from '@/pivot/types';
+import { isGeometryType } from '@/pivot/helpers';
 
 const debug = debuglog('gpf-schema-store:wfs');
 

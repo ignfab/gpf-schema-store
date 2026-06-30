@@ -1,4 +1,5 @@
-import { isGeometryType, type CollectionPropertyType } from '@/pivot/types';
+import { type CollectionPropertyType } from '@/pivot/types';
+import { isGeometryType } from '@/pivot/helpers';
 import {
   type OgcCollectionSchema,
   type OgcCollectionProperty,
