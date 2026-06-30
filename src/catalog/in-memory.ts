@@ -1,5 +1,5 @@
 import type { OgcCollectionBrief, OgcCollectionSchema } from '@/ogc-api-feature/types';
-import { renderCollectionSchema } from '@/ogc-api-feature/writer';
+import { renderCollectionBrief, renderCollectionSchema } from '@/ogc-api-feature/writer';
 import type { EnrichedCollection } from '@/pivot/types';
 import type { CollectionSearchEngine, CollectionSearchMatch, CollectionSearchOptions } from '@/search/types';
 import type { CollectionCatalog } from './types';
@@ -29,11 +29,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     // Render the public brief view once at construction time and keep it
     // indexed by collection id for later lookup and search result resolution.
     this.briefsById = new Map(
-      collections.map((collection) => [collection.id, {
-        id: collection.id,
-        title: collection.title,
-        description: collection.description,
-      }])
+      collections.map((collection) => [collection.id, renderCollectionBrief(collection)])
     );
 
     this.schemasById = new Map(
@@ -57,3 +53,4 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
   }
 
 }
+

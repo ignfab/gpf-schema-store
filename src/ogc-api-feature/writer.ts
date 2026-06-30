@@ -3,7 +3,9 @@ import { isGeometryType } from '@/pivot/helpers';
 import {
   type OgcCollectionSchema,
   type OgcCollectionProperty,
-  zOgcCollectionSchema
+  type OgcCollectionBrief,
+  zOgcCollectionSchema,
+  zOgcCollectionBrief
 } from './types';
 import type {
   EnrichedCollection,
@@ -101,6 +103,18 @@ function renderProperty(property: EnrichedCollectionProperty): OgcCollectionProp
  * Collection rendering
  * =============================================================================
  */
+
+/**
+ * Converts pivot collection to OgcCollectionBrief
+ */
+export function renderCollectionBrief(collection: EnrichedCollection): OgcCollectionBrief {
+  return zOgcCollectionBrief.parse({
+    id: collection.id,
+    title: collection.title,
+    description: collection.description,
+  });
+}
+
 
 /**
  * Converts pivot collection to OGC API Feature - schema
