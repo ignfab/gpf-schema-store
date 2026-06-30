@@ -1,6 +1,7 @@
 import { chmodSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import dts from 'unplugin-dts/vite'
 import type { Plugin } from 'vite'
 import { defineConfig } from 'vitest/config'
 
@@ -32,6 +33,15 @@ function cliShebang(fileName: string): Plugin {
 }
 
 export default defineConfig({
+  plugins: [
+    dts({
+      // Generate .d.ts from src, rewriting the tsconfig `@/*` aliases (paths)
+      // into relative paths, so the library is usable by consumers.
+      tsconfigPath: resolve(root, 'tsconfig.json'),
+      include: ['src/**/*.ts'],
+      entryRoot: resolve(root, 'src'),
+    }),
+  ],
   resolve: {
     alias: {
       '@': resolve(root, 'src'),
