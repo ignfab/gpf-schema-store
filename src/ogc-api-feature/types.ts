@@ -15,7 +15,7 @@ import { z } from 'zod';
  * 
  * Note :
  * - that "extent", "links", "crs" and "storageCrs" are ignored for now
- * - "storageCrs" is currently modeled as 'x-ign-defaultCrs' in the schema (mistake?)
+ * - "storageCrs" is currently modeled as 'x-ign-defaultCrs' in the schema (see issue #64)
  */
 export const zOgcCollectionBrief = z.object({
   id: z.string(),
@@ -40,6 +40,9 @@ export type OgcCollectionPropertyEnumValue = z.infer<typeof zOgcCollectionProper
 
 /**
  * The JSON schema of a property
+ * 
+ * Note that 'x-ign-defaultCrs' should be removed in the futur (see issue #64)
+ * 
  */
 export const zOgcCollectionProperty = z.object({
   type: z.enum(['string', 'boolean', 'integer', 'number']).optional(),
@@ -60,7 +63,7 @@ export type OgcCollectionProperty = z.infer<typeof zOgcCollectionProperty>;
  * 
  * - It should match the futur /collections/{collectionId}/schema on the GPF
  * - "id" is reserved for the schema ID as an URL
- * - "x-collection-id" with the collectionId
+ * - "x-collection-id" is added as the collectionId (see issue #64)
  * 
  * @see https://docs.ogc.org/is/23-058r2/23-058r2.html
  */
