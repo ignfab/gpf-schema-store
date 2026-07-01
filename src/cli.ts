@@ -18,8 +18,7 @@ import { loadCollectionOverwrite } from './overwrite/overwrite-store';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
 import { WfsClient } from './source/wfs';
 import { loadSourceCollections, replaceSourceCollections } from './source/source-store';
-import { zPackageMetadata } from './config/types';
-import { type NamespaceFilterRule } from './config/types';
+import { zPackageMetadata, type NamespaceFilterRule } from './config/types';
 import {
   type SourceCollection,
   type SourceCollectionBrief
