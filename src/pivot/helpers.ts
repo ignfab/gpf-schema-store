@@ -1,4 +1,9 @@
-import { CollectionPropertyType, zCollectionPropertyType, GeometryPropertyType, zGeometryPropertyType } from './types';
+import { 
+  type CollectionPropertyType,
+  zCollectionPropertyType,
+  type GeometryPropertyType,
+  zGeometryPropertyType 
+} from './types';
 
 
 /*
