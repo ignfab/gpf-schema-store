@@ -247,21 +247,15 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
     if (limit === undefined) {
       return results;
     }
-
+    // TODO: add unit test when limit is negative
     return results.slice(0, Math.max(0, limit));
   }
 
   /**
    * Get search limit 
    */
-  private getSearchLimit(options: MiniSearchCollectionSearchOptions): number|undefined {
-    if ( options.limit !== undefined ){
-      return options.limit;
-    }
-    if ( this.defaultSearchOptions.limit !== undefined ){
-      return this.defaultSearchOptions.limit;
-    }
-    return undefined
+  private getSearchLimit(options: MiniSearchCollectionSearchOptions): number | undefined {
+    return options.limit ?? this.defaultSearchOptions.limit;
   }
 
 
