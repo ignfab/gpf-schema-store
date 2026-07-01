@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import { zPackageMetadata } from '@/config/types';
 
-describe('packageMetadataSchema', () => {
+describe('zPackageMetadata', () => {
   it('accepts a real package.json shape with additional keys', () => {
     const result = zPackageMetadata.safeParse({
       name: '@ignfab/gpf-schema-store',

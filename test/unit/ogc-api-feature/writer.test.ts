@@ -38,7 +38,7 @@ const SAMPLE_COLLECTION: EnrichedCollection = {
   ],
 };
 
-describe('renderCollectionSchema', () => {
+describe('renderCollectionBrief', () => {
   it('renders id, title and description', () => {
     const brief = renderCollectionBrief(SAMPLE_COLLECTION);
     const expectedBrief = {
