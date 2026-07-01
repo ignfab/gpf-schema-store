@@ -3,14 +3,14 @@
 ## Data
 
 * [data/namespace-filters.yaml](data/namespace-filters.yaml) : configures the filtering of the WFS namespaces.
-* `data/wfs` : informations from the WFS GetCapabilities / DescribeFeatureType
-* `data/overwrites` : additionnal information about schema from sources like https://bdtopoexplorer.ign.fr/ (see [docs/overwrite-format.md](docs/overwrite-format.md))
-* `data/catalog` : result of the enrichment process (JSON schema extended by "OGC API Feature - schema")
+* `data/wfs` : information from the WFS GetCapabilities / DescribeFeatureType
+* `data/overwrites` : additional information about schemas from sources like https://bdtopoexplorer.ign.fr/ (see [docs/overwrite-format.md](docs/overwrite-format.md))
+* `data/catalog` : result of the enrichment process (JSON Schema extended by "OGC API Feature - schema")
 
 ## Warnings
 
 - `src/index.ts` is the public API of the library (**changes may break geocontext integration**)
-- `src/catalog` : public API for the `CollectionCatalog` with an in-memory implementation (**we should be able to implement an `GpfCollectionCatalog` once OGC API Feature will be implement with schema and search in the Geoplateforme**)
+- `src/catalog` : public API for the `CollectionCatalog` with an in-memory implementation (**we should be able to implement a `GpfCollectionCatalog` once OGC API Feature is implemented with schema and search in the Geoplateforme**)
 
 ## Usage
 
@@ -26,13 +26,13 @@ npm run build
 ### Test
 
 ```bash
-# To run unit test only :
+# To run unit tests only:
 npm run test
 
-# To compute coverage :
+# To compute coverage:
 npm run test:coverage
 
-# To run integration test (WFS and search)
+# To run all tests, including the live search integration suite
 npm run test:all
 ```
 
@@ -40,11 +40,11 @@ npm run test:all
 
 ### Configure filtering
 
-Edit [data/namespace-filters.yaml](data/namespace-filters.yaml) to decide which namespaces are kept or ignored and to assign metadata (`product`, `ignoredReason`) using first-match-wins rules.
+Edit [data/namespace-filters.yaml](data/namespace-filters.yaml) to decide which namespaces are kept or ignored and to assign metadata (`ignored`, `product`, `ignoredReason`) using first-match-wins rules.
 
 ### Generate namespace report
 
-Update [data/namespaces.csv](data/namespaces.csv) to review every discovered namespace, its computed metadata (`product`, `ignored`, `ignoredReason`), and its collections :
+Update [data/namespaces.csv](data/namespaces.csv) to review every discovered namespace, its computed metadata (`product`, `ignored`, `ignoredReason`), and its collections:
 
 ```bash
 npx gpf-schema-store update-namespaces
@@ -52,7 +52,7 @@ npx gpf-schema-store update-namespaces
 
 ### Fetch schema from GPF WFS
 
-Fetch WFS schemas from GPF, apply the namespace filtering rules defined in [data/namespace-filters.yaml](data/namespace-filters.yaml), and regenerate `data/wfs` directory :
+Fetch WFS schemas from GPF, apply the namespace filtering rules defined in [data/namespace-filters.yaml](data/namespace-filters.yaml), and regenerate the `data/wfs` directory:
 
 ```bash
 # download data/wfs/{namespace}/{name}.json
@@ -84,7 +84,7 @@ The output shows the collection identifier, the computed score, and MiniSearch m
 
 ### Render collection schema files
 
-Write the public catalog JSON Schema files after applying `data/overwrites`, to an output directory.
+Write the public catalog JSON Schema files to an output directory after applying `data/overwrites`.
 
 ```bash
 # write collection schemas to ./tmp/catalog/{namespace}/{name}.json
@@ -94,7 +94,7 @@ npx gpf-schema-store render-catalog ./tmp/catalog
 npx gpf-schema-store render-catalog ./tmp/catalog --clean
 ```
 
-Each rendered file is a JSON Schema 2020-12 object with `x-collection-id`, `type`, `title`, `description`, `properties`, and `required`. Geometry properties are represented with `format: "geometry-{type}"` and `x-ogc-role: "primary-geometry"`. The BDTOPO identifier property `cleabs` is annotated with `x-ogc-role: "id"`.
+Each rendered file is a JSON Schema 2020-12 object with `$schema`, `x-collection-id`, `type`, `title`, `description`, `properties`, and `required`, plus optional `x-ign-*` metadata fields (`x-ign-theme`, `x-ign-selectionCriteria`, `x-ign-representedFeatures`) when available. Geometry properties are represented with `format: "geometry-{type}"` and `x-ogc-role: "primary-geometry"`. The BDTOPO identifier property `cleabs` is annotated with `x-ogc-role: "id"`.
 
 ## Test a local package build in geocontext
 
@@ -113,13 +113,13 @@ npm run build
 npm pack
 ```
 
-This creates a tarball such as `ignfab-gpf-schema-store-0.1.0.tgz`.
+This creates a tarball such as `ignfab-gpf-schema-store-0.2.0.tgz`.
 
 Then, from your local `geocontext` checkout:
 
 ```bash
 cd /path/to/geocontext
-npm install /path/to/gpf-schema-store/ignfab-gpf-schema-store-0.1.0.tgz
+npm install /path/to/gpf-schema-store/ignfab-gpf-schema-store-0.2.0.tgz
 npm run build
 npm test
 ```
@@ -129,13 +129,13 @@ When you make a new change in `gpf-schema-store`, rebuild and regenerate the tar
 If you only want to test locally without updating `package.json`, use `--no-save`:
 
 ```bash
-npm install --no-save /path/to/gpf-schema-store/ignfab-gpf-schema-store-0.1.0.tgz
+npm install --no-save /path/to/gpf-schema-store/ignfab-gpf-schema-store-0.2.0.tgz
 ```
 
 If you already installed the local tarball with a saved dependency, restore the published dependency afterwards:
 
 ```bash
-npm install @ignfab/gpf-schema-store@^0.1.0
+npm install @ignfab/gpf-schema-store@^0.2.0
 ```
 
 Using a direct local path like `npm install ../gpf-schema-store` can work too, but it is less predictable because it depends on the local package state and requires extra care to keep `dist/` up to date.
