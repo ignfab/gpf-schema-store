@@ -44,7 +44,7 @@ describe('getCollectionCatalog', () => {
       const searchEngine = new SingleMatchEngine('BDTOPO_V3:batiment');
       const catalog = getCollectionCatalog({ searchEngine });
 
-      expect(catalog.getById('BDTOPO_V3:batiment')).to.not.be.null;
+      expect(catalog.getById('BDTOPO_V3:batiment')).toBeDefined();
 
       const ids = catalog.search('bâtiments bdtopo', {
         limit: 10,
