@@ -1,4 +1,5 @@
-import type { CollectionOverwrite, SourceCollection } from "../types";
+import type { CollectionOverwrite } from '@/overwrite/types';
+import type { SourceCollection } from '@/source/types';
 
 /**
  * Compare properties between original and overwrite to ensure that both are synchronized.

@@ -11,17 +11,18 @@
   ],
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "id_reference": {
+      "type": "string",
       "title": "Id référence",
-      "description": "",
-      "type": "string"
+      "description": ""
     },
     "categorie": {
+      "type": "string",
       "title": "Catégorie",
       "description": "Les catégories sont déterminées en fonction de la capacité d'accueil du bâtiment, y compris les salariés (sauf pour la 5è catégorie). Le classement d'un établissement est validé par la commission de sécurité à partir des informations transmises par l'exploitant de l'établissement dans le dossier de sécurité déposé en mairie.",
       "oneOf": [
@@ -50,35 +51,35 @@
           "title": "5",
           "description": "Etablissement dans lequel l'effectif admissible n'atteint pas le seuil d'assujettissement défini par le règlement de sécurité pour chaque type d'exploitation."
         }
-      ],
-      "type": "string"
+      ]
     },
     "type_principal": {
+      "type": "string",
       "title": "Type principal",
-      "description": "Typologie principale de l'établissement, fonction de la nature ou de l'activité de l'exploitation.",
-      "type": "string"
+      "description": "Typologie principale de l'établissement, fonction de la nature ou de l'activité de l'exploitation."
     },
     "types_secondaires": {
+      "type": "string",
       "title": "Types secondaires",
-      "description": "Typologie (s) secondaire (s) de l'établissement, fonction de la nature ou de l'activité de l'exploitation.",
-      "type": "string"
+      "description": "Typologie (s) secondaire (s) de l'établissement, fonction de la nature ou de l'activité de l'exploitation."
     },
     "activite_principale": {
+      "type": "string",
       "title": "Activité principale",
-      "description": "Activité principale de l'établissement.",
-      "type": "string"
+      "description": "Activité principale de l'établissement."
     },
     "activites_secondaires": {
+      "type": "string",
       "title": "Activités secondaires",
-      "description": "Activités secondaires de l'établissement.",
-      "type": "string"
+      "description": "Activités secondaires de l'établissement."
     },
     "libelle": {
+      "type": "string",
       "title": "Libellé",
-      "description": "Dénomination libre de l’établissement.",
-      "type": "string"
+      "description": "Dénomination libre de l’établissement."
     },
     "etat_de_l_objet": {
+      "type": "string",
       "title": "Etat de l'objet",
       "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
       "oneOf": [
@@ -97,40 +98,40 @@
           "title": "En service",
           "description": "L'objet géographique est en service."
         }
-      ],
-      "type": "string"
+      ]
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "sources": {
+      "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "type": "string"
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     "identifiants_sources": {
+      "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "type": "string"
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     "methode_d_acquisition_planimetrique": {
+      "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
       "oneOf": [
@@ -262,35 +263,35 @@
           "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
-      ],
-      "type": "string"
+      ]
     },
     "precision_planimetrique": {
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "type": "number"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     "public": {
+      "type": "boolean",
       "title": "Public",
-      "description": "Indique si l'établissement relève du domaine Public ou privé.",
-      "type": "boolean"
+      "description": "Indique si l'établissement relève du domaine Public ou privé."
     },
     "ouvert": {
+      "type": "boolean",
       "title": "Ouvert",
-      "description": "Indique si l’ERP est effectivement ouvert.",
-      "type": "boolean"
+      "description": "Indique si l’ERP est effectivement ouvert."
     },
     "capacite_d_accueil_du_public": {
+      "type": "integer",
       "title": "Capacité d'accueil du public",
-      "description": "Capacité totale d’accueil du public.",
-      "type": "integer"
+      "description": "Capacité totale d’accueil du public."
     },
     "capacite_d_hebergement": {
+      "type": "integer",
       "title": "Capacité d'hébergement",
-      "description": "Nombre de personnes pouvant être hébergées (pour des secours).",
-      "type": "integer"
+      "description": "Nombre de personnes pouvant être hébergées (pour des secours)."
     },
     "origine_de_la_geometrie": {
+      "type": "string",
       "title": "Origine de la géométrie",
       "description": "Origine de la géométrie des données ERP importées dans la BD TOPO®.",
       "oneOf": [
@@ -309,10 +310,10 @@
           "title": "Saisie manuelle",
           "description": "Géométrie issue d'une saisie manuelle ou d'un appariement contrôlé."
         }
-      ],
-      "type": "string"
+      ]
     },
     "type_de_localisation": {
+      "type": "string",
       "title": "Type de localisation",
       "description": "Indique ce que représente la géométrie fournie pour l'ERP sur le terrain.",
       "oneOf": [
@@ -331,68 +332,67 @@
           "title": "Plaque adresse",
           "description": "Localisation de la plaque adresse."
         }
-      ],
-      "type": "string"
+      ]
     },
     "validation_ign": {
+      "type": "boolean",
       "title": "Validation IGN",
-      "description": "Indique qu'un contrôle ou recalage effectué par l’IGN sur les données proposées par un partenaire.",
-      "type": "boolean"
+      "description": "Indique qu'un contrôle ou recalage effectué par l’IGN sur les données proposées par un partenaire."
     },
     "insee_commune": {
+      "type": "string",
       "title": "Insee commune",
-      "description": "Code INSEE de la commune sur laquelle est situé l'objet géographique.",
-      "type": "string"
+      "description": "Code INSEE de la commune sur laquelle est situé l'objet géographique."
     },
     "numero_siret": {
+      "type": "string",
       "title": "Numéro SIRET",
-      "description": "Numéro SIRET de l'établissement.",
-      "type": "string"
+      "description": "Numéro SIRET de l'établissement."
     },
     "adresse_numero": {
+      "type": "string",
       "title": "Adresse_Numéro",
-      "description": "Numéro de l’adresse dans sa voie (sans indice de répétition).",
-      "type": "string"
+      "description": "Numéro de l’adresse dans sa voie (sans indice de répétition)."
     },
     "adresse_indice_de_repetition": {
+      "type": "string",
       "title": "Adresse_Indice de répétition",
-      "description": "Indice de répétition de l'adresse de l'établissement.",
-      "type": "string"
+      "description": "Indice de répétition de l'adresse de l'établissement."
     },
     "adresse_designation_de_l_entree": {
+      "type": "string",
       "title": "Adresse_Désignation de l'entrée",
-      "description": "Définit un complément d’adressage en précisant un nom de résidence ou d’immeuble ou un numéro ou nom d’entrée.",
-      "type": "string"
+      "description": "Définit un complément d’adressage en précisant un nom de résidence ou d’immeuble ou un numéro ou nom d’entrée."
     },
     "adresse_nom_1": {
+      "type": "string",
       "title": "Adresse_Nom 1",
-      "description": "Nom de la voie de l’adresse.",
-      "type": "string"
+      "description": "Nom de la voie de l’adresse."
     },
     "adresse_nom_2": {
+      "type": "string",
       "title": "Adresse_Nom 2",
-      "description": "Élément d’adressage complémentaire (pour les lieux-dits par exemple).",
-      "type": "string"
+      "description": "Élément d’adressage complémentaire (pour les lieux-dits par exemple)."
     },
     "code_postal": {
+      "type": "string",
       "title": "Code postal",
-      "description": "Code postal.",
-      "type": "string"
+      "description": "Code postal."
     },
     "liens_vers_batiment": {
+      "type": "string",
       "title": "Liens vers bâtiment",
-      "description": "Lien(s) vers la 'Clé absolue' du ou des bâtiments de la BD TOPO® accueillant l'ERP.",
-      "type": "string"
+      "description": "Lien(s) vers la 'Clé absolue' du ou des bâtiments de la BD TOPO® accueillant l'ERP."
     },
     "liens_vers_enceinte": {
+      "type": "string",
       "title": "Liens vers enceinte",
-      "description": "Lien(s) vers la ou les 'Clé absolue' de la ou des correspondant à l'ERP dans la BD TOPO®.",
-      "type": "string"
+      "description": "Lien(s) vers la ou les 'Clé absolue' de la ou des correspondant à l'ERP dans la BD TOPO®."
     },
     "geometrie": {
+      "format": "geometry-point",
       "title": "Géométrie",
       "description": "",
-      "format": "geometry-point",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

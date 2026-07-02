@@ -10,11 +10,11 @@ import {
 import { join } from 'path';
 
 import {
-  sourceCollectionSchema,
-  type SourceCollection,
-} from '../types';
-import { formatSchemaIssues } from '../helpers/zod';
-import { getDataDir } from '../local-data/data-dir';
+  zSourceCollection,
+  type SourceCollection
+} from './types';
+import { formatSchemaIssues } from '@/helpers/zod';
+import { getDataDir } from '@/config/data-dir';
 
 /*
  * =============================================================================
@@ -25,7 +25,7 @@ import { getDataDir } from '../local-data/data-dir';
  */
 
 function parseSourceCollection(raw: unknown, context: string): SourceCollection {
-  const result = sourceCollectionSchema.safeParse(raw);
+  const result = zSourceCollection.safeParse(raw);
   if (!result.success) {
     throw new Error(`Invalid source collection ${context}: ${formatSchemaIssues(result.error)}`);
   }

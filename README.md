@@ -4,181 +4,65 @@
 
 **Non official / experimental** implementation of [OGC API Features - schema](https://portal.ogc.org/files/108199) by enriching information from the Geoplateforme WFS to ease data discovery by AI (and humans).
 
-## Data model
+It aims to provide a "semantic layer" for the [MCP geocontext](https://github.com/ignfab/geocontext), pending an equivalent OGC API Features implementation on the Geoplateforme side.
 
-The internal enriched collection model is :
+## Installation
 
-* **id** : WFS GetCap FeatureType `<Name>` (namespace:name = unique identifier)
-* **namespace** : namespace identifier (e.g `BDTOPO_V3`)
-* **name** : name identifier (e.g `batiment`)
-* **title** : WFS GetCap `<Title>` "BDTOPO : Bâtiments"
-* **description** : WFS GetCap `<Abstract>`
-* **x-ign-theme**, **x-ign-selectionCriteria**, **x-ign-representedFeatures** : optional IGN enrichment metadata
-* **required** : optional list of required property names
-* **properties** : Array of property defined by `name`, `type`, `title` and `description`. `oneOf` is available for rich enumerated values.
-
-When merged with `data/overwrites`, WFS identifiers and property types are kept from `data/wfs`, while overwrite metadata is taken from overwrites when available.
-
-The public catalog output is a logical JSON Schema compatible with OGC API Features schemas. It is not a dump of the internal model.
-
-### Overwrite format
-
-Overwrite files live in `data/overwrites/{namespace}/{name}.json`. The current format does not contain root `id`, `namespace`, or `name`; those values are derived from the WFS snapshot and file path.
-
-```json
-{
-  "title": "Point de repère",
-  "x-ign-theme": "Transport",
-  "description": "Point créé par le gestionnaire du réseau routier...",
-  "x-ign-selectionCriteria": "Les objets Point de repère retenus sont...",
-  "x-ign-representedFeatures": ["Point de repère routier"],
-  "properties": [
-    {
-      "name": "cote",
-      "type": "string",
-      "title": "Côté",
-      "description": "Côté de la route...",
-      "oneOf": [
-        {
-          "const": "D",
-          "title": "D",
-          "description": "Chaussée droite."
-        }
-      ]
-    }
-  ],
-  "required": ["cleabs", "geometrie"]
-}
+```bash
+npm install @ignfab/gpf-schema-store
 ```
-
-The overwrite `type` field is accepted as overwrite input only. The merged catalog always keeps the WFS property type.
 
 ## Usage
 
-> **WARNING**: The MCP [ignfab/geocontext](https://github.com/ignfab/geocontext) relies on a published version. The following instructions are related to the maintenance of the schema.
+### Load the catalog
 
-### Build
+```ts
+import { getCollectionCatalog } from "@ignfab/gpf-schema-store";
 
-```bash
-npm install
-npm run build
+const catalog = getCollectionCatalog();
 ```
 
-### Test
+### List collections
 
-```bash
-# To run unit test only :
-npm run test
+> [!NOTE]
+> Not in use the [MCP geocontext](https://github.com/ignfab/geocontext) (using an LLM as a search engine is not efficient)
 
-# To compute coverage :
-npm run test:coverage
-
-# To run integration test (WFS and search)
-npm run test:all
+```ts
+const collections = catalog.list();
+console.log("collections:", collections.length);
 ```
 
-> See [test/integration/search/use-case.yaml](test/integration/search/use-case.yaml) for the search tests.
-### Configure filtering
+> **Long term** : should rely on `GET /collections` from OGC API Feature implementation on the french Géoplateforme
 
-Edit [data/namespace-filters.yaml](data/namespace-filters.yaml) to decide which namespaces are kept or ignored and to assign metadata (`product`, `ignoredReason`) using first-match-wins rules.
+### Get the schema of a collection
 
-### Generate namespace report
+> [!NOTE]
+> In use in the [MCP geocontext](https://github.com/ignfab/geocontext) to provide the "semantic layer" for the collection 
 
-Update [data/namespaces.csv](data/namespaces.csv) to review every discovered namespace, its computed metadata (`product`, `ignored`, `ignoredReason`), and its collections :
-
-```bash
-npx gpf-schema-store update-namespaces
+```ts
+// Note : "batiment" = "buildings" in french
+const bdtopoBatiment = catalog.getById("BDTOPO_V3:batiment");
+console.log(`BDTOPO_V3:batiment schema : ${JSON.stringify(bdtopoBatiment,null,2)}`);
 ```
 
-### Fetch schema from GPF WFS
+> **Long term** : should rely on `GET /collections/{id}/schema` from OGC API Feature - schema implementation on the french Géoplateforme.
 
-Fetch WFS schemas from GPF, apply the namespace filtering rules defined in [data/namespace-filters.yaml](data/namespace-filters.yaml), and regenerate `data/wfs` directory :
+### Search collections by keywords
 
-```bash
-# download data/wfs/{namespace}/{name}.json
-npx gpf-schema-store update
+> [!NOTE]
+> In use in the [MCP geocontext](https://github.com/ignfab/geocontext) to search for available collections
+
+```ts
+// Note "pont" = "bridge" in french
+const matches = catalog.search("pont", { limit: 3 });
+console.log("top matches:", matches);
 ```
 
-### Check local overwrites
+> **Long term**: it should rely on a search service on the French Geoplateforme that uses schema information (especially enum values), for example `GET /collections/search?q={query}` or an improved version of the current [*Service Géoplateforme de recherche*](https://cartes.gouv.fr/aide/fr/guides-utilisateur/utiliser-les-services-de-la-geoplateforme/recherche/).
 
-Compare local WFS snapshots stored in `data/wfs` with local overwrite files in `data/overwrites`.
+## Coding
 
-```bash
-# check that overwrites are aligned with local snapshots in data/wfs
-npx gpf-schema-store check-overwrites
-```
-
-### Test local search
-
-Use the `search` command to quickly inspect the results returned by the search engine with its default options.
-
-```bash
-# display the top 5 results
-npx gpf-schema-store search chef lieu commune --limit 5
-
-# another example
-npx gpf-schema-store search bdtopo batiment --limit 3
-```
-
-The output shows the collection identifier, the computed score, and MiniSearch match details, which makes it easier to compare ranking behavior before and after a search change.
-
-### Render collection schema files
-
-Write the public catalog JSON Schema files after applying `data/overwrites`, to an output directory.
-
-```bash
-# write collection schemas to ./tmp/catalog/{namespace}/{name}.json
-npx gpf-schema-store render-catalog ./tmp/catalog
-
-# start from a clean output directory
-npx gpf-schema-store render-catalog ./tmp/catalog --clean
-```
-
-Each rendered file is a JSON Schema 2020-12 object with `x-collection-id`, `type`, `title`, `description`, `properties`, and `required`. Geometry properties are represented with `format: "geometry-{type}"` and `x-ogc-role: "primary-geometry"`. The BDTOPO identifier property `cleabs` is annotated with `x-ogc-role: "id"`.
-
-## Test a local package build in geocontext
-
-If you want to test a local change from this package inside [`geocontext`](https://github.com/ignfab/geocontext), the simplest and most reliable workflow is to install a local tarball generated with `npm pack`.
-
-This is the recommended approach because it is very close to a real npm publish:
-
-* it uses the package `files` / `exports` configuration
-* it only installs what would actually be shipped
-* it avoids some of the resolution quirks of `npm link`
-
-From this repository:
-
-```bash
-npm run build
-npm pack
-```
-
-This creates a tarball such as `ignfab-gpf-schema-store-0.1.0.tgz`.
-
-Then, from your local `geocontext` checkout:
-
-```bash
-cd /path/to/geocontext
-npm install /path/to/gpf-schema-store/ignfab-gpf-schema-store-0.1.0.tgz
-npm run build
-npm test
-```
-
-When you make a new change in `gpf-schema-store`, rebuild and regenerate the tarball, then reinstall it in `geocontext`.
-
-If you only want to test locally without updating `package.json`, use `--no-save`:
-
-```bash
-npm install --no-save /path/to/gpf-schema-store/ignfab-gpf-schema-store-0.1.0.tgz
-```
-
-If you already installed the local tarball with a saved dependency, restore the published dependency afterwards:
-
-```bash
-npm install @ignfab/gpf-schema-store@^0.1.0
-```
-
-Using a direct local path like `npm install ../gpf-schema-store` can work too, but it is less predictable because it depends on the local package state and requires extra care to keep `dist/` up to date.
+Maintenance and contributor commands are documented in [CODING.md](CODING.md).
 
 ## License
 

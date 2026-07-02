@@ -1,7 +1,7 @@
-import type { EnrichedCollection } from '../types';
-import { loadCollectionOverwrite } from '../overwrite/overwrite-store';
-import { validateOverwriteReferences } from '../overwrite/overwrite';
-import { loadSourceCollections } from '../source/source-store';
+import type { EnrichedCollection } from '@/pivot/types';
+import { loadCollectionOverwrite } from '@/overwrite/overwrite-store';
+import { validateOverwriteReferences } from '@/overwrite/overwrite';
+import { loadSourceCollections } from '@/source/source-store';
 import { merge } from './merge';
 
 /*

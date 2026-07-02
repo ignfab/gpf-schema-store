@@ -1,63 +1,76 @@
-import { describe, expect, it, vi } from 'vitest'
-import type { EnrichedCollection } from '../../src/types'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
-vi.mock('../../src/enrichment/load-enriched-collections', () => ({
+vi.mock('@/enrichment/load-enriched-collections', () => ({
   loadEnrichedCollections: vi.fn(),
 }))
 
-import { getCollections } from '../../src/index'
-import { loadEnrichedCollections } from '../../src/enrichment/load-enriched-collections'
+import { getCollectionCatalog } from '@/index';
+import { loadEnrichedCollections } from '@/enrichment/load-enriched-collections';
+import type { EnrichedCollection } from '@/pivot/types';
+import type { CollectionSearchEngine } from '@/search/types';
 
-const loadEnrichedCollectionsMock = vi.mocked(loadEnrichedCollections)
+const loadEnrichedCollectionsMock = vi.mocked(loadEnrichedCollections);
 
-describe('getCollections (library API)', () => {
-  it('loads collections on each call (no stale module cache)', () => {
-    loadEnrichedCollectionsMock
-      .mockReturnValueOnce([
-        {
-          id: 'NS:first',
-          namespace: 'NS',
-          name: 'first',
-          title: 'first',
-          description: 'first',
-          properties: [{ name: 'id', type: 'string' }],
-        },
-      ])
-      .mockReturnValueOnce([
-        {
-          id: 'NS:second',
-          namespace: 'NS',
-          name: 'second',
-          title: 'second',
-          description: 'second',
-          properties: [{ name: 'id', type: 'string' }],
-        },
-      ])
+const BATIMENT: EnrichedCollection = {
+  id: 'BDTOPO_V3:batiment',
+  namespace: 'BDTOPO_V3',
+  name: 'batiment',
+  title: 'Bâtiments',
+  description: 'Bâtiments de la BD TOPO.',
+  properties: [],
+};
 
-    expect(getCollections().map((c) => c.title)).toEqual(['first'])
-    expect(getCollections().map((c) => c.title)).toEqual(['second'])
-    expect(loadEnrichedCollectionsMock).toHaveBeenCalledTimes(2)
-  })
+class SingleMatchEngine implements CollectionSearchEngine {
+  private readonly id: string;
 
-  it('returns a deep-cloned value so caller mutations do not leak', () => {
-    const shared: EnrichedCollection[] = [
-      {
-        id: 'NS:stable',
-        namespace: 'NS',
-        name: 'stable',
-        title: 'stable',
-        description: 'stable',
-        properties: [{ name: 'id', type: 'string' }],
-      },
-    ]
-    loadEnrichedCollectionsMock.mockReturnValue(shared)
+  constructor(id: string) {
+    this.id = id;
+  }
 
-    const first = getCollections()
-    first[0].title = 'mutated by caller'
-    first[0].properties.id.type = 'number'
+  search() {
+    return [{ id: this.id }];
+  }
+}
 
-    const second = getCollections()
-    expect(second[0].title).toBe('stable')
-    expect(second[0].properties.id.type).toBe('string')
-  })
-})
+describe('getCollectionCatalog', () => {
+
+  beforeEach(() => {
+    loadEnrichedCollectionsMock.mockReturnValue([BATIMENT]);
+  });
+
+  describe('getCollectionCatalog with searchEngine', () => {
+
+    it('create the expected catalog with search capabilities', () => {
+      const searchEngine = new SingleMatchEngine('BDTOPO_V3:batiment');
+      const catalog = getCollectionCatalog({ searchEngine });
+
+      expect(catalog.getById('BDTOPO_V3:batiment')).toBeDefined();
+
+      const ids = catalog.search('bâtiments bdtopo', {
+        limit: 10,
+      }).map((result) => result.id);
+
+      expect(ids).toContain('BDTOPO_V3:batiment');
+    });
+
+  });
+
+
+  describe('getCollectionCatalog with miniSearch', () => {
+
+    it('create a catalog with a configured MiniSearch engine', () => {
+      const catalog = getCollectionCatalog({ miniSearch: {
+        fields: ['namespace', 'name']
+      } });
+
+      const ids = catalog.search('bâtiments bdtopo', {
+        limit: 10,
+      }).map((result) => result.id);
+
+      expect(ids).toContain('BDTOPO_V3:batiment');
+    });
+
+  });
+
+
+});

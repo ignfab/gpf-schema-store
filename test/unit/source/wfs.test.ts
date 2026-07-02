@@ -13,7 +13,7 @@ const endpointMocks = vi.hoisted(() => ({
   constructor: vi.fn(),
 }))
 
-vi.mock('../../../src/source/wfs/describeFeatureType', () => ({
+vi.mock('@/source/wfs/describeFeatureType', () => ({
   describeFeatureType: describeFeatureTypeMock,
 }))
 
@@ -31,8 +31,8 @@ vi.mock('@camptocamp/ogc-client', () => {
   return { WfsEndpoint }
 })
 
-import { WfsClient } from '../../../src/source/wfs'
-import { UnexpectedTypeError } from '../../../src/types'
+import { WfsClient } from '@/source/wfs'
+import { UnexpectedTypeError } from '@/errors/types'
 
 describe('WfsClient', () => {
   beforeEach(() => {

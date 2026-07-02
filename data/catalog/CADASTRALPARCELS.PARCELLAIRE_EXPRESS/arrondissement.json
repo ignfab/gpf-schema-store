@@ -3,7 +3,7 @@
   "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:arrondissement",
   "type": "object",
   "title": "PCI Vecteur : Arrondissements",
-  "description": "Arrondissements ; Édition 2025-12-01",
+  "description": "Arrondissements ; Édition 2026-03-01",
   "properties": {
     "gid": {
       "type": "integer"

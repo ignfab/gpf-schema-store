@@ -1,13 +1,17 @@
 import { debuglog } from 'node:util';
 
 import type {
-  CollectionOverwrite,
-  CollectionOverwriteProperty,
   EnrichedCollection,
-  EnrichedCollectionProperty,
+  EnrichedCollectionProperty
+} from '@/pivot/types';
+import type {
+  CollectionOverwrite,
+  CollectionOverwriteProperty
+} from '@/overwrite/types';
+import type {
   SourceCollection,
-  SourceCollectionProperty,
-} from '../types';
+  SourceCollectionProperty
+} from '@/source/types';
 
 const debug = debuglog('gpf-schema-store:merge');
 
@@ -58,7 +62,6 @@ function mergeProperty(
 
   const merged: EnrichedCollectionProperty = {
     ...sourceProperty,
-    name: overwriteProperty.name,
     title: overwriteProperty.title,
     description: overwriteProperty.description,
   };

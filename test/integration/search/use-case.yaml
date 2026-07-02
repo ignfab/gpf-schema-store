@@ -1,97 +1,138 @@
 # This file contains test cases for the search functionality of the catalog.
-# Each test case consists of a name, a query string, and an expected list of IDs that should be returned by the search.
+# Each test case consists of a query string and an expected list of IDs that should be returned by the search.
 # Order of expected IDs matters, as the search results are expected to be sorted by relevance.
 
 #--------------------------------------------------------------
 # BDTOPO_V3:batiment
 #--------------------------------------------------------------
 
-- name: "search_batiment1"
-  query: "batiment"
+# TODO : harden allowing different order
+- query: "batiment"
   expected:
     - BDTOPO_V3:batiment
     - CADASTRALPARCELS.PARCELLAIRE_EXPRESS:batiment
 
-- name: "search_batiment2"
-  query: "bâtiment BD TOPO"
+- query: "bâtiments bdtopo"
+  expected:
+    - "BDTOPO_V3:batiment"
+
+- query: "bâtiment BD TOPO"
   expected:
     - BDTOPO_V3:batiment
 
-- name: "search_batiment3"
-  query: "BDTOPO batiment"
+- query: "BDTOPO batiment"
   expected:
     - BDTOPO_V3:batiment
 
-- name: "search_batiment4"
-  query: "bâtiment hauteur"
+- query: "bâtiment hauteur"
   expected:
     - BDTOPO_V3:batiment
 
-- name: "search_batiment5"
-  query: "batiment bdtopo"
+- query: "batiment bdtopo"
   expected:
     - BDTOPO_V3:batiment
 
-- name: "search_batiment6"
-  query: "bati topo batiment"
+- query: "bati topo batiment"
   expected:
     - BDTOPO_V3:batiment
+
+- query: "bdtopo batiment"
+  expected:
+    - "BDTOPO_V3:batiment"
+
+- query: "nombre logements"
+  expected:
+    - "BDTOPO_V3:batiment"
+
+# TODO : FIXME - BDTOPO_V3:zone_d_activite_ou_d_interet
+# - query: "résidentiel"
+#   expected:
+#     - "BDTOPO_V3:batiment"
 
 #--------------------------------------------------------------
-# BDTOPO_V3:batiment
+# CADASTRALPARCELS.PARCELLAIRE_EXPRESS
 #--------------------------------------------------------------
 
-- name: "search_troncon_route1"
-  query: "BDTOPO troncon route"
+- query: "parcelle"
+  expected:
+    - "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:parcelle"
+
+- query: "borne parcelle"
+  expected:
+    - "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_parcelle"
+
+
+#--------------------------------------------------------------
+# BDTOPO_V3:troncon_de_route
+#--------------------------------------------------------------
+
+- query: "BDTOPO troncon route"
   expected:
     - BDTOPO_V3:troncon_de_route
 
-- name: "search_troncon_route2"
-  query: "route"
+- query: "route"
   expected:
     - BDTOPO_V3:troncon_de_route
 
+- query: "troncon route"
+  expected:
+    - "BDTOPO_V3:troncon_de_route"
+
+#--------------------------------------------------------------
+# BDTOPO_V3:erp
+#--------------------------------------------------------------
+- query: "erp"
+  expected:
+    - "BDTOPO_V3:erp"
 
 #--------------------------------------------------------------
 # BDTOPO_V3:zone_d_activite_ou_d_interet
 #--------------------------------------------------------------
-- name: "search_ecole"
-  query: "école"
+- query: "école"
   expected:
     - BDTOPO_V3:zone_d_activite_ou_d_interet
+
+#--------------------------------------------------------------
+# BDTOPO_V3:ligne_electrique
+#--------------------------------------------------------------
+
+- query: "ligne électrique"
+  expected:
+    - "BDTOPO_V3:ligne_electrique"
 
 # ligne électrique pylône poste transformation énergie
 # ligne électrique pylône parking aérodrome construction
-- name: "search_ligne_electrique"
-  query: "ligne électrique haute tension pylône"
+- query: "ligne électrique haute tension pylône"
   expected:
     - BDTOPO_V3:ligne_electrique
 
-- name: "search_zone_activite"
-  query: "zone d'activité commerciale industrielle"
-  expected:
-    - BDTOPO_V3:zone_d_activite_ou_d_interet
+#--------------------------------------------------------------
+# BDTOPO_V3:equipement_de_transport
+#--------------------------------------------------------------
 
 # parking aire stationnement surface route autoroute
-- name: "search_parking1"
-  query: "parking"
+- query: "parking"
   expected:
     - BDTOPO_V3:equipement_de_transport
 
-- name: "search_batiment_commercial1"
-  query: "bâtiment commercial industriel zone d'activité"
+#--------------------------------------------------------------
+# BDTOPO_V3:zone_d_activite_ou_d_interet
+#--------------------------------------------------------------
+
+- query: "zone d'activité commerciale industrielle"
+  expected:
+    - BDTOPO_V3:zone_d_activite_ou_d_interet
+
+- query: "bâtiment commercial industriel zone d'activité"
   expected:
     - BDTOPO_V3:zone_d_activite_ou_d_interet
 
 
-- name: "search_pharmacie2"
-  query: "santé hôpital pharmacie équipements médicaux"
+- query: "santé hôpital pharmacie équipements médicaux"
   expected:
     - BDTOPO_V3:zone_d_activite_ou_d_interet
 
-
-- name: "search_lieu_dit_patrimoine1"
-  query: "lieu-dit toponyme nom de lieu zone d'intérêt patrimoine"
+- query: "lieu-dit toponyme nom de lieu zone d'intérêt patrimoine"
   expected:
     - BDTOPO_V3:zone_d_activite_ou_d_interet
 
@@ -104,49 +145,67 @@
 #--------------------------------------------------------------
 
 # TODO : check order
-- name: "search_hydro1"
-  query: "cours d'eau surface hydrographique rivière"
+- query: "cours d'eau surface hydrographique rivière"
   expected:
     - BDTOPO_V3:surface_hydrographique
     - BDTOPO_V3:cours_d_eau
 
-- name: "search_hydro2"
-  query: "cours d'eau"
+- query: "cours d'eau"
   expected:
     - BDTOPO_V3:cours_d_eau
+  
+- query: "cours eau"
+  expected:
+    - "BDTOPO_V3:cours_d_eau"
 
-- name: "search_hydro3"
-  query: "plan d'eau"
+- query: "plan d'eau"
   expected:
     - BDTOPO_V3:plan_d_eau
 
+- query: "plan eau"
+  expected:
+    - "BDTOPO_V3:plan_d_eau"
+
+
 #--------------------------------------------------------------
-# BDTOPO_V3:departement
+# departement - BDTOPO_V3 / ADMINEXPRESS-COG.LATEST
 #--------------------------------------------------------------
 
-- name: "search_departement1"
-  query: "département"
+- query: "BDTOPO département"
   expected:
     - BDTOPO_V3:departement
 
-# TODO : KO BDTOPO_V3:limite_terre_mer
-# - name: "search_departement2"
-#   query: "département limite administrative"
-#   expected:
-#     - BDTOPO_V3:departement
+- query: "ADMINEXPRESS LATEST départements"
+  expected:
+    - "ADMINEXPRESS-COG.LATEST:departement"
 
 
 #--------------------------------------------------------------
-# BDTOPO_V3:commune
+# commune - BDTOPO_V3 / ADMINEXPRESS-COG.LATEST
 #--------------------------------------------------------------
+
+# TODO harden allowing different order
+- query: "adminexpress latest commune"
+  expected:
+    - "ADMINEXPRESS-COG.LATEST:commune"
+    - "ADMINEXPRESS-COG.LATEST:chef_lieu_de_commune"
+
+# TODO harden allowing different order
+- query: "BDTOPO commune"
+  expected:
+    - "BDTOPO_V3:commune_associee_ou_deleguee"
+    - "BDTOPO_V3:commune"
 
 # TODO : allow different order
-# - name: "search_commune1"
-#   query: "BDTOPO commune"
+# - query: "commune"
 #   expected:
-#     - BDTOPO_V3:commune_associee_ou_deleguee
+#     - ADMINEXPRESS-COG.LATEST:commune
 #     - BDTOPO_V3:commune
 
+# TODO : FIXME - BDTOPO_V3:commune_associee_ou_deleguee
+# - query: "chef lieu commune"
+#   expected:
+#     - "ADMINEXPRESS-COG.LATEST:chef_lieu_de_commune"
 
 
 #--------------------------------------------------------------
@@ -155,23 +214,19 @@
 # BDTOPO_V3:zone_d_activite_ou_d_interet
 #--------------------------------------------------------------
 
-- name: "search_religieux1"
-  query: "édifice religieux abbaye monastère"
+- query: "édifice religieux abbaye monastère"
   expected:
     - BDTOPO_V3:zone_d_activite_ou_d_interet
 
-- name: "search_religieux2"
-  query: "abbaye monastère édifice religieux bâtiment remarquable"
+- query: "abbaye monastère édifice religieux bâtiment remarquable"
   expected:
     - BDTOPO_V3:batiment
 
-- name: "search_religieux3"
-  query: "église lieu de culte"
+- query: "église lieu de culte"
   expected:
     - BDTOPO_V3:zone_d_activite_ou_d_interet
 
-- name: "search_religieux3"
-  query: "bâtiment religieux BDTOPO"
+- query: "bâtiment religieux BDTOPO"
   expected:
     - BDTOPO_V3:batiment
 
@@ -181,18 +236,24 @@
 # abbaye monument religieux
 
 #--------------------------------------------------------------
+# BDTOPO_V3:zone_d_habitation
+#--------------------------------------------------------------
+
+- query: "zone habitation"
+  expected:
+    - "BDTOPO_V3:zone_d_habitation"
+
+#--------------------------------------------------------------
 # BDTOPO_V3:zone_de_vegetation
 #--------------------------------------------------------------
 
 # végétation
-- name: "search_vegetation1"
-  query: "végétation"
+- query: "végétation"
   expected:
     - BDTOPO_V3:zone_de_vegetation
 
 # haie
-- name: "search_haie1"
-  query: "haie"
+- query: "haie"
   expected:
     - BDTOPO_V3:haie
 
@@ -208,47 +269,92 @@
 #   expected:
 #     - BDTOPO_V3:zone_de_vegetation
 
+#--------------------------------------------------------------
+# wfs_du / wfs_sup / wfs_scot
+# ( https://www.geoportail-urbanisme.gouv.fr )
+#--------------------------------------------------------------
+
+- query: "document urbanisme"
+  expected:
+    - "wfs_du:document"
+    - "wfs_du:doc_urba"
+
+- query: "prescription surf"
+  expected:
+    - "wfs_du:prescription_surf"
+
+- query: "servitude utilité publique"
+  expected:
+    - "wfs_sup:servitude"
+
+- query: "scot"
+  expected:
+    - "wfs_scot:scot"
+    - "wfs_scot:perimetre_scot"
+
+
+#--------------------------------------------------------------
+# STATISTICALUNITS.IRIS / STATISTICALUNITS.IRIS.PE (INSEE)
+#--------------------------------------------------------------
+
+- query: "contours iris"
+  expected:
+    - "STATISTICALUNITS.IRIS:contours_iris"
+    - "STATISTICALUNITS.IRIS.PE:contours_iris_pe"
+    - "STATISTICALUNITS.IRISGE:iris_ge"
+
+#--------------------------------------------------------------
+# INSEE.FILOSOFI.INDICATORS
+#--------------------------------------------------------------
+
+# TODO - harden allowing different order
+- query: "filosofi carreaux"
+  expected:
+    - "INSEE.FILOSOFI.INDICATORS:carreaux_1km"
+    - "INSEE.FILOSOFI.INDICATORS:carreaux_200m"
 
 #--------------------------------------------------------------
 # NO DATA -> no results
 #--------------------------------------------------------------
 
 # no data in BDTOPO
-- name: "search_pharmacie1"
-  query: "pharmacie officine"
+- query: "pharmacie officine"
   expected: []
 
 # ORTHOIMAGERY.* disabled for now
-- name: "search_orthophoto1"
-  query: "orthophoto"
+- query: "orthophoto"
   expected: []
 
 # ORTHOIMAGERY.* disabled for now
-- name: "search_orthophoto2"
-  query: "orthophoto raster"
+- query: "orthophoto raster"
   expected: []
 
 # no data?
-- name: "search_geologie1"
-  query: "argile sol géologie"
+- query: "argile sol géologie"
   expected: []
 
 # could find some SUP?
-- name: "search_geologie2"
-  query: "retrait gonflement argiles aléa"
+- query: "retrait gonflement argiles aléa"
   expected: []
 
 # no data ? BDIFF not published on GPF ?
-- name: "search_incendie1"
-  query: "incendie forêt zonage feux DFCI"
+- query: "incendie forêt zonage feux DFCI"
   expected: []
 
 # DEBROUSSAILLEMENT disabled for now
-- name: "search_debroussaillement1"
-  query: "obligations légales débroussaillement OLD"
+- query: "obligations légales débroussaillement OLD"
   expected: []
 
 
 
+#--------------------------------------------------------------
+# TODO old tests
+#--------------------------------------------------------------
+
+
+
+- query: "toponymie"
+  expected:
+    - "BDTOPO_V3:toponymie"
 
 

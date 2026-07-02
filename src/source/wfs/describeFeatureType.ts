@@ -1,7 +1,7 @@
 import { debuglog } from 'node:util';
 import { z } from 'zod';
-import '../../helpers/configure-fetch';
-import { formatSchemaIssues } from '../../helpers/zod';
+import '@/helpers/configure-fetch';
+import { formatSchemaIssues } from '@/helpers/zod';
 
 const debug = debuglog('gpf-schema-store:describe-feature-type');
 
@@ -11,7 +11,7 @@ const debug = debuglog('gpf-schema-store:describe-feature-type');
  * =============================================================================
  */
 
-export const describeFeatureTypePropertySchema = z.object({
+export const zFeatureTypeProperty = z.object({
     name: z.string(),
     maxOccurs: z.number().int(),
     minOccurs: z.number().int(),
@@ -20,22 +20,22 @@ export const describeFeatureTypePropertySchema = z.object({
     localType: z.string(),
 });
 
-export const describeFeatureTypeFeatureTypeSchema = z.object({
+export const zWfsFeatureType = z.object({
     typeName: z.string(),
-    properties: z.array(describeFeatureTypePropertySchema),
+    properties: z.array(zFeatureTypeProperty),
 });
 
-export type WfsFeatureType = z.infer<typeof describeFeatureTypeFeatureTypeSchema>;
+export type WfsFeatureType = z.infer<typeof zWfsFeatureType>;
 
 
-export const describeFeatureTypeResultSchema = z.object({
+export const zDescribeFeatureTypeResult = z.object({
     elementFormDefault: z.string(),
     targetNamespace: z.string(),
     targetPrefix: z.string(),
-    featureTypes: z.array(describeFeatureTypeFeatureTypeSchema),
+    featureTypes: z.array(zWfsFeatureType),
 });
 
-export type DescribeFeatureTypeResult = z.infer<typeof describeFeatureTypeResultSchema>;
+export type DescribeFeatureTypeResult = z.infer<typeof zDescribeFeatureTypeResult>;
 
 /*
  * =============================================================================
@@ -66,7 +66,7 @@ export async function describeFeatureType(wfsUrl: string, typename: string): Pro
     }
 
     const raw: unknown = await response.json();
-    const result = describeFeatureTypeResultSchema.safeParse(raw);
+    const result = zDescribeFeatureTypeResult.safeParse(raw);
     if (!result.success) {
         throw new Error(`Invalid DescribeFeatureType response for "${typename}": ${formatSchemaIssues(result.error)}`);
     }

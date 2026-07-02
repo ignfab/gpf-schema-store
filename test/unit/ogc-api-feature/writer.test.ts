@@ -1,44 +1,58 @@
 import { describe, expect, it } from 'vitest';
-import type { EnrichedCollection } from '../../../src/types';
-import { renderCollectionSchema } from '../../../src/renderers/collection-schema';
+import type { EnrichedCollection } from '@/pivot/types';
+import { renderCollectionBrief, renderCollectionSchema } from '@/ogc-api-feature/writer';
+import type { OgcCollectionBrief } from '@/index';
+
+
+const SAMPLE_COLLECTION: EnrichedCollection = {
+  id: 'NS:feature',
+  namespace: 'NS',
+  name: 'feature',
+  title: 'Feature',
+  description: 'Feature description',
+  'x-ign-theme': 'Theme',
+  required: ['cleabs', 'geom'],
+  properties: [
+    { name: 'cleabs', type: 'string', title: 'Identifier' },
+    { name: 'height', type: 'float', title: 'Height' },
+    { name: 'count', type: 'integer', title: 'Count' },
+    {
+      name: 'status',
+      type: 'string',
+      title: 'Status',
+      oneOf: [
+        {
+          const: 'A',
+          title: 'Active',
+          description: 'Active status',
+          'x-ign-representedFeatures': ['Active feature'],
+        },
+      ],
+    },
+    {
+      name: 'geom',
+      type: 'point',
+      title: 'Geometry',
+      defaultCrs: 'EPSG:4326',
+    },
+  ],
+};
+
+describe('renderCollectionBrief', () => {
+  it('renders id, title and description', () => {
+    const brief = renderCollectionBrief(SAMPLE_COLLECTION);
+    const expectedBrief = {
+      id: 'NS:feature',
+      title: 'Feature',
+      description: 'Feature description',
+    } as OgcCollectionBrief;
+    expect(brief).toStrictEqual(expectedBrief);
+  })
+})
 
 describe('renderCollectionSchema', () => {
   it('renders scalar, identifier, and geometry properties as an OGC logical JSON Schema', () => {
-    const collection: EnrichedCollection = {
-      id: 'NS:feature',
-      namespace: 'NS',
-      name: 'feature',
-      title: 'Feature',
-      description: 'Feature description',
-      'x-ign-theme': 'Theme',
-      required: ['cleabs', 'geom'],
-      properties: [
-        { name: 'cleabs', type: 'string', title: 'Identifier' },
-        { name: 'height', type: 'float', title: 'Height' },
-        { name: 'count', type: 'integer', title: 'Count' },
-        {
-          name: 'status',
-          type: 'string',
-          title: 'Status',
-          oneOf: [
-            {
-              const: 'A',
-              title: 'Active',
-              description: 'Active status',
-              'x-ign-representedFeatures': ['Active feature'],
-            },
-          ],
-        },
-        {
-          name: 'geom',
-          type: 'point',
-          title: 'Geometry',
-          defaultCrs: 'EPSG:4326',
-        },
-      ],
-    };
-
-    const schema = renderCollectionSchema(collection);
+    const schema = renderCollectionSchema(SAMPLE_COLLECTION);
 
     expect(Object.keys(schema)).toEqual([
       '$schema',

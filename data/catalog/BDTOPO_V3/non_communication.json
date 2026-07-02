@@ -8,45 +8,45 @@
   "x-ign-selectionCriteria": "Il n'est à ce jour pas effectué de saisie exhaustive des non-communications.",
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "lien_vers_troncon_entree": {
+      "type": "string",
       "title": "Lien vers tronçon entrée",
-      "description": "Identifiant du tronçon à partir duquel on ne peut se rendre vers le(s) tronçon(s) sortant de ce nœud.",
-      "type": "string"
+      "description": "Identifiant du tronçon à partir duquel on ne peut se rendre vers le(s) tronçon(s) sortant de ce nœud."
     },
     "liens_vers_troncon_sortie": {
+      "type": "string",
       "title": "Liens vers tronçon sortie",
-      "description": "Identifiants du (des) tronçon(s) vers le(s)quel(s) on ne peut se rendre à partir du tronçon entrant de ce nœud.",
-      "type": "string"
+      "description": "Identifiants du (des) tronçon(s) vers le(s)quel(s) on ne peut se rendre à partir du tronçon entrant de ce nœud."
     },
     "geometrie": {
+      "format": "geometry-point",
       "title": "Géométrie",
       "description": "",
-      "format": "geometry-point",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

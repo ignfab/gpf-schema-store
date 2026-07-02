@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 
-import { namespaceFiltersSchema, type NamespaceFilterRule } from '../types';
+import { zNamespaceFiltersFile, type NamespaceFilterRule } from '@/config/types';
 import { formatSchemaIssues } from './zod';
 
 /**
@@ -11,7 +11,7 @@ import { formatSchemaIssues } from './zod';
  */
 export function loadNamespaceFilters(yamlContent: string): NamespaceFilterRule[] {
   const data = yaml.load(yamlContent);
-  const result = namespaceFiltersSchema.safeParse(data);
+  const result = zNamespaceFiltersFile.safeParse(data);
 
   if (!result.success) {
     throw new Error(`Invalid namespace-filters.yaml content: ${formatSchemaIssues(result.error)}`);

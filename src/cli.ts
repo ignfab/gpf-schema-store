@@ -11,19 +11,18 @@ import { loadEnrichedCollections } from './enrichment/load-enriched-collections'
 import { compare } from './helpers/compare';
 import { getMetadataFromNamespace } from './helpers/metadata';
 import { formatSchemaIssues } from './helpers/zod';
-import { getDataDir } from './local-data/data-dir';
-import { getNamespaceFilters } from './local-data/namespace-filters';
+import { getDataDir } from './config/data-dir';
+import { getNamespaceFilters } from './config/namespace-filters';
 import { validateOverwriteReferences } from './overwrite/overwrite';
 import { loadCollectionOverwrite } from './overwrite/overwrite-store';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
 import { WfsClient } from './source/wfs';
 import { loadSourceCollections, replaceSourceCollections } from './source/source-store';
+import { zPackageMetadata, type NamespaceFilterRule } from './config/types';
 import {
-  packageMetadataSchema,
-  type NamespaceFilterRule,
   type SourceCollection,
-  type SourceCollectionBrief,
-} from './types';
+  type SourceCollectionBrief
+} from './source/types';
 
 /*
  * =============================================================================
@@ -103,7 +102,7 @@ function buildProgram(): Command {
 
 function loadPackageVersion(): string {
   const raw = JSON.parse(readFileSync(PACKAGE_JSON_PATH, 'utf-8')) as unknown;
-  const result = packageMetadataSchema.safeParse(raw);
+  const result = zPackageMetadata.safeParse(raw);
   if (!result.success) {
     throw new Error(
       `Invalid package metadata ${PACKAGE_JSON_PATH}: ${formatSchemaIssues(result.error)}`,

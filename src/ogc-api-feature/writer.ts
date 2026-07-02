@@ -1,10 +1,16 @@
-import { isGeometryType, type CollectionPropertyType } from '../pivot/types';
+import { type CollectionPropertyType } from '@/pivot/types';
+import { isGeometryType } from '@/pivot/helpers';
+import {
+  type OgcCollectionSchema,
+  type OgcCollectionProperty,
+  type OgcCollectionBrief,
+  zOgcCollectionSchema,
+  zOgcCollectionBrief
+} from './types';
 import type {
-  CollectionSchema,
-  CollectionSchemaProperty,
   EnrichedCollection,
-  EnrichedCollectionProperty,
-} from '../types';
+  EnrichedCollectionProperty
+} from '@/pivot/types';
 
 /*
  * =============================================================================
@@ -23,6 +29,11 @@ const JSON_SCHEMA_DRAFT = 'https://json-schema.org/draft/2020-12/schema' as cons
  * =============================================================================
  */
 
+/**
+ * TODO : remove this hack. Note that :
+ * - "cleabs" should be marked as primaryKey in overwrites/BDTOPO_V3/{table}.json
+ * - Both TableSchema and IGNF/validator allows primaryKey: string|string[]
+ */
 function isOgcIdentifierProperty(property: EnrichedCollectionProperty): boolean {
   return property.name === 'cleabs';
 }
@@ -33,7 +44,7 @@ function isOgcIdentifierProperty(property: EnrichedCollectionProperty): boolean 
  * =============================================================================
  */
 
-function toJsonSchemaScalarType(type: CollectionPropertyType): CollectionSchemaProperty['type'] {
+function toJsonSchemaScalarType(type: CollectionPropertyType): OgcCollectionProperty['type'] {
   switch (type) {
     case 'string':
       return 'string';
@@ -54,8 +65,8 @@ function toJsonSchemaScalarType(type: CollectionPropertyType): CollectionSchemaP
   }
 }
 
-function renderProperty(property: EnrichedCollectionProperty): CollectionSchemaProperty {
-  const rendered: CollectionSchemaProperty = {};
+function renderProperty(property: EnrichedCollectionProperty): OgcCollectionProperty {
+  const rendered: OgcCollectionProperty = {};
 
   // Copy the descriptive metadata shared by scalar and geometry properties.
   if (property.title !== undefined) {
@@ -93,15 +104,30 @@ function renderProperty(property: EnrichedCollectionProperty): CollectionSchemaP
  * =============================================================================
  */
 
-export function renderCollectionSchema(collection: EnrichedCollection): CollectionSchema {
+/**
+ * Converts pivot collection to OgcCollectionBrief
+ */
+export function renderCollectionBrief(collection: EnrichedCollection): OgcCollectionBrief {
+  return zOgcCollectionBrief.parse({
+    id: collection.id,
+    title: collection.title,
+    description: collection.description,
+  });
+}
+
+
+/**
+ * Converts pivot collection to OGC API Feature - schema
+ */
+export function renderCollectionSchema(collection: EnrichedCollection): OgcCollectionSchema {
   // The public schema exposes properties as a keyed object, while the internal
   // model keeps them as an ordered array.
-  const properties: Record<string, CollectionSchemaProperty> = {};
+  const properties: Record<string, OgcCollectionProperty> = {};
   for (const property of collection.properties) {
     properties[property.name] = renderProperty(property);
   }
 
-  const schema: Partial<CollectionSchema> = {
+  const schema: Partial<OgcCollectionSchema> = {
     $schema: JSON_SCHEMA_DRAFT,
     'x-collection-id': collection.id,
     type: 'object',
@@ -125,5 +151,5 @@ export function renderCollectionSchema(collection: EnrichedCollection): Collecti
   schema.properties = properties;
   schema.required = collection.required ? [...collection.required] : [];
 
-  return schema as CollectionSchema;
+  return zOgcCollectionSchema.parse(schema);
 }

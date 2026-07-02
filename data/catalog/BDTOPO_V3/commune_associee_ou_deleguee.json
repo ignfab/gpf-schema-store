@@ -11,27 +11,28 @@
   ],
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "nom_officiel": {
+      "type": "string",
       "title": "Nom officiel",
-      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées.",
-      "type": "string"
+      "description": "Toponyme intégral de source Insee (avec article si présent) de l'entité administrative. Il est saisi en majuscule aux premières lettres de chaque terme, et minuscules pour les autres, toutes deux accentuées."
     },
     "code_insee": {
+      "type": "string",
       "title": "Code Insee de la commune associée ou déléguée",
-      "description": "Il s’agit du numéro officiel attribué par l’Insee à la Commune associée ou déléguée : il est composé de 5 caractères, les deux ou trois premiers correspondant au numéro de Département.",
-      "type": "string"
+      "description": "Il s’agit du numéro officiel attribué par l’Insee à la Commune associée ou déléguée : il est composé de 5 caractères, les deux ou trois premiers correspondant au numéro de Département."
     },
     "code_insee_de_la_commune_de_rattach": {
+      "type": "string",
       "title": "Code Insee de la commune de rattachement",
-      "description": "Code Insee de la Commune de rattachement.",
-      "type": "string"
+      "description": "Code Insee de la Commune de rattachement."
     },
     "nature": {
+      "type": "string",
       "title": "Nature",
       "description": "Nature de la commune (associée ou déléguée).",
       "oneOf": [
@@ -45,58 +46,57 @@
           "title": "Commune déléguée",
           "description": "Statut d'une ancienne Commune devenue déléguée résultant de la création d'une Commune nouvelle ou de la fusion de plusieurs communes en une Commune nouvelle au titre de la loi n° 2010-1563 de 2010. Il permet à des communes supprimées lors d'une fusion de conserver quelques particularités : - un maire délégué, officier d'état civil et officier de police judiciaire, et susceptible de recevoir certaines délégations du maire ; - une mairie annexe, qui est notamment responsable des actes d'état civil."
         }
-      ],
-      "type": "string"
+      ]
     },
     "code_siren": {
+      "type": "string",
       "title": "Code Siren",
-      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro. Source Insee",
-      "type": "string"
+      "description": "Le numéro Siren est un identifiant de neuf chiffres attribué à chaque unité légale. Les huit premiers chiffres n'ont aucune signification, excepté pour les organismes publics (communes, EPCI...) dont le numéro Siren commence obligatoirement par 1 ou 2. Le neuvième chiffre est un chiffre de contrôle de validité du numéro. Source Insee"
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "code_postal": {
+      "type": "string",
       "title": "Code postal",
-      "description": "Code postal utilisé pour la Commune.",
-      "type": "string"
+      "description": "Code postal utilisé pour la Commune."
     },
     "lien_vers_chef_lieu": {
+      "type": "string",
       "title": "Lien vers chef-lieu",
-      "description": "Lien vers la chef-lieu de la Commune.",
-      "type": "string"
+      "description": "Lien vers la chef-lieu de la Commune."
     },
     "liens_vers_autorite_administrative": {
+      "type": "string",
       "title": "Liens vers autorité administrative",
-      "description": "Lien vers l'objet de Nature=\"Mairie\" et de Nature détaillée=\"Mairie de commune associée ou déléguée\" de la Commune associée ou déléguée.",
-      "type": "string"
+      "description": "Lien vers l'objet de Nature=\"Mairie\" et de Nature détaillée=\"Mairie de commune associée ou déléguée\" de la Commune associée ou déléguée."
     },
     "population": {
+      "type": "integer",
       "title": "Population",
-      "description": "La population municipale comprend les personnes : - ayant leur résidence habituelle sur le territoire de la commune, dans un logement ou une communauté - détenues dans les établissements pénitentiaires de la commune - les sans-abri recensées sur le territoire de la commune - résidant habituellement dans une habitation mobile recensée sur le territoire de la commune La population municipale d'un ensemble de communes est égale à la somme des populations municipales des communes qui le composent. Le concept de population municipale correspond désormais à la notion de population utilisée usuellement en statistique. En effet, elle ne comporte pas de doubles comptes : chaque personne vivant en France est comptée une fois et une seule. En 1999, c'était le concept de population sans doubles comptes qui correspondait à la notion de population statistique. Source Insee",
-      "type": "integer"
+      "description": "La population municipale comprend les personnes : - ayant leur résidence habituelle sur le territoire de la commune, dans un logement ou une communauté - détenues dans les établissements pénitentiaires de la commune - les sans-abri recensées sur le territoire de la commune - résidant habituellement dans une habitation mobile recensée sur le territoire de la commune La population municipale d'un ensemble de communes est égale à la somme des populations municipales des communes qui le composent. Le concept de population municipale correspond désormais à la notion de population utilisée usuellement en statistique. En effet, elle ne comporte pas de doubles comptes : chaque personne vivant en France est comptée une fois et une seule. En 1999, c'était le concept de population sans doubles comptes qui correspondait à la notion de population statistique. Source Insee"
     },
     "geometrie": {
+      "format": "geometry-multipolygon",
       "title": "Géométrie GE MultiPolygone",
       "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle.",
-      "format": "geometry-multipolygon",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

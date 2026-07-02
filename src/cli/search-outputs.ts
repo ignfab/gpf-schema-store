@@ -1,7 +1,7 @@
 import type {
   MiniSearchCollectionSearchEngine,
   MiniSearchCollectionSearchMatch,
-} from '../search/minisearch-engine';
+} from '@/search/minisearch-engine';
 
 const FIELD_DISPLAY_ORDER = [
   'title',

@@ -1,11 +1,11 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import type { SourceCollection } from '../../../src/types';
+import type { SourceCollection } from '@/source/types';
 import {
   parseOverwrite,
   validateOverwriteReferences,
-} from '../../../src/overwrite/overwrite';
+} from '@/overwrite/overwrite';
 
 function listJsonFiles(root: string): string[] {
   return readdirSync(root)

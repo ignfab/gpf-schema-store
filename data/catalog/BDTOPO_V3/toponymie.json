@@ -7,31 +7,32 @@
   "description": "",
   "properties": {
     "classe_de_l_objet": {
+      "type": "string",
       "title": "Classe de l'objet",
-      "description": "Classe de l'objet dont la toponymie est détaillée.",
-      "type": "string"
+      "description": "Classe de l'objet dont la toponymie est détaillée."
     },
     "nature_de_l_objet": {
+      "type": "string",
       "title": "Nature de l'objet",
-      "description": "Le cas échéant, valeur du champ 'Nature' de l'objet dont la toponymie est détaillée. En l'absence de champ 'Nature', valeur du champ équivalent (ex : Type de route) de la classe mère.",
-      "type": "string"
+      "description": "Le cas échéant, valeur du champ 'Nature' de l'objet dont la toponymie est détaillée. En l'absence de champ 'Nature', valeur du champ équivalent (ex : Type de route) de la classe mère."
     },
     "nature_detaillee_de_l_objet": {
+      "type": "string",
       "title": "Nature détaillée de l'objet",
-      "description": "Le cas échéant, valeur du champ 'Nature détaillée' de l'objet dont la toponymie est détaillée. En l'absence de champ 'Nature détaillée', valeur du champ équivalent (ex : Type de route) de la classe mère, sinon, pas de valeur.",
-      "type": "string"
+      "description": "Le cas échéant, valeur du champ 'Nature détaillée' de l'objet dont la toponymie est détaillée. En l'absence de champ 'Nature détaillée', valeur du champ équivalent (ex : Type de route) de la classe mère, sinon, pas de valeur."
     },
     "graphie_du_toponyme": {
+      "type": "string",
       "title": "Graphie du toponyme",
-      "description": "Graphie du toponyme dont les caractéristiques sont détaillées.",
-      "type": "string"
+      "description": "Graphie du toponyme dont les caractéristiques sont détaillées."
     },
     "source_du_toponyme": {
+      "type": "string",
       "title": "Source du toponyme",
-      "description": "Origine(s) de la graphie du toponyme.",
-      "type": "string"
+      "description": "Origine(s) de la graphie du toponyme."
     },
     "statut_du_toponyme": {
+      "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
       "oneOf": [
@@ -60,28 +61,27 @@
           "title": "Validé",
           "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
         }
-      ],
-      "type": "string"
+      ]
     },
     "date_du_toponyme": {
+      "type": "string",
       "title": "Date du toponyme",
-      "description": "Date de saisie ou de validation de la graphie.",
-      "type": "string"
+      "description": "Date de saisie ou de validation de la graphie."
     },
     "langue_du_toponyme": {
+      "type": "string",
       "title": "Langue du toponyme",
-      "description": "",
-      "type": "string"
+      "description": ""
     },
     "cleabs_de_l_objet": {
+      "type": "string",
       "title": "Cleabs de l'objet",
-      "description": "Clé absolue (ID) de l'objet BD TOPO® auquel se rapporte ce toponyme.",
-      "type": "string"
+      "description": "Clé absolue (ID) de l'objet BD TOPO® auquel se rapporte ce toponyme."
     },
     "geometrie": {
+      "format": "geometry-point",
       "title": "Géométrie",
       "description": "",
-      "format": "geometry-point",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

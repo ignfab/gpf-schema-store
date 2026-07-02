@@ -11,7 +11,7 @@ import { fileURLToPath } from 'url';
 function resolveDataDir(): string {
 
   // The data directory is expected to be located at a fixed relative path from this file,
-  // either src/local-data/data-dir.ts or dist/local-data/data-dir.js
+  // either src/config/data-dir.ts or dist/config/data-dir.js
   let dir = dirname(fileURLToPath(import.meta.url));
 
   const start = dir;

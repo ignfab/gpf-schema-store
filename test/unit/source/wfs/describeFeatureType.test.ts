@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { describeFeatureType } from '../../../../src/source/wfs/describeFeatureType'
+import { describeFeatureType } from '@/source/wfs/describeFeatureType'
 
 const validResponse = {
   elementFormDefault: 'qualified',

@@ -22,7 +22,7 @@ describe('configure-fetch', () => {
   })
 
   it('calls setGlobalDispatcher with EnvHttpProxyAgent on import', async () => {
-    await import('../../../src/helpers/configure-fetch')
+    await import('@/helpers/configure-fetch')
 
     expect(setGlobalDispatcherMock).toHaveBeenCalledTimes(1)
     const agent = setGlobalDispatcherMock.mock.calls[0]?.[0]

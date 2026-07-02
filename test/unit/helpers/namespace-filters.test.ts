@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { loadNamespaceFilters, findFirstMatchingRule } from '../../../src/helpers/namespace-filters'
+import { loadNamespaceFilters, findFirstMatchingRule } from '@/helpers/namespace-filters'
 
 describe('loadNamespaceFilters', () => {
   it('loads filters from a YAML object with rules', () => {

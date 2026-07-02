@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildSearchDocument } from '../../../src/search/search-document';
+import { buildSearchDocument } from '@/search/search-document';
 
 describe('buildSearchDocument', () => {
   it('splits enriched collection signals into dedicated search fields', () => {

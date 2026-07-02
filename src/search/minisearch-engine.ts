@@ -1,5 +1,5 @@
 import MiniSearch, { type MatchInfo } from 'minisearch';
-import type { EnrichedCollection } from '../types';
+import type { EnrichedCollection } from '@/pivot/types';
 import {
   buildSearchDocuments,
   type SearchDocument,
@@ -7,6 +7,7 @@ import {
 import type {
   CollectionSearchEngine,
   CollectionSearchMatch,
+  CollectionSearchOptions,
 } from './types';
 
 /*
@@ -24,11 +25,12 @@ import type {
  * =============================================================================
  * Indexed fields
  * =============================================================================
- *
+ */
+
+/**
  * These are the fields MiniSearch sees after projecting an enriched collection
  * to a dedicated search document.
  */
-
 const INDEXED_SEARCH_FIELDS = [
   'namespace',
   'name',
@@ -52,30 +54,39 @@ type IndexedSearchField = typeof INDEXED_SEARCH_FIELDS[number];
  * =============================================================================
  */
 
-// Options for MiniSearch are based on the SearchOptions type defined in the
-// MiniSearch library. This type narrows them to the indexed fields exposed by
-// this engine.
-export type MiniSearchCollectionSearchOptions = {
+/**
+ * Options for MiniSearch are based on the SearchOptions type defined in the
+ * MiniSearch library. This type narrows them to the indexed fields exposed by
+ * this engine.
+ */
+export interface MiniSearchCollectionSearchOptions extends CollectionSearchOptions {
   fields?: IndexedSearchField[];
   combineWith?: 'AND' | 'OR';
   boost?: Partial<Record<IndexedSearchField, number>>;
   fuzzy?: number;
-};
+}
 
 export type MiniSearchCollectionSearchEngineOptions = {
   defaultSearchOptions?: MiniSearchCollectionSearchOptions;
 };
 
+/**
+ * CollectionSearchMatch extended with MiniSearch specific metadata
+ */
 export type MiniSearchCollectionSearchMatch = CollectionSearchMatch & {
   queryTerms?: string[];
   terms?: string[];
   match?: MatchInfo;
 };
 
-// Internal helper type used after merging user options with the engine defaults.
+/**
+ * Internal helper type used after merging user options with the engine defaults.
+ */
 type ResolvedBoost = Required<Record<IndexedSearchField, number>>;
 
-// Baseline search behavior applied when the caller does not provide overrides.
+/**
+ * Baseline search behavior applied when the caller does not provide overrides.
+ */
 const DEFAULT_MINISEARCH_SEARCH_OPTIONS: { boost: ResolvedBoost; fuzzy: number } = {
   boost: {
     namespace: 2.5,
@@ -140,7 +151,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
   private readonly miniSearch: MiniSearch<SearchDocument>;
 
   // Resolved once at construction time by merging defaults with caller options.
-  private readonly defaultSearchOptions: { fields?: IndexedSearchField[]; combineWith?: 'AND' | 'OR'; boost: ResolvedBoost; fuzzy: number };
+  private readonly defaultSearchOptions: { limit?: number, fields?: IndexedSearchField[]; combineWith?: 'AND' | 'OR'; boost: ResolvedBoost; fuzzy: number };
 
   /*
    * ---------------------------------------------------------------------------
@@ -172,6 +183,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
   ) {
     const defaultSearchOptions = options.defaultSearchOptions ?? {};
     this.defaultSearchOptions = {
+      limit: defaultSearchOptions.limit,
       fields: defaultSearchOptions.fields,
       combineWith: defaultSearchOptions.combineWith,
       boost: {
@@ -204,7 +216,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
 
   search(
     query: string,
-    options: MiniSearchCollectionSearchOptions = {},
+    options?: MiniSearchCollectionSearchOptions,
   ): CollectionSearchMatch[] {
     // The generic search API exposes only id and score.
     return this.searchDetailed(query, options).map(({ id, score }) => ({ id, score }));
@@ -216,7 +228,7 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
   ): MiniSearchCollectionSearchMatch[] {
     // Per-query options override the defaults. Boost fields are merged so
     // callers can tune a single field weight without redefining every weight.
-    return this.miniSearch
+    const results = this.miniSearch
       .search(query, {
         fields: options.fields ?? this.defaultSearchOptions.fields,
         combineWith: options.combineWith ?? this.defaultSearchOptions.combineWith,
@@ -230,7 +242,22 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
         terms: result.terms,
         match: result.match,
       }));
+
+    const limit = this.getSearchLimit(options);
+    if (limit === undefined) {
+      return results;
+    }
+    // TODO: add unit test when limit is negative
+    return results.slice(0, Math.max(0, limit));
   }
+
+  /**
+   * Get search limit 
+   */
+  private getSearchLimit(options: MiniSearchCollectionSearchOptions): number | undefined {
+    return options.limit ?? this.defaultSearchOptions.limit;
+  }
+
 
   // Exposed mainly for debugging, CLI output, and tests.
   getDefaultSearchOptions(): MiniSearchCollectionSearchOptions {

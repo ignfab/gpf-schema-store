@@ -1,8 +1,8 @@
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { isAbsolute, join, relative, resolve, sep } from 'node:path';
 
-import type { EnrichedCollection } from '../types';
-import { renderCollectionSchema } from '../renderers/collection-schema';
+import type { EnrichedCollection } from '@/pivot/types';
+import { renderCollectionSchema } from '@/ogc-api-feature/writer';
 
 export interface RenderCatalogOptions {
   clean?: boolean;

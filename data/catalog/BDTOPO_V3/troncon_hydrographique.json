@@ -8,22 +8,23 @@
   "x-ign-selectionCriteria": "- Tous les cours d'eau permanents, naturels ou artificiels, sont inclus - Les cours d'eau temporaires naturels sont inclus, à l'exception des tronçons de moins de 200 m situés aux extrémités amont du réseau. - Les cours d’eau temporaires artificiels ou artificialisés sont sélectionnés en fonction de leur importance et de l’environnement (les tronçons longeant une voie de communication sont exclus, ainsi que les fossés). - Les talwegs qui ne sont pas marqués par la présence régulière de l’eau sont exclus. - Les tronçons souterrains ou busés de plus de 25 m de long sont retenus. - Tous les cours d’eau de plus de 5 m de large sont inclus. Ils sont représentés par un Tronçon hydrographique d’attribut Fictif=\"Vrai\" superposé à un objet de classe Surface hydrographique. Dans leur partie aval, les cours d’eau sont représentés au moins jusqu’à la laisse des plus hautes mers. Fossés : les gros fossés de plus de 2 m de large sont inclus lorsqu'ils coulent de manière permanente. Les fossés dont le débit n’est pas permanent sont sélectionnés en fonction de l’environnement. Ils sont généralement exclus lorsqu'ils longent une voie de communication.",
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "code_hydrographique": {
+      "type": "string",
       "title": "Code hydrographique",
-      "description": "Identifiant de l'objet hydrographique.",
-      "type": "string"
+      "description": "Identifiant de l'objet hydrographique."
     },
     "code_du_pays": {
+      "type": "string",
       "title": "Code du pays",
-      "description": "Code du pays auquel appartient l'objet hydrographique.",
-      "type": "string"
+      "description": "Code du pays auquel appartient l'objet hydrographique."
     },
     "nature": {
+      "type": "string",
       "title": "Nature",
       "description": "Nature du tronçon hydrographique.",
       "oneOf": [
@@ -190,15 +191,15 @@
           "title": "Retenue-digue",
           "description": "Axe fictif traversant une retenue endiguée."
         }
-      ],
-      "type": "string"
+      ]
     },
     "fictif": {
+      "type": "boolean",
       "title": "Fictif",
-      "description": "Indique si la géométrie de l'objet est réelle ou non significative.",
-      "type": "boolean"
+      "description": "Indique si la géométrie de l'objet est réelle ou non significative."
     },
     "etat_de_l_objet": {
+      "type": "string",
       "title": "Etat de l'objet",
       "description": "État ou stade de vie d'un objet qui, pour le thème bâti, peut être en projet, en construction, en service, en projet ou disparu.",
       "oneOf": [
@@ -222,10 +223,10 @@
           "title": "En service",
           "description": "L'objet géographique est en service."
         }
-      ],
-      "type": "string"
+      ]
     },
     "position_par_rapport_au_sol": {
+      "type": "string",
       "title": "Position par rapport au sol",
       "description": "Niveau de l’objet par rapport à la surface du sol.",
       "oneOf": [
@@ -257,40 +258,40 @@
           "title": "Inconnue",
           "description": "La position est inconnue."
         }
-      ],
-      "type": "string"
+      ]
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "sources": {
+      "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "type": "string"
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     "identifiants_sources": {
+      "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "type": "string"
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     "methode_d_acquisition_planimetrique": {
+      "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
       "oneOf": [
@@ -422,15 +423,15 @@
           "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
-      ],
-      "type": "string"
+      ]
     },
     "precision_planimetrique": {
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "type": "number"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     "methode_d_acquisition_altimetrique": {
+      "type": "string",
       "title": "Méthode d'acquisition altimétrique",
       "description": "Méthode principale ayant permis d'acquérir l'altimétrie (Z) de l'objet.",
       "oneOf": [
@@ -508,15 +509,15 @@
           "title": "Z corrigé",
           "description": "Le Z est calculé, interpolé ou corrigé grâce aux valeurs existantes aux environs."
         }
-      ],
-      "type": "string"
+      ]
     },
     "precision_altimetrique": {
+      "type": "number",
       "title": "Précision altimétrique",
-      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet.",
-      "type": "number"
+      "description": "Précision altimétrique (en mètres) de la géométrie décrivant l'objet."
     },
     "mode_d_obtention_des_coordonnees": {
+      "type": "string",
       "title": "Mode d'obtention des coordonnées",
       "description": "Méthode utilisée pour déterminer les coordonnées de l'objet hydrographique.",
       "oneOf": [
@@ -580,10 +581,10 @@
           "title": "Théodolite",
           "description": "Positionnement déterminé à l'aide d'une station totale (théodolite), permettant de mesurer les angles horizontaux et verticaux entre deux cibles, ainsi que la distance de ces cibles."
         }
-      ],
-      "type": "string"
+      ]
     },
     "mode_d_obtention_de_l_altitude": {
+      "type": "string",
       "title": "Mode d'obtention de l'altitude",
       "description": "Méthode utilisée pour établir l'altitude de l'objet hydrographique.",
       "oneOf": [
@@ -652,10 +653,10 @@
           "title": "Sondeur acoustique",
           "description": "Bathymétrie déterminée à partir de mesures effectuées depuis un sondeur acoustique."
         }
-      ],
-      "type": "string"
+      ]
     },
     "statut": {
+      "type": "string",
       "title": "Statut de l'objet hydrographique",
       "description": "État de validité de l'objet hydrographique au sens du dictionnaire du SANDRE. (http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html)",
       "oneOf": [
@@ -669,10 +670,10 @@
           "title": "Validé",
           "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Valide\" lorsqu'il a été jugé pertinent et cohérent aux yeux d'un groupe d'experts, garantissant ainsi son caractère valide. La nomenclature ou l'occurrence de listes nationales est bien reconnu officiellement par le SANDRE et peut désormais faire l'objet d'échanges de données."
         }
-      ],
-      "type": "string"
+      ]
     },
     "persistance": {
+      "type": "string",
       "title": "Persistance",
       "description": "Degré de persistance de l'écoulement de l'eau.",
       "oneOf": [
@@ -701,35 +702,35 @@
           "title": "Sec",
           "description": "Rempli et/ou s'écoulant de façon temporaire, généralement uniquement pendant de fortes précipitations et/ou immédiatement après (sec)."
         }
-      ],
-      "type": "string"
+      ]
     },
     "fosse": {
+      "type": "boolean",
       "title": "Fossé",
-      "description": "Indique qu'il s'agit d'un fossé et non pas d'un cours d'eau. Cet attribut n'est pas opposable légalement.",
-      "type": "boolean"
+      "description": "Indique qu'il s'agit d'un fossé et non pas d'un cours d'eau. Cet attribut n'est pas opposable légalement."
     },
     "navigabilite": {
+      "type": "boolean",
       "title": "Navigabilité",
-      "description": "Navigabilité du tronçon hydrographique.",
-      "type": "boolean"
+      "description": "Navigabilité du tronçon hydrographique."
     },
     "salinite": {
+      "type": "boolean",
       "title": "Salinité",
-      "description": "Salinité d'un cours d'eau. Cet attribut de préciser si l'eau est salée (Salinité = \"Vrai\") ou douce (Salinité = \"Faux\").",
-      "type": "boolean"
+      "description": "Salinité d'un cours d'eau. Cet attribut de préciser si l'eau est salée (Salinité = \"Vrai\") ou douce (Salinité = \"Faux\")."
     },
     "numero_d_ordre": {
+      "type": "string",
       "title": "Numéro d'ordre",
-      "description": "Nombre (ou code) exprimant le degré de ramification d'un tronçon hydrographique.",
-      "type": "string"
+      "description": "Nombre (ou code) exprimant le degré de ramification d'un tronçon hydrographique."
     },
     "strategie_de_classement": {
+      "type": "string",
       "title": "Stratégie de classement",
-      "description": "Précise la méthode utilisée pour calculer le degré de ramification du Tronçon hydrographique.",
-      "type": "string"
+      "description": "Précise la méthode utilisée pour calculer le degré de ramification du Tronçon hydrographique."
     },
     "origine": {
+      "type": "string",
       "title": "Origine",
       "description": "Origine, naturelle ou artificielle, du tronçon hydrographique.",
       "oneOf": [
@@ -778,15 +779,15 @@
             "Torrent"
           ]
         }
-      ],
-      "type": "string"
+      ]
     },
     "perimetre_d_utilisation_ou_origine": {
+      "type": "string",
       "title": "Périmètre d'utilisation ou origine",
-      "description": "Cet attribut indique le périmètre d'utilisation ou l'origine de la codification hydrographique utilisée (et notamment s'il s'agit d'un code d'ordre national, supranational ou européen).",
-      "type": "string"
+      "description": "Cet attribut indique le périmètre d'utilisation ou l'origine de la codification hydrographique utilisée (et notamment s'il s'agit d'un code d'ordre national, supranational ou européen)."
     },
     "sens_de_l_ecoulement": {
+      "type": "string",
       "title": "Sens de l'écoulement",
       "description": "Sens dans lequel l'eau s'écoule par rapport au sens de numérisation de la géométrie de l'objet.",
       "oneOf": [
@@ -810,20 +811,20 @@
           "title": "Sens inverse",
           "description": "Le sens dans lequel l'eau s'écoule est inverse au sens de numérisation de la géométrie de l'objet."
         }
-      ],
-      "type": "string"
+      ]
     },
     "reseau_principal_coulant": {
+      "type": "boolean",
       "title": "Réseau principal coulant",
-      "description": "Spécifie si le tronçon fait partie du réseau principal coulant. Le réseau principal coulant représente un trajet sans ramification à travers un réseau hydrographique.",
-      "type": "boolean"
+      "description": "Spécifie si le tronçon fait partie du réseau principal coulant. Le réseau principal coulant représente un trajet sans ramification à travers un réseau hydrographique."
     },
     "trace_connu": {
+      "type": "boolean",
       "title": "Tracé connu",
-      "description": "Indique que le tracé géographique d'un tronçon hydrographique est connu.",
-      "type": "boolean"
+      "description": "Indique que le tracé géographique d'un tronçon hydrographique est connu."
     },
     "classe_de_largeur": {
+      "type": "string",
       "title": "Classe de largeur",
       "description": "Classe de largeur de plein bord (\"LPB\") du tronçon hydrographique. Le lit de plein bord est la limite au delà de laquelle l'eau se répand dans la plaine d'inondation.",
       "oneOf": [
@@ -863,10 +864,10 @@
           "const": "Sans objet",
           "title": "Sans objet"
         }
-      ],
-      "type": "string"
+      ]
     },
     "type_de_bras": {
+      "type": "string",
       "title": "Type de bras",
       "description": "Type de bras du tronçon hydrographique.",
       "oneOf": [
@@ -895,20 +896,20 @@
           "title": "Secondaire",
           "description": "Chenal n'assurant pas l'écoulement principal des eaux d'une rivière."
         }
-      ],
-      "type": "string"
+      ]
     },
     "commentaire_sur_l_objet_hydro": {
+      "type": "string",
       "title": "Commentaire sur l'objet hydro",
-      "description": "Commentaire spécifique au réseau hydrographique.",
-      "type": "string"
+      "description": "Commentaire spécifique au réseau hydrographique."
     },
     "code_du_cours_d_eau_bdcarthage": {
+      "type": "string",
       "title": "Code du cours d'eau BDCarthage",
-      "description": "Code générique du cours d'eau dans la BDCarthage ®.",
-      "type": "string"
+      "description": "Code générique du cours d'eau dans la BDCarthage ®."
     },
     "inventaire_police_de_l_eau": {
+      "type": "string",
       "title": "Inventaire police de l'eau",
       "description": "Indique si le tronçon hydrographique fait partie de l'inventaire de la Police de l'eau.",
       "oneOf": [
@@ -927,53 +928,52 @@
           "title": "Non inscrit",
           "description": "Indique que le tronçon hydrographique n'est pas inscrit au titre de la police de l'eau."
         }
-      ],
-      "type": "string"
+      ]
     },
     "identifiant_police_de_l_eau": {
+      "type": "string",
       "title": "Identifiant police de l'eau",
-      "description": "Identifiant donné au tronçon hydrographique dans l'inventaire de la police de l'eau.",
-      "type": "string"
+      "description": "Identifiant donné au tronçon hydrographique dans l'inventaire de la police de l'eau."
     },
     "liens_vers_cours_d_eau": {
+      "type": "string",
       "title": "Liens vers cours d'eau",
-      "description": "Identifiant(s) = Clé(s) absolue(s) du ou des éventuel(s) parent(s).",
-      "type": "string"
+      "description": "Identifiant(s) = Clé(s) absolue(s) du ou des éventuel(s) parent(s)."
     },
     "lien_vers_noeud_hydrographique_ini": {
+      "type": "string",
       "title": "Lien vers noeud hydrographique ini",
-      "description": "Lien vers le Noeud hydrographique initial de l'objet.",
-      "type": "string"
+      "description": "Lien vers le Noeud hydrographique initial de l'objet."
     },
     "lien_vers_noeud_hydrographique_fin": {
+      "type": "string",
       "title": "Lien vers noeud hydrographique fin",
-      "description": "Lien vers le Noeud hydrographique final de l'objet.",
-      "type": "string"
+      "description": "Lien vers le Noeud hydrographique final de l'objet."
     },
     "liens_vers_surface_hydrographique": {
+      "type": "string",
       "title": "Liens vers surface hydrographique",
-      "description": "Identifiant(s) du ou des éventuel(s) objets Surface hydrographique traversé(s) par le tronçon hydrographique.",
-      "type": "string"
+      "description": "Identifiant(s) du ou des éventuel(s) objets Surface hydrographique traversé(s) par le tronçon hydrographique."
     },
     "lien_vers_entite_de_transition": {
+      "type": "string",
       "title": "Lien vers entité de transition",
-      "description": "Identifiant de l'éventuel objet Entité de transition auquel appartient le tronçon hydrographique.",
-      "type": "string"
+      "description": "Identifiant de l'éventuel objet Entité de transition auquel appartient le tronçon hydrographique."
     },
     "cpx_toponyme_de_cours_d_eau": {
+      "type": "string",
       "title": "CPX_Toponyme de cours d'eau",
-      "description": "Toponyme(s) du ou des traversant la surface hydrographique.",
-      "type": "string"
+      "description": "Toponyme(s) du ou des traversant la surface hydrographique."
     },
     "cpx_toponyme_d_entite_de_transition": {
+      "type": "string",
       "title": "CPX_Toponyme d'entité de transition",
-      "description": "Toponyme(s) du ou des Entité de transition traversant la surface hydrographique.",
-      "type": "string"
+      "description": "Toponyme(s) du ou des Entité de transition traversant la surface hydrographique."
     },
     "geometrie": {
+      "format": "geometry-linestring",
       "title": "Géométrie",
       "description": "",
-      "format": "geometry-linestring",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

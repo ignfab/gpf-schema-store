@@ -1,8 +1,8 @@
 import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 
-import type { CollectionOverwrite } from '../types';
-import { getDataDir } from '../local-data/data-dir';
+import type { CollectionOverwrite } from './types';
+import { getDataDir } from '@/config/data-dir';
 import { parseOverwrite } from './overwrite';
 
 /*

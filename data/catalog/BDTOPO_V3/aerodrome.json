@@ -16,12 +16,13 @@
   ],
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "categorie": {
+      "type": "string",
       "title": "Catégorie",
       "description": "Définit le rayonnement de l'aérodrome.",
       "oneOf": [
@@ -40,10 +41,10 @@
           "title": "Nationale",
           "description": "Aérodrome de statut national"
         }
-      ],
-      "type": "string"
+      ]
     },
     "nature": {
+      "type": "string",
       "title": "Nature",
       "description": "Précise la nature de l'aérodrome.",
       "oneOf": [
@@ -76,10 +77,10 @@
           "title": "Hydrobase",
           "description": "Base aérienne aménagée sur un plan d’eau pour le décollage et l'amerrissage des hydravions."
         }
-      ],
-      "type": "string"
+      ]
     },
     "usage": {
+      "type": "string",
       "title": "Usage",
       "description": "Défini l'usage de l'aérodrome.",
       "oneOf": [
@@ -103,15 +104,15 @@
           "title": "Privé",
           "description": "Aérodrome à usage privé."
         }
-      ],
-      "type": "string"
+      ]
     },
     "toponyme": {
+      "type": "string",
       "title": "Toponyme",
-      "description": "Toponyme de l'objet.",
-      "type": "string"
+      "description": "Toponyme de l'objet."
     },
     "statut_du_toponyme": {
+      "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
       "oneOf": [
@@ -140,15 +141,15 @@
           "title": "Validé",
           "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
         }
-      ],
-      "type": "string"
+      ]
     },
     "fictif": {
+      "type": "boolean",
       "title": "Fictif",
-      "description": "Indique si la géométrie de l'objet est réelle ou non significative.",
-      "type": "boolean"
+      "description": "Indique si la géométrie de l'objet est réelle ou non significative."
     },
     "etat_de_l_objet": {
+      "type": "string",
       "title": "Etat de l'objet transport",
       "description": "Etat ou stade d'un objet du thème Transport qui peut être en projet, en construction, en service ou non exploité.",
       "oneOf": [
@@ -180,40 +181,40 @@
             "Remontée mécanique désaffectée"
           ]
         }
-      ],
-      "type": "string"
+      ]
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "sources": {
+      "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "type": "string"
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     "identifiants_sources": {
+      "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "type": "string"
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     "methode_d_acquisition_planimetrique": {
+      "type": "string",
       "title": "Méthode d'acquisition planimétrique",
       "description": "Méthode principale ayant permis d'acquérir la géométrie planimétrique de l'objet.",
       "oneOf": [
@@ -345,33 +346,32 @@
           "title": "Scan25",
           "description": "La géométrie a été numérisée d’après un fond SCAN 25®, issu du scannage de la carte IGN au 1/25 000."
         }
-      ],
-      "type": "string"
+      ]
     },
     "precision_planimetrique": {
+      "type": "number",
       "title": "Précision planimétrique",
-      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet",
-      "type": "number"
+      "description": "Précision planimétrique (en mètres) de la géométrie décrivant l'objet"
     },
     "altitude": {
+      "type": "number",
       "title": "Altitude",
-      "description": "Altitude moyenne de référence de l'aérodrome selon le Service de l’Information Aéronautique (SIA).",
-      "type": "number"
+      "description": "Altitude moyenne de référence de l'aérodrome selon le Service de l’Information Aéronautique (SIA)."
     },
     "code_icao": {
+      "type": "string",
       "title": "Code ICAO",
-      "description": "Le code ICAO des aérodromes est un code de classement géographique à quatre lettres attribué à chaque aéroport à l'échelle mondiale. Ces codes sont définis par l’International Civil Aviation Organization. Les codes ICAO ont une structure géographique : - la première lettre détermine le continent, ou un regroupement d'États ou Provinces (États-Unis, Australie, Chine), - la seconde désigne le pays dans le continent, ou un regroupement d'aéroports par région ou ordre alphabétique (aux États-Unis, en Australie, en Chine), - les deux dernières sont utilisées pour identifier chaque aéroport. Exemples : - Paris-Orly : LFPO - Paris-Charles-de-Gaulle : LFPG",
-      "type": "string"
+      "description": "Le code ICAO des aérodromes est un code de classement géographique à quatre lettres attribué à chaque aéroport à l'échelle mondiale. Ces codes sont définis par l’International Civil Aviation Organization. Les codes ICAO ont une structure géographique : - la première lettre détermine le continent, ou un regroupement d'États ou Provinces (États-Unis, Australie, Chine), - la seconde désigne le pays dans le continent, ou un regroupement d'aéroports par région ou ordre alphabétique (aux États-Unis, en Australie, en Chine), - les deux dernières sont utilisées pour identifier chaque aéroport. Exemples : - Paris-Orly : LFPO - Paris-Charles-de-Gaulle : LFPG"
     },
     "code_iata": {
+      "type": "string",
       "title": "Code IATA",
-      "description": "Un code IATA (International Air Transport Association) d'un aérodrome est un code à trois lettres désignant de nombreux aérodromes à travers le monde, défini par l'Association Internationale du Transport Aérien (AITA).",
-      "type": "string"
+      "description": "Un code IATA (International Air Transport Association) d'un aérodrome est un code à trois lettres désignant de nombreux aérodromes à travers le monde, défini par l'Association Internationale du Transport Aérien (AITA)."
     },
     "geometrie": {
+      "format": "geometry-multipolygon",
       "title": "Géométrie",
       "description": "",
-      "format": "geometry-multipolygon",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

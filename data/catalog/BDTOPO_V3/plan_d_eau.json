@@ -7,17 +7,18 @@
   "description": "Une ou plusieurs étendue(s) d’eau continentale de surface, d’origine naturelle ou anthropique, possédant un toponyme ou identifiée(s) par un code hydrographique.",
   "properties": {
     "cleabs": {
+      "type": "string",
       "title": "Cleabs",
       "description": "Identifiant unique de l'objet.",
-      "type": "string",
       "x-ogc-role": "id"
     },
     "code_hydrographique": {
+      "type": "string",
       "title": "Code hydrographique",
-      "description": "Identifiant de l'objet hydrographique.",
-      "type": "string"
+      "description": "Identifiant de l'objet hydrographique."
     },
     "nature": {
+      "type": "string",
       "title": "Nature",
       "description": "",
       "oneOf": [
@@ -189,15 +190,15 @@
           "title": "Retenue-digue",
           "description": "Plan d'eau endigué. La digue est un ouvrage linéaire, généralement de grande longueur, longitudinal par rapport au sens de l'écoulement de l'eau, surélevé par rapport au terrain naturel et destiné à s’opposer au passage de l’eau ou à la canaliser."
         }
-      ],
-      "type": "string"
+      ]
     },
     "toponyme": {
+      "type": "string",
       "title": "Toponyme",
-      "description": "Toponyme de l'objet.",
-      "type": "string"
+      "description": "Toponyme de l'objet."
     },
     "statut_du_toponyme": {
+      "type": "string",
       "title": "Statut du toponyme",
       "description": "Statut de la graphie du toponyme. Information relative au processus de validation de la graphie du toponyme et donnant une indication sur sa fiabilité.",
       "oneOf": [
@@ -226,10 +227,10 @@
           "title": "Validé",
           "description": "Toponyme d'usage validé par l'unité de toponymie de l'IGN."
         }
-      ],
-      "type": "string"
+      ]
     },
     "importance": {
+      "type": "string",
       "title": "Importance",
       "description": "Attribut permettant de hiérarchiser les toponymes de plan d'eau en fonction de leur importance ou notoriété relative.",
       "oneOf": [
@@ -263,40 +264,40 @@
           "title": "6",
           "description": "Valeur par défaut. L'objet a une importance ou un rayonnement local, justifiant de le représenter aux échelles de l'ordre du 1 : 5 000."
         }
-      ],
-      "type": "string"
+      ]
     },
     "date_creation": {
+      "type": "string",
       "title": "Date de création",
-      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
+      "type": "string",
       "title": "Date de modification",
-      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production.",
-      "type": "string"
+      "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },
     "date_d_apparition": {
+      "type": "string",
       "title": "Date d'apparition",
-      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain.",
-      "type": "string"
+      "description": "Date de création, de construction ou d'apparition de l'objet, ou date la plus ancienne à laquelle on peut attester de sa présence sur le terrain."
     },
     "date_de_confirmation": {
+      "type": "string",
       "title": "Date de confirmation",
-      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence.",
-      "type": "string"
+      "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "sources": {
+      "type": "string",
       "title": "Sources",
-      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence.",
-      "type": "string"
+      "description": "Sources attestant l'existence de l'objet, éventuellement dans le cadre d'un partenariat : organisme, administration, fichier de référence."
     },
     "identifiants_sources": {
+      "type": "string",
       "title": "Identifiants sources",
-      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire.",
-      "type": "string"
+      "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     "statut": {
+      "type": "string",
       "title": "Statut de l'objet hydrographique",
       "description": "État de validité de l'objet hydrographique au sens du dictionnaire du SANDRE. (http://www.sandre.eaufrance.fr/?urn=urn:sandre:donnees:390::::::referentiel:3.1:html)",
       "oneOf": [
@@ -310,30 +311,30 @@
           "title": "Validé",
           "description": "Une nomenclature ou un élément codifié d'une liste nationale SANDRE possède un statut \"Valide\" lorsqu'il a été jugé pertinent et cohérent aux yeux d'un groupe d'experts, garantissant ainsi son caractère valide. La nomenclature ou l'occurrence de listes nationales est bien reconnu officiellement par le SANDRE et peut désormais faire l'objet d'échanges de données."
         }
-      ],
-      "type": "string"
+      ]
     },
     "influence_de_la_maree": {
+      "type": "boolean",
       "title": "Influence de la marée",
-      "description": "Indique si l'eau de surface est affectée par la marée.",
-      "type": "boolean"
+      "description": "Indique si l'eau de surface est affectée par la marée."
     },
     "caractere_permanent": {
+      "type": "boolean",
       "title": "Caractère permanent",
-      "description": "Précise si le plan d'eau est permanent (Vrai) ou pas (Faux).",
-      "type": "boolean"
+      "description": "Précise si le plan d'eau est permanent (Vrai) ou pas (Faux)."
     },
     "altitude_moyenne": {
+      "type": "number",
       "title": "Altitude moyenne",
-      "description": "Altitude à la cote moyenne ou normale du plan d'eau, exprimée en mètres.",
-      "type": "number"
+      "description": "Altitude à la cote moyenne ou normale du plan d'eau, exprimée en mètres."
     },
     "referentiel_de_l_altitude_moyenne": {
+      "type": "string",
       "title": "Référentiel de l'altitude moyenne",
-      "description": "Système altimétrique dans lequel s'exprime l'altitude de la cote moyenne ou normale du plan d'eau.",
-      "type": "string"
+      "description": "Système altimétrique dans lequel s'exprime l'altitude de la cote moyenne ou normale du plan d'eau."
     },
     "mode_d_obtention_de_l_altitude_moy": {
+      "type": "string",
       "title": "Mode d'obtention de l'altitude moy",
       "description": "Méthode utilisée pour établir l'altitude de la cote moyenne ou normale du plan d'eau.",
       "oneOf": [
@@ -402,10 +403,10 @@
           "title": "Sondeur acoustique",
           "description": "Bathymétrie déterminée à partir de mesures effectuées depuis un sondeur acoustique."
         }
-      ],
-      "type": "string"
+      ]
     },
     "precision_de_l_altitude_moyenne": {
+      "type": "string",
       "title": "Précision de l'altitude moyenne",
       "description": "Précision de l'altitude moyenne calculée.",
       "oneOf": [
@@ -437,15 +438,15 @@
           "const": "Métrique > 5 m",
           "title": "Métrique > 5 m"
         }
-      ],
-      "type": "string"
+      ]
     },
     "hauteur_d_eau_maximale": {
+      "type": "number",
       "title": "Hauteur d'eau maximale",
-      "description": "Hauteur d’eau maximale d’un plan d’eau artificiel, exprimée en mètres.",
-      "type": "number"
+      "description": "Hauteur d’eau maximale d’un plan d’eau artificiel, exprimée en mètres."
     },
     "mode_d_obtention_de_la_hauteur": {
+      "type": "string",
       "title": "Mode d'obtention de la hauteur",
       "description": "Description de la méthode d’obtention de la hauteur maximale du plan d'eau : MNT, cote RN (Retenue Normale).",
       "oneOf": [
@@ -459,18 +460,17 @@
           "title": "MNT",
           "description": "Cote d’altimétrie déterminée à partir d'un Modèle Numérique de Terrain (MNT)."
         }
-      ],
-      "type": "string"
+      ]
     },
     "commentaire_sur_l_objet_hydro": {
+      "type": "string",
       "title": "Commentaire sur l'objet hydro",
-      "description": "Commentaire spécifique au réseau hydrographique.",
-      "type": "string"
+      "description": "Commentaire spécifique au réseau hydrographique."
     },
     "geometrie": {
+      "format": "geometry-multipolygon",
       "title": "Géométrie GE MultiPolygone",
       "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle.",
-      "format": "geometry-multipolygon",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
     }

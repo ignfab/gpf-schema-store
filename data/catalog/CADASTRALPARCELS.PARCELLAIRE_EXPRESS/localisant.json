@@ -3,7 +3,7 @@
   "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:localisant",
   "type": "object",
   "title": "PCI Vecteur : Localisants",
-  "description": "Localisants ; Édition 2025-12-01",
+  "description": "Localisants ; Édition 2026-03-01",
   "properties": {
     "gid": {
       "type": "integer"
