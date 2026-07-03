@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
-import yaml from 'js-yaml'
+import { load as loadYAML } from 'js-yaml'
 import { z } from 'zod'
 
 import { getCollectionCatalog } from '@/index'
@@ -26,7 +26,7 @@ type UseCase = z.infer<typeof useCaseSchema>
  * Load use cases from use-case.yaml file and validate them against the schema.
  */
 function loadSearchUseCases(): UseCase[] {
-  const data = yaml.load(readFileSync(join(__dirname, 'use-case.yaml'), 'utf-8'))
+  const data = loadYAML(readFileSync(join(__dirname, 'use-case.yaml'), 'utf-8'))
   const result = useCasesSchema.safeParse(data)
 
   if (!result.success) {

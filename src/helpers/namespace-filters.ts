@@ -1,4 +1,4 @@
-import yaml from 'js-yaml';
+import { load as loadYAML } from 'js-yaml';
 
 import { zNamespaceFiltersFile, type NamespaceFilterRule } from '@/config/types';
 import { formatSchemaIssues } from './zod';
@@ -10,7 +10,7 @@ import { formatSchemaIssues } from './zod';
  * @return An array of NamespaceFilterRule objects parsed from the YAML content.
  */
 export function loadNamespaceFilters(yamlContent: string): NamespaceFilterRule[] {
-  const data = yaml.load(yamlContent);
+  const data = loadYAML(yamlContent);
   const result = zNamespaceFiltersFile.safeParse(data);
 
   if (!result.success) {
