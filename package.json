@@ -4,6 +4,9 @@
   "license": "MIT",
   "author": "IGNF",
   "version": "0.2.0",
+  "engines": {
+    "node": ">=22"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

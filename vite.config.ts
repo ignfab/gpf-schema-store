@@ -62,7 +62,7 @@ export default defineConfig({
   },
   build: {
     ssr: true,
-    target: 'node20',
+    target: 'node22',
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
