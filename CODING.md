@@ -55,7 +55,7 @@ Update [data/namespaces.csv](data/namespaces.csv) to review every discovered nam
 
 ```bash
 # generate data/namespaces.csv overview
-npm run cli update:namespaces
+npm run update:namespaces
 ```
 
 #### Update source schema
@@ -64,7 +64,7 @@ Regenerate the `data/wfs` directory by fetching schemas from [data.geopf.fr/wfs]
 
 ```bash
 # download data/wfs/{namespace}/{name}.json
-npm run cli update:source
+npm run update:source
 ```
 
 ### Render collection schema files
@@ -72,8 +72,8 @@ npm run cli update:source
 Regenerate the `data/catalog` directory by `data/overwrites` to schemas from `data/wfs` :
 
 ```bash
-# generate data/wfs/{namespace}/{name}.json
-npm run cli update:catalog
+# generate data/catalog/{namespace}/{name}.json
+npm run update:catalog
 ```
 
 Note that each rendered file is a JSON Schema object with `$schema`, `x-collection-id`, `type`, `title`, `description`, `properties`, and `required`, plus optional `x-ign-*` metadata fields (`x-ign-theme`, `x-ign-selectionCriteria`, `x-ign-representedFeatures`) when available. Geometry properties are represented with `format: "geometry-{type}"` and `x-ogc-role: "primary-geometry"`. The BDTOPO identifier property `cleabs` is annotated with `x-ogc-role: "id"`.

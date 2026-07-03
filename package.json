@@ -29,7 +29,7 @@
     "update:namespaces": "npm run cli update-namespaces",
     "update:catalog": "npm run cli render-catalog data/catalog --clean",
     "check:overwrites": "npm run cli check-overwrites",
-    "start": "node dist/cli.js",
+    "start": "npm run cli",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:all": "vitest run --config vitest.config.all.ts",
