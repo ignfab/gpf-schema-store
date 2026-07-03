@@ -14,9 +14,6 @@
       "default": "./dist/index.js"
     }
   },
-  "bin": {
-    "gpf-schema-store": "./dist/cli.js"
-  },
   "files": [
     "dist",
     "data",
@@ -24,8 +21,14 @@
     "README.md"
   ],
   "scripts": {
-    "dev": "vite-node src/cli.ts",
     "build": "vite build",
+    "dev": "vite-node src/cli.ts",
+    "cli": "node --use-env-proxy dist/cli.js",
+    "update:all": "npm run update:namespaces && npm run update:source && npm run update:catalog",
+    "update:source": "npm run cli update",
+    "update:namespaces": "npm run cli update-namespaces",
+    "update:catalog": "npm run cli render-catalog data/catalog --clean",
+    "check:overwrites": "npm run cli check-overwrites",
     "start": "node dist/cli.js",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -40,13 +43,11 @@
     "commander": "^14.0.3",
     "js-yaml": "^4.1.1",
     "minisearch": "^7.2.0",
-    "undici": "^6.23.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.6.0",
-    "@types/proxy-from-env": "^1.0.4",
     "@vitest/coverage-v8": "^4.1.4",
     "typescript": "~6.0.2",
     "unplugin-dts": "^1.0.3",

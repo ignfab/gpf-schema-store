@@ -1,6 +1,5 @@
 import { debuglog } from 'node:util';
 import { z } from 'zod';
-import '@/helpers/configure-fetch';
 import { formatSchemaIssues } from '@/helpers/zod';
 
 const debug = debuglog('gpf-schema-store:describe-feature-type');

@@ -5,7 +5,6 @@ import {
   type SourceCollectionBrief,
   type SourceCollectionProperty
 } from './types';
-import '@/helpers/configure-fetch';
 import { parseFeatureTypeName } from '@/helpers/metadata';
 import { retry } from '@/helpers/retry';
 import { describeFeatureType, type WfsFeatureType } from './wfs/describeFeatureType';
