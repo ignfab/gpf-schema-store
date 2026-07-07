@@ -86,7 +86,7 @@ Compare local WFS snapshots stored in `data/wfs` with local overwrite files in `
 
 ```bash
 # check that overwrites are aligned with local snapshots in data/wfs
-npm run cli check-overwrites
+npm run check:overwrites
 ```
 
 ### Test local search
@@ -95,10 +95,10 @@ Use the `search` command to quickly inspect the results returned by the search e
 
 ```bash
 # display the top 5 results
-npm run cli search chef lieu commune --limit 5
+npm run cli search chef lieu commune -- --limit 5
 
-# another example
-npm run cli search bdtopo batiment --limit 3
+# another example (without "npm run" and extra " -- ")
+node dist/cli.js search bdtopo batiment --limit 3
 ```
 
 The output shows the collection identifier, the computed score, and MiniSearch match details, which makes it easier to compare ranking behavior before and after a search change.
