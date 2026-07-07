@@ -76,7 +76,9 @@ Regenerate the `data/catalog` directory by applying `data/overwrites` to schemas
 npm run update:catalog
 ```
 
-Note that each rendered file is a JSON Schema object with `$schema`, `x-collection-id`, `type`, `title`, `description`, `properties`, and `required`, plus optional `x-ign-*` metadata fields (`x-ign-theme`, `x-ign-selectionCriteria`, `x-ign-representedFeatures`) when available. Geometry properties are represented with `format: "geometry-{type}"` and `x-ogc-role: "primary-geometry"`. The BDTOPO identifier property `cleabs` is annotated with `x-ogc-role: "id"`.
+Each rendered file is a JSON Schema draft 2020-12 object (`$schema: https://json-schema.org/draft/2020-12/schema`).
+
+See [docs/collection-schema.md](docs/collection-schema.md) for the full structure and IGN/OGC extension fields.
 
 ## Advanced testing
 
