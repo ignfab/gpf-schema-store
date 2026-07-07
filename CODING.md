@@ -69,7 +69,7 @@ npm run update:source
 
 ### Render collection schema files
 
-Regenerate the `data/catalog` directory by `data/overwrites` to schemas from `data/wfs` :
+Regenerate the `data/catalog` directory by applying `data/overwrites` to schemas from `data/wfs` :
 
 ```bash
 # generate data/catalog/{namespace}/{name}.json
