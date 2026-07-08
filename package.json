@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "build": "vite build",
-    "dev": "vite-node src/cli.ts",
+    "dev": "node --use-env-proxy ./node_modules/vite-node/dist/cli.mjs src/cli.ts",
     "cli": "node --use-env-proxy dist/cli.js",
     "update:all": "npm run update:namespaces && npm run update:source && npm run update:catalog",
     "update:source": "node --use-env-proxy dist/cli.js update",
