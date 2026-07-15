@@ -1,9 +1,10 @@
 # Coding
 
-## Data
+## Data Organization
 
-* [data/namespace-filters.yaml](data/namespace-filters.yaml) : configures the filtering of the WFS namespaces.
-* `data/wfs` : information from the WFS GetCapabilities / DescribeFeatureType
+* [data/namespace-filters.yaml](data/namespace-filters.yaml) : filter configuration of the WFS namespaces.
+* [data/namespaces.csv](data/namespaces.csv) : overview of the selected namespaces.
+* `data/wfs` : schema from the WFS GetCapabilities / DescribeFeatureType
 * `data/overwrites` : additional information about schemas from sources like https://bdtopoexplorer.ign.fr/ (see [docs/overwrite-format.md](docs/overwrite-format.md))
 * `data/catalog` : result of the enrichment process (JSON Schema extended by "OGC API Feature - schema")
 
@@ -14,7 +15,7 @@
 
 ## Usage
 
-> **WARNING**: The MCP [ignfab/geocontext](https://github.com/ignfab/geocontext) relies on a published version. The following instructions are related to the maintenance of the schema.
+> **WARNING**: The MCP [ignfab/geocontext](https://github.com/ignfab/geocontext) relies on a published version. The following instructions are related to the maintenance of the gpf-schema-store library and its embedded data.
 
 ### Build
 
@@ -42,22 +43,44 @@ npm run test:all
 
 Edit [data/namespace-filters.yaml](data/namespace-filters.yaml) to decide which namespaces are kept or ignored and to assign metadata (`ignored`, `product`, `ignoredReason`) using first-match-wins rules.
 
-### Generate namespace report
+
+### Update data
+
+> [!TIP]
+> `npm run update:all` runs the full data refresh workflow described below: it regenerates the namespace report, updates source schemas from WFS, and rebuilds the catalog files.
+
+#### Generate namespace report
 
 Update [data/namespaces.csv](data/namespaces.csv) to review every discovered namespace, its computed metadata (`product`, `ignored`, `ignoredReason`), and its collections:
 
 ```bash
-npx gpf-schema-store update-namespaces
+# generate data/namespaces.csv overview
+npm run update:namespaces
 ```
 
-### Fetch schema from GPF WFS
+#### Update source schema
 
-Fetch WFS schemas from GPF, apply the namespace filtering rules defined in [data/namespace-filters.yaml](data/namespace-filters.yaml), and regenerate the `data/wfs` directory:
+Regenerate the `data/wfs` directory by fetching schemas from [data.geopf.fr/wfs](https://data.geopf.fr/wfs?service=WFS&request=GetCapabilities) and applying filter rules defined in [data/namespace-filters.yaml](data/namespace-filters.yaml) :
 
 ```bash
 # download data/wfs/{namespace}/{name}.json
-npx gpf-schema-store update
+npm run update:source
 ```
+
+### Render collection schema files
+
+Regenerate the `data/catalog` directory by applying `data/overwrites` to schemas from `data/wfs` :
+
+```bash
+# generate data/catalog/{namespace}/{name}.json
+npm run update:catalog
+```
+
+Each rendered file is a JSON Schema draft 2020-12 object (`$schema: https://json-schema.org/draft/2020-12/schema`).
+
+See [docs/collection-schema.md](docs/collection-schema.md) for the full structure and IGN/OGC extension fields.
+
+## Advanced testing
 
 ### Check local overwrites
 
@@ -65,7 +88,7 @@ Compare local WFS snapshots stored in `data/wfs` with local overwrite files in `
 
 ```bash
 # check that overwrites are aligned with local snapshots in data/wfs
-npx gpf-schema-store check-overwrites
+npm run check:overwrites
 ```
 
 ### Test local search
@@ -74,27 +97,13 @@ Use the `search` command to quickly inspect the results returned by the search e
 
 ```bash
 # display the top 5 results
-npx gpf-schema-store search chef lieu commune --limit 5
+npm run cli search chef lieu commune -- --limit 5
 
-# another example
-npx gpf-schema-store search bdtopo batiment --limit 3
+# another example (without "npm run" and extra " -- ")
+node dist/cli.js search bdtopo batiment --limit 3
 ```
 
 The output shows the collection identifier, the computed score, and MiniSearch match details, which makes it easier to compare ranking behavior before and after a search change.
-
-### Render collection schema files
-
-Write the public catalog JSON Schema files to an output directory after applying `data/overwrites`.
-
-```bash
-# write collection schemas to ./tmp/catalog/{namespace}/{name}.json
-npx gpf-schema-store render-catalog ./tmp/catalog
-
-# start from a clean output directory
-npx gpf-schema-store render-catalog ./tmp/catalog --clean
-```
-
-Each rendered file is a JSON Schema 2020-12 object with `$schema`, `x-collection-id`, `type`, `title`, `description`, `properties`, and `required`, plus optional `x-ign-*` metadata fields (`x-ign-theme`, `x-ign-selectionCriteria`, `x-ign-representedFeatures`) when available. Geometry properties are represented with `format: "geometry-{type}"` and `x-ogc-role: "primary-geometry"`. The BDTOPO identifier property `cleabs` is annotated with `x-ogc-role: "id"`.
 
 ## Test a local package build in geocontext
 

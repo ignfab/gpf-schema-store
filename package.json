@@ -4,6 +4,9 @@
   "license": "MIT",
   "author": "IGNF",
   "version": "0.2.0",
+  "engines": {
+    "node": ">=22"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -14,9 +17,6 @@
       "default": "./dist/index.js"
     }
   },
-  "bin": {
-    "gpf-schema-store": "./dist/cli.js"
-  },
   "files": [
     "dist",
     "data",
@@ -24,9 +24,15 @@
     "README.md"
   ],
   "scripts": {
-    "dev": "vite-node src/cli.ts",
     "build": "vite build",
-    "start": "node dist/cli.js",
+    "dev": "node --use-env-proxy ./node_modules/vite-node/dist/cli.mjs src/cli.ts",
+    "cli": "node --use-env-proxy dist/cli.js",
+    "update:all": "npm run update:namespaces && npm run update:source && npm run update:catalog",
+    "update:source": "node --use-env-proxy dist/cli.js update",
+    "update:namespaces": "node --use-env-proxy dist/cli.js update-namespaces",
+    "update:catalog": "node --use-env-proxy dist/cli.js render-catalog data/catalog --clean",
+    "check:overwrites": "node --use-env-proxy dist/cli.js check-overwrites",
+    "start": "npm run cli",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:all": "vitest run --config vitest.config.all.ts",
@@ -40,13 +46,11 @@
     "commander": "^14.0.3",
     "js-yaml": "^4.1.1",
     "minisearch": "^7.2.0",
-    "undici": "^6.23.0",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.6.0",
-    "@types/proxy-from-env": "^1.0.4",
     "@vitest/coverage-v8": "^4.1.4",
     "typescript": "~6.0.2",
     "unplugin-dts": "^1.0.3",

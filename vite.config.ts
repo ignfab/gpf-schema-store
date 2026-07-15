@@ -57,13 +57,12 @@ export default defineConfig({
       reporter: ['text', 'lcov', 'html'],
     },
     env: {
-      // suppress UNDICI-EHPA warnings
-      NODE_NO_WARNINGS: '1',
+      NODE_USE_ENV_PROXY: '1',
     }
   },
   build: {
     ssr: true,
-    target: 'node20',
+    target: 'node22',
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
