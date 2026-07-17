@@ -20,7 +20,7 @@ export interface CollectionCatalog {
    * 
    * Expected as "GET /collections/{id}/schema"
    */
-  getById(id: string): OgcCollectionSchema | undefined;
+  getCollectionSchema(id: string): OgcCollectionSchema | undefined;
 
   /**
    * Search collection by keyword

@@ -37,7 +37,7 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
     return this.briefs.map((brief) => structuredClone(brief));
   }
 
-  getById(id: string): OgcCollectionSchema | undefined {
+  getCollectionSchema(id: string): OgcCollectionSchema | undefined {
     const schema = this.schemasById.get(id);
     return schema ? structuredClone(schema) : undefined;
   }
