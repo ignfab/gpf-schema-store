@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:canton",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "canton",
-  "title": "ADMINEXPRESS COG 2026 Canton",
-  "description": "ADMINEXPRESS COG 2026 Canton ; Édition 2026-01-01",
+  "title": "ADMINEXPRESS COG 2026 Canton ; édition 2026-01-01",
+  "description": "ADMINEXPRESS COG 2026 Canton",
   "properties": [
     {
       "name": "cleabs",

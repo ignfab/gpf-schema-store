@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "x-collection-id": "ADMINEXPRESS-COG.2026:chef_lieu_d_arrondissement",
   "type": "object",
-  "title": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement",
-  "description": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement ; Édition 2026-01-01",
+  "title": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement ; édition 2026-01-01",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement",
   "properties": {
     "cleabs": {
       "type": "string",
@@ -31,6 +31,9 @@
       "type": "string"
     },
     "code_insee_de_la_commune_siege": {
+      "type": "string"
+    },
+    "numero_siret": {
       "type": "string"
     },
     "geometrie": {

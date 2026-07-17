@@ -30,6 +30,10 @@
       "type": "string"
     },
     {
+      "name": "numero_siret",
+      "type": "string"
+    },
+    {
       "name": "code_insee_de_la_commune",
       "type": "string"
     },

@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:chef_lieu_de_collectivite_territoriale",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "chef_lieu_de_collectivite_territoriale",
-  "title": "ADMINEXPRESS COG 2026 Chef-lieu de Collectivité territoriale",
-  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Collectivité territoriale ; Édition 2026-01-01",
+  "title": "ADMINEXPRESS COG 2026 Chef-lieu de Collectivité territoriale ; édition 2026-01-01",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Collectivité territoriale",
   "properties": [
     {
       "name": "cleabs",
@@ -39,6 +39,10 @@
     },
     {
       "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "numero_siret",
       "type": "string"
     },
     {

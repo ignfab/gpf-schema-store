@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:arrondissement",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "arrondissement",
-  "title": "ADMINEXPRESS COG 2026 Arrondissement",
-  "description": "ADMINEXPRESS COG 2026 Arrondissement ; Édition 2026-01-01",
+  "title": "ADMINEXPRESS COG 2026 Arrondissement ; édition 2026-01-01",
+  "description": "ADMINEXPRESS COG 2026 Arrondissement",
   "properties": [
     {
       "name": "cleabs",

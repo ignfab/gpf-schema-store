@@ -33,7 +33,7 @@
       "description": "Date la plus récente à laquelle on peut attester de la présence de l'objet sur le terrain ou par des données externes de référence."
     },
     "hauteur": {
-      "type": "number",
+      "type": "integer",
       "title": "Hauteur",
       "description": ""
     },

@@ -36,6 +36,9 @@
     "code_siren": {
       "type": "string"
     },
+    "numero_siret": {
+      "type": "string"
+    },
     "geometrie": {
       "format": "geometry-point",
       "x-ogc-role": "primary-geometry",

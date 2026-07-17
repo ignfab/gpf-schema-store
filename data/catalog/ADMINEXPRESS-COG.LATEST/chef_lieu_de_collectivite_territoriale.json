@@ -33,6 +33,9 @@
     "code_siren": {
       "type": "string"
     },
+    "numero_siret": {
+      "type": "string"
+    },
     "code_insee_de_la_commune_siege": {
       "type": "string"
     },

@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "x-collection-id": "ADMINEXPRESS-COG.2026:chef_lieu_de_departement",
   "type": "object",
-  "title": "ADMINEXPRESS COG 2026 Chef-lieu de Département",
-  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Département ; Édition 2026-01-01",
+  "title": "ADMINEXPRESS COG 2026 Chef-lieu de Département ; édition 2026-01-01",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Département",
   "properties": {
     "cleabs": {
       "type": "string",
@@ -28,6 +28,9 @@
       "type": "string"
     },
     "code_siren": {
+      "type": "string"
+    },
+    "numero_siret": {
       "type": "string"
     },
     "lien_vers_le_departement": {
