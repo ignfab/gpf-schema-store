@@ -83,25 +83,25 @@ describe('InMemoryCollectionCatalog', () => {
   });
 
 
-  describe('getById', () => {
+  describe('getCollectionSchema', () => {
 
-    it("returns null if the type doesn't exists", () => {
+    it("returns undefined if the type doesn't exist", () => {
       const catalog = new InMemoryCollectionCatalog(FIXTURES, new NullSearchEngine());
-      const collection = catalog.getById('NS:not_found');
+      const collection = catalog.getCollectionSchema('NS:not_found');
       expect(collection).toBeUndefined();
     });
 
-    it('returns cloned values from getById', () => {
+    it('returns cloned values from getCollectionSchema', () => {
       const catalog = new InMemoryCollectionCatalog(FIXTURES, new NullSearchEngine());
 
-      const first = catalog.getById('NS:first');
+      const first = catalog.getCollectionSchema('NS:first');
       expect(first).toBeDefined();
       if (!first) {
         return;
       }
       first.title = 'Mutated again';
 
-      const firstAgain = catalog.getById('NS:first');
+      const firstAgain = catalog.getCollectionSchema('NS:first');
       expect(firstAgain?.title).toBe('First');
     });
 

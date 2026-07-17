@@ -41,7 +41,7 @@ console.log("collections:", collections.length);
 
 ```ts
 // Note : "batiment" = "buildings" in french
-const bdtopoBatiment = catalog.getById("BDTOPO_V3:batiment");
+const bdtopoBatiment = catalog.getCollectionSchema("BDTOPO_V3:batiment");
 console.log(`BDTOPO_V3:batiment schema : ${JSON.stringify(bdtopoBatiment,null,2)}`);
 ```
 
