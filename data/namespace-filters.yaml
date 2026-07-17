@@ -336,15 +336,23 @@ rules:
       ignored: false
       product: ADMINEXPRESS-COG
 
-  - id: adminexpress_cog_carto
+
+  # very simplified geometries ("petite échelle" / small scale)
+  - id: adminexpress_cog_carto_pe
     patterns:
       - ADMINEXPRESS-COG-CARTO-PE.*
+    metadata:
+      ignored: false
+      product: ADMINEXPRESS-COG-CARTO-PE
+
+  - id: adminexpress_cog_carto
+    patterns:
       - ADMINEXPRESS-COG-CARTO.*
       - ADMINEXPRESS_COG_2018_CARTO
     metadata:
       ignored: true
-      product: ADMINEXPRESS-COG-CARTO-PE
-      ignoredReason: Using ADMINEXPRESS-COG instead
+      product: ADMINEXPRESS-COG-CARTO
+      ignoredReason: Using ADMINEXPRESS-COG and ADMINEXPRESS-COG-CARTO-PE instead
 
   # ============================================================================
   # Geocoding Services
