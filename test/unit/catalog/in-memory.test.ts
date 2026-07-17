@@ -85,7 +85,7 @@ describe('InMemoryCollectionCatalog', () => {
 
   describe('getCollectionSchema', () => {
 
-    it("returns null if the type doesn't exists", () => {
+    it("returns undefined if the type doesn't exist", () => {
       const catalog = new InMemoryCollectionCatalog(FIXTURES, new NullSearchEngine());
       const collection = catalog.getCollectionSchema('NS:not_found');
       expect(collection).toBeUndefined();
