@@ -136,6 +136,11 @@ function filterCollectionsByNamespaceRules(
   console.log('Filtering collections based on namespace filters...');
   const filteredCollections = collections.filter((collection) => {
     const metadata = getMetadataFromNamespace(collection.namespace, namespaceFilterRules);
+    // TODO : make it clean with https://github.com/ignfab/gpf-schema-store/issues/56
+    if ( collection.id === 'BDTOPO_V3:erp' ){
+      console.log(`WARNING: ignored BDTOPO_V3:erp (hardcoded)`)
+      return false;
+    }
     return !metadata.ignored;
   });
   console.log(`${filteredCollections.length} collections remain after filtering.`);
