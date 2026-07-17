@@ -155,6 +155,9 @@
       "title": "Identifiants sources",
       "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
+    "etat_de_l_objet": {
+      "type": "string"
+    },
     "geometrie": {
       "format": "geometry-multilinestring",
       "title": "Géométrie GE MultiLigne",

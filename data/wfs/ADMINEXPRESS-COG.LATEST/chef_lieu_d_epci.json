@@ -46,6 +46,10 @@
       "type": "string"
     },
     {
+      "name": "numero_siret",
+      "type": "string"
+    },
+    {
       "name": "geometrie",
       "type": "point",
       "defaultCrs": "EPSG:4326"

@@ -2,8 +2,8 @@
   "id": "ADMINEXPRESS-COG.2026:chef_lieu_de_region",
   "namespace": "ADMINEXPRESS-COG.2026",
   "name": "chef_lieu_de_region",
-  "title": "ADMINEXPRESS COG 2026 Chef-lieu de Région",
-  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Région ; Édition 2026-01-01",
+  "title": "ADMINEXPRESS COG 2026 Chef-lieu de Région ; édition 2026-01-01",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu de Région",
   "properties": [
     {
       "name": "cleabs",
@@ -27,6 +27,10 @@
     },
     {
       "name": "code_siren",
+      "type": "string"
+    },
+    {
+      "name": "numero_siret",
       "type": "string"
     },
     {

@@ -36,6 +36,9 @@
     "code_insee_de_l_arrondissement_siege": {
       "type": "string"
     },
+    "numero_siret": {
+      "type": "string"
+    },
     "geometrie": {
       "format": "geometry-point",
       "x-ogc-role": "primary-geometry",

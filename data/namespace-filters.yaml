@@ -80,7 +80,6 @@ rules:
       - zdh_87_gpkg_15-01-2025_wfs
       - zonealertesecheresse972_gpkg_27-09-2024_wfs
       - zppa_cvl_executoire_2025_gpkg_06-03-2026_wfs
-      - ZZZ_INAO_LaCiotat
       - aeag-rwbody-sdage2022
       - carr_10km_gpkg_24-10-2024_wfs
       - carr_1km_zip_24-10-2024_wfs
@@ -98,6 +97,20 @@ rules:
       - lls_wfs
       - igngpf_4902_20260309_tables_sans_tirets
       - OCS-BFC_2017_BDD_WLD_WM_WFS_23-07-2021
+      - ESSAI_FLUX_ROUTE
+      - batiment_tp100_gpkg_wfs
+      - etude_25145_15-07-2026_wfs
+      - example_gpkg_21-05-2026_wfs
+      - itineraire_randonnee_bm_telethon_gpkg_gpkg_21-01-2026_wfs
+      - l_dfci_zonage_s_088_2025_zip_12-05-2026_wfs
+      - n_bassin_vie_zsup_068_zip_01-04-2026_wfs
+      - n_epci_fp_zsup_068_gpkg_13-05-2026_wfs
+      - nga_dgiwg-example_ft-belvoir_15-16_v1-0_20sep2023_gpkg_09-06-2026_wfs
+      - paec_bfc_2026
+      - projet_amenagement_gosb_cnig
+      - quartierscholet
+      - rlpi_projet_gpkg_18-12-2025_wfs
+      - rpg_metrolyon_epsg2154_gpkg_02-04-2026_wfs
     metadata:
       ignored: true
       ignoredReason: Test data
@@ -107,6 +120,8 @@ rules:
       - test_*
       - "*_test_*"
       - "*_test"
+      - zzz_*
+      - ZZZ_*
     metadata:
       ignored: true
       ignoredReason: Test data
@@ -130,6 +145,7 @@ rules:
       - IGNF_MNS-LIDAR-HD
       - IGNF_MNT-LIDAR-HD
       - IGNF_NUAGES-DE-POINTS-LIDAR-HD
+      - IGNF_LIDAR-HD_METADONNEE
     metadata:
       ignored: true
       ignoredReason: Image index dataset
@@ -387,6 +403,10 @@ rules:
   - id: rpg_datasets
     patterns:
       - RPG.*
+      - IGNF_RPG_PARCELLES-AGRICOLES-CATEGORISEES_2024
+      - IGNF_RPG_PARCELLES-ELIGIBLES-IAE
+      - IGNF_RPG_PRAIRIES-PERMANENTES_2024
+      - IGNF_RPG_ZONES-DENSITE-HOMOGENE_2024      
     metadata:
       ignored: true
       ignoredReason: Waiting for MCP use case definition
@@ -462,6 +482,26 @@ rules:
       ignoredReason: Waiting for MCP use case definition
       product: ESPACE_REVENDEURS
 
+  - id: ignf_carto
+    patterns:
+      - IGNF_CARTO-FORMATIONS-VEGETALES_*
+      - IGNF_CARTO-SP_CARREAU-200m
+      - IGNF_MASQUE-CARTO-FORMATIONS-VEGETALES
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+      product: IGNF_CARTO
+
+  - id: dgf
+    patterns:
+      - DGF_2025_
+      - DGF_2026_
+    metadata:
+      ignored: true
+      ignoredReason: Waiting for MCP use case definition
+      product: DGF
+
+
   # ============================================================================
   # Other Namespaces with No Clear Product Assignment
   # ============================================================================
@@ -481,14 +521,7 @@ rules:
       - IGNF_ACCESSIBILITE-PHYSIQUE-FORETS-
       - IGNF_ACCESSIBILITE-PHYSIQUE-FORETS-MASQUE-FORETV3
       - IGNF_BD-FRANCE-TOPO-VEGETATION
-      - IGNF_CARTO-FORMATIONS-VEGETALES_2016
-      - IGNF_CARTO-FORMATIONS-VEGETALES_2017
-      - IGNF_CARTO-FORMATIONS-VEGETALES_2023
       - IGNF_MASQUE-FORET.2021-2023
-      - IGNF_RPG_PARCELLES-AGRICOLES-CATEGORISEES_2024
-      - IGNF_RPG_PARCELLES-ELIGIBLES-IAE
-      - IGNF_RPG_PRAIRIES-PERMANENTES_2024
-      - IGNF_RPG_ZONES-DENSITE-HOMOGENE_2024
       - INPE
       - INRA.CARTE.SOLS
       - MESURES_COMPENSATOIRES
@@ -496,6 +529,7 @@ rules:
       - OFB.ZONES.EXCLUES
       - OFB.ZONES.NECESSITANT.AVIS.GESTIONNAIRE
       - OFB_ZONES.EXCLUES.SAUF.TOITURE
+      - OFB_INTERDICTION-ZAER-SAUF-TOITURE
       - POTENTIEL.EOLIEN.REGLEMENTAIRE
       - POTENTIEL.HYDRO
       - POTENTIEL.SOLAIRE.BATIMENT
@@ -510,6 +544,9 @@ rules:
       - TRANSPORTS.DRONES.RESTRICTIONS
       - fr_qa_stations
       - zaer
+      - erf
+      - datac_acid_stats
+      - MTE_MASSE-EAU
     metadata:
       product: unknown
       ignored: true

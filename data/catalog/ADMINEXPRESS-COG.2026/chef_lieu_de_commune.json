@@ -3,7 +3,7 @@
   "x-collection-id": "ADMINEXPRESS-COG.2026:chef_lieu_de_commune",
   "type": "object",
   "title": "ADMINEXPRESS COG 2026 Chef-lieu commune",
-  "description": "ADMINEXPRESS COG 2026 Chef-lieu de commune ; Édition 2026-01-01",
+  "description": "ADMINEXPRESS COG 2026 Chef-lieu de commune ; édition 2026-01-01",
   "properties": {
     "cleabs": {
       "type": "string",
@@ -22,6 +22,9 @@
       "type": "string"
     },
     "code_siren": {
+      "type": "string"
+    },
+    "numero_siret": {
       "type": "string"
     },
     "code_insee_de_la_commune": {
