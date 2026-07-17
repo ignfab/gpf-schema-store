@@ -6,9 +6,9 @@ import { z } from 'zod';
  * ============================================================================
  */
 
-export const zPackageMetadata = z.looseObject({
+export const zPackageMetadata = z.object({
   version: z.string().min(1),
-});
+}).passthrough();
 
 
 /*
