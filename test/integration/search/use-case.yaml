@@ -79,11 +79,10 @@
     - "BDTOPO_V3:troncon_de_route"
 
 #--------------------------------------------------------------
-# BDTOPO_V3:erp
+# BDTOPO_V3:erp is disabled
 #--------------------------------------------------------------
 - query: "erp"
-  expected:
-    - "BDTOPO_V3:erp"
+  expected: []
 
 #--------------------------------------------------------------
 # BDTOPO_V3:zone_d_activite_ou_d_interet
