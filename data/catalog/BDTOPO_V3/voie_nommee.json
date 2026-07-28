@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "BDTOPO_V3:voie_nommee",
   "type": "object",
   "title": "Voie nommée",
   "x-ign-theme": "Adresses",
@@ -98,8 +97,7 @@
       "format": "geometry-multilinestring",
       "title": "Géométrie",
       "description": "Champ contenant le géométrie concaténée des tronçons composant la voie nommée.",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": [

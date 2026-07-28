@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "ADMINEXPRESS-COG-CARTO-PE.LATEST:chef_lieu_de_commune_associee_ou_deleguee",
   "type": "object",
   "title": "ADMINEXPRESS COG CARTO PE Dernière édition Chef-lieu de Commune associée ou déléguée",
   "description": "ADMINEXPRESS COG CARTO PE Dernière édition Chef-lieu de Commune associée ou déléguée",
@@ -38,8 +37,7 @@
     },
     "geometrie": {
       "format": "geometry-point",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": []

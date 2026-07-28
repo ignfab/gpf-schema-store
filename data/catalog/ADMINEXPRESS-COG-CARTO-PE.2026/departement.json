@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "ADMINEXPRESS-COG-CARTO-PE.2026:departement",
   "type": "object",
   "title": "ADMINEXPRESS COG CARTO PE 2026 Département",
   "description": "ADMINEXPRESS COG CARTO PE 2026 Département ; Édition 2026-01-01",
@@ -26,8 +25,7 @@
     },
     "geometrie": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": []

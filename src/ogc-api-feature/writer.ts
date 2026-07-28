@@ -103,9 +103,6 @@ function renderProperty(property: EnrichedCollectionProperty): OgcCollectionProp
 
   if (isGeometryType(property.type)) {
     rendered['x-ogc-role'] = 'primary-geometry';
-    if (property.defaultCrs !== undefined) {
-      rendered['x-ign-defaultCrs'] = property.defaultCrs;
-    }
     return rendered;
   }
 
@@ -146,7 +143,6 @@ export function renderCollectionSchema(collection: EnrichedCollection): OgcColle
 
   const schema: Partial<OgcCollectionSchema> = {
     $schema: JSON_SCHEMA_DRAFT,
-    'x-collection-id': collection.id,
     type: 'object',
     title: collection.title,
   };

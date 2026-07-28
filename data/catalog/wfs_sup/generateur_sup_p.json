@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "wfs_sup:generateur_sup_p",
   "type": "object",
   "title": "Générateur de servitude d'utilité publique",
   "description": "Générateurs ponctuels liés aux servitudes, données issues du Géoportail de l'urbanisme",
@@ -68,8 +67,7 @@
     },
     "the_geom": {
       "format": "geometry-any",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     },
     "nomreg": {
       "type": "string"

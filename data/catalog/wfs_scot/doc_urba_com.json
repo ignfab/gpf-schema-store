@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "wfs_scot:doc_urba_com",
   "type": "object",
   "title": "Document d'urbanisme",
   "description": "Relations entre le Schéma de Cohérence Territorial et les communes auxquelles il s'applique, données issues du Géoportail de l'urbanisme",

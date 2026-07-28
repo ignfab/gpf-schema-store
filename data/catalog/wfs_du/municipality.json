@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "wfs_du:municipality",
   "type": "object",
   "title": "Communes",
   "description": "Emprise communale, données issues du Géoportail de l'urbanisme",
@@ -19,8 +18,7 @@
     },
     "the_geom": {
       "format": "geometry-any",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     },
     "is_coastline": {
       "type": "boolean"

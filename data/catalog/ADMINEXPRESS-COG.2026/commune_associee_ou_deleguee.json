@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "ADMINEXPRESS-COG.2026:commune_associee_ou_deleguee",
   "type": "object",
   "title": "ADMINEXPRESS COG 2026 Commune associée ou déléguée ; édition 2026-01-01",
   "description": "ADMINEXPRESS COG 2026 Commune associée ou déléguée",
@@ -35,8 +34,7 @@
     },
     "geometrie": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": []

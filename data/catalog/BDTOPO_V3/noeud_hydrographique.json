@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "BDTOPO_V3:noeud_hydrographique",
   "type": "object",
   "title": "Noeud hydrographique",
   "x-ign-theme": "Hydrographie",
@@ -535,8 +534,7 @@
       "format": "geometry-point",
       "title": "Géométrie",
       "description": "",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": [

@@ -42,10 +42,6 @@ describe('writeRenderedCatalog', () => {
       expect.stringMatching(/[\\/]tmp[\\/]catalog[\\/]NS[\\/]feature\.json$/),
       expect.stringContaining('"$schema": "https://json-schema.org/draft/2020-12/schema"'),
     );
-    expect(fsMocks.writeFileSync).toHaveBeenCalledWith(
-      expect.stringMatching(/[\\/]tmp[\\/]catalog[\\/]NS[\\/]feature\.json$/),
-      expect.stringContaining('"x-collection-id": "NS:feature"'),
-    );
   });
 
   it('cleans the output directory when requested', async () => {

@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "wfs_du:info_lin",
   "type": "object",
   "title": "Informations linéaires",
   "description": "Périmètre linéaire à reporter à titre d’information, données issues du Géoportail de l'urbanisme",
@@ -62,8 +61,7 @@
     },
     "the_geom": {
       "format": "geometry-any",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     },
     "nature": {
       "type": "string"

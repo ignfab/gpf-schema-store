@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "ADMINEXPRESS-COG-CARTO-PE.2025:chef_lieu_de_collectivite_territoriale",
   "type": "object",
   "title": "ADMINEXPRESS COG CARTO PE 2025 Chef-lieu de Collectivité territoriale",
   "description": "ADMINEXPRESS COG CARTO PE 2025 Chef-lieu de Collectivité territoriale ; Édition 2025-01-01",
@@ -32,8 +31,7 @@
     },
     "geometrie": {
       "format": "geometry-point",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": []
