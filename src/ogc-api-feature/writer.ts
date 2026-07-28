@@ -74,7 +74,7 @@ function toJsonSchemaTypeAndFormat(type: CollectionPropertyType): {
     case 'multipoint':
       return {format: 'geometry-multipoint'};
     case 'geometry':
-      return {format: 'geometry-geometry'};
+      return {format: 'geometry-any'};
   }
 }
 
