@@ -25,7 +25,8 @@
       "type": "integer"
     },
     "date_du_recensement": {
-      "type": "string"
+      "type": "string",
+      "format": "date"
     },
     "organisme_recenseur": {
       "type": "string"

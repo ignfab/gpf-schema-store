@@ -31,7 +31,7 @@
     },
     {
       "name": "date_du_recensement",
-      "type": "string"
+      "type": "date"
     },
     {
       "name": "organisme_recenseur",

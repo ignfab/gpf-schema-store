@@ -39,7 +39,7 @@
     },
     {
       "name": "gpu_timestamp",
-      "type": "string"
+      "type": "date-time"
     },
     {
       "name": "gpu_doc_id",

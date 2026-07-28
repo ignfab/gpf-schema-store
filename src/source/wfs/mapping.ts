@@ -24,16 +24,8 @@ const MAPPING: Record<string, CollectionPropertyType> = {
     'multipolygon': 'multipolygon',
     'multipoint': 'multipoint',
     'geometry': 'geometry',
-
-    /*
-     * WARNING : data loss
-     * 
-     * TODO : date and date-time to CollectionPropertyType
-     * 
-     * @see https://github.com/ignfab/gpf-schema-store/issues/37
-     */
-    'date': 'string',
-    'date-time': 'string',
+    'date': 'date',
+    'date-time': 'date-time',
 };
 
 

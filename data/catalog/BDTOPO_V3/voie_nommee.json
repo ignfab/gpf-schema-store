@@ -74,11 +74,13 @@
     },
     "date_creation": {
       "type": "string",
+      "format": "date-time",
       "title": "Date de création",
       "description": "Date et heure à laquelle l'objet a été saisi pour la première fois dans la base de données de production de l'IGN."
     },
     "date_modification": {
       "type": "string",
+      "format": "date-time",
       "title": "Date de modification",
       "description": "Date et heure à laquelle l'objet a été modifié pour la dernière fois dans la base de données de production."
     },

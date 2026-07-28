@@ -44,26 +44,40 @@ function isOgcIdentifierProperty(property: EnrichedCollectionProperty): boolean 
  * =============================================================================
  */
 
-function toJsonSchemaScalarType(type: CollectionPropertyType): OgcCollectionProperty['type'] {
+function toJsonSchemaTypeAndFormat(type: CollectionPropertyType): {
+  type?: OgcCollectionProperty['type'];
+  format?: string;
+} {
   switch (type) {
     case 'string':
-      return 'string';
+      return {type: 'string'};
     case 'boolean':
-      return 'boolean';
+      return {type: 'boolean'};
     case 'integer':
-      return 'integer';
+      return {type: 'integer'};
     case 'float':
-      return 'number';
+      return {type: 'number'};
+    case 'date':
+      return {type: 'string', format: 'date'};
+    case 'date-time':
+      return {type: 'string', format: 'date-time'};
     case 'point':
+      return {format: 'geometry-point'};
     case 'linestring':
+      return {format: 'geometry-linestring'};
     case 'polygon':
+      return {format: 'geometry-polygon'};
     case 'multilinestring':
+      return {format: 'geometry-multilinestring'};
     case 'multipolygon':
+      return {format: 'geometry-multipolygon'};
     case 'multipoint':
+      return {format: 'geometry-multipoint'};
     case 'geometry':
-      return undefined;
+      return {format: 'geometry-any'};
   }
 }
+
 
 function renderProperty(property: EnrichedCollectionProperty): OgcCollectionProperty {
   const rendered: OgcCollectionProperty = {};
@@ -79,10 +93,15 @@ function renderProperty(property: EnrichedCollectionProperty): OgcCollectionProp
     rendered.oneOf = structuredClone(property.oneOf);
   }
 
-  // Geometry properties are rendered as logical geometry fields rather than
-  // standard JSON Schema scalar types.
+  const {type, format} = toJsonSchemaTypeAndFormat(property.type);
+  if (type !== undefined) {
+    rendered.type = type;
+  }
+  if (format !== undefined) {
+    rendered.format = format;
+  }
+
   if (isGeometryType(property.type)) {
-    rendered.format = `geometry-${property.type}`;
     rendered['x-ogc-role'] = 'primary-geometry';
     if (property.defaultCrs !== undefined) {
       rendered['x-ign-defaultCrs'] = property.defaultCrs;
@@ -90,8 +109,6 @@ function renderProperty(property: EnrichedCollectionProperty): OgcCollectionProp
     return rendered;
   }
 
-  // Non-geometry properties are rendered with a standard JSON Schema type.
-  rendered.type = toJsonSchemaScalarType(property.type);
   if (isOgcIdentifierProperty(property)) {
     rendered['x-ogc-role'] = 'id';
   }

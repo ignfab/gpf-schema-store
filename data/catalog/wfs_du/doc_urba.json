@@ -15,7 +15,8 @@
       "type": "string"
     },
     "gpu_timestamp": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "partition": {
       "type": "string"
@@ -69,9 +70,15 @@
       "type": "string"
     },
     "the_geom": {
-      "format": "geometry-geometry",
+      "format": "geometry-any",
       "x-ogc-role": "primary-geometry",
       "x-ign-defaultCrs": "EPSG:4326"
+    },
+    "nomrapp": {
+      "type": "string"
+    },
+    "urlrapp": {
+      "type": "string"
     }
   },
   "required": []

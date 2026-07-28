@@ -19,7 +19,7 @@
     },
     {
       "name": "gpu_timestamp",
-      "type": "string"
+      "type": "date-time"
     },
     {
       "name": "partition",
@@ -93,6 +93,14 @@
       "name": "the_geom",
       "type": "geometry",
       "defaultCrs": "EPSG:4326"
+    },
+    {
+      "name": "nomrapp",
+      "type": "string"
+    },
+    {
+      "name": "urlrapp",
+      "type": "string"
     }
   ]
 }

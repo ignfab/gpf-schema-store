@@ -12,6 +12,8 @@ const SCALAR_PROPERTY_TYPES = [
   'boolean',
   'float',   // WARNING : number with TableSchema and JsonSchema (API FEATURE)
   'integer',
+  'date',
+  'date-time'
 ] as const;
 
 const GEOMETRY_PROPERTY_TYPES = [

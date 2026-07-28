@@ -65,6 +65,7 @@
     },
     "date_du_toponyme": {
       "type": "string",
+      "format": "date",
       "title": "Date du toponyme",
       "description": "Date de saisie ou de validation de la graphie."
     },
