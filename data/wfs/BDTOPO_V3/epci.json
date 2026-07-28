@@ -23,19 +23,19 @@
     },
     {
       "name": "date_creation",
-      "type": "string"
+      "type": "date-time"
     },
     {
       "name": "date_modification",
-      "type": "string"
+      "type": "date-time"
     },
     {
       "name": "date_d_apparition",
-      "type": "string"
+      "type": "date"
     },
     {
       "name": "date_de_confirmation",
-      "type": "string"
+      "type": "date"
     },
     {
       "name": "codes_insee_des_communes_membres",

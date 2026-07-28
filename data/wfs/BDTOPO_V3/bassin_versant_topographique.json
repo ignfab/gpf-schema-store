@@ -55,19 +55,19 @@
     },
     {
       "name": "date_de_confirmation",
-      "type": "string"
+      "type": "date"
     },
     {
       "name": "date_d_apparition",
-      "type": "string"
+      "type": "date"
     },
     {
       "name": "date_modification",
-      "type": "string"
+      "type": "date-time"
     },
     {
       "name": "date_creation",
-      "type": "string"
+      "type": "date-time"
     },
     {
       "name": "libelle_du_bassin_hydrographique",

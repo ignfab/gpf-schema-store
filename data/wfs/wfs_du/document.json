@@ -35,7 +35,7 @@
     },
     {
       "name": "gpu_timestamp",
-      "type": "string"
+      "type": "date-time"
     },
     {
       "name": "partition",

@@ -3,7 +3,7 @@
   "description": "Experimental OGC API Features schema store enriched from Geoplateforme WFS.",
   "license": "MIT",
   "author": "IGNF",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "engines": {
     "node": ">=22"
   },

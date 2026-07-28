@@ -184,11 +184,9 @@ VIGICRUES_TRONCONS_BDD_WLD_WM_2023-v1,,true,Waiting for MCP use case definition,
 VIGINOND-DIFFUSION,,true,Waiting for MCP use case definition,"stationhydro|zich|zip"
 ZONES-A-PROSPECTER-FORETS-SUBNATURELLES,,true,Waiting for MCP use case definition,zones_a_prospecter_forets_subnaturelles
 ZZZ_INAO_LaCiotat,,true,Test data,"batiment|commune|point_du_reseau|troncon_de_route"
+_fff5e2a8-285f-4d47-966a-05784aa29b34_wfs,,true,No matching rule,geometry1
 aeag-rwbody-sdage2022,,true,Test data,rwbody_ag_sdage2022
-batiment_tp100_gpkg_wfs,,true,Test data,batiment_tp100
-carr_10km_gpkg_24-10-2024_wfs,,true,Test data,carr_10km
-carr_1km_zip_24-10-2024_wfs,,true,Test data,carr_1km
-carr_200m_zip_24-10-2024_wfs,,true,Test data,carr_200m
+arbre_wfs,,true,No matching rule,arbre
 cartes,,true,Image index dataset,"dataset|image"
 cartes_anciennes,,true,Image index dataset,"dataset|image"
 cavp_zae_zip_03-02-2026_wfs,,true,Test data,ZAE_CA_Val_Parisis
@@ -196,7 +194,7 @@ charbo_gpkg_30-10-2025_wfs,,true,Test data,"detections_charbonnieres|detections_
 commune_d34OPenIG_gpkg_26-03-2025_wfs,,true,Test data,commune_d034_20170303zip
 communes_972,,true,Test data,commune972
 cosia_032_aubiet,,true,Test data,data_aubiet_25_05
-datac_acid_stats,unknown,true,Fail to assign to an existing product,"datac_acid_objets|datac_acid_stats"
+datac_suivi_acid,,true,No matching rule,"acids_objets|acids_stats"
 dgac_peb_arrete_wfs,,true,Test data,dgac_peb_arrete_wfs
 dgac_psa_arrete_wfs,,true,Test data,dgac_psa_arrete
 ecoregions,ecoregions,true,Waiting for MCP use case definition,"pays|regions_ecologiques"
@@ -206,7 +204,6 @@ etude_25145_15-07-2026_wfs,,true,Test data,geometrie_ucs
 example_gpkg_21-05-2026_wfs,,true,Test data,"geometry1|geometry2|line1"
 fr_qa_stations,unknown,true,Fail to assign to an existing product,stations_qualite_air
 igngpf_4902_20260309_tables_sans_tirets,,true,Test data,parcs_photovoltaiques
-itineraire_randonnee_bm_telethon_gpkg_gpkg_21-01-2026_wfs,,true,Test data,itineraire_randonnee_bm_telethon
 jpe_test_open_io,,true,Test data,formation_vegetale
 l_dfci_zonage_s_088_2025_zip_12-05-2026_wfs,,true,Test data,l_dfci_zonage_s_088_2025
 l_rgc_l_008_20-02-2026_wfs,,true,Test data,l_rgc_l_008
@@ -225,8 +222,8 @@ paec_bfc_2026,,true,Test data,Territoires_paec_bfc_2026
 pat_r84_nov2025_gpkg_2026-02-10_wfs,,true,Test data,sql_statement
 patrinat_apb,PATRINAT,true,Waiting for MCP use case definition,apb
 patrinat_apg,PATRINAT,true,Waiting for MCP use case definition,apg
-patrinat_aphn,PATRINAT,true,Waiting for MCP use case definition,aire_protection_habitats_naturels
-patrinat_aplg,PATRINAT,true,Waiting for MCP use case definition,apg
+patrinat_aphn,PATRINAT,true,Waiting for MCP use case definition,aphn
+patrinat_aplg,PATRINAT,true,Waiting for MCP use case definition,aplg
 patrinat_bios,PATRINAT,true,Waiting for MCP use case definition,bios
 patrinat_bpm,PATRINAT,true,Waiting for MCP use case definition,Bien_patrimoine_mondial_UNESCO
 patrinat_cdl,PATRINAT,true,Waiting for MCP use case definition,conservatoire_littoral
@@ -241,8 +238,9 @@ patrinat_pn2,PATRINAT,true,Waiting for MCP use case definition,pn
 patrinat_pnm,PATRINAT,true,Waiting for MCP use case definition,pnm
 patrinat_pnr,PATRINAT,true,Waiting for MCP use case definition,pnr
 patrinat_pprnn,PATRINAT,true,Waiting for MCP use case definition,pprnn
-patrinat_ramsar,PATRINAT,true,Waiting for MCP use case definition,pnm
-patrinat_rb,PATRINAT,true,Waiting for MCP use case definition,reserve_biologique
+patrinat_pprnr,PATRINAT,true,Waiting for MCP use case definition,pprnr
+patrinat_ramsar,PATRINAT,true,Waiting for MCP use case definition,ramsar
+patrinat_rb,PATRINAT,true,Waiting for MCP use case definition,rb
 patrinat_ripn,PATRINAT,true,Waiting for MCP use case definition,ripn
 patrinat_rnc,PATRINAT,true,Waiting for MCP use case definition,pnm
 patrinat_rncfs,PATRINAT,true,Waiting for MCP use case definition,rncfs
@@ -259,13 +257,13 @@ patrinat_zps,PATRINAT,true,Waiting for MCP use case definition,zps
 pays_ecoregions,pays_ecoregions,true,Duplicate dataset (ecoregions),"pays|regions_ecologiques"
 pnrvn_gpkg_27-06-2025_wfs,,true,Test data,pnrvn
 potentiel_agronomique_CCC,,true,Waiting for MCP use case definition,potentiel agronomique
+ppri-agglo-laval-revision_gpkg_13-10-2025_wfs,,true,No matching rule,n_zone_reg_pprn_202000001_s_053
 projet_amenagement_gosb_cnig,,true,Test data,projet_amenagement_cnig_gosb_16_07_2026
 projet_iqp_2025_gpkg_12-03-2026_wfs,,true,Test data,"tampon_iqp_d_2025|tampon_iqp_g_2025|tampon_iqp_i_2025|ref_interplo_2025|ref_bornage_2025"
 projets_zones_acceleration_energies_renouvelables_zaer_wfs,,true,Test data,fus_epci_ddt_portail_publication
 pva,,true,Image index dataset,"dataset|image"
 quartierscholet,,true,Test data,QuartierCholet
 ramsar-wfs,,true,Test data,ramsar
-rlpi_projet_gpkg_18-12-2025_wfs,,true,Test data,capv_zonage_rpli
 route500logoqgis,,true,Test data,route500logoqgis
 rpg_metrolyon_epsg2154_gpkg_02-04-2026_wfs,,true,Test data,parcelles_graphiques
 sentiers_pag_gpkg_30-01-2026_wfs,,true,Test data,sentiers_PAG
@@ -279,6 +277,7 @@ test_lc_bdtopo_laCiotat,,true,Test data,"batiment|lc_test_commune|point_du_resea
 test_mig_rlt,,true,Test data,"dataset|image"
 test_nl_bdtopo_la_ciotat,,true,Test data,"nl_test_batiment|nl_test_commune|nl_test_point_du_reseau|nl_test_troncon_de_route"
 test_nl_ifn_stats_2024,,true,Test data,stats_2024
+test_retour_ACID_Marin,,true,Test data,test_retour_ACID_Marin
 test_thomas_2,,true,Test data,"troncon_de_route|non communication"
 trichls_s_d51_gpkg_07-10-2024_wfs,,true,Test data,trichls_s_d51
 trichlscomm_s_d51_gpkg_07-10-2024_wfs,,true,Test data,trichlscomm_s_d51
@@ -301,4 +300,5 @@ zzz_test_LC_atelier_maj_donnees_vecteur,,true,Test data,table_a_modif
 zzz_test_NL_atelier_donnees_derivee_vecteur,,true,Test data,table_a_modif
 zzz_test_NL_atelier_maj_donnees_vecteur,,true,Test data,table_a_modif
 zzz_test_RM_atelier_maj_donnees_vecteur,,true,Test data,table_a_modif
+zzz_test_nl_la_ciotat,,true,Test data,"lct_bati|troncon_de_route"
 zzz_test_nl_pn,,true,Test data,parc_national
