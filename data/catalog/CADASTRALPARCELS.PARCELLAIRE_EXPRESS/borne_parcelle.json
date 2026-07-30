@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_parcelle",
   "type": "object",
   "title": "PCI Vecteur : Lien bornes parcelles",
   "description": "Lien bornes parcelles ; Édition 2026-03-01",
@@ -16,8 +15,7 @@
     },
     "geom": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": []

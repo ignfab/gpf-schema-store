@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "BDTOPO_V3:point_de_repere",
   "type": "object",
   "title": "Point de repère",
   "x-ign-theme": "Transport",
@@ -182,8 +181,7 @@
       "format": "geometry-point",
       "title": "Géométrie",
       "description": "Géométrie de l'objet.",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": [

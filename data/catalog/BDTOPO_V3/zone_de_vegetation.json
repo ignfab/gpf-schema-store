@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "BDTOPO_V3:zone_de_vegetation",
   "type": "object",
   "title": "Zone de végétation",
   "x-ign-theme": "Occupation du sol",
@@ -352,8 +351,7 @@
       "format": "geometry-multipolygon",
       "title": "Géométrie",
       "description": "",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": [

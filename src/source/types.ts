@@ -14,7 +14,6 @@ import { zCollectionPropertyType } from '@/pivot/types';
 export const zSourceCollectionProperty = z.object({
   name: z.string().min(1),
   type: zCollectionPropertyType,
-  // Internal geometry hint later rendered as `x-ign-defaultCrs`.
   defaultCrs: z.string().min(1).optional(),
 }).strict();
 

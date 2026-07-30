@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "BDTOPO_V3:departement",
   "type": "object",
   "title": "Département",
   "x-ign-theme": "Administratif",
@@ -65,8 +64,7 @@
       "format": "geometry-multipolygon",
       "title": "Géométrie GE MultiPolygone",
       "description": "Géométrie surfacique de l'objet à utiliser pour une représentation à grande échelle.",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": [

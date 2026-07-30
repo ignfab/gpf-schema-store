@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "wfs_du:secteur_cc",
   "type": "object",
   "title": "Secteurs de la carte communale",
   "description": "Secteurs de carte communale, données issues du Géoportail de l'urbanisme",
@@ -59,8 +58,7 @@
     },
     "the_geom": {
       "format": "geometry-any",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     },
     "symbole": {
       "type": "string"

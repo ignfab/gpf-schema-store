@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "BDTOPO_V3:detail_orographique",
   "type": "object",
   "title": "Détail orographique",
   "x-ign-theme": "Lieux nommés",
@@ -515,8 +514,7 @@
       "format": "geometry-point",
       "title": "Géométrie",
       "description": "",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": [

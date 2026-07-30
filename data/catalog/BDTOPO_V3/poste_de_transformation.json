@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "BDTOPO_V3:poste_de_transformation",
   "type": "object",
   "title": "Poste de transformation",
   "x-ign-theme": "Services et activités",
@@ -377,8 +376,7 @@
       "format": "geometry-multipolygon",
       "title": "Géométrie",
       "description": "",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": [

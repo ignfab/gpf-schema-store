@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "ADMINEXPRESS-COG-CARTO-PE.2025:commune",
   "type": "object",
   "title": "ADMINEXPRESS COG CARTO PE 2025 Commune",
   "description": "ADMINEXPRESS COG CARTO PE 2025 Commune ; Édition 2025-01-01",
@@ -54,8 +53,7 @@
     },
     "geometrie": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": []

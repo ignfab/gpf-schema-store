@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "BDTOPO_V3:bassin_versant_topographique",
   "type": "object",
   "title": "Bassin versant topographique",
   "x-ign-theme": "Hydrographie",
@@ -336,8 +335,7 @@
       "format": "geometry-multipolygon",
       "title": "Géométrie",
       "description": "",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": [

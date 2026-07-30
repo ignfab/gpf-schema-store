@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "ADMINEXPRESS-COG.LATEST:chef_lieu_d_epci",
   "type": "object",
   "title": "ADMINEXPRESS COG Dernière édition Chef-lieu d EPCI",
   "description": "ADMINEXPRESS COG Dernière édition Chef-lieu d EPCI",
@@ -41,8 +40,7 @@
     },
     "geometrie": {
       "format": "geometry-point",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": []

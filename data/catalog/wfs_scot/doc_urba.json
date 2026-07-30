@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "wfs_scot:doc_urba",
   "type": "object",
   "title": "Document d'urbanisme",
   "description": "Classe sémantique décrivant le Schéma de Cohérence Territorial, données issues du Géoportail de l'urbanisme",

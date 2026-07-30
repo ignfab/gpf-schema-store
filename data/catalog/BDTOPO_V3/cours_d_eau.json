@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "BDTOPO_V3:cours_d_eau",
   "type": "object",
   "title": "Cours d'eau",
   "x-ign-theme": "Hydrographie",
@@ -163,8 +162,7 @@
       "format": "geometry-multilinestring",
       "title": "Géométrie GE MultiLigne",
       "description": "Champ contenant le géométrie concaténée des tronçons composant l'itinéraire dans le but de la diffusion de l'objet ROUTE_NUMEROTEE_OU_NOMMEE du produit externe.",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": [

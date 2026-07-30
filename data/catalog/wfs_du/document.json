@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "wfs_du:document",
   "type": "object",
   "title": "Document d'urbanisme",
   "description": "Emprise du document d'urbanisme, données issues du Géoportail de l'urbanisme",
@@ -38,8 +37,7 @@
     },
     "the_geom": {
       "format": "geometry-any",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": []

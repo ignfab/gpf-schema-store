@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_limite_propriete",
   "type": "object",
   "title": "PCI Vecteur : Bornes de limite de propriété",
   "description": "Bornes de limite de propriété ; Édition 2026-03-01",
@@ -13,8 +12,7 @@
     },
     "geom": {
       "format": "geometry-multipoint",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": []

@@ -56,7 +56,6 @@ describe('renderCollectionSchema', () => {
 
     expect(Object.keys(schema)).toEqual([
       '$schema',
-      'x-collection-id',
       'type',
       'title',
       'x-ign-theme',
@@ -75,7 +74,6 @@ describe('renderCollectionSchema', () => {
 
     expect(schema).toEqual({
       $schema: 'https://json-schema.org/draft/2020-12/schema',
-      'x-collection-id': 'NS:feature',
       type: 'object',
       title: 'Feature',
       'x-ign-theme': 'Theme',
@@ -109,8 +107,7 @@ describe('renderCollectionSchema', () => {
         geom: {
           title: 'Geometry',
           format: 'geometry-point',
-          'x-ogc-role': 'primary-geometry',
-          'x-ign-defaultCrs': 'EPSG:4326',
+          'x-ogc-role': 'primary-geometry'
         },
       },
       required: ['cleabs', 'geom'],
@@ -132,7 +129,6 @@ describe('renderCollectionSchema', () => {
 
     expect(Object.keys(schema)).toEqual([
       '$schema',
-      'x-collection-id',
       'type',
       'title',
       'x-ign-theme',
@@ -166,8 +162,7 @@ describe('renderCollectionSchema', () => {
 
     expect(pointSchema.properties.geometrie).toMatchObject({
       format: 'geometry-point',
-      'x-ogc-role': 'primary-geometry',
-      'x-ign-defaultCrs': 'EPSG:4326',
+      'x-ogc-role': 'primary-geometry'
     });
     expect(multipolygonSchema.properties.geometrie).toMatchObject({
       format: 'geometry-multipolygon',

@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "x-collection-id": "ADMINEXPRESS-COG.LATEST:commune",
   "type": "object",
   "title": "ADMINEXPRESS COG Dernière édition Commune",
   "description": "ADMINEXPRESS COG Dernière édition Commune",
@@ -57,8 +56,7 @@
     },
     "geometrie": {
       "format": "geometry-multipolygon",
-      "x-ogc-role": "primary-geometry",
-      "x-ign-defaultCrs": "EPSG:4326"
+      "x-ogc-role": "primary-geometry"
     }
   },
   "required": []

@@ -268,6 +268,8 @@ route500logoqgis,,true,Test data,route500logoqgis
 rpg_metrolyon_epsg2154_gpkg_02-04-2026_wfs,,true,Test data,parcelles_graphiques
 sentiers_pag_gpkg_30-01-2026_wfs,,true,Test data,sentiers_PAG
 site_guadeloupe_martinique_gpkg_26-01-2026_wfs,,true,Test data,site_guadeloupe_martinique
+sites_datacenters_202607281413_csv_28-07-2026_wfs,,true,No matching rule,test_clement_sites_datacenters
+sites_datacenters_202607281413_csv_28-07-2026_wfs2,,true,No matching rule,test_clement_sites_datacenters
 sites_guyane_gpkg_26-01-2026_wfs,,true,Test data,STE_Guyane
 sites_metropole_gpkg_26-01-2026_wfs,,true,Test data,STE_Metropole
 sites_reunion_gpkg_26-01-2026_wfs,,true,Test data,STE_Reunion
