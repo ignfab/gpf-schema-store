@@ -184,6 +184,7 @@ VIGICRUES_TRONCONS_BDD_WLD_WM_2023-v1,,true,Waiting for MCP use case definition,
 VIGINOND-DIFFUSION,,true,Waiting for MCP use case definition,"stationhydro|zich|zip"
 ZONES-A-PROSPECTER-FORETS-SUBNATURELLES,,true,Waiting for MCP use case definition,zones_a_prospecter_forets_subnaturelles
 ZZZ_INAO_LaCiotat,,true,Test data,"batiment|commune|point_du_reseau|troncon_de_route"
+_84954650-e77c-4657-bfae-f92375f18139_wfs,,true,No matching rule,geometry2
 _fff5e2a8-285f-4d47-966a-05784aa29b34_wfs,,true,No matching rule,geometry1
 aeag-rwbody-sdage2022,,true,Test data,rwbody_ag_sdage2022
 arbre_wfs,,true,No matching rule,arbre
@@ -200,7 +201,7 @@ dgac_psa_arrete_wfs,,true,Test data,dgac_psa_arrete
 ecoregions,ecoregions,true,Waiting for MCP use case definition,"pays|regions_ecologiques"
 erf,unknown,true,Fail to assign to an existing product,erger
 espace_revendeurs,ESPACE_REVENDEURS,true,Waiting for MCP use case definition,"grid|product"
-etude_25145_15-07-2026_wfs,,true,Test data,geometrie_ucs
+etude_25145_20260722_wfs,,true,No matching rule,"carte_sols_loiret|sols_dominants_Loiret"
 example_gpkg_21-05-2026_wfs,,true,Test data,"geometry1|geometry2|line1"
 fr_qa_stations,unknown,true,Fail to assign to an existing product,stations_qualite_air
 igngpf_4902_20260309_tables_sans_tirets,,true,Test data,parcs_photovoltaiques
@@ -218,7 +219,7 @@ nga_dgiwg-example_ft-belvoir_15-16_v1-0_20sep2023_gpkg_09-06-2026_wfs,,true,Test
 paec_bfc_2023,,true,Waiting for MCP use case definition,Territoires_paec_bfc_2023
 paec_bfc_2024,,true,Waiting for MCP use case definition,Territoires_paec_bfc_2024
 paec_bfc_2025,,true,Waiting for MCP use case definition,Territoires_paec_bfc_2025
-paec_bfc_2026,,true,Test data,Territoires_paec_bfc_2026
+paec_bfc_2026_,,true,No matching rule,Territoires_paec_bfc_2026
 pat_r84_nov2025_gpkg_2026-02-10_wfs,,true,Test data,sql_statement
 patrinat_apb,PATRINAT,true,Waiting for MCP use case definition,apb
 patrinat_apg,PATRINAT,true,Waiting for MCP use case definition,apg
@@ -280,6 +281,7 @@ test_mig_rlt,,true,Test data,"dataset|image"
 test_nl_bdtopo_la_ciotat,,true,Test data,"nl_test_batiment|nl_test_commune|nl_test_point_du_reseau|nl_test_troncon_de_route"
 test_nl_ifn_stats_2024,,true,Test data,stats_2024
 test_retour_ACID_Marin,,true,Test data,test_retour_ACID_Marin
+test_retour_acid_marin_2,,true,Test data,test_retour_acid_marin_2
 test_thomas_2,,true,Test data,"troncon_de_route|non communication"
 trichls_s_d51_gpkg_07-10-2024_wfs,,true,Test data,trichls_s_d51
 trichlscomm_s_d51_gpkg_07-10-2024_wfs,,true,Test data,trichlscomm_s_d51
