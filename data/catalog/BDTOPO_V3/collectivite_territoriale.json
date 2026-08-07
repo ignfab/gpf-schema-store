@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/BDTOPO_V3/collectivite_territoriale.json",
   "type": "object",
   "title": "Collectivité territoriale",
   "x-ign-theme": "Administratif",

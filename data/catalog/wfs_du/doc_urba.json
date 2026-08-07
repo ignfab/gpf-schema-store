@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/wfs_du/doc_urba.json",
   "type": "object",
   "title": "Document d'urbanisme",
   "description": "Classe sémantique décrivant le document d'urbanisme, données issues du Géoportail de l'urbanisme",

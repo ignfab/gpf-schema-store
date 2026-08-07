@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/ADMINEXPRESS-COG-CARTO-PE.2025/canton.json",
   "type": "object",
   "title": "ADMINEXPRESS COG CARTO PE 2025 Canton",
   "description": "ADMINEXPRESS COG CARTO PE 2025 Canton ; Édition 2025-01-01",

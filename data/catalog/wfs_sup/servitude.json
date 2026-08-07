@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/wfs_sup/servitude.json",
   "type": "object",
   "title": "Servitude d'utilité publique",
   "description": "Liste des servitudes d'utilité publique, données issues du Géoportail de l'urbanisme",

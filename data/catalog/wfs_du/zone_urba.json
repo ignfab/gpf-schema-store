@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/wfs_du/zone_urba.json",
   "type": "object",
   "title": "Zonage du document d'urbanisme",
   "description": "Zonage du document d'urbanisme, données issues du Géoportail de l'urbanisme",

@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/ADMINEXPRESS-COG.2026/chef_lieu_d_arrondissement_municipal.json",
   "type": "object",
   "title": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement municipal ; édition 2026-01-01",
   "description": "ADMINEXPRESS COG 2026 Chef-lieu d'Arrondissement municipal",

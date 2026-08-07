@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/ADMINEXPRESS-COG.2020/departement.json",
   "type": "object",
   "title": "ADMINEXPRESS COG 2020 Département",
   "description": "ADMINEXPRESS COG 2020 Département ; Édition 2020-01-01",

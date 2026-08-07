@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/BDTOPO_V3/bassin_versant_topographique.json",
   "type": "object",
   "title": "Bassin versant topographique",
   "x-ign-theme": "Hydrographie",

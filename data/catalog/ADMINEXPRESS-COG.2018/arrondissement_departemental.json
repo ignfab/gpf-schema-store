@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/ADMINEXPRESS-COG.2018/arrondissement_departemental.json",
   "type": "object",
   "title": "ADMINEXPRESS COG 2018 Arrondissement départemental",
   "description": "ADMINEXPRESS COG 2018 Arrondissement départemental ; Édition 2018-01-01",

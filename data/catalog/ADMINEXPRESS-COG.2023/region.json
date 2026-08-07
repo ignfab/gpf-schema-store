@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/ADMINEXPRESS-COG.2023/region.json",
   "type": "object",
   "title": "ADMINEXPRESS COG 2023 Région",
   "description": "ADMINEXPRESS COG 2023 Région ; Édition 2023-01-01",

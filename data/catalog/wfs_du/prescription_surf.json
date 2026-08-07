@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/wfs_du/prescription_surf.json",
   "type": "object",
   "title": "Prescriptions surfaciques",
   "description": "Prescriptions surfaciques se superposant au zonage, données issues du Géoportail de l'urbanisme",

@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/STATISTICALUNITS.IRISGE/iris_ge.json",
   "type": "object",
   "title": "Contours géométriques des IRIS de l'INSEE à grande échelle",
   "description": "Contours géométriques des IRIS de l'INSEE à grande échelle sur toute la France ; Edition : 2026-01-01",

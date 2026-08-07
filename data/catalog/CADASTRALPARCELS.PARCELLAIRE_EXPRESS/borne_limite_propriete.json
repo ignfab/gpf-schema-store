@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/CADASTRALPARCELS.PARCELLAIRE_EXPRESS/borne_limite_propriete.json",
   "type": "object",
   "title": "PCI Vecteur : Bornes de limite de propriété",
   "description": "Bornes de limite de propriété ; Édition 2026-03-01",
