@@ -42,6 +42,10 @@ describe('writeRenderedCatalog', () => {
       expect.stringMatching(/[\\/]tmp[\\/]catalog[\\/]NS[\\/]feature\.json$/),
       expect.stringContaining('"$schema": "https://json-schema.org/draft/2020-12/schema"'),
     );
+    expect(fsMocks.writeFileSync).toHaveBeenCalledWith(
+      expect.stringMatching(/[\\/]tmp[\\/]catalog[\\/]NS[\\/]feature\.json$/),
+      expect.stringContaining('"$id": "https://ignfab.github.io/gpf-schema-store/catalog/NS/feature.json"'),
+    );
   });
 
   it('cleans the output directory when requested', async () => {

@@ -56,6 +56,7 @@ describe('renderCollectionSchema', () => {
 
     expect(Object.keys(schema)).toEqual([
       '$schema',
+      '$id',
       'type',
       'title',
       'x-ign-theme',
@@ -74,6 +75,7 @@ describe('renderCollectionSchema', () => {
 
     expect(schema).toEqual({
       $schema: 'https://json-schema.org/draft/2020-12/schema',
+      $id: 'https://ignfab.github.io/gpf-schema-store/catalog/NS/feature.json',
       type: 'object',
       title: 'Feature',
       'x-ign-theme': 'Theme',
@@ -129,6 +131,7 @@ describe('renderCollectionSchema', () => {
 
     expect(Object.keys(schema)).toEqual([
       '$schema',
+      '$id',
       'type',
       'title',
       'x-ign-theme',
