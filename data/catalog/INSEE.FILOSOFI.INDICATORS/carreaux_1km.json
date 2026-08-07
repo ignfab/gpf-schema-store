@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/INSEE.FILOSOFI.INDICATORS/carreaux_1km.json",
   "type": "object",
   "title": "Carroyages INSEE",
   "description": "Carroyages INSEE à 200 m, à 1 km et à la plus grande échelle diffusable ",

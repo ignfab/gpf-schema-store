@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/BDTOPO_V3/terrain_de_sport.json",
   "type": "object",
   "title": "Terrain de sport",
   "x-ign-theme": "Bâti",

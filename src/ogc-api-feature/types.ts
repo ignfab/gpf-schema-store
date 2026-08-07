@@ -63,6 +63,7 @@ export type OgcCollectionProperty = z.infer<typeof zOgcCollectionProperty>;
  */
 export const zOgcCollectionSchema = z.object({
   $schema: z.literal('https://json-schema.org/draft/2020-12/schema'),
+  $id: z.string().url(),
   type: z.literal('object'),
   title: z.string(),
   'x-ign-theme': z.string().optional(),

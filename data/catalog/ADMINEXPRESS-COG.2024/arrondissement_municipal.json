@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/ADMINEXPRESS-COG.2024/arrondissement_municipal.json",
   "type": "object",
   "title": "ADMINEXPRESS COG 2024 Arrondissement municipal",
   "description": "ADMINEXPRESS COG 2024 Arrondissement municipal ; Édition 2024-01-01",

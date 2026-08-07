@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/BDTOPO_V3/lieu_dit_non_habite.json",
   "type": "object",
   "title": "Lieu-dit non habité",
   "x-ign-theme": "Lieux nommés",

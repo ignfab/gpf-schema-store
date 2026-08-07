@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/wfs_scot/perimetre_scot.json",
   "type": "object",
   "title": "Perimetre du Schéma de cohérence territorial",
   "description": "Périmètre publié du Schéma de Cohérence Territorial, données issues du Géoportail de l'urbanisme",

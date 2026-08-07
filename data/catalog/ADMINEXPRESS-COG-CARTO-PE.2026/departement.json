@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/ADMINEXPRESS-COG-CARTO-PE.2026/departement.json",
   "type": "object",
   "title": "ADMINEXPRESS COG CARTO PE 2026 Département",
   "description": "ADMINEXPRESS COG CARTO PE 2026 Département ; Édition 2026-01-01",

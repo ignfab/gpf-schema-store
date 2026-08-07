@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/ADMINEXPRESS-COG.2019/chef_lieu.json",
   "type": "object",
   "title": "ADMINEXPRESS COG 2019 Chef-lieu",
   "description": "ADMINEXPRESS COG 2019 Chef-lieu ; Édition 2019-01-01",

@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/ADMINEXPRESS-COG.LATEST/region.json",
   "type": "object",
   "title": "ADMINEXPRESS COG Dernière édition Région",
   "description": "ADMINEXPRESS COG Dernière édition Région",

@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/wfs_du/habillage_txt.json",
   "type": "object",
   "title": "Etiquette ponctuelle de l’habillage du plan",
   "description": "Étiquette ponctuelle portée sur le document d'urbanisme pour l’habillage du plan, données issues du Géoportail de l'urbanisme",

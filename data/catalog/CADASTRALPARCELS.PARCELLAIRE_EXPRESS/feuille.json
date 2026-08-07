@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/CADASTRALPARCELS.PARCELLAIRE_EXPRESS/feuille.json",
   "type": "object",
   "title": "PCI Vecteur : Feuilles",
   "description": "Feuilles ; Édition 2026-03-01",

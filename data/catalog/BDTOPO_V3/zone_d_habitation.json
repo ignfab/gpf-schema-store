@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/BDTOPO_V3/zone_d_habitation.json",
   "type": "object",
   "title": "Zone d'habitation",
   "x-ign-theme": "Lieux nommés",

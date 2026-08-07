@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/BDTOPO_V3/construction_lineaire.json",
   "type": "object",
   "title": "Construction linéaire",
   "x-ign-theme": "Bâti",

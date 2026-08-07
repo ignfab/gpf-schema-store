@@ -22,6 +22,11 @@ import type {
  */
 
 const JSON_SCHEMA_DRAFT = 'https://json-schema.org/draft/2020-12/schema' as const;
+const CATALOG_SCHEMA_ID_BASE_URL = 'https://ignfab.github.io/gpf-schema-store/catalog' as const;
+
+function buildCollectionSchemaId(collection: EnrichedCollection): string {
+  return `${CATALOG_SCHEMA_ID_BASE_URL}/${collection.namespace}/${collection.name}.json`;
+}
 
 /*
  * =============================================================================
@@ -143,6 +148,7 @@ export function renderCollectionSchema(collection: EnrichedCollection): OgcColle
 
   const schema: Partial<OgcCollectionSchema> = {
     $schema: JSON_SCHEMA_DRAFT,
+    $id: buildCollectionSchemaId(collection),
     type: 'object',
     title: collection.title,
   };

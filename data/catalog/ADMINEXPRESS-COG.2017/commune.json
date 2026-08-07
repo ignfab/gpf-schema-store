@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/ADMINEXPRESS-COG.2017/commune.json",
   "type": "object",
   "title": "ADMINEXPRESS COG 2017 Commune",
   "description": "ADMINEXPRESS COG 2017 Commune ; Édition 2017-01-01",

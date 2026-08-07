@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/wfs_scot/doc_urba_com.json",
   "type": "object",
   "title": "Document d'urbanisme",
   "description": "Relations entre le Schéma de Cohérence Territorial et les communes auxquelles il s'applique, données issues du Géoportail de l'urbanisme",

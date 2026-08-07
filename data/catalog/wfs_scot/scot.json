@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ignfab.github.io/gpf-schema-store/catalog/wfs_scot/scot.json",
   "type": "object",
   "title": "Schéma de cohérence territorial",
   "description": "Etat du Schéma de Cohérence Territorial, données issues du Géoportail de l'urbanisme",
