@@ -77,6 +77,12 @@ function buildProgram(): Command {
     .action(updateCswRecords);
 
   program
+    .command('csw-dump')
+    .description('Print a record of the CSW in the pivot format (JSON)')
+    .argument('<fileIdentifier>', 'fileIdentifier of the record')
+    .action(dumpCswRecord);
+
+  program
     .command('update-wfs')
     .description('Update the collections from the GPF WFS (data/wfs/{namespace}/{name}.json)')
     .action(updateCollections);
@@ -279,6 +285,11 @@ async function updateCswRecords(): Promise<void> {
   console.log(`Replacing local records in ${CSW_RECORDS_DIR}...`);
   replaceCswRecords(records);
   console.log(`${records.length} records saved to ${CSW_RECORDS_DIR}/{fileIdentifier}.json`);
+}
+
+async function dumpCswRecord(fileIdentifier: string): Promise<void> {
+  const record = await new CswClient(GPF_CSW_URL).getRecord(fileIdentifier);
+  console.log(JSON.stringify(record, null, 2));
 }
 
 async function updateCollections(): Promise<void> {

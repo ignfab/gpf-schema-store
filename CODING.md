@@ -120,6 +120,15 @@ Download the records of the non-ignored datasets (ISO 19139 `GetRecordById`) to 
 npm run update:csw
 ```
 
+To inspect any record of the CSW (ignored or not) in the same pivot format, without writing anything :
+
+```bash
+npm run -s csw:dump -- IGNF_BD-TOPO
+```
+
+> [!TIP]
+> The [review-datasets](.claude/skills/review-datasets/SKILL.md) skill relies on `csw:dump` to review the `ignoredReason` of the ignored datasets.
+
 #### Update WFS schemas
 
 Regenerate the `data/wfs` directory by fetching schemas from [data.geopf.fr/wfs](https://data.geopf.fr/wfs?service=WFS&request=GetCapabilities) for the collections selected by [config/datasets.yaml](config/datasets.yaml) (a warning is displayed for each WFS namespace without dataset) :
