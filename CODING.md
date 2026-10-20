@@ -58,13 +58,13 @@ Update [data/namespaces.csv](data/namespaces.csv) to review every discovered nam
 npm run update:namespaces
 ```
 
-#### Update source schema
+#### Update WFS schemas
 
 Regenerate the `data/wfs` directory by fetching schemas from [data.geopf.fr/wfs](https://data.geopf.fr/wfs?service=WFS&request=GetCapabilities) and applying filter rules defined in [data/namespace-filters.yaml](data/namespace-filters.yaml) :
 
 ```bash
 # download data/wfs/{namespace}/{name}.json
-npm run update:source
+npm run update:wfs
 ```
 
 ### Render collection schema files
