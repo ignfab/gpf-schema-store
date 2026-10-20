@@ -2,6 +2,9 @@
  * Generic search options that a catalog can pass to a search engine.
  */
 export type CollectionSearchOptions = {
+  /**
+   * Maximum number of matches to return.
+   */
   limit?: number;
 };
 
@@ -18,5 +21,11 @@ export type CollectionSearchMatch = {
  * Contract that any search engine implementation must satisfy.
  */
 export interface CollectionSearchEngine {
+  /**
+   * Returns the matches for the query, best first.
+   *
+   * Implementations MUST honor options.limit: return at most `limit` matches.
+   * (the catalog also truncates the results defensively, see #65)
+   */
   search(query: string, options?: CollectionSearchOptions): CollectionSearchMatch[];
 }
