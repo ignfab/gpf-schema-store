@@ -1,0 +1,444 @@
+{
+  "fileIdentifier": "INSEE_DONNEES",
+  "type": "series",
+  "title": "INSEE",
+  "abstract": "Les statistiques publiques regroupent l'ensemble des productions issues des enquêtes statistiques, dont la liste est fixée chaque année par un arrêté du ministre chargé de l'économie, et de l'exploitation, à des fins d'information générale, de données collectées par des administrations, des organismes publics ou des organismes privés chargés d'une mission de service public.",
+  "keywords": [
+    "Répartition de la population — démographie",
+    "Systèmes de maillage géographique",
+    "Unités statistiques",
+    "carroyage",
+    "donnees",
+    "population",
+    "statistiques",
+    "territoires",
+    "National"
+  ],
+  "links": [
+    {
+      "type": "other",
+      "url": "https://www.insee.fr/fr/accueil",
+      "description": "Site de l'INSEE"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.ENFANTS.0.17.ANS.SECRET",
+      "description": "% des 0-17 ans"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.PLUS.65.ANS.SECRET",
+      "description": "% des plus de 65 ans"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.POPULATION",
+      "description": "Densité de Population"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.FAMILLES.MONOPARENTALES.SECRET",
+      "description": "Familles monoparentales"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.INDIVIDUS.25.39.ANS.SECRET",
+      "description": "Individus de 25 à 39 ans"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.INDIVIDUS.40.54.ANS.SECRET",
+      "description": "Individus de 40 à 54 ans"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.INDIVIDUS.55.64.ANS.SECRET",
+      "description": "Individus de 55 à 64 ans"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.COLLECTIFS.SECRET",
+      "description": "Logements collectifs"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.AVANT.1945.SECRET",
+      "description": "Logements construits avant 1945"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1945.1970.SECRET",
+      "description": "Logements construits entre 1945 et 1970"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1970.1990.SECRET",
+      "description": "Logements construits entre 1970 et 1990"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.APRES.1990.SECRET",
+      "description": "Logements construits après 1990"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.SOCIAUX.SECRET",
+      "description": "Logements sociaux"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.1.PERSONNE.SECRET",
+      "description": "Ménages d'une personne"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.5.PERSONNES.OUPLUS.SECRET",
+      "description": "Ménages 5 personnes ou plus"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.MAISON.SECRET",
+      "description": "Ménages en maison"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.PAUVRES.SECRET",
+      "description": "Ménages pauvres"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.PROPRIETAIRES.SECRET",
+      "description": "Ménages propriétaires"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.NIVEAU.DE.VIE.SECRET",
+      "description": "Niveau de vie winsorisé des individus"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r/wms?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.LOGEMENTS.SURFACE.MOYENNE.SECRET",
+      "description": "Surface moyenne des logements"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.ENFANTS.0.17.ANS.SECRET",
+      "description": "% des 0-17 ans"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.PLUS.65.ANS.SECRET",
+      "description": "% des plus de 65 ans"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.POPULATION",
+      "description": "Densité de Population"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.FAMILLES.MONOPARENTALES.SECRET",
+      "description": "Familles monoparentales"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.INDIVIDUS.25.39.ANS.SECRET",
+      "description": "Individus de 25 à 39 ans"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.INDIVIDUS.40.54.ANS.SECRET",
+      "description": "Individus de 40 à 54 ans"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.INDIVIDUS.55.64.ANS.SECRET",
+      "description": "Individus de 55 à 64 ans"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.COLLECTIFS.SECRET",
+      "description": "Logements collectifs"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.AVANT.1945.SECRET",
+      "description": "Logements construits avant 1945"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1945.1970.SECRET",
+      "description": "Logements construits entre 1945 et 1970"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1970.1990.SECRET",
+      "description": "Logements construits entre 1970 et 1990"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.APRES.1990.SECRET",
+      "description": "Logements construits après 1990"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.SOCIAUX.SECRET",
+      "description": "Logements sociaux"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.1.PERSONNE.SECRET",
+      "description": "Ménages d'une personne"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.5.PERSONNES.OUPLUS.SECRET",
+      "description": "Ménages 5 personnes ou plus"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.MAISON.SECRET",
+      "description": "Ménages en maison"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.PAUVRES.SECRET",
+      "description": "Ménages pauvres"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.PROPRIETAIRES.SECRET",
+      "description": "Ménages propriétaires"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.NIVEAU.DE.VIE.SECRET",
+      "description": "Niveau de vie winsorisé des individus"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "INSEE.FILOSOFI.LOGEMENTS.SURFACE.MOYENNE.SECRET",
+      "description": "Surface moyenne des logements"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.ENFANTS.0.17.ANS.SECRET",
+      "description": "% des 0-17 ans"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.PLUS.65.ANS.SECRET",
+      "description": "% des plus de 65 ans"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.POPULATION",
+      "description": "Densité de Population"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.FAMILLES.MONOPARENTALES.SECRET",
+      "description": "Familles monoparentales"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.INDIVIDUS.25.39.ANS.SECRET",
+      "description": "Individus de 25 à 39 ans"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.INDIVIDUS.40.54.ANS.SECRET",
+      "description": "Individus de 40 à 54 ans"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.INDIVIDUS.55.64.ANS.SECRET",
+      "description": "Individus de 55 à 64 ans"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.COLLECTIFS.SECRET",
+      "description": "Logements collectifs"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.AVANT.1945.SECRET",
+      "description": "Logements construits avant 1945"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1945.1970.SECRET",
+      "description": "Logements construits entre 1945 et 1970"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.CONSTRUITS.1970.1990.SECRET",
+      "description": "Logements construits entre 1970 et 1990"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.APRES.1990.SECRET",
+      "description": "Logements construits après 1990"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.LOGEMENTS.SOCIAUX.SECRET",
+      "description": "Logements sociaux"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.1.PERSONNE.SECRET",
+      "description": "Ménages d'une personne"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.5.PERSONNES.OUPLUS.SECRET",
+      "description": "Ménages 5 personnes ou plus"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.MAISON.SECRET",
+      "description": "Ménages en maison"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.PAUVRES.SECRET",
+      "description": "Ménages pauvres"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.PART.MENAGES.PROPRIETAIRES.SECRET",
+      "description": "Ménages propriétaires"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.NIVEAU.DE.VIE.SECRET",
+      "description": "Niveau de vie winsorisé des individus"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "INSEE.FILOSOFI.LOGEMENTS.SURFACE.MOYENNE.SECRET",
+      "description": "Surface moyenne des logements"
+    }
+  ]
+}
