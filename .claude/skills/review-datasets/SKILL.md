@@ -42,12 +42,24 @@ for d in yaml.safe_load(open('config/datasets.yaml'))['datasets']:
 | `Test data` | test, demo, POC, workshop or personal data (ex : `test`, `Test geopf 8`, `[DEMO] ...`, `BETA-IGN-POC-...`, `jeu de test`, `donnees_timothe`) |
 | `Local data` | data restricted to a given area : commune, EPCI, département, région, basin, park, overseas territory (ex : `PPRI agglo Laval`, `Cours d'eau de la Sarthe`, `OCS Nouvelle-Aquitaine`, `deal972_*`) |
 | `Service record` | set by `npm run update:datasets` for the records of type `service` (ex : the `GeoPF_*` records of the Géoplateforme APIs) : nothing to review |
+| `Private data` | all the publications of the record (`wfs`, `wms`, `wmts`, `tms` links) are private (`https://data.geopf.fr/private/...`, authentication required) : not usable by the MCP |
+| `No WFS layers` | the record has no `wfs` link (raster / tiles only : `SCAN *`, orthophotos, `Plan IGN`, Cassini maps, DEM..., or WMS / WMTS only) : not usable by the MCP |
 | `Waiting for MCP use case definition` | dataset relevant for the MCP (see below) |
-| `New dataset, review required` | **when in doubt** (keep it), and the datasets that are neither out of scope nor relevant for the MCP (ex : raster only) |
+| `New dataset, review required` | **when in doubt** (keep it), and the datasets that are neither out of scope nor relevant for the MCP |
+
+The reasons are checked in this order : `Test data`, `Local data`, `Private data`, `No WFS layers`, then `Waiting for MCP use case definition` (ex : a test dataset without WFS link is `Test data`, a dataset with private WMS layers only is `Private data`).
+
+`Private data` : a dataset with at least one public publication (ex : a public WMS and a private WFS) is not `Private data` (it may be `No WFS layers` when its WFS layers are all private : mention it as a doubt).
+
+`No WFS layers` :
+
+- only the `links` of the record count (`type: wfs`, see `npm run -s csw:dump`);
+- if a WFS collection seems to exist on the Géoplateforme for the dataset (ex : a namespace matching the name of its WMS / WMTS layer in the [WFS GetCapabilities](https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities)), keep it in `New dataset, review required` and mention it as a doubt : the link could be added with `links`;
+- the `links` already defined in config/datasets.yaml for the dataset count as WFS links.
 
 A dataset is relevant for the MCP (`Waiting for MCP use case definition`) when **all** of the following apply :
 
-- it has at least one `wfs` link in its record (the raster / tiles only datasets are not usable : `SCAN *`, orthophotos, `Plan IGN`, Cassini maps, DEM...);
+- it has at least one `wfs` link in its record (otherwise `No WFS layers`);
 - it covers France (metropolitan France, possibly with the overseas territories, or all the overseas territories) : it is neither `Test data` nor `Local data`;
 - it describes objects of the territory that help answer a question about a place : environment and protected areas, risks, agriculture, forest, land cover, energy, water, transport and networks, heritage, tourism labels, statistics by commune / EPCI... (ex : `IGNF_RPG`, `IGNF_BD-FORET`, `INAO_AOC-VITICOLES`, `MTECT_CORINE-LAND-COVER`, `CDL_PARCELLES`, `FSV_STATIONS-VERTES`);
 - it is published by a recognized producer (IGN, ministries, public bodies, national associations...) and is not obsolete (ex : `INRAE_CARTE-DES-SOLS`, flagged as obsolete in its title, stays in review).
@@ -73,6 +85,7 @@ Rules :
 4. Report to the user :
    - the counts per reason (before / after);
    - the datasets moved to `Local data` and `Test data` (grouped, with a short justification when not obvious);
+   - the datasets moved to `Private data` and `No WFS layers` (grouped by producer or family, no need to list each SCAN);
    - the datasets moved to `Waiting for MCP use case definition` (grouped by theme or producer);
    - the datasets kept in review because of a doubt, with the reason of the doubt.
 5. Do not commit unless the user asks.

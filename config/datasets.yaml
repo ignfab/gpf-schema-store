@@ -62,7 +62,7 @@ datasets:
     source: csw
     title: Reden - Parcelles à voir
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: '12'
     source: csw
@@ -128,7 +128,7 @@ datasets:
     source: csw
     title: festivals par departement
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: 57_fenetrange_ia
     source: csw
@@ -146,7 +146,7 @@ datasets:
     source: csw
     title: Licences et demandes de licences d'entrepreneurs de spectacles vivants
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: 65f72c5b-10b3-4d5f-804a-1b3277374818
     source: csw
@@ -242,7 +242,7 @@ datasets:
     source: csw
     title: Biomasse des haies
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ANETT_COMMUNE-TOURISTIQUE-ET-STATION-CLASSEE
     source: csw
@@ -254,31 +254,31 @@ datasets:
     source: csw
     title: Carte de Cassini – exemplaire du Roi
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ASP_ORTHO-PAC
     source: csw
     title: ORTHO PAC
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: Appellation_INAO_FAM
     source: csw
     title: appellation_inao_fam_gpkg_wfs
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: Avis_MRAe
     source: csw
     title: Avis MRAe - NOUVERGIES
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: BATIMENT_6
     source: csw
     title: nombre_logements_rga_France
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: BDML_DELMAR.xml
     source: csw
@@ -308,7 +308,7 @@ datasets:
     source: csw
     title: BD France – Thème Végétation - bêta
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: BETA-IGN_JEU-TEST_BD-FORET-V3
     source: csw
@@ -326,13 +326,13 @@ datasets:
     source: csw
     title: Carte de Cassini – exemplaire dit « de Marie-Antoinette »
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: BRGM_CARTES-GEOLOGIQUES
     source: csw
     title: Cartes géologiques
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: CCPF-PCRS
     source: csw
@@ -380,19 +380,19 @@ datasets:
     source: csw
     title: Données ANCT - Quartiers prioritaires de la ville 2024
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: CartoSP_MVP_INSEE_Carroyees
     source: csw
     title: Données INSEE pour Carto SP
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: CartoSP_MVP_MedNum
     source: csw
     title: Données MedNum pour Carto SP
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: CartoSP_MVP_SP
     source: csw
@@ -410,7 +410,7 @@ datasets:
     source: csw
     title: Carto SP - Données Santé
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: DATA_TIM
     source: csw
@@ -440,13 +440,13 @@ datasets:
     source: csw
     title: DGAC Plan de Gêne Sonore, documents d'approbation (PGS)
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: DGAC_Plan_de_Servitudes_Aeronautique_documents_d_approbation_PSA
     source: csw
     title: DGAC Plan de Servitudes Aéronautique, documents d'approbation (PSA)
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: DGAC_RESTRICTIONS-UAS
     source: csw
@@ -482,73 +482,73 @@ datasets:
     source: csw
     title: ENR - Contraintes réglementaires aéronautiques civiles
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_AERO-HABITAT
     source: csw
     title: ENR - Contraintes réglementaires liées à l’habitat
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_AERO-MILITAIRE
     source: csw
     title: ENR - Contraintes réglementaires aéronautiques militaires
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_CADASTRES-SOLAIRES-LOCAUX
     source: csw
     title: ENR - Cadastres solaires locaux
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_CAPACITE-ACCUEIL-ELECTRIQUE
     source: csw
     title: ENR - Capacités d'accueil électrique
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_CONSO-ELECTRICITE-COMMUNE
     source: csw
     title: ENR - Consommation annuelle d'électricité par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_CONSO-GAZ-COMMUNE
     source: csw
     title: ENR - Consommation annuelle de gaz par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_CORRIDORS-DISTRIBUTION-GAZ
     source: csw
     title: ENR - Corridors de distribution de gaz
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_CORRIDORS-TRANSPORT-GAZ
     source: csw
     title: ENR - Corridors de transport de gaz
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_DELAISSES-AUTOROUTIERS
     source: csw
     title: ENR - Délaissés autoroutiers
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_GISEMENT-VENT
     source: csw
     title: ENR - Gisement de vent à 140m et 160m
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_GRANDS-SITES-FRANCE
     source: csw
     title: Grands Sites de France
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_INTERDICTION-ZAER-SAUF-TOITURES
     source: csw
@@ -560,25 +560,25 @@ datasets:
     source: csw
     title: ENR - Irradiation solaire horizontale annuelle moyenne
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_LOCALISATION-CONCESSIONS-HYDRO
     source: csw
     title: ENR - Localisation des concessions hydroélectriques
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_LOCALISATION-MATS-EOLIEN
     source: csw
     title: ENR - Localisation des mâts éolien
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_OPPORTUNITE-INJECTION-RESEAU-BIOMETHANE
     source: csw
     title: ENR - Opportunité d’injection au réseau biométhane
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_PARKING-500
     source: csw
@@ -590,19 +590,19 @@ datasets:
     source: csw
     title: ENR - Contraintes réglementaires liées aux pentes
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_PERIMETRE-ROUTE
     source: csw
     title: ENR - Contraintes réglementaires liées aux routes
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_PERIMETRE-VOIE-FERREE
     source: csw
     title: ENR - Contraintes réglementaires liées aux infrastructures ferroviaires
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_POTENTIEL-EOLIEN-TERRESTRE
     source: csw
@@ -626,13 +626,13 @@ datasets:
     source: csw
     title: ENR - Potentiel solaire - friches
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_POTENTIEL-SOLAIRE-RRN
     source: csw
     title: ENR - Potentiel solaire sur le réseau routier national
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_POTENTIEL-SOLAIRE-SOL
     source: csw
@@ -644,61 +644,61 @@ datasets:
     source: csw
     title: ENR - Productible éolien annuel par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_PRODUCTIBLE-INJECTION-BIOMETHANE-COMMUNE
     source: csw
     title: ENR - Productible d'injection de biométhane annuel par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_PRODUCTIBLE-METHANISATION-COMMUNE
     source: csw
     title: ENR - Productible méthanisation annuel par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_PRODUCTIBLE-PHOTOVOLTAIQUE-COMMUNE
     source: csw
     title: ENR - Productible photovoltaïque annuel par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_PUISSANCE-INSTALLATIONS-EOLIENNES-COMMUNE
     source: csw
     title: ENR - Puissance cumulée des installations éoliennes par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_PUISSANCE-INSTALLATIONS-HYDRAULIQUES-COMMUNE
     source: csw
     title: ENR - Puissance cumulée installée des installations hydrauliques par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_PUISSANCE-INSTALLATIONS-PHOTOVOLTAIQUES-COMMUNE
     source: csw
     title: ENR - Puissance cumulée des installations photovoltaïques par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_RESEAU-DISTRIBUTION-GAZ
     source: csw
     title: ENR - Réseaux de distribution de gaz
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_RESEAU-TRANSPORT-GAZ
     source: csw
     title: ENR - Réseaux de transport de gaz
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_UNITE-FONCIERE-PARKING-500
     source: csw
     title: ENR - Unités foncières contenant des surfaces de stationnement de +500m²
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ENR_ZAER
     source: csw
@@ -878,7 +878,7 @@ datasets:
     source: csw
     title: ADRESSE-PREMIUM
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_BAN-PLUS
     source: csw
@@ -896,7 +896,7 @@ datasets:
     source: csw
     title: BD ALTI®
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_BD-CARTO
     source: csw
@@ -920,7 +920,7 @@ datasets:
     source: csw
     title: BD FORÊTS ANCIENNES
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_BD-HAIE
     source: csw
@@ -961,7 +961,7 @@ datasets:
     source: csw
     title: BD TOPO® Historique
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_BD-TRANSPORTS-EXCEPTIONNELS
     source: csw
@@ -973,7 +973,7 @@ datasets:
     source: csw
     title: Carte de classe LiDAR HD
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_CARTO-VEGETATION
     source: csw
@@ -990,7 +990,7 @@ datasets:
     source: csw
     title: CoSIA
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_COURBES-DE-NIVEAU
     source: csw
@@ -1008,31 +1008,31 @@ datasets:
     source: csw
     title: Démonstrateur Orthoimages Multi-sources
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_EBM
     source: csw
     title: EBM
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_EGM
     source: csw
     title: EGM
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_ERM
     source: csw
     title: ERM
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_FRANCE-RELIEF
     source: csw
     title: France RELIEF - beta
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_GEODESIE-ET-NIVELLEMENT
     source: csw
@@ -1044,13 +1044,13 @@ datasets:
     source: csw
     title: GEOFLA®
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_INDICATEURS_INVENTAIRE-FORESTIER-NATIONAL
     source: csw
     title: Indicateurs de l’Inventaire forestier national
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_INPE
     source: csw
@@ -1062,7 +1062,7 @@ datasets:
     source: csw
     title: Installations photovoltaïques au sol
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_IRIS-GE
     source: csw
@@ -1085,7 +1085,7 @@ datasets:
     source: csw
     title: Mémento de l'inventaire forestier
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_MNH-LIDAR-HD
     source: csw
@@ -1097,7 +1097,7 @@ datasets:
     source: csw
     title: MNS Correl
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_MNS-LIDAR-HD
     source: csw
@@ -1115,7 +1115,7 @@ datasets:
     source: csw
     title: NATURE EN VILLE
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_NUAGES-DE-POINTS-LIDAR-HD
     source: csw
@@ -1127,19 +1127,19 @@ datasets:
     source: csw
     title: NUALID
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_OCS-GE
     source: csw
     title: OCS GE
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_OCS-GE-ARTIFICIALISATION
     source: csw
     title: OCS GE Artificialisation
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_ORTHO-8CM_61
     source: csw
@@ -1151,7 +1151,7 @@ datasets:
     source: csw
     title: Ortho-Express
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_ORTHO-SAT
     source: csw
@@ -1168,31 +1168,34 @@ datasets:
     source: csw
     title: PARCS ET JARDINS PUBLICS OUVERTS AU PUBLIC
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_PCRS
     source: csw
     title: PCRS
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_PLAN-IGN
     source: csw
     title: Plan IGN
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_PLAN-IGN-HD
     source: csw
     title: Plan IGN HD
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_PNA-ZONES-A-PROSPECTER
     source: csw
     title: Zones à prospecter pour les forêts subnaturelles
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
+    links:
+      - type: wfs
+        name: ZONES-A-PROSPECTER-FORETS-SUBNATURELLES:*
 
   - id: IGNF_PRSF
     source: csw
@@ -1210,7 +1213,7 @@ datasets:
     source: csw
     title: ROUTE 500®
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_RPG
     source: csw
@@ -1222,13 +1225,13 @@ datasets:
     source: csw
     title: SCAN 100®
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: IGNF_SCAN-1000
     source: csw
     title: SCAN 1000®
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_SCAN-25
     source: csw
@@ -1246,49 +1249,49 @@ datasets:
     source: csw
     title: SCAN 50® Mayotte
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_SCAN-500-GUYANE
     source: csw
     title: SCAN 500 Guyane
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_SCAN-EM-10K
     source: csw
     title: SCAN Etat-Major® 10k
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_SCAN-EM-40K
     source: csw
     title: SCAN Etat-Major® 40k
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_SCAN-OACI
     source: csw
     title: SCAN OACI
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: IGNF_SCAN-REGIONAL
     source: csw
     title: SCAN Régional®
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_SYLVOECOREGIONS
     source: csw
     title: SYLVOÉCOREGIONS
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_SYLVOECOREGIONS-ALLUVIONS-RECENTES
     source: csw
     title: SYLVOÉCOREGIONS D'ALLUVIONS RÉCENTES
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IGNF_VOIRIE-DGF
     source: csw
@@ -1300,91 +1303,91 @@ datasets:
     source: csw
     title: IMPACTS-CLIMAT_Stations-Transports-Communs
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS-CLIMAT_CAPTAGES_EAU
     source: csw
     title: Captages_Eau_France_entiere
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS-CLIMAT_FREQUENTATION_FERROVIAIRE_2024
     source: csw
     title: IMPACTS-CLIMAT - Fréquentation des gares en France en 2024
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS-CLIMAT_LOGEMENTS-RGA
     source: csw
     title: IMPACTS-CLIMAT - Nombre de logements exposés au RGA par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMAT-BASSINS_VERSANTS_TOPOGRAPHIQUES
     source: csw
     title: IMPACTS-CLIMAT - Bassins versants topographiques
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMAT-FILIERES_AGRICOLES_COMMUNES
     source: csw
     title: IMPACTS-CLIMAT - Filières agricoles principales par commune en France
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMAT-GRANDS_BASSINS_VERSANTS
     source: csw
     title: IMPACTS-CLIMAT - Grands Bassins Versants
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMAT-Hopitaux_EHPAD
     source: csw
     title: IMPACTS-CLIMAT - Localisation des Hôpitaux & Ehpad
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMAT-LOCALISATION_ARRETS_BUS
     source: csw
     title: IMPACTS-CLIMAT - Localisation des arrets de bus en France
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMAT-LOGEMENTS_DPE_EFG
     source: csw
     title: IMPACTS-CLIMAT - Part de logements en DPE E,F & G par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMAT-PART_POP65_COMMUNE
     source: csw
     title: IMPACTS-CLIMAT - Part de la Population agée de plus de 65 ans par comune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMAT-PTGE
     source: csw
     title: IMPACTS-CLIMAT - Projets de Territoires pour la Gestion de l'Eau (PTGE)
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMAT-TMJA_RRN
     source: csw
     title: IMPACTS-CLIMAT - Taux Moyen Journalier Annuel
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMAT-TRONCON_VOIES_NAVIGABLES
     source: csw
     title: IMPACTS-CLIMAT - Voies navigables en France par tronçon
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: IMPACTS_CLIMATS-NATURA_2000
     source: csw
     title: IMPACTS-CLIMAT - ZONES NATURA 2000
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: INAO_AOC-VITICOLES
     source: csw
@@ -1402,13 +1405,13 @@ datasets:
     source: csw
     title: 'INRAE Carte des sols - Obsolète - voir : Les sols dominants de France métropolitaine – Carte harmonisée - Layer_name : INRAE_CARTE-SOLS - Dépublication prévue 12/2026.'
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Deprecated dataset, using osfd95caa37-436b-431c-9391-643164f010bb instead
 
   - id: INRAE_GRAIN-BOCAGER
     source: csw
     title: Grain Bocager
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: INSEE-POPULATION-PLUS-65-2021
     source: csw
@@ -1446,19 +1449,19 @@ datasets:
     source: csw
     title: Liste des abattoirs de boucherie
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: METEO-FRANCE_ECART-JOURS-30-DEGRES-2050
     source: csw
     title: Ecart jours 30 degrés 2050
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: METEO-FRANCE_IMPACT-CLIMAT_CONSOMMATION-EAU-2050
     source: csw
     title: IMPACTS-CLIMAT – Evolution de la consommation en eau entre 2020 et 2050
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: MH_MC_95
     source: csw
@@ -1476,7 +1479,7 @@ datasets:
     source: csw
     title: Cartographie des zones humides (carte de travail)
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: MTE_MASSES-EAU
     source: csw
@@ -1506,7 +1509,7 @@ datasets:
     source: csw
     title: Forêts Publiques
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: ObsForets.indicateurs_forets_monterritoire
     source: csw
@@ -1518,7 +1521,7 @@ datasets:
     source: csw
     title: Taux de boisement par commune
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: PAPI_Sarthe
     source: csw
@@ -1536,7 +1539,7 @@ datasets:
     source: csw
     title: Contours périmètre 60 PNR_IDMNHN
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: RGC08
     source: csw
@@ -1554,7 +1557,7 @@ datasets:
     source: csw
     title: BETA-IGN_SGM_EPSG
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: STE_Fr
     source: csw
@@ -1614,7 +1617,7 @@ datasets:
     source: csw
     title: Frequentation gare voyageurs 2024 France
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: Tache_urbaine_974
     source: csw
@@ -1692,7 +1695,7 @@ datasets:
     source: csw
     title: Bâtiments Points Noirs de Bruit résorbés
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: beta-ign-poc-mnca-gpcommunes_23-04-2026_tms
     source: csw
@@ -1734,7 +1737,7 @@ datasets:
     source: csw
     title: communes_nm
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: d500434e-8580-402e-987e-a7718c9a03d5
     source: csw
@@ -1860,7 +1863,7 @@ datasets:
     source: csw
     title: Données_département
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: df715484-fbef-4d26-b9ec-77bdd7b23bdc
     source: csw
@@ -1872,7 +1875,7 @@ datasets:
     source: csw
     title: Données de projet DEB
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: draaf-aura-pat-r84-2025-11
     source: csw
@@ -1890,13 +1893,13 @@ datasets:
     source: csw
     title: grille abondance relative grand dauphin juillet
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: fao_major
     source: csw
     title: FAO Major Fishing Areas
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: fr-120066022-jdd-d5d9fee6-5138-4d01-8e0e-d6ef81e6fbd0
     source: csw
@@ -1992,7 +1995,7 @@ datasets:
     source: csw
     title: BETA-IGN_SGM_Niref
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: o
     source: csw
@@ -2004,7 +2007,7 @@ datasets:
     source: csw
     title: Densité d'occurrence des feux de forêt de plus de 20 ha sur la période 2006-2025
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: osf63e6c177-455e-5805-b70b-0894ee1c7174
     source: csw
@@ -2064,7 +2067,7 @@ datasets:
     source: csw
     title: Pôles Equilibre Territorial et Rural - PETR
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: plages_na
     source: csw
@@ -2100,7 +2103,7 @@ datasets:
     source: csw
     title: Agences QUARTA
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: radar_hdf
     source: csw
@@ -2118,7 +2121,7 @@ datasets:
     source: csw
     title: Réglementation des pêches cartographiée
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: rpg_metrolyon_wms
     source: csw
@@ -2154,7 +2157,7 @@ datasets:
     source: csw
     title: Suivi terrain
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: territoires_paec_bfc
     source: csw
@@ -2208,7 +2211,7 @@ datasets:
     source: csw
     title: Zones réglementaires CACEM
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Private data
 
   - id: zppa_cvl_executoire_2025_110326
     source: csw
