@@ -2,6 +2,7 @@ import { load as loadYAML } from 'js-yaml';
 
 import { zNamespaceFiltersFile, type NamespaceFilterRule } from '@/config/types';
 import { formatSchemaIssues } from './zod';
+import { matchPattern } from './pattern';
 
 /**
  * Loads namespace filters from a YAML string read from data/namespace-filters.yaml.
@@ -36,16 +37,9 @@ export function loadNamespaceFilters(yamlContent: string): NamespaceFilterRule[]
  * @returns the first matching NamespaceFilterRule, or undefined if no match
  */
 export function findFirstMatchingRule(namespace: string, rules: NamespaceFilterRule[]): NamespaceFilterRule | undefined {
-  const escapeRegExp = (value: string): string =>
-    value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
   for (const rule of rules) {
-    for (const pattern of rule.patterns) {
-      // `*` is a wildcard, everything else is matched literally.
-      const regexPattern = `^${escapeRegExp(pattern).replace(/\\\*/g, '.*')}$`;
-      if (new RegExp(regexPattern).test(namespace)) {
-        return rule;
-      }
+    if (rule.patterns.some((pattern) => matchPattern(namespace, pattern))) {
+      return rule;
     }
   }
 
