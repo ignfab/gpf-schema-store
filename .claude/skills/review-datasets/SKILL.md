@@ -1,13 +1,18 @@
 ---
 name: review-datasets
-description: Review the ignored datasets of config/datasets.yaml from their CSW metadata records (npm run csw:dump) and set the appropriate ignoredReason (Local data, Test data...). Use when asked to review, sort or triage the datasets, or a given dataset.
+description: Review the ignored datasets of config/datasets.yaml from their CSW metadata records (npm run csw:dump) and set the appropriate ignoredReason (Local data, Test data, Waiting for MCP use case definition...). Use when asked to review, sort or triage the datasets, or a given dataset.
 ---
 
 # Review the datasets of config/datasets.yaml
 
 ## Goal
 
-Set the `ignoredReason` of the ignored datasets of [config/datasets.yaml](../../../config/datasets.yaml) from their metadata record, so that the remaining `New dataset, review required` are the datasets worth considering for the MCP.
+Set the `ignoredReason` of the ignored datasets of [config/datasets.yaml](../../../config/datasets.yaml) from their metadata record :
+
+- flag the datasets that are out of scope (`Test data`, `Local data`);
+- flag the datasets that seem relevant for the MCP [ignfab/geocontext](https://github.com/ignfab/geocontext) (`Waiting for MCP use case definition`), so that they can be enabled once a use case is defined.
+
+The MCP relies on this library to describe and query the **WFS collections** of the Géoplateforme (`gpf_wfs_search_types`, `gpf_wfs_describe_type`, `gpf_wfs_get_features`) : a dataset is only usable through its WFS links.
 
 ## Inputs
 
@@ -36,7 +41,21 @@ for d in yaml.safe_load(open('config/datasets.yaml'))['datasets']:
 |---|---|
 | `Test data` | test, demo, POC, workshop or personal data (ex : `test`, `Test geopf 8`, `[DEMO] ...`, `BETA-IGN-POC-...`, `jeu de test`, `donnees_timothe`) |
 | `Local data` | data restricted to a given area : commune, EPCI, département, région, basin, park, overseas territory (ex : `PPRI agglo Laval`, `Cours d'eau de la Sarthe`, `OCS Nouvelle-Aquitaine`, `deal972_*`) |
-| `New dataset, review required` | **when in doubt** (keep it) |
+| `Waiting for MCP use case definition` | dataset relevant for the MCP (see below) |
+| `New dataset, review required` | **when in doubt** (keep it), and the datasets that are neither out of scope nor relevant for the MCP (ex : raster only) |
+
+A dataset is relevant for the MCP (`Waiting for MCP use case definition`) when **all** of the following apply :
+
+- it has at least one `wfs` link in its record (the raster / tiles only datasets are not usable : `SCAN *`, orthophotos, `Plan IGN`, Cassini maps, DEM...);
+- it covers France (metropolitan France, possibly with the overseas territories, or all the overseas territories) : it is neither `Test data` nor `Local data`;
+- it describes objects of the territory that help answer a question about a place : environment and protected areas, risks, agriculture, forest, land cover, energy, water, transport and networks, heritage, tourism labels, statistics by commune / EPCI... (ex : `IGNF_RPG`, `IGNF_BD-FORET`, `INAO_AOC-VITICOLES`, `MTECT_CORINE-LAND-COVER`, `CDL_PARCELLES`, `FSV_STATIONS-VERTES`);
+- it is published by a recognized producer (IGN, ministries, public bodies, national associations...) and is not obsolete (ex : `INRAE_CARTE-DES-SOLS`, flagged as obsolete in its title, stays in review).
+
+The following datasets are **not** relevant and stay in `New dataset, review required` :
+
+- descriptions of the Géoplateforme APIs (`GeoPF_*`) : no data;
+- beta or demonstrator datasets (`BETA-*`, `Démonstrateur ...`) : mention them as doubts;
+- datasets already covered by an enabled product (ex : the BD TOPO themes) : mention them as doubts.
 
 Rules :
 
@@ -54,5 +73,6 @@ Rules :
 4. Report to the user :
    - the counts per reason (before / after);
    - the datasets moved to `Local data` and `Test data` (grouped, with a short justification when not obvious);
+   - the datasets moved to `Waiting for MCP use case definition` (grouped by theme or producer);
    - the datasets kept in review because of a doubt, with the reason of the doubt.
 5. Do not commit unless the user asks.

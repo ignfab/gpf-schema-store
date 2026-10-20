@@ -68,7 +68,7 @@ datasets:
     source: csw
     title: Appariement_densification_52
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: 1b464210-8702-5296-b738-25978d5d4806
     source: csw
@@ -110,7 +110,7 @@ datasets:
     source: csw
     title: ltm_com_fv_projets_flux
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: '2800001'
     source: csw
@@ -164,7 +164,7 @@ datasets:
     source: csw
     title: Épisodes de pollution prévus ou constatés
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 69f44162620029ea7beff6ea-test-pipeline-1
     source: csw
@@ -218,7 +218,7 @@ datasets:
     source: csw
     title: Communes76WMTS
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 7a32bb10-da66-4cda-aaa0-56b1fd28330b
     source: csw
@@ -470,7 +470,7 @@ datasets:
     source: csw
     title: Orthophoto PCRS — EJ110326
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: EJ250226
     source: csw
@@ -1414,7 +1414,7 @@ datasets:
     source: csw
     title: Part de +65 ans en France en 2021
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: INSEE_DONNEES
     source: csw
@@ -1434,7 +1434,7 @@ datasets:
     source: csw
     title: IRVE
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: ISOCHRONES_IRVE_TEST
     source: csw
@@ -1722,7 +1722,7 @@ datasets:
     source: csw
     title: Document d'urbanisme
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: code_territoire
     source: csw
@@ -1746,7 +1746,7 @@ datasets:
     source: csw
     title: donnees_tourisme
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: db2c2bbe-68ea-454c-a90e-b19257381ed9
     source: csw
@@ -1932,7 +1932,7 @@ datasets:
     source: csw
     title: fusion_lm_atelier2
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: grilles01
     source: csw
@@ -1944,7 +1944,7 @@ datasets:
     source: csw
     title: arbres communaux
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: itineraire_rando_bm
     source: csw
@@ -1962,7 +1962,7 @@ datasets:
     source: csw
     title: VSR plugin QGIS Géoplateforme - Cartes.gouv
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: logopluginGPF
     source: csw
@@ -1980,7 +1980,7 @@ datasets:
     source: csw
     title: Reprise sur la BD TOPO
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: mdn_manche_20251010
     source: csw
@@ -1998,7 +1998,7 @@ datasets:
     source: csw
     title: Panneaux_interpretation
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: occurrence_feux_20ha_20062025_FrHex
     source: csw
@@ -2088,7 +2088,7 @@ datasets:
     source: csw
     title: projets_06
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: projet_amenagement_gosb_cnig
     source: csw
@@ -2148,7 +2148,7 @@ datasets:
     source: csw
     title: Servitude EL11
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: suivi_terrain
     source: csw
@@ -2196,7 +2196,7 @@ datasets:
     source: csw
     title: Dalles79_2307
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: zonage_dfci
     source: csw
