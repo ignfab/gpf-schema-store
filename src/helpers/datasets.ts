@@ -18,11 +18,12 @@ import { formatSchemaIssues } from './zod';
  */
 
 export const NEW_DATASET_REASON = 'New dataset, review required';
+export const SERVICE_RECORD_REASON = 'Service record';
 
 const DATASETS_HEADER = `# Datasets of the Géoplateforme, from the metadata records of https://data.geopf.fr/csw
 #
 # Updated by \`npm run update:datasets\` (comments are not preserved, see CODING.md) :
-# - new records are added with \`ignored: true\` (review required)
+# - new records are added with \`ignored: true\` (review required, \`Service record\` for the services)
 # - \`title\` and \`missing\` are refreshed for \`source: csw\`
 # - decisions (\`ignored\`, \`ignoredReason\`, \`product\`, \`excludes\`, \`links\`) are preserved
 #
@@ -100,6 +101,8 @@ export function dumpDatasets(config: DatasetsConfig): string {
 export type UpdateDatasetsReport = {
   /** new records, added with `ignored: true` */
   added: string[];
+  /** service records flagged with `Service record` (new ones or still waiting for a review) */
+  services: string[];
   /** csw entries whose title has been refreshed */
   updated: string[];
   /** csw entries whose record has disappeared (newly flagged) */
@@ -124,11 +127,21 @@ function getRecordTitle(record: CswRecordBrief): string {
 }
 
 /**
+ * The records describing a service (ex : the Géoplateforme APIs) hold no data.
+ *
+ * Note that the distinction between `dataset` and `series` is not reliable.
+ */
+function isServiceRecord(record: CswRecordBrief): boolean {
+  return record.type === 'service';
+}
+
+/**
  * Merges the list of the CSW records into the configuration, preserving the decisions.
  */
 export function updateDatasets(config: DatasetsConfig, records: CswRecordBrief[]): UpdateDatasetsResult {
   const report: UpdateDatasetsReport = {
     added: [],
+    services: [],
     updated: [],
     missing: [],
     restored: [],
@@ -180,6 +193,12 @@ export function updateDatasets(config: DatasetsConfig, records: CswRecordBrief[]
       report.restored.push(dataset.id);
     }
     const { missing: _missing, ...rest } = dataset;
+    // Only the default decision is replaced for the service records.
+    if (isServiceRecord(record) && dataset.ignored && dataset.ignoredReason === NEW_DATASET_REASON) {
+      report.services.push(dataset.id);
+      datasets.push({ ...rest, title, ignoredReason: SERVICE_RECORD_REASON });
+      continue;
+    }
     datasets.push({ ...rest, title });
   }
 
@@ -188,12 +207,15 @@ export function updateDatasets(config: DatasetsConfig, records: CswRecordBrief[]
       continue;
     }
     report.added.push(record.fileIdentifier);
+    if (isServiceRecord(record)) {
+      report.services.push(record.fileIdentifier);
+    }
     datasets.push({
       id: record.fileIdentifier,
       source: 'csw',
       title: getRecordTitle(record),
       ignored: true,
-      ignoredReason: NEW_DATASET_REASON,
+      ignoredReason: isServiceRecord(record) ? SERVICE_RECORD_REASON : NEW_DATASET_REASON,
     });
   }
 

@@ -41,6 +41,7 @@ for d in yaml.safe_load(open('config/datasets.yaml'))['datasets']:
 |---|---|
 | `Test data` | test, demo, POC, workshop or personal data (ex : `test`, `Test geopf 8`, `[DEMO] ...`, `BETA-IGN-POC-...`, `jeu de test`, `donnees_timothe`) |
 | `Local data` | data restricted to a given area : commune, EPCI, département, région, basin, park, overseas territory (ex : `PPRI agglo Laval`, `Cours d'eau de la Sarthe`, `OCS Nouvelle-Aquitaine`, `deal972_*`) |
+| `Service record` | set by `npm run update:datasets` for the records of type `service` (ex : the `GeoPF_*` records of the Géoplateforme APIs) : nothing to review |
 | `Waiting for MCP use case definition` | dataset relevant for the MCP (see below) |
 | `New dataset, review required` | **when in doubt** (keep it), and the datasets that are neither out of scope nor relevant for the MCP (ex : raster only) |
 
@@ -53,7 +54,6 @@ A dataset is relevant for the MCP (`Waiting for MCP use case definition`) when *
 
 The following datasets are **not** relevant and stay in `New dataset, review required` :
 
-- descriptions of the Géoplateforme APIs (`GeoPF_*`) : no data;
 - beta or demonstrator datasets (`BETA-*`, `Démonstrateur ...`) : mention them as doubts;
 - datasets already covered by an enabled product (ex : the BD TOPO themes) : mention them as doubts.
 
