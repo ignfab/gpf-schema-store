@@ -3,7 +3,7 @@
   "$id": "https://ignfab.github.io/gpf-schema-store/catalog/CADASTRALPARCELS.PARCELLAIRE_EXPRESS/commune.json",
   "type": "object",
   "title": "PCI Vecteur : Communes",
-  "description": "Communes ; Édition 2026-03-01",
+  "description": "Communes ; Édition 2026-06-01",
   "properties": {
     "gid": {
       "type": "integer"
