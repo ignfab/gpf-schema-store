@@ -58,7 +58,7 @@ function buildProgram(): Command {
     .version(loadPackageVersion());
 
   program
-    .command('update')
+    .command('update-wfs')
     .description('Update the collections from the GPF WFS (data/wfs/{namespace}/{name}.json)')
     .action(updateCollections);
 
