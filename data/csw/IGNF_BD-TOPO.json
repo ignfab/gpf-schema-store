@@ -1,0 +1,1215 @@
+{
+  "fileIdentifier": "IGNF_BD-TOPO",
+  "type": "series",
+  "title": "BD TOPO®",
+  "abstract": "La BD TOPO® version 3.5 contient une description vectorielle 3D (structurée en objets) des éléments du territoire et de ses infrastructures, de précision métrique.\n\nLes objets de la BD TOPO® sont structurés en thèmes : \n - l'administratif ; \n - le bâti ; \n - l'hydrographie ; \n - les lieux nommés ; \n - l'occupation du sol ; \n - les services et activités ; \n - le transport ; \n - les zones réglementées. \n\nLe processus de production 3D permet de fournir l'altimétrie des objets, ainsi que la hauteur des bâtiments. \n\nLe relief est décrit sous forme de modèles numériques de terrain (MNT). \n\nDepuis la version 3.0, tous les objets possèdent un identifiant unique et stable dans le temps.\n\nLe produit **BDTOPO® Express** est l’édition hebdomadaire de la BDTOPO® si vous avez besoin de travailler sur de la donnée topographique à haute fréquence (disponible depuis mai 2025). \n\nLe produit **Différentiel BD TOPO®** contient les différences géométriques et sémantiques sur l'ensemble du contenu BD TOPO® entre deux éditions trimestrielles successives BD TOPO®. \n\nPlus précisément, l'édition N du Différentiel BD TOPO® en vigueur contient tout objet de la BD TOPO® dont la date de modification, la date de création ou la date de suppression en base est postérieure à la date de prédiffusion de la précédente édition trimestrielle (N-1), équivalent à une activité de mise à jour par l'IGN d'une durée de 3 mois.",
+  "keywords": [
+    "Altitude",
+    "Bâtiments",
+    "Dénominations géographiques",
+    "Hydrographie",
+    "Installations agricoles et aquacoles",
+    "Lieux de production et sites industriels",
+    "Occupation des terres",
+    "Référentiels de coordonnées",
+    "Répartition de la population - démographie",
+    "Réseaux de transport",
+    "Services d'utilité publique et services publics",
+    "Unités administratives",
+    "Usage des sols",
+    "National",
+    "Géospatiales",
+    "Observation de la terre et environnement",
+    "Mobilité",
+    "hvd",
+    "activités",
+    "aspects militaires",
+    "données ouvertes",
+    "eau",
+    "énergies",
+    "forêts",
+    "haies",
+    "historique",
+    "routes",
+    "toponymie",
+    "transports",
+    "végétation"
+  ],
+  "links": [
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/BDTOPO",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "BD TOPO® V3"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/BDTOPO_EXPRESS",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "BD TOPO® EXPRESS"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/BDTOPO-DIFF",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "BD TOPO® DIFFERENTIEL"
+    },
+    {
+      "type": "tms",
+      "url": "https://data.geopf.fr/tms/1.0.0",
+      "protocol": "TMS",
+      "name": "BDTOPO",
+      "description": "BD TOPO® V3"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/RCQ_BDTOPO.zip",
+      "description": "BD TOPO® - Contrôle qualité"
+    },
+    {
+      "type": "other",
+      "url": "https://bdtopoexplorer.ign.fr/",
+      "description": "BD TOPO® EXPLORER - Descriptif de contenu"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/manuel_bdtopo_explorer.pdf",
+      "description": "BD TOPO® Explorer - Manuel utilisateur"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/DC_BDTOPO_3-5.pdf",
+      "description": "BD TOPO® - Descriptif de contenu"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/PC_BDTOPO_Express.pdf",
+      "description": "BD TOPO® Express - Présentation du contenu"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/DC_BDTOPO_Transport.pdf",
+      "description": "BD TOPO® - Descriptif de contenu Thème Transport"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/DC_BDTOPO_2_08.pdf",
+      "description": "BD TOPO® édition 2008 - Descriptif de contenu"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/DL_vecteur.pdf",
+      "description": "Descriptif de livraison produits Vecteur"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/SE_DL_vecteur.pdf",
+      "description": "Descriptif de livraison produits Vecteur - Suivi des évolutions"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/SE_BDTOPO_depuis_v3-0.pdf",
+      "description": "BD TOPO® Suivi des évolutions depuis la v3.0"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/SE_BDTOPO_avant_v3-0.pdf",
+      "description": "BD TOPO® Suivi des évolutions de la v1.0 à la v3.0"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/SE_BDTOPO_Transport.pdf",
+      "description": "BD TOPO® - Suivi des évolutions du Thème Transport"
+    },
+    {
+      "type": "other",
+      "url": "https://bdtopoexplorer.ign.fr/Glossaire-Noms-de-Lieux/",
+      "description": "BD TOPO® - Glossaire Nom des Lieux"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/BDTOPO-Classes.csv",
+      "description": "BD TOPO® - Métadonnées simplifiées au format .csv"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/BDTOPO_3-5_INFOS_SHP_WGS84G_FRA_2026-09-15.zip",
+      "description": "BD TOPO® - Métadonnées complémentaires - MD_COMMUNE/MD_DEPARTEMENT"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Projets_Carto_BDT_3-3.zip",
+      "description": "BD TOPO® - Projets cartographiques"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/SLD_bdtopov3_Geoserver.zip",
+      "description": "BD TOPO® - Styles Géoserver"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Projets_carto.pdf",
+      "description": "Projets cartographiques pour les produits vecteur - Manuel utilisateur"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Note_BDTOPO_1-0.pdf",
+      "description": "BD TOPO® - Note sur la BD TOPO version 1.0"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Note-sur-la-toponymie-dans-la-BDTOPOv3.pdf",
+      "description": "BD TOPO® - Note sur la toponymie"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Note-sur-la-creation-couche-ERP-dans-la-BDTOPO.pdf",
+      "description": "BDTOPO® - Outil collaboratif ERP"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Comparatif_Vegetation.pdf",
+      "description": "Comparatif végétation"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Tutoriel_import_donnees_IGN_PostgreSQL.pdf",
+      "description": "Tutoriel d'import de données IGN au format PostgreSQL"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Table_Correspondance_AD-v3-12-11-2013.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Adresses"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Table_Correspondance_BU-2014.12.09.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Bâtiments"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Table_Correspondance_GN-GE-toponymes_03%2012%202019.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Dénominations géographiques"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Table_Correspondance_HYNet.2021.11.05.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Hydrographie"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Table_Correspondance_TNAir-2019.05.27.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Réseaux de transport Aérien"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Table_Correspondance_TNCable-GE-2019.05.27.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Réseaux de transport Câble"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Modele_Table_Correspondance_TNRail.2019.05.21%20-Fin.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Réseaux de transport Ferroviaire"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Table_Correspondance_TNWater-GE-2019.05.27.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Réseaux de transport Fluvial"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Modele_Table_Correspondance_TNRoad.2019.05.27.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Réseaux de transport Routes"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Table_Correspondance_US_2021.11.04.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Services d'utilité publique"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Table_correspondance__AU__2019.03.14.zip",
+      "description": "BD TOPO® - Table de correspondance - INSPIRE - Unités administratives"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "BUILDINGS.BUILDINGS",
+      "description": "BD TOPO® V3 - Bâtiments"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "GEOGRAPHICALNAMES.NAMES",
+      "description": "BD TOPO® V3 - Dénominations géographiques"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "hedge.hedge",
+      "description": "BD TOPO® V3 - Haies"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "UTILITYANDGOVERNMENTALSERVICES.ALL",
+      "description": "BD TOPO® V3 - Lignes électriques"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "TRANSPORTNETWORKS.RUNWAYS",
+      "description": "BD TOPO® V3 - Pistes d'aéroport et aérodromes"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "TRANSPORTNETWORK.COMMONTRANSPORTELEMENTS.MARKERPOST",
+      "description": "BD TOPO® V3 - Points de repère routiers"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "TRANSPORTNETWORKS.RAILWAYS",
+      "description": "BD TOPO® V3 - Réseaux ferroviaires"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "HYDROGRAPHY.HYDROGRAPHY",
+      "description": "BD TOPO® V3 - Réseaux hydrographiques"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "TRANSPORTNETWORKS.ROADS",
+      "description": "BD TOPO® V3 - Réseaux routiers"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "BDTOPO-DIFF-BATI",
+      "description": "Différentiel BDTOPO® Bâtiment"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "BDTOPO-DIFF-HYDROGRAPHIE",
+      "description": "Différentiel BDTOPO® Hydrographie"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "BDTOPO-DIFF-RESEAU_ROUTIER",
+      "description": "Différentiel BDTOPO® Réseau routier"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "BDTOPO-DIFF-ZONE_ACTIVITES",
+      "description": "Différentiel BDTOPO® Zone d'activités"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "IGNF_HYDROGRAPHY.HYDROGRAPHY",
+      "description": "BD TOPO® V3 - Reseaux hydrographiques"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "IGNF_TRANSPORTNETWORKS.RAILWAYS",
+      "description": "BD TOPO® V3 - Reseaux ferroviaires"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "IGNF_TRANSPORTNETWORKS.ROADS",
+      "description": "BD TOPO® V3 - Reseaux routiers"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-DIFF-BATI",
+      "description": "Différentiel BDTOPO® Bâtiment"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-DIFF-HYDROGRAPHIE",
+      "description": "Différentiel BDTOPO® Hydrographie"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-DIFF-RESEAU_ROUTIER",
+      "description": "Différentiel BDTOPO® Réseau routier"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-DIFF-ZONE_ACTIVITES",
+      "description": "Différentiel BDTOPO® Zone d'activités"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-GEOPO-BATI_WLD_WGS84G",
+      "description": "BD TOPO® V3 - Bâtiments"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "hedge.hedge",
+      "description": "BD TOPO® V3 - Haies"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-GEOPO-HYDROGRAPHIE_WLD_WGS84G",
+      "description": "BD TOPO® V3 - Hydrographie"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-GEOPO-OROGRAPHIE_WLD_WGS84G",
+      "description": "BD TOPO® V3 - Orographie"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "UTILITYANDGOVERNMENTALSERVICES.MININT.POI.ACCUEIL_POLICE-GENDARMERIE",
+      "description": "BD TOPO® V3 - PAI Accueil Police et Gendarmerie"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "TRANSPORTNETWORK.COMMONTRANSPORTELEMENTS.MARKERPOST",
+      "description": "BD TOPO® V3 - Points de repère routiers"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-GEOPO-RESEAU_ROUTIER_WLD_WGS84G",
+      "description": "BD TOPO® V3 - Réseau routier"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-GEOPO-TRANSPORT_ENERGIE_WLD_WGS84G",
+      "description": "BD TOPO® V3 - Transport énergie"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-GEOPO-VEGETATION_WLD_WGS84G",
+      "description": "BD TOPO® V3 - Végétation"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-GEOPO-TRANSPORT_VOIES_FERREES_WLD_WGS84G",
+      "description": "BD TOPO® V3 - Voies ferrées"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "BDTOPO-GEOPO-ZONE-ACTIVITES_WLD_WGS84G",
+      "description": "BD TOPO® V3 - Zone d'activités"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:aerodrome",
+      "description": "BD TOPO® V3 aerodrome"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:arrondissement",
+      "description": "BD TOPO® V3 arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:arrondissement_municipal",
+      "description": "BD TOPO® V3 arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:bassin_versant_topographique",
+      "description": "BD TOPO® V3 bassin versant topographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:batiment",
+      "description": "BD TOPO® V3 batiment"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:canalisation",
+      "description": "BD TOPO® V3 canalisation"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:cimetiere",
+      "description": "BD TOPO® V3 cimetiere"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:collectivite_territoriale",
+      "description": "BD TOPO® V3 collectivite territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:commune",
+      "description": "BD TOPO® V3 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:commune_associee_ou_deleguee",
+      "description": "BD TOPO® V3 commune associe ou deleguee"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:condominium",
+      "description": "BD TOPO® V3 condominium"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:construction_lineaire",
+      "description": "BD TOPO® V3 construction lineaire"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:construction_ponctuelle",
+      "description": "BD TOPO® V3 construction ponctuelle"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:construction_surfacique",
+      "description": "BD TOPO® V3 construction surfacique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:cours_d_eau",
+      "description": "BD TOPO® V3 cours d'eau"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:departement",
+      "description": "BD TOPO® V3 departement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:detail_hydrographique",
+      "description": "BD TOPO® V3 detail hydrographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:detail_orographique",
+      "description": "BD TOPO® V3 detail orographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:epci",
+      "description": "BD TOPO® V3 epci"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:equipement_de_transport",
+      "description": "BD TOPO® V3 equipement de transport"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:erp",
+      "description": "BD TOPO® V3 erp"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:foret_publique",
+      "description": "BD TOPO® V3 foret publique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:haie",
+      "description": "BD TOPO® V3 haie"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:itineraire_autre",
+      "description": "BD TOPO® V3 itineraire autre"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:lieu_dit_non_habite",
+      "description": "BD TOPO® V3 lieu dit non habite"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:ligne_electrique",
+      "description": "BD TOPO® V3 ligne electrique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:ligne_orographique",
+      "description": "BD TOPO® V3 ligne orographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:limite_terre_mer",
+      "description": "BD TOPO® V3 limite terre mer"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:noeud_hydrographique",
+      "description": "BD TOPO® V3 noeud hydrographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:non_communication",
+      "description": "BD TOPO® V3 non communication"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:parc_ou_reserve",
+      "description": "BD TOPO® V3 parc ou reserve"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:piste_d_aerodrome",
+      "description": "BD TOPO® V3 piste d'aerodrome"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:plan_d_eau",
+      "description": "BD TOPO® V3 plan d'eau"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:point_de_repere",
+      "description": "BD TOPO® V3 point de repere"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:point_du_reseau",
+      "description": "BD TOPO® V3 point du reseau"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:poste_de_transformation",
+      "description": "BD TOPO® V3 poste de transformation"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:pylone",
+      "description": "BD TOPO® V3 pylone"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:region",
+      "description": "BD TOPO® V3 region"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:reservoir",
+      "description": "BD TOPO® V3 reservoir"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:route_numerotee_ou_nommee",
+      "description": "BD TOPO® V3 route numerotee ou nommee"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:section_de_points_de_repere",
+      "description": "BD TOPO® V3 section de points de repere"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:surface_hydrographique",
+      "description": "BD TOPO® V3 surface hydrographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:terrain_de_sport",
+      "description": "BD TOPO® V3 terrain de sport"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:toponymie_bati",
+      "description": "BD TOPO® V3 toponymie bati"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:toponymie_hydrographie",
+      "description": "BD TOPO® V3 toponymie hydrographie"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:toponymie_lieux_nommes",
+      "description": "BD TOPO® V3 toponymie lieux nommes"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:toponymie_services_et_activites",
+      "description": "BD TOPO® V3 toponymie services et activites"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:toponymie_transport",
+      "description": "BD TOPO® V3 toponymie transport"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:toponymie_zones_reglementees",
+      "description": "BD TOPO® V3 toponymie zones reglementees"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:transport_par_cable",
+      "description": "BD TOPO® V3 transport par cable"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:troncon_de_route",
+      "description": "BD TOPO® V3 troncon de route"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:troncon_de_voie_ferree",
+      "description": "BD TOPO® V3 troncon de voie ferree"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:troncon_hydrographique",
+      "description": "BD TOPO® V3 troncon hydrographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:voie_ferree_nommee",
+      "description": "BD TOPO® V3 voie ferree nommee"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:voie_nommee",
+      "description": "BD TOPO® V3 voie nommee"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:zone_d_activite_ou_d_interet",
+      "description": "BD TOPO® V3 zone d'activite ou d'interet"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:zone_d_estran",
+      "description": "BD TOPO® V3 zone d'estran"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:zone_d_habitation",
+      "description": "BD TOPO® V3 zone d'habitation"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:zone_de_vegetation",
+      "description": "BD TOPO® V3 zone de vegetation"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:adresse_ban",
+      "description": "Différentiel BDTOPO® : Adresse BAN"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:aerodrome",
+      "description": "Différentiel BDTOPO® : Aérodrome"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:arrondissement",
+      "description": "Différentiel BDTOPO® : Arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:batiment",
+      "description": "Différentiel BDTOPO® : Bâtiment"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:batiment_rnb_lien_bdtopo",
+      "description": "Différentiel BDTOPO® : Bâtiment RNB lien BD Topo®"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:canalisation",
+      "description": "Différentiel BDTOPO® : Canalisation"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:canton",
+      "description": "Différentiel BDTOPO® : Canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:cimetiere",
+      "description": "Différentiel BDTOPO® : Cimetière"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:collectivite_territoriale",
+      "description": "Différentiel BDTOPO® : Collectivité territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:commune",
+      "description": "Différentiel BDTOPO® : Commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:commune_associee_ou_deleguee\tB",
+      "description": "Différentiel BDTOPO® : Commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:construction_lineaire",
+      "description": "Différentiel BDTOPO® : Construction linéaire"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:construction_ponctuelle",
+      "description": "Différentiel BDTOPO® : Construction ponctuelle"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:construction_surfacique",
+      "description": "Différentiel BDTOPO® : Construction surfacique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:cours_d_eau",
+      "description": "Différentiel BDTOPO® : Cours d'eau"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:departement",
+      "description": "Différentiel BDTOPO® : Département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:detail_hydrographique",
+      "description": "Différentiel BDTOPO® : Détail hydrographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:detail_orographique",
+      "description": "Différentiel BDTOPO® : Détail orographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:equipement_de_transport",
+      "description": "Différentiel BDTOPO® : Equipement de transport"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:epci",
+      "description": "Différentiel BDTOPO® : EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:erp",
+      "description": "Différentiel BDTOPO® : ERP"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:itineraire_autre",
+      "description": "Différentiel BDTOPO® : Itinéraire autre"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:lieu_dit_non_habite",
+      "description": "Différentiel BDTOPO® : Lieu-dit non habité"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:ligne_electrique",
+      "description": "Différentiel BDTOPO® : Ligne électrique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:ligne_orographique",
+      "description": "Différentiel BDTOPO® : Ligne orographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:limite_terre_mer",
+      "description": "Différentiel BDTOPO® : Limite terre-mer"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:noeud_hydrographique",
+      "description": "Différentiel BDTOPO® : Noeud hydrographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:non_communication",
+      "description": "Différentiel BDTOPO® : Non communication"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:piste_d_aerodrome",
+      "description": "Différentiel BDTOPO® : Piste d'aérodrome"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:plan_d_eau",
+      "description": "Différentiel BDTOPO® : Plan d'eau"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:point_de_repere",
+      "description": "Différentiel BDTOPO® : Point de repère"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:point_du_reseau",
+      "description": "Différentiel BDTOPO® : Point du réseau"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:poste_de_transformation",
+      "description": "Différentiel BDTOPO® : Poste de transformation"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:pylone",
+      "description": "Différentiel BDTOPO® : Pylone"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:region",
+      "description": "Différentiel BDTOPO® : Région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:reservoir",
+      "description": "Différentiel BDTOPO® : Réservoir"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:route_numerotee_ou_nommee",
+      "description": "Différentiel BDTOPO® : Route numerotée ou nommée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:section_de_points_de_repere",
+      "description": "Différentiel BDTOPO® : Section de points de repère"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:surface_hydrographique",
+      "description": "Différentiel BDTOPO® : Surface hydrographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:terrain_de_sport",
+      "description": "Différentiel BDTOPO® : Terrain de sport"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:transport_par_cable",
+      "description": "Différentiel BDTOPO® : Transport par câble"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:troncon_de_route",
+      "description": "Différentiel BDTOPO® : Troncon de route"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:troncon_de_voie_ferree",
+      "description": "Différentiel BDTOPO® : Troncon de voie ferrée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:troncon_hydrographique",
+      "description": "Différentiel BDTOPO® : Troncon hydrographique"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:voie_ferree_nommee",
+      "description": "Différentiel BDTOPO® : Voie ferrée nommée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:voie_nommee",
+      "description": "Différentiel BDTOPO® : Voie nommée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:zone_d_activite_ou_d_interet",
+      "description": "Différentiel BDTOPO® : Zone d activité ou d intérêt"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:zone_d_estran",
+      "description": "Différentiel BDTOPO® : Zone d'estran"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:zone_d_habitation",
+      "description": "Différentiel BDTOPO® : Zone d'habitation"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3_DIFF:zone_de_vegetation",
+      "description": "Différentiel BDTOPO® : Zone de végétation"
+    }
+  ]
+}

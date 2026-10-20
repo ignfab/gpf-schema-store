@@ -1,0 +1,57 @@
+{
+  "fileIdentifier": "IGNF_IRIS-GE",
+  "type": "series",
+  "title": "Iris...GE",
+  "abstract": "L’INSEE s’appuie sur la définition d’îlots de référence pour les besoins des recensements nationaux sur l’ensemble des communes de plus de 10 000 habitants et la plupart des communes de 5 000 à 10 000 habitants. L’IRIS (Ilots Regroupés pour l’Information Statistique) est la brique de base en matière de diffusion de données locales.\n\nEn 2014, l’INSEE et l’IGN avaient sensiblement amélioré la géométrie des contours d’IRIS. En 2015, l’IGN a procédé au recalage « fin » des limites d’IRIS sur le RGE®. Il existe ainsi une version grande échelle, IRIS… GE, parfaitement compatible avec la BD TOPO®.",
+  "keywords": [
+    "Répartition de la population, démographie",
+    "Unités administratives",
+    "Unités statistiques",
+    "National",
+    "données ouvertes",
+    "distribution démographique",
+    "statistiques"
+  ],
+  "links": [
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/IRIS-GE",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "IRIS... GE"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/DC_Limites_IRIS_3-0.pdf",
+      "description": "Limites IRIS - Descriptif de contenu"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/DL_vecteur.pdf",
+      "description": "Descriptif de livraison produits Vecteur"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/SE_DL_vecteur.pdf",
+      "description": "Descriptif de livraison produits Vecteur - Suivi des évolutions"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/SE_Limites_IRIS.pdf",
+      "description": "Limites IRIS - suivi des évolutions"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "STATISTICALUNITS.IRISGE",
+      "description": "Iris... GE"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "STATISTICALUNITS.IRISGE:iris_ge",
+      "description": "Iris... GE"
+    }
+  ]
+}

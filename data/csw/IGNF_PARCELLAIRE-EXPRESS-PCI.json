@@ -1,0 +1,177 @@
+{
+  "fileIdentifier": "IGNF_PARCELLAIRE-EXPRESS-PCI",
+  "type": "series",
+  "title": "Parcellaire Express (PCI)",
+  "abstract": "Le produit Parcellaire Express (PCI) contient les informations relatives au parcellaire cadastral. \n\nIl s’agit d’une base de données bidimensionnelle. \n\nLe produit Parcellaire Express (PCI) ne se substitue pas au plan cadastral dématérialisé. C'est un assemblage de ce plan sur le territoire national couvert par le cadastre, qui utilise les fichiers PCI Vecteur de la DGFiP. \n\nLe PCI de la DGFiP tend à devenir PCI Vecteur sur tout le territoire. \n\nLe produit Parcellaire Express (PCI) est constitué d’objets géographiques simples (objets vecteurs ponctuels, surfaciques ou multi-surfaciques)et d'une table attributaire.\n\nCette donnée n’a pas fait l’objet de corrections géométriques. Un décalage par rapport à d’autres données (photographies aériennes en particulier) peut apparaître.",
+  "keywords": [
+    "Adresses",
+    "Bâtiments",
+    "Occupation des terres",
+    "Parcelles cadastrales",
+    "Unités administratives",
+    "National",
+    "Géospatiales",
+    "hvd",
+    "données ouvertes",
+    "environnement urbain"
+  ],
+  "links": [
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/PARCELLAIRE-EXPRESS",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "Parcellaire Express (PCI)"
+    },
+    {
+      "type": "tms",
+      "url": "https://data.geopf.fr/tms/1.0.0",
+      "protocol": "TMS",
+      "name": "PCI",
+      "description": "Parcellaire Express (PCI) personnalisable"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/DC_Parcellaire_Express_(PCI)_1-1.pdf",
+      "description": "Parcellaire Express (PCI) - Descriptif de contenu"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/DL_Parcellaire_Express_(PCI)_1-1.pdf",
+      "description": "Parcellaire Express (PCI) - Descriptif de livraison"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/SE_Parcellaire_Express_(PCI).pdf",
+      "description": "Parcellaire Express (PCI) - Suivi des évolutions"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Projets_carto_PEPCI.zip",
+      "description": "Parcellaire Express (PCI) - Projets cartographiques"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Projets_carto.pdf",
+      "description": "Projets cartographiques pour les produits vecteur - Manuel utilisateur"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
+      "description": "Parcellaire Express (PCI)"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS",
+      "description": "Parcellaire Express (PCI)"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "CADASTRALPARCELS.PCI_VECTEUR",
+      "description": "Parcellaire Express (PCI)"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "parcellaire_express_batiment_noir",
+      "description": "Parcellaire Express (PCI) bâtiment noir"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "parcellaire_express_batiment_orange",
+      "description": "Parcellaire Express (PCI) bâtiment orange"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "parcellaire_express_numero",
+      "description": "Parcellaire Express (PCI) numéro"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "parcellaire_express_parcelle_noir",
+      "description": "Parcellaire Express (PCI) parcelle noir"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "parcellaire_express_parcelle_orange",
+      "description": "Parcellaire Express (PCI) parcelle orange"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:arrondissement",
+      "description": "Parcellaire Express (PCI) arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:batiment",
+      "description": "Parcellaire Express (PCI) batiment"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_limite_propriete",
+      "description": "Parcellaire Express (PCI) borne limite propriete"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:borne_parcelle",
+      "description": "Parcellaire Express (PCI) borne parcelle"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:commune",
+      "description": "Parcellaire Express (PCI) commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:feuille",
+      "description": "Parcellaire Express (PCI) feuille"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:localisant",
+      "description": "Parcellaire Express (PCI) localisant"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:parcelle",
+      "description": "Parcellaire Express (PCI) parcelle"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:subdivision_fiscale",
+      "description": "Parcellaire Express (PCI) subdivision fiscale"
+    }
+  ]
+}

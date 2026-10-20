@@ -1,0 +1,64 @@
+{
+  "fileIdentifier": "IGNF_BD-HAIE",
+  "type": "series",
+  "title": "BD HAIE",
+  "abstract": "Le produit La BD Haie est une couche nationale de référence des haies linéaires en France métropolitaine, élaborée dans le cadre du dispositif de suivi des bocages (DSB), OFB-IGN initié en 2017. Les objets linéaires de la BD Haie ont été obtenus à partir de données existantes sur les haies au format surfacique (polygones). La production de la BD Haie suit une logique départementale.\n \nIl existe à ce jour deux versions de la BD Haie :\n\n•\t**Une version initiale « BD Haie V1 2020 » élaborée à partir de deux sources de données :**\n\no\tLes haies et les bosquets du thème végétation de la base de données topographique de l’IGN, BD TOPO®, obtenus par segmentation automatique d’images aériennes et classés par photo-interprétation sur images de 2004 à 2015, selon les départements ;\n\no\tLes haies arborées ou non, les arbres alignés et les bosquets issus des surfaces non agricoles du Registre Parcellaire Graphique (RPG) photo-interprétées à partir d’images aériennes datant de 2011 à 2014, selon les départements. Le RPG est un système d’information géographique permettant l’identification des parcelles agricoles, géré par l’ASP (Agence de service et de paiement).\n\n•\t**Une version 2 mise à jour en 2024 « BD Haie V2 mars 2024 ».** \n\nCette version constitue une version mise à jour et millésimée de la « BD Haie V1 2020 ». Elle n’a pas été élaborée selon la même méthode. Deux sources de données ont été utilisées pour la mise à jour :\n\no\tLes haies arborées ou non, les arbres alignés et les bosquets issus des surfaces non agricoles du Registre Parcellaire Graphique (RPG) photo-interprétées à partir d’images aériennes datant de 2020 à 2022, selon les départements ;\n\no\tLes modèles numériques de surface produit par « corrélation des images aériennes » datant de 2020 à 2022, selon les départements.  \n\nDans cette version 2 sont présentes : (i) les haies présentes dans la BD Haie V1 confirmées par les données utilisées, (ii) des haies ajoutées à partir des données du RPG utilisées pour la mise à jour.",
+  "keywords": [
+    "Habitats et biotopes",
+    "Sols",
+    "National",
+    "données ouvertes",
+    "biodiversité",
+    "bocages",
+    "environnement",
+    "haies",
+    "bosquets",
+    "arbres"
+  ],
+  "links": [
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/BD-HAIE",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "BD HAIE V1 et V2"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Descriptif_de_contenu_et_limite_DSB_v2.pdf",
+      "name": "DSB - Descriptif de contenu v2"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Descriptif_de_contenu_et_limite_DSB.pdf",
+      "name": "DSB - Descriptif de contenu v1"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "hedge.hedge",
+      "description": "BD TOPO® V3 - Haies"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "IGNF_BD-HAIE-V1_2020",
+      "description": "HAIES linéaires 2020"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "hedge.hedge",
+      "description": "BD TOPO® V3 - Haies"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "BDTOPO_V3:haie",
+      "description": "BD TOPO® V3 haie"
+    }
+  ]
+}
