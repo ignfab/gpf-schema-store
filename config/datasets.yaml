@@ -284,7 +284,7 @@ datasets:
     source: csw
     title: Délimitations maritimes
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: BETA-IGN-POC-MNCA-COMMUNES_23-04-2026
     source: csw
@@ -362,7 +362,7 @@ datasets:
     source: csw
     title: MESURES COMPENSATOIRES
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: CLC90
     source: csw
@@ -452,7 +452,7 @@ datasets:
     source: csw
     title: Restrictions UAS catégorie Ouverte et aéromodélisme
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: DataRM
     source: csw
@@ -554,7 +554,7 @@ datasets:
     source: csw
     title: ENR - Interdiction ZAER toutes EnR sauf toiture (loi APER)
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: ENR_IRRADIATION-SOLAIRE
     source: csw
@@ -620,7 +620,7 @@ datasets:
     source: csw
     title: ENR - Potentiel solaire photovoltaïque des toitures
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: ENR_POTENTIEL-SOLAIRE-FRICHE
     source: csw
@@ -704,7 +704,7 @@ datasets:
     source: csw
     title: ENR - Zones d'accélérations arrêtées
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: FFVE_VILLAGES-ETAPES
     source: csw
@@ -860,7 +860,7 @@ datasets:
     source: csw
     title: Accessibilité physique des forêts
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: IGNF_ADMIN-EXPRESS
     source: csw
@@ -890,7 +890,7 @@ datasets:
     source: csw
     title: BCAE
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: IGNF_BD-ALTI
     source: csw
@@ -967,7 +967,7 @@ datasets:
     source: csw
     title: TRANSPORTS EXCEPTIONNELS
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: IGNF_CARTE-CLASSE-LIDAR-HD
     source: csw
@@ -1002,7 +1002,7 @@ datasets:
     source: csw
     title: DEBROUSSAILLEMENT
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: IGNF_DEMONSTRATEUR_ORTHO-MULTI-SOURCES
     source: csw
@@ -1056,7 +1056,7 @@ datasets:
     source: csw
     title: INPE
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: IGNF_INSTALLATIONS-PHOTOVOLTAIQUES-SOL
     source: csw
@@ -1073,7 +1073,7 @@ datasets:
     source: csw
     title: Masque Forêt
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: IGNF_MASQUE-FORET-DROM
     source: csw
@@ -1482,7 +1482,7 @@ datasets:
     source: csw
     title: Masses d'eau qualifiées en état "moins que bon" pour des raisons liées à la quantité d'eau
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: Metropole_du_Grand_Paris_BPF_WMTS
     source: csw
@@ -1530,7 +1530,7 @@ datasets:
     source: csw
     title: PETZL Traces de randonnée hivernale
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: PNR_60_2026
     source: csw
@@ -1596,13 +1596,13 @@ datasets:
     source: csw
     title: Clef Verte
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: TERAGIR_PAVILLON-BLEU
     source: csw
     title: PAVILLON BLEU
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: TEST
     source: csw
@@ -1926,7 +1926,7 @@ datasets:
     source: csw
     title: Forêts publiques
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: fusion_lm_atelier2
     source: csw
@@ -2010,7 +2010,7 @@ datasets:
     source: csw
     title: 'Vibrisses du RMQS : seuils de détection des anomalies pour différents éléments traces'
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: osfc9008138-f56a-5b19-9cd4-25398dcb4d62
     source: csw
@@ -2028,25 +2028,25 @@ datasets:
     source: csw
     title: Les sols dominants de France métropolitaine – Carte harmonisée
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: osfde26f53e-5c29-5320-b53c-e38abea75fb5
     source: csw
     title: Cartogrammes des teneurs ponctuelles des 49 variables mesurées sur la première campagne RMQS (2001 - 2009)
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: osff858525a-9fea-5ae3-93ab-43afab78483f
     source: csw
     title: Carte nationale des stocks de carbone des sols intégrée dans la carte mondiale de la FAO
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: pailles_cereales
     source: csw
     title: ONRB
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
 
   - id: parcs_jardins_metrolyon
     source: csw
