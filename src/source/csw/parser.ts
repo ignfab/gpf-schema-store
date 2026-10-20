@@ -1,76 +1,67 @@
-import { parseXml, XmlElement } from '@rgrove/parse-xml';
+import { DOMParser } from '@xmldom/xmldom';
+import xpath from 'xpath';
 
 import type { CswLink, CswRecord, CswRecordBrief } from '../types';
 import { getLinkType } from './link-type';
 
 /*
  * =============================================================================
- * XML Helpers
+ * XPath Helpers
  * =============================================================================
- *
- * Namespace prefixes are ignored : elements are matched on their local names.
  */
 
-function localName(name: string): string {
-  const index = name.indexOf(':');
-  return index === -1 ? name : name.slice(index + 1);
-}
+const select = xpath.useNamespaces({
+  csw: 'http://www.opengis.net/cat/csw/2.0.2',
+  dc: 'http://purl.org/dc/elements/1.1/',
+  ows: 'http://www.opengis.net/ows',
+  gmd: 'http://www.isotc211.org/2005/gmd',
+  gmi: 'http://www.isotc211.org/2005/gmi',
+});
 
-function childElements(element: XmlElement, name = '*'): XmlElement[] {
-  return element.children.filter(
-    (child): child is XmlElement =>
-      child instanceof XmlElement && (name === '*' || localName(child.name) === name),
-  );
+/**
+ * Returns the nodes matching an XPath expression.
+ */
+function findNodes(path: string, node: Node): Node[] {
+  const result = select(path, node);
+  return xpath.isArrayOfNodes(result) ? result : [];
 }
 
 /**
- * Returns the elements matching a path of local names (`*` matches any element).
+ * Returns the trimmed text values (elements or attributes) matching an XPath expression,
+ * ignoring empty values.
  */
-function findElements(element: XmlElement, ...path: string[]): XmlElement[] {
-  let current = [element];
-  for (const name of path) {
-    current = current.flatMap((candidate) => childElements(candidate, name));
-  }
-  return current;
+function findValues(path: string, node: Node): string[] {
+  return findNodes(path, node)
+    .map((match) => match.textContent?.trim() ?? '')
+    .filter((value) => value.length > 0);
 }
 
-function findText(element: XmlElement, ...path: string[]): string | undefined {
-  return findTexts(element, ...path)[0];
+/**
+ * Returns the first non-empty text value matching an XPath expression.
+ */
+function findValue(path: string, node: Node): string | undefined {
+  return findValues(path, node)[0];
 }
 
-function findTexts(element: XmlElement, ...path: string[]): string[] {
-  return findElements(element, ...path)
-    .map((candidate) => candidate.text.trim())
-    .filter((text) => text.length > 0);
-}
+function parseXmlDocument(xml: string): Document {
+  const document = new DOMParser({
+    onError: (level, message) => {
+      if (level !== 'warning') {
+        throw new Error(`Invalid CSW response: ${message}`);
+      }
+    },
+  }).parseFromString(xml, 'text/xml') as unknown as Document;
 
-function findDescendants(element: XmlElement, names: string[]): XmlElement[] {
-  const results: XmlElement[] = [];
-  for (const child of childElements(element)) {
-    if (names.includes(localName(child.name))) {
-      results.push(child);
-    } else {
-      results.push(...findDescendants(child, names));
-    }
-  }
-  return results;
-}
-
-function parseXmlRoot(xml: string): XmlElement {
-  const root = parseXml(xml).root;
-  if (!root) {
-    throw new Error('Invalid CSW response: no root element');
-  }
-  if (localName(root.name) === 'ExceptionReport') {
-    const message = findDescendants(root, ['ExceptionText']).map((e) => e.text.trim()).join('; ');
+  if (findNodes('/ows:ExceptionReport', document).length > 0) {
+    const message = findValues('//ows:ExceptionText', document).join('; ');
     throw new Error(`CSW exception: ${message || 'unknown error'}`);
   }
-  return root;
+  return document;
 }
 
 /*
  * =============================================================================
- * ISO 19139 / Dublin Core parsing
+ * GetRecords parsing (Dublin Core, elementSetName=brief)
  * =============================================================================
  */
 
@@ -80,122 +71,124 @@ export type GetRecordsPage = {
   records: CswRecordBrief[];
 };
 
-function parseIntegerAttribute(element: XmlElement, name: string): number {
-  const value = Number.parseInt(element.attributes[name] ?? '', 10);
+function parseIntegerAttribute(searchResults: Node, name: string): number {
+  const value = Number.parseInt(findValue(`./@${name}`, searchResults) ?? '', 10);
   if (!Number.isInteger(value)) {
     throw new Error(`Invalid CSW response: missing or invalid ${name} on SearchResults`);
   }
   return value;
 }
 
+function parseBriefRecord(recordElement: Node): CswRecordBrief | undefined {
+  const fileIdentifier = findValue('./dc:identifier', recordElement);
+  if (!fileIdentifier) {
+    return undefined;
+  }
+  const type = findValue('./dc:type', recordElement);
+  return {
+    fileIdentifier,
+    title: findValue('./dc:title', recordElement) ?? '',
+    ...(type ? { type } : {}),
+  };
+}
+
 /**
  * Parses a GetRecords response (elementSetName=brief, Dublin Core).
  */
 export function parseGetRecordsResponse(xml: string): GetRecordsPage {
-  const root = parseXmlRoot(xml);
-  const searchResults = findDescendants(root, ['SearchResults'])[0];
+  const document = parseXmlDocument(xml);
+  const searchResults = findNodes('//csw:SearchResults', document)[0];
   if (!searchResults) {
     throw new Error('Invalid CSW response: SearchResults not found');
   }
 
-  const records = childElements(searchResults)
-    .map((element): CswRecordBrief | undefined => {
-      const fileIdentifier = findText(element, 'identifier');
-      if (!fileIdentifier) {
-        return undefined;
-      }
-      const record: CswRecordBrief = {
-        fileIdentifier,
-        title: findText(element, 'title') ?? '',
-      };
-      const type = findText(element, 'type');
-      if (type) {
-        record.type = type;
-      }
-      return record;
-    })
-    .filter((record): record is CswRecordBrief => record !== undefined);
-
   return {
     numberOfRecordsMatched: parseIntegerAttribute(searchResults, 'numberOfRecordsMatched'),
     nextRecord: parseIntegerAttribute(searchResults, 'nextRecord'),
-    records,
+    records: findNodes('./*', searchResults)
+      .map(parseBriefRecord)
+      .filter((record): record is CswRecordBrief => record !== undefined),
   };
 }
 
-function parseOnlineResource(element: XmlElement): CswLink | undefined {
-  const url = findText(element, 'linkage', 'URL');
+/*
+ * =============================================================================
+ * ISO 19115 parsing (ISO 19139 encoding)
+ * =============================================================================
+ *
+ * Elements starting with a capital letter are substitutable (ex : gmd:MD_DataIdentification
+ * is matched with "*").
+ *
+ * @see https://github.com/IGNF/validator/blob/master/validator-core/src/main/java/fr/ign/validator/metadata/gmd/MetadataISO19115.java
+ */
+
+function parseFileIdentifier(metadata: Node): string | undefined {
+  return findValue('./gmd:fileIdentifier/*', metadata);
+}
+
+function parseType(metadata: Node): string | undefined {
+  return findValue('./gmd:hierarchyLevel/*/@codeListValue', metadata);
+}
+
+function parseTitle(metadata: Node): string | undefined {
+  return findValue('./gmd:identificationInfo/*/gmd:citation/*/gmd:title/*', metadata);
+}
+
+function parseAbstract(metadata: Node): string | undefined {
+  return findValue('./gmd:identificationInfo/*/gmd:abstract/*', metadata);
+}
+
+function parseKeywords(metadata: Node): string[] {
+  const keywords = findValues('./gmd:identificationInfo/*/gmd:descriptiveKeywords/*/gmd:keyword/*', metadata);
+  return [...new Set(keywords)];
+}
+
+function parseOnlineResource(onlineResource: Node): CswLink | undefined {
+  const url = findValue('./gmd:linkage/gmd:URL', onlineResource);
   if (!url) {
     return undefined;
   }
-
-  const protocol = findText(element, 'protocol', '*');
-  const link: CswLink = {
+  const protocol = findValue('./gmd:protocol/*', onlineResource);
+  const name = findValue('./gmd:name/*', onlineResource);
+  const description = findValue('./gmd:description/*', onlineResource);
+  return {
     type: getLinkType(url, protocol),
     url,
+    ...(protocol ? { protocol } : {}),
+    ...(name ? { name } : {}),
+    ...(description ? { description } : {}),
   };
-  if (protocol) {
-    link.protocol = protocol;
-  }
-  const name = findText(element, 'name', '*');
-  if (name) {
-    link.name = name;
-  }
-  const description = findText(element, 'description', '*');
-  if (description) {
-    link.description = description;
-  }
-  return link;
 }
 
-function parseMetadata(metadata: XmlElement): CswRecord {
-  const fileIdentifier = findText(metadata, 'fileIdentifier', '*');
+function parseOnlineResources(metadata: Node): CswLink[] {
+  return findNodes('./gmd:distributionInfo/*/gmd:transferOptions/*/gmd:onLine/*', metadata)
+    .map(parseOnlineResource)
+    .filter((link): link is CswLink => link !== undefined);
+}
+
+function parseMetadata(metadata: Node): CswRecord {
+  const fileIdentifier = parseFileIdentifier(metadata);
   if (!fileIdentifier) {
     throw new Error('Invalid ISO 19139 record: missing fileIdentifier');
   }
-
-  const identificationInfo = findElements(metadata, 'identificationInfo', '*');
-  const type = findElements(metadata, 'hierarchyLevel', 'MD_ScopeCode')[0]?.attributes.codeListValue?.trim();
-  const title = identificationInfo
-    .map((info) => findText(info, 'citation', 'CI_Citation', 'title', '*'))
-    .find((text) => text !== undefined);
-  const abstract = identificationInfo
-    .map((info) => findText(info, 'abstract', '*'))
-    .find((text) => text !== undefined);
-  const keywords = identificationInfo.flatMap((info) =>
-    findTexts(info, 'descriptiveKeywords', 'MD_Keywords', 'keyword', '*'),
-  );
-  const links = findElements(
-    metadata,
-    'distributionInfo',
-    'MD_Distribution',
-    'transferOptions',
-    'MD_DigitalTransferOptions',
-    'onLine',
-    'CI_OnlineResource',
-  )
-    .map(parseOnlineResource)
-    .filter((link): link is CswLink => link !== undefined);
+  const type = parseType(metadata);
+  const abstract = parseAbstract(metadata);
 
   // Fields are built in a stable order for the JSON files.
   return {
     fileIdentifier,
     ...(type ? { type } : {}),
-    title: title ?? '',
+    title: parseTitle(metadata) ?? '',
     ...(abstract ? { abstract } : {}),
-    keywords: [...new Set(keywords)],
-    links,
+    keywords: parseKeywords(metadata),
+    links: parseOnlineResources(metadata),
   };
 }
 
 /**
- * Parses the ISO 19139 records (gmd:MD_Metadata) from a CSW response.
+ * Parses the ISO 19139 records (gmd:MD_Metadata or gmi:MI_Metadata) from a CSW response.
  */
 export function parseIsoRecords(xml: string): CswRecord[] {
-  const root = parseXmlRoot(xml);
-  const names = ['MD_Metadata', 'MI_Metadata'];
-  const metadataElements = names.includes(localName(root.name))
-    ? [root]
-    : findDescendants(root, names);
-  return metadataElements.map(parseMetadata);
+  const document = parseXmlDocument(xml);
+  return findNodes('//gmd:MD_Metadata | //gmi:MI_Metadata', document).map(parseMetadata);
 }
