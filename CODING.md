@@ -128,7 +128,7 @@ npm run -s csw:dump -- IGNF_BD-TOPO
 ```
 
 > [!TIP]
-> The [review-datasets](.claude/skills/review-datasets/SKILL.md) skill relies on `csw:dump` to review the `ignoredReason` of the ignored datasets.
+> The [datasets-review](.claude/skills/datasets-review/SKILL.md) skill relies on `csw:dump` to review the `ignoredReason` of the ignored datasets.
 
 #### Update WFS schemas
 

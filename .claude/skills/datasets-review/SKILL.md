@@ -1,5 +1,5 @@
 ---
-name: review-datasets
+name: datasets-review
 description: Review the ignored datasets of config/datasets.yaml from their CSW metadata records (npm run csw:dump) and set the appropriate ignoredReason (Local data, Test data, Waiting for MCP use case definition...). Use when asked to review, sort or triage the datasets, or a given dataset.
 ---
 
