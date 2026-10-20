@@ -1,6 +1,3 @@
-import type { NamespaceFilterMetadata, NamespaceFilterRule } from '@/config/types';
-import { findFirstMatchingRule } from "./namespace-filters";
-
 /**
  * Split a WFS feature type identifier into namespace and table (local) name.
  * Accepts exactly one colon separating two non-empty parts (`{namespace}:{table}`).
@@ -19,18 +16,4 @@ export function parseFeatureTypeName(fullName: string): { namespace: string; nam
         );
     }
     return { namespace: parts[0], name: parts[1] };
-}
-
-/**
- * Get the metadata of a collection from its namespace.
- * @param namespace - The namespace of the collection
- * @returns The metadata of the collection
- */
-export function getMetadataFromNamespace(namespace: string, namespaceFilterRules: NamespaceFilterRule[]): NamespaceFilterMetadata {
-    const matchingRule = findFirstMatchingRule(namespace, namespaceFilterRules);
-    if (matchingRule) {
-        return matchingRule.metadata;
-    }
-
-    return { ignored: true, ignoredReason: 'No matching rule' };
 }

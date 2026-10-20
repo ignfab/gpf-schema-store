@@ -2,8 +2,8 @@
 
 ## Data Organization
 
-* [data/namespace-filters.yaml](data/namespace-filters.yaml) : filter configuration of the WFS namespaces.
-* [data/namespaces.csv](data/namespaces.csv) : overview of the selected namespaces.
+* [config/datasets.yaml](config/datasets.yaml) : datasets from the metadata records of [data.geopf.fr/csw](https://data.geopf.fr/csw) with the decisions (activation, WFS exclusions, additional WFS links).
+* `data/csw` : copy of the metadata records of the non-ignored datasets (`{fileIdentifier}.json`, pivot format with typed links, never edited).
 * `data/wfs` : schema from the WFS GetCapabilities / DescribeFeatureType
 * `data/overwrites` : additional information about schemas from sources like https://bdtopoexplorer.ign.fr/ (see [docs/overwrite-format.md](docs/overwrite-format.md))
 * `data/catalog` : result of the enrichment process (JSON Schema extended by "OGC API Feature - schema")
@@ -39,28 +39,90 @@ npm run test:all
 
 > See [test/integration/search/use-case.yaml](test/integration/search/use-case.yaml) for the search tests.
 
-### Configure filtering
+### Configure datasets
 
-Edit [data/namespace-filters.yaml](data/namespace-filters.yaml) to decide which namespaces are kept or ignored and to assign metadata (`ignored`, `product`, `ignoredReason`) using first-match-wins rules.
+[config/datasets.yaml](config/datasets.yaml) lists the metadata records of [data.geopf.fr/csw](https://data.geopf.fr/csw) by `fileIdentifier` (`source: csw`) and the datasets without metadata record (`source: manual`, ex: `GPU`).
 
+```yaml
+datasets:
+
+  - id: IGNF_BD-TOPO
+    source: csw
+    title: BD TOPO®
+    product: BDTOPO_V3
+    excludes:
+      - type: wfs
+        pattern: BDTOPO_V3_DIFF:*
+        reason: Historical data
+
+  - id: GPU
+    source: manual
+    title: Géoportail de l'Urbanisme
+    product: GPU
+    links:
+      - type: wfs
+        name: wfs_du:*
+
+  - id: IGNF_SCAN-25
+    source: csw
+    title: SCAN 25®
+    ignored: true
+    ignoredReason: New dataset, review required
+```
+
+| Field | Purpose |
+|---|---|
+| `id` | `fileIdentifier` of the record (`source: csw`) or local identifier (`source: manual`) |
+| `source` | `csw` or `manual` |
+| `title` | title (refreshed from the record for `csw`) |
+| `ignored` / `ignoredReason` | decision for the whole dataset (`false` by default) |
+| `product` | associated product |
+| `excludes[]` | excluded WFS collections : `type: wfs` + `pattern` on the typename (`*` as wildcard) + `reason` |
+| `links[]` | WFS links (`type: wfs` + `name: {namespace}:{name}`) completing those of the record (required for `manual`) |
+| `missing` | `true` when the record is no longer found in the CSW (managed by `update:datasets`) |
+
+A WFS collection `{namespace}:{name}` is selected when :
+
+* at least one non-ignored dataset has a WFS link on its **namespace** (from `data/csw/{id}.json` or `links`);
+* none of these candidates excludes it (**exclusions always win**, ex : `BDTOPO_V3:erp` is excluded by `IGNF_BD-TOPO` while `IGNF_BD-HAIE` references `BDTOPO_V3:haie`).
+
+> [!NOTE]
+> The file is rewritten by `npm run update:datasets` (sorted by `id`, comments are not preserved) : justifications go into `ignoredReason` and `excludes[].reason`. To enable a dataset, set `ignored: false` (or remove `ignored`), then run `npm run update:csw`.
 
 ### Update data
 
 > [!TIP]
-> `npm run update:all` runs the full data refresh workflow described below: it regenerates the namespace report, updates source schemas from WFS, and rebuilds the catalog files.
+> `npm run update:all` runs the full data refresh workflow described below : `update:datasets`, `update:csw`, `update:wfs` and `update:catalog`.
 
-#### Generate namespace report
+> [!WARNING]
+> The `update:*` commands rely on `dist/cli.js` : run `npm run build` first (especially after a `git pull`).
 
-Update [data/namespaces.csv](data/namespaces.csv) to review every discovered namespace, its computed metadata (`product`, `ignored`, `ignoredReason`), and its collections:
+#### Update datasets
+
+Update [config/datasets.yaml](config/datasets.yaml) from the list of the records of [data.geopf.fr/csw](https://data.geopf.fr/csw) :
 
 ```bash
-# generate data/namespaces.csv overview
-npm run update:namespaces
+npm run update:datasets
+```
+
+* new records are added with `ignored: true` and `ignoredReason: New dataset, review required` (warning);
+* the `title` of the `csw` entries is refreshed;
+* disappeared records are flagged with `missing: true` (warning), the flag is removed when the record comes back;
+* `manual` entries are never modified (warning if they have no `links`);
+* records whose `fileIdentifier` is not usable as a file name (`^[A-Za-z0-9._-]+$`) are skipped (warning).
+
+#### Update CSW records
+
+Download the records of the non-ignored datasets (ISO 19139 `GetRecordById`) to `data/csw` (fully replaced) :
+
+```bash
+# download data/csw/{fileIdentifier}.json
+npm run update:csw
 ```
 
 #### Update WFS schemas
 
-Regenerate the `data/wfs` directory by fetching schemas from [data.geopf.fr/wfs](https://data.geopf.fr/wfs?service=WFS&request=GetCapabilities) and applying filter rules defined in [data/namespace-filters.yaml](data/namespace-filters.yaml) :
+Regenerate the `data/wfs` directory by fetching schemas from [data.geopf.fr/wfs](https://data.geopf.fr/wfs?service=WFS&request=GetCapabilities) for the collections selected by [config/datasets.yaml](config/datasets.yaml) (a warning is displayed for each WFS namespace without dataset) :
 
 ```bash
 # download data/wfs/{namespace}/{name}.json

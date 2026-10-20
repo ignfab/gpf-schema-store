@@ -27,9 +27,10 @@
     "build": "vite build",
     "dev": "node --use-env-proxy ./node_modules/vite-node/dist/cli.mjs src/cli.ts",
     "cli": "node --use-env-proxy dist/cli.js",
-    "update:all": "npm run update:namespaces && npm run update:wfs && npm run update:catalog",
+    "update:all": "npm run update:datasets && npm run update:csw && npm run update:wfs && npm run update:catalog",
+    "update:datasets": "node --use-env-proxy dist/cli.js update-datasets",
+    "update:csw": "node --use-env-proxy dist/cli.js update-csw",
     "update:wfs": "node --use-env-proxy dist/cli.js update-wfs",
-    "update:namespaces": "node --use-env-proxy dist/cli.js update-namespaces",
     "update:catalog": "node --use-env-proxy dist/cli.js render-catalog data/catalog --clean",
     "check:overwrites": "node --use-env-proxy dist/cli.js check-overwrites",
     "start": "npm run cli",
@@ -42,10 +43,11 @@
   },
   "dependencies": {
     "@camptocamp/ogc-client": "^1.3.0",
-    "@fast-csv/format": "^5.0.7",
+    "@xmldom/xmldom": "^0.9.12",
     "commander": "^15.0.0",
     "js-yaml": "^5.2.1",
     "minisearch": "^7.2.0",
+    "xpath": "0.0.34",
     "zod": "^3.25.76"
   },
   "devDependencies": {

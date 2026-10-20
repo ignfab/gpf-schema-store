@@ -1,0 +1,1763 @@
+{
+  "fileIdentifier": "IGNF_ADMIN-EXPRESS",
+  "type": "series",
+  "title": "ADMIN EXPRESS, ADMIN EXPRESS COG, ADMIN EXPRESS COG CARTO, ADMIN EXPRESS COG CARTO PE, ADMIN EXPRESS COG CARTO PLUS PE",
+  "abstract": "Les produits ADMIN EXPRESS, ADMIN EXPRESS COG, ADMIN EXPRESS COG CARTO, ADMIN EXPRESS COG CARTO PE, et ADMIN EXPRESS COG CARTOPLUS PE décrivent l'ensemble des informations administratives présentes dans la base de données interne de l'IGN sur le territoire métropolitain et les départements d'outre-mer à la date d'extraction des données. \n\nADMIN EXPRESS COG, ADMIN EXPRESS COG CARTO, ADMIN EXPRESS COG CARTO PE, ADMIN EXPRESS COG CARTOPLUS PE prennent en compte le COG (Code Officiel Géographique) de l’INSEE qui rassemble les codes et libellés des entités administratives y compris d'outre-mer au 1er janvier de l’année en cours.",
+  "keywords": [
+    "Unités administratives",
+    "National",
+    "données ouvertes",
+    "dénominations géographiques",
+    "répartition de la population",
+    "démographies",
+    "statistique",
+    "toponymie"
+  ],
+  "links": [
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/ADMIN-EXPRESS",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "Limites administratives mises a jour en continu : téléchargement",
+      "description": "Admin EXPRESS : téléchargement"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/ADMIN-EXPRESS-COG",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "Admin EXPRESS COG : téléchargement",
+      "description": "Admin EXPRESS COG : téléchargement"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/ADMIN-EXPRESS-COG-CARTO",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "Admin EXPRESS COG CARTO : téléchargement",
+      "description": "Admin EXPRESS COG CARTO : téléchargement"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/ADMIN-EXPRESS-COG-CARTOPLUS",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "Admin EXPRESS COG CARTOPLUS : téléchargement",
+      "description": "Admin EXPRESS COG CARTOPLUS : téléchargement"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/ADMIN-EXPRESS-COG-CARTO-PE",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "Admin EXPRESS COG CARTO PE : téléchargement",
+      "description": "Admin EXPRESS COG CARTO PE : téléchargement"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST",
+      "description": "Limites administratives mises a jour en continu"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMIN-EXPRESS-COG-CARTO-PE.LATEST",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.LATEST",
+      "description": "ADMIN EXPRESS COG Dernière édition"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.2026",
+      "description": "ADMIN EXPRESS COG 2026"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.2025",
+      "description": "ADMIN EXPRESS COG 2025"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.2024",
+      "description": "ADMIN EXPRESS COG 2024"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.2023",
+      "description": "ADMIN EXPRESS COG 2023"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.2022",
+      "description": "ADMIN EXPRESS COG 2022"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.2021",
+      "description": "ADMIN EXPRESS COG 2021"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.2020",
+      "description": "ADMIN EXPRESS COG 2020"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.2019",
+      "description": "ADMIN EXPRESS COG 2019"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.2018",
+      "description": "ADMIN EXPRESS COG 2018"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "ADMINEXPRESS-COG.2017",
+      "description": "ADMIN EXPRESS COG 2017"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST",
+      "description": "Limites administratives mises a jour en continu"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.LATEST",
+      "description": "ADMIN EXPRESS COG Dernière édition"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.2026",
+      "description": "ADMIN EXPRESS COG 2026"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.2025",
+      "description": "ADMIN EXPRESS COG 2025"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.2024",
+      "description": "ADMIN EXPRESS COG 2024"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.2023",
+      "description": "ADMIN EXPRESS COG 2023"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.2022",
+      "description": "ADMIN EXPRESS COG 2022"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.2021",
+      "description": "ADMIN EXPRESS COG 2021"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.2020",
+      "description": "ADMIN EXPRESS COG 2020"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.2019",
+      "description": "ADMIN EXPRESS COG 2019"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.2018",
+      "description": "ADMIN EXPRESS COG 2018"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-r?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "ADMINEXPRESS-COG.2017",
+      "description": "ADMIN EXPRESS COG 2017"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "Noms_regions",
+      "description": "ADMIN EXPRESS COG Noms communes"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "Noms_departements",
+      "description": "ADMIN EXPRESS COG Noms departements"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&version=1.3.0&request=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "Noms_communes",
+      "description": "ADMIN EXPRESS COG Noms regions"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2017:arrondissement_departemental",
+      "description": "ADMIN EXPRESS COG 2017 arrondissement départemental"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2017:chef_lieu",
+      "description": "ADMIN EXPRESS COG 2017 chef lieu"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2017:commune",
+      "description": "ADMIN EXPRESS COG 2017 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2017:departement",
+      "description": "ADMIN EXPRESS COG 2017 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2017:epci",
+      "description": "ADMIN EXPRESS COG 2017 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2017:region",
+      "description": "ADMIN EXPRESS COG 2017 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2018:arrondissement_departemental",
+      "description": "ADMIN EXPRESS COG 2018 arrondissement départemental"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2018:chef_lieu",
+      "description": "ADMIN EXPRESS COG 2018 chef lieu"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2018:commune",
+      "description": "ADMIN EXPRESS COG 2018 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2018:departement",
+      "description": "ADMIN EXPRESS COG 2018 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2018:epci",
+      "description": "ADMIN EXPRESS COG 2018 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2018:region",
+      "description": "ADMIN EXPRESS COG 2018 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2019:arrondissement_departemental",
+      "description": "ADMIN EXPRESS COG 2019 arrondissement départemental"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2019:chef_lieu",
+      "description": "ADMIN EXPRESS COG 2019 chef lieu"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2019:commune",
+      "description": "ADMIN EXPRESS COG 2019 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2019:departement",
+      "description": "ADMIN EXPRESS COG 2019 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2019:epci",
+      "description": "ADMIN EXPRESS COG 2019 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2019:region",
+      "description": "ADMIN EXPRESS COG 2019 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2020:arrondissement_departemental",
+      "description": "ADMIN EXPRESS COG 2020 arrondissement départemental"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2020:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2020 arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2020:canton",
+      "description": "ADMIN EXPRESS COG 2020 canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2020:chef_lieu",
+      "description": "ADMIN EXPRESS COG 2020 chef lieu"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2020:chef_lieu_entite_rattachee",
+      "description": "ADMIN EXPRESS COG 2020 chef lieu entitée rattachée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2020:commune",
+      "description": "ADMIN EXPRESS COG 2020 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2020:departement",
+      "description": "ADMIN EXPRESS COG 2020 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2020:epci",
+      "description": "ADMIN EXPRESS COG 2020 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2020:region",
+      "description": "ADMIN EXPRESS COG 2020 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:arrondissement",
+      "description": "ADMIN EXPRESS COG 2021 arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2021 arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:canton",
+      "description": "ADMIN EXPRESS COG 2021 canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:chef_lieu_arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2021 chef lieu arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:chef_lieu_commune",
+      "description": "ADMIN EXPRESS COG 2021 chef lieu commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:chef_lieu_commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2021 chef lieu commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG 2021 collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:commune",
+      "description": "ADMIN EXPRESS COG 2021 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2021 commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:departement",
+      "description": "ADMIN EXPRESS COG 2021 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:epci",
+      "description": "ADMIN EXPRESS COG 2021 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2021:region",
+      "description": "ADMIN EXPRESS COG 2021 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:arrondissement",
+      "description": "ADMIN EXPRESS COG 2022 arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2022 arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:canton",
+      "description": "ADMIN EXPRESS COG 2022 canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:chef_lieu_arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2022 chef lieu arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:chef_lieu_commune",
+      "description": "ADMIN EXPRESS COG 2022 chef lieu commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:chef_lieu_commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2022 chef lieu commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG 2022 collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:commune",
+      "description": "ADMIN EXPRESS COG 2022 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2022 commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:departement",
+      "description": "ADMIN EXPRESS COG 2022 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:epci",
+      "description": "ADMIN EXPRESS COG 2022 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2022:region",
+      "description": "ADMIN EXPRESS COG 2022 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:arrondissement",
+      "description": "ADMIN EXPRESS COG 2023 arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2023 arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:canton",
+      "description": "ADMIN EXPRESS COG 2023 canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:chef_lieu_arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2023 chef lieu arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:chef_lieu_commune",
+      "description": "ADMIN EXPRESS COG 2023 chef lieu commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:chef_lieu_commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2023 chef lieu commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG 2023 collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:commune",
+      "description": "ADMIN EXPRESS COG 2023 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2023 commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:departement",
+      "description": "ADMIN EXPRESS COG 2023 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:epci",
+      "description": "ADMIN EXPRESS COG 2023 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2023:region",
+      "description": "ADMIN EXPRESS COG 2023 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:arrondissement",
+      "description": "ADMIN EXPRESS COG 2024 arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2024 arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:canton",
+      "description": "ADMIN EXPRESS COG 2024 canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:chef_lieu_arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2024 chef lieu arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:chef_lieu_commune",
+      "description": "ADMIN EXPRESS COG 2024 chef lieu commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:chef_lieu_commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2024 chef lieu commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG 2024 collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:commune",
+      "description": "ADMIN EXPRESS COG 2024 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2024 commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:departement",
+      "description": "ADMIN EXPRESS COG 2024 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:epci",
+      "description": "ADMIN EXPRESS COG 2024 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2024:region",
+      "description": "ADMIN EXPRESS COG 2024 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:arrondissement",
+      "description": "ADMIN EXPRESS COG 2025 arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2025 arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:canton",
+      "description": "ADMIN EXPRESS COG 2025 canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:chef_lieu_d_arrondissement",
+      "description": "ADMIN EXPRESS COG 2025 chef lieu d'arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:chef_lieu_d_arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2025 chef lieu d'arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:chef_lieu_de_collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG 2025 chef lieu de collectivité territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:chef_lieu_de_commune",
+      "description": "ADMIN EXPRESS COG 2025 chef lieu de commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:chef_lieu_de_commune_associee",
+      "description": "ADMIN EXPRESS COG 2025 chef lieu de commune associée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:chef_lieu_de_departement",
+      "description": "ADMIN EXPRESS COG 2025 chef lieu de département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:chef_lieu_de_region",
+      "description": "ADMIN EXPRESS COG 2025 chef lieu de région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG 2025 collectivité territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:commune",
+      "description": "ADMIN EXPRESS COG 2025 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2025 commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:departement",
+      "description": "ADMIN EXPRESS COG 2025 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:epci",
+      "description": "ADMIN EXPRESS COG 2025 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2025:region",
+      "description": "ADMIN EXPRESS COG 2025 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:arrondissement",
+      "description": "ADMIN EXPRESS COG 2026 arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2026 arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:canton",
+      "description": "ADMIN EXPRESS COG 2026 canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:chef_lieu_d_arrondissement",
+      "description": "ADMIN EXPRESS COG 2026 chef lieu d'arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:chef_lieu_d_arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG 2026 chef lieu d'arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:chef_lieu_de_collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG 2026 chef lieu de collectivité territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:chef_lieu_de_commune",
+      "description": "ADMIN EXPRESS COG 2026 chef lieu de commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:chef_lieu_de_commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2026 chef lieu de commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:chef_lieu_de_departement",
+      "description": "ADMIN EXPRESS COG 2026 chef lieu de département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:chef_lieu_de_region",
+      "description": "ADMIN EXPRESS COG 2026 chef lieu de région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG 2026 collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:commune",
+      "description": "ADMIN EXPRESS COG 2026 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG 2026 commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:departement",
+      "description": "ADMIN EXPRESS COG 2026 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:epci",
+      "description": "ADMIN EXPRESS COG 2026 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.2026:region",
+      "description": "ADMIN EXPRESS COG 2026 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:arrondissement",
+      "description": "ADMIN EXPRESS COG Dernière édition arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG Dernière édition arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:canton",
+      "description": "ADMIN EXPRESS COG Dernière édition canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:chef_lieu_d_arrondissement",
+      "description": "ADMIN EXPRESS COG Dernière édition chef lieu d'arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:chef_lieu_d_epci",
+      "description": "ADMIN EXPRESS COG Dernière édition chef lieu d'EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:chef_lieu_de_canton",
+      "description": "ADMIN EXPRESS COG Dernière édition chef lieu de canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:chef_lieu_de_collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG Dernière édition chef lieu de collectivité territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:chef_lieu_de_commune",
+      "description": "ADMIN EXPRESS COG Dernière édition chef lieu de commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:chef_lieu_de_region",
+      "description": "ADMIN EXPRESS COG Dernière édition chef lieu de région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG Dernière édition collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:commune",
+      "description": "ADMIN EXPRESS COG Dernière édition commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG Dernière édition commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:departement",
+      "description": "ADMIN EXPRESS COG Dernière édition département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:epci",
+      "description": "ADMIN EXPRESS COG Dernière édition EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG.LATEST:region",
+      "description": "ADMIN EXPRESS COG Dernière édition région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:arrondissement",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:canton",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:chef_lieu_d_arrondissement",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition chef lieu d'arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:chef_lieu_d_arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition chef lieu d'arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:chef_lieu_d_epci",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition chef lieu d'EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:chef_lieu_de_canton",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition chef lieu de canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:chef_lieu_de_collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition chef lieu de collectivité territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:chef_lieu_de_commune",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition chef lieu de commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:chef_lieu_de_commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition chef lieu de commune associee ou deleguee"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:chef_lieu_de_departement",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition chef lieu de département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:chef_lieu_de_region",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition chef lieu de région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:commune",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:departement",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:epci",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO.LATEST:region",
+      "description": "ADMIN EXPRESS COG CARTO Dernière édition région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:arrondissement",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:canton",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:chef_lieu_d_arrondissement",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 chef lieu d'arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:chef_lieu_d_arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 chef lieu d'arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:chef_lieu_de_collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 chef lieu de collectivité territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:chef_lieu_de_commune",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 chef lieu de commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:chef_lieu_de_commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 chef lieu de commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:chef_lieu_de_departement",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 chef lieu de département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:chef_lieu_de_region",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 chef lieu de région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:commune",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:departement",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:epci",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2026:region",
+      "description": "ADMIN EXPRESS COG CARTO PE 2026 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:arrondissement",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:canton",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:chef_lieu_d_arrondissement",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 chef lieu d'arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:chef_lieu_d_arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 chef lieu d'arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:chef_lieu_de_collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 chef lieu de collectivité territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:chef_lieu_de_commune",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 chef lieu de commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:chef_lieu_de_commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 chef lieu de commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:chef_lieu_de_departement",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 chef lieu de département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:chef_lieu_de_region",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 chef lieu de région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:commune",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:departement",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:epci",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.2025:region",
+      "description": "ADMIN EXPRESS COG CARTO PE 2025 région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:arrondissement",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:canton",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:chef_lieu_d_arrondissement",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition chef lieu d'arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:chef_lieu_d_arrondissement_municipal",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition chef lieu d'arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:chef_lieu_de_collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition chef lieu de collectivité territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:chef_lieu_de_commune",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition chef lieu de commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:chef_lieu_de_commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition chef lieu de commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:chef_lieu_de_departement",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition chef lieu de département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:chef_lieu_de_region",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition chef lieu de région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:collectivite_territoriale",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:commune",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:commune_associee_ou_deleguee",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:departement",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:epci",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "ADMINEXPRESS-COG-CARTO-PE.LATEST:region",
+      "description": "ADMIN EXPRESS COG CARTO PE Dernière édition région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:arrondissement",
+      "description": "Limites administratives mises a jour en continu - arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:arrondissement_municipal",
+      "description": "Limites administratives mises a jour en continu - arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:canton",
+      "description": "Limites administratives mises a jour en continu - canton"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chef_lieu_d_arrondissement",
+      "description": "Limites administratives mises a jour en continu - chef lieu d'arrondissement"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chef_lieu_d_arrondissement_municipal",
+      "description": "Limites administratives mises a jour en continu - chef lieu d'arrondissement municipal"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chef_lieu_de_collectivite_territoriale",
+      "description": "Limites administratives mises a jour en continu - chef lieu de collectivité territoriale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chef_lieu_de_commune",
+      "description": "Limites administratives mises a jour en continu - chef lieu de commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chef_lieu_de_commune_associee_ou_deleguee",
+      "description": "Limites administratives mises a jour en continu - chef lieu de commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chef_lieu_de_departement",
+      "description": "Limites administratives mises a jour en continu - chef lieu de département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:chef_lieu_de_region",
+      "description": "Limites administratives mises a jour en continu - chef lieu de région"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:collectivite_territoriale",
+      "description": "Limites administratives mises a jour en continu - collectivité territoirale"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:commune",
+      "description": "Limites administratives mises a jour en continu - commune"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:commune_associee_ou_deleguee",
+      "description": "Limites administratives mises a jour en continu - commune associée ou déléguée"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:departement",
+      "description": "Limites administratives mises a jour en continu - département"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:epci",
+      "description": "Limites administratives mises a jour en continu - EPCI"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST:region",
+      "description": "Limites administratives mises a jour en continu - région"
+    },
+    {
+      "type": "tms",
+      "url": "https://data.geopf.fr/tms/1.0.0",
+      "protocol": "TMS",
+      "name": "ADMIN_EXPRESS",
+      "description": "Limites administratives personnalisables"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/DC_ADMIN_EXPRESS_4-0.pdf",
+      "description": "ADMIN EXPRESS - Descriptif de contenu"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/DL_ADMIN_EXPRESS_4-0.pdf",
+      "description": "ADMIN EXPRESS - Descriptif de livraison"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/SE_ADMIN_EXPRESS_depuis_v4-0.pdf",
+      "description": "ADMIN EXPRESS - Suivi des évolution depuis la version 4-0"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/SE_ADMIN_EXPRESS_avant_v4-0.pdf",
+      "description": "ADMIN EXPRESS - Suivi des évolution avant la version 4-0"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Projets_Carto_ADE_3-2.zip",
+      "description": "ADMIN EXPRESS - Projets cartographiques version 3-2"
+    },
+    {
+      "type": "documentation",
+      "url": "https://data.geopf.fr/annexes/ressources/documentation/Projets_carto.pdf",
+      "description": "Projets cartographiques pour les produits vecteur - Manuel utilisateur"
+    }
+  ]
+}
