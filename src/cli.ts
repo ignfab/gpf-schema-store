@@ -8,19 +8,23 @@ import { writeRenderedCatalog } from './cli/render-catalog';
 import { renderSearchOutputs } from './cli/search-outputs';
 import { loadEnrichedCollections } from './enrichment/load-enriched-collections';
 import { compare } from './helpers/compare';
-import { getMetadataFromNamespace } from './helpers/metadata';
 import { formatSchemaIssues } from './helpers/zod';
 import { loadDatasetsConfig, writeDatasetsConfig } from './config/datasets';
-import { getNamespaceFilters } from './config/namespace-filters';
-import { updateDatasets as mergeDatasets, type UpdateDatasetsReport } from './helpers/datasets';
+import {
+  resolveDatasets,
+  selectCollection,
+  updateDatasets as mergeDatasets,
+  type ResolvedDataset,
+  type UpdateDatasetsReport,
+} from './helpers/datasets';
 import { validateOverwriteReferences } from './overwrite/overwrite';
 import { loadCollectionOverwrite } from './overwrite/overwrite-store';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
 import { CswClient } from './source/csw';
-import { replaceCswRecords } from './source/csw-store';
+import { loadCswRecords, replaceCswRecords } from './source/csw-store';
 import { WfsClient } from './source/wfs';
 import { loadSourceCollections, replaceSourceCollections } from './source/source-store';
-import { zPackageMetadata, type NamespaceFilterRule } from './config/types';
+import { zPackageMetadata } from './config/types';
 import {
   type CswRecord,
   type SourceCollection,
@@ -37,7 +41,6 @@ const GPF_WFS_URL = 'https://data.geopf.fr/wfs';
 const GPF_CSW_URL = 'https://data.geopf.fr/csw';
 const DATASETS_CONFIG_PATH = 'config/datasets.yaml';
 const CSW_RECORDS_DIR = 'data/csw';
-const NAMESPACE_FILTERS_PATH = 'data/namespace-filters.yaml';
 const WFS_SNAPSHOT_DIR = 'data/wfs';
 const PACKAGE_JSON_PATH = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json');
 
@@ -144,11 +147,21 @@ function printUpdateDatasetsReport(report: UpdateDatasetsReport): void {
   );
 }
 
-function loadNamespaceFilterRules(): NamespaceFilterRule[] {
-  console.log(`Loading filters from ${NAMESPACE_FILTERS_PATH}...`);
-  const namespaceFilterRules = getNamespaceFilters();
-  console.log(`${namespaceFilterRules.length} filters loaded from ${NAMESPACE_FILTERS_PATH}.`);
-  return namespaceFilterRules;
+function loadResolvedDatasets(): ResolvedDataset[] {
+  console.log(`Loading datasets from ${DATASETS_CONFIG_PATH} and ${CSW_RECORDS_DIR}...`);
+  const config = loadDatasetsConfig();
+  const records = loadCswRecords();
+  const datasets = resolveDatasets(config, records);
+
+  for (const dataset of datasets) {
+    if (dataset.source === 'csw' && !dataset.ignored && !dataset.record) {
+      console.warn(`WARNING: [${dataset.id}] no record in ${CSW_RECORDS_DIR} for a non-ignored dataset (run npm run update:csw)`);
+    }
+  }
+
+  const enabledCount = datasets.filter((dataset) => !dataset.ignored).length;
+  console.log(`${datasets.length} datasets loaded (${enabledCount} non-ignored, ${records.length} records).`);
+  return datasets;
 }
 
 async function loadRemoteCollections(wfsClient: WfsClient): Promise<SourceCollectionBrief[]> {
@@ -158,29 +171,39 @@ async function loadRemoteCollections(wfsClient: WfsClient): Promise<SourceCollec
   return collections;
 }
 
-function filterCollectionsByNamespaceRules(
+function selectCollections(
   collections: SourceCollectionBrief[],
-  namespaceFilterRules: NamespaceFilterRule[],
+  datasets: ResolvedDataset[],
 ): SourceCollectionBrief[] {
-  console.log('Filtering collections based on namespace filters...');
-  const filteredCollections = collections.filter((collection) => {
-    const metadata = getMetadataFromNamespace(collection.namespace, namespaceFilterRules);
-    // TODO : make it clean with https://github.com/ignfab/gpf-schema-store/issues/56
-    if ( collection.id === 'BDTOPO_V3:erp' ){
-      console.log(`WARNING: ignored BDTOPO_V3:erp (hardcoded)`)
-      return false;
+  console.log('Selecting collections based on datasets...');
+  const namespacesWithoutDataset = new Map<string, number>();
+
+  const selectedCollections = collections.filter((collection) => {
+    const selection = selectCollection(collection.id, datasets);
+    if (selection.selected) {
+      return true;
     }
-    return !metadata.ignored;
+    if (selection.datasets.length === 0) {
+      namespacesWithoutDataset.set(collection.namespace, (namespacesWithoutDataset.get(collection.namespace) ?? 0) + 1);
+    } else {
+      console.log(`Ignored ${collection.id}: ${selection.reason}`);
+    }
+    return false;
   });
-  console.log(`${filteredCollections.length} collections remain after filtering.`);
-  return filteredCollections;
+
+  for (const [namespace, count] of [...namespacesWithoutDataset].sort(([a], [b]) => (a < b ? -1 : 1))) {
+    console.warn(`WARNING: [${namespace}] WFS namespace without dataset (${count} collections ignored)`);
+  }
+  console.log(`${namespacesWithoutDataset.size} WFS namespaces without dataset.`);
+  console.log(`${selectedCollections.length} collections selected.`);
+  return selectedCollections;
 }
 
 async function loadCollectionDetails(
   wfsClient: WfsClient,
   collections: SourceCollectionBrief[],
 ): Promise<SourceCollection[]> {
-  console.log('Retrieve collection details for the filtered collections...');
+  console.log('Retrieve collection details for the selected collections...');
   const detailedCollections: SourceCollection[] = [];
 
   for (const collection of collections) {
@@ -259,11 +282,11 @@ async function updateCswRecords(): Promise<void> {
 }
 
 async function updateCollections(): Promise<void> {
-  const namespaceFilterRules = loadNamespaceFilterRules();
+  const datasets = loadResolvedDatasets();
   const wfsClient = createWfsClient();
   const collections = await loadRemoteCollections(wfsClient);
-  const filteredCollections = filterCollectionsByNamespaceRules(collections, namespaceFilterRules);
-  const detailedCollections = await loadCollectionDetails(wfsClient, filteredCollections);
+  const selectedCollections = selectCollections(collections, datasets);
+  const detailedCollections = await loadCollectionDetails(wfsClient, selectedCollections);
 
   console.log(`Replacing local WFS snapshots in ${WFS_SNAPSHOT_DIR}...`);
   replaceSourceCollections(detailedCollections);
