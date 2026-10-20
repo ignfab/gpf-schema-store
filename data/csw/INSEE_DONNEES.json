@@ -14,6 +14,7 @@
     "territoires",
     "National"
   ],
+  "spatialScope": "national",
   "links": [
     {
       "type": "other",

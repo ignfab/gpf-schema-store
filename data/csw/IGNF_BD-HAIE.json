@@ -15,6 +15,7 @@
     "bosquets",
     "arbres"
   ],
+  "spatialScope": "national",
   "links": [
     {
       "type": "download",
