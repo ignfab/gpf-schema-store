@@ -35,6 +35,7 @@
     "transports",
     "végétation"
   ],
+  "spatialScope": "national",
   "links": [
     {
       "type": "download",

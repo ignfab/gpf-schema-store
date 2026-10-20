@@ -1,7 +1,7 @@
 import { DOMParser } from '@xmldom/xmldom';
 import xpath from 'xpath';
 
-import type { CswLink, CswRecord, CswRecordBrief } from '../types';
+import { zCswSpatialScope, type CswLink, type CswRecord, type CswRecordBrief, type CswSpatialScope } from '../types';
 import { getLinkType } from './link-type';
 
 /*
@@ -16,6 +16,8 @@ const select = xpath.useNamespaces({
   ows: 'http://www.opengis.net/ows',
   gmd: 'http://www.isotc211.org/2005/gmd',
   gmi: 'http://www.isotc211.org/2005/gmi',
+  gmx: 'http://www.isotc211.org/2005/gmx',
+  xlink: 'http://www.w3.org/1999/xlink',
 });
 
 /**
@@ -143,6 +145,26 @@ function parseKeywords(metadata: Node): string[] {
   return [...new Set(keywords)];
 }
 
+const SPATIAL_SCOPE_CODE_LIST = 'http://inspire.ec.europa.eu/metadata-codelist/SpatialScope';
+
+/**
+ * Returns the INSPIRE Spatial Scope from the code of the keyword (xlink:href of the gmx:Anchor),
+ * the label being localized (ex : "National", "Régional").
+ */
+function parseSpatialScope(metadata: Node): CswSpatialScope | undefined {
+  const hrefs = findValues('./gmd:identificationInfo/*/gmd:descriptiveKeywords/*/gmd:keyword/gmx:Anchor/@xlink:href', metadata);
+  for (const href of hrefs) {
+    if (!href.startsWith(`${SPATIAL_SCOPE_CODE_LIST}/`)) {
+      continue;
+    }
+    const result = zCswSpatialScope.safeParse(href.slice(SPATIAL_SCOPE_CODE_LIST.length + 1));
+    if (result.success) {
+      return result.data;
+    }
+  }
+  return undefined;
+}
+
 function parseOnlineResource(onlineResource: Node): CswLink | undefined {
   const url = findValue('./gmd:linkage/gmd:URL', onlineResource);
   if (!url) {
@@ -173,6 +195,7 @@ function parseMetadata(metadata: Node): CswRecord {
   }
   const type = parseType(metadata);
   const abstract = parseAbstract(metadata);
+  const spatialScope = parseSpatialScope(metadata);
 
   // Fields are built in a stable order for the JSON files.
   return {
@@ -181,6 +204,7 @@ function parseMetadata(metadata: Node): CswRecord {
     title: parseTitle(metadata) ?? '',
     ...(abstract ? { abstract } : {}),
     keywords: parseKeywords(metadata),
+    ...(spatialScope ? { spatialScope } : {}),
     links: parseOnlineResources(metadata),
   };
 }

@@ -72,12 +72,27 @@ export const zCswLink = z.object({
 export type CswLink = z.infer<typeof zCswLink>;
 
 
+/**
+ * INSPIRE Spatial Scope (code from http://inspire.ec.europa.eu/metadata-codelist/SpatialScope)
+ */
+export const zCswSpatialScope = z.enum([
+  'local',
+  'regional',
+  'national',
+  'european',
+  'global',
+]);
+
+export type CswSpatialScope = z.infer<typeof zCswSpatialScope>;
+
+
 export const zCswRecord = z.object({
   fileIdentifier: z.string().min(1),
   type: z.string().min(1).optional(),
   title: z.string(),
   abstract: z.string().optional(),
   keywords: z.array(z.string()),
+  spatialScope: zCswSpatialScope.optional(),
   links: z.array(zCswLink),
 }).strict();
 

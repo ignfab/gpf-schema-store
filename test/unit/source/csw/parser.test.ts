@@ -40,7 +40,8 @@ describe('parseIsoRecords', () => {
         type: 'series',
         title: 'BD HAIE',
         abstract: 'La BD Haie est une couche nationale de référence des haies linéaires.',
-        keywords: ['haies', 'bocages'],
+        keywords: ['haies', 'bocages', 'National'],
+        spatialScope: 'national',
         links: [
           {
             type: 'wfs',
@@ -57,6 +58,22 @@ describe('parseIsoRecords', () => {
         ],
       },
     ])
+  })
+
+  it('reads the spatialScope from the code of the keyword, not from its label', () => {
+    const xml = ISO_RECORD.replace(
+      'SpatialScope/national" xmlns:xlink="http://www.w3.org/1999/xlink">National',
+      'SpatialScope/global" xmlns:xlink="http://www.w3.org/1999/xlink">National',
+    )
+    expect(parseIsoRecords(xml)[0].spatialScope).toBe('global')
+  })
+
+  it('omits the spatialScope when the code is unknown or missing', () => {
+    const unknown = ISO_RECORD.replace('SpatialScope/national', 'SpatialScope/departemental')
+    expect(parseIsoRecords(unknown)[0]).not.toHaveProperty('spatialScope')
+
+    const missing = ISO_RECORD.replace('SpatialScope/national', 'SpatialScope')
+    expect(parseIsoRecords(missing)[0]).not.toHaveProperty('spatialScope')
   })
 
   it('returns an empty list when the response has no record', () => {
