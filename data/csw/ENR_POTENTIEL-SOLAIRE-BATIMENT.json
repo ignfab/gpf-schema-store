@@ -1,0 +1,123 @@
+{
+  "fileIdentifier": "ENR_POTENTIEL-SOLAIRE-BATIMENT",
+  "type": "series",
+  "title": "ENR - Potentiel solaire photovoltaïque des toitures",
+  "abstract": "Estimation simplifiée du potentiel solaire en toiture en Wh/an sur la base de la couche bâti de la BD TOPO® (2022 - producteur IGN). Pour chaque emprise de bâtiment, la valeur fournie est une estimation de l’énergie solaire reçue sur des panneaux photovoltaïque qui seraient installés sur toiture, selon une méthode très simplifiée décrite dans la fiche de métadonnées de cette couche et qui, notamment, ne prend pas en compte les masques proches. Cette information est fournie à titre indicatif et ne saurait se substituer à des estimations réalisées avec des méthodes plus précises.\n\n**Producteur** : Cerema \n\n**Millésime** : 2023",
+  "keywords": [
+    "Occupation des terres",
+    "Sources d'énergie",
+    "National",
+    "bâtiments",
+    "données ouvertes",
+    "énergies renouvelables",
+    "photovoltaïques",
+    "portail enr",
+    "potentiel énergétique",
+    "toitures"
+  ],
+  "spatialScope": "national",
+  "links": [
+    {
+      "type": "other",
+      "url": "https://planification.climat-energie.gouv.fr/",
+      "description": "ENR - Portail Cartographique"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R84_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R84_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Auvergne-Rhône-Alpes"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R27_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R27_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Bourgogne-Franche-Comté"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R53_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R53_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Bretagne"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R24_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R24_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Centre-Val de Loire"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R94_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R94_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Corse"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R44_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R44_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Grand Est"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R32_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R32_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Hauts-de-France"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R11_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R11_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Ile-de-France"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R28_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R28_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Normandie"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R75_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R75_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Nouvelle-Aquitaine"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R76_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R6_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Occitanie"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R52_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R52_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Pays de la Loire"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/download/ENR/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R93_2023-07-01/ENR_1-0_L21-POT-SOL-BAT_GPKG_LAMB93_R93_2023-07-01.7z",
+      "description": "Potentiel solaire au sol - Téléchargement - Provence-Alpes-Côte d’Azur"
+    },
+    {
+      "type": "documentation",
+      "url": "https://cerema.box.com/shared/static/geukigd7e5b0gv1jb5rwk85lj407klz9.pdf",
+      "description": "Métadonnée de produit"
+    },
+    {
+      "type": "download",
+      "url": "https://data.geopf.fr/telechargement/resource/ENR",
+      "protocol": "WWW:DOWNLOAD-1.0-http--download",
+      "name": "Potentiel solaire photovoltaïque sur bâtiment"
+    },
+    {
+      "type": "wmts",
+      "url": "https://data.geopf.fr/wmts?SERVICE=WMTS&VERSION=1.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMTS",
+      "name": "POTENTIEL.SOLAIRE.BATIMENT",
+      "description": "Potentiel solaire photovoltaïque sur bâtiment"
+    },
+    {
+      "type": "wms",
+      "url": "https://data.geopf.fr/wms-v/ows?service=wms&VERSION=1.3.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WMS",
+      "name": "PPOTENTIEL.SOLAIRE.BATIMENT",
+      "description": "Potentiel solaire photovoltaïque sur bâtiment"
+    },
+    {
+      "type": "wfs",
+      "url": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetCapabilities",
+      "protocol": "OGC:WFS",
+      "name": "PPOTENTIEL.SOLAIRE.BATIMENT:bati",
+      "description": "Potentiel solaire photovoltaïque sur bâtiment"
+    }
+  ]
+}

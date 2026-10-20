@@ -1,0 +1,44 @@
+{
+  "title": "Potentiel solaire sur toiture (méthode simplifiée)",
+  "x-ign-theme": "Énergie",
+  "description": "Potentiel solaire photovoltaïque des toitures en France métropolitaine (CEREMA, millésime 2023). Pour chaque emprise de bâtiment de la BD TOPO, estimation de l'énergie solaire reçue sur des panneaux photovoltaïques installés en toiture, calculée à partir d'un ensoleillement moyen annuel corrigé en fonction de la pente de la toiture et de l'azimut du bâtiment.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant du bâtiment dans la BD TOPO (table batiment)."
+    },
+    {
+      "name": "dep",
+      "type": "string",
+      "title": "Département",
+      "description": "Numéro de département."
+    },
+    {
+      "name": "code_insee",
+      "type": "string",
+      "title": "Code INSEE",
+      "description": "Code INSEE de la commune sur laquelle se trouve le bâtiment."
+    },
+    {
+      "name": "puissance",
+      "type": "number",
+      "title": "Puissance",
+      "description": "Puissance théorique disponible sur des panneaux photovoltaïques installés en toiture (en kWh/an)."
+    },
+    {
+      "name": "presume_public",
+      "type": "boolean",
+      "title": "Présumé public",
+      "description": "Indique si le bâtiment est présumé public (attribut non décrit dans la fiche de métadonnées du produit)."
+    },
+    {
+      "name": "geom",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": "Géométrie du bâtiment."
+    }
+  ],
+  "required": []
+}
