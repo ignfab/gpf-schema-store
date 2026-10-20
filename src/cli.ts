@@ -13,6 +13,7 @@ import { loadDatasetsConfig, writeDatasetsConfig } from './config/datasets';
 import {
   resolveDatasets,
   selectCollection,
+  SERVICE_RECORD_REASON,
   updateDatasets as mergeDatasets,
   type ResolvedDataset,
   type UpdateDatasetsReport,
@@ -143,13 +144,14 @@ function warnDatasets(ids: string[], message: string): void {
 
 function printUpdateDatasetsReport(report: UpdateDatasetsReport): void {
   warnDatasets(report.added, 'new dataset added with ignored: true (review required)');
+  warnDatasets(report.services, `service record flagged with ignoredReason: ${SERVICE_RECORD_REASON}`);
   warnDatasets(report.missing, 'record no longer found in the CSW (flagged with missing: true)');
   warnDatasets(report.restored, 'record found again in the CSW (missing flag removed)');
   warnDatasets(report.skipped, 'record skipped (fileIdentifier not usable as a file name)');
   warnDatasets(report.conflicts, 'record ignored (fileIdentifier already used by a manual dataset)');
   warnDatasets(report.manualWithoutLinks, 'manual dataset without links');
   console.log(
-    `${report.added.length} added, ${report.updated.length} titles updated, ${report.missing.length} missing, ${report.restored.length} restored, ${report.skipped.length} skipped.`,
+    `${report.added.length} added, ${report.services.length} services, ${report.updated.length} titles updated, ${report.missing.length} missing, ${report.restored.length} restored, ${report.skipped.length} skipped.`,
   );
 }
 

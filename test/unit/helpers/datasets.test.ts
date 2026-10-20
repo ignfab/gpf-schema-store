@@ -8,6 +8,7 @@ import {
   parseDatasets,
   resolveDatasets,
   selectCollection,
+  SERVICE_RECORD_REASON,
   updateDatasets,
 } from '@/helpers/datasets'
 import type { CswRecord, CswRecordBrief } from '@/source/types'
@@ -50,8 +51,8 @@ const CONFIG: DatasetsConfig = {
   ],
 }
 
-function brief(fileIdentifier: string, title = `Title of ${fileIdentifier}`): CswRecordBrief {
-  return { fileIdentifier, title, type: 'series' }
+function brief(fileIdentifier: string, title = `Title of ${fileIdentifier}`, type = 'series'): CswRecordBrief {
+  return { fileIdentifier, title, type }
 }
 
 function record(fileIdentifier: string, wfsNames: string[]): CswRecord {
@@ -225,6 +226,38 @@ describe('updateDatasets', () => {
     expect(report.updated).toEqual(['IGNF_BD-TOPO'])
   })
 
+  it('adds new service records with a dedicated reason', () => {
+    const { config, report } = updateDatasets({ datasets: [] }, [
+      brief('GeoPF_WFS', 'API Géoplateforme - WFS', 'service'),
+      brief('A', 'A', 'dataset'),
+    ])
+    expect(config.datasets).toEqual([
+      { id: 'A', source: 'csw', title: 'A', ignored: true, ignoredReason: NEW_DATASET_REASON },
+      { id: 'GeoPF_WFS', source: 'csw', title: 'API Géoplateforme - WFS', ignored: true, ignoredReason: SERVICE_RECORD_REASON },
+    ])
+    expect(report.added).toEqual(['A', 'GeoPF_WFS'])
+    expect(report.services).toEqual(['GeoPF_WFS'])
+  })
+
+  it('flags the service records waiting for a review, preserving the other decisions', () => {
+    const { config, report } = updateDatasets(
+      {
+        datasets: [
+          { id: 'S1', source: 'csw', title: 'S1', ignored: true, ignoredReason: NEW_DATASET_REASON },
+          { id: 'S2', source: 'csw', title: 'S2', ignored: true, ignoredReason: 'Using geocoding service in the MCP' },
+          { id: 'S3', source: 'csw', title: 'S3' },
+        ],
+      },
+      [brief('S1', 'S1', 'service'), brief('S2', 'S2', 'service'), brief('S3', 'S3', 'service')],
+    )
+    expect(config.datasets).toEqual([
+      { id: 'S1', source: 'csw', title: 'S1', ignored: true, ignoredReason: SERVICE_RECORD_REASON },
+      { id: 'S2', source: 'csw', title: 'S2', ignored: true, ignoredReason: 'Using geocoding service in the MCP' },
+      { id: 'S3', source: 'csw', title: 'S3' },
+    ])
+    expect(report.services).toEqual(['S1'])
+  })
+
   it('never modifies manual entries', () => {
     const { config } = updateDatasets(CONFIG, records)
     expect(config.datasets.find((dataset) => dataset.id === 'GPU')).toEqual(CONFIG.datasets[1])
@@ -255,6 +288,7 @@ describe('updateDatasets', () => {
     expect(dumpDatasets(second.config)).toBe(dumpDatasets(first.config))
     expect(second.report).toEqual({
       added: [],
+      services: [],
       updated: [],
       missing: [],
       restored: [],

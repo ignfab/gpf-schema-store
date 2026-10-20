@@ -1,7 +1,7 @@
 # Datasets of the Géoplateforme, from the metadata records of https://data.geopf.fr/csw
 #
 # Updated by `npm run update:datasets` (comments are not preserved, see CODING.md) :
-# - new records are added with `ignored: true` (review required)
+# - new records are added with `ignored: true` (review required, `Service record` for the services)
 # - `title` and `missing` are refreshed for `source: csw`
 # - decisions (`ignored`, `ignoredReason`, `product`, `excludes`, `links`) are preserved
 #
@@ -740,115 +740,115 @@ datasets:
     source: csw
     title: API Géoplateforme - Alimentation, traitement et publication
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Altimetrie
     source: csw
     title: API Géoplateforme - Calcul altimétrique
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Autocompletion
     source: csw
     title: API Géoplateforme - Autocomplétion
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_CSW
     source: csw
     title: API Géoplateforme - Découverte des métadonnées CSW
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Extraction
     source: csw
     title: API Géoplateforme - Extraction
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Geocodage
     source: csw
     title: API Géoplateforme - Géocodage
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Isochrone-Isodistance
     source: csw
     title: API Géoplateforme - Calcul d’isochrone/isodistance
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Itineraire
     source: csw
     title: API Géoplateforme - Calcul d’itinéraire
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Recherche
     source: csw
     title: API Géoplateforme - Recherche
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Statistiques
     source: csw
     title: API Géoplateforme - Statistiques d'utilisation
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_TMS
     source: csw
     title: API Géoplateforme - Diffusion de tuiles vectorielles TMS
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_TMS-pgtileserv
     source: csw
     title: API Géoplateforme - Diffusion de tuiles vectorielles pg_tileserv
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Telechargement
     source: csw
     title: API Géoplateforme - Téléchargement
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Telechargement-partiel
     source: csw
     title: API Géoplateforme - Téléchargement partiel
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_Validation
     source: csw
     title: API Géoplateforme - Validation
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_WFS
     source: csw
     title: API Géoplateforme - Diffusion d'objets WFS
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_WMS-Raster
     source: csw
     title: API Géoplateforme - Diffusion d'images WMS-Raster
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_WMS-Vecteur
     source: csw
     title: API Géoplateforme - Diffusion d'images WMS-Vecteur
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: GeoPF_WMTS
     source: csw
     title: API Géoplateforme - Diffusion d'images tuilées WMTS
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Service record
 
   - id: ID
     source: csw

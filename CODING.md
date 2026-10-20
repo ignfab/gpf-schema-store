@@ -106,6 +106,7 @@ npm run update:datasets
 ```
 
 * new records are added with `ignored: true` and `ignoredReason: New dataset, review required` (warning);
+* service records (`type: service`, ex : the `GeoPF_*` records of the Géoplateforme APIs) are flagged with `ignoredReason: Service record` when they are new or still `New dataset, review required` (warning). The distinction between `dataset` and `series` is not used (not reliable);
 * the `title` of the `csw` entries is refreshed;
 * disappeared records are flagged with `missing: true` (warning), the flag is removed when the record comes back;
 * `manual` entries are never modified (warning if they have no `links`);
