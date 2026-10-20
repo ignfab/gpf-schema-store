@@ -51,6 +51,21 @@ class StubSearchEngine implements CollectionSearchEngine {
   }
 }
 
+/**
+ * Search engine written against the old `search(query)` contract: it ignores options.limit.
+ */
+class IgnoreOptionsSearchEngine implements CollectionSearchEngine {
+  private readonly ids: string[];
+
+  constructor(ids: string[]) {
+    this.ids = ids;
+  }
+
+  search(): CollectionSearchMatch[] {
+    return this.ids.map((id) => ({ id }));
+  }
+}
+
 class NullSearchEngine implements CollectionSearchEngine {
   search(_: string): CollectionSearchMatch[] {
     return [];
@@ -117,6 +132,17 @@ describe('InMemoryCollectionCatalog', () => {
       const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
 
       expect(catalog.search('scored')).toEqual(SCORED);
+    });
+
+    // see https://github.com/ignfab/gpf-schema-store/issues/65
+    it('returns at most limit matches when the search engine ignores options', () => {
+      const engine = new IgnoreOptionsSearchEngine(['NS:first', 'NS:second', 'NS:third']);
+      const catalog = new InMemoryCollectionCatalog(FIXTURES, engine);
+
+      expect(catalog.search('any', { limit: 2 }).map((match) => match.id)).toEqual([
+        'NS:first',
+        'NS:second',
+      ]);
     });
   });
 

@@ -43,7 +43,11 @@ export class InMemoryCollectionCatalog implements CollectionCatalog {
   }
 
   search(query: string, options: CollectionSearchOptions = {}): CollectionSearchMatch[] {
-    return this.searchEngine.search(query, options);
+    const matches = this.searchEngine.search(query, options);
+    // Defensive: custom engines may ignore options.limit (see #65)
+    return options.limit === undefined
+      ? matches
+      : matches.slice(0, Math.max(0, options.limit));
   }
 
 }
