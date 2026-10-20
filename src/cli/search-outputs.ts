@@ -1,7 +1,5 @@
-import type {
-  MiniSearchCollectionSearchEngine,
-  MiniSearchCollectionSearchMatch,
-} from '@/search/minisearch-engine';
+import type { MiniSearchCollectionSearchEngine } from '@/search/minisearch-engine';
+import type { CollectionSearchMatch } from '@/search/types';
 
 const FIELD_DISPLAY_ORDER = [
   'title',
@@ -33,7 +31,7 @@ function sortFields(fields: string[]): string[] {
   return [...fields].sort(compareFieldNames);
 }
 
-function formatMatchExplanation(match: MiniSearchCollectionSearchMatch): string[] {
+function formatMatchExplanation(match: CollectionSearchMatch): string[] {
   if (!match.match) {
     return [];
   }
@@ -85,7 +83,7 @@ function formatEngineConfig(engine: MiniSearchCollectionSearchEngine): string[] 
 export function renderSearchOutputs(
   engine: MiniSearchCollectionSearchEngine,
   query: string,
-  matches: MiniSearchCollectionSearchMatch[],
+  matches: CollectionSearchMatch[],
 ): string[] {
   const lines = [
     '',

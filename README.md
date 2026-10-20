@@ -58,6 +58,8 @@ const matches = catalog.search("pont", { limit: 3 });
 console.log("top matches:", matches);
 ```
 
+Each match provides the collection `id`. The default MiniSearch engine also explains the match with `score`, `queryTerms`, `terms` and `match` (fields where each term was found). These details are optional: a custom `searchEngine` is not guaranteed to provide them.
+
 > **Long term**: it should rely on a search service on the French Geoplateforme that uses schema information (especially enum values), for example `GET /collections/search?q={query}` or an improved version of the current [*Service Géoplateforme de recherche*](https://cartes.gouv.fr/aide/fr/guides-utilisateur/utiliser-les-services-de-la-geoplateforme/recherche/).
 
 ## Coding

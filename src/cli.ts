@@ -350,7 +350,7 @@ function searchCollections(queryParts: string[], options: SearchCommandOptions):
   const limit = parseSearchLimit(options.limit);
   const collections = loadEnrichedCollections();
   const engine = new MiniSearchCollectionSearchEngine(collections);
-  const matches = engine.searchDetailed(query).slice(0, limit);
+  const matches = engine.search(query).slice(0, limit);
 
   for (const line of renderSearchOutputs(engine, query, matches)) {
     console.log(line);
