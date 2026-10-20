@@ -31,6 +31,7 @@
     "update:datasets": "node --use-env-proxy dist/cli.js update-datasets",
     "update:csw": "node --use-env-proxy dist/cli.js update-csw",
     "update:wfs": "node --use-env-proxy dist/cli.js update-wfs",
+    "csw:dump": "node --use-env-proxy dist/cli.js csw-dump",
     "update:catalog": "node --use-env-proxy dist/cli.js render-catalog data/catalog --clean",
     "check:overwrites": "node --use-env-proxy dist/cli.js check-overwrites",
     "start": "npm run cli",
