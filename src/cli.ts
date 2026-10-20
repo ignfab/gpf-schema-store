@@ -1,8 +1,7 @@
-import { createWriteStream, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { format } from '@fast-csv/format';
 import { Command } from 'commander';
 
 import { writeRenderedCatalog } from './cli/render-catalog';
@@ -11,15 +10,19 @@ import { loadEnrichedCollections } from './enrichment/load-enriched-collections'
 import { compare } from './helpers/compare';
 import { getMetadataFromNamespace } from './helpers/metadata';
 import { formatSchemaIssues } from './helpers/zod';
-import { getDataDir } from './config/data-dir';
+import { loadDatasetsConfig, writeDatasetsConfig } from './config/datasets';
 import { getNamespaceFilters } from './config/namespace-filters';
+import { updateDatasets as mergeDatasets, type UpdateDatasetsReport } from './helpers/datasets';
 import { validateOverwriteReferences } from './overwrite/overwrite';
 import { loadCollectionOverwrite } from './overwrite/overwrite-store';
 import { MiniSearchCollectionSearchEngine } from './search/minisearch-engine';
+import { CswClient } from './source/csw';
+import { replaceCswRecords } from './source/csw-store';
 import { WfsClient } from './source/wfs';
 import { loadSourceCollections, replaceSourceCollections } from './source/source-store';
 import { zPackageMetadata, type NamespaceFilterRule } from './config/types';
 import {
+  type CswRecord,
   type SourceCollection,
   type SourceCollectionBrief
 } from './source/types';
@@ -31,6 +34,9 @@ import {
  */
 
 const GPF_WFS_URL = 'https://data.geopf.fr/wfs';
+const GPF_CSW_URL = 'https://data.geopf.fr/csw';
+const DATASETS_CONFIG_PATH = 'config/datasets.yaml';
+const CSW_RECORDS_DIR = 'data/csw';
 const NAMESPACE_FILTERS_PATH = 'data/namespace-filters.yaml';
 const WFS_SNAPSHOT_DIR = 'data/wfs';
 const PACKAGE_JSON_PATH = join(dirname(fileURLToPath(import.meta.url)), '..', 'package.json');
@@ -58,6 +64,16 @@ function buildProgram(): Command {
     .version(loadPackageVersion());
 
   program
+    .command('update-datasets')
+    .description('Update config/datasets.yaml from the list of the CSW records (decisions are preserved)')
+    .action(updateDatasets);
+
+  program
+    .command('update-csw')
+    .description('Download the records of the non-ignored datasets from the CSW (data/csw/{fileIdentifier}.json)')
+    .action(updateCswRecords);
+
+  program
     .command('update-wfs')
     .description('Update the collections from the GPF WFS (data/wfs/{namespace}/{name}.json)')
     .action(updateCollections);
@@ -66,11 +82,6 @@ function buildProgram(): Command {
     .command('check-overwrites')
     .description('Ensure that overwrites are in sync with local WFS snapshots (data/wfs)')
     .action(checkOverwrites);
-
-  program
-    .command('update-namespaces')
-    .description('Update the namespaces.csv file with the WFS namespaces with metadata')
-    .action(updateNamespaces);
 
   program
     .command('search')
@@ -113,6 +124,24 @@ function loadPackageVersion(): string {
 
 function createWfsClient(): WfsClient {
   return new WfsClient(GPF_WFS_URL);
+}
+
+function warnDatasets(ids: string[], message: string): void {
+  for (const id of ids) {
+    console.warn(`WARNING: [${id}] ${message}`);
+  }
+}
+
+function printUpdateDatasetsReport(report: UpdateDatasetsReport): void {
+  warnDatasets(report.added, 'new dataset added with ignored: true (review required)');
+  warnDatasets(report.missing, 'record no longer found in the CSW (flagged with missing: true)');
+  warnDatasets(report.restored, 'record found again in the CSW (missing flag removed)');
+  warnDatasets(report.skipped, 'record skipped (fileIdentifier not usable as a file name)');
+  warnDatasets(report.conflicts, 'record ignored (fileIdentifier already used by a manual dataset)');
+  warnDatasets(report.manualWithoutLinks, 'manual dataset without links');
+  console.log(
+    `${report.added.length} added, ${report.updated.length} titles updated, ${report.missing.length} missing, ${report.restored.length} restored, ${report.skipped.length} skipped.`,
+  );
 }
 
 function loadNamespaceFilterRules(): NamespaceFilterRule[] {
@@ -191,6 +220,44 @@ function parseSearchLimit(rawLimit: string): number {
  * =============================================================================
  */
 
+async function updateDatasets(): Promise<void> {
+  console.log(`Loading datasets from ${DATASETS_CONFIG_PATH}...`);
+  const config = loadDatasetsConfig({ allowMissing: true });
+  console.log(`${config.datasets.length} datasets loaded from ${DATASETS_CONFIG_PATH}.`);
+
+  console.log(`Listing the records from ${GPF_CSW_URL}...`);
+  const records = await new CswClient(GPF_CSW_URL).listRecords();
+  console.log(`${records.length} records retrieved from the CSW.`);
+
+  const { config: updatedConfig, report } = mergeDatasets(config, records);
+  printUpdateDatasetsReport(report);
+
+  writeDatasetsConfig(updatedConfig);
+  console.log(`${updatedConfig.datasets.length} datasets saved to ${DATASETS_CONFIG_PATH}.`);
+}
+
+async function updateCswRecords(): Promise<void> {
+  console.log(`Loading datasets from ${DATASETS_CONFIG_PATH}...`);
+  const config = loadDatasetsConfig();
+  const datasets = config.datasets.filter((dataset) => dataset.source === 'csw' && !dataset.ignored);
+  console.log(`${datasets.length} non-ignored csw datasets found in ${DATASETS_CONFIG_PATH}.`);
+
+  const cswClient = new CswClient(GPF_CSW_URL);
+  const records: CswRecord[] = [];
+  for (const dataset of datasets) {
+    if (dataset.missing) {
+      console.warn(`WARNING: [${dataset.id}] non-ignored dataset flagged as missing in the CSW (skipped)`);
+      continue;
+    }
+    console.log(`Retrieving record ${dataset.id}...`);
+    records.push(await cswClient.getRecord(dataset.id));
+  }
+
+  console.log(`Replacing local records in ${CSW_RECORDS_DIR}...`);
+  replaceCswRecords(records);
+  console.log(`${records.length} records saved to ${CSW_RECORDS_DIR}/{fileIdentifier}.json`);
+}
+
 async function updateCollections(): Promise<void> {
   const namespaceFilterRules = loadNamespaceFilterRules();
   const wfsClient = createWfsClient();
@@ -236,50 +303,6 @@ function checkOverwrites(): void {
   }
 
   console.log('Success : No difference found between local WFS snapshots and overwrites.');
-}
-
-async function updateNamespaces(): Promise<void> {
-  console.log('Updating namespaces.csv file with the WFS namespaces with metadata...');
-
-  const namespaceFilterRules = loadNamespaceFilterRules();
-  const collections = await loadRemoteCollections(createWfsClient());
-
-  console.log('Extracting unique namespaces ...');
-  const namespaces = [...new Set(collections.map((collection) => collection.namespace))].sort();
-  console.log(`${namespaces.length} unique namespaces extracted.`);
-
-  console.log('Writing namespaces and metadata to namespaces.csv...');
-  const fileStream = createWriteStream(join(getDataDir(), 'namespaces.csv'));
-  const stream = format({ delimiter: ',' });
-  stream.pipe(fileStream);
-
-  stream.write([
-    'NAMESPACE',
-    'PRODUCT',
-    'IGNORED',
-    'IGNORED_REASON',
-    'COLLECTIONS',
-  ]);
-
-  for (const namespace of namespaces) {
-    const metadata = getMetadataFromNamespace(namespace, namespaceFilterRules);
-    stream.write([
-      namespace,
-      metadata.product,
-      metadata.ignored,
-      metadata.ignoredReason,
-      collections.filter((collection) => collection.namespace === namespace).map((collection) => collection.name).join('|'),
-    ]);
-  }
-
-  await new Promise<void>((resolve, reject) => {
-    fileStream.on('finish', resolve);
-    fileStream.on('error', reject);
-    stream.on('error', reject);
-    stream.end();
-  });
-
-  console.log('Namespaces and metadata successfully written to namespaces.csv.');
 }
 
 function searchCollections(queryParts: string[], options: SearchCommandOptions): void {
