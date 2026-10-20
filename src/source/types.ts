@@ -37,3 +37,59 @@ export const zSourceCollectionBrief = zSourceCollection.omit({ properties: true 
  * Informations from GetCapabilities before DescribeFeatureType fills `properties`
  */
 export type SourceCollectionBrief = z.infer<typeof zSourceCollectionBrief>;
+
+
+/*
+ * ============================================================================
+ * CSW Metadata Records
+ * ============================================================================
+ */
+// Pivot model for the metadata records of https://data.geopf.fr/csw
+// stored in data/csw/{fileIdentifier}.json.
+
+export const zCswLinkType = z.enum([
+  'wfs',
+  'wms',
+  'wmts',
+  'tms',
+  'download',
+  'documentation',
+  'capabilities',
+  'other',
+]);
+
+export type CswLinkType = z.infer<typeof zCswLinkType>;
+
+
+export const zCswLink = z.object({
+  type: zCswLinkType,
+  url: z.string().min(1),
+  protocol: z.string().min(1).optional(),
+  name: z.string().min(1).optional(),
+  description: z.string().min(1).optional(),
+}).strict();
+
+export type CswLink = z.infer<typeof zCswLink>;
+
+
+export const zCswRecord = z.object({
+  fileIdentifier: z.string().min(1),
+  type: z.string().min(1).optional(),
+  title: z.string(),
+  abstract: z.string().optional(),
+  keywords: z.array(z.string()),
+  links: z.array(zCswLink),
+}).strict();
+
+export type CswRecord = z.infer<typeof zCswRecord>;
+
+
+export const zCswRecordBrief = z.object({
+  fileIdentifier: z.string().min(1),
+  title: z.string(),
+  type: z.string().min(1).optional(),
+}).strict();
+/**
+ * Informations from the GetRecords listing (Dublin Core brief)
+ */
+export type CswRecordBrief = z.infer<typeof zCswRecordBrief>;
