@@ -3,7 +3,7 @@
   "$id": "https://ignfab.github.io/gpf-schema-store/catalog/CADASTRALPARCELS.PARCELLAIRE_EXPRESS/arrondissement.json",
   "type": "object",
   "title": "PCI Vecteur : Arrondissements",
-  "description": "Arrondissements ; Édition 2026-03-01",
+  "description": "Arrondissements ; Édition 2026-06-01",
   "properties": {
     "gid": {
       "type": "integer"

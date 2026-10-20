@@ -79,7 +79,7 @@
     },
     {
       "name": "the_geom",
-      "type": "geometry",
+      "type": "multipoint",
       "defaultCrs": "EPSG:4326"
     },
     {

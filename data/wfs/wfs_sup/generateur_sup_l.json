@@ -103,7 +103,7 @@
     },
     {
       "name": "the_geom",
-      "type": "geometry",
+      "type": "multilinestring",
       "defaultCrs": "EPSG:4326"
     },
     {

@@ -17,8 +17,6 @@ ADMINEXPRESS-COG.LATEST,ADMINEXPRESS-COG,false,,"arrondissement|arrondissement_m
 ADMINEXPRESS_COG_2018_CARTO,ADMINEXPRESS-COG-CARTO,true,Using ADMINEXPRESS-COG and ADMINEXPRESS-COG-CARTO-PE instead,"arrondissement_departemental_carto|commune_carto|departement_carto|epci_carto|region_carto"
 AOC-VITICOLES,AOC,true,Waiting for MCP use case definition,aire_parcellaire
 AREAMANAGEMENT.QP.VECTOR,unknown,true,Fail to assign to an existing product,qp_decretmodif_2015_epsg3857_wm
-AREAMANAGEMENT.ZFU.VECTOR,unknown,true,Fail to assign to an existing product,zfu
-AREAMANAGEMENT.ZUS.VECTOR,unknown,true,Fail to assign to an existing product,zus
 BAN-PLUS,BAN,true,Using geocoding service in the MCP,"adresse|lien_adresse_bati|lien_adresse_parcelle|lien_adresse_support|lien_bati_parcelle"
 BAN.DATA.GOUV,BAN,true,Using geocoding service in the MCP,ban
 BDCARTO_ETAT-MAJOR.NIVEAU3,BDCARTO_ETAT-MAJOR,true,Waiting for MCP use case definition,"a_1_limite_administrative|a_2_surface_administrative|b_1_troncon_de_route|b_2_troncon_de_voie_ferree|b_3_troncon_de_cours_d_eau|c_1_1_ocs_ancien|c_1_2_ocs_ancien_sans_bati|c_2_1_batiment|c_2_2_batiment_hors_zone_urbaine|c_3_zone_urbaine|z_1_chantier"
@@ -46,7 +44,6 @@ DGF_2026_,DGF,true,Waiting for MCP use case definition,"_voirie-retenue-departem
 DREAL.ZONAGE_PINEL,unknown,true,Fail to assign to an existing product,"carreaux|communes|iris"
 ELEVATION.CONTOUR.LINE,Elevation,true,In use via altimetry service,courbe
 ELEVATIONGRIDCOVERAGE.HIGHRES.QUALITY,Elevation,true,In use via altimetry service,source_fra
-ESSAI_FLUX_ROUTE,,true,Test data,bd_topo_route_mgp
 GARES_BDD_FXX_WM_20171227,POI_ZAI,true,Waiting for MCP use case definition,gares
 GEODESIE,,true,Waiting for MCP use case definition,data_geod
 GEOGRAPHICALGRIDSYSTEM.DFCI,,true,Image index dataset,"carro_dfci_1x1_l93|carro_dfci_2x2_l93"
@@ -58,6 +55,8 @@ HYDROGRAPHY.BCAE.LATEST,unknown,true,Fail to assign to an existing product,bcae_
 IGNF_ACCESSIBILITE-PHYSIQUE-FORETS-,unknown,true,Fail to assign to an existing product,"acces_porteur|acces_skidder"
 IGNF_ACCESSIBILITE-PHYSIQUE-FORETS-MASQUE-FORETV3,unknown,true,Fail to assign to an existing product,"acces_porteur|acces_skidder"
 IGNF_BD-FRANCE-TOPO-VEGETATION,unknown,true,Fail to assign to an existing product,BD-FRANCE-TOPO-VEGETATION
+IGNF_CARTO-FORMATIONS-VEGETALES_2004,IGNF_CARTO,true,Waiting for MCP use case definition,formations_vegetales_d971_2004
+IGNF_CARTO-FORMATIONS-VEGETALES_2010,IGNF_CARTO,true,Waiting for MCP use case definition,formations_vegetales_d971_2010
 IGNF_CARTO-FORMATIONS-VEGETALES_2016,IGNF_CARTO,true,Waiting for MCP use case definition,formations_vegetales_d976_2016
 IGNF_CARTO-FORMATIONS-VEGETALES_2017,IGNF_CARTO,true,Waiting for MCP use case definition,formations_vegetales_d972_2017
 IGNF_CARTO-FORMATIONS-VEGETALES_2022,IGNF_CARTO,true,Waiting for MCP use case definition,formations_vegetales_d972_2022
@@ -65,19 +64,23 @@ IGNF_CARTO-FORMATIONS-VEGETALES_2023,IGNF_CARTO,true,Waiting for MCP use case de
 IGNF_CARTO-FORMATIONS-VEGETALES_2024,IGNF_CARTO,true,Waiting for MCP use case definition,formations_vegetales_d971_2024
 IGNF_CARTO-SP_CARREAU-200m,IGNF_CARTO,true,Waiting for MCP use case definition,indicateurs
 IGNF_GEODESIE,,true,Waiting for MCP use case definition,"site-rbf|site-rdf|triplet|point-rdf|point-rbf|rn|rgp"
+IGNF_INDICATEURS-NATIONAUX-NATURE-EN-VILLE_2017-2023,,true,No matching rule,communes_nature_en_ville
 IGNF_LIDAR-HD_METADONNEE,,true,Image index dataset,metadata
-IGNF_MASQUE-CARTO-FORMATIONS-VEGETALES,IGNF_CARTO,true,Waiting for MCP use case definition,"masque-foret_2004|masque-foret_2016|masque-foret_2017|masque-foret_2022|masque-foret_2023"
+IGNF_MASQUE-CARTO-FORMATIONS-VEGETALES,IGNF_CARTO,true,Waiting for MCP use case definition,"masque-foret_2004|masque-foret_2010|masque-foret_2016|masque-foret_2017|masque-foret_2022|masque-foret_2023|masque-foret_2024"
 IGNF_MASQUE-FORET.2021-2023,unknown,true,Fail to assign to an existing product,masque_foret
-IGNF_MNH-LIDAR-HD,,true,Image index dataset,"bloc|dalle"
-IGNF_MNS-LIDAR-HD,,true,Image index dataset,"bloc|dalle"
-IGNF_MNT-LIDAR-HD,,true,Image index dataset,"bloc|dalle"
-IGNF_NUAGES-DE-POINTS-LIDAR-HD,,true,Image index dataset,"bloc|dalle"
+IGNF_RPG_GRANDES-CATEGORIES-PARCELLES_2025,,true,No matching rule,grandes_categories_parcelles
 IGNF_RPG_PARCELLES-AGRICOLES-CATEGORISEES_2024,RPG,true,Waiting for MCP use case definition,parcelles_agricole_categorisees_2024
+IGNF_RPG_PARCELLES-BIO_2025,,true,No matching rule,parcelles_bio
 IGNF_RPG_PARCELLES-ELIGIBLES-IAE,RPG,true,Waiting for MCP use case definition,parcelles_eligibles_iae_2024
+IGNF_RPG_PARCELLES-ELIGIBLES-IAE_2025,,true,No matching rule,parcelles_eligibles_iae
 IGNF_RPG_PRAIRIES-PERMANENTES_2024,RPG,true,Waiting for MCP use case definition,prairies_permanentes_2024
+IGNF_RPG_PRAIRIES-PERMANENTES_2025,,true,No matching rule,prairies_permanentes
+IGNF_RPG_SURFACES-NON-AGRICOLES_2025,,true,No matching rule,"surfaces_non_agricoles_autres_elements|surfaces_non_agricoles_vegetation_ponctuelle|surfaces_non_agricoles_vegetation_surfacique|surfaces_non_agricoles_element_artificialise"
 IGNF_RPG_ZONES-DENSITE-HOMOGENE_2024,RPG,true,Waiting for MCP use case definition,surfaces_2024_zdh_20250621
+IGNF_RPG_ZONES-DENSITE-HOMOGENE_2025,,true,No matching rule,zones_densite_homogene
 INPE,unknown,true,Fail to assign to an existing product,inpe
 INRA.CARTE.SOLS,unknown,true,Fail to assign to an existing product,geoportail_vf
+INRAE_CARTE-SOLS,,true,No matching rule,sols_dominants_france_metropolitaine
 INSEE.FILOSOFI.INDICATORS,FILOSOFI,false,,"carreaux_1km|carreaux_200m"
 LABELS.TOURISTIQUES,POI_ZAI,true,Waiting for MCP use case definition,"communes_touristiques|stations_classees|stations_vertes|villages_etape"
 LANDCOVER.CHA00_FR,LANDCOVER,true,Waiting for MCP use case definition,cha00_fr
@@ -103,19 +106,20 @@ LANDCOVER.CLC18_FR,LANDCOVER,true,Waiting for MCP use case definition,clc18_fr
 LANDCOVER.CLC90_FR,LANDCOVER,true,Waiting for MCP use case definition,clc90_fr
 LANDCOVER.FORESTINVENTORY.V1,LANDCOVER,true,Waiting for MCP use case definition,resu_bdv1_shape
 LANDCOVER.FORESTINVENTORY.V2,LANDCOVER,true,Waiting for MCP use case definition,formation_vegetale
+LANDUSE.AGRICULTURE2025,,true,No matching rule,"codes_cultures|ilots_anonymes|parcelles_graphiques"
 LIC_test,,true,Test data,VIGINOND_LIC
 LIMITES_ADMINISTRATIVES_EXPRESS.LATEST,LIMITES_ADMINISTRATIVES_EXPRESS,true,Using ADMINEXPRESS-COG instead,"arrondissement|arrondissement_municipal|canton|chef_lieu_d_arrondissement|chef_lieu_d_arrondissement_municipal|chef_lieu_d_epci|chef_lieu_de_canton|chef_lieu_de_commune|chef_lieu_de_commune_associee_ou_deleguee|chef_lieu_de_departement|chef_lieu_de_region|collectivite_territoriale|commune|commune_associee_ou_deleguee|departement|epci|region"
 MESURES_COMPENSATOIRES,unknown,true,Fail to assign to an existing product,"emprises_commune|emprises_lineaires|emprises_polygones|emprises_ponctuelles"
 MTE_MASSE-EAU,unknown,true,Fail to assign to an existing product,"_surface_bassins-versants|_surface_canal|_souterraine"
 MasseEauTransition972_wfs,,true,Test data,masseeautransition972 — massedeautransition_20152021
 NAVIFOREST_PUBLIC,unknown,true,Fail to assign to an existing product,itineraires-bois-ronds
-OCS-BFC_2017_BDD_WLD_WM_WFS_23-07-2021,,true,Test data,"communes|indicateur9_2017|ocsge_58_2017_man_20p"
 OCS-GERS_BDD_LAMB93_2016,,true,Test data,oscge_gers_32_2016
 OCS-GERS_BDD_LAMB93_2019,,true,Test data,oscge_gers_32_2019
 OFB.ZONES.EXCLUES,unknown,true,Fail to assign to an existing product,zones_exclues_aires_acceleration_eolien_terrestre
 OFB.ZONES.NECESSITANT.AVIS.GESTIONNAIRE,unknown,true,Fail to assign to an existing product,zones_necessitant_avis_gestionnaire_terrestre
 OFB_INTERDICTION-ZAER-SAUF-TOITURE,unknown,true,Fail to assign to an existing product,zones_exclues_aires_acceleration_sauf_toiture
 OFB_ZONES.EXCLUES.SAUF.TOITURE,unknown,true,Fail to assign to an existing product,zones_exclues_aires_acceleration_sauf_toiture
+ONF.FORETS_PUBLIQUES,,true,No matching rule,ONF_FORETS_PUBLIQUES
 ORTHOIMAGERY.ORTHO-SAT.SPOT.2014.GRAPHE-MOSAIQUAGE,ORTHOIMAGERY,true,Image index dataset,france_2014
 ORTHOIMAGERY.ORTHO-SAT.SPOT.2015.GRAPHE-MOSAIQUAGE,ORTHOIMAGERY,true,Image index dataset,france_2015
 ORTHOIMAGERY.ORTHO-SAT.SPOT.2016.GRAPHE-MOSAIQUAGE,ORTHOIMAGERY,true,Image index dataset,france_2016
@@ -123,6 +127,7 @@ ORTHOIMAGERY.ORTHO-SAT.SPOT.2017.GRAPHE-MOSAIQUAGE,ORTHOIMAGERY,true,Image index
 ORTHOIMAGERY.ORTHOPHOS.RESTRICTEDAREAS,ORTHOIMAGERY,true,Image index dataset,arrete
 ORTHOIMAGERY.ORTHOPHOTOS.1950-1965.GRAPHE-MOSAIQUAGE,ORTHOIMAGERY,true,Image index dataset,graphe
 ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE,ORTHOIMAGERY,true,Image index dataset,graphe_bdortho
+ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.1950-1965,ORTHOIMAGERY,true,Image index dataset,graphe_bdortho
 ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.1965-1980,ORTHOIMAGERY,true,Image index dataset,graphe_bdortho
 ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.1980-1995,ORTHOIMAGERY,true,Image index dataset,graphe_bdortho
 ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2000-2005,ORTHOIMAGERY,true,Image index dataset,graphe_bdortho
@@ -161,9 +166,9 @@ RPG.2021,RPG,true,Waiting for MCP use case definition,parcelles_graphiques
 RPG.2022,RPG,true,Waiting for MCP use case definition,"codes_cultures|parcelles_graphiques"
 RPG.2023,RPG,true,Waiting for MCP use case definition,"codes_cultures|ilots_de_reference|parcelles_graphiques"
 RPG.2024,RPG,true,Waiting for MCP use case definition,"codes_cultures|ilots_anonymes|parcelles_graphiques"
-RPG.LATEST,RPG,true,Waiting for MCP use case definition,"codes_cultures|parcelles_graphiques|ilots_anonymes"
+RPG.LATEST,RPG,true,Waiting for MCP use case definition,"codes_cultures|ilots_anonymes|parcelles_graphiques"
 SANTE_BDD_SYMBO_FXX_WM_20171227,,true,Outdated dataset,hopitaux
-SECUROUT.TE,unknown,true,Fail to assign to an existing product,"franchissement_te_lien_prescription|franchissement_te|prescription_te|troncon_te|troncon_te_lien_prescription"
+SECUROUT.TE,unknown,true,Fail to assign to an existing product,"franchissement_te_lien_prescription|troncon_te_lien_prescription|franchissement_te|prescritpion_te|troncon_te"
 STATISTICALUNITS.IRIS,IRIS,false,,contours_iris
 STATISTICALUNITS.IRIS.PE,IRIS,false,,contours_iris_pe
 STATISTICALUNITS.IRISGE,IRIS,false,,iris_ge
@@ -184,38 +189,60 @@ VIGICRUES_TRONCONS_BDD_WLD_WM_2023-v1,,true,Waiting for MCP use case definition,
 VIGINOND-DIFFUSION,,true,Waiting for MCP use case definition,"stationhydro|zich|zip"
 ZONES-A-PROSPECTER-FORETS-SUBNATURELLES,,true,Waiting for MCP use case definition,zones_a_prospecter_forets_subnaturelles
 ZZZ_INAO_LaCiotat,,true,Test data,"batiment|commune|point_du_reseau|troncon_de_route"
-_84954650-e77c-4657-bfae-f92375f18139_wfs,,true,No matching rule,geometry2
-_fff5e2a8-285f-4d47-966a-05784aa29b34_wfs,,true,No matching rule,geometry1
+_04076c60-7fd6-4c8b-bd6f-158b4108eaa3_20260924_wfs,,true,No matching rule,geometry1
+_04076c60-7fd6-4c8b-bd6f-158b4108eaa3_wfs,,true,No matching rule,geometry1
+_203f45fd-1e60-4776-8ad0-a8f6cf6fa7cd_wfs,,true,No matching rule,nga_features
+_f1b64da6-490b-4690-b536-375d48b1f3ad_wfs,,true,No matching rule,geometry1
 aeag-rwbody-sdage2022,,true,Test data,rwbody_ag_sdage2022
+appariement_dep52_gpkg_15-11-2024_wfs,,true,No matching rule,appariement_dep52
 arbre_wfs,,true,No matching rule,arbre
+arrondissement_marne_wfs,,true,No matching rule,arrondissement
+badora_2025_gosb__gpkg_18-08-2026_wfs,,true,No matching rule,Base_projets_amenagement_GOSB_2025
+cadastre_gpkg_10-08-2026_wfs,,true,No matching rule,cadastre
 cartes,,true,Image index dataset,"dataset|image"
 cartes_anciennes,,true,Image index dataset,"dataset|image"
+carto2_pv_sol1_gpkg_06-08-2026_1_wfs,,true,No matching rule,commune_arrdt_r11
+carto2_pv_sol1_gpkg_06-08-2026_wfs,,true,No matching rule,commune_arrdt_r11
+cartogrammes_gpkg_11-09-2026_wfs,,true,No matching rule,Teneurs_ponctuelles_49_variables_RMQS
 cavp_zae_zip_03-02-2026_wfs,,true,Test data,ZAE_CA_Val_Parisis
+cbs2022_008_gpkg_06-10-2026_wfs,,true,No matching rule,"n_bruit_zbr_infra_r_a_ld_s_008|n_bruit_zbr_infra_r_a_ln_s_008|n_bruit_zbr_infra_r_c_ld_s_008|n_bruit_zbr_infra_r_c_ln_s_008|n_bruit_zbr_infra_f_a_ld_s_008|n_bruit_zbr_infra_f_a_ln_s_008|n_bruit_zbr_infra_f_c_ld_s_008|n_bruit_zbr_infra_f_c_ln_s_008"
 charbo_gpkg_30-10-2025_wfs,,true,Test data,"detections_charbonnieres|detections_ldo_fours"
 commune_d34OPenIG_gpkg_26-03-2025_wfs,,true,Test data,commune_d034_20170303zip
 communes_972,,true,Test data,commune972
 cosia_032_aubiet,,true,Test data,data_aubiet_25_05
+couche_bdtopo_reprise_wfs,,true,No matching rule,couche_bdtopo_reprise
 datac_suivi_acid,,true,No matching rule,"acids_objets|acids_stats"
 dgac_peb_arrete_wfs,,true,Test data,dgac_peb_arrete_wfs
 dgac_psa_arrete_wfs,,true,Test data,dgac_psa_arrete
+drealnorm_src_gpkg_06-10-2026_wfs,,true,No matching rule,"drealnorm_src_enjeux_piscicoles_s_r28|drealnorm_src_emprise_vf_s_r28|drealnorm_src_emprise_route_s_r28|drealnorm_src_emprise_urbanisation_s_r28|drealnorm_src_litho_simplifiee_s_r28|drealnorm_src_enjeux_niveau_s_r28|drealnorm_src_enjeux_gris_s_r28|drealnorm_src_enjeux_jaune_s_r28|drealnorm_src_enjeux_orange_s_r28|drealnorm_src_enjeux_rouge_s_r28|drealnorm_src_lit_majeur_s_r28|drealnorm_src_aborslitsmineurs_s_r28|drealnorm_src_gir_gin_s_r28|drealnorm_src_ressource_exploitable_s_r28|drealnorm_src_grandstypesressource_s_r28|drealnorm_src_exclusion_pnr_s_r28|drealnorm_zsc_polygone_s_r28"
 ecoregions,ecoregions,true,Waiting for MCP use case definition,"pays|regions_ecologiques"
 erf,unknown,true,Fail to assign to an existing product,erger
 espace_revendeurs,ESPACE_REVENDEURS,true,Waiting for MCP use case definition,"grid|product"
-etude_25145_20260722_wfs,,true,No matching rule,"carte_sols_loiret|sols_dominants_Loiret"
-example_gpkg_21-05-2026_wfs,,true,Test data,"geometry1|geometry2|line1"
+etude_30110_gpkg_03-09-2026_wfs,,true,No matching rule,"sols_dominants_rrp_gironde|ucs_rrp_gironde"
+etude_34015_gpkg_04-09-2026_wfs,,true,No matching rule,sols_dominants_france_metropolitaine
+example-gpkg_123_wfs,,true,No matching rule,geometry1
+example-gpkg_wfs-1234,,true,No matching rule,geometry1
+example.gpkg_wfs,,true,No matching rule,geometry1
+example_gpkg_048d8a_wfs,,true,No matching rule,geometry2
+example_gpkg_4bfc0f_wfs,,true,No matching rule,geometry1
+example_gpkg_8ae0d5_wfs,,true,No matching rule,geometry1
 fr_qa_stations,unknown,true,Fail to assign to an existing product,stations_qualite_air
 igngpf_4902_20260309_tables_sans_tirets,,true,Test data,parcs_photovoltaiques
+immeubles_classes_ou_inscrits_surfaces_geojson_25-09-2026_wfs,,true,No matching rule,immeublesclassesouinscritsValdoise
+irve_geojson_30-09-2026_wfs,,true,No matching rule,irve
 jpe_test_open_io,,true,Test data,formation_vegetale
 l_dfci_zonage_s_088_2025_zip_12-05-2026_wfs,,true,Test data,l_dfci_zonage_s_088_2025
 l_rgc_l_008_20-02-2026_wfs,,true,Test data,l_rgc_l_008
+layer_cdt91_2026,,true,No matching rule,"cdt91_2026_acid|cdt91_2026_iti_bduni_avant_diff|cdt91_2026_iti_p_brut|cdt91_2026_itineraire"
 lls_wfs,,true,Test data,llssiap
 masseeausouterraine972_wfs,,true,Test data,MasseEauSouterraine972
 monterritoire_gpkg_29-07-2025_wfs,,true,Test data,forets_de_mon_territoire
 n_bassin_vie_zsup_068_zip_01-04-2026_wfs,,true,Test data,n_bassin_vie_zsup_068
+n_dfci_intensite_alea_s_034_zip_03-02-2026_wfs,,true,No matching rule,n_dfci_intensite_alea_s_034
 n_dfci_zone_regl_s_034_zip_03-02-2026_wfs,,true,Test data,n_dfci_zone_regl_s_034
 n_epci_fp_zsup_068_gpkg_13-05-2026_wfs,,true,Test data,n_epci_fp_zsup_068
+n_parcelle_doc_cadre_s_034_gpkg_24-09-2026_wfs,,true,No matching rule,n_parcelle_doc_cadre_s_034
 n_zone_reg_pprn_20180013_s_072_gpkg_05-11-2025_wfs,,true,Test data,n_zone_reg_pprn_20180013_s_072
-nga_dgiwg-example_ft-belvoir_15-16_v1-0_20sep2023_gpkg_09-06-2026_wfs,,true,Test data,nga_features
 paec_bfc_2023,,true,Waiting for MCP use case definition,Territoires_paec_bfc_2023
 paec_bfc_2024,,true,Waiting for MCP use case definition,Territoires_paec_bfc_2024
 paec_bfc_2025,,true,Waiting for MCP use case definition,Territoires_paec_bfc_2025
@@ -256,10 +283,10 @@ patrinat_znieff2_mer,PATRINAT,true,Waiting for MCP use case definition,znieff2_m
 patrinat_zpr,PATRINAT,true,Waiting for MCP use case definition,zpr
 patrinat_zps,PATRINAT,true,Waiting for MCP use case definition,zps
 pays_ecoregions,pays_ecoregions,true,Duplicate dataset (ecoregions),"pays|regions_ecologiques"
+petit_fute_shp_zip_03-09-2026_wfs,,true,No matching rule,petit_fute_shp
 pnrvn_gpkg_27-06-2025_wfs,,true,Test data,pnrvn
 potentiel_agronomique_CCC,,true,Waiting for MCP use case definition,potentiel agronomique
 ppri-agglo-laval-revision_gpkg_13-10-2025_wfs,,true,No matching rule,n_zone_reg_pprn_202000001_s_053
-projet_amenagement_gosb_cnig,,true,Test data,projet_amenagement_cnig_gosb_16_07_2026
 projet_iqp_2025_gpkg_12-03-2026_wfs,,true,Test data,"tampon_iqp_d_2025|tampon_iqp_g_2025|tampon_iqp_i_2025|ref_interplo_2025|ref_bornage_2025"
 projets_zones_acceleration_energies_renouvelables_zaer_wfs,,true,Test data,fus_epci_ddt_portail_publication
 pva,,true,Image index dataset,"dataset|image"
@@ -267,6 +294,8 @@ quartierscholet,,true,Test data,QuartierCholet
 ramsar-wfs,,true,Test data,ramsar
 route500logoqgis,,true,Test data,route500logoqgis
 rpg_metrolyon_epsg2154_gpkg_02-04-2026_wfs,,true,Test data,parcelles_graphiques
+rrp_landes_gpkg_11-09-2026_wfs,,true,No matching rule,ucs_rrp_landes
+rrp_loiret_gpkg_11-09-2026_wfs,,true,No matching rule,ucs_rrp_loiret
 sentiers_pag_gpkg_30-01-2026_wfs,,true,Test data,sentiers_PAG
 site_guadeloupe_martinique_gpkg_26-01-2026_wfs,,true,Test data,site_guadeloupe_martinique
 sites_datacenters_202607281413_csv_28-07-2026_wfs,,true,No matching rule,test_clement_sites_datacenters
@@ -274,8 +303,10 @@ sites_datacenters_202607281413_csv_28-07-2026_wfs2,,true,No matching rule,test_c
 sites_guyane_gpkg_26-01-2026_wfs,,true,Test data,STE_Guyane
 sites_metropole_gpkg_26-01-2026_wfs,,true,Test data,STE_Metropole
 sites_reunion_gpkg_26-01-2026_wfs,,true,Test data,STE_Reunion
+stock_carbone_fao_fr_gpkg_13-08-2026_wfs,,true,No matching rule,stock_de_carbone_fao
 test_CD_La_Ciotat,,true,Test data,"batiment|cd_test_commune|point_du_reseau|troncon_de_route"
 test_fz_la_ciotat,,true,Test data,"fz_test_batiment|fz_test_commune|fz_test_point_du_reseau|fz_test_troncon_de_route"
+test_layer_cdt91,,true,Test data,"acid|iti_p_brut|itineraire"
 test_lc_bdtopo_laCiotat,,true,Test data,"batiment|lc_test_commune|point_du_reseau|troncon_de_route"
 test_mig_rlt,,true,Test data,"dataset|image"
 test_nl_bdtopo_la_ciotat,,true,Test data,"nl_test_batiment|nl_test_commune|nl_test_point_du_reseau|nl_test_troncon_de_route"
@@ -288,6 +319,7 @@ trichlscomm_s_d51_gpkg_07-10-2024_wfs,,true,Test data,trichlscomm_s_d51
 trichlsetamt_s_d51_gpkg_07-10-2024_wfs,,true,Test data,trichlsetamt_s_d51
 unesco_pelee_wfs,,true,Test data,unesco_bien
 vflorent__vecteur_wfs_bdd,,true,Test data,inondforchls_s_d51
+vibrisses_rmqs_gpkg_03-09-2026_wfs,,true,No matching rule,"vibrisses_RMQS_cd_0_30|vibrisses_RMQS_cd_30_50|vibrisses_RMQS"
 voeux2026,,true,Test data,voeux
 voeux_wfs,,true,Test data,voeux
 wfs_du,GPU,false,,"municipality|doc_urba|doc_urba_com|document|habillage_txt|habillage_lin|habillage_pct|habillage_surf|info_lin|info_pct|info_surf|mec|prescription_lin|prescription_pct|prescription_surf|secteur_cc|zone_urba"
@@ -297,6 +329,7 @@ zaer,unknown,true,Fail to assign to an existing product,zaer
 zdh_87_gpkg_15-01-2025_wfs,,true,Test data,zh_87
 zonealertesecheresse972_gpkg_27-09-2024_wfs,,true,Test data,972_Alerte_Secheresse
 zppa_cvl_executoire_2025_gpkg_06-03-2026_wfs,,true,Test data,zppa_cvl_executoire_2025
+zzz_nl_test_communes,,true,Test data,commune
 zzz_test_CD_atelier_maj_donnees_vecteur,,true,Test data,table_a_modif
 zzz_test_FM_atelier_maj_donnees_vecteur,,true,Test data,table_a_modif
 zzz_test_FZ_atelier_maj_donnees_vecteur,,true,Test data,table_a_modif

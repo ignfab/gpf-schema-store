@@ -3,7 +3,7 @@
   "$id": "https://ignfab.github.io/gpf-schema-store/catalog/CADASTRALPARCELS.PARCELLAIRE_EXPRESS/subdivision_fiscale.json",
   "type": "object",
   "title": "PCI Vecteur : Subdivisions fiscales",
-  "description": "Subdivisions fiscales ; Édition 2026-03-01",
+  "description": "Subdivisions fiscales ; Édition 2026-06-01",
   "properties": {
     "gid": {
       "type": "integer"

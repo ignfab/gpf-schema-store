@@ -6,6 +6,10 @@
   "description": "Emprise communale, données issues du Géoportail de l'urbanisme",
   "properties": [
     {
+      "name": "gid",
+      "type": "integer"
+    },
+    {
       "name": "insee",
       "type": "string"
     },
@@ -23,7 +27,7 @@
     },
     {
       "name": "the_geom",
-      "type": "geometry",
+      "type": "multipolygon",
       "defaultCrs": "EPSG:4326"
     },
     {

@@ -61,7 +61,7 @@
       "type": "string"
     },
     "the_geom": {
-      "format": "geometry-any",
+      "format": "geometry-multipoint",
       "x-ogc-role": "primary-geometry"
     },
     "nature": {

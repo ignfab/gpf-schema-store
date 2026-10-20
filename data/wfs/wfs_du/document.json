@@ -47,7 +47,7 @@
     },
     {
       "name": "the_geom",
-      "type": "geometry",
+      "type": "multipolygon",
       "defaultCrs": "EPSG:4326"
     }
   ]

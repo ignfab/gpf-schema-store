@@ -3,7 +3,7 @@
   "$id": "https://ignfab.github.io/gpf-schema-store/catalog/CADASTRALPARCELS.PARCELLAIRE_EXPRESS/localisant.json",
   "type": "object",
   "title": "PCI Vecteur : Localisants",
-  "description": "Localisants ; Édition 2026-03-01",
+  "description": "Localisants ; Édition 2026-06-01",
   "properties": {
     "gid": {
       "type": "integer"

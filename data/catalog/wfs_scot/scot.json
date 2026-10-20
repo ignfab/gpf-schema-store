@@ -34,7 +34,7 @@
       "type": "boolean"
     },
     "the_geom": {
-      "format": "geometry-any",
+      "format": "geometry-multipolygon",
       "x-ogc-role": "primary-geometry"
     }
   },
