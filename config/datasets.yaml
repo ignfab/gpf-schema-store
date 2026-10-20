@@ -14,49 +14,49 @@ datasets:
     source: csw
     title: fond_carto_fosberre_routes
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 025f828f-e726-437d-b07e-6a1f81c8f0bf
     source: csw
     title: Limites du Territoire à Risque Important (TRI) d'inondation de Châlons-en-Champagne
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: 06a74a58-ad5e-4ebf-8a6b-99220608401c
     source: csw
     title: Limites amont du Territoire à Risque Important (TRI) d'inondation de Châlons-en-Champagne
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: 096d65a9-df89-4f92-a80c-d1c89336ac65
     source: csw
     title: Zone d'application des réglementations de prévention des feux de forêt dans l'Hérault
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: '1'
     source: csw
     title: Vectorisation IA
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: '1.0'
     source: csw
     title: Quartiers Cholet
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: '100'
     source: csw
     title: Potentiel agronomique - CC du Clunisois
     ignored: true
-    ignoredReason: Waiting for MCP use case definition
+    ignoredReason: Local data
 
   - id: '101'
     source: csw
     title: Mares Natura 2000 - CC du Clunisois
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: '1111'
     source: csw
@@ -74,37 +74,37 @@ datasets:
     source: csw
     title: Référentiel Régional Pédologique du département de la Gironde
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 1e293047-2855-4cb8-b41d-47659fcd6d78
     source: csw
     title: Aléa feu de forêt départemental 2021 dans l'Hérault
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: '2'
     source: csw
     title: PPRI-agglo-Laval-revision
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 2022_85_SNa
     source: csw
     title: Étude d'inventaire du patrimoine de la Sèvre Nantaise
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 2026_CBNMC_Messicoles_1
     source: csw
     title: 2026_CBNMC_Enjeux_Messicoles_2021
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: '21112024'
     source: csw
     title: Stcock de carbone en forêt, département des Vosges, ventilé par EPCI
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 22_FV_01
     source: csw
@@ -116,13 +116,13 @@ datasets:
     source: csw
     title: base_projets_DDT_28
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: '3'
     source: csw
     title: Parcelles retenues dans le document cadre de l'Hérault
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 47ac11c2-8a00-46a7-9fa8-9b802643f975
     source: csw
@@ -140,7 +140,7 @@ datasets:
     source: csw
     title: Bassins de vie dans le Haut-Rhin (emprise 2022)
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: 5fc9b4729dbf684fecb13bae_wmts
     source: csw
@@ -152,13 +152,13 @@ datasets:
     source: csw
     title: Tableau d’Assemblage Bloc ouest (Zone littorale) de l’Orthobeta17-2025
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 67ea5c9630b65d631115778c
     source: csw
     title: Jeu de données de test d'exploration
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: 69f44162620029ea7beff6ea
     source: csw
@@ -170,49 +170,49 @@ datasets:
     source: csw
     title: Épisodes de pollution prévus ou constatés
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: 69f44162620029ea7beff6ea-test-pipeline-4-20260522
     source: csw
     title: Épisodes de pollution prévus ou constatés
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: 6a1fed08b3f686e92b15d66d-83e5e289-3d3f-4961-8f57-626538008486
     source: csw
     title: Test geopf 1
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: 6a9554bbe8363b6820cb1e5a
     source: csw
     title: Test geopf 8
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: 6aa1784080df0cacea729f60
     source: csw
     title: Test geopf 10
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: 6ab4f02b6f7b2bf8c3807f64
     source: csw
     title: Test geopf 11-1
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: 6ab535371662645740f63be8
     source: csw
     title: Test geopf Openig
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: 6ac4a25c712538dc2aa99f77
     source: csw
     title: Test geopf
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: '76'
     source: csw
@@ -224,19 +224,19 @@ datasets:
     source: csw
     title: Zones réglementées des Plans de Prévention des Risques Technologiques dans le département des Bouches-du-Rhône
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 808df88d-4493-486e-b19f-e7e3a8e918ac
     source: csw
     title: Parcelles urbanisées ou consommées sur le territoire de la Communauté de communes Ponthieu-Marquenterre
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 972_biodiv_apb
     source: csw
     title: Arrêté de Protection de Biotope
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ADEME_BIOMASSE-HAIES
     source: csw
@@ -290,19 +290,19 @@ datasets:
     source: csw
     title: BETA-IGN-POC-MNCA-COMMUNES_23-04-2026
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: BETA-IGN-POC-MNCA-COMMUNES_31-03-2026
     source: csw
     title: BETA-IGN-POC-MNCA-COMMUNES_31-03-2026
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: BETA-IGN-POC-MNCA-FORETS_18-03-2026
     source: csw
     title: BETA-IGN-POC-MNCA-FORETS_18-03-2026
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: BETA-IGN_BD-FRANCE-TOPO-VEGETATION
     source: csw
@@ -314,13 +314,13 @@ datasets:
     source: csw
     title: Jeu de données test BD Forêt v3 JUIN 2026 - bêta
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: BETA_IGNF_MOISSONNAGE
     source: csw
     title: Test MOISSONNAGE
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: BNF_CASSINI-MARIE-ANTOINETTE
     source: csw
@@ -338,13 +338,13 @@ datasets:
     source: csw
     title: PCRS de la CC du PAYS FOUESNANTAIS
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: CD17
     source: csw
     title: Trajectographie et dates des vols d'acquisitions Ortho 2025 5cm compatible PCRS AeroData
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: CDL_PARCELLES
     source: csw
@@ -362,19 +362,19 @@ datasets:
     source: csw
     title: MESURES COMPENSATOIRES
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: CLC90
     source: csw
     title: test CLC90
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: Cadastre_dgfip_ign_lunel_2026_gris
     source: csw
     title: Cadastre hybride 2026 Lunel
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: CartoSP_MVP_ANCT_QPV
     source: csw
@@ -416,19 +416,19 @@ datasets:
     source: csw
     title: donnees_timothe
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: DDT72-001
     source: csw
     title: Cours d'eau Police de l'eau de la Sarthe
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: DDT_001
     source: csw
     title: DDT58_ecluses
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: DGAC_Plan_d_Exposition_au_Bruit_PEB
     source: csw
@@ -452,19 +452,19 @@ datasets:
     source: csw
     title: Restrictions UAS catégorie Ouverte et aéromodélisme
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: DataRM
     source: csw
     title: DatatestMalibre
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: EA_IDF
     source: csw
     title: Entités archéo IDF
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: EJ110326
     source: csw
@@ -476,7 +476,7 @@ datasets:
     source: csw
     title: Test Ej 25 février 2026
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: ENR_AERO-CIVIL
     source: csw
@@ -554,7 +554,7 @@ datasets:
     source: csw
     title: ENR - Interdiction ZAER toutes EnR sauf toiture (loi APER)
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: ENR_IRRADIATION-SOLAIRE
     source: csw
@@ -734,7 +734,7 @@ datasets:
     source: csw
     title: Test
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: GeoPF_Alimentation-Traitement-Publication
     source: csw
@@ -860,7 +860,7 @@ datasets:
     source: csw
     title: Accessibilité physique des forêts
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: IGNF_ADMIN-EXPRESS
     source: csw
@@ -890,7 +890,7 @@ datasets:
     source: csw
     title: BCAE
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: IGNF_BD-ALTI
     source: csw
@@ -967,7 +967,7 @@ datasets:
     source: csw
     title: TRANSPORTS EXCEPTIONNELS
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: IGNF_CARTE-CLASSE-LIDAR-HD
     source: csw
@@ -1002,7 +1002,7 @@ datasets:
     source: csw
     title: DEBROUSSAILLEMENT
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: IGNF_DEMONSTRATEUR_ORTHO-MULTI-SOURCES
     source: csw
@@ -1056,7 +1056,7 @@ datasets:
     source: csw
     title: INPE
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: IGNF_INSTALLATIONS-PHOTOVOLTAIQUES-SOL
     source: csw
@@ -1073,7 +1073,7 @@ datasets:
     source: csw
     title: Masque Forêt
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: IGNF_MASQUE-FORET-DROM
     source: csw
@@ -1145,7 +1145,7 @@ datasets:
     source: csw
     title: PCRS - expérimentation sur le département de l’Orne (61)
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: IGNF_ORTHO-EXPRESS
     source: csw
@@ -1402,7 +1402,7 @@ datasets:
     source: csw
     title: 'INRAE Carte des sols - Obsolète - voir : Les sols dominants de France métropolitaine – Carte harmonisée - Layer_name : INRAE_CARTE-SOLS - Dépublication prévue 12/2026.'
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: INRAE_GRAIN-BOCAGER
     source: csw
@@ -1416,25 +1416,19 @@ datasets:
     ignored: true
     ignoredReason: New dataset, review required
 
-  - id: INSEE.FILOSOFI
-    source: manual
-    title: INSEE - Revenus, pauvreté et niveau de vie (Filosofi)
+  - id: INSEE_DONNEES
+    source: csw
+    title: INSEE
     product: FILOSOFI
     links:
       - type: wfs
         name: INSEE.FILOSOFI.INDICATORS:*
 
-  - id: INSEE_DONNEES
-    source: csw
-    title: INSEE
-    ignored: true
-    ignoredReason: New dataset, review required
-
   - id: IQP_2025
     source: csw
     title: IQP 2025 - Réseau Routier DIR Centre-Est
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: IRVE
     source: csw
@@ -1446,7 +1440,7 @@ datasets:
     source: csw
     title: '[DEMO] Isochrones des bornes IRVE'
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: Liste_ABB
     source: csw
@@ -1470,7 +1464,7 @@ datasets:
     source: csw
     title: immeubles classes ou inscrits Val d'oise
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: MTECT_CORINE-LAND-COVER
     source: csw
@@ -1488,25 +1482,25 @@ datasets:
     source: csw
     title: Masses d'eau qualifiées en état "moins que bon" pour des raisons liées à la quantité d'eau
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: Metropole_du_Grand_Paris_BPF_WMTS
     source: csw
     title: MGP Balade Petit Fute WMTS
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: N_BRUIT_ZBR_INFRA_S_008
     source: csw
     title: Zones de bruit des cartes de bruit stargtégique du département des Ardennes (4eme échéance)
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: OCS_NvA
     source: csw
     title: OCS Nouvelle-Aquitaine
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ONF_FORETS-PUBLIQUES
     source: csw
@@ -1530,13 +1524,13 @@ datasets:
     source: csw
     title: PAPI du bassin de la Sarthe
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: PETZL_TRACES-RANDO-HIVERNALE
     source: csw
     title: PETZL Traces de randonnée hivernale
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: PNR_60_2026
     source: csw
@@ -1548,7 +1542,7 @@ datasets:
     source: csw
     title: Routes à grande circulation des Ardennes
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: SGDSN_ZICAD
     source: csw
@@ -1572,49 +1566,49 @@ datasets:
     source: csw
     title: Sites et territoires d'exception de Guadeloupe et Martinique
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: STE_Guyane
     source: csw
     title: Sites et territoires d'exception de Guyane
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: STE_Reunion
     source: csw
     title: Sites et territoires d'exception de la Réunion
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: SUP_S_D26
     source: csw
     title: SUP surfaciques
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: T1
     source: csw
     title: Les 463 communes du Puy-de-Dôme
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: TERAGIR_CLEF-VERTE
     source: csw
     title: Clef Verte
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: TERAGIR_PAVILLON-BLEU
     source: csw
     title: PAVILLON BLEU
     ignored: true
-    ignoredReason: Fail to assign to an existing product
+    ignoredReason: New dataset, review required
 
   - id: TEST
     source: csw
     title: TEST
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: TRANSPORT_5
     source: csw
@@ -1626,7 +1620,7 @@ datasets:
     source: csw
     title: Tâche Urbaine, Ile de la Réunion (DEAL974, 2017-2025)
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: VALABRE_CARROYAGE-DFCI
     source: csw
@@ -1644,55 +1638,55 @@ datasets:
     source: csw
     title: Vols PCRS MARNE
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ZAE_VALPARISIS
     source: csw
     title: Zones d'activité de la CA Val Parisis
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: ZonesHumides
     source: csw
     title: Inventaire zones humides du département de la Haute-Vienne
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: ZonesHumidesBV3
     source: csw
     title: Zones humides Bassin de la vienne 3
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: adminexpress_departement-jpb
     source: csw
     title: adminexpress-dep-test-wmts--jpb
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: aeag-sdage2022-etat-sup
     source: csw
     title: Adour Garonne - Etat des masses d'eau superficielles - SDAGE 2022
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: aeag_rwbody_sdage2022
     source: csw
     title: Adour Garonne - Masses d'eau rivières - SDAGE 2022
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: b3e95e6c-97e6-4014-9704-d4bb626b31a8
     source: csw
     title: Communes du Territoire à Risque Important (TRI) d'inondation de Châlons-en-Champagne
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: badora_GOSB
     source: csw
     title: Base de données des projets d'aménagement sur le territoire du GOSB
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: batiments54corrigee_si_pnb_gpkg_01-10-2026_tms
     source: csw
@@ -1704,23 +1698,29 @@ datasets:
     source: csw
     title: BETA-IGN-POC-MNCA-GPCOMMUNES_23-04-2026
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: bnbv973_gpkg_19-03-2026_uri
     source: csw
     title: CVH973_BNBV
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: cadastre
     source: csw
     title: cadastre_pncal
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ccgl_pcrs_wfs_private
     source: csw
     title: PCRS vecteur CCGL
+    ignored: true
+    ignoredReason: Local data
+
+  - id: cfedc9c9-f616-4bd5-a159-d7e80f08fa34
+    source: csw
+    title: Document d'urbanisme
     ignored: true
     ignoredReason: New dataset, review required
 
@@ -1728,7 +1728,7 @@ datasets:
     source: csw
     title: paec ouverts en 2024 cvl
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: communes_nm
     source: csw
@@ -1740,7 +1740,7 @@ datasets:
     source: csw
     title: Etablissement Public de Coopération Intercommunale (EPCI) dans le Haut-Rhin
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: data_theme5
     source: csw
@@ -1758,103 +1758,103 @@ datasets:
     source: csw
     title: Pistes de ski en Haute-Savoie
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt74-0002
     source: csw
     title: Sièges d'exploitation agricoles du RPG (2025) en Haute-Savoie, donnée anonymisée
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt74_005
     source: csw
     title: ddt74_perimetres_tribunaux
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt74_bassin_air_zsup_metadata.xml
     source: csw
     title: ddt74_bassin_air_zsup_metadata.xml
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt74_instal_photovoltaique_10.xml
     source: csw
     title: ddt74_instal_photovoltaique_10.xml
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt74_instal_photovoltaique_11.xml
     source: csw
     title: ddt74_instal_photovoltaique_11.xml
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt74_instal_photovoltaique_12.xml
     source: csw
     title: ddt74_instal_photovoltaique_12.xml
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt74_instal_photovoltaique_13.xml
     source: csw
     title: ddt74_instal_photovoltaique_13.xml
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt74_instal_photovoltaique_15.xml
     source: csw
     title: ddt74_instal_photovoltaique_15.xml
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt74_instal_photovoltaique_8.xml
     source: csw
     title: Installations de production d'électricité photovoltaïque en Haute-Savoie
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt74_instal_photovoltaique_metadata
     source: csw
     title: Installations de production d'électricité photovoltaïque en Haute-Savoie
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ddt_51_0001
     source: csw
     title: Projets de zones d'accélération des énergies renouvelables (ZAER) - Département Marne
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: ddt_51_0002
     source: csw
     title: Arrondissements de la marne
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: deal972_MEsouterraine_s
     source: csw
     title: Masses d’eau souterraine – Martinique 972
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: deal972_MEtransition_s
     source: csw
     title: Masses d'eau de transition - Martinique 972
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: deal972_unesco-bien_s
     source: csw
     title: Unesco Montagne Pelée
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: deal972_zae_s_972
     source: csw
     title: Zone d'alerte sécheresse
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: departement
     source: csw
@@ -1866,7 +1866,7 @@ datasets:
     source: csw
     title: Zone réglementée du PPRNI de l'agglomération mancelle
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: donnees-projet-DEB
     source: csw
@@ -1878,13 +1878,13 @@ datasets:
     source: csw
     title: Projets Alimentaires Teritoriaux Auvergne-Rhône-Alpes
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: dreal_corse_1
     source: csw
     title: Projet Grand Site
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: f2dd97c9-b96a-473c-ae84-64d916ef00a6
     source: csw
@@ -1902,25 +1902,25 @@ datasets:
     source: csw
     title: Les parcs éoliens terrestres représentés par des points - Normandie
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: fr-120066022-jdd-e66abc27-373f-40b7-95ef-82d8ca236bfa
     source: csw
     title: Les parcs éoliens terrestres représentés par des surfaces - Normandie
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: fr-120066022-jdd-ebaa4945-19c3-45dd-88c0-35b1f091b608_test2
     source: csw
     title: Les éoliennes projetées ou exploitées - Normandie
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: fr-120066022-wxs-0ef796d9-2845-48d9-bc20-6e5fbf2ea935
     source: csw
     title: Schéma régional des carrières (SRC) de Normandie
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: fr-662043116-7D3DC709-E1EB-470B-9FD0-8ABF8AAFD8E4
     source: csw
@@ -1938,7 +1938,7 @@ datasets:
     source: csw
     title: Grilles_Dalles_MAMP
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: id
     source: csw
@@ -1950,13 +1950,13 @@ datasets:
     source: csw
     title: Itinéraire de randonnée de Breuil-Magné
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: lib_fs
     source: csw
     title: Réseau France services de Côte-d'Or
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: logocartesgouv
     source: csw
@@ -1986,7 +1986,7 @@ datasets:
     source: csw
     title: mdn_manche_20251010
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: niref_vue_gpkg_17-03-2026_wfs
     source: csw
@@ -2016,13 +2016,13 @@ datasets:
     source: csw
     title: Référentiel Régional Pédologique du département du Loiret
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: osfd95b355a-dbb8-52f2-bb54-c99ad98c7bd3
     source: csw
     title: Référentiel Régional Pédologique du département des Landes
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: osfd95caa37-436b-431c-9391-643164f010bb
     source: csw
@@ -2052,13 +2052,13 @@ datasets:
     source: csw
     title: Parcs et Jardins - Métropole de Lyon
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: pcrs-45_ame_2026-wmts-r
     source: csw
     title: PCRS 45 - Agglomération montargoise et rives du Loing restreint - WMTS
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: petr
     source: csw
@@ -2070,19 +2070,19 @@ datasets:
     source: csw
     title: Plages de Nouvelle-Aquitaine
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: pnrvn2024
     source: csw
     title: Parc naturel régional des Vosges du Nord
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: proj_amenagement_GOSB_18_08_2026
     source: csw
     title: Base des projets d'aménagement sur le territoire du GOSB
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: projet_06
     source: csw
@@ -2094,7 +2094,7 @@ datasets:
     source: csw
     title: Base des projets d'aménagements sur le territoire du GOSB
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: quarta_agences
     source: csw
@@ -2106,13 +2106,13 @@ datasets:
     source: csw
     title: Radar_Hauts_de_France
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: ramsar_deal972
     source: csw
     title: RAMSAR - Martinique 972
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: reglementation_des_peches_cartographiee_csv
     source: csw
@@ -2124,25 +2124,25 @@ datasets:
     source: csw
     title: Registre Parcellaire Graphique - Metropole de Lyon - WMS
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: rtge_lunel_gpkg_15-10-2026
     source: csw
     title: Référentiel à très grande échelle de Lunel
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: scieries_24-09-2024
     source: csw
     title: scieries-vosges
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: sentiers_pag_v1
     source: csw
     title: Sentiers du Parc Amazonien de Guyane
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
 
   - id: servitude_el11
     source: csw
@@ -2160,13 +2160,13 @@ datasets:
     source: csw
     title: Territoires PAEC de Bourgogne-Franche-Comté ouverts pour les campagnes 2023, 2024, 2025 et 2026
     ignored: true
-    ignoredReason: Waiting for MCP use case definition
+    ignoredReason: Local data
 
   - id: test
     source: csw
     title: test
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: test_clement_sites_datacenters
     source: csw
@@ -2184,13 +2184,13 @@ datasets:
     source: csw
     title: thema_5_donnees_sante
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: testtesttest
     source: csw
     title: Communes
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Test data
 
   - id: wms_79_2307
     source: csw
@@ -2214,4 +2214,4 @@ datasets:
     source: csw
     title: Zones de Présomption de Prescription Archéologique exécutoires en région Centre-Val de Loire
     ignored: true
-    ignoredReason: Test data
+    ignoredReason: Local data
