@@ -32,8 +32,10 @@
   expected:
     - BDTOPO_V3:batiment
 
+# "bati" matches the POTENTIEL.SOLAIRE.BATIMENT:bati layer name
 - query: "bati topo batiment"
   expected:
+    - POTENTIEL.SOLAIRE.BATIMENT:bati
     - BDTOPO_V3:batiment
 
 - query: "bdtopo batiment"
