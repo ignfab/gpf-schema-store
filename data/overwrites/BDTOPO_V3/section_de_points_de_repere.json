@@ -1,15 +1,5 @@
 {
   "title": "Section de points de repère",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Transport",
   "description": "Portion de route continue portant le même numéro. Les points de repères sont reliés à une section. Chaque section porte un PR de début de section (DS) et un PR de fin de section.",
   "properties": [

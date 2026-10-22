@@ -1,15 +1,5 @@
 {
   "title": "Pylône",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Bâti",
   "description": "Support en charpente métallique ou en béton, d’une ligne électrique aérienne.",
   "x-ign-selectionCriteria": "Tous les pylônes ou les portiques construits pour supporter une ligne électrique d'au moins 63 kV sont inclus.",

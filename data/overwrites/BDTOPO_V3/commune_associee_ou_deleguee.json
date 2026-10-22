@@ -1,15 +1,5 @@
 {
   "title": "Commune associée ou déléguée",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Administratif",
   "description": "Commune associée : Une commune associée est une ancienne commune qui, dans le cadre d’une fusion-association entre plusieurs communes conformément aux articles L. 2113-11 et suivants du code général des collectivités territoriales dans leur rédaction antérieure à la loi n° 2010-1563 du 16 décembre 2010 de réforme des collectivités territoriales, perd sa qualité de collectivité territoriale mais conserve quelques particularités : un maire délégué, officier d'état civil et officier de police judiciaire, et susceptible de recevoir certaines délégations du maire, et une mairie annexe, qui est notamment responsable des actes d'état civil. Depuis l’entrée en vigueur de la loi de réforme des collectivités territoriales, aucune commune associée ne peut être instituée et les communes associées restantes continuent de se voir appliquer les dispositions anciennement en vigueur. Les communes associées résultent historiquement des fusions de communes permises par la loi n°71-588 du 16 juillet 1971 sur les fusions et regroupements de communes dite « loi Marcellin » . Commune déléguée : Une commune déléguée est une ancienne commune qui, dans le cadre de la création d'une commune nouvelle résultant de la fusion de plusieurs communes conformément aux articles L. 2113-2 et suivants du code général des collectivités territoriales, perd sa qualité de collectivité territoriale mais conserve quelques particularités : un maire délégué, officier d'état civil et officier de police judiciaire, et susceptible de recevoir certaines délégations du maire; et éventuellement une mairie annexe, qui est notamment responsable des actes d'état civil. Source Insee",
   "x-ign-representedFeatures": [

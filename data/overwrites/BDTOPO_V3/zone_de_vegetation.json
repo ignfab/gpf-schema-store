@@ -1,15 +1,5 @@
 {
   "title": "Zone de végétation",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Occupation du sol",
   "description": "Espace végétal naturel ou non, différencié en particulier selon le couvert arboré.",
   "properties": [

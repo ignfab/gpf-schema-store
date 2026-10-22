@@ -26,8 +26,6 @@ const BDTOPO_OVERWRITES_DIR = join(DATA_DIR, 'overwrites', 'BDTOPO_V3');
 
 const ROOT_KEYS = new Set([
   'title',
-  'x-ign-sources',
-  'x-ign-generated',
   'x-ign-theme',
   'description',
   'x-ign-selectionCriteria',

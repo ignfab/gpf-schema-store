@@ -1,15 +1,5 @@
 {
   "title": "Construction linéaire",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Bâti",
   "description": "Construction dont la forme générale est linéaire.",
   "x-ign-selectionCriteria": "Voir pour chaque valeur de l’attribut Nature",

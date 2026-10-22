@@ -84,13 +84,12 @@ describe('parseOverwrite', () => {
     })).toThrow(/title|description/);
   });
 
-  it('accepts all local overwrite files with traceability fields', () => {
+  it('accepts all local overwrite files', () => {
     for (const file of listJsonFiles('data/overwrites')) {
-      const overwrite = parseOverwrite(
+      expect(() => parseOverwrite(
         JSON.parse(readFileSync(file, 'utf-8')) as unknown,
         file,
-      );
-      expect(overwrite['x-ign-sources']?.length).toBeGreaterThan(0);
+      )).not.toThrow();
     }
   });
 

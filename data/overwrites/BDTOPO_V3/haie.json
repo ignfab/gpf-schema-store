@@ -1,15 +1,5 @@
 {
   "title": "Haie",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Occupation du sol",
   "description": "Axe d'une haie. La Haie est définie comme une clôture naturelle composée d’arbres, d’arbustes, d’épines ou de branchages et servant à délimiter ou à protéger un champ.",
   "properties": [

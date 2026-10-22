@@ -1,15 +1,5 @@
 {
   "title": "Ligne orographique",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Bâti",
   "description": "Ligne de rupture de pente artificielle généralement non maçonnée.",
   "x-ign-selectionCriteria": "Sont retenus: - les levées, les talus et les fronts de taille principaux dans les carrières ; - les talus le long de voies de communication sont retenus s’ils font plus de 200 m de long et 3 m de haut ; - les talus naturels (talus de berge, ruptures de pentes en terrain naturel) s’ils font plus de 200 m de long et de 3 m de haut. Les murs de soutènement sont désormais saisis dans la classe Construction linéaire.",

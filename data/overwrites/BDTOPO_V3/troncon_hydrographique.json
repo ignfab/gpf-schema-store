@@ -1,15 +1,5 @@
 {
   "title": "Tronçon hydrographique",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Hydrographie",
   "description": "Axe du lit d'une rivière, d'un ruisseau ou d'un canal, homogène pour ses attributs et ses liens et n'incluant pas de confluent en dehors de ses extrémités.",
   "x-ign-selectionCriteria": "- Tous les cours d'eau permanents, naturels ou artificiels, sont inclus - Les cours d'eau temporaires naturels sont inclus, à l'exception des tronçons de moins de 200 m situés aux extrémités amont du réseau. - Les cours d’eau temporaires artificiels ou artificialisés sont sélectionnés en fonction de leur importance et de l’environnement (les tronçons longeant une voie de communication sont exclus, ainsi que les fossés). - Les talwegs qui ne sont pas marqués par la présence régulière de l’eau sont exclus. - Les tronçons souterrains ou busés de plus de 25 m de long sont retenus. - Tous les cours d’eau de plus de 5 m de large sont inclus. Ils sont représentés par un Tronçon hydrographique d’attribut Fictif=\"Vrai\" superposé à un objet de classe Surface hydrographique. Dans leur partie aval, les cours d’eau sont représentés au moins jusqu’à la laisse des plus hautes mers. Fossés : les gros fossés de plus de 2 m de large sont inclus lorsqu'ils coulent de manière permanente. Les fossés dont le débit n’est pas permanent sont sélectionnés en fonction de l’environnement. Ils sont généralement exclus lorsqu'ils longent une voie de communication.",

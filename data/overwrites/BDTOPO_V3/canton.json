@@ -1,15 +1,5 @@
 {
   "title": "Canton",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Administratif",
   "description": "Le canton est la circonscription servant de cadre à l'élection des conseils départementaux, anciennement conseils généraux, définie par la loi du 17 mai 2013. Cette loi impose un redécoupage des cantons selon des critères démographiques, et leur nombre est réduit de moitié ; chacun des nouveaux cantons élit au scrutin binominal deux élus, nécessairement de sexes différents. La composition des nouveaux cantons est décrite dans des décrets publiés en février 2014. Les cantons ne sont plus nécessairement des subdivisions territoriales des arrondissements. Dans la plupart des cas, les cantons englobent plusieurs communes. Mais les cantons ne respectent pas toujours les limites communales : ils peuvent être à cheval sur plusieurs communes ou être inclus strictement dans une commune. Les premières élections des conseils départementaux, appelées « élections départementales », anciennement « élections cantonales », se sont déroulées en mars 2015. Il n'existe plus désormais de chefs-lieux de canton mais des bureaux centralisateurs, en fonction lors des élections départementales. Source Insee",
   "properties": [

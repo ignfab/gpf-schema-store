@@ -1,15 +1,5 @@
 {
   "title": "Limite terre-mer",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Hydrographie",
   "description": "Ligne au niveau de laquelle une masse continentale est en contact avec une masse d'eau, inclut en particulier le trait de côte.",
   "x-ign-selectionCriteria": "Sont retenues : - la laisse des plus hautes mers, - la laisse des plus basses mers, - les limite maritimes administratives : limites des affaires maritimes, limites de salure des eaux et limites transversales de la mer.",

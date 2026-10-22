@@ -1,15 +1,5 @@
 {
   "title": "Ligne électrique",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Services et activités",
   "description": "Portion de ligne électrique homogène pour l'ensemble des attributs qui la concernent.",
   "x-ign-selectionCriteria": "Toutes les lignes électriques à haute (voltage ≥ 63 kV) ou à très haute tension (voltage ≥ 150 kV) sont incluses. Les portions souterraines sont exclues. Les lignes à moyenne tension (voltage < 63 kV) ne sont présentes que dans certains cas particuliers.",

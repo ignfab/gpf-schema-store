@@ -1,15 +1,5 @@
 {
   "title": "Piste d'aérodrome",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Transport",
   "description": "Aire située sur un aérodrome, aménagée afin de servir au roulement des aéronefs, à leur décollage et à leur atterrissage.",
   "x-ign-selectionCriteria": "Toutes les pistes situées dans un aérodrome sont incluses, que la piste soit revêtue ou en herbe. Les pistes réservées aux ULM (ou plate-forme ULM) ne sont pas saisies. Les pistes d’aéromodélisme ne sont pas retenues. Les pistes désaffectées sont saisies. Elles sont marquées par le champ 'Etat de l'objet transport'=\"Non exploité\".",

@@ -1,15 +1,5 @@
 {
   "title": "Surface hydrographique",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Hydrographie",
   "description": "Zone d'origine naturelle ou artificielle, temporaire ou permanente, couverte d'eau continentale de surface, douce ou salée ou couverte de glace persistante.",
   "x-ign-selectionCriteria": "Sont à représenter : - Les surfaces d’eau non coulante non souterraines de plus de 200m² ou longues de plus de 20m, - tous les bassins des stations d’épuration ou de décantation, - les bassins ayant totalement perdu leur fonction (anciennes zones de marais salants ou de cultures ostréicoles), - les surfaces d’eau coulante non souterraines de plus de 5 m de large, les zones intermittentes de plus de 20 m de large bordant un écoulement Les surfaces d’eau non coulante non souterraines de moins de 200 m² et longues de moins de 20 m peuvent être représentées en fonction de leur intérêt topographique sans rechercher à obtenir l’exhaustivité. La mer et l’océan ne sont pas saisis en surface hydrographique, la zone d’estran non plus. Des exceptions peuvent être faites au niveau des estuaires et des ports pour lesquels les surfaces hydrographiques peuvent dépasser la limite du tronçon de laisse des plus basses mers (Limite terre-mer de Niveau=\"Plus basses eaux\") pour aller jusqu’à la limite de commune.",

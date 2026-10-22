@@ -1,15 +1,5 @@
 {
   "title": "Point de repère",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Transport",
   "description": "Point créé par le gestionnaire du réseau routier le long d'un Tronçon de route et utilisé pour assurer le référencement linéaire d'objets ou d’événements le long de cette route. Il est parfois matérialisé physiquement par des marques peintes associées à des bornes ou des plaquettes dites « PR » (définition du CEREMA), mais peut également être un point virtuel marquant une information sur la voie (exemple PR de début, de fin, début ou fin de section). Le PR permet de mettre en place un système de localisation sur le réseau routier.",
   "x-ign-selectionCriteria": "Les objets Point de repère retenus sont les PR des routes intercommunales, départementales, nationales et autoroutes.",

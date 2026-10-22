@@ -1,15 +1,5 @@
 {
   "title": "Cimetière",
-  "x-ign-sources": [
-    {
-      "title": "BD TOPO Explorer",
-      "path": "https://bdtopoexplorer.ign.fr/"
-    },
-    {
-      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
-      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
-    }
-  ],
   "x-ign-theme": "Bâti",
   "description": "Terrain où l'on enterre les morts.",
   "x-ign-selectionCriteria": "Tous les cimetières sont inclus. Les crématoriums, funérariums, ossuaires,… situés hors d'un cimetière sont exclus.",
