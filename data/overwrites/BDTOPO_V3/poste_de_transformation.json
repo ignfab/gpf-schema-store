@@ -1,5 +1,15 @@
 {
   "title": "Poste de transformation",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Services et activités",
   "description": "Enceinte à l'intérieur de laquelle le courant transporté par une ligne électrique est transformé.",
   "x-ign-selectionCriteria": "Tous les postes de transformation situés sur le réseau de lignes électriques à haute ou très haute tension sont retenus, c’est-à-dire les postes situés sur les lignes de voltage supérieur ou égal à 63 kV. Les postes situés sur le réseau à moyenne ou basse tension, de voltage inférieur à 63 kV, sont exclus. Les postes de transformation situés le long des voies LGV ou des voies ferrées électrifiées sont retenus. Les postes gérés par RTE sont marqués par le champ Sources=\"RTE\". Les postes de transformation non gérés par RTE, le long des voies ferrées par exemple sont marqués par le champ Sources=\"non RTE\". Le gestionnaire peut être précisé. Exemple : \"non RTE (SNCF)\".",

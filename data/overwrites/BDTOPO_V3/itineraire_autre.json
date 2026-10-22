@@ -1,5 +1,15 @@
 {
   "title": "Itinéraire autre",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Transport",
   "description": "Itinéraire divers balisé et entretenu sur le terrain, pérenne, non labellisé par la FFRandonnée ni par le Club Vosgien. Itinéraire référencé dans le PDIPR (Plan Départemental des Itinéraires Pédestres de Randonnée), ou par au moins un organisme officiel qui en a la compétence (office de tourisme, epci, comité départemental de la FFRandonnée).",
   "x-ign-selectionCriteria": "Nature 'Autre' et 'Equestre' : l'exhaustivité n'est visée que sur les zones couvertes par des cartes TOP25 ou le département 02 (convention PDIPR pour la cartographie). En dehors de ces zones, des itinéraires peuvent être saisis en cas de partenariat. Nature 'Sentier de découverte' et 'Parcours sportif' : France entière.",

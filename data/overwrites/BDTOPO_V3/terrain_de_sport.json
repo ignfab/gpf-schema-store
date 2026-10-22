@@ -1,5 +1,15 @@
 {
   "title": "Terrain de sport",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Bâti",
   "description": "Équipement sportif de plein air.",
   "x-ign-selectionCriteria": "Sont retenus : - les plate-formes multi-sports, les terrains d’entraînement, les terrains de football, les terrains de rugby, les stades, les petits terrains de sports référencés par le Ministère des Sports, - les pistes d’autodrome, les circuits auto-moto, - les hippodromes (piste), les vélodromes (piste), les cynodromes (piste), les grands stades d’athlétisme (piste), - les terrains de tennis, - les bassins de natation à l’air libre, les piscines découvertes. Voir les différentes valeurs de l'attribut 'Nature'.",

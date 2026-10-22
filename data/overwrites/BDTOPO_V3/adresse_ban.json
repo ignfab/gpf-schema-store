@@ -1,5 +1,15 @@
 {
   "title": "Adresse BAN",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Adresses",
   "description": "Objet matérialisant une adresse postale. Les adresses présentes dans cette table proviennent exclusivement de la Base Adresse Nationale, la base de référence en matière d'adresses sur l'ensemble du territoire français. Ces adresses sont moissonnées à l'adresse suivante : https://adresse.data.gouv.fr/data/ban/adresses/latest/csv-bal/ Un fichier, conforme au format BAL (Base Adresse Locale) est disponible. Il contient l’ensemble des adresses, réelles et fictives, du département. Dans les cas d’une adresse définie avec plusieurs positions dans la BAN, l’ensemble des positions sont présentes dans le fichier BAL. La structure du format BAL est disponible sur le lien suivant : https://doc.adresse.data.gouv.fr/mettre-a-jour-sa-base-adresse-locale/le-format-base-adresse-locale",
   "properties": [

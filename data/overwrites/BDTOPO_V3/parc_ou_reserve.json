@@ -1,5 +1,15 @@
 {
   "title": "Parc ou réserve",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Zones réglementées",
   "description": "Espace naturel protégé où certaines activités sont régies par un règlement particulier.",
   "x-ign-selectionCriteria": "Toutes les emprises de parcs et de réserves naturelles nationales ou régionales sont retenues.",

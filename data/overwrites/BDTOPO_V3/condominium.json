@@ -1,5 +1,15 @@
 {
   "title": "Condominium",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Administratif",
   "description": "Zone administrative établie indépendamment de toute division administrative territoriale nationale et administrée par deux pays ou plus. En France, désigne l'Île des Faisans, sur la rivière \"la Bidassoa\", près d'Hendaye (64), de souveraineté alternative franco-espagnole.",
   "properties": [

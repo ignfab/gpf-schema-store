@@ -84,6 +84,73 @@ describe('parseOverwrite', () => {
     })).toThrow(/title|description/);
   });
 
+  it('accepts all local overwrite files with traceability fields', () => {
+    for (const file of listJsonFiles('data/overwrites')) {
+      const overwrite = parseOverwrite(
+        JSON.parse(readFileSync(file, 'utf-8')) as unknown,
+        file,
+      );
+      expect(overwrite['x-ign-sources']?.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('accepts optional x-ign-sources and x-ign-generated', () => {
+    const base = {
+      title: 'Feature',
+      description: 'Feature description',
+      'x-ign-theme': 'Theme',
+      required: [],
+      properties: [],
+    };
+
+    expect(parseOverwrite(base)['x-ign-generated']).toBeUndefined();
+    expect(parseOverwrite({
+      ...base,
+      'x-ign-sources': [
+        { title: 'Doc', path: 'https://example.org/doc.pdf', version: '2023' },
+        { title: 'Other doc', path: 'https://example.org/other.pdf' },
+      ],
+      'x-ign-generated': {
+        by: 'ai',
+        tool: 'Claude Code (claude-opus-5-5)',
+        date: '2026-10-21',
+        reviewed: { by: 'mborne', date: '2026-10-21' },
+      },
+    })['x-ign-generated']?.by).toBe('ai');
+    // AI generation details are optional
+    expect(() => parseOverwrite({
+      ...base,
+      'x-ign-generated': { by: 'ai' },
+    })).not.toThrow();
+  });
+
+  it('rejects invalid x-ign-sources and x-ign-generated', () => {
+    const base = {
+      title: 'Feature',
+      description: 'Feature description',
+      'x-ign-theme': 'Theme',
+      required: [],
+      properties: [],
+    };
+
+    expect(() => parseOverwrite({
+      ...base,
+      'x-ign-sources': [{ title: 'Missing path' }],
+    })).toThrow(/path/);
+    expect(() => parseOverwrite({
+      ...base,
+      'x-ign-generated': { by: 'robot' },
+    })).toThrow(/by/);
+    expect(() => parseOverwrite({
+      ...base,
+      'x-ign-generated': { by: 'ai', date: '21/10/2026' },
+    })).toThrow(/YYYY-MM-DD/);
+    expect(() => parseOverwrite({
+      ...base,
+      'x-ign-generated': { by: 'ai', reviewed: { date: '2026-10-21' } },
+    })).toThrow(/by/);
+  });
+
   it('rejects duplicate oneOf const values in the same property', () => {
     expect(() => parseOverwrite({
       title: 'Feature',

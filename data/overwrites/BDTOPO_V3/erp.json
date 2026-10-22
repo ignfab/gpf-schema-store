@@ -1,5 +1,15 @@
 {
   "title": "ERP",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Services et activités",
   "description": "Les établissements recevant du public (ERP) sont des bâtiments dans lesquels des personnes extérieures sont admises.",
   "x-ign-selectionCriteria": "L'accès peut être payant ou gratuit, libre, restreint ou sur invitation. Une entreprise non ouverte au public, mais seulement au personnel, n'est pas un ERP. Les ERP sont classés en types (salle de spectacle, cinéma, hôtel, restaurant, magasin, maison de retraite ...) et en catégories (fonction de l'effectif du public reçu) qui définissent les exigences réglementaires applicables en fonction des risques. Voir les différentes valeur des attributs 'Type principal' et 'Catégorie'.",

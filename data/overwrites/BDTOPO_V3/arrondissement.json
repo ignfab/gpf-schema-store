@@ -1,5 +1,15 @@
 {
   "title": "Arrondissement",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Administratif",
   "description": "L'arrondissement est une circonscription administrative de l'État dont le chef-lieu est la sous-préfecture. Le sous-préfet est chargé de son administration ; il relaie le préfet en assurant le contrôle administratif des communes de son arrondissement. Le libellé de l'arrondissement est le plus souvent celui du chef-lieu. L'arrondissement est une subdivision du département. Depuis le redécoupage cantonal lié aux élections départementales de mars 2015, l'arrondissement n’est plus un regroupement de cantons mais de communes. Source Insee",
   "properties": [

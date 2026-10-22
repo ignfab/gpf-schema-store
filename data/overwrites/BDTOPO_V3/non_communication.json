@@ -1,5 +1,15 @@
 {
   "title": "Non-communication",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Transport",
   "description": "Nœud du réseau routier indiquant l'impossibilité d'accéder à un Tronçon de route ou à un enchaînement de plusieurs tronçons particuliers à partir d'un tronçon de départ donné.",
   "x-ign-selectionCriteria": "Il n'est à ce jour pas effectué de saisie exhaustive des non-communications.",

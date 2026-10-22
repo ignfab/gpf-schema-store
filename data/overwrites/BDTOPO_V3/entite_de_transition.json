@@ -1,5 +1,15 @@
 {
   "title": "Entité de transition",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Hydrographie",
   "description": "Partie terminale d'un fleuve, de forme évasée et où la mer remonte (estuaire, delta)",
   "properties": [

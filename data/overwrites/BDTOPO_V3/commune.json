@@ -1,5 +1,15 @@
 {
   "title": "Commune",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Administratif",
   "description": "La commune est la collectivité territoriale de base, la plus petite division administrative française. Elle est administrée par le maire. Elle exerce de nombreuses compétences en autonomie. C’est la collectivité la plus répandue sur le territoire. La commune est la subdivision administrative la plus ancienne, puisqu'elle a succédé aux villes et paroisses du Moyen Âge. Elle a été instituée en 1789 avant de connaître un début d'autonomie avec la loi du 5 avril 1884, véritable charte communale. Le maire est l'exécutif de la commune qu'il représente et dont il gère le budget. Il est l'employeur du personnel communal et exerce les compétences de proximité (écoles, urbanisme, action sociale, voirie, transports scolaires, ramassage des ordures ménagères, assainissement, etc.). Il est également agent de l'État pour les fonctions d'état civil, d'ordre public, d'organisation des élections et de délivrance de titres réglementaires. Au 1er janvier 2025, on comptait 34 875 communes, dont 34 746 en métropole et 129 en Outre-Mer. Source Insee",
   "x-ign-selectionCriteria": "Un objet Commune est saisi pour chaque commune définie par l’INSEE.",

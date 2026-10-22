@@ -1,5 +1,25 @@
 {
   "title": "Potentiel solaire sur toiture (méthode simplifiée)",
+  "x-ign-sources": [
+    {
+      "title": "Métadonnée de produit - Potentiel solaire photovoltaïque sur bâtiment (CEREMA)",
+      "path": "https://cerema.box.com/shared/static/geukigd7e5b0gv1jb5rwk85lj407klz9.pdf",
+      "version": "2023"
+    },
+    {
+      "title": "CSW record ENR_POTENTIEL-SOLAIRE-BATIMENT",
+      "path": "https://data.geopf.fr/csw?service=CSW&version=2.0.2&request=GetRecordById&id=ENR_POTENTIEL-SOLAIRE-BATIMENT&outputSchema=http://www.isotc211.org/2005/gmd&elementSetName=full"
+    }
+  ],
+  "x-ign-generated": {
+    "by": "ai",
+    "tool": "Claude Code (claude-opus-5-5)",
+    "date": "2026-10-21",
+    "reviewed": {
+      "by": "mborne",
+      "date": "2026-10-21"
+    }
+  },
   "x-ign-theme": "Énergie",
   "description": "Potentiel solaire photovoltaïque des toitures en France métropolitaine (CEREMA, millésime 2023). Pour chaque emprise de bâtiment de la BD TOPO, estimation de l'énergie solaire reçue sur des panneaux photovoltaïques installés en toiture, calculée à partir d'un ensoleillement moyen annuel corrigé en fonction de la pente de la toiture et de l'azimut du bâtiment.",
   "properties": [

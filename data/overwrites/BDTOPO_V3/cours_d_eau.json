@@ -1,5 +1,15 @@
 {
   "title": "Cours d'eau",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Hydrographie",
   "description": "Entité hydrographique linéaire nommée ou identifiée par un code hydrographique, se décomposant en Tronçon hydrographique.",
   "x-ign-representedFeatures": [

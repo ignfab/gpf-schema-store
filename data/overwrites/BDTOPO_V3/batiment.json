@@ -1,5 +1,15 @@
 {
   "title": "Bâtiment",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Bâti",
   "description": "Construction au-dessus du sol qui est utilisée pour abriter des humains, des animaux, des objets, pour la production de biens économiques ou pour la prestation de services et qui se réfère à toute structure construite ou érigée de façon permanente sur son site.",
   "x-ign-selectionCriteria": "Initialement, les seuils de sélection des bâtiments étaient les suivants : - Tous les bâtiments de plus de 50 m² sont inclus. - Les bâtiments faisant entre 20 et 50 m² sont sélectionnés en fonction de leur environnement et de leur aspect. - Les bâtiments de moins de 20 m² sont représentés par un objet de classe Construction ponctuelle s’ils sont très hauts, ou s’ils sont spécifiquement désignés sur la carte au 1 : 25 000 en cours (ex: antenne, transformateur…). Après unification de la BD TOPO® avec la BD PARCELLAIRE® Tous les bâtiments présents dans la dernière édition de la BD PARCELLAIRE® vecteur sont inclus, sauf éventuellement des bâtiments manifestement détruits depuis la date de validité de la BD PARCELLAIRE®. Les petits bâtiments de la BD PARCELLAIRE® qui représentent des constructions ponctuelles (exemple des transformateurs) ou des constructions linéaires (exemple des murs de remparts) sont saisis avec leur modélisation initiale respective en BD TOPO®. Il n’existe plus de seuil minimal pour la superficie des bâtiments. Cependant, si une nouvelle saisie photogrammétrique a lieu après les phases d’unification du bâti, les nouveaux bâtiments ne posséderont pas la granularité de la BD PARCELLAIRE®. Pour la restitution, les seuils de sélection initiaux sont alors appliqués (bâtiments de plus de 50 m² et bâtiments de 20 à 50 m² en fonction de leur environnement et de leur aspect).",

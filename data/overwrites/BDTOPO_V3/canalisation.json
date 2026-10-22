@@ -1,5 +1,15 @@
 {
   "title": "Canalisation",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Services et activités",
   "description": "Infrastructure dédiée au transport d'hydrocarbures liquides ou gazeux ou de matières premières (tapis roulant industriel).",
   "x-ign-selectionCriteria": "- Toutes les canalisations de plus de 100 mètres sont saisies, qu'elles soient aériennes ou souterraines (à condition d'avoir des plans) et si cette canalisation souterraine permet d'éviter une discontinuité. - À l’intérieur d’un site industriel, ne retenir que les grandes conduites qui sortent du site. - Tapis roulant au sol : saisir uniquement les installations fixes de plus de 100 m de long. On ne saisit pas les gazoducs ou pipelines complètement souterrains.",

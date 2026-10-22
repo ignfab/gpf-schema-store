@@ -1,5 +1,15 @@
 {
   "title": "Lien adresse vers BDTopo",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Adresses",
   "description": "Lien entre les adresses de la BAN et leur support BD TOPO®.",
   "properties": [

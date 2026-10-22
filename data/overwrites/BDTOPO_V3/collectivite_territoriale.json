@@ -1,5 +1,15 @@
 {
   "title": "Collectivité territoriale",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Administratif",
   "description": "Les collectivités territoriales sont des structures administratives françaises, distinctes de l'administration de l'État, qui doivent prendre en charge les intérêts de la population d'un territoire précis. Sont définies comme collectivités territoriales : - les communes - les départements auxquels s'ajoutent les cinq départements d'outre-mer (Dom) - les régions auxquelles s'ajoutent également cinq régions d'outre-mer - les collectivités à statut particulier - les collectivités d'outre-mer (Com) Source Insee",
   "properties": [

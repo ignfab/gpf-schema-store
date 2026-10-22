@@ -1,5 +1,15 @@
 {
   "title": "Route numérotée ou nommée",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Transport",
   "description": "Voie de communication destinée aux automobiles, aux piétons, aux cycles ou aux animaux et possédant un numéro ou un nom particulier.",
   "x-ign-selectionCriteria": "Toutes les autoroutes, routes nationales, départementales, métropolitaine sont incluses. Toutes les routes européennes sont incluses. Les itinéraires nommés sur des parcours autoroutiers, des routes importantes de plus de 20 km de long sont retenus. Les voies vertes nommées et les véloroutes continues sont retenus. Les anciennes voies romaines, chemins et voies forestières nommées sont retenus.",

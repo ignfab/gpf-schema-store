@@ -1,5 +1,15 @@
 {
   "title": "Tronçon de voie ferrée",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Transport",
   "description": "Portion de voie ferrée homogène pour l'ensemble des attributs qui la concernent.",
   "x-ign-selectionCriteria": "Sont retenus les tronçons ferroviaires suivants : - toutes les voies LGV en site propre, - toutes les voies ferrées principales (dont on assurera la continuité dans les aires de triage), exploitées ou non, - toutes les voies de service, exploitées ou non, à partir de 300 m de long, - les embranchements particuliers, voies industrielles ou de service à partir de 300 m de long, - les voies urbaines connectées par rail au réseau national, de type RER, quelle que soit leur longueur, - les funiculaires d’au moins 100 mètres de long, - les trains à crémaillère d’au moins 100 mètres de long, - les lignes à vocation touristique, - les vélo-rails, à partir de 1 km de long, - les lignes de métro aériennes et les lignes de tramway, - les voies ferrées en construction. Sont exclues : - les voies ferrées déposées (rails supprimés sur le terrain), - les voies de triage et de garage, généralisées en Equipement de transport de Nature=\"Aire de triage\", - les lignes ferrées situées à l’intérieur des parcs d’attractions.",

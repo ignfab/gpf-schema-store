@@ -1,5 +1,15 @@
 {
   "title": "Région",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Administratif",
   "description": "Structure la plus récente de l'administration locale française, la région est devenue collectivité territoriale à la suite des lois de décentralisation, le 16 mars 1986, date de la première élection des conseillers régionaux élus au suffrage universel; son existence a été consacrée par la révision constitutionnelle du 28 mars 2003. Les conseillers régionaux élisent le président du conseil régional qui gère le budget, dirige le personnel et conduit la politique de la région. Les compétences propres de la région concernent principalement l'aménagement du territoire, le développement économique, la formation professionnelle, la construction ou l'entretien des lycées, les transports ferroviaires de voyageurs. Il y a en France 17 régions dont 5 d'outre-mer. La collectivité territoriale de Corse est le plus souvent assimilée à une région. Source Insee",
   "properties": [

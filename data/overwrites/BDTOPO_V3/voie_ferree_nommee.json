@@ -1,5 +1,15 @@
 {
   "title": "Voie ferrée nommée",
+  "x-ign-sources": [
+    {
+      "title": "BD TOPO Explorer",
+      "path": "https://bdtopoexplorer.ign.fr/"
+    },
+    {
+      "title": "Scripts de production des données de BD TOPO Explorer (branche dev)",
+      "path": "https://gitlab.ign.fr/ignfab/scripts-bdtopo-explorer/"
+    }
+  ],
   "x-ign-theme": "Transport",
   "description": "Objet complexe lié aux objets Tronçon de voie ferrée qui constituent un itinéraire ou une voie ferrée nommée, touristique ou non.",
   "x-ign-selectionCriteria": "Toutes les voies ferrées touristiques sont incluses. Tous les vélo-rails sont retenus. Les LGV sont également nommées. En fonction de partenariats locaux, les lignes de transport urbains peuvent être nommées également.",
