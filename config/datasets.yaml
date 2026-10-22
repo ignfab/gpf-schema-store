@@ -20,13 +20,13 @@ datasets:
     source: csw
     title: ICU TT8
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: '002'
     source: csw
     title: Stress thermique - Toulouse Metropole
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 025f828f-e726-437d-b07e-6a1f81c8f0bf
     source: csw
@@ -146,7 +146,7 @@ datasets:
     source: csw
     title: Zones inondables définies par un PPRI dans le Haut-Rhin
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: 57_fenetrange_ia
     source: csw
@@ -176,7 +176,7 @@ datasets:
     source: csw
     title: LCZ CEREMA
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: No WFS layers
 
   - id: 67ea5c9630b65d631115778c
     source: csw
@@ -608,7 +608,10 @@ datasets:
     source: csw
     title: ENR - Parkings de plus de 500m²
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
+    links:
+      - type: wfs
+        name: PARKING.SUP.500:parkings_sup500m2
 
   - id: ENR_PERIMETRE-PENTE
     source: csw
@@ -632,13 +635,19 @@ datasets:
     source: csw
     title: ENR - Potentiel éolien terrestre couche clé en main
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
+    links:
+      - type: wfs
+        name: POTENTIEL.EOLIEN.REGLEMENTAIRE:*
 
   - id: ENR_POTENTIEL-METHANISATION-CANTON
     source: csw
     title: ENR - Potentiel méthanisation par canton
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
+    links:
+      - type: wfs
+        name: REPARTITION.POTENTIEL.METHANISATION.2050:potentiel_methanisation_2050
 
   - id: ENR_POTENTIEL-SOLAIRE-BATIMENT
     source: csw
@@ -663,7 +672,10 @@ datasets:
     source: csw
     title: ENR - Potentiel solaire au sol
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
+    links:
+      - type: wfs
+        name: POTENTIEL.SOLAIRE.SOL:pv_sol_metropole_guadeloupe_martinique
 
   - id: ENR_PRODUCTIBLE-EOLIEN-COMMUNE
     source: csw
@@ -747,7 +759,7 @@ datasets:
     source: csw
     title: Part des ménages pauvres à Marseille
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: GPU
     source: manual
@@ -1870,7 +1882,7 @@ datasets:
     source: csw
     title: Communes du département de la Marne
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Local data
 
   - id: deal972_MEsouterraine_s
     source: csw
