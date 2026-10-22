@@ -3,6 +3,10 @@
   "description": "Experimental OGC API Features schema store enriched from Geoplateforme WFS.",
   "license": "MIT",
   "author": "IGNF",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ignfab/gpf-schema-store.git"
+  },
   "version": "0.3.0",
   "engines": {
     "node": ">=22"
