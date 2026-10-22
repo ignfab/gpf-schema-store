@@ -34,6 +34,9 @@ const debug = debuglog('gpf-schema-store:merge');
  * | x-ign-representedFeatures | overwrite        |
  * | required                  | overwrite        |
  *
+ * `x-ign-sources` and `x-ign-generated` are traceability fields for the
+ * maintainers : they are kept in data/overwrites and are not propagated.
+ *
  * Property level:
  *
  * - result property list comes from the WFS properties array

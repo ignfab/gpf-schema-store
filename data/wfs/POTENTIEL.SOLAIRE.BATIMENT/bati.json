@@ -1,0 +1,34 @@
+{
+  "id": "POTENTIEL.SOLAIRE.BATIMENT:bati",
+  "namespace": "POTENTIEL.SOLAIRE.BATIMENT",
+  "name": "bati",
+  "title": "Potentiel solaire sur toiture (méthode simplifiée)",
+  "description": "Potentiel solaire sur toiture (méthode simplifiée)",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string"
+    },
+    {
+      "name": "dep",
+      "type": "string"
+    },
+    {
+      "name": "code_insee",
+      "type": "string"
+    },
+    {
+      "name": "puissance",
+      "type": "float"
+    },
+    {
+      "name": "presume_public",
+      "type": "boolean"
+    },
+    {
+      "name": "geom",
+      "type": "multipolygon",
+      "defaultCrs": "EPSG:2154"
+    }
+  ]
+}

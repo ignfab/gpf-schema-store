@@ -619,8 +619,9 @@ datasets:
   - id: ENR_POTENTIEL-SOLAIRE-BATIMENT
     source: csw
     title: ENR - Potentiel solaire photovoltaïque des toitures
-    ignored: true
-    ignoredReason: Waiting for MCP use case definition
+    links:
+      - type: wfs
+        name: POTENTIEL.SOLAIRE.BATIMENT:bati
 
   - id: ENR_POTENTIEL-SOLAIRE-FRICHE
     source: csw

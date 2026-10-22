@@ -228,6 +228,17 @@ describe('mergeCollectionSchema', () => {
   })
 
 
+  it('does not propagate traceability fields (x-ign-sources, x-ign-generated)', () => {
+    const overwrite = makeOverwrite({
+      'x-ign-sources': [{ title: 'Doc', path: 'https://example.org/doc.pdf' }],
+      'x-ign-generated': { by: 'ai', reviewed: { by: 'mborne' } },
+    })
+
+    const merged = merge(base, overwrite)
+    expect(merged).not.toHaveProperty('x-ign-sources')
+    expect(merged).not.toHaveProperty('x-ign-generated')
+  })
+
   it('does not mutate source objects', () => {
     const overwrite = makeOverwrite({
       title: 'Modified title',

@@ -1,0 +1,64 @@
+{
+  "title": "Potentiel solaire sur toiture (méthode simplifiée)",
+  "x-ign-sources": [
+    {
+      "title": "Métadonnée de produit - Potentiel solaire photovoltaïque sur bâtiment (CEREMA)",
+      "path": "https://cerema.box.com/shared/static/geukigd7e5b0gv1jb5rwk85lj407klz9.pdf",
+      "version": "2023"
+    },
+    {
+      "title": "CSW record ENR_POTENTIEL-SOLAIRE-BATIMENT",
+      "path": "https://data.geopf.fr/csw?service=CSW&version=2.0.2&request=GetRecordById&id=ENR_POTENTIEL-SOLAIRE-BATIMENT&outputSchema=http://www.isotc211.org/2005/gmd&elementSetName=full"
+    }
+  ],
+  "x-ign-generated": {
+    "by": "ai",
+    "tool": "Claude Code (claude-opus-5-5)",
+    "date": "2026-10-21",
+    "reviewed": {
+      "by": "mborne",
+      "date": "2026-10-21"
+    }
+  },
+  "x-ign-theme": "Énergie",
+  "description": "Potentiel solaire photovoltaïque des toitures en France métropolitaine (CEREMA, millésime 2023). Pour chaque emprise de bâtiment de la BD TOPO, estimation de l'énergie solaire reçue sur des panneaux photovoltaïques installés en toiture, calculée à partir d'un ensoleillement moyen annuel corrigé en fonction de la pente de la toiture et de l'azimut du bâtiment.",
+  "properties": [
+    {
+      "name": "cleabs",
+      "type": "string",
+      "title": "Cleabs",
+      "description": "Identifiant du bâtiment dans la BD TOPO (table batiment)."
+    },
+    {
+      "name": "dep",
+      "type": "string",
+      "title": "Département",
+      "description": "Numéro de département."
+    },
+    {
+      "name": "code_insee",
+      "type": "string",
+      "title": "Code INSEE",
+      "description": "Code INSEE de la commune sur laquelle se trouve le bâtiment."
+    },
+    {
+      "name": "puissance",
+      "type": "number",
+      "title": "Puissance",
+      "description": "Puissance théorique disponible sur des panneaux photovoltaïques installés en toiture (en kWh/an)."
+    },
+    {
+      "name": "presume_public",
+      "type": "boolean",
+      "title": "Présumé public",
+      "description": "Indique si le bâtiment est présumé public (attribut non décrit dans la fiche de métadonnées du produit)."
+    },
+    {
+      "name": "geom",
+      "type": "geometry",
+      "title": "Géométrie",
+      "description": "Géométrie du bâtiment."
+    }
+  ],
+  "required": []
+}

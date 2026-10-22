@@ -30,8 +30,44 @@ export const zCollectionOverwriteProperty = z.object({
 export type CollectionOverwriteProperty = z.infer<typeof zCollectionOverwriteProperty>;
 
 
+/*
+ * Traceability (kept in data/overwrites only, not propagated to data/catalog)
+ */
+
+/**
+ * Source used to write the overwrite
+ * (inspired by Frictionless Data Package "sources").
+ */
+export const zCollectionOverwriteSource = z.object({
+  title: z.string().min(1),
+  path: z.string().min(1),
+  version: z.string().optional(),
+}).strict();
+
+export type CollectionOverwriteSource = z.infer<typeof zCollectionOverwriteSource>;
+
+const zIsoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected a YYYY-MM-DD date');
+
+/**
+ * How the overwrite was produced (missing => unknown / legacy).
+ */
+export const zCollectionOverwriteGenerated = z.object({
+  by: z.enum(['ai', 'human']),
+  tool: z.string().min(1).optional(),
+  date: zIsoDate.optional(),
+  reviewed: z.object({
+    by: z.string().min(1),
+    date: zIsoDate.optional(),
+  }).strict().optional(),
+}).strict();
+
+export type CollectionOverwriteGenerated = z.infer<typeof zCollectionOverwriteGenerated>;
+
+
 export const zCollectionOverwrite = z.object({
   title: z.string(),
+  'x-ign-sources': z.array(zCollectionOverwriteSource).optional(),
+  'x-ign-generated': zCollectionOverwriteGenerated.optional(),
   description: z.string(),
   'x-ign-theme': z.string(),
   'x-ign-selectionCriteria': z.string().optional(),
