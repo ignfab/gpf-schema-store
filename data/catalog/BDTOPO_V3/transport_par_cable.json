@@ -61,6 +61,10 @@
           "description": "Appareil servant à remorquer les skieurs à contre-pente au moyen d'une perche à laquelle ils se maintiennent."
         },
         {
+          "const": "Téléski nautique",
+          "title": "Téléski nautique"
+        },
+        {
           "const": "Tyrolienne géante",
           "title": "Tyrolienne géante",
           "description": "Tyrolienne géante"

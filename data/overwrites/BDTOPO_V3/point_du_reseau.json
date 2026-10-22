@@ -1,7 +1,14 @@
 {
   "title": "Point du réseau",
   "x-ign-theme": "Transport",
-  "description": "",
+  "description": "Point particulier d'un réseau de transport pouvant constituer, un obstacle permanent ou temporaire à la circulation.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

@@ -1,7 +1,14 @@
 {
   "title": "Voie nommée",
   "x-ign-theme": "Adresses",
-  "description": "",
+  "description": "Une voie nommée désigne une route adressée. Elle est formée par la concaténation des tronçons de route qui portent le même 'identifiant_voie_ban_gauche' et 'identifiant_voie_ban_droite'. A défaut, une voie nommée peut être générée à partir des tronçons de route possédant le même nom_collaboratif ('nom_collaboratif_gauche' ou 'nom_collaboratif_droite') sur une même commune.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

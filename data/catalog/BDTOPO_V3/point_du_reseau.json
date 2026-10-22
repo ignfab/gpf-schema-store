@@ -4,7 +4,7 @@
   "type": "object",
   "title": "Point du réseau",
   "x-ign-theme": "Transport",
-  "description": "",
+  "description": "Point particulier d'un réseau de transport pouvant constituer, un obstacle permanent ou temporaire à la circulation.",
   "properties": {
     "cleabs": {
       "type": "string",

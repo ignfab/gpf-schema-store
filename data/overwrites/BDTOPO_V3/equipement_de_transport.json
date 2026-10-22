@@ -1,7 +1,14 @@
 {
   "title": "Equipement de transport",
   "x-ign-theme": "Transport",
-  "description": "",
+  "description": "Équipement, construction ou aménagement relatif à un réseau de transport terrestre, maritime ou aérien.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",
@@ -346,8 +353,8 @@
           "description": "Parking entièrement souterrain."
         },
         {
-          "const": "Parking touristique isolé",
-          "title": "Parking touristique isolé",
+          "const": "Parking touristique",
+          "title": "Parking touristique",
           "description": "Parc à voitures aménagé, pouvant proposer moins de 25 places, servant de support à une activité touristique (escalade, départ de randonnées, départ de remontée mécanique, plage, ...)."
         },
         {

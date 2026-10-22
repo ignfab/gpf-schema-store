@@ -30,6 +30,8 @@ const ROOT_KEYS = new Set([
   'description',
   'x-ign-selectionCriteria',
   'x-ign-representedFeatures',
+  'x-ign-sources',
+  'x-ign-generated',
   'required',
   'properties',
 ]);

@@ -2,6 +2,13 @@
   "title": "Bassin versant topographique",
   "x-ign-theme": "Hydrographie",
   "description": "Aire de collecte (impluvium) considérée à partir d'un exutoire ou ensemble d'exutoires, limitée par le contour à l'intérieur duquel se rassemblent les eaux précipitées qui s'écoulent en surface vers cette sortie. Les limites peuvent être la ligne de partage des eaux des eaux superficielles.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "geometrie",

@@ -3,6 +3,13 @@
   "x-ign-theme": "Bâti",
   "description": "Construction dont la forme générale est linéaire.",
   "x-ign-selectionCriteria": "Voir pour chaque valeur de l’attribut Nature",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

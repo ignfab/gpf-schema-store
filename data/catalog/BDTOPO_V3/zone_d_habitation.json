@@ -4,7 +4,11 @@
   "type": "object",
   "title": "Zone d'habitation",
   "x-ign-theme": "Lieux nommés",
-  "description": "",
+  "description": "Lieu-dit habité de manière permanente, temporaire mais régulière ou anciennement habité et à l'état de ruines.",
+  "x-ign-selectionCriteria": "Voir les différentes valeurs de l'attribut 'Nature'.",
+  "x-ign-representedFeatures": [
+    "Zone d'habitation"
+  ],
   "properties": {
     "cleabs": {
       "type": "string",

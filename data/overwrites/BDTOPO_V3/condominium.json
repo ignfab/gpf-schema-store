@@ -2,6 +2,13 @@
   "title": "Condominium",
   "x-ign-theme": "Administratif",
   "description": "Zone administrative établie indépendamment de toute division administrative territoriale nationale et administrée par deux pays ou plus. En France, désigne l'Île des Faisans, sur la rivière \"la Bidassoa\", près d'Hendaye (64), de souveraineté alternative franco-espagnole.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

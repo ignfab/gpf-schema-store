@@ -3,6 +3,13 @@
   "x-ign-theme": "Occupation du sol",
   "description": "Partie du littoral située entre les limites extrêmes des plus hautes et des plus basses marées.",
   "x-ign-selectionCriteria": "Zones de galets ou graviers, de rochers inondés, ou de sable dans l'estran. Si l'objet dépasse de la zone intertidale, il est saisi en intégralité : ainsi, cette couche couvre la zone d'estran (entre les laisses) mais aussi la zone terrestre attenante.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

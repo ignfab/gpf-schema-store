@@ -20,7 +20,7 @@
     "nature": {
       "type": "string",
       "title": "Nature",
-      "description": "",
+      "description": "Nature d'un plan d'eau ou d'un ensemble de plans d'eau. Elle correspond généralement à la nature majoritaire des objets Surface hydrographique composant le .",
       "oneOf": [
         {
           "const": "Aqueduc",

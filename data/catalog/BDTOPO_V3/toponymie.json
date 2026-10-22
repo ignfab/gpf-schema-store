@@ -4,7 +4,7 @@
   "type": "object",
   "title": "Toponymie",
   "x-ign-theme": "Lieux nommés",
-  "description": "",
+  "description": "Classe contenant l'ensemble des toponymes associés aux objets géographiques.",
   "properties": {
     "classe_de_l_objet": {
       "type": "string",

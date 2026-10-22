@@ -3,6 +3,13 @@
   "x-ign-theme": "Transport",
   "description": "Moyen de transport constitué d'un ou de plusieurs câbles porteurs.",
   "x-ign-selectionCriteria": "Tous les lignes de transport par câble de plus de 100 m de long sont saisies, exception faite des installations sommaires (pour lesquelles il n’y a pas de pylône) servant uniquement à transporter du matériel (exemple : câble à foin). Sont saisis : - les remontées ouvertes au public : en hiver et en été ou seulement en hiver ou seulement en été, - les installations privées : téléphérique à usage industriel (accès à un chantier d’altitude, à un observatoire, à un barrage, à une mine) ou les câbles transporteurs réservés à l’usage agricole, industriel ou à l’approvisionnement des refuges, - les téléphériques désaffectés.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",
@@ -57,6 +64,10 @@
           "const": "Téléski",
           "title": "Téléski",
           "description": "Appareil servant à remorquer les skieurs à contre-pente au moyen d'une perche à laquelle ils se maintiennent."
+        },
+        {
+          "const": "Téléski nautique",
+          "title": "Téléski nautique"
         },
         {
           "const": "Tyrolienne géante",

@@ -2,6 +2,13 @@
   "title": "Arrondissement municipal",
   "x-ign-theme": "Administratif",
   "description": "L'arrondissement municipal n'existe que pour Paris, Lyon et Marseille. Le but de la politique de décentralisation des services administratifs en 1982 consistait à rapprocher les administrations municipales du citoyen et à déconcentrer la gestion des trois plus grandes communes sans pour autant remettre en cause leur unité. La déconcentration ainsi souhaitée fut réalisée en donnant certaines compétences à un conseil et un maire élu. Ces arrondissements et leur conseil coexistent cependant avec un conseil municipal qui maintient l'unité communale de la ville. Source Insee",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

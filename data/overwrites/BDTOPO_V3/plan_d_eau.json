@@ -2,6 +2,13 @@
   "title": "Plan d'eau",
   "x-ign-theme": "Hydrographie",
   "description": "Une ou plusieurs étendue(s) d’eau continentale de surface, d’origine naturelle ou anthropique, possédant un toponyme ou identifiée(s) par un code hydrographique.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",
@@ -19,7 +26,7 @@
       "name": "nature",
       "type": "string",
       "title": "Nature",
-      "description": "",
+      "description": "Nature d'un plan d'eau ou d'un ensemble de plans d'eau. Elle correspond généralement à la nature majoritaire des objets Surface hydrographique composant le .",
       "oneOf": [
         {
           "const": "Aqueduc",

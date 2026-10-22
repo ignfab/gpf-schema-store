@@ -115,7 +115,7 @@
     "type_de_pr": {
       "type": "string",
       "title": "Type de PR",
-      "description": "",
+      "description": "Type de point de repère (début de section, carrefour, ...).",
       "oneOf": [
         {
           "const": "C",

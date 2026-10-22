@@ -4,7 +4,7 @@
   "type": "object",
   "title": "Détail orographique",
   "x-ign-theme": "Lieux nommés",
-  "description": "",
+  "description": "Détail du relief portant un nom.",
   "properties": {
     "cleabs": {
       "type": "string",
