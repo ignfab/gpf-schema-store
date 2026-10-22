@@ -8,12 +8,30 @@ export type CollectionSearchOptions = {
   limit?: number;
 };
 
-/** 
- * A lightweight result returned by the search engine: an id and an optional relevance score. 
+/**
+ * A result returned by the search engine.
+ *
+ * Only `id` is guaranteed. The other fields explain the match: they are provided by the
+ * default MiniSearch engine, but other implementations are not guaranteed to provide them.
  */
 export type CollectionSearchMatch = {
   id: string;
+  /**
+   * Relevance score (higher is better).
+   */
   score?: number;
+  /**
+   * Terms of the query (after normalization).
+   */
+  queryTerms?: string[];
+  /**
+   * Indexed terms matching the query terms (may differ from queryTerms with fuzzy search).
+   */
+  terms?: string[];
+  /**
+   * For each matching term, the names of the fields where it was found.
+   */
+  match?: Record<string, string[]>;
 };
 
 

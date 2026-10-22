@@ -1,4 +1,4 @@
-import MiniSearch, { type MatchInfo } from 'minisearch';
+import MiniSearch from 'minisearch';
 import type { EnrichedCollection } from '@/pivot/types';
 import {
   buildSearchDocuments,
@@ -18,7 +18,7 @@ import type {
  * This module adapts SearchDocument to MiniSearch:
  * - choose which search signals are indexed
  * - configure default search behavior
- * - expose lightweight and detailed search results
+ * - expose search results with match details (queryTerms, terms, match)
  */
 
 /*
@@ -70,14 +70,6 @@ export type MiniSearchCollectionSearchEngineOptions = {
   defaultSearchOptions?: MiniSearchCollectionSearchOptions;
 };
 
-/**
- * CollectionSearchMatch extended with MiniSearch specific metadata
- */
-export type MiniSearchCollectionSearchMatch = CollectionSearchMatch & {
-  queryTerms?: string[];
-  terms?: string[];
-  match?: MatchInfo;
-};
 
 /**
  * Internal helper type used after merging user options with the engine defaults.
@@ -216,16 +208,8 @@ export class MiniSearchCollectionSearchEngine implements CollectionSearchEngine 
 
   search(
     query: string,
-    options?: MiniSearchCollectionSearchOptions,
-  ): CollectionSearchMatch[] {
-    // The generic search API exposes only id and score.
-    return this.searchDetailed(query, options).map(({ id, score }) => ({ id, score }));
-  }
-
-  searchDetailed(
-    query: string,
     options: MiniSearchCollectionSearchOptions = {},
-  ): MiniSearchCollectionSearchMatch[] {
+  ): CollectionSearchMatch[] {
     // Per-query options override the defaults. Boost fields are merged so
     // callers can tune a single field weight without redefining every weight.
     const results = this.miniSearch

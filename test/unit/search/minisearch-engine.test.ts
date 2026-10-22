@@ -33,7 +33,7 @@ const COLLECTIONS: EnrichedCollection[] = [
 ];
 
 describe('MiniSearchCollectionSearchEngine search options', () => {
-  it('keeps the generic search result lightweight', () => {
+  it('returns the match details', () => {
     const engine = new MiniSearchCollectionSearchEngine(COLLECTIONS, {
       defaultSearchOptions: { fuzzy: 0 },
     });
@@ -43,20 +43,11 @@ describe('MiniSearchCollectionSearchEngine search options', () => {
     expect(firstMatch).toEqual({
       id: 'NS:alpha',
       score: expect.any(Number),
-    });
-  });
-
-  it('returns MiniSearch match metadata from searchDetailed', () => {
-    const engine = new MiniSearchCollectionSearchEngine(COLLECTIONS, {
-      defaultSearchOptions: { fuzzy: 0 },
-    });
-
-    const [firstMatch] = engine.searchDetailed('bar');
-
-    expect(firstMatch?.queryTerms).toEqual(['bar']);
-    expect(firstMatch?.terms).toEqual(['bar']);
-    expect(firstMatch?.match).toEqual({
-      bar: ['description'],
+      queryTerms: ['bar'],
+      terms: ['bar'],
+      match: {
+        bar: ['description'],
+      },
     });
   });
 

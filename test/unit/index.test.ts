@@ -70,6 +70,21 @@ describe('getCollectionCatalog', () => {
       expect(ids).toContain('BDTOPO_V3:batiment');
     });
 
+    // see https://github.com/ignfab/gpf-schema-store/issues/79
+    it('returns the match details with the default engine', () => {
+      const catalog = getCollectionCatalog();
+
+      const [firstMatch] = catalog.search('bâtiments', { limit: 1 });
+
+      expect(firstMatch).toEqual({
+        id: 'BDTOPO_V3:batiment',
+        score: expect.any(Number),
+        queryTerms: ['batiments'],
+        terms: expect.any(Array),
+        match: expect.any(Object),
+      });
+    });
+
   });
 
 
