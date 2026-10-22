@@ -608,7 +608,10 @@ datasets:
     source: csw
     title: ENR - Parkings de plus de 500m²
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
+    links:
+      - type: wfs
+        name: PARKING.SUP.500:parkings_sup500m2
 
   - id: ENR_PERIMETRE-PENTE
     source: csw
@@ -632,13 +635,19 @@ datasets:
     source: csw
     title: ENR - Potentiel éolien terrestre couche clé en main
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
+    links:
+      - type: wfs
+        name: POTENTIEL.EOLIEN.REGLEMENTAIRE:*
 
   - id: ENR_POTENTIEL-METHANISATION-CANTON
     source: csw
     title: ENR - Potentiel méthanisation par canton
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
+    links:
+      - type: wfs
+        name: REPARTITION.POTENTIEL.METHANISATION.2050:potentiel_methanisation_2050
 
   - id: ENR_POTENTIEL-SOLAIRE-BATIMENT
     source: csw
@@ -663,7 +672,10 @@ datasets:
     source: csw
     title: ENR - Potentiel solaire au sol
     ignored: true
-    ignoredReason: New dataset, review required
+    ignoredReason: Waiting for MCP use case definition
+    links:
+      - type: wfs
+        name: POTENTIEL.SOLAIRE.SOL:pv_sol_metropole_guadeloupe_martinique
 
   - id: ENR_PRODUCTIBLE-EOLIEN-COMMUNE
     source: csw
