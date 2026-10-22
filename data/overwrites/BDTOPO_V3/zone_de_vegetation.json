@@ -2,6 +2,13 @@
   "title": "Zone de végétation",
   "x-ign-theme": "Occupation du sol",
   "description": "Espace végétal naturel ou non, différencié en particulier selon le couvert arboré.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

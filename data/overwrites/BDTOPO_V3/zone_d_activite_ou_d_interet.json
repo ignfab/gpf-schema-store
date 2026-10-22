@@ -1,7 +1,14 @@
 {
   "title": "Zone d'activité ou d'intérêt",
   "x-ign-theme": "Services et activités",
-  "description": "La table zone_d_activite_ou_d_interet de la BD TOPO représente les emprises surfaciques de sites ou équipements d’activité ou d’intérêt, classés par catégorie et nature, par exemple administratif, culturel, industriel, religieux, santé, enseignement ou sport.",
+  "description": "Lieu dédié à une activité particulière ou présentant un intérêt spécifique.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",
@@ -157,7 +164,7 @@
         {
           "const": "Autre service déconcentré de l'Etat",
           "title": "Autre service déconcentré de l'Etat",
-          "description": "Administrations ou services assurant le relais, sur le plan local, des décisions prises par l’administration centrale. Elles assurent la gestion des services de l’État au niveau local.",
+          "description": "Administrations ou services assurant le relais, sur le plan local, des décisions prises par l’administration centrale. Elles assurent la gestion des services ou la présence de l’État au niveau local.",
           "x-ign-representedFeatures": [
             "Service déconcentré de l’État à l’échelon régional",
             "Service déconcentré de l’État à l’échelon interrégional",
@@ -200,7 +207,8 @@
             "Caravaneige",
             "Caravaning",
             "Camping naturiste",
-            "Parc résidentiel de loisirs"
+            "Parc résidentiel de loisirs",
+            "Camping GCU"
           ]
         },
         {
@@ -484,10 +492,12 @@
             "Maison départementale des personnes handicapées",
             "Maison de l'État",
             "CPAM",
+            "EFS",
+            "Agence France Travail",
+            "Centre des finances publiques",
             "CAF",
             "CCAS",
             "Centre d’information et d’orientation",
-            "Centre des finances publiques",
             "Centre des impôts (ancienne dénomination)",
             "Trésor public (ancienne dénomination)",
             "Maison de justice et du droit",
@@ -495,7 +505,6 @@
             "Mutualité sociale agricole",
             "Point d’information famille",
             "Point d’information jeunesse",
-            "Pôle emploi",
             "Service technique municipal",
             "URSSAF",
             "Atelier communal",
@@ -1046,12 +1055,13 @@
         {
           "const": "Police",
           "title": "Police",
-          "description": "Établissement occupé par un commissaire de police (officier de police judiciaire chargé de faire observer les règlements de police et de veiller au maintien de la paix publique).",
+          "description": "Établissement hébergeant un service de police chargé de missions de sécurité publique.",
           "x-ign-representedFeatures": [
             "Hôtel de police nationale",
             "Commissariat",
             "Commissariat central",
             "C.R.S. d’autoroute, de port ou d’aéroport",
+            "C.R.S. de montagne",
             "Police d'autoroute",
             "Police municipale"
           ]
@@ -1210,7 +1220,8 @@
           "x-ign-representedFeatures": [
             "Canoë-kayak",
             "Hydrospeed",
-            "Rafting"
+            "Rafting",
+            "Aviron"
           ]
         },
         {
@@ -1748,13 +1759,26 @@
           "description": "Centrale électrique fonctionnant grâce à l'énergie de la marée."
         },
         {
-          "const": "Centrale photovoltaïque",
-          "title": "Centrale photovoltaïque",
-          "description": "Centrale photovoltaïque",
+          "const": "Centrale photovoltaïque flottante",
+          "title": "Centrale photovoltaïque flottante",
+          "description": "Une centrale photovoltaïque sur bâti est une installation industrielle de production d'électricité renouvelable dont les panneaux solaires sont situés sur une surface d'eau."
+        },
+        {
+          "const": "Centrale photovoltaïque sol ou agrivoltaïque",
+          "title": "Centrale photovoltaïque sol ou agrivoltaïque",
+          "description": "Une centrale photovoltaïque est une installation industrielle de production d'électricité renouvelable qui convertit directement la lumière du soleil en électricité grâce à des panneaux solaires. L'agrivoltaïsme est une pratique qui associe sur une même surface une production agricole prioritaire et une production d'énergie solaire.",
           "x-ign-representedFeatures": [
+            "Centrale photovoltaïque",
+            "Centrale photovoltaïque sol",
+            "Centrale agrivoltaïque",
             "Ferme solaire",
             "Parc photovoltaïque"
           ]
+        },
+        {
+          "const": "Centrale photovoltaïque sur bâti",
+          "title": "Centrale photovoltaïque sur bâti",
+          "description": "Une centrale photovoltaïque sur bâti est une installation industrielle de production d'électricité renouvelable dont les panneaux solaires sont positionnés sur des bâtiments ou des structures en sursol comme des ombrières."
         },
         {
           "const": "Centrale thermique",
@@ -1789,7 +1813,7 @@
         {
           "const": "Centre de formation continue",
           "title": "Centre de formation continue",
-          "description": "Centre de formation continue. Les CFA donnent aux apprentis une formation générale et technique qui complète la formation reçue dans les entreprises."
+          "description": "Centre de formation continue. Structure proposant des formations destinées à des personnes ayant terminé leurs études initiales."
         },
         {
           "const": "Centre de formation d'apprentis",
@@ -2045,11 +2069,6 @@
           "description": "Colombier"
         },
         {
-          "const": "Colonie de vacances",
-          "title": "Colonie de vacances",
-          "description": "Colonie de vacances"
-        },
-        {
           "const": "Commerce réparation véhicules",
           "title": "Commerce réparation véhicules",
           "description": "Commerce de réparation de véhicules"
@@ -2057,7 +2076,7 @@
         {
           "const": "Commissariat",
           "title": "Commissariat",
-          "description": "Commissariat de police nationale. Dans les grandes villes, il dépend d'un Commissariat principal."
+          "description": "Commissariat de police nationale. Les commissariats de police sont dirigés par des commissaires de police ou des commandants de police à l'échelon/emploi fonctionnel. Le commissaire ou commandant en question est le chef de toutes les forces de police de la circonscription. Dans les grandes villes, il dépend d'un Commissariat principal."
         },
         {
           "const": "Commissariat central",
@@ -2360,6 +2379,11 @@
           "description": "Foyer d'accueil médicalisé"
         },
         {
+          "const": "France services",
+          "title": "France services",
+          "description": "Les Maisons de services au public et les maison France services sont des lieux d’accueil du public délivrant une offre de proximité. En un lieu unique, les usagers sont accompagnés par des agents dans leurs démarches de la vie quotidienne à travers un accueil et la mise à disposition d'outils numériques."
+        },
+        {
           "const": "Fromagerie",
           "title": "Fromagerie",
           "description": "Usine de production de fromages"
@@ -2639,11 +2663,6 @@
           "const": "Maison des associations",
           "title": "Maison des associations",
           "description": "Maison des associations"
-        },
-        {
-          "const": "Maison de services au public",
-          "title": "Maison de services au public",
-          "description": "Les Maisons de services au public et les maison France services sont des lieux d’accueil du public délivrant une offre de proximité. En un lieu unique, les usagers sont accompagnés par des agents dans leurs démarches de la vie quotidienne à travers un accueil et la mise à disposition d'outils numériques."
         },
         {
           "const": "Maison de site",

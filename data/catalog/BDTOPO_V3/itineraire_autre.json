@@ -160,7 +160,26 @@
       "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     "etat_de_l_objet": {
-      "type": "string"
+      "type": "string",
+      "title": "Etat de l'objet",
+      "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en construction. Dans le cas des Tronçon de route, la date de mise en service prévue est codée dans le champ 'Date de mise en service'."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service."
+        }
+      ]
     },
     "geometrie": {
       "format": "geometry-multilinestring",
@@ -171,6 +190,7 @@
   },
   "required": [
     "cleabs",
-    "nature"
+    "nature",
+    "etat_de_l_objet"
   ]
 }

@@ -2,6 +2,13 @@
   "title": "Lien adresse vers BDTopo",
   "x-ign-theme": "Adresses",
   "description": "Lien entre les adresses de la BAN et leur support BD TOPO®.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

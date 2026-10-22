@@ -2,6 +2,13 @@
   "title": "Bâtiment RNB lien BDTopo",
   "x-ign-theme": "Bâti",
   "description": "Bâtiment selon la définition du Référentiel National des Bâtiments (RNB (https://rnb.beta.gouv.fr/definition)) : \"Construction souterraine et/ou au-dessus du sol, ayant pour objectif d'être permanente, pour abriter des humains ou des activités humaines. Un bâtiment possède a minima un accès depuis l’extérieur. Dans la mesure du possible, un bâtiment est distinct d’un autre dès lors qu’il est impossible de circuler entre eux.\"",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

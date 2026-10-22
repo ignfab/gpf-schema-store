@@ -4,7 +4,7 @@
   "type": "object",
   "title": "Lieu-dit non habité",
   "x-ign-theme": "Lieux nommés",
-  "description": "",
+  "description": "Lieu-dit non habité dont le toponyme ne se rapporte ni à un détail orographique, ni à un détail hydrographique.",
   "properties": {
     "cleabs": {
       "type": "string",

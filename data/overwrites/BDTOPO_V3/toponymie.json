@@ -1,7 +1,14 @@
 {
   "title": "Toponymie",
   "x-ign-theme": "Lieux nommés",
-  "description": "",
+  "description": "Classe contenant l'ensemble des toponymes associés aux objets géographiques.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "geometrie",

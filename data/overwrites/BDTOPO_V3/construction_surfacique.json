@@ -3,6 +3,13 @@
   "x-ign-theme": "Bâti",
   "description": "Ouvrage de grande surface lié au franchissement d’un obstacle par une voie de communication, ou à l’aménagement d’une rivière ou d’un canal.",
   "x-ign-selectionCriteria": "Voir les différentes valeurs de l'attribut 'Nature'.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

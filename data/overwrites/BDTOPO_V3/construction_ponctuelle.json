@@ -3,6 +3,13 @@
   "x-ign-theme": "Bâti",
   "description": "Construction de faible emprise, caractérisée par sa hauteur (plus haute que large).",
   "x-ign-selectionCriteria": "Voir les différentes valeurs de l'attribut 'Nature'. Toutes les constructions de plus de 50 m de haut et de moins de 20 m² sont retenues. Les constructions de grande hauteur mais de grande emprise (plus de 20 m²) sont exclues : elles sont représentées par un objet de classe Bâtiment. Les constructions de moins de 20 m² et de moins de 50 m de haut sont incluses : - pour le cas particulier des éléments topographiques que sont les croix et des calvaires ; - lorsque leur taille, leur nature ou leur forme fait d'elles des constructions à la fois bien identifiables et caractéristiques dans le paysage ; - pour permettre de coter le Z du sommet d'un bâtiment dont la base large impose une saisie au niveau du sol et empêche de récupérer l'altitude du faîte élevé (exemple : bâtiment de forme pyramidale, surmonté d'une tour,…). Si la construction ne surmonte pas un bâtiment, elle doit être suffisamment haute ou caractéristique pour constituer un repère intéressant (exemple : poste d’observation incendie, croix, calvaire...).",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

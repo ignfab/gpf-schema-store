@@ -3,6 +3,13 @@
   "x-ign-theme": "Transport",
   "description": "Itinéraire divers balisé et entretenu sur le terrain, pérenne, non labellisé par la FFRandonnée ni par le Club Vosgien. Itinéraire référencé dans le PDIPR (Plan Départemental des Itinéraires Pédestres de Randonnée), ou par au moins un organisme officiel qui en a la compétence (office de tourisme, epci, comité départemental de la FFRandonnée).",
   "x-ign-selectionCriteria": "Nature 'Autre' et 'Equestre' : l'exhaustivité n'est visée que sur les zones couvertes par des cartes TOP25 ou le département 02 (convention PDIPR pour la cartographie). En dehors de ces zones, des itinéraires peuvent être saisis en cas de partenariat. Nature 'Sentier de découverte' et 'Parcours sportif' : France entière.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",
@@ -164,6 +171,29 @@
       "description": "Identifiants de l'objet dans les répertoires des organismes consultés pour leur inventaire."
     },
     {
+      "name": "etat_de_l_objet",
+      "type": "string",
+      "title": "Etat de l'objet",
+      "description": "Etat ou stade de la vie d'un objet qui peut être en projet, en construction ou en service.",
+      "oneOf": [
+        {
+          "const": "En construction",
+          "title": "En construction",
+          "description": "L'objet géographique est en construction. Dans le cas des Tronçon de route, la date de mise en service prévue est codée dans le champ 'Date de mise en service'."
+        },
+        {
+          "const": "En projet",
+          "title": "En projet",
+          "description": "L'objet géographique est en projet. Les travaux n'ont pas commencé."
+        },
+        {
+          "const": "En service",
+          "title": "En service",
+          "description": "L'objet géographique est en service."
+        }
+      ]
+    },
+    {
       "name": "geometrie",
       "type": "object",
       "title": "Géométrie GE MultiLigne",
@@ -172,6 +202,7 @@
   ],
   "required": [
     "cleabs",
-    "nature"
+    "nature",
+    "etat_de_l_objet"
   ]
 }

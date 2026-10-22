@@ -3,6 +3,13 @@
   "x-ign-theme": "Zones réglementées",
   "description": "Espace naturel protégé où certaines activités sont régies par un règlement particulier.",
   "x-ign-selectionCriteria": "Toutes les emprises de parcs et de réserves naturelles nationales ou régionales sont retenues.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

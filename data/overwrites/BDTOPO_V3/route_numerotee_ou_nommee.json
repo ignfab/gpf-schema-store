@@ -3,6 +3,13 @@
   "x-ign-theme": "Transport",
   "description": "Voie de communication destinée aux automobiles, aux piétons, aux cycles ou aux animaux et possédant un numéro ou un nom particulier.",
   "x-ign-selectionCriteria": "Toutes les autoroutes, routes nationales, départementales, métropolitaine sont incluses. Toutes les routes européennes sont incluses. Les itinéraires nommés sur des parcours autoroutiers, des routes importantes de plus de 20 km de long sont retenus. Les voies vertes nommées et les véloroutes continues sont retenus. Les anciennes voies romaines, chemins et voies forestières nommées sont retenus.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",
@@ -52,7 +59,11 @@
         {
           "const": "Nationale",
           "title": "Nationale",
-          "description": "Route nationale ou territoriale (Corse). Voies du domaine public routier national autres que les autoroutes."
+          "description": "Route nationale ou territoriale (Corse). Voies du domaine public routier national autres que les autoroutes.",
+          "x-ign-representedFeatures": [
+            "Route nationale",
+            "Route territoriale de la collectivité de Corse"
+          ]
         },
         {
           "const": "Piste DFCI",
@@ -210,10 +221,6 @@
           "title": "ALIS"
         },
         {
-          "const": "Allemagne",
-          "title": "Allemagne"
-        },
-        {
           "const": "Allier",
           "title": "Allier"
         },
@@ -286,8 +293,8 @@
           "title": "Aspres-lès-Corps (05009)"
         },
         {
-          "const": "Aspres-sur-Buëch (05100)",
-          "title": "Aspres-sur-Buëch (05100)"
+          "const": "Aspres-sur-Buëch (05010)",
+          "title": "Aspres-sur-Buëch (05010)"
         },
         {
           "const": "ATB",
@@ -416,6 +423,10 @@
         {
           "const": "Bréziers (05022)",
           "title": "Bréziers (05022)"
+        },
+        {
+          "const": "Brive-la-Gaillarde (19031)",
+          "title": "Brive-la-Gaillarde (19031)"
         },
         {
           "const": "Buissard (05025)",
@@ -652,6 +663,10 @@
         {
           "const": "DFCI_11",
           "title": "DFCI_11"
+        },
+        {
+          "const": "DFCI_12",
+          "title": "DFCI_12"
         },
         {
           "const": "DFCI_13",
@@ -1214,6 +1229,10 @@
           "title": "Lettret (05074)"
         },
         {
+          "const": "Loc-Brévalaire (29126)",
+          "title": "Loc-Brévalaire (29126)"
+        },
+        {
           "const": "Locmaria-Plouzané (29130)",
           "title": "Locmaria-Plouzané (29130)"
         },
@@ -1310,6 +1329,10 @@
           "title": "Mélicocq (60392)"
         },
         {
+          "const": "Métropole d'Aix-Marselle-Provence",
+          "title": "Métropole d'Aix-Marselle-Provence"
+        },
+        {
           "const": "Métropole de Lyon",
           "title": "Métropole de Lyon"
         },
@@ -1400,6 +1423,10 @@
         {
           "const": "Nantes Métropole",
           "title": "Nantes Métropole"
+        },
+        {
+          "const": "Narbonne (11262)",
+          "title": "Narbonne (11262)"
         },
         {
           "const": "Neffes (05092)",
@@ -1546,10 +1573,6 @@
           "title": "Principauté d'Andorre"
         },
         {
-          "const": "Principauté de Monaco",
-          "title": "Principauté de Monaco"
-        },
-        {
           "const": "Puy-de-Dôme",
           "title": "Puy-de-Dôme"
         },
@@ -1620,10 +1643,6 @@
         {
           "const": "Rousset Serre-Ponçon (05127)",
           "title": "Rousset Serre-Ponçon (05127)"
-        },
-        {
-          "const": "Royaume-Uni",
-          "title": "Royaume-Uni"
         },
         {
           "const": "Saint Auban d’Oze (05131)",
@@ -1794,16 +1813,12 @@
           "title": "Sigoyer (05168)"
         },
         {
-          "const": "SMTPC",
-          "title": "SMTPC"
-        },
-        {
           "const": "Somme",
           "title": "Somme"
         },
         {
-          "const": "SPS",
-          "title": "SPS"
+          "const": "Sondersdorf (68312)",
+          "title": "Sondersdorf (68312)"
         },
         {
           "const": "Suisse",
@@ -1854,12 +1869,20 @@
           "title": "Tracy-le-Val (60642)"
         },
         {
+          "const": "Trébabu (29282)",
+          "title": "Trébabu (29282)"
+        },
+        {
           "const": "Tréflévénez (29286)",
           "title": "Tréflévénez (29286)"
         },
         {
           "const": "Trégarantec (29288)",
           "title": "Trégarantec (29288)"
+        },
+        {
+          "const": "Tréglonou (29290)",
+          "title": "Tréglonou (29290)"
         },
         {
           "const": "Trémaouézan (29295)",
@@ -1936,6 +1959,10 @@
         {
           "const": "Vosges",
           "title": "Vosges"
+        },
+        {
+          "const": "Wallers-en-Fagne (59633)",
+          "title": "Wallers-en-Fagne (59633)"
         },
         {
           "const": "Yonne",

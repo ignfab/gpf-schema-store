@@ -2,6 +2,13 @@
   "title": "Haie",
   "x-ign-theme": "Occupation du sol",
   "description": "Axe d'une haie. La Haie est définie comme une clôture naturelle composée d’arbres, d’arbustes, d’épines ou de branchages et servant à délimiter ou à protéger un champ.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

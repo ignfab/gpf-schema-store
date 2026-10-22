@@ -1,7 +1,14 @@
 {
   "title": "Détail hydrographique",
   "x-ign-theme": "Hydrographie",
-  "description": "",
+  "description": "Représente des éléments topographiques liés à la présence d'eau et comportant, pour la majorité, un toponyme.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",
@@ -59,7 +66,11 @@
         {
           "const": "Citerne",
           "title": "Citerne",
-          "description": "Une citerne est un réservoir d'eau alimenté par de l'eau de pluie alors que le réservoir est alimenté par un réseau (captage, pompage, adduction, ...). Seules les citernes importantes sont saisies ; les citernes DFCI (Défense Forestière Contre les Incendies) sont retenues."
+          "description": "Une citerne est un réservoir d'eau alimenté par de l'eau de pluie alors que le réservoir est alimenté par un réseau (captage, pompage, adduction, ...). Seules les citernes importantes sont saisies ; les citernes DFCI (Défense Forestière Contre les Incendies) ou DECI (Défense Extérieure Contre les Incendies) sont retenues.",
+          "x-ign-representedFeatures": [
+            "Citerne DFCI",
+            "Citerne souple"
+          ]
         },
         {
           "const": "Embouchure",
@@ -223,7 +234,7 @@
       "name": "persistance",
       "type": "string",
       "title": "Persistance",
-      "description": "",
+      "description": "Degré de persistance de la présence d'eau.",
       "oneOf": [
         {
           "const": "Intermittent",

@@ -3,6 +3,13 @@
   "x-ign-theme": "Services et activités",
   "description": "Portion de ligne électrique homogène pour l'ensemble des attributs qui la concernent.",
   "x-ign-selectionCriteria": "Toutes les lignes électriques à haute (voltage ≥ 63 kV) ou à très haute tension (voltage ≥ 150 kV) sont incluses. Les portions souterraines sont exclues. Les lignes à moyenne tension (voltage < 63 kV) ne sont présentes que dans certains cas particuliers.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

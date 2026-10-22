@@ -4,7 +4,8 @@
   "type": "object",
   "title": "Tronçon de route",
   "x-ign-theme": "Transport",
-  "description": "",
+  "description": "Portion de voie de communication destinée aux automobiles, aux piétons, aux cycles ou aux animaux, homogène pour l'ensemble des attributs et des relations qui la concernent.",
+  "x-ign-selectionCriteria": "Toutes les voies de communication destinées aux automobiles, aux piétons, aux cycles ou aux animaux, revêtues ou non revêtues sont incluses. Les voies publiques et privées ne sont distinguées d’aucune façon. Voir les différentes valeurs de l’attribut 'Nature'.",
   "properties": {
     "cleabs": {
       "type": "string",
@@ -69,7 +70,8 @@
           "x-ign-representedFeatures": [
             "Route goudronnée",
             "Route pavée",
-            "Route revêtue"
+            "Route revêtue",
+            "Route bétonnée"
           ]
         },
         {
@@ -151,7 +153,7 @@
         {
           "const": "6",
           "title": "6",
-          "description": "Valeur réservée aux tronçons sur lesquels la circulation automobile n’est pas possible : escaliers, sentiers, pistes cyclables, bacs et liaisons maritimes réservés aux piétons, tronçons dont l'accès est impossible aux véhicules légers. Cette valeur peut aussi être utilisée pour des tronçons de route revêtus, en accès libre, mais situés dans les parkings, en impasse sans adresse et de longueur inférieure au seuil défini dans les spécifications, pour des contre-allées... Ce sont les tronçons que l'on pourrait qualifier d'intéressants uniquement à très grande échelle."
+          "description": "Valeur réservée aux tronçons sur lesquels la circulation automobile n’est pas possible : escaliers, sentiers, pistes cyclables, bacs et liaisons maritimes réservés aux piétons, tronçons dont l'accès est impossible aux véhicules légers. Cette valeur peut aussi être utilisée pour des tronçons en accès libre (de 'Nature' = \"Route à 1 chaussée\", \"Route empierrée\" ou \"Chemin\"), mais situés dans les parkings, en impasse sans adresse et de longueur inférieure au seuil défini dans les spécifications, pour des contre-allées... Ce sont les tronçons que l'on pourrait qualifier d'intéressants uniquement à très grande échelle."
         }
       ]
     },
@@ -163,7 +165,7 @@
     "position_par_rapport_au_sol": {
       "type": "string",
       "title": "Position par rapport au sol",
-      "description": "L’attribut 'Position par rapport au sol' donne le niveau de l’objet par rapport à la surface du sol (valeur négative pour un objet souterrain, \"0\" pour un objet au sol et positive pour un objet en sursol). Si l’objet en sursol passe au dessus d’autres objets en sursol, sa valeur 'Position par rapport au sol' est égale à \"1 + le nombre d’objets intercalés\". De la même façon, un souterrain peut prendre une valeur 'Position par rapport au sol' égale à \"-1 – le nombre d’objets souterrains intercalés\". Tout changement de niveau d’un tronçon est matérialisé dans la base, quelle que soit sa longueur. Dans le cas général, on matérialise des tronçons de la longueur des ouvrages d’art (pont, viaduc, tunnel, passage en souterrain ou semi-couvert, …) : le tronçon est découpé à chaque extrémité de l’ouvrage.",
+      "description": "L’attribut 'Position par rapport au sol' donne le niveau de l’objet par rapport à la surface du sol (valeur négative pour un objet souterrain, \"0\" pour un objet au sol et positive pour un objet en sursol). Si l’objet en sursol passe au dessus d’autres objets en sursol, sa valeur 'Position par rapport au sol' est égale à \"1 + le nombre d’objets intercalés\". De la même façon, un souterrain prend une valeur 'Position par rapport au sol' égale à \"-1 – le nombre d’objets souterrains intercalés\". Tout changement de niveau d’un tronçon est matérialisé dans la base, quelle que soit sa longueur. Dans le cas général, on matérialise des tronçons de la longueur des ouvrages d’art (pont, viaduc, tunnel, passage en souterrain ou semi-couvert, …) : le tronçon est découpé à chaque extrémité de l’ouvrage.",
       "oneOf": [
         {
           "const": "0",
@@ -698,7 +700,7 @@
     "acces_pieton": {
       "type": "string",
       "title": "Accès piéton",
-      "description": "Cet attribut indique les restrictions de circulation en vigueur pour les piétons (Chemins, sentiers, bac piéton...).",
+      "description": "Cet attribut indique les restrictions de circulation en vigueur pour les piétons (chemins, sentiers, bac piéton...).",
       "oneOf": [
         {
           "const": "A péage",
@@ -796,7 +798,7 @@
     "restriction_de_hauteur": {
       "type": "number",
       "title": "Restriction de hauteur",
-      "description": "Exprime l'interdiction de circuler pour les véhicules dépassant la hauteur indiquée ; il s’agit de la hauteur d’une construction, d’un ouvrage (pont, tunnel…), d’un dispositif (fil électrique ou téléphonique), même naturel. Elle peut correspondre à la présence d’un panneau d’interdiction ou à la mesure d’une hauteur d’ouvrage. Les valeurs de cet attribut sont exprimées en mètres."
+      "description": "Exprime l'interdiction de circuler pour les véhicules dépassant la hauteur indiquée ; il s’agit de la hauteur d’une construction, d’un ouvrage (pont, tunnel…), d’un dispositif (fil électrique ou téléphonique) ou d'un obstacle naturel. Elle peut correspondre à la présence d’un panneau d’interdiction ou à la mesure d’une hauteur d’ouvrage. Les valeurs de cet attribut sont exprimées en mètres."
     },
     "restriction_de_poids_total": {
       "type": "number",
@@ -1033,7 +1035,7 @@
           "description": "goulotte ou rampe pour faciliter le transport des cycles dans les escaliers.",
           "x-ign-representedFeatures": [
             "Goulotte",
-            "rampe"
+            "Rampe"
           ]
         },
         {
@@ -1077,7 +1079,7 @@
     "aire_de_retournement_dfci": {
       "type": "string",
       "title": "Aire de retournement DFCI",
-      "description": "",
+      "description": "Aire aménagée pour le retournement des véhicules. L’aire minimale est constituée par une plate-forme perpendiculaire à la piste, d’une emprise de 4 mètres de large sur 10 de profondeur.",
       "oneOf": [
         {
           "const": "Aucune",
@@ -1099,7 +1101,7 @@
     "gabarit_dfci": {
       "type": "string",
       "title": "Gabarit DFCI",
-      "description": "",
+      "description": "Type de gabarit de véhicule pour la DFCI pouvant circuler sur le tronçon.",
       "oneOf": [
         {
           "const": "Poids lourd",
@@ -1176,7 +1178,7 @@
     "piste_dfci_fosses": {
       "type": "string",
       "title": "Piste DFCI fossés",
-      "description": "",
+      "description": "Précise si le tronçon est bordé par un ou des fossés.",
       "oneOf": [
         {
           "const": "Aucun",
@@ -1232,7 +1234,7 @@
     "zone_de_croisement_dfci": {
       "type": "string",
       "title": "Zone de croisement DFCI",
-      "description": "",
+      "description": "Zone aménagée pour permettre à deux groupes d’intervention de se croiser. Pour cela, elles doivent répondre à des caractéristiques techniques minimales : 30 mètres de long et une surlargeur suffisante pour porter à 6 mètres la largeur circulable.",
       "oneOf": [
         {
           "const": "Aucune",
@@ -1274,7 +1276,7 @@
         {
           "const": "Hors catégorie",
           "title": "Hors catégorie",
-          "description": "Tronçon de voie présentant un intérêt opérationnel pour la prévention et/ou la lutte mais ne répondant pas aux caractéristiques minimales de la 3ème catégorie. Pour autant, la circulation d’un véhicule léger de première intervention doit être possible (porteur d’eau de PTAC > 3,5 tonnes)."
+          "description": "Tronçon de voie présentant un intérêt opérationnel pour la prévention et/ou la lutte mais ne répondant pas aux caractéristiques minimales de la 3ème catégorie. Pour autant, la circulation d’un véhicule léger de première intervention doit être possible (porteur d’eau de PTAC < 3,5 tonnes)."
         }
       ]
     },

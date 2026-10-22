@@ -2,6 +2,13 @@
   "title": "Entité de transition",
   "x-ign-theme": "Hydrographie",
   "description": "Partie terminale d'un fleuve, de forme évasée et où la mer remonte (estuaire, delta)",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",

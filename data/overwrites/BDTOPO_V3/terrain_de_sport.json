@@ -3,6 +3,13 @@
   "x-ign-theme": "Bâti",
   "description": "Équipement sportif de plein air.",
   "x-ign-selectionCriteria": "Sont retenus : - les plate-formes multi-sports, les terrains d’entraînement, les terrains de football, les terrains de rugby, les stades, les petits terrains de sports référencés par le Ministère des Sports, - les pistes d’autodrome, les circuits auto-moto, - les hippodromes (piste), les vélodromes (piste), les cynodromes (piste), les grands stades d’athlétisme (piste), - les terrains de tennis, - les bassins de natation à l’air libre, les piscines découvertes. Voir les différentes valeurs de l'attribut 'Nature'.",
+  "x-ign-sources": [
+    {
+      "title": "Documentation BDUNI (bdtopoexplorer)",
+      "path": "https://bdtopoexplorer.ign.fr/",
+      "version": "2026-10-22"
+    }
+  ],
   "properties": [
     {
       "name": "cleabs",
