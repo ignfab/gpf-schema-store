@@ -16,6 +16,18 @@ datasets:
     ignored: true
     ignoredReason: Local data
 
+  - id: '001'
+    source: csw
+    title: ICU TT8
+    ignored: true
+    ignoredReason: New dataset, review required
+
+  - id: '002'
+    source: csw
+    title: Stress thermique - Toulouse Metropole
+    ignored: true
+    ignoredReason: New dataset, review required
+
   - id: 025f828f-e726-437d-b07e-6a1f81c8f0bf
     source: csw
     title: Limites du Territoire à Risque Important (TRI) d'inondation de Châlons-en-Champagne
@@ -130,6 +142,12 @@ datasets:
     ignored: true
     ignoredReason: No WFS layers
 
+  - id: 50a53318-35e0-4abf-b8ee-d73f35222d2d
+    source: csw
+    title: Zones inondables définies par un PPRI dans le Haut-Rhin
+    ignored: true
+    ignoredReason: New dataset, review required
+
   - id: 57_fenetrange_ia
     source: csw
     title: Fenetrange_detection
@@ -153,6 +171,12 @@ datasets:
     title: Tableau d’Assemblage Bloc ouest (Zone littorale) de l’Orthobeta17-2025
     ignored: true
     ignoredReason: Local data
+
+  - id: 6641c562e5acdb35c0e6051d
+    source: csw
+    title: LCZ CEREMA
+    ignored: true
+    ignoredReason: New dataset, review required
 
   - id: 67ea5c9630b65d631115778c
     source: csw
@@ -718,6 +742,12 @@ datasets:
     title: STATIONS VERTES
     ignored: true
     ignoredReason: Waiting for MCP use case definition
+
+  - id: Filo_1
+    source: csw
+    title: Part des ménages pauvres à Marseille
+    ignored: true
+    ignoredReason: New dataset, review required
 
   - id: GPU
     source: manual
@@ -1835,6 +1865,12 @@ datasets:
     title: Arrondissements de la marne
     ignored: true
     ignoredReason: Local data
+
+  - id: ddt_51_0003
+    source: csw
+    title: Communes du département de la Marne
+    ignored: true
+    ignoredReason: New dataset, review required
 
   - id: deal972_MEsouterraine_s
     source: csw
