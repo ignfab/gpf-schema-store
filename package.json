@@ -52,8 +52,7 @@
     "commander": "^15.0.0",
     "js-yaml": "^5.5.0",
     "minisearch": "^7.2.0",
-    "xpath": "0.0.35",
-    "zod": "^3.25.76"
+    "xpath": "0.0.35"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
@@ -63,6 +62,10 @@
     "unplugin-dts": "^1.1.2",
     "vite": "^8.3.5",
     "vite-node": "^6.0.0",
-    "vitest": "^4.1.12"
+    "vitest": "^4.1.12",
+    "zod": "^4.6.7"
+  },
+  "peerDependencies": {
+    "zod": "^4.6.7"
   }
 }

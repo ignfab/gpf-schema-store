@@ -12,8 +12,8 @@ const debug = debuglog('gpf-schema-store:describe-feature-type');
 
 export const zFeatureTypeProperty = z.object({
     name: z.string(),
-    maxOccurs: z.number().int(),
-    minOccurs: z.number().int(),
+    maxOccurs: z.int(),
+    minOccurs: z.int(),
     nillable: z.boolean(),
     type: z.string(),
     localType: z.string(),

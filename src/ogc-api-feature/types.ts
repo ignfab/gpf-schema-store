@@ -16,11 +16,11 @@ import { z } from 'zod';
  * Note :
  * - that "extent", "links", "crs" and "storageCrs" are ignored for now
  */
-export const zOgcCollectionBrief = z.object({
+export const zOgcCollectionBrief = z.strictObject({
   id: z.string(),
   title: z.string(),
   description: z.string()
-}).strict();
+});
 
 export type OgcCollectionBrief = z.infer<typeof zOgcCollectionBrief>;
 
@@ -28,26 +28,26 @@ export type OgcCollectionBrief = z.infer<typeof zOgcCollectionBrief>;
 /**
  * An allowed value in a oneOf (equivalent to a CodeList value)
  */
-export const zOgcCollectionPropertyEnumValue = z.object({
+export const zOgcCollectionPropertyEnumValue = z.strictObject({
   const: z.string(),
   title: z.string(),
   description: z.string().optional(),
   'x-ign-representedFeatures': z.array(z.string()).optional(),
-}).strict();
+});
 
 export type OgcCollectionPropertyEnumValue = z.infer<typeof zOgcCollectionPropertyEnumValue>;
 
 /**
  * The JSON schema of a property
  */
-export const zOgcCollectionProperty = z.object({
+export const zOgcCollectionProperty = z.strictObject({
   type: z.enum(['string', 'boolean', 'integer', 'number']).optional(),
   format: z.string().optional(),
   title: z.string().optional(),
   description: z.string().optional(),
   oneOf: z.array(zOgcCollectionPropertyEnumValue).optional(),
   'x-ogc-role': z.enum(['id', 'primary-geometry']).optional(),
-}).strict();
+});
 
 export type OgcCollectionProperty = z.infer<typeof zOgcCollectionProperty>;
 
@@ -61,9 +61,9 @@ export type OgcCollectionProperty = z.infer<typeof zOgcCollectionProperty>;
  * 
  * @see https://docs.ogc.org/is/23-058r2/23-058r2.html
  */
-export const zOgcCollectionSchema = z.object({
+export const zOgcCollectionSchema = z.strictObject({
   $schema: z.literal('https://json-schema.org/draft/2020-12/schema'),
-  $id: z.string().url(),
+  $id: z.url(),
   type: z.literal('object'),
   title: z.string(),
   'x-ign-theme': z.string().optional(),
@@ -72,6 +72,6 @@ export const zOgcCollectionSchema = z.object({
   'x-ign-representedFeatures': z.array(z.string()).optional(),
   properties: z.record(z.string(), zOgcCollectionProperty),
   required: z.array(z.string()),
-}).strict();
+});
 
 export type OgcCollectionSchema = z.infer<typeof zOgcCollectionSchema>;
