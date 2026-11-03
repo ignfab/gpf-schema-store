@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/ignfab/gpf-schema-store.git"
   },
-  "version": "0.3.0",
+  "version": "0.4.0",
   "engines": {
     "node": ">=22"
   },
