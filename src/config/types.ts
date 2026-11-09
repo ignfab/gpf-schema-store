@@ -6,9 +6,9 @@ import { z } from 'zod';
  * ============================================================================
  */
 
-export const zPackageMetadata = z.object({
+export const zPackageMetadata = z.looseObject({
   version: z.string().min(1),
-}).passthrough();
+});
 
 
 /*
@@ -28,28 +28,28 @@ export type DatasetSource = z.infer<typeof zDatasetSource>;
 /**
  * Link completing those of the metadata record (only `wfs` for now).
  */
-export const zDatasetLink = z.object({
+export const zDatasetLink = z.strictObject({
   type: z.literal('wfs'),
   name: z.string().min(1).describe('WFS typename ({namespace}:{name}, `*` allowed for the name)'),
-}).strict();
+});
 
 export type DatasetLink = z.infer<typeof zDatasetLink>;
 
 /**
  * Excluded collections (only `wfs` for now).
  */
-export const zDatasetExclude = z.object({
+export const zDatasetExclude = z.strictObject({
   type: z.literal('wfs'),
   pattern: z.string().min(1).describe('Pattern on the WFS typename (`*` as wildcard)'),
   reason: z.string().min(1).optional(),
-}).strict();
+});
 
 export type DatasetExclude = z.infer<typeof zDatasetExclude>;
 
 /**
  * Zod schema for an entry of config/datasets.yaml
  */
-export const zDataset = z.object({
+export const zDataset = z.strictObject({
   id: z.string().min(1).describe('fileIdentifier of the record (csw) or local identifier (manual)'),
   source: zDatasetSource,
   title: z.string().min(1),
@@ -59,23 +59,25 @@ export const zDataset = z.object({
   excludes: z.array(zDatasetExclude).optional(),
   links: z.array(zDatasetLink).optional(),
   missing: z.boolean().optional().describe('true when the record is no longer found in the CSW'),
-}).strict();
+});
 
 export type Dataset = z.infer<typeof zDataset>;
 
 /**
  * Zod schema for config/datasets.yaml
  */
-export const zDatasetsConfig = z.object({
+export const zDatasetsConfig = z.strictObject({
   datasets: z.array(zDataset),
-}).strict().superRefine((config, ctx) => {
+}).superRefine((config, ctx) => {
   const ids = new Set<string>();
   config.datasets.forEach((dataset, index) => {
     if (ids.has(dataset.id)) {
       ctx.addIssue({
-        code: z.ZodIssueCode.custom,
+        code: 'custom',
         path: ['datasets', index, 'id'],
         message: `Duplicate dataset id '${dataset.id}'`,
+        input: ctx.value,
+        continue: true,
       });
     }
     ids.add(dataset.id);

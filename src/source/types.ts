@@ -11,23 +11,23 @@ import { zCollectionPropertyType } from '@/pivot/types';
 // `namespace` and `name` are kept for file layout and search, but are not part
 // of the public JSON Schema output.
 
-export const zSourceCollectionProperty = z.object({
+export const zSourceCollectionProperty = z.strictObject({
   name: z.string().min(1),
   type: zCollectionPropertyType,
   defaultCrs: z.string().min(1).optional(),
-}).strict();
+});
 
 export type SourceCollectionProperty = z.infer<typeof zSourceCollectionProperty>;
 
 
-export const zSourceCollection = z.object({
+export const zSourceCollection = z.strictObject({
   id: z.string().min(1),
   namespace: z.string().min(1),
   name: z.string().min(1),
   title: z.string(),
   description: z.string(),
   properties: z.array(zSourceCollectionProperty),
-}).strict();
+});
 
 export type SourceCollection = z.infer<typeof zSourceCollection>;
 
@@ -61,13 +61,13 @@ export const zCswLinkType = z.enum([
 export type CswLinkType = z.infer<typeof zCswLinkType>;
 
 
-export const zCswLink = z.object({
+export const zCswLink = z.strictObject({
   type: zCswLinkType,
   url: z.string().min(1),
   protocol: z.string().min(1).optional(),
   name: z.string().min(1).optional(),
   description: z.string().min(1).optional(),
-}).strict();
+});
 
 export type CswLink = z.infer<typeof zCswLink>;
 
@@ -86,7 +86,7 @@ export const zCswSpatialScope = z.enum([
 export type CswSpatialScope = z.infer<typeof zCswSpatialScope>;
 
 
-export const zCswRecord = z.object({
+export const zCswRecord = z.strictObject({
   fileIdentifier: z.string().min(1),
   type: z.string().min(1).optional(),
   title: z.string(),
@@ -94,16 +94,16 @@ export const zCswRecord = z.object({
   keywords: z.array(z.string()),
   spatialScope: zCswSpatialScope.optional(),
   links: z.array(zCswLink),
-}).strict();
+});
 
 export type CswRecord = z.infer<typeof zCswRecord>;
 
 
-export const zCswRecordBrief = z.object({
+export const zCswRecordBrief = z.strictObject({
   fileIdentifier: z.string().min(1),
   title: z.string(),
   type: z.string().min(1).optional(),
-}).strict();
+});
 /**
  * Informations from the GetRecords listing (Dublin Core brief)
  */

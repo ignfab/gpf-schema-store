@@ -9,23 +9,23 @@ import { z } from 'zod';
  */
 const zRepresentedFeatures = z.array(z.string().min(1));
 
-export const zCollectionOverwriteValue = z.object({
+export const zCollectionOverwriteValue = z.strictObject({
   const: z.string(),
   title: z.string(),
   description: z.string().optional(),
   'x-ign-representedFeatures': zRepresentedFeatures.optional(),
-}).strict();
+});
 
 export type CollectionOverwriteValue = z.infer<typeof zCollectionOverwriteValue>;
 
 
-export const zCollectionOverwriteProperty = z.object({
+export const zCollectionOverwriteProperty = z.strictObject({
   name: z.string().min(1),
   type: z.string(),
   title: z.string(),
   description: z.string(),
   oneOf: z.array(zCollectionOverwriteValue).optional(),
-}).strict();
+});
 
 export type CollectionOverwriteProperty = z.infer<typeof zCollectionOverwriteProperty>;
 
@@ -38,11 +38,11 @@ export type CollectionOverwriteProperty = z.infer<typeof zCollectionOverwritePro
  * Source used to write the overwrite
  * (inspired by Frictionless Data Package "sources").
  */
-export const zCollectionOverwriteSource = z.object({
+export const zCollectionOverwriteSource = z.strictObject({
   title: z.string().min(1),
   path: z.string().min(1),
   version: z.string().optional(),
-}).strict();
+});
 
 export type CollectionOverwriteSource = z.infer<typeof zCollectionOverwriteSource>;
 
@@ -51,20 +51,20 @@ const zIsoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected a YYYY-MM-DD 
 /**
  * How the overwrite was produced (missing => unknown / legacy).
  */
-export const zCollectionOverwriteGenerated = z.object({
+export const zCollectionOverwriteGenerated = z.strictObject({
   by: z.enum(['ai', 'human']),
   tool: z.string().min(1).optional(),
   date: zIsoDate.optional(),
-  reviewed: z.object({
+  reviewed: z.strictObject({
     by: z.string().min(1),
     date: zIsoDate.optional(),
-  }).strict().optional(),
-}).strict();
+  }).optional(),
+});
 
 export type CollectionOverwriteGenerated = z.infer<typeof zCollectionOverwriteGenerated>;
 
 
-export const zCollectionOverwrite = z.object({
+export const zCollectionOverwrite = z.strictObject({
   title: z.string(),
   'x-ign-sources': z.array(zCollectionOverwriteSource).optional(),
   'x-ign-generated': zCollectionOverwriteGenerated.optional(),
@@ -74,6 +74,6 @@ export const zCollectionOverwrite = z.object({
   'x-ign-representedFeatures': zRepresentedFeatures.optional(),
   required: z.array(z.string().min(1)),
   properties: z.array(zCollectionOverwriteProperty),
-}).strict();
+});
 
 export type CollectionOverwrite = z.infer<typeof zCollectionOverwrite>;

@@ -12,6 +12,9 @@ It aims to provide a "semantic layer" for the [MCP geocontext](https://github.co
 npm install @ignfab/gpf-schema-store
 ```
 
+Zod `^4.6.7` is a required peer dependency. Consumers using the exported Zod schemas
+must use a compatible Zod v4 installation.
+
 ## Usage
 
 ### Load the catalog
